@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Idea Museum — BlueShip-AI Research</title>
+<title>The Risk Museum — BlueShip-AI Research</title>
 <style>
 :root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
   --line:#e3e0da; --accent:#8b2e2e; }
@@ -30,230 +30,20 @@ h1 { font-size:2.2rem; letter-spacing:.01em }
 footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   color:var(--muted); font-size:.78rem; max-width:80ch }
 </style></head><body><main>
-<h1>The Idea Museum</h1>
+<h1>The Risk Museum</h1>
 <p class="sub">Published trading strategies, tested the way a quant desk would
 test them &mdash; 20 years of data, realistic costs, Newey&ndash;West
 significance, 10,000-draw bootstrap, out-of-sample degradation limits, regime
 audits, and six-factor decomposition &mdash; by an autonomous AI research
 pipeline that runs every night. These are the ones that didn&rsquo;t survive.</p>
 <div class="stats">
-  <div><b>37</b><span>hypotheses tested</span></div>
-  <div><b>30</b><span>on display</span></div>
+  <div><b>38</b><span>hypotheses tested</span></div>
+  <div><b>0</b><span>on display</span></div>
   <div><b>1</b><span>survivors (withheld)</span></div>
   <div><b>$92,046 over 22 years</b><span>$10k in an S&amp;P index fund, same window
     &mdash; the bar every strategy must beat</span></div>
 </div>
-
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>Walk-forward-tuned TSMOM family (216 variants, 5y/1y, DD&lt;-35% filter, max-Sharpe selection) beats B&amp;H out-of-sample</h3>
-      <div class="cause">Retired at <b>oos-excess</b>:
-        stitched OOS excess vs B&amp;H: t=-0.62, p=0.738</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>TSMOM vol-targeted SPY (video &#x27;winner&#x27; TREND_MOMENTUM_PRO; Moskowitz 2012 lineage) beats buy-and-hold risk-adjusted across regimes</h3>
-      <div class="cause">Retired at <b>excess-significance</b>:
-        excess over B&amp;H is a coin flip (t=0.14, p=0.45); DD reduction real but modest; 9000-attempt source deflator applies</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>Circular/servitization quality: firms disclosing longer equipment useful lives and larger warranty/service obligations are durable-asset custodians with underpriced earnings quality (Stahel stocks-vs-flows via Rishel/Circudyne)</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>Local-news coverage spikes in small caps precede abnormal returns (GDELT volume, v1 all-outlets)</h3>
-      <div class="cause">Retired at <b>event-study</b>:
-        10d CAR t=-1.3 below 2.5 (upper bound)</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: group_rank(fnd6_cptnewqv1300_saleq / ts_mean(fnd6_cptnewqv1300_saleq, 120), industry)</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(fnd6_dilavx / ts_mean(fnd6_dilavx, 120))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: group_rank(anl4_capex_mean / ts_mean(anl4_capex_mean, 120), industry)</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: -group_rank(ts_zscore(actual_sales_value_annual, 250), sector)</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(anl4_afv4_div_low / ts_mean(anl4_afv4_div_low, 120))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(ts_zscore(fnd6_fatp, 250))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(ts_zscore(fnd6_dd2, 250))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(ts_delta(implied_volatility_mean_skew_30, 10))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(ts_delta(anl4_af_cfps_value, 10))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: group_rank(ts_delta(pv13_ustomergraphrank_hub_rank, 10), subindustry)</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(snt_buzz / ts_mean(snt_buzz, 60))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: group_rank validation test</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: -rank(ts_delta(implied_volatility_mean_skew_120, 20))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: -rank(ts_zscore(anl4_afv4_div_low, 120))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: -rank(ts_delta(fnd6_txtubend, 20))</h3>
-      <div class="cause">Retired at <b>brain-checks</b>:
-        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
-      
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>Illiquid stocks earn a premium (Amihud 2002)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        IS/OOS degradation 53% &gt; 30% (IS 1.47 -&gt; OOS 0.69) — overfitting signature</div>
-      <div class='metrics'><span>Sharpe 1.188</span><span>max DD -9%</span><span class='tenk'>$10k &rarr; $31,175 over 21y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>1-month short-term reversal, retested on the ~500-name S&amp;P universe (Jegadeesh 1990)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=0.95 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.168 &gt; 0.05</div>
-      <div class='metrics'><span>Sharpe 0.192</span><span>max DD -17%</span><span class='tenk'>$10k &rarr; $12,877 over 21y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>12-1 momentum, retested on the ~500-name S&amp;P universe (Jegadeesh &amp; Titman 1993)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=-0.98 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.798 &gt; 0.05; in-sample Sharpe -0.29 &lt;= 0</div>
-      <div class='metrics'><span>Sharpe -0.21</span><span>max DD -51%</span><span class='tenk'>$10k &rarr; $6,152 over 20y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>Unusually high recent volume predicts higher returns (Gervais, Kaniel, Mingelgrin 2001)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=-2.31 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.987 &gt; 0.05; in-sample Sharpe -0.67 &lt;= 0</div>
-      <div class='metrics'><span>Sharpe -0.493</span><span>max DD -43%</span><span class='tenk'>$10k &rarr; $6,485 over 21y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>Negative return skewness predicts higher returns (skewness preference / lottery overpricing)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=-0.87 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.829 &gt; 0.05; in-sample Sharpe -0.09 &lt;= 0</div>
-      <div class='metrics'><span>Sharpe -0.168</span><span>max DD -19%</span><span class='tenk'>$10k &rarr; $8,479 over 21y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>Low lottery demand (small max daily gain) predicts higher returns (Bali, Cakici, Whitelaw 2011 MAX effect)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=-3.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.65 &lt;= 0</div>
-      <div class='metrics'><span>Sharpe -0.699</span><span>max DD -77%</span><span class='tenk'>$10k &rarr; $2,357 over 21y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>Low idiosyncratic volatility predicts higher returns (Ang, Hodrick, Xing, Zhang 2006)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=-3.89 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.74 &lt;= 0</div>
-      <div class='metrics'><span>Sharpe -0.795</span><span>max DD -77%</span><span class='tenk'>$10k &rarr; $2,297 over 21y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>Stocks with high trend consistency (share of up days) exhibit continuation — continuous information momentum (Da, Gurun, Warachka 2014 &#x27;frog in the pan&#x27;)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=-1.77 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.948 &gt; 0.05; in-sample Sharpe -0.34 &lt;= 0</div>
-      <div class='metrics'><span>Sharpe -0.382</span><span>max DD -53%</span><span class='tenk'>$10k &rarr; $5,365 over 21y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>Proximity to 52-week high predicts returns (George &amp; Hwang 2004)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=-2.22 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.988 &gt; 0.05; in-sample Sharpe -0.50 &lt;= 0</div>
-      <div class='metrics'><span>Sharpe -0.484</span><span>max DD -76%</span><span class='tenk'>$10k &rarr; $2,863 over 20y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>1-month short-term reversal predicts returns (Jegadeesh 1990)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=0.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.286 &gt; 0.05; IS/OOS degradation 71% &gt; 30% (IS 0.17 -&gt; OOS 0.05) — overfitting signature</div>
-      <div class='metrics'><span>Sharpe 0.125</span><span>max DD -19%</span><span class='tenk'>$10k &rarr; $11,641 over 21y</span></div>
-    </article>
-    <article class="stone">
-      <div class="rip">Tested 2026-07-07</div>
-      <h3>12-1 month cross-sectional momentum predicts returns (Jegadeesh &amp; Titman 1993)</h3>
-      <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=0.09 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.420 &gt; 0.05; in-sample Sharpe -0.02 &lt;= 0</div>
-      <div class='metrics'><span>Sharpe 0.02</span><span>max DD -42%</span><span class='tenk'>$10k &rarr; $9,338 over 20y</span></div>
-    </article>
+<p class="sub">First entries publish after the review lag.</p>
 <div class="note">Verdicts publish on a 3-day lag. Strategies that
 pass all six stages are not published. Rejection here means the claim failed
 <i>as we specified and tested it</i>, net of assumed costs, on large-cap US
