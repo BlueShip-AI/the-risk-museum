@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research note: The Dimopoulos Chain, v1 — The Risk Museum</title>
+<style>
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:720px; margin:0 auto }
+h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
+h2 { font-size:1.15rem; margin:2rem 0 .6rem }
+p, li { margin-bottom:.9rem; color:var(--fg) }
+.sub { color:var(--muted); margin-bottom:2rem }
+table { border-collapse:collapse; margin:1rem 0 1.4rem; width:100% }
+td, th { border:1px solid var(--line); padding:.45rem .7rem; font-size:.92rem;
+  text-align:left }
+th { color:var(--muted); font-weight:normal }
+.pass { color:#2e7d32; font-weight:bold } .fail { color:var(--accent); font-weight:bold }
+.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+a { color:var(--blue) }
+footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.8rem }
+</style></head><body><main>
+<p><a href="../">&larr; The Risk Museum</a></p>
+<h1>I named a model after myself. A 1993 model beat it.</h1>
+<p class="sub">Research note #1 &middot; The Dimopoulos Chain, v1 &middot; July 2026</p>
+
+<p>Black-Scholes prices everything with one constant volatility. Markets
+don&rsquo;t work that way: volatility arrives in regimes, and one structural
+driver of those regimes is <em>options dealer positioning</em> &mdash; when
+dealers are long gamma their hedging pins the market, and when they are
+short gamma the same hedging amplifies every move. Our pipeline had already
+validated that signal (it predicts next-day trading range beyond the VIX,
+t&nbsp;=&nbsp;7.4). So we promoted it to a model and gave it a name: the
+<strong>Dimopoulos Chain</strong> &mdash; a Markov chain over nine market
+states (dealer-gamma tercile &times; realized-vol tercile) whose
+state-conditional distributions forecast tomorrow&rsquo;s volatility.</p>
+
+<p>House rule: a name is earned Sharpe-style, by surviving gates &mdash;
+or the model gets an exhibit here under its own name. Out-of-sample,
+2019&ndash;2026, 1,794 days, all forecasts refit monthly with no
+look-ahead. The ladder, strictest last:</p>
+
+<table>
+<tr><th>Chain states add information beyond&hellip;</th><th>Newey-West t</th><th>gate &ge; 2.5</th></tr>
+<tr><td>VIX (the market&rsquo;s implied forecast)</td><td>4.34</td><td class="pass">PASS</td></tr>
+<tr><td>GARCH(1,1)</td><td>3.19</td><td class="pass">PASS</td></tr>
+<tr><td>HAR (realized-vol workhorse)</td><td>2.03</td><td class="fail">below gate</td></tr>
+<tr><td>HAR + VIX + GJR-GARCH combined</td><td>1.02</td><td class="fail">FAIL</td></tr>
+</table>
+
+<p>GJR-GARCH &mdash; Glosten, Jagannathan and Runkle&rsquo;s 1993 asymmetric
+volatility model &mdash; turned out to be the single best forecaster in the
+stack, and once it enters the baseline, the Chain&rsquo;s states add nothing
+significant. The likely reason is the interesting part: the leverage effect
+GJR captures (down moves raise volatility more than up moves) is plausibly a
+<em>reduced form of the dealer mechanism itself</em>. Markets fall &rarr;
+investors buy puts &rarr; dealers go short gamma &rarr; volatility
+amplifies. A 33-year-old econometric model was already pricing the shadow
+of the structure we measured directly.</p>
+
+<h2>What survived</h2>
+<p>Two things, and they matter more than the scoreboard:</p>
+<p>1. Every decent forecast in the stack &mdash; GJR, HAR, the Chain,
+combinations &mdash; beats the <em>implied</em> forecast by a wide,
+significant margin. Options are traded against implied, not against your
+best econometric model; that gap is the variance risk premium, and its
+timing is the live research program.</p>
+<p>2. The state map cleanly locates the danger. Measuring implied-minus-realized
+variance by state: the premium is positive in eight of nine states (hit
+rates up to 90% when dealers are pinned) and negative in exactly one &mdash;
+dealers exposed <em>and</em> volatility already high. One state out of nine
+is where short-volatility strategies die, and it is identifiable a day in
+advance.</p>
+
+<div class="note">Verdict recorded in the pipeline: PARTIAL &mdash; the
+name is not yet earned at the strictest bar. v2 conditions the chain&rsquo;s
+transition rows on scheduled events (FOMC, CPI), which is precisely where
+return-history models like GJR are structurally blind. If v2 fails, the
+Dimopoulos Chain takes its place among the exhibits.</div>
+
+<footer>BlueShip-AI Research &middot; methodology open-sourced in the
+quant-validation-harness repo &middot; educational research only, not
+investment advice.</footer>
+</main></body></html>
