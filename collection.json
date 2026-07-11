@@ -1,11 +1,193 @@
 {
  "museum": "The Risk Museum \u2014 BlueShip-AI Research",
  "url": "https://blueship-ai.github.io/the-risk-museum/",
- "exported": "2026-07-10",
- "works_tested": 75,
+ "exported": "2026-07-11",
+ "works_tested": 82,
  "in_the_vault": 3,
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: group_rank(fnd6_cptnewqv1300_saleq / ts_mean(fnd6_cptnewqv1300_saleq, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: rank(fnd6_dilavx / ts_mean(fnd6_dilavx, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(anl4_capex_mean / ts_mean(anl4_capex_mean, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(actual_sales_value_annual, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: rank(anl4_afv4_div_low / ts_mean(anl4_afv4_div_low, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(fnd6_fatp, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(fnd6_dd2, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(implied_volatility_mean_skew_30, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(anl4_af_cfps_value, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(pv13_ustomergraphrank_hub_rank, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: rank(snt_buzz / ts_mean(snt_buzz, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank validation test",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(implied_volatility_mean_skew_120, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(anl4_afv4_div_low, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(fnd6_txtubend, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "tested": "2026-07-08"
+  },
+  {
+   "claim": "Illiquid stocks earn a premium (Amihud 2002)",
+   "stage": "validation",
+   "reason": "IS/OOS degradation 53% > 30% (IS 1.47 -> OOS 0.69) \u2014 overfitting signature",
+   "status": "rejected",
+   "tested": "2026-07-07",
+   "sharpe": 1.188,
+   "dd": -0.0883,
+   "tenk": "$311,748",
+   "years": "21"
+  },
+  {
+   "claim": "1-month short-term reversal, retested on the ~500-name S&P universe (Jegadeesh 1990)",
+   "stage": "validation",
+   "reason": "Newey-West t=0.95 < 2.5; bootstrap P(Sharpe<=0)=0.168 > 0.05",
+   "status": "rejected",
+   "tested": "2026-07-07",
+   "sharpe": 0.192,
+   "dd": -0.1669,
+   "tenk": "$128,773",
+   "years": "21"
+  },
+  {
+   "claim": "12-1 momentum, retested on the ~500-name S&P universe (Jegadeesh & Titman 1993)",
+   "stage": "validation",
+   "reason": "Newey-West t=-0.98 < 2.5; bootstrap P(Sharpe<=0)=0.798 > 0.05; in-sample Sharpe -0.29 <= 0",
+   "status": "rejected",
+   "tested": "2026-07-07",
+   "sharpe": -0.21,
+   "dd": -0.5058,
+   "tenk": "$61,519",
+   "years": "20"
+  },
+  {
+   "claim": "Unusually high recent volume predicts higher returns (Gervais, Kaniel, Mingelgrin 2001)",
+   "stage": "validation",
+   "reason": "Newey-West t=-2.31 < 2.5; bootstrap P(Sharpe<=0)=0.987 > 0.05; in-sample Sharpe -0.67 <= 0",
+   "status": "rejected",
+   "tested": "2026-07-07",
+   "sharpe": -0.493,
+   "dd": -0.4286,
+   "tenk": "$64,849",
+   "years": "21"
+  },
+  {
+   "claim": "Negative return skewness predicts higher returns (skewness preference / lottery overpricing)",
+   "stage": "validation",
+   "reason": "Newey-West t=-0.87 < 2.5; bootstrap P(Sharpe<=0)=0.829 > 0.05; in-sample Sharpe -0.09 <= 0",
+   "status": "rejected",
+   "tested": "2026-07-07",
+   "sharpe": -0.168,
+   "dd": -0.1913,
+   "tenk": "$84,789",
+   "years": "21"
+  },
+  {
+   "claim": "Low lottery demand (small max daily gain) predicts higher returns (Bali, Cakici, Whitelaw 2011 MAX effect)",
+   "stage": "validation",
+   "reason": "Newey-West t=-3.58 < 2.5; bootstrap P(Sharpe<=0)=1.000 > 0.05; in-sample Sharpe -0.65 <= 0",
+   "status": "rejected",
+   "tested": "2026-07-07",
+   "sharpe": -0.699,
+   "dd": -0.7667,
+   "tenk": "$23,572",
+   "years": "21"
+  },
+  {
+   "claim": "Low idiosyncratic volatility predicts higher returns (Ang, Hodrick, Xing, Zhang 2006)",
+   "stage": "validation",
+   "reason": "Newey-West t=-3.89 < 2.5; bootstrap P(Sharpe<=0)=1.000 > 0.05; in-sample Sharpe -0.74 <= 0",
+   "status": "rejected",
+   "tested": "2026-07-07",
+   "sharpe": -0.795,
+   "dd": -0.7721,
+   "tenk": "$22,966",
+   "years": "21"
+  },
   {
    "claim": "Stocks with high trend consistency (share of up days) exhibit continuation \u2014 continuous information momentum (Da, Gurun, Warachka 2014 'frog in the pan')",
    "stage": "validation",
