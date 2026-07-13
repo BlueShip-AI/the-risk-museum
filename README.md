@@ -1,6 +1,6 @@
 # The Risk Museum
 
-**Live site: [blueship-ai.github.io/the-risk-museum](https://blueship-ai.github.io/the-risk-museum/)**
+**Live site: [theriskmuseum.com](https://theriskmuseum.com/)**
 
 A public record of published trading strategies tested with institutional rigor by an autonomous AI research pipeline. Each exhibit records the claim, the source, the stage that retired it, the statistical reason, and what $100k would have become versus an S&P index fund over the same window.
 
