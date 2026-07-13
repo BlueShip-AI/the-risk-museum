@@ -1,0 +1,103 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Propulsion Room — The Risk Museum</title>
+<style>
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:720px; margin:0 auto }
+h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
+h2 { font-size:1.15rem; margin:2rem 0 .6rem }
+p, li { margin-bottom:.9rem; color:var(--fg) }
+.sub { color:var(--muted); margin-bottom:2rem }
+table { border-collapse:collapse; margin:1rem 0 1.4rem; width:100% }
+td, th { border:1px solid var(--line); padding:.45rem .7rem; font-size:.92rem;
+  text-align:left }
+th { color:var(--muted); font-weight:normal }
+.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+a { color:var(--blue) }
+footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.8rem }
+</style></head><body><main>
+<p><a href="../">&larr; The Risk Museum</a></p>
+<h1>The Propulsion Room</h1>
+<p class="sub">Flight mechanics for portfolios &middot; thrust, drag,
+gravity, and the price of steering &middot; July 2026</p>
+
+<p>An aircraft is a negotiation between four forces. So is a portfolio.
+This room translates the museum&rsquo;s own telemetry &mdash; the
+strategies that flew far enough to be measured &mdash; into the
+engineer&rsquo;s vocabulary, because the engineer&rsquo;s vocabulary is
+honest: nothing flies on thrust alone, and most designs die of drag,
+not of weak engines.</p>
+
+<table>
+<tr><th>Flight force</th><th>Portfolio force</th><th>Where it is measured here</th></tr>
+<tr><td>Thrust</td><td>Gross edge, before costs</td><td>backtest gross return</td></tr>
+<tr><td>Drag</td><td>Friction: costs &times; turnover, slippage, borrow</td>
+<td>5bps per unit turnover + 25bps/yr borrow</td></tr>
+<tr><td>Gravity</td><td>Volatility drag: growth &asymp; return &minus; &sigma;&sup2;/2</td>
+<td>the \$100k&rarr;\$93k plaques</td></tr>
+<tr><td>Steering (control inputs)</td><td>Trading: every course change burns fuel</td>
+<td>annual turnover &times; cost per trade</td></tr>
+</table>
+
+<h2>The measured friction ratios</h2>
+<p>Of the strategies with full flight telemetry, only about a third
+produced positive thrust at all. Among those that did, the <strong>median
+friction ratio &mdash; cost drag as a share of gross thrust &mdash; was
+42%</strong>: nearly half of everything the engine produced was burned
+overcoming drag before a dollar reached the account. The median
+<em>stall speed</em> &mdash; the cost level at which net return hits
+zero &mdash; was about 12 bps per unit of turnover. Our model assumes a
+generous 5; real institutional all-in costs for anything less liquid
+run 10&ndash;20. A strategy whose breakeven is 12 bps is not a flying
+machine; it is a machine that flies in a wind tunnel.</p>
+
+<h2>Steering outcomes under load</h2>
+<p>Steering is not free: each course correction (rebalance) pays the
+friction toll, so steering <em>authority</em> must be budgeted like
+fuel. The telemetry median here is ~10&times; annual turnover; the
+worst steerers hit ~19&times;. The gate that matters is the signal
+half-life check: a pilot who corrects course faster than the
+instruments update is not steering, he is oscillating &mdash; and a
+strategy whose signal half-life is shorter than its rebalance period
+pays turnover to chase noise. That check is stage-4 standard here.</p>
+
+<h2>Gravity loads</h2>
+<p>Volatility drag is the gravity of compounding: geometric growth
+&asymp; arithmetic return minus half the variance. One measured
+strategy in this collection flew arithmetically &mdash; positive
+average return &mdash; and still sank geometrically, because its
+variance load exceeded its lift. This is how an exhibit with a
+positive &ldquo;average&rdquo; turns \$100k into \$93k over twenty
+years. Leverage multiplies thrust and gravity alike; LTCM&rsquo;s
+plaque in the Masterpieces Gallery is what a structural failure under
+g-load looks like.</p>
+
+<h2>The glider and the fighter jet</h2>
+<p>The index fund is a glider: almost no thrust of its own, almost no
+drag (single-digit bps, near-zero turnover), and it converts gravity
+into forward motion &mdash; compounding does the flying. Lift-to-drag
+ratio: enormous. Most active strategies are fighter jets: impressive
+thrust, violent maneuvers, and a fuel burn that demands the mission be
+<em>worth it</em>. The museum&rsquo;s standing finding is that most
+jets tested here could not outrun the glider after paying for their
+own fuel. The bar for flying anything active is therefore precise:
+thrust minus drag minus gravity must beat the glider &mdash; net, at
+realistic friction, measured out of sample.</p>
+
+<div class="note">Telemetry caveat, stated plainly: full flight data
+exists for the 11 strategies that reached the backtest stage with
+complete cost accounting; research-lane studies and external sims
+track different instruments. Small sample, honest numbers.</div>
+
+<footer>BlueShip-AI Research &middot; The Risk Museum &middot;
+educational research only, not investment advice.</footer>
+</main></body></html>
