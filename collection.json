@@ -1,11 +1,51 @@
 {
  "museum": "The Risk Museum \u2014 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-07-15",
- "works_tested": 129,
+ "exported": "2026-07-16",
+ "works_tested": 141,
  "in_the_vault": 2,
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
+  {
+   "claim": "Quantile-regression VaR on SPY from free implied-moment proxies (VIX level, VIX/VIX3M term slope, CBOE SKEW) beats GARCH-based and historical-simulation VaR on coverage and pinball loss (Blom/de Lange/Risstad JRFM 2023, EURUSD -> US equity translation)",
+   "stage": "validation",
+   "reason": "primary cell: FAIL",
+   "status": "rejected",
+   "about": "Tests whether free market-fear gauges forecast worst-case daily stock losses better than standard statistical models.",
+   "tested": "2026-07-13"
+  },
+  {
+   "claim": "GEX states condition the TAILS, not the mean: adding dealer-positioning state to the implied-moment quantile regression improves tail coverage where the Chain's mean forecast failed (chain-family lineage declared for the deflator; per-state residue s2/s6 from v3 is the motivating anomaly, mechanism = short-gamma amplification is a tail phenomenon)",
+   "stage": "validation",
+   "reason": "primary cell: FAIL",
+   "status": "rejected",
+   "about": "Tests whether knowing option dealers' positioning sharpens forecasts of the market's worst days, not its typical ones.",
+   "tested": "2026-07-13"
+  },
+  {
+   "claim": "Dimopoulos Chain v3: shrunk state corrections (GEX x RV cells + term structure + arrival) on a log HAR+VIX+GJR backbone improve 5-day range forecasts (pre-registered spec)",
+   "stage": "validation",
+   "reason": "FAIL \u2014 buried, name and all",
+   "status": "rejected",
+   "about": "Tests whether option-dealer positioning and market state improve five-day forecasts of how far the S&P 500 will swing.",
+   "tested": "2026-07-13"
+  },
+  {
+   "claim": "Dimopoulos Chain v1: GEX x RV state chain adds next-day range information beyond VIX (OOS, monthly-refit)",
+   "stage": "validation",
+   "reason": "margin-of-safety rerun (edge halved vs VIX baseline, original noise) t=2.17 < 2.5 \u2014 edge has no buffer; gate tightened 2026-07-12 (Graham overlay), prior pass was under the old regime",
+   "status": "rejected",
+   "about": "Tests whether dealer hedging plus recent choppiness predicts tomorrow's trading range beyond the market's fear gauge.",
+   "tested": "2026-07-13"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(historical_volatility_20) - zscore(anl4_bvps_high), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "Within industry peer groups, favors stocks whose recent price swings run high relative to an analyst-estimate figure.",
+   "tested": "2026-07-12"
+  },
   {
    "claim": "BRAIN candidate: -group_rank(ts_zscore(fnd6_dcvsub, 250), sector)",
    "stage": "brain-checks",

@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Risk Museum — Trading Strategies Tested, Retired &amp; Explained | BlueShip-AI Research</title>
-<meta name="description" content="The Risk Museum: 129+ published trading strategies tested with institutional rigor by an autonomous AI research pipeline — 20-year backtests, real costs, out-of-sample gates. The permanent collection is the ones that didn't survive. Home of Risk Masterpieces.">
+<meta name="description" content="The Risk Museum: 141+ published trading strategies tested with institutional rigor by an autonomous AI research pipeline — 20-year backtests, real costs, out-of-sample gates. The permanent collection is the ones that didn't survive. Home of Risk Masterpieces.">
 <link rel="canonical" href="https://theriskmuseum.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Risk Museum — Home of Risk Masterpieces">
-<meta property="og:description" content="129+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
+<meta property="og:description" content="141+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
 <meta property="og:url" content="https://theriskmuseum.com/">
 <meta property="og:site_name" content="The Risk Museum">
 <meta name="twitter:card" content="summary">
@@ -84,10 +84,10 @@ audits, and six-factor decomposition &mdash; by an autonomous AI research
 pipeline that runs every night. The permanent collection: the ones that
 didn&rsquo;t survive.</p>
 <div class="stats">
-  <div><b>129</b><span>works tested</span></div>
-  <div><b>50</b><span>now on view</span></div>
+  <div><b>141</b><span>works tested</span></div>
+  <div><b>55</b><span>now on view</span></div>
   <div><b>2</b><span>held in the vault (survivors)</span></div>
-  <div><b>$930,032 over 22 years</b><span>$100k in an S&amp;P index fund, same window
+  <div><b>$929,860 over 22 years</b><span>$100k in an S&amp;P index fund, same window
     &mdash; the bar every strategy must beat</span></div>
 </div>
 <nav class="tabs">
@@ -99,7 +99,7 @@ didn&rsquo;t survive.</p>
 </nav>
 
     <article class="stone">
-      <div class="rip">The Tulip Wing &middot; mania weather as of 2026-07-10</div>
+      <div class="rip">The Tulip Wing &middot; mania weather as of 2026-07-15</div>
       <h3>Haarlem, 1637 &mdash; measured, nightly</h3>
       <div class="cause">Names with a two-year run-up &ge; 100% &mdash; the
       screen of Greenwood, Shleifer &amp; You (JFE 2019) run on our public
@@ -108,12 +108,52 @@ didn&rsquo;t survive.</p>
       time vs a <b>15%</b> matched base rate
       (1192 episodes since 2005); with acceleration and turnover,
       <b>26%</b>.</div>
-      <div class='cause'>WDC &mdash; two-year run-up +903%</div><div class='cause'>CIEN &mdash; two-year run-up +885%</div><div class='cause'>STX &mdash; two-year run-up +825% <b>&#10047; hot: acceleration + turnover</b></div><div class='cause'>MU &mdash; two-year run-up +649%</div><div class='cause'>FIX &mdash; two-year run-up +484%</div><div class='cause'>ECHO &mdash; two-year run-up +418%</div><div class='cause'>GLW &mdash; two-year run-up +414%</div><div class='cause'>FLEX &mdash; two-year run-up +360%</div><div class='cause'>COHR &mdash; two-year run-up +335%</div><div class='cause'>WBD &mdash; two-year run-up +269%</div><div class='cause'>TPR &mdash; two-year run-up +263%</div><div class='cause'>INTC &mdash; two-year run-up +245%</div>
+      <div class='cause'>CIEN &mdash; two-year run-up +784%</div><div class='cause'>WDC &mdash; two-year run-up +751%</div><div class='cause'>STX &mdash; two-year run-up +704% <b>&#10047; hot: acceleration + turnover</b></div><div class='cause'>MU &mdash; two-year run-up +567% <b>&#10047; hot: acceleration + turnover</b></div><div class='cause'>FIX &mdash; two-year run-up +464%</div><div class='cause'>ECHO &mdash; two-year run-up +441%</div><div class='cause'>FLEX &mdash; two-year run-up +330%</div><div class='cause'>GLW &mdash; two-year run-up +297%</div><div class='cause'>COHR &mdash; two-year run-up +291%</div><div class='cause'>WBD &mdash; two-year run-up +273%</div><div class='cause'>TPR &mdash; two-year run-up +243%</div><div class='cause'>IBKR &mdash; two-year run-up +215%</div>
       <div class="cause">Most flagged names do <b>not</b> crash. This is a
       base-rate elevation on public data, not a prediction and not advice
       &mdash; the museum label says what the exhibit is, nothing more.</div>
     </article>
 
+    <article class="stone">
+      <div class="rip">Tested 2026-07-13</div>
+      <h3>Quantile-regression VaR on SPY from free implied-moment proxies (VIX level, VIX/VIX3M term slope, CBOE SKEW) beats GARCH-based and historical-simulation VaR on coverage and pinball loss (Blom/de Lange/Risstad JRFM 2023, EURUSD -&gt; US equity translation)</h3>
+      <div class='about'>Tests whether free market-fear gauges forecast worst-case daily stock losses better than standard statistical models.</div>
+      <div class="cause">Retired at <b>validation</b>:
+        primary cell: FAIL</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-13</div>
+      <h3>GEX states condition the TAILS, not the mean: adding dealer-positioning state to the implied-moment quantile regression improves tail coverage where the Chain&#x27;s mean forecast failed (chain-family lineage declared for the deflator; per-state residue s2/s6 from v3 is the motivating anomaly, mechanism = short-gamma amplification is a tail phenomenon)</h3>
+      <div class='about'>Tests whether knowing option dealers&#x27; positioning sharpens forecasts of the market&#x27;s worst days, not its typical ones.</div>
+      <div class="cause">Retired at <b>validation</b>:
+        primary cell: FAIL</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-13</div>
+      <h3>Dimopoulos Chain v3: shrunk state corrections (GEX x RV cells + term structure + arrival) on a log HAR+VIX+GJR backbone improve 5-day range forecasts (pre-registered spec)</h3>
+      <div class='about'>Tests whether option-dealer positioning and market state improve five-day forecasts of how far the S&amp;P 500 will swing.</div>
+      <div class="cause">Retired at <b>validation</b>:
+        FAIL — buried, name and all</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-13</div>
+      <h3>Dimopoulos Chain v1: GEX x RV state chain adds next-day range information beyond VIX (OOS, monthly-refit)</h3>
+      <div class='about'>Tests whether dealer hedging plus recent choppiness predicts tomorrow&#x27;s trading range beyond the market&#x27;s fear gauge.</div>
+      <div class="cause">Retired at <b>validation</b>:
+        margin-of-safety rerun (edge halved vs VIX baseline, original noise) t=2.17 &lt; 2.5 — edge has no buffer; gate tightened 2026-07-12 (Graham overlay), prior pass was under the old regime</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-12</div>
+      <h3>BRAIN candidate: group_rank(zscore(historical_volatility_20) - zscore(anl4_bvps_high), subindustry)</h3>
+      <div class='about'>Within industry peer groups, favors stocks whose recent price swings run high relative to an analyst-estimate figure.</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
+      
+    </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-11</div>
       <h3>BRAIN candidate: -group_rank(ts_zscore(fnd6_dcvsub, 250), sector)</h3>
