@@ -3,7 +3,7 @@
   "title": "Forecast Wing — pre-registered forecasts",
   "context": "The museum's macro wing: 14 binary forecasts on Modern Mercantilism, AI, and their intersection — the same pre-registration discipline the museum applies to trading strategies, pointed at the macro decade. Objective resolution criteria; status tracked by the nightly pipeline.",
   "registered": "2026-07-21",
-  "probabilities_note": "Priced by the curator 2026-07-21; open to dated revision on incoming data through 2026-07-25, frozen thereafter. Revision 2026-07-23a: igv 29->35, btos 45->52 (staged weekly evidence). Revision 2026-07-23b (adversarial pass): wedge 33->37 (pharma Sec-232 at 100% starts 2026-07-31, lifting the statutory base), nvda 39->34 (two US approvals, zero deliveries — the demand-side veto is the binding one), igv 35->30 (index self-hedge: the disruptors sit inside IGV; tier to book), btos 52->58 (post-rewording trend arithmetic). acm holds 55 as a declared fade against the repricing consensus — both institutional views cited in the appendix. Tariff pair holds for the 2026-07-24 Section 122 expiry / Section 301 final action. engine_band is a base-rate input computed before pricing, shown for transparency.",
+  "probabilities_note": "Priced by the curator 2026-07-21; open to dated revision on incoming data through 2026-07-25, frozen thereafter. Revision 2026-07-23a: igv 29->35, btos 45->52 (staged weekly evidence). Revision 2026-07-23b (adversarial pass): wedge 33->37 (pharma Sec-232 at 100% starts 2026-07-31, lifting the statutory base), nvda 39->34 (two US approvals, zero deliveries — the demand-side veto is the binding one), igv 35->30 (index self-hedge: the disruptors sit inside IGV; tier to book), btos 52->58 (post-rewording trend arithmetic). acm holds 55 as a declared fade against the repricing consensus — both institutional views cited in the appendix. Revision 2026-07-23c: usg-equity 45->52, tier to book (direction-vs-ownership distinction argued in the framework session: the state prefers floors/offtake/licenses, but the stake pipeline runs). Tariff pair holds for the 2026-07-24 Section 122 expiry / Section 301 final action. engine_band is a base-rate input computed before pricing, shown for transparency.",
   "calibration_record": "Jump Trading World Cup Probability Cup 2026: top 6% of entrants, 620 forecasts, mean Brier 0.231 (coin-flip = 0.25).",
   "license": "CC BY 4.0 — cite The Risk Museum",
   "tiers_note": "Each forecast carries a declared conviction tier: CONVICTION (defended under pressure), AGAINST THE CROWD (a priced disagreement with consensus), DECLARED UNCERTAINTY (honestly near the coin, and saying so), or WORKING BOOK. Tiers follow the probabilities; if a price is revised before the freeze, its tier moves with it."
@@ -189,7 +189,7 @@
    "id": "usg-equity-stakes-5-more-2028",
    "title": "State capitalism: pipeline or one-offs?",
    "statement": "The US federal government announces AND closes equity interests (common/preferred, warrants, or golden-share rights) in >=5 additional US-listed companies between 2026-07-01 and 2028-12-31, in semiconductors, critical minerals, batteries, or AI-datacenter infrastructure.",
-   "probability": 45,
+   "probability": 52,
    "engine_band": "45-65%",
    "resolution_criteria": "Counts distinct US-listed issuers meeting ALL of: (1) NYSE/Nasdaq/national-exchange listed at initial announcement (OTC excluded; a stake in a private subsidiary counts toward its listed parent; one issuer counts once). (2) Sector per the agency announcement or the issuer's latest 10-K/20-F primary business: semiconductor design/manufacturing/equipment/materials; critical minerals (USGS list, incl. rare earths) mining/processing/refining/recycling/magnets; battery cells/materials/storage; or data centers, AI compute/cloud, or power contracted primarily to datacenters. Quantum, defense primes, and shipbuilding do not qualify. (3) A negotiated direct acquisition (from the company, or as a condition of federal support) of equity/warrants/convertibles/golden-share held by the USG, a federal agency, or a wholly-owned federal entity (incl. any sovereign wealth fund). Excludes: Federal Reserve actions; loan/grant/offtake-only support; CHIPS awards without equity; passive pension/insurance holdings; bankruptcy/litigation/tax/forfeiture equity; independent intermediaries. (4) FIRST public announcement of the specific deal on/after 2026-07-01 AND closing by 2028-12-31; deals first announced on or before 2026-06-30 are excluded even if they close later (excludes Intel, MP Materials, Lithium Americas, US Steel, Trilogy, USA Rare Earth, etc.). (5) Evidence: an official White House/agency release AND company SEC confirmation (8-K preferred). YES immediately upon the 5th distinct qualifying closing; otherwise NO after 2028-12-31.",
    "resolution_source": "Agency releases cross-checked vs SEC EDGAR 8-Ks",
@@ -199,7 +199,7 @@
    "crowdedness": "uncrowded",
    "bw_claim": "Every vulnerability gets weaponized, and the state directs private capital: five more closings = a program with a pipeline, not personality-driven one-offs.",
    "status": "open",
-   "tier": "uncertain"
+   "tier": "book"
   },
   {
    "id": "btos-ai-adoption-25pct-2028",
