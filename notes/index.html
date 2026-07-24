@@ -18,8 +18,11 @@ h1 { font-size:1.9rem; margin-bottom:.4rem }
 .tag { letter-spacing:.22em; text-transform:uppercase; font-size:.75rem;
   color:var(--muted); margin:.5rem 0 1.6rem }
 .note-card { background:var(--card); border:1px solid var(--line);
-  border-radius:10px; padding:1.1rem 1.3rem; margin:0 0 1rem; display:block;
+  border-radius:10px; padding:1.1rem 1.3rem; margin:0 0 1rem;
+  display:flex; gap:1.1rem; align-items:flex-start;
   text-decoration:none; color:var(--fg) }
+.tile { flex:none; width:64px; height:64px; margin-top:.15rem }
+.note-body { min-width:0 }
 .note-card:hover { border-color:var(--blue) }
 .note-card h2 { font-size:1.05rem; margin-bottom:.35rem; color:var(--blue) }
 .note-card p { font-size:.92rem; color:var(--muted) }
@@ -50,56 +53,113 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <p class="tag">essays from the research floor</p>
 
 <a class="note-card" href="what-the-swarm-knows.html">
-<h2>What the Swarm Knows and What It Does Not Know</h2>
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<g stroke="var(--muted)" stroke-width="2">
+<path d="M32 8 42 14 42 26 32 32 22 26 22 14 Z"/>
+<path d="M14 22 24 28 24 40 14 46 4 40 4 28 Z" transform="translate(8 4)"/>
+<path d="M40 26 50 32 50 44 40 50 30 44 30 32 Z" transform="translate(6 2)"/>
+</g><path d="M32 32 32 44" stroke="var(--accent)" stroke-width="2" stroke-dasharray="2 3"/></svg>
+<div class="note-body"><h2>What the Swarm Knows and What It Does Not Know</h2>
 <p>V. Dimopoulos &middot; Research note #8 &middot; Jul 23, 2026 &middot;
 the machine&rsquo;s own dark caps, published on purpose &mdash; after
-Fejes T&oacute;th, 1964.</p></a>
+Fejes T&oacute;th, 1964.</p></div></a>
 
 <a class="note-card" href="edge-was-never-the-hard-part.html">
-<h2>The Edge Was Never the Hard Part</h2>
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<line x1="6" y1="44" x2="58" y2="44" stroke="var(--line)" stroke-width="2"/>
+<path d="M6 44 Q 20 12 30 16 Q 44 24 54 56" stroke="var(--blue)" stroke-width="2.5"/>
+<circle cx="27" cy="14.5" r="3" fill="var(--accent)"/>
+</svg>
+<div class="note-body"><h2>The Edge Was Never the Hard Part</h2>
 <p>V. Dimopoulos &middot; Research note #7 &middot; Jul 23, 2026 &middot;
 61 finance-trained players, a coin guaranteed to win, 28% went broke
-&mdash; Kelly, volatility drag, and how the museum sizes.</p></a>
+&mdash; Kelly, volatility drag, and how the museum sizes.</p></div></a>
 
 <a class="note-card" href="measuring-the-crowd.html">
-<h2>Measuring the Crowd</h2>
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<g fill="var(--muted)"><circle cx="14" cy="18" r="3.2"/><circle cx="50" cy="14" r="3.2"/>
+<circle cx="12" cy="48" r="3.2"/><circle cx="52" cy="50" r="3.2"/><circle cx="46" cy="34" r="3.2"/></g>
+<g fill="var(--accent)"><circle cx="28" cy="30" r="3.6"/><circle cx="34" cy="26" r="3.6"/>
+<circle cx="33" cy="35" r="3.6"/><circle cx="27" cy="39" r="3.6"/></g>
+<circle cx="30.5" cy="32.5" r="12.5" stroke="var(--blue)" stroke-width="2" stroke-dasharray="3 3"/>
+</svg>
+<div class="note-body"><h2>Measuring the Crowd</h2>
 <p>V. Dimopoulos &middot; Research note #6 &middot; Jul 23, 2026 &middot;
 the 13F crowding study: two real effects (t=4.1, t=3.9), one held
-promotion bar &mdash; crowding is a risk measure, not a signal.</p></a>
+promotion bar &mdash; crowding is a risk measure, not a signal.</p></div></a>
 
 <a class="note-card" href="620-probabilities.html">
-<h2>620 Probabilities</h2>
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<line x1="8" y1="56" x2="56" y2="8" stroke="var(--line)" stroke-width="2"/>
+<g fill="var(--blue)"><circle cx="16" cy="49" r="2.6"/><circle cx="24" cy="42" r="2.6"/>
+<circle cx="32" cy="30" r="2.6"/><circle cx="40" cy="25" r="2.6"/><circle cx="48" cy="15" r="2.6"/></g>
+<circle cx="30" cy="22" r="2.6" fill="var(--accent)"/>
+</svg>
+<div class="note-body"><h2>620 Probabilities</h2>
 <p>V. Dimopoulos &middot; Research note #5 &middot; Jul 20, 2026 &middot; top 6% in Jump
 Trading&rsquo;s Brier-scored World Cup Probability Cup &mdash; with no
-hero calls, and the calibration flaws published on purpose.</p></a>
+hero calls, and the calibration flaws published on purpose.</p></div></a>
 
 <a class="note-card" href="reading-a-pm-book.html">
-<h2>How to Read a PM&rsquo;s Book</h2>
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<g stroke-width="0" fill="var(--muted)">
+<rect x="10" y="40" width="10" height="16" opacity=".55"/>
+<rect x="24" y="30" width="10" height="26" opacity=".75"/>
+<rect x="38" y="20" width="10" height="36" opacity=".9"/></g>
+<rect x="52" y="10" width="4" height="46" fill="var(--accent)"/>
+<line x1="8" y1="56" x2="58" y2="56" stroke="var(--line)" stroke-width="2"/>
+</svg>
+<div class="note-body"><h2>How to Read a PM&rsquo;s Book</h2>
 <p>V. Dimopoulos &middot; Research note #4 &middot; Jul 17, 2026 &middot; factor dissection
 (intended vs unintended) and the drawdown protocol &mdash; what to do
-when a PM is losing money.</p></a>
+when a PM is losing money.</p></div></a>
 
 <a class="note-card" href="chain-program-v3.html">
-<h2>&ldquo;We tightened our own gates. They took the founder&rsquo;s model
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<g fill="var(--muted)"><rect x="8" y="36" width="8" height="20"/>
+<rect x="20" y="28" width="8" height="28"/><rect x="32" y="20" width="8" height="36"/>
+<rect x="44" y="42" width="8" height="14"/></g>
+<line x1="6" y1="16" x2="58" y2="16" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="5 3"/>
+</svg>
+<div class="note-body"><h2>&ldquo;We tightened our own gates. They took the founder&rsquo;s model
 first.&rdquo;</h2>
 <p>V. Dimopoulos &middot; Research note #3 &middot; Jul 16, 2026 &middot; the Chain program v1&rarr;v3 &middot; a case
-study in iterating a research process, written for quants.</p></a>
+study in iterating a research process, written for quants.</p></div></a>
 
 <a class="note-card" href="propulsion-room.html">
-<h2>The Propulsion Room</h2>
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M10 50 Q 30 46 50 18" stroke="var(--blue)" stroke-width="2.5"/>
+<path d="M50 18 44 20 M50 18 48 24" stroke="var(--blue)" stroke-width="2.5"/>
+<path d="M10 50 Q 26 52 40 44" stroke="var(--muted)" stroke-width="2" stroke-dasharray="3 3"/>
+</svg>
+<div class="note-body"><h2>The Propulsion Room</h2>
 <p>The BlueShip Research Engine &middot; Jul 13, 2026 &middot; Flight mechanics for portfolios &middot; thrust, drag, gravity, and
 the price of steering &mdash; with the machine&rsquo;s real friction
-ratios.</p></a>
+ratios.</p></div></a>
 
 <a class="note-card" href="neural-pricing-v1.html">
-<h2>&ldquo;I brought a neural network. The 1993 model won again.&rdquo;</h2>
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<g stroke="var(--line)" stroke-width="1.5">
+<path d="M14 16 32 22 M14 32 32 22 M14 48 32 22 M14 16 32 42 M14 32 32 42 M14 48 32 42 M32 22 50 32 M32 42 50 32"/></g>
+<g fill="var(--muted)"><circle cx="14" cy="16" r="3.5"/><circle cx="14" cy="32" r="3.5"/><circle cx="14" cy="48" r="3.5"/>
+<circle cx="32" cy="22" r="3.5"/><circle cx="32" cy="42" r="3.5"/></g>
+<circle cx="50" cy="32" r="4" fill="var(--accent)"/>
+</svg>
+<div class="note-body"><h2>&ldquo;I brought a neural network. The 1993 model won again.&rdquo;</h2>
 <p>V. Dimopoulos &middot; Research note #2 &middot; Jul 13, 2026 &middot; neural emissions at daily frequency &middot;
-capacity is not information.</p></a>
+capacity is not information.</p></div></a>
 
 <a class="note-card" href="dimopoulos-chain-v1.html">
-<h2>&ldquo;I named a model after myself. A 1993 model beat it.&rdquo;</h2>
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<g stroke="var(--muted)" stroke-width="2.5">
+<ellipse cx="18" cy="24" rx="9" ry="6" transform="rotate(-35 18 24)"/>
+<ellipse cx="32" cy="32" rx="9" ry="6" transform="rotate(-35 32 32)"/>
+</g>
+<ellipse cx="46" cy="40" rx="9" ry="6" transform="rotate(-35 46 40)" stroke="var(--accent)" stroke-width="2.5"/>
+</svg>
+<div class="note-body"><h2>&ldquo;I named a model after myself. A 1993 model beat it.&rdquo;</h2>
 <p>V. Dimopoulos &middot; Research note #1 &middot; Jul 12, 2026 &middot; The Dimopoulos Chain, v1 &middot; dealer
-positioning vs the econometric baseline ladder.</p></a>
+positioning vs the econometric baseline ladder.</p></div></a>
 
 <footer>BlueShip-AI Research &middot; The Risk Museum &middot;
 educational research only, not investment advice.</footer>
