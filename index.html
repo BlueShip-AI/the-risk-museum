@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Risk Museum — Trading Strategies Tested, Retired &amp; Explained | BlueShip-AI Research</title>
-<meta name="description" content="The Risk Museum: 221+ published trading strategies tested with institutional rigor by an autonomous AI research pipeline — 20-year backtests, real costs, out-of-sample gates. The permanent collection is the ones that didn't survive. Home of Risk Masterpieces.">
+<meta name="description" content="The Risk Museum: 222+ published trading strategies tested with institutional rigor by an autonomous AI research pipeline — 20-year backtests, real costs, out-of-sample gates. The permanent collection is the ones that didn't survive. Home of Risk Masterpieces.">
 <link rel="canonical" href="https://theriskmuseum.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Risk Museum — Home of Risk Masterpieces">
-<meta property="og:description" content="221+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
+<meta property="og:description" content="222+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
 <meta property="og:url" content="https://theriskmuseum.com/">
 <meta property="og:site_name" content="The Risk Museum">
 <meta name="twitter:card" content="summary">
@@ -37,10 +37,21 @@ h1 { font-size:2.2rem; letter-spacing:.01em }
 .tabs a.on { color:var(--fg); background:var(--card);
   border-color:var(--line); border-bottom-color:var(--card);
   margin-bottom:-1px }
+.banner { background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:10px;
+  padding:1rem 1.2rem; margin:0 0 1.5rem; font-size:.95rem }
+.banner b { display:block; margin-bottom:.3rem }
+.banner a { color:var(--blue) }
+.sect { font-size:1.3rem; margin:2.2rem 0 .2rem; scroll-margin-top:1rem }
+.sect-sub { color:var(--muted); font-size:.88rem; margin:0 0 .9rem;
+  letter-spacing:.14em; text-transform:uppercase }
 .ledger { background:var(--card); border:1px solid var(--line);
-  border-radius:10px; padding:.9rem 1.2rem; margin:0 0 2rem }
+  border-radius:10px; padding:.9rem 1.2rem; margin:0 0 2rem;
+  scroll-margin-top:1rem }
 .ledger-h { letter-spacing:.18em; text-transform:uppercase;
-  font-size:.72rem; color:var(--muted); margin-bottom:.55rem }
+  font-size:.72rem; color:var(--muted); cursor:pointer }
+details[open] > .ledger-h { margin-bottom:.55rem }
+details[open] > .ledger-h .hint { display:none }
 .acq { font-size:.9rem; padding:.22rem 0; border-top:1px solid
   var(--line) }
 .acq:first-of-type { border-top:none }
@@ -73,6 +84,13 @@ style="color:var(--blue);text-decoration:none">@VasiliDmop on X</a>
 <a href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank"
 rel="noopener" style="color:var(--blue);text-decoration:none">LinkedIn</a>
 &middot; updated July 24, 2026</p>
+<div class="banner"><b>First visit? Here is what is going on.</b>
+Every night an autonomous AI research pipeline tests trading-strategy
+ideas &mdash; from academic papers and its own hypotheses &mdash; the way
+a professional quant desk would. Nearly all of them fail, and the
+failures are exhibited here with the reason they died. The rare survivors
+are not exhibited; they stay in the vault. On this floor:
+<a href="#ledger">recent updates</a> &middot; <a href="#tulip-wing">stocks that doubled in the past two years</a> &middot; <a href="#collection">the collection of tested &amp; retired strategies</a>.</div>
 <svg viewBox="0 0 860 132" role="img" aria-label="A field of tulips; one is blue"
  style="width:100%;height:auto;margin:0 0 1.6rem" xmlns="http://www.w3.org/2000/svg">
  <line x1="0" y1="118" x2="860" y2="118" stroke="var(--line)" stroke-width="2"/>
@@ -100,10 +118,10 @@ audits, and six-factor decomposition &mdash; by an autonomous AI research
 pipeline that runs every night. The permanent collection: the ones that
 didn&rsquo;t survive.</p>
 <div class="stats">
-  <div><b>221</b><span>works tested</span></div>
-  <div><b>97</b><span>now on view</span></div>
+  <div><b>222</b><span>works tested</span></div>
+  <div><b>98</b><span>now on view</span></div>
   <div><b>2</b><span>held in the vault (survivors)</span></div>
-  <div><b>$914,190 over 22 years</b><span>$100k in an S&amp;P index fund, same window
+  <div><b>$912,527 over 22 years</b><span>$100k in an S&amp;P index fund, same window
     &mdash; the bar every strategy must beat</span></div>
 </div>
 <nav class="tabs">
@@ -114,11 +132,13 @@ didn&rsquo;t survive.</p>
 <a href="masterpieces.html">Case Studies</a>
 <a href="membership.html">Membership</a>
 </nav>
-<div class='ledger'><div class='ledger-h'>Recent updates to the website</div><div class='acq'><span class='acq-d'>2026-07-24</span> We put our own regime model on trial: a Princeton-lineage statistical jump model challenged the museum&#x27;s Markov-switching incumbent on a decade of out-of-sample data. Difference: statistical noise (t=0.7) — and the incumbent showed the better risk profile (max drawdown −11% vs −25%). The challenger is retired; the incumbent&#x27;s seat is now earned in public, not held by inertia</div><div class='acq'><span class='acq-d'>2026-07-24</span> The dark-cap remediation lands: survivorship is now a NUMBER (our panel overstates equal-weight returns by ~30-50bps/yr, central ~40 — every Sharpe on the wall is an upper bound by about that much); capacity is now a DOLLAR figure per strategy (square-root impact law on real volumes); the factor record extends to 1926; six near-misses enter the Purgatory Ledger with scheduled 12-month retrials on data that did not exist when they were filed</div><div class='acq'><span class='acq-d'>2026-07-24</span> The index effect is confirmed dead: S&amp;P additions show zero post-inclusion drift in every era we can measure (2005-2026), and the famous free lunch fails the gates in all of them. Deletions were untestable from a survivorship-biased panel — declared, not hidden. Tested, retired</div><div class='acq'><span class='acq-d'>2026-07-23</span> Three research notes publish in one day — #6 &quot;Measuring the Crowd&quot; (the 13F study: two real effects, one held promotion bar), #7 &quot;The Edge Was Never the Hard Part&quot; (61 finance-trained players, a winning coin, 28% went broke), and #8 &quot;What the Swarm Knows and What It Does Not Know&quot; (the machine&#x27;s own dark caps, published on purpose). Every essay in the wing now carries its publication date</div><div class='acq'><span class='acq-d'>2026-07-23</span> The crowding study reports: stocks co-held by hedge-fund-like 13F filers comove beyond their factors (t=4.1, 3,312 matched pairs) and crowded names underperform by ~1.4%/month in the market&#x27;s worst months (t=3.9, 14 stress months) — both effects real, neither clears the promotion bar (t≥5 after stress). Filed as a risk measure, not a signal. Research note #6 to follow</div><div class='acq'><span class='acq-d'>2026-07-23</span> The 7Twelve family goes 0-for-2: the inverse-volatility version earned 1.7%/yr vs 5.7% for equal-weight and 8.3% for plain 60/40 — unlevered risk-weighting quietly becomes a cash portfolio in disguise. Tested, retired, and the levered claim is declared a separate question</div></div>
+<details class='ledger' id='ledger'><summary class='ledger-h'>Museum ledger &mdash; the last 10 updates <span class='hint'>(click to expand)</span></summary><div class='acq'><span class='acq-d'>2026-07-24</span> We put the value factor on home turf: is HML redundant in US large caps, as Fama-French claimed in 2015? Yes — its alpha versus the other factors is a statistical zero (t≈0.2), and so is the investment factor&#x27;s; only profitability carries a marginal standalone premium (t=2.4, under the bar). Peer-reviewed 2026 research finds value is NOT redundant abroad — same factor, opposite verdict by market. Markets are segmented, in one regression</div><div class='acq'><span class='acq-d'>2026-07-24</span> We put our own regime model on trial: a Princeton-lineage statistical jump model challenged the museum&#x27;s Markov-switching incumbent on a decade of out-of-sample data. Difference: statistical noise (t=0.7) — and the incumbent showed the better risk profile (max drawdown −11% vs −25%). The challenger is retired; the incumbent&#x27;s seat is now earned in public, not held by inertia</div><div class='acq'><span class='acq-d'>2026-07-24</span> The dark-cap remediation lands: survivorship is now a NUMBER (our panel overstates equal-weight returns by ~30-50bps/yr, central ~40 — every Sharpe on the wall is an upper bound by about that much); capacity is now a DOLLAR figure per strategy (square-root impact law on real volumes); the factor record extends to 1926; six near-misses enter the Purgatory Ledger with scheduled 12-month retrials on data that did not exist when they were filed</div><div class='acq'><span class='acq-d'>2026-07-24</span> The index effect is confirmed dead: S&amp;P additions show zero post-inclusion drift in every era we can measure (2005-2026), and the famous free lunch fails the gates in all of them. Deletions were untestable from a survivorship-biased panel — declared, not hidden. Tested, retired</div><div class='acq'><span class='acq-d'>2026-07-23</span> Three research notes publish in one day — #6 &quot;Measuring the Crowd&quot; (the 13F study: two real effects, one held promotion bar), #7 &quot;The Edge Was Never the Hard Part&quot; (61 finance-trained players, a winning coin, 28% went broke), and #8 &quot;What the Swarm Knows and What It Does Not Know&quot; (the machine&#x27;s own dark caps, published on purpose). Every essay in the wing now carries its publication date</div><div class='acq'><span class='acq-d'>2026-07-23</span> The crowding study reports: stocks co-held by hedge-fund-like 13F filers comove beyond their factors (t=4.1, 3,312 matched pairs) and crowded names underperform by ~1.4%/month in the market&#x27;s worst months (t=3.9, 14 stress months) — both effects real, neither clears the promotion bar (t≥5 after stress). Filed as a risk measure, not a signal. Research note #6 to follow</div><div class='acq'><span class='acq-d'>2026-07-23</span> The 7Twelve family goes 0-for-2: the inverse-volatility version earned 1.7%/yr vs 5.7% for equal-weight and 8.3% for plain 60/40 — unlevered risk-weighting quietly becomes a cash portfolio in disguise. Tested, retired, and the levered claim is declared a separate question</div><div class='acq'><span class='acq-d'>2026-07-23</span> The Antiquities Wing hangs its third number — Bombelli&#x27;s i (1572), the imaginary unit that our own options laboratory multiplies by every time it prices through the Heston model. Pass honestly through the complex plane; return with a real answer</div><div class='acq'><span class='acq-d'>2026-07-21</span> The Observatory opens on the Forecast Wing — five chokepoints (Hormuz, Taiwan Strait, Malacca, Suez, Panama) watched nightly by the museum&#x27;s own self-hosted monitoring stack, each linked to the forecast it informs</div><div class='acq'><span class='acq-d'>2026-07-20</span> Research note #5 published: &quot;620 Probabilities&quot; — the museum&#x27;s bot finishes top 6% in Jump Trading&#x27;s World Cup Probability Cup (mean Brier 0.231 vs 0.25 coin-flip over 620 forecasts), calibration flaws included. The 13F crowding study is pre-registered as note #6&#x27;s engine</div></details>
 
+    <h2 class="sect" id="tulip-wing">Stocks that have doubled in the past
+    two years</h2>
+    <p class="sect-sub">The Tulip Wing &middot; a nightly bubble watch
+    &middot; updated July 24, 2026</p>
     <article class="stone">
-      <div class="rip">The Tulip Wing &middot; a nightly bubble watch &middot; updated 2026-07-20</div>
-      <h3>Stocks that have doubled in the past two years</h3>
       <div class="cause">Named for tulip mania: in 1637, at a bulb auction
       in Haarlem, Holland, buyers simply stopped bidding &mdash; and
       history&rsquo;s most famous bubble collapsed. Every night this wing
@@ -131,13 +151,28 @@ didn&rsquo;t survive.</p>
       that hadn&rsquo;t doubled (1192 episodes since 2005). When
       the rise is accelerating on heavy trading:
       <b>26%</b>. Today&rsquo;s flagged names:</div>
-      <div class='cause'>WDC &mdash; two-year run-up +722%</div><div class='cause'>CIEN &mdash; two-year run-up +674%</div><div class='cause'>STX &mdash; two-year run-up +663% <b>&#10047; hot: acceleration + turnover</b></div><div class='cause'>MU &mdash; two-year run-up +565%</div><div class='cause'>FIX &mdash; two-year run-up +434%</div><div class='cause'>ECHO &mdash; two-year run-up +353%</div><div class='cause'>FLEX &mdash; two-year run-up +296%</div><div class='cause'>COHR &mdash; two-year run-up +259%</div><div class='cause'>WBD &mdash; two-year run-up +249%</div><div class='cause'>GLW &mdash; two-year run-up +246%</div><div class='cause'>TPR &mdash; two-year run-up +244%</div><div class='cause'>IBKR &mdash; two-year run-up +197%</div>
+      <div class='cause'>WDC &mdash; two-year run-up +904%</div><div class='cause'>STX &mdash; two-year run-up +780%</div><div class='cause'>MU &mdash; two-year run-up +721%</div><div class='cause'>CIEN &mdash; two-year run-up +693%</div><div class='cause'>FIX &mdash; two-year run-up +477%</div><div class='cause'>ECHO &mdash; two-year run-up +351%</div><div class='cause'>FLEX &mdash; two-year run-up +318%</div><div class='cause'>COHR &mdash; two-year run-up +298%</div><div class='cause'>TPR &mdash; two-year run-up +256%</div><div class='cause'>AMD &mdash; two-year run-up +251%</div><div class='cause'>GLW &mdash; two-year run-up +250%</div><div class='cause'>LRCX &mdash; two-year run-up +245%</div>
       <div class="cause">Read the numbers again: most flagged names do
       <b>not</b> crash. This is a measured tilt in the odds, not a
       prediction and not advice &mdash; the museum label says what the
       exhibit is, nothing more.</div>
     </article>
+<h2 class="sect" id="collection">Tested strategies: the permanent
+collection</h2>
+<p class="sect-sub">98 strategies tested and retired &middot;
+newest first</p>
+<p class="sub">Each plaque records the claim and the gate that retired
+it; strategies that reached the backtest stage also show what $100k
+would have become.</p>
 
+    <article class="stone">
+      <div class="rip">Tested 2026-07-21</div>
+      <h3>BRAIN candidate: rank(fnd6_acqintan / ts_mean(fnd6_acqintan, 120))</h3>
+      
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
+      
+    </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-21</div>
       <h3>Consumer-credit deterioration predicts consumer-finance equity underperformance: rising card delinquency rates (FRED DRCCLACBS, release-date aligned) lead relative returns of consumer lenders vs market (KKR JD stress-scenario translation)</h3>
@@ -407,7 +442,7 @@ didn&rsquo;t survive.</p>
       <h3>Flight-to-safety nonlinearity (Adrian-Crump-Vogt JF 2019): 1m forward stock returns RISE with lagged VIX while Treasury returns FALL — replication on SPY/TLT 2012-2026 with post-publication subsample</h3>
       <div class='about'>Tests whether scary markets pay stock holders extra while bond prices have already flown to safety — fear as a priced premium, not just a mood.</div>
       <div class="cause">Retired at <b>validation</b>:
-        Directionally replicates ACV in AND out of sample — monotone SPY rise, TLT mirror — but t=2.25 sits under the 2.5 bar with overlapping-window inference, and far under the 5.0 stressed promotion bar. Verdict: the paper&#x27;s </div>
+        Directionally replicates ACV in AND out of sample — monotone SPY rise, TLT mirror — but t=2.25 sits under the 2.5 bar with overlapping-window inference, and far under the 5.0 stressed promotion bar. Verdict: the paper&#x27;s …</div>
       
     </article>
     <article class="stone">
@@ -447,7 +482,7 @@ didn&rsquo;t survive.</p>
       <h3>Tax-loss harvesting adds ~1%/yr after-tax alpha in early years on a direct-indexed S&amp;P portfolio, decaying as embedded gains age (Chaudhuri-Burnham-Lo 2020 replication; the Parametric mechanism)</h3>
       <div class='about'>Holds the index as individual stocks and systematically sells losers to bank tax losses, swapping into similar names to keep tracking the index.</div>
       <div class="cause">Retired at <b>validation</b>:
-        full-liquidation tax alpha -1.75%/yr, t=-2.34: the pre-tax bleed of sell-the-losers swaps (~180bps/yr) dwarfs the tax credits (~6bps/yr on a no-contribution book). Two honest caveats: (1) survivorship interaction — on a </div>
+        full-liquidation tax alpha -1.75%/yr, t=-2.34: the pre-tax bleed of sell-the-losers swaps (~180bps/yr) dwarfs the tax credits (~6bps/yr on a no-contribution book). Two honest caveats: (1) survivorship interaction — on a …</div>
       
     </article>
     <article class="stone">
@@ -671,7 +706,7 @@ didn&rsquo;t survive.</p>
       <h3>Dimopoulos Chain v1.1: GEX x RV states add next-day range info beyond the combined HAR+VIX+GARCH baseline (OOS, monthly-refit)</h3>
       <div class='about'>Tests whether dealer-hedging and choppiness states improve on a full battery of standard volatility forecasters.</div>
       <div class="cause">Retired at <b>beyond-full-baseline-oos</b>:
-        Passed vs HAR+VIX+plain-GARCH (t_full=2.83) but failed the stricter GJR-augmented baseline (t_full=1.02) in the same-day rerun; duplicate-claim guard prevented overwrite. Demoted 2026-07-10 — the strictest run is the ver</div>
+        Passed vs HAR+VIX+plain-GARCH (t_full=2.83) but failed the stricter GJR-augmented baseline (t_full=1.02) in the same-day rerun; duplicate-claim guard prevented overwrite. Demoted 2026-07-10 — the strictest run is the …</div>
       
     </article>
     <article class="stone">
@@ -923,4 +958,7 @@ machine-readable data &mdash; <a href="collection.json"
 style="color:inherit">collection.json</a>. Study it, remix it, prove us
 wrong. (After the Rijksmuseum&rsquo;s Rijksstudio.)</div>
 <footer>Educational research publication only. Nothing on this page is investment advice, a recommendation, or an offer to buy or sell any security. All results are hypothetical backtests net of assumed transaction costs, computed on a survivorship-biased universe of current S&P 500 constituents — a bias that flatters most strategies; real-world results would differ and would generally be worse. Hypothetical performance has inherent limitations and past performance does not indicate future results. Statistics are derived measures; no raw market data is republished. Data sources: Yahoo Finance (derived statistics), Ken French Data Library, SEC EDGAR. Consult a licensed financial professional before making investment decisions.</footer>
+<script>(function(){var f=function(){if(location.hash==='#ledger')
+{var d=document.getElementById('ledger');if(d)d.open=true}};
+f();addEventListener('hashchange',f)})()</script>
 </main></body></html>

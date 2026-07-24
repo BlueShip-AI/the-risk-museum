@@ -2,10 +2,18 @@
  "museum": "The Risk Museum \u2014 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
  "exported": "2026-07-24",
- "works_tested": 221,
+ "works_tested": 222,
  "in_the_vault": 2,
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: rank(fnd6_acqintan / ts_mean(fnd6_acqintan, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-21"
+  },
   {
    "claim": "Consumer-credit deterioration predicts consumer-finance equity underperformance: rising card delinquency rates (FRED DRCCLACBS, release-date aligned) lead relative returns of consumer lenders vs market (KKR JD stress-scenario translation)",
    "stage": "validation",
