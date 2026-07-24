@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Risk Museum — Trading Strategies Tested, Retired &amp; Explained | BlueShip-AI Research</title>
-<meta name="description" content="The Risk Museum: 222+ published trading strategies tested with institutional rigor by an autonomous AI research pipeline — 20-year backtests, real costs, out-of-sample gates. The permanent collection is the ones that didn't survive. Home of Risk Masterpieces.">
+<meta name="description" content="The Risk Museum: 224+ published trading strategies tested with institutional rigor by an autonomous AI research pipeline — 20-year backtests, real costs, out-of-sample gates. The permanent collection is the ones that didn't survive. Home of Risk Masterpieces.">
 <link rel="canonical" href="https://theriskmuseum.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Risk Museum — Home of Risk Masterpieces">
-<meta property="og:description" content="222+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
+<meta property="og:description" content="224+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
 <meta property="og:url" content="https://theriskmuseum.com/">
 <meta property="og:site_name" content="The Risk Museum">
 <meta name="twitter:card" content="summary">
@@ -13,10 +13,12 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"The Risk Museum","alternateName":"BlueShip-AI Research","url":"https://theriskmuseum.com/","description":"Published trading strategies tested with institutional rigor by an autonomous AI research pipeline; the permanent collection is the ones that didn't survive.","sameAs":["https://github.com/BlueShip-AI","https://x.com/VasiliDmop","https://www.linkedin.com/in/vasiliosdimopoulos/"],"founder":{"@type":"Person","name":"Vasilios Dimopoulos","sameAs":["https://x.com/VasiliDmop","https://www.linkedin.com/in/vasiliosdimopoulos/"]}}</script>
 <style>
 :root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
-  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b;
+  --pos:#1a7f37; --neg:#b3261e; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
-    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc;
+    --pos:#3fb950; --neg:#e06666; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
   font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
@@ -70,6 +72,29 @@ details[open] > .ledger-h .hint { display:none }
 .metrics { display:flex; gap:1.4rem; flex-wrap:wrap; margin-top:.7rem;
   font-size:.85rem; font-family:ui-monospace,Menlo,monospace }
 .tenk { color:var(--accent); font-weight:700 }
+.blotter-wrap { overflow-x:auto; margin:.2rem 0 1rem; border:1px solid
+  var(--line); border-radius:10px; -webkit-overflow-scrolling:touch }
+.blotter { border-collapse:collapse; width:100%; min-width:560px;
+  font:13px/1.4 ui-monospace,Menlo,'SF Mono',monospace }
+.blotter th, .blotter td { padding:.42rem .7rem; text-align:right;
+  white-space:nowrap; border-bottom:1px solid var(--line) }
+.blotter th:first-child, .blotter td:first-child { text-align:left;
+  white-space:normal; font-family:Georgia,'Times New Roman',serif }
+.blotter thead th { background:var(--card); color:var(--muted);
+  font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+  font-size:.7rem }
+.blotter tbody tr:hover { background:rgba(127,127,127,.06) }
+.blotter tbody tr:last-child td { border-bottom:none }
+.blotter .bench td { background:rgba(127,127,127,.06); font-weight:700 }
+.blotter .pos { color:var(--pos) }
+.blotter .neg { color:var(--neg) }
+.blotter tbody td { vertical-align:top }
+.bl-name { font-weight:600 }
+.bl-why { color:var(--muted); font-size:.82rem; margin-top:.12rem }
+.bl-date { color:var(--muted); font-size:.72rem; margin-top:.12rem;
+  font-family:ui-monospace,Menlo,monospace; letter-spacing:.02em }
+.blotter-foot { color:var(--muted); font-size:.8rem; margin:0 0 1.8rem;
+  font-style:italic; max-width:70ch }
 .note { border-left:3px solid var(--accent); padding:.2rem 0 .2rem 1rem;
   margin:2rem 0; color:var(--muted); font-size:.9rem }
 footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
@@ -88,7 +113,7 @@ rel="noopener" style="color:var(--blue);text-decoration:none">LinkedIn</a>
 Every night an autonomous AI research pipeline tests trading-strategy
 ideas &mdash; from academic papers and its own hypotheses &mdash; the way
 a professional quant desk would. Nearly all of them fail, and the
-failures are exhibited here with the reason they died. The rare survivors
+failures are exhibited here with the reason they fell short. The rare survivors
 are not exhibited; they stay in the vault. On this floor:
 <a href="#ledger">recent updates</a> &middot; <a href="#tulip-wing">stocks that doubled in the past two years</a> &middot; <a href="#collection">the collection of tested &amp; retired strategies</a>.</div>
 <svg viewBox="0 0 860 132" role="img" aria-label="A field of tulips; one is blue"
@@ -118,7 +143,7 @@ audits, and six-factor decomposition &mdash; by an autonomous AI research
 pipeline that runs every night. The permanent collection: the ones that
 didn&rsquo;t survive.</p>
 <div class="stats">
-  <div><b>222</b><span>works tested</span></div>
+  <div><b>224</b><span>works tested</span></div>
   <div><b>98</b><span>now on view</span></div>
   <div><b>2</b><span>held in the vault (survivors)</span></div>
   <div><b>$912,527 over 22 years</b><span>$100k in an S&amp;P index fund, same window
@@ -162,8 +187,10 @@ collection</h2>
 <p class="sect-sub">98 strategies tested and retired &middot;
 newest first</p>
 <p class="sub">Each plaque records the claim and the gate that retired
-it; strategies that reached the backtest stage also show what $100k
-would have become.</p>
+it. The strategies that reached a full backtest are totalled first, the
+way a desk reads its book &mdash; what $100k put into each would have
+become.</p>
+<p class='sect-sub' style='margin-top:1.4rem'>The backtested wall &middot; $100k in, sorted best to worst</p><div class='blotter-wrap'><table class='blotter'><thead><tr><th>Strategy</th><th>Sharpe</th><th>Max&nbsp;DD</th><th>Yrs</th><th>$100k&nbsp;&rarr;</th><th>Net&nbsp;P&amp;L</th><th>Return</th></tr></thead><tbody><tr class='bench'><td><div class='bl-name'>S&amp;P 500 index fund</div><div class='bl-why'>Buy and hold &mdash; the bar every strategy must clear</div><div class='bl-date'>same 22-year window</div></td><td>&mdash;</td><td>&mdash;</td><td>22</td><td>$912,527</td><td class='pos'>+$812,527</td><td class='pos'>+813%</td></tr><tr><td><div class='bl-name'>Illiquid stocks earn a premium</div><div class='bl-why'>IS/OOS degradation 53% &gt; 30% (IS 1.47 -&gt; OOS 0.69) — overfitting signature</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>1.19</td><td class='neg'>−9%</td><td>21</td><td>$311,748</td><td class='pos'>+$211,748</td><td class='pos'>+212%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal, retested on the ~500-n…</div><div class='bl-why'>Newey-West t=0.95 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.168 &gt; 0.05</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>0.19</td><td class='neg'>−17%</td><td>21</td><td>$128,773</td><td class='pos'>+$28,773</td><td class='pos'>+29%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal predicts returns</div><div class='bl-why'>Newey-West t=0.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.286 &gt; 0.05; IS/OOS degradation 71% &gt; 30% (IS 0.17 -&gt; OOS 0.05)…</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>0.12</td><td class='neg'>−19%</td><td>21</td><td>$116,411</td><td class='pos'>+$16,411</td><td class='pos'>+16%</td></tr><tr><td><div class='bl-name'>12-1 month cross-sectional momentum predicts returns</div><div class='bl-why'>Newey-West t=0.09 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.420 &gt; 0.05; in-sample Sharpe -0.02 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>0.02</td><td class='neg'>−42%</td><td>20</td><td>$93,380</td><td class='neg'>−$6,620</td><td class='neg'>−7%</td></tr><tr><td><div class='bl-name'>Negative return skewness predicts higher returns</div><div class='bl-why'>Newey-West t=-0.87 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.829 &gt; 0.05; in-sample Sharpe -0.09 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>−0.17</td><td class='neg'>−19%</td><td>21</td><td>$84,789</td><td class='neg'>−$15,211</td><td class='neg'>−15%</td></tr><tr><td><div class='bl-name'>Unusually high recent volume predicts higher returns</div><div class='bl-why'>Newey-West t=-2.31 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.987 &gt; 0.05; in-sample Sharpe -0.67 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>−0.49</td><td class='neg'>−43%</td><td>21</td><td>$64,849</td><td class='neg'>−$35,151</td><td class='neg'>−35%</td></tr><tr><td><div class='bl-name'>12-1 momentum, retested on the ~500-name S&amp;P univer…</div><div class='bl-why'>Newey-West t=-0.98 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.798 &gt; 0.05; in-sample Sharpe -0.29 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>−0.21</td><td class='neg'>−51%</td><td>20</td><td>$61,519</td><td class='neg'>−$38,481</td><td class='neg'>−38%</td></tr><tr><td><div class='bl-name'>Stocks with high trend consistency</div><div class='bl-why'>Newey-West t=-1.77 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.948 &gt; 0.05; in-sample Sharpe -0.34 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>−0.38</td><td class='neg'>−53%</td><td>21</td><td>$53,648</td><td class='neg'>−$46,352</td><td class='neg'>−46%</td></tr><tr><td><div class='bl-name'>Proximity to 52-week high predicts returns</div><div class='bl-why'>Newey-West t=-2.22 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.988 &gt; 0.05; in-sample Sharpe -0.50 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>−0.48</td><td class='neg'>−76%</td><td>20</td><td>$28,633</td><td class='neg'>−$71,367</td><td class='neg'>−71%</td></tr><tr><td><div class='bl-name'>Low lottery demand</div><div class='bl-why'>Newey-West t=-3.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.65 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>−0.70</td><td class='neg'>−77%</td><td>21</td><td>$23,572</td><td class='neg'>−$76,428</td><td class='neg'>−76%</td></tr><tr><td><div class='bl-name'>Low idiosyncratic volatility predicts higher returns</div><div class='bl-why'>Newey-West t=-3.89 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.74 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td>−0.80</td><td class='neg'>−77%</td><td>21</td><td>$22,966</td><td class='neg'>−$77,034</td><td class='neg'>−77%</td></tr></tbody></table></div><p class='blotter-foot'>Not one retired strategy cleared the index &mdash; which is why they hang here and not in the vault. Sharpe is an upper bound on a survivorship-biased universe; every figure is a hypothetical backtest net of assumed costs, not a live result.</p>
 
     <article class="stone">
       <div class="rip">Tested 2026-07-21</div>

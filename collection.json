@@ -2,7 +2,7 @@
  "museum": "The Risk Museum \u2014 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
  "exported": "2026-07-24",
- "works_tested": 222,
+ "works_tested": 224,
  "in_the_vault": 2,
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
@@ -712,6 +712,7 @@
    "sharpe": 1.188,
    "dd": -0.0883,
    "tenk": "$311,748",
+   "tenk_val": 311748,
    "years": "21"
   },
   {
@@ -724,6 +725,7 @@
    "sharpe": 0.192,
    "dd": -0.1669,
    "tenk": "$128,773",
+   "tenk_val": 128773,
    "years": "21"
   },
   {
@@ -736,6 +738,7 @@
    "sharpe": -0.21,
    "dd": -0.5058,
    "tenk": "$61,519",
+   "tenk_val": 61519,
    "years": "20"
   },
   {
@@ -748,6 +751,7 @@
    "sharpe": -0.493,
    "dd": -0.4286,
    "tenk": "$64,849",
+   "tenk_val": 64849,
    "years": "21"
   },
   {
@@ -760,6 +764,7 @@
    "sharpe": -0.168,
    "dd": -0.1913,
    "tenk": "$84,789",
+   "tenk_val": 84789,
    "years": "21"
   },
   {
@@ -772,6 +777,7 @@
    "sharpe": -0.699,
    "dd": -0.7667,
    "tenk": "$23,572",
+   "tenk_val": 23572,
    "years": "21"
   },
   {
@@ -784,6 +790,7 @@
    "sharpe": -0.795,
    "dd": -0.7721,
    "tenk": "$22,966",
+   "tenk_val": 22966,
    "years": "21"
   },
   {
@@ -796,6 +803,7 @@
    "sharpe": -0.382,
    "dd": -0.5257,
    "tenk": "$53,648",
+   "tenk_val": 53648,
    "years": "21"
   },
   {
@@ -808,6 +816,7 @@
    "sharpe": -0.484,
    "dd": -0.7598,
    "tenk": "$28,633",
+   "tenk_val": 28633,
    "years": "20"
   },
   {
@@ -820,6 +829,7 @@
    "sharpe": 0.125,
    "dd": -0.1903,
    "tenk": "$116,411",
+   "tenk_val": 116411,
    "years": "21"
   },
   {
@@ -832,6 +842,7 @@
    "sharpe": 0.02,
    "dd": -0.4239,
    "tenk": "$93,380",
+   "tenk_val": 93380,
    "years": "20"
   }
  ]
