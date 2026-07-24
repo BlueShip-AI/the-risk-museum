@@ -30,7 +30,9 @@ h1 { font-size:2.2rem; letter-spacing:.01em }
 .stats { display:flex; gap:2.2rem; flex-wrap:wrap; margin:1.4rem 0 1.6rem }
 .tabs { display:flex; gap:.25rem; margin:0 0 2rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
-  scrollbar-width:none }
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
 .tabs::-webkit-scrollbar { display:none }
 .tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
   text-decoration:none; border:1px solid transparent;
@@ -136,6 +138,14 @@ are not exhibited; they stay in the vault. On this floor:
  <path transform="translate(404,30)" fill="var(--blue)"
   d="M-11,0 C-14,-18 -4,-25 0,-12 C4,-25 14,-18 11,0 Z"/>
 </svg>
+<nav class="tabs">
+<a class="on" href="./">Tested Strategies</a>
+<a href="forecasts.html">Forecast Wing</a>
+<a href="notes/">Research/Personal Essays</a>
+<a href="reading-room.html">Reading Room</a>
+<a href="masterpieces.html">Case Studies</a>
+<a href="membership.html">Membership</a>
+</nav>
 <p class="sub">Published trading strategies, tested the way a quant desk would
 test them &mdash; 20 years of data, realistic costs, Newey&ndash;West
 significance, 10,000-draw bootstrap, out-of-sample degradation limits, regime
@@ -149,14 +159,6 @@ didn&rsquo;t survive.</p>
   <div><b>$912,527 over 22 years</b><span>$100k in an S&amp;P index fund, same window
     &mdash; the bar every strategy must beat</span></div>
 </div>
-<nav class="tabs">
-<a class="on" href="./">Tested Strategies</a>
-<a href="forecasts.html">Forecast Wing</a>
-<a href="notes/">Research/Personal Essays</a>
-<a href="reading-room.html">Reading Room</a>
-<a href="masterpieces.html">Case Studies</a>
-<a href="membership.html">Membership</a>
-</nav>
 <details class='ledger' id='ledger'><summary class='ledger-h'>Museum ledger &mdash; the last 10 updates <span class='hint'>(click to expand)</span></summary><div class='acq'><span class='acq-d'>2026-07-24</span> We put the value factor on home turf: is HML redundant in US large caps, as Fama-French claimed in 2015? Yes — its alpha versus the other factors is a statistical zero (t≈0.2), and so is the investment factor&#x27;s; only profitability carries a marginal standalone premium (t=2.4, under the bar). Peer-reviewed 2026 research finds value is NOT redundant abroad — same factor, opposite verdict by market. Markets are segmented, in one regression</div><div class='acq'><span class='acq-d'>2026-07-24</span> We put our own regime model on trial: a Princeton-lineage statistical jump model challenged the museum&#x27;s Markov-switching incumbent on a decade of out-of-sample data. Difference: statistical noise (t=0.7) — and the incumbent showed the better risk profile (max drawdown −11% vs −25%). The challenger is retired; the incumbent&#x27;s seat is now earned in public, not held by inertia</div><div class='acq'><span class='acq-d'>2026-07-24</span> The dark-cap remediation lands: survivorship is now a NUMBER (our panel overstates equal-weight returns by ~30-50bps/yr, central ~40 — every Sharpe on the wall is an upper bound by about that much); capacity is now a DOLLAR figure per strategy (square-root impact law on real volumes); the factor record extends to 1926; six near-misses enter the Purgatory Ledger with scheduled 12-month retrials on data that did not exist when they were filed</div><div class='acq'><span class='acq-d'>2026-07-24</span> The index effect is confirmed dead: S&amp;P additions show zero post-inclusion drift in every era we can measure (2005-2026), and the famous free lunch fails the gates in all of them. Deletions were untestable from a survivorship-biased panel — declared, not hidden. Tested, retired</div><div class='acq'><span class='acq-d'>2026-07-23</span> Three research notes publish in one day — #6 &quot;Measuring the Crowd&quot; (the 13F study: two real effects, one held promotion bar), #7 &quot;The Edge Was Never the Hard Part&quot; (61 finance-trained players, a winning coin, 28% went broke), and #8 &quot;What the Swarm Knows and What It Does Not Know&quot; (the machine&#x27;s own dark caps, published on purpose). Every essay in the wing now carries its publication date</div><div class='acq'><span class='acq-d'>2026-07-23</span> The crowding study reports: stocks co-held by hedge-fund-like 13F filers comove beyond their factors (t=4.1, 3,312 matched pairs) and crowded names underperform by ~1.4%/month in the market&#x27;s worst months (t=3.9, 14 stress months) — both effects real, neither clears the promotion bar (t≥5 after stress). Filed as a risk measure, not a signal. Research note #6 to follow</div><div class='acq'><span class='acq-d'>2026-07-23</span> The 7Twelve family goes 0-for-2: the inverse-volatility version earned 1.7%/yr vs 5.7% for equal-weight and 8.3% for plain 60/40 — unlevered risk-weighting quietly becomes a cash portfolio in disguise. Tested, retired, and the levered claim is declared a separate question</div><div class='acq'><span class='acq-d'>2026-07-23</span> The Antiquities Wing hangs its third number — Bombelli&#x27;s i (1572), the imaginary unit that our own options laboratory multiplies by every time it prices through the Heston model. Pass honestly through the complex plane; return with a real answer</div><div class='acq'><span class='acq-d'>2026-07-21</span> The Observatory opens on the Forecast Wing — five chokepoints (Hormuz, Taiwan Strait, Malacca, Suez, Panama) watched nightly by the museum&#x27;s own self-hosted monitoring stack, each linked to the forecast it informs</div><div class='acq'><span class='acq-d'>2026-07-20</span> Research note #5 published: &quot;620 Probabilities&quot; — the museum&#x27;s bot finishes top 6% in Jump Trading&#x27;s World Cup Probability Cup (mean Brier 0.231 vs 0.25 coin-flip over 620 forecasts), calibration flaws included. The 13F crowding study is pre-registered as note #6&#x27;s engine</div></details>
 
     <h2 class="sect" id="tulip-wing">Stocks that have doubled in the past

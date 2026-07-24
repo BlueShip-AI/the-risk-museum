@@ -31,7 +31,9 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   color:var(--muted); font-size:.78rem }
 .tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
-  scrollbar-width:none }
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
 .tabs::-webkit-scrollbar { display:none }
 .tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
   text-decoration:none; border:1px solid transparent;
