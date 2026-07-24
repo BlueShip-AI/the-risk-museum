@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research note: The AI-CDO Is Already Being Built — The Risk Museum</title>
-<meta name="description" content="Structured finance is reassembling around AI infrastructure — datacenter debt, GPUs as collateral, circular financing. 2008 wasn't caused by securitization; it was caused by four nameable failures. Each one is observable in the AI-credit complex today.">
+<meta name="description" content="Structured finance is reassembling around AI infrastructure. A stylized Monte Carlo waterfall shows the good, the bad, and the ugly — who cashes out, who holds the tail, and the one thing that saves the whole boom: revenue, not chips.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/the-ai-cdo.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -140,6 +140,138 @@ sell it onward. The honest tell is skin in the game &mdash; whether
 the party that structures the pool keeps a real, loss-absorbing piece
 of it.</p>
 
+<h2>So what breaks, and who cashes out</h2>
+<p>Diagnosis is cheap; the useful question is <em>where the money
+goes when it goes wrong</em>. To answer it honestly I built a small
+simulation &mdash; deliberately simple, assumptions declared, not a
+forecast. Picture the AI-infrastructure debt as a single securitized
+pool, sliced into three claims that absorb losses from the bottom up.
+The <b>equity</b> tranche (15% of the pool) is the neocloud, lab, and
+circular-financing paper &mdash; first loss. The <b>mezzanine</b>
+(25%) is the GPU- and equipment-backed debt. The <b>senior</b> (60%)
+is secured by the things that survive a technology cycle: the land,
+the buildings, the power contracts.</p>
+
+<p>Everything in the pool leans on one number: <b>R</b>, the fraction
+of the promised AI economics that actually shows up as <em>revenue</em>.
+I let R range from the bear case (half of what was promised) to the
+bull case (more than promised), ran two hundred thousand draws, and
+let the losses waterfall up through the stack. The picture:</p>
+
+<div style="overflow-x:auto;margin:1.2rem 0">
+<svg width="560" height="300" viewBox="0 0 560 300" role="img"
+ aria-label="Loss waterfall through the AI capital stack in three scenarios"
+ style="max-width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+ <!-- left band labels -->
+ <text x="10" y="104" font-size="11" fill="var(--muted)" font-family="Georgia,serif">Senior 60%</text>
+ <text x="10" y="118" font-size="9.5" fill="var(--muted)" font-family="Georgia,serif">real estate + power</text>
+ <text x="10" y="189" font-size="11" fill="var(--muted)" font-family="Georgia,serif">Mezz 25%</text>
+ <text x="10" y="203" font-size="9.5" fill="var(--muted)" font-family="Georgia,serif">GPUs / equipment</text>
+ <text x="10" y="228" font-size="11" fill="var(--muted)" font-family="Georgia,serif">Equity 15%</text>
+ <text x="10" y="242" font-size="9.5" fill="var(--muted)" font-family="Georgia,serif">circular / labs</text>
+ <!-- three scenario stacks: outline + red loss watermark from bottom -->
+ <g font-family="Georgia,serif">
+  <!-- GOOD: pool loss 5% -> 10px -->
+  <rect x="150" y="40" width="90" height="200" fill="var(--card)" stroke="var(--muted)" stroke-width="1.2"/>
+  <rect x="150" y="230" width="90" height="10" fill="var(--accent)" opacity=".85"/>
+  <line x1="150" y1="210" x2="240" y2="210" stroke="var(--muted)" stroke-width=".6"/>
+  <line x1="150" y1="160" x2="240" y2="160" stroke="var(--muted)" stroke-width=".6"/>
+  <text x="195" y="258" font-size="11.5" fill="var(--fg)" text-anchor="middle" font-weight="bold">GOOD</text>
+  <text x="195" y="272" font-size="9.5" fill="var(--muted)" text-anchor="middle">R&thinsp;0.93 &middot; 5% lost</text>
+  <text x="195" y="285" font-size="9" fill="var(--muted)" text-anchor="middle">equity dinged, rest whole</text>
+  <!-- BAD: pool loss 14% -> 28px -->
+  <rect x="270" y="40" width="90" height="200" fill="var(--card)" stroke="var(--muted)" stroke-width="1.2"/>
+  <rect x="270" y="212" width="90" height="28" fill="var(--accent)" opacity=".85"/>
+  <line x1="270" y1="210" x2="360" y2="210" stroke="var(--muted)" stroke-width=".6"/>
+  <line x1="270" y1="160" x2="360" y2="160" stroke="var(--muted)" stroke-width=".6"/>
+  <text x="315" y="258" font-size="11.5" fill="var(--fg)" text-anchor="middle" font-weight="bold">BAD</text>
+  <text x="315" y="272" font-size="9.5" fill="var(--muted)" text-anchor="middle">R&thinsp;0.86 &middot; 14% lost</text>
+  <text x="315" y="285" font-size="9" fill="var(--muted)" text-anchor="middle">equity wiped, mezz holds</text>
+  <!-- UGLY: pool loss 43% -> 86px -->
+  <rect x="390" y="40" width="90" height="200" fill="var(--card)" stroke="var(--muted)" stroke-width="1.2"/>
+  <rect x="390" y="154" width="90" height="86" fill="var(--accent)" opacity=".85"/>
+  <line x1="390" y1="210" x2="480" y2="210" stroke="var(--muted)" stroke-width=".6"/>
+  <line x1="390" y1="160" x2="480" y2="160" stroke="var(--muted)" stroke-width=".6"/>
+  <text x="435" y="258" font-size="11.5" fill="var(--fg)" text-anchor="middle" font-weight="bold">UGLY</text>
+  <text x="435" y="272" font-size="9.5" fill="var(--muted)" text-anchor="middle">R&thinsp;0.64 &middot; 43% lost</text>
+  <text x="435" y="285" font-size="9" fill="var(--muted)" text-anchor="middle">equity+mezz gone, senior nicked</text>
+ </g>
+ <!-- senior attachment line across -->
+ <line x1="150" y1="160" x2="480" y2="160" stroke="var(--blue)" stroke-width="1.4" stroke-dasharray="4 3"/>
+ <text x="484" y="150" font-size="9" fill="var(--blue)" font-family="Georgia,serif">senior</text>
+ <text x="484" y="161" font-size="9" fill="var(--blue)" font-family="Georgia,serif">attaches</text>
+</svg>
+</div>
+
+<p>Read across the columns and the whole argument is in one image. The
+red is loss, filling the stack from the bottom. In the <b>good</b>
+world (revenue arrives near-promised, the 25th-percentile draw) the
+equity holders take a haircut and everyone above them is untouched. In
+the <b>bad</b> world (the median draw, revenue merely disappoints) the
+equity is wiped out entirely &mdash; and it is worth pausing on who
+holds that equity: increasingly, the yield-hungry buyers who were sold
+the juicy tranche as &ldquo;diversified AI exposure.&rdquo; In the
+<b>ugly</b> world (a 95th-percentile draw, revenue collapses toward
+half) the equity and the GPU-backed mezzanine are both destroyed and
+the senior claim finally bleeds &mdash; because obsolescence means the
+chip collateral recovers little, and the circular financing unwinds
+faster than a single-name default ever could.</p>
+
+<p>Across all two hundred thousand paths the shape is stark: the equity
+tranche loses <b>68%</b> of its value on average and is all but wiped
+in half of them; the mezzanine loses <b>28%</b>; the senior loses
+<b>1%</b> and stays fully intact <b>93%</b> of the time. That gap is
+the missing link &mdash; the reason the big players can build this and
+sleep. <b>The cash-out is structural, not directional.</b> You do not
+have to bet that AI wins. You earn the origination fees whatever
+happens; you keep the senior, real-asset-backed claim that survives
+almost everything; and you sell the equity and mezzanine &mdash; the
+tranches that actually carry the technology risk &mdash; to the
+insurers and pensions reaching for yield. Heads you clip a fee and hold
+the safe piece; tails someone else holds the GPUs. The only honest
+question, the 2008 question, is whether the people doing the selling
+kept a real slice of the loss for themselves.</p>
+
+<h2>The scenarios that never happen</h2>
+<p>A model is only as honest as the myths it refuses. Three that the
+simulation quietly kills:</p>
+<ul>
+<li><b>&ldquo;GPUs hold value like real estate.&rdquo;</b> They do not.
+A building is worth roughly last year&rsquo;s price; a chip sits on a
+replacement curve and can lose collateral value the day a better one
+ships, for reasons that have nothing to do with the borrower. That is
+why the mezzanine, not the equity, is the tranche that surprises
+people.</li>
+<li><b>&ldquo;It&rsquo;s diversified across hundreds of
+borrowers.&rdquo;</b> Diversification across borrowers who all depend
+on the same handful of hyperscalers continuing to spend is not
+diversification. It is one bet in many costumes &mdash; the exact
+mechanism that turned &ldquo;uncorrelated&rdquo; mortgage pools into a
+single wager in 2008.</li>
+<li><b>&ldquo;The senior tranche is safe, full stop.&rdquo;</b> Only
+if it is secured by real assets and not by claims on other claims. A
+senior slice of circular financing is senior in name and equity in
+substance. The safety lives in the collateral, not the label.</li>
+</ul>
+
+<h2>The saving grace</h2>
+<p>Here is the hopeful half, and it is real. The thing that makes this
+<em>not</em> 2008 is sitting in the one variable the whole simulation
+turns on. A house produces no cash flow; it only ever costs. Compute
+can produce cash flow &mdash; if the applications built on it actually
+get paid for. The senior claim survives in ninety-three percent of my
+draws for exactly one reason: revenue has to collapse below roughly
+sixty percent of what was promised before it bleeds, and sustained
+revenue at that level is a genuinely different world from the sub-prime
+one, where the underlying asset could never service anything. <b>The
+saving grace of the AI boom is not the chips and it is not the models.
+It is revenue.</b> Enterprise adoption, inference demand actually
+invoiced, applications people renew &mdash; that is the water that
+fills the waterfall from the top and services the stack on the way
+down. Watch that number, not the capex headlines. When commentators
+cheer another hundred billion in datacenter spending, they are
+describing the size of the promise, not the arrival of the payment.</p>
+
 <h2>Why this hangs in the museum</h2>
 <p>Notice what I have <em>not</em> done. I have not called a top,
 named a date, or told you the AI buildout will fail &mdash; on a
@@ -147,12 +279,14 @@ decade&rsquo;s view it may well pay off, as the internet did. Timing
 is a forecast, and forecasts belong in this museum&rsquo;s Forecast
 Wing, under resolution criteria, not in an essay. What I have done is
 take the four things that actually broke in 2008 and show that each
-one is <em>observable</em> in the AI-credit complex today: the grade,
-the correlation, the tail buffer, the skin in the game. That is the
-whole discipline. 2008 was not a failure to predict the future; it was
-a failure to describe the present &mdash; to say out loud, while the
-music played, that the diversification was fake and the rating was
-bought.</p>
+one is <em>observable</em> in the AI-credit complex today &mdash; and
+then run the stack forward to show the shape of the outcomes and name
+the single variable that decides between them. That is the whole
+discipline. 2008 was not a failure to predict the future; it was a
+failure to describe the present &mdash; to say out loud, while the
+music played, that the diversification was fake, the rating was
+bought, and the safe tranche was only ever as safe as the revenue
+underneath it.</p>
 
 <div class="note">The museum&rsquo;s Blowup Wing hangs the finished
 version of this story: Long-Term Capital Management, levered against a
@@ -167,7 +301,11 @@ to write down what everyone could already see.</div>
 
 <footer>BlueShip-AI Research &middot; The Risk Museum &middot;
 educational research only, not investment advice, and not a forecast
-of any security or market. Public sources: Bank for International
+of any security or market. The waterfall is a <b>stylized</b> Monte
+Carlo (200,000 draws, seed fixed for reproducibility) built to show
+the <em>shape</em> of outcomes and the sensitivity to one driver
+&mdash; its inputs are illustrative, declared in the code, and not
+estimates of any real pool. Public sources: Bank for International
 Settlements Annual Economic Report 2026; general history of structured
 finance and the 2007&ndash;2009 crisis.</footer>
 </main></body></html>
