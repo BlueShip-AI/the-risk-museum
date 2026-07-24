@@ -1,0 +1,173 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research note: The AI-CDO Is Already Being Built — The Risk Museum</title>
+<meta name="description" content="Structured finance is reassembling around AI infrastructure — datacenter debt, GPUs as collateral, circular financing. 2008 wasn't caused by securitization; it was caused by four nameable failures. Each one is observable in the AI-credit complex today.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/the-ai-cdo.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:720px; margin:0 auto }
+h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
+h2 { font-size:1.15rem; margin:2rem 0 .6rem }
+p, li { margin-bottom:.9rem; color:var(--fg) }
+ol, ul { padding-left:1.4rem }
+.sub { color:var(--muted); margin-bottom:2rem }
+.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+a { color:var(--blue) }
+footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.8rem }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+</style></head><body><main>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a class="on" href="./">Research/Personal Essays</a>
+<a href="../reading-room.html">Reading Room</a>
+<a href="../masterpieces.html">Case Studies</a>
+<a href="../membership.html">Membership</a>
+</nav>
+<h1>The AI-CDO Is Already Being Built</h1>
+<p class="sub">by V. Dimopoulos &middot; Research note #9 &middot; what
+2008 says about how AI infrastructure is being financed &middot;
+July 24, 2026</p>
+
+<p>I want to start by defending securitization, because the honest
+argument depends on it. Pooling loans and selling claims on the pool
+is not a crime; it is one of the more useful inventions in finance,
+and it did not cause 2008. What caused 2008 was four specific,
+nameable failures that happened to ride inside a securitization. Name
+them, and you can watch for them anywhere the same machine reassembles.
+It is reassembling now, around artificial intelligence, and this note
+is an inventory &mdash; not a prediction of when, only a description of
+what.</p>
+
+<h2>What is being built</h2>
+<p>The buildout of AI needs an extraordinary amount of capital, and
+the most profitable companies in the world have, unusually, started
+borrowing to fund it because their own cash flow can no longer keep
+pace. Around that demand a financing complex has grown: data-center
+developers borrowing against future rents; &ldquo;neocloud&rdquo;
+providers borrowing against multi-year compute contracts; and lenders
+increasingly willing to take the graphics chips themselves as
+collateral. The Bank for International Settlements &mdash; the central
+banks&rsquo; central bank, and the institution that warned about
+mortgage risk years before 2008 &mdash; devoted part of its 2026
+annual report to this. Its language is worth quoting because it is so
+careful: the sector shows &ldquo;circular financing,&rdquo; the
+&ldquo;opacity&rdquo; of the arrangements &ldquo;compounds
+vulnerabilities,&rdquo; collateral is in places &ldquo;pledged
+multiple times,&rdquo; and &ldquo;signs of stress are already
+visible.&rdquo; A chipmaker takes an equity stake in an AI lab; the
+lab commits to buy that maker&rsquo;s chips; a cloud provider borrows
+to house them; an insurer is offered the senior claim on that debt as
+a safe asset. Money runs in a circle, and each turn of the circle is
+booked as growth.</p>
+
+<h2>The four failures of 2008</h2>
+<p>Here is the inventory. Securitization was the vehicle; these were
+the passengers.</p>
+<ol>
+<li><b>The rating was corrupt.</b> Pools of poor mortgages were
+stamped AAA. The stamp, not the mortgage, was what institutions
+trusted &mdash; and the stamp was paid for by the people being rated.</li>
+<li><b>The correlation was hidden.</b> The models assumed one
+borrower&rsquo;s default said little about the next. That assumption
+held in calm and dissolved in the storm: when house prices fell, they
+fell everywhere at once, and &ldquo;diversified&rdquo; pools turned
+out to be one bet wearing many costumes.</li>
+<li><b>The tail capital was inadequate.</b> The buffers were sized
+for the normal distribution the models drew, not for the fat-tailed
+world the market actually lives in.</li>
+<li><b>The incentives were misaligned.</b> Originate-to-distribute:
+whoever wrote the loan sold it onward and kept none of the risk, so
+the reward for volume swamped the reward for care.</li>
+</ol>
+
+<h2>The same four, in AI clothing</h2>
+<p>Now hold the AI-credit complex against that list, one line at a
+time.</p>
+<p><b>Who is grading this paper?</b> Debt backed by data-center rents
+and depreciating chips is new enough that the rating apparatus for it
+is young. The 2008 lesson is not &ldquo;ratings are useless&rdquo; but
+&ldquo;a rating is only worth the independence and the model behind
+it,&rdquo; and a young market is exactly where an under-modeled,
+conveniently generous grade does its damage.</p>
+<p><b>Where is the hidden correlation?</b> This is the part that
+should keep a risk officer awake. These loans are not independent.
+They lean, almost all of them, on the continued spending of a handful
+of hyperscalers and on the fortunes of essentially one chip designer.
+A diversified-looking pool of data-center loans can be, underneath, a
+single concentrated bet on whether that spending continues &mdash; the
+2008 correlation trap with fewer moving parts, not more. And there is
+a hazard mortgages never had: <b>technology obsolescence</b>. A house
+securing a loan is worth roughly what it was worth last year. A
+graphics chip securing a loan sits on a steep curve of replacement,
+and its collateral value can fall for reasons that have nothing to do
+with the borrower&rsquo;s health and everything to do with a better
+chip shipping.</p>
+<p><b>Where does the tail land?</b> Increasingly, on insurance balance
+sheets. Private credit &mdash; including the infrastructure paper this
+note is about &mdash; is being sourced for the long-dated liabilities
+of annuity books precisely because it yields more than public bonds of
+the same stated grade. That extra yield is not free; it is payment for
+the illiquidity and the tail. The question a risk seat has to answer,
+before the paper is bought and not after, is whether the buffer behind
+those liabilities is sized for the fat-tailed world or the modeled
+one.</p>
+<p><b>Are the incentives aligned?</b> Originate-to-distribute is a
+structure, not an era; it returns wherever the writer of the risk can
+sell it onward. The honest tell is skin in the game &mdash; whether
+the party that structures the pool keeps a real, loss-absorbing piece
+of it.</p>
+
+<h2>Why this hangs in the museum</h2>
+<p>Notice what I have <em>not</em> done. I have not called a top,
+named a date, or told you the AI buildout will fail &mdash; on a
+decade&rsquo;s view it may well pay off, as the internet did. Timing
+is a forecast, and forecasts belong in this museum&rsquo;s Forecast
+Wing, under resolution criteria, not in an essay. What I have done is
+take the four things that actually broke in 2008 and show that each
+one is <em>observable</em> in the AI-credit complex today: the grade,
+the correlation, the tail buffer, the skin in the game. That is the
+whole discipline. 2008 was not a failure to predict the future; it was
+a failure to describe the present &mdash; to say out loud, while the
+music played, that the diversification was fake and the rating was
+bought.</p>
+
+<div class="note">The museum&rsquo;s Blowup Wing hangs the finished
+version of this story: Long-Term Capital Management, levered against a
+correlation that held until it didn&rsquo;t; the mortgage machine that
+called a concentrated bet a diversified one. Those are plaques because
+they are over. This note is about a structure that is still being
+assembled, and the only useful thing to do with a structure that is
+still being assembled is to name its load-bearing assumptions before
+they are tested rather than after. The failure of 2008 was never a
+failure of arithmetic. It was a failure of nerve &mdash; the refusal
+to write down what everyone could already see.</div>
+
+<footer>BlueShip-AI Research &middot; The Risk Museum &middot;
+educational research only, not investment advice, and not a forecast
+of any security or market. Public sources: Bank for International
+Settlements Annual Economic Report 2026; general history of structured
+finance and the 2007&ndash;2009 crisis.</footer>
+</main></body></html>
