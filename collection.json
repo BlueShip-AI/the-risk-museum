@@ -11,7 +11,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys companies whose acquired intangible assets have grown most above their own six-month average.",
    "tested": "2026-07-21"
   },
   {
@@ -43,7 +43,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Bets against stocks whose expected future price swings stand highest above their own six-month average.",
    "tested": "2026-07-19"
   },
   {
@@ -51,7 +51,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys companies whose reported annual sales have risen over the past two weeks.",
    "tested": "2026-07-18"
   },
   {
@@ -59,7 +59,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys companies covered by many analysts' capital-spending estimates while paying out little in dividends, and bets against the reverse.",
    "tested": "2026-07-18"
   },
   {
@@ -67,7 +67,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within its narrow peer group, bets against companies whose most optimistic earnings forecast has spiked above its own recent norm.",
    "tested": "2026-07-17"
   },
   {
@@ -75,7 +75,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each industry, buys companies whose analysts have raised their book-value-per-share estimates the most over the past six months.",
    "tested": "2026-07-16"
   },
   {
@@ -83,7 +83,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys stocks whose option-market measure of downside fear now sits near the top of its own past-year range.",
    "tested": "2026-07-16"
   },
   {
@@ -91,7 +91,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Bets against companies whose book value per share has risen unusually far above its own two-year average.",
    "tested": "2026-07-16"
   },
   {
@@ -99,7 +99,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each sector, bets against companies whose expected near-term price swings, as priced by their call options, have climbed furthest above their own past-year norm.",
    "tested": "2026-07-16"
   },
   {
@@ -107,7 +107,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Bets against stocks whose news and social sentiment is running high relative to its own six-month average.",
    "tested": "2026-07-16"
   },
   {
@@ -115,7 +115,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each industry, buys stocks whose long-dated put-option implied volatility has climbed the most over the past six months.",
    "tested": "2026-07-16"
   },
   {
@@ -123,7 +123,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys companies whose scheduled third-year debt repayments are unusually high versus their own yearly norm.",
    "tested": "2026-07-16"
   },
   {
@@ -131,7 +131,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each sector, bets against companies whose yearly sales look unusually high versus their own history.",
    "tested": "2026-07-16"
   },
   {
@@ -139,7 +139,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys companies whose quarterly accounting figure rose the most over the past three months.",
    "tested": "2026-07-16"
   },
   {
@@ -147,7 +147,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys companies that rank high on accumulated other comprehensive income but low on deferred local income taxes versus peers.",
    "tested": "2026-07-16"
   },
   {
@@ -155,7 +155,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Bets against companies whose debt-issuance costs climbed the most over the past week.",
    "tested": "2026-07-16"
   },
   {
@@ -163,7 +163,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Bets against companies whose reported federal tax expense jumped the most over the past week.",
    "tested": "2026-07-16"
   },
   {
@@ -171,7 +171,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys stocks whose price-and-volume momentum signal sits near the top of its own past-year range.",
    "tested": "2026-07-15"
   },
   {
@@ -179,7 +179,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys companies whose operating cash flow is running high relative to its own six-month average.",
    "tested": "2026-07-15"
   },
   {
@@ -187,7 +187,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys the stocks whose option-implied volatility has risen and fallen most in step with changes in their diluted share count.",
    "tested": "2026-07-15"
   },
   {
@@ -195,7 +195,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each industry, buys the companies whose expected dividend has climbed most above its own six-month average.",
    "tested": "2026-07-15"
   },
   {
@@ -203,7 +203,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each industry, buys the companies whose debt repayments stand highest versus their own six-month average.",
    "tested": "2026-07-15"
   },
   {
@@ -211,7 +211,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys the stocks whose long-dated expected volatility sits furthest above its own level of the past year.",
    "tested": "2026-07-15"
   },
   {
@@ -219,7 +219,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each narrow industry group, buys the companies whose reported annual sales have most recently jumped.",
    "tested": "2026-07-15"
   },
   {
@@ -227,7 +227,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys the stocks whose option-implied volatility has risen and fallen most in step with their own returns over the past month.",
    "tested": "2026-07-15"
   },
   {
@@ -235,7 +235,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each industry, buys the stocks whose price swings have widened the most over roughly six months compared with their peers.",
    "tested": "2026-07-15"
   },
   {
@@ -243,7 +243,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each sector, bets against the stocks whose recent price swings tower most above their own level of the past year.",
    "tested": "2026-07-15"
   },
   {
@@ -251,7 +251,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Buys the stocks whose analyst cash-flow forecasts have moved most in step with their news and social buzz over the past six months.",
    "tested": "2026-07-15"
   },
   {
@@ -259,7 +259,7 @@
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
    "status": "rejected",
-   "about": "",
+   "about": "Within each narrow industry group, bets against the companies whose reported accounting figure has spiked furthest above its own recent norm.",
    "tested": "2026-07-15"
   },
   {
