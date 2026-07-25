@@ -7,6 +7,14 @@
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
   {
+   "claim": "BRAIN candidate: rank(ts_delta(implied_volatility_mean_skew_60, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "Buys stocks where the options market's gauge of downside fear has risen the most over the past three months.",
+   "tested": "2026-07-22"
+  },
+  {
    "claim": "BRAIN candidate: rank(fnd6_acqintan / ts_mean(fnd6_acqintan, 120))",
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
