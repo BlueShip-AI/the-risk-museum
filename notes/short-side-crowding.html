@@ -1,0 +1,204 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measuring the Short Side — BlueShip Research Working Paper No. 12</title>
+<meta name="description" content="Daily FINRA consolidated short-volume gives four cross-sectional tests, none clearing a deflated promotion bar (t between -2.24 and 0.18). In stress, the most-shorted quintile outperforms by 220 bps/month (t=5.34) — a short-squeeze signature, upward-biased by survivorship. Short-side crowding is a risk measure, not a signal.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/short-side-crowding.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+</style></head><body><main>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../reading-room.html">Reading Room</a>
+<a href="../masterpieces.html">Case Studies</a>
+<a href="../membership.html">Membership</a>
+</nav>
+
+<div class="hdr">
+<h1>Measuring the Short Side: Daily Consolidated Short-Volume<br>
+Crowding as a Risk Measure, Not a Tradable Signal</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 12 &middot; 26 July 2026</div>
+</div>
+
+<p class="abstract"><span class="lab">Abstract.</span> We test whether daily
+consolidated short-volume, published without charge by FINRA under Regulation
+SHO, carries cross-sectional information for US large-cap equities. On a panel
+of 2,006 trading days and 406 names (2018&ndash;2026), we define a short-volume
+ratio (SVR) as short volume divided by total volume and, following the
+informed-short-seller literature (Boehmer, Huszar and Jordan, 2010), fix the
+direction a priori: long low-SVR, short high-SVR. Four smoothed transforms are
+declared in advance and judged against a deflation-adjusted promotion bar of
+Newey&ndash;West <i>t</i>&nbsp;&ge;&nbsp;2.96. Zero of the four clear it; the
+statistics range from &minus;2.24 to 0.18. In the nine worst equal-weight
+market months, however, the most-shorted quintile <i>outperforms</i> the
+least-shorted by 220 basis points per month (<i>t</i>&nbsp;=&nbsp;5.34), the
+signature of crowded shorts covering under stress. Because the universe is
+current index constituents &mdash; heavily-shorted names that survived their
+squeezes rather than those that collapsed and delisted &mdash; that estimate is
+upward-biased. We classify short-side crowding as a risk measure, not a signal.</p>
+<div class="keywords"><b>Keywords:</b> short volume, Regulation SHO, FINRA,
+short-side crowding, short squeeze, multiple testing, survivorship bias.</div>
+
+<h2>1. Introduction</h2>
+<p>Short sellers are, on average, informed. Heavily shorted stocks subsequently
+underperform (Boehmer, Huszar and Jordan, 2010), and daily short-sale flow
+predicts returns at short horizons (Diether, Lee and Werner, 2009). Those
+results rest on monthly short interest or on proprietary order flow. FINRA
+publishes a free daily alternative &mdash; consolidated short-volume from the
+Regulation SHO tapes &mdash; and this paper asks the narrow question whether
+that public, high-frequency proxy reproduces the same predictability in
+large-caps, or whether it merely reprices what is already crowded. The study is
+pre-registered: one measure, a family of four transforms fixed in advance, the
+trade direction fixed a priori, and the promotion bar set before any return was
+computed.</p>
+
+<h2>2. Data</h2>
+<p>The panel is FINRA daily consolidated short-volume (Regulation SHO), covering
+2,006 trading days and 406 large-cap names from 2018 through 2026. Consolidated
+(CDN) tape coverage begins in 2018; this is a stated limit that confines the
+sample to the post-2018 window and excludes every earlier stress episode, so the
+regime evidence below rests entirely on the drawdowns within this window. For
+each name and day the short-volume ratio SVR is short volume divided by total
+reported volume, smoothed before use.</p>
+
+<h2>3. Results</h2>
+<h3>3.1 Cross-sectional tests</h3>
+<p>Four transforms of SVR were declared in advance: the smoothed level over
+21 and 63 trading days, the 21-day change, and a sector-neutral level. Each is
+sorted in the a-priori direction and evaluated against a deflated promotion bar
+of Newey&ndash;West <i>t</i>&nbsp;&ge;&nbsp;2.96, the hurdle appropriate to a
+family of four. None clears it. The largest magnitude, the 21-day change at
+<i>t</i>&nbsp;=&nbsp;&minus;2.24, still falls short of the bar; the two level
+tests are indistinguishable from zero. Short-volume crowding does not forecast
+the cross-section of large-cap returns in this window.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Cross-sectional tests of the short-volume
+ratio. Deflated promotion bar: Newey&ndash;West <i>t</i>&nbsp;&ge;&nbsp;2.96
+(family of four).</div>
+<table>
+<tr><th>Transform</th><th>NW <i>t</i></th><th>Outcome</th></tr>
+<tr><td>SVR level, 21-day</td><td>&minus;0.06</td><td>fail</td></tr>
+<tr><td>SVR level, 63-day</td><td>0.18</td><td>fail</td></tr>
+<tr><td>SVR change, 21-day</td><td>&minus;2.24</td><td>fail</td></tr>
+<tr><td>SVR level, sector-neutral</td><td>&minus;0.06</td><td>fail</td></tr>
+</table>
+</div>
+
+<h3>3.2 Behaviour in stress</h3>
+<p>The signal is silent on average but not in the tails. In the nine worst
+equal-weight market months of the sample, the most-shorted quintile outperforms
+the least-shorted by 220 basis points per month, with a Newey&ndash;West
+<i>t</i>-statistic of 5.34. The sign is the opposite of a tradable short: the
+crowded-short leg gains precisely when the market falls, the mechanical
+signature of forced covering as short positions are unwound under stress.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 2.</b> Most-shorted minus least-shorted quintile
+return, nine worst equal-weight market months.</div>
+<table>
+<tr><th>State</th><th>Months</th><th>Spread</th><th>NW <i>t</i></th><th>Outcome</th></tr>
+<tr><td>Worst equal-weight market months</td><td>9</td><td>+220 bps/mo</td><td>5.34</td><td>held, not promoted</td></tr>
+</table>
+</div>
+
+<h2>4. Promotion test and discussion</h2>
+<p>Only one statistic in the study clears the bar, and it points the wrong way
+for a signal: the crowded-short leg rises in stress rather than falling. That is
+a property of the state, not an edge a desk can harvest, and it is contaminated
+by survivorship in a way set out in Section 5. The finding is therefore held,
+not promoted. It mirrors the museum&rsquo;s 13F crowding study, where an effect
+that was statistically real was retained as a risk measure rather than shipped
+as product. A risk desk learns from it where covering pressure concentrates; a
+trading desk learns nothing it can act on.</p>
+
+<h2>5. Limitations</h2>
+<p>The binding limitation is survivorship. The universe is current index
+constituents, so it retains only the heavily-shorted names that <i>survived</i>
+their squeezes; the names that collapsed under short pressure and delisted are
+absent by construction. The +220 bps stress estimate is measured on the
+survivors of exactly the event it describes and is therefore an upper bound, not
+a neutral figure. Two further limits are structural: consolidated coverage
+begins only in 2018, so the sample cannot see earlier crises, and short volume
+is a flow proxy for positioning, not a direct measure of short interest or of
+economic exposure through derivatives.</p>
+
+<div class="note">This study is retained because a naive read of
+<i>t</i>&nbsp;=&nbsp;5.34 looks like a green light. It is the opposite: the
+number is large because the sample has already discarded the shorts that were
+right. Measuring crowding on the survivors of the squeeze is how a risk measure
+gets mistaken for a signal.</div>
+
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Boehmer, E., Huszar, Z. R., and Jordan, B. D. (2010). The Good News in
+Short Interest. <i>Journal of Financial Economics</i>, 96(1).</li>
+<li>Diether, K. B., Lee, K.-H., and Werner, I. M. (2009). Short-Sale
+Strategies and Return Predictability. <i>Review of Financial Studies</i>,
+22(2).</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Data: FINRA daily consolidated
+short-volume (Regulation SHO). Hypothetical results on a survivorship-biased
+universe of current index constituents; reported statistics are upper bounds.</footer>
+</main></body></html>

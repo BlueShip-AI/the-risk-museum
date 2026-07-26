@@ -1,0 +1,203 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Uncorrelated Book — BlueShip Research Working Paper No. 14</title>
+<meta name="description" content="A disclosed ten-desk paper platform combined by inverse-volatility risk parity: weighted-average standalone desk vol 18.0%, combined unlevered book vol 7.7%, a 2.35x diversification ratio and roughly a 57% risk reduction. Average pairwise absolute correlation 0.29. A risk-discipline exhibit, not a live edge.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/uncorrelated-book.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+</style></head><body><main>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../reading-room.html">Reading Room</a>
+<a href="../masterpieces.html">Case Studies</a>
+<a href="../membership.html">Membership</a>
+</nav>
+
+<div class="hdr">
+<h1>The Uncorrelated Book: What Diversification Actually<br>
+Buys a Multi-Manager Platform</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 14 &middot; 26 July 2026</div>
+</div>
+
+<p class="abstract"><span class="lab">Abstract.</span> We decompose the risk
+of the museum&rsquo;s Trading Floor, a disclosed paper book constructed as a
+multi-manager platform, into standalone desk risk and the risk that survives
+their combination. Ten desks (three systematic: equity beta, low-volatility/BAB,
+and trend/TSMOM; and seven within-sector long/short) are combined by
+inverse-volatility risk parity to a 10% annualized volatility target. The
+weighted-average standalone desk volatility is 18.0%, while the combined,
+unlevered book realizes 7.7%: a diversification ratio of 2.35x and a reduction
+in risk of roughly 57% from diversification alone. Average pairwise absolute
+correlation across the ten desks is 0.29, with a built-in hedge
+(low-volatility/BAB at &minus;0.66 to equity beta) offsetting a
+momentum-aligned cluster of sector desks. The universe is current S&amp;P
+constituents, so the return behind the book is an upper bound; the exhibit is
+the risk discipline, not the raw return.</p>
+<div class="keywords"><b>Keywords:</b> diversification ratio, risk parity,
+multi-manager platform, portfolio construction, correlation structure, risk
+budgeting.</div>
+
+<h2>1. Introduction</h2>
+<p>A multi-manager platform earns its structure not from any single desk but
+from the imperfect correlation among many of them. The fundamental law of
+active management makes the mechanism explicit: value added rises with the
+breadth of independent bets, not with the conviction behind one of them
+(Grinold and Kahn, 2000). This note measures what that breadth is worth on the
+museum&rsquo;s Trading Floor, a disclosed paper book assembled as ten desks and
+combined into one portfolio. The object of study is the gap between the risk
+each desk carries alone and the risk the combined book actually realizes, and
+the correlation structure that produces the gap.</p>
+
+<h2>2. Construction of the book</h2>
+<p>The book comprises ten desks: three systematic sleeves (equity beta, a
+low-volatility/betting-against-beta desk, and a trend/time-series-momentum
+desk) and seven within-sector long/short desks. Desks are combined by
+inverse-volatility risk parity and the whole is scaled to a 10% annualized
+volatility target. Because the seven sector desks share a single momentum
+factor and therefore co-move, the allocator budgets them as one group rather
+than ten independent positions, so the cluster cannot swamp the book. The
+construction is deliberately disclosed and unlevered; the point of the exhibit
+is the arithmetic of combination, not a proprietary allocation.</p>
+
+<h2>3. Results</h2>
+<h3>3.1 Risk decomposition</h3>
+<p>Following Choueifaty and Coignard (2008), the diversification ratio is the
+weighted average of standalone desk volatilities divided by the volatility of
+the combined portfolio. The weighted-average standalone desk volatility is
+18.0%. Combined and unlevered, the book realizes 7.7%. The ratio is therefore
+2.35x, equivalent to a reduction in risk of roughly 57% attributable to
+diversification alone, before any leverage is applied to reach the target.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Risk decomposition of the combined book.</div>
+<table>
+<tr><th>Quantity</th><th>Value</th></tr>
+<tr><td>Weighted-average standalone desk volatility</td><td>18.0%</td></tr>
+<tr><td>Combined unlevered book volatility</td><td>7.7%</td></tr>
+<tr><td>Diversification ratio</td><td>2.35x</td></tr>
+<tr><td>Risk reduction from diversification</td><td>~57%</td></tr>
+<tr><td>Volatility target</td><td>10.0%</td></tr>
+</table>
+</div>
+
+<h3>3.2 Correlation structure</h3>
+<p>Average pairwise absolute correlation across the ten desks is 0.29, low
+enough that the sleeves offset rather than reinforce one another. Two features
+carry most of the benefit. The low-volatility/BAB desk is &minus;0.66
+correlated to equity beta, a built-in hedge that fires precisely when beta
+hurts. The trend/TSMOM desk is +0.60 to beta, adding directional exposure in
+persistent regimes. The seven sector desks cluster at roughly +0.3 to +0.5
+among themselves because they share one momentum factor, which is the reason
+the allocator treats them as a single risk budget.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 2.</b> Selected pairwise correlations among desks.</div>
+<table>
+<tr><th>Relationship</th><th>Correlation</th></tr>
+<tr><td>Average pairwise absolute (all ten desks)</td><td>0.29</td></tr>
+<tr><td>Low-volatility/BAB vs. equity beta</td><td>&minus;0.66</td></tr>
+<tr><td>Trend/TSMOM vs. equity beta</td><td>+0.60</td></tr>
+<tr><td>Sector desks, within cluster</td><td>+0.3 to +0.5</td></tr>
+</table>
+</div>
+
+<h2>4. Discussion</h2>
+<p>The reading is straightforward. Uncorrelated sleeves, not a single large
+bet, are the platform&rsquo;s engine, and the 2.35x ratio is a direct measure
+of what that diversification buys. The negative correlation of the
+low-volatility desk to equity beta and the modest average pairwise correlation
+are what let ten desks of 18.0% standalone volatility combine to 7.7%. Grouping
+the momentum-aligned sector desks into one budget prevents a correlated cluster
+from quietly rebuilding the concentration that risk parity is meant to remove.
+The exhibit demonstrates risk discipline in construction; it is not a claim
+about how much the book earns.</p>
+
+<h2>5. Limitations</h2>
+<p>The book trades a survivorship-biased universe of current S&amp;P
+constituents, so any return or Sharpe ratio behind the combined book is an
+upper bound and is not the subject of this note. The measured object is risk:
+standalone volatilities, the combined volatility, the diversification ratio,
+and the correlation structure. Correlations are historical and regime-varying,
+and the &minus;0.66 hedge and the sector cluster can both migrate in stress;
+the budgeting of the sector desks as one group is a guard against exactly that
+migration rather than a promise it will not occur.</p>
+
+<div class="note">This is a tombstone of construction, not of alpha. It is kept
+because the discipline it records&mdash;uncorrelated sleeves, a correlated
+cluster budgeted as one, an honest survivorship caveat&mdash;is what separates
+a diversified book from a levered concentration wearing its name.</div>
+
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Choueifaty, Y., and Coignard, Y. (2008). Toward Maximum Diversification.
+<i>Journal of Portfolio Management</i>, 35(1), 40&ndash;51.</li>
+<li>Grinold, R. C., and Kahn, R. N. (2000). <i>Active Portfolio Management</i>
+(2nd ed.). McGraw-Hill.</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. The Trading Floor is a disclosed,
+unlevered paper book on a survivorship-biased universe of current S&amp;P
+constituents; reported figures are risk measures, and any return behind the
+book is an upper bound.</footer>
+</main></body></html>

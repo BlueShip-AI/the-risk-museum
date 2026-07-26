@@ -1,0 +1,200 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Factor Zoo Meets an Honest Bar — BlueShip Research Working Paper No. 13</title>
+<meta name="description" content="All 158 of Qlib's Alpha158 technical alphas, run as one family on ~21 years of US large caps. 29 clear a naive t>=2.5; zero survive a multiplicity-deflated (t>=4.11), cost-stressed bar. The zoo is short-term reversal and a volatility risk premium in disguise.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/factor-zoo-honest-bar.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+</style></head><body><main>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../reading-room.html">Reading Room</a>
+<a href="../masterpieces.html">Case Studies</a>
+<a href="../membership.html">Membership</a>
+</nav>
+
+<div class="hdr">
+<h1>The Factor Zoo Meets an Honest Bar: 158 Published<br>
+Technical Alphas, Zero Survivors of a Deflated,<br>
+Cost-Stressed Promotion Test</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 13 &middot; 26 July 2026</div>
+</div>
+
+<p class="abstract"><span class="lab">Abstract.</span> We run all 158
+technical alphas of Microsoft Qlib&rsquo;s Alpha158 library as a single test
+family on roughly 21 years of US large-cap equities, through the museum&rsquo;s
+fixed gates. Admitting both sign choices yields a family of 316 hypotheses.
+Twenty-nine of the 158 clear a naive significance bar of <i>t</i>&nbsp;&ge;&nbsp;2.5.
+None survives a multiplicity-deflated promotion bar of <i>t</i>&nbsp;&ge;&nbsp;4.11
+once a margin-of-safety re-audit halves gross return and doubles costs. The
+strongest survivors are uniformly short-term reversal and overbought signals
+whose measured gross edge the doubled-cost stress removes; the volatility
+features collapse hardest under that stress. We read the published
+technical-factor zoo as short-term reversal and a volatility risk premium in
+disguise, and record zero promotions. The universe holds only current S&amp;P
+constituents, so it flatters even these figures, which are therefore upper
+bounds.</p>
+<div class="keywords"><b>Keywords:</b> factor zoo, multiple testing, Alpha158,
+short-term reversal, volatility risk premium, transaction costs, survivorship
+bias.</div>
+
+<h2>1. Introduction</h2>
+<p>The published cross-section of expected returns is crowded with factors, and
+the count is itself the problem. Harvey, Liu, and Zhu (2016) argue that the
+sheer number of tests demands a significance bar well above the conventional
+<i>t</i> of 2, and Harvey and Liu (2019) catalog the resulting zoo. This paper
+takes that argument as an operating rule rather than a commentary. We adopt an
+off-the-shelf technical-factor library, run every one of its signals as one
+declared family, and ask a single question: does anything clear an honest bar
+that is deflated for multiplicity and re-audited under stress. The answer, on
+this universe, is nothing.</p>
+
+<h2>2. Data and method</h2>
+<p>The signals are the 158 technical alphas of Microsoft Qlib&rsquo;s Alpha158
+feature set, computed on roughly 21 years of US large-cap prices. The universe
+is current S&amp;P constituents and is therefore survivorship-biased: only names
+that survived to the present are counted, which lifts the apparent edge of any
+signal that rewards persistence. Because a signal and its negation are distinct
+hypotheses, the family is scored at size 316, both sign choices of all 158
+features, and the multiplicity correction is set against that count before any
+result is read.</p>
+<p>Three bars are applied in sequence. The first is a naive significance
+threshold of <i>t</i>&nbsp;&ge;&nbsp;2.5. The second is a deflated promotion
+threshold of <i>t</i>&nbsp;&ge;&nbsp;4.11, set in the Bonferroni and Taleb
+spirit for a family of this size. The third is a margin-of-safety re-audit in
+which gross return is halved and transaction costs are doubled, so that a claim
+must remain significant after its economics are deliberately worsened.</p>
+
+<h2>3. Results</h2>
+<p>Twenty-nine of the 158 alphas clear the naive <i>t</i>&nbsp;&ge;&nbsp;2.5
+bar. Zero clear the deflated and stressed bar. No sign choice, and no member of
+the 316-hypothesis family, is promoted.</p>
+<p>The signals that come closest are, without exception, short-term reversal and
+overbought measures. The strongest is a days-since-20-day-high signal (IMAX20),
+with a Newey&ndash;West <i>t</i> of 4.46 that falls to a stressed <i>t</i> of
+3.68 once gross is halved and costs are doubled; the same pattern holds for the
+short-term reversal and range signals near the top of the list (RSV20, RANK20,
+MIN5). These are real gross effects, but they trade quickly, and doubling the
+cost assumption vaporizes them. The volatility features collapse hardest under
+the same stress, consistent with their edge being compensation for bearing risk
+rather than a mispricing.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Promotion outcome across the three bars,
+Alpha158 as one family of 158 signals (316 with both signs).</div>
+<table>
+<tr><th>Bar</th><th>Threshold</th><th>Clearing</th><th>Outcome</th></tr>
+<tr><td>Naive significance</td><td><i>t</i> &ge; 2.5</td><td>29 of 158</td><td>none promoted</td></tr>
+<tr><td>Deflated promotion (Bonferroni/Taleb)</td><td><i>t</i> &ge; 4.11</td><td>0 of 158</td><td>none promoted</td></tr>
+<tr><td>Deflated + stressed (gross halved, costs doubled)</td><td>&mdash;</td><td>0 of 158</td><td>none promoted</td></tr>
+</table>
+</div>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 2.</b> Strongest survivor under the naive bar and its
+behaviour under the cost stress.</div>
+<table>
+<tr><th>Signal</th><th>NW <i>t</i></th><th>Stressed <i>t</i></th><th>Outcome</th></tr>
+<tr><td>IMAX20 (days since 20-day high)</td><td>4.46</td><td>3.68</td><td>not promoted</td></tr>
+</table>
+</div>
+
+<h2>4. Discussion</h2>
+<p>Read together, the survivors describe the zoo rather than escape it. The
+technical alphas that carry any measured edge on this universe are short-term
+reversal and a volatility risk premium in disguise: fast, overbought-and-revert
+signals whose profit lives inside the transaction costs, and volatility
+exposures that pay for risk. None of it clears a bar that is honestly deflated
+for the size of the search and then re-audited under doubled costs. The result
+is a null, and it is reported as one. Nothing here is a tradable claim; the
+figures are tombstones and risk observations, not a signal.</p>
+
+<h2>5. Limitations</h2>
+<p>Two, both of which cut in the same direction. First, the universe is current
+S&amp;P constituents and so survivorship-biased; the naive counts and the
+survivor <i>t</i>-statistics are inflated by that bias, and are best read as
+upper bounds. A universe that included the delisted names would not raise these
+numbers. Second, the study covers one technical-factor library, not the whole
+zoo; it demonstrates that a widely used off-the-shelf set fails an honest bar,
+not that every published factor does. Both limitations make the conclusion more
+conservative, not less: the honest bar is already unmet on figures that flatter
+the signals.</p>
+
+<div class="note">This tombstone is retained because Alpha158 is exactly the
+sort of library a desk mines for product, and twenty-nine names cross the bar a
+casual test would use. Recording that none of them survives multiplicity and
+cost is what keeps the few signals that do pass worth believing.</div>
+
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Harvey, C. R., and Liu, Y. (2019). A Census of the Factor Zoo. SSRN Working
+Paper 3341728.</li>
+<li>Harvey, C. R., Liu, Y., and Zhu, H. (2016). &hellip;and the Cross-Section of
+Expected Returns. <i>Review of Financial Studies</i>, 29(1), 5&ndash;68.</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Signals: Microsoft Qlib Alpha158.
+Hypothetical results on a survivorship-biased universe of current S&amp;P
+constituents; reported statistics are upper bounds.</footer>
+</main></body></html>
