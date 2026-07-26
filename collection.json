@@ -7,6 +7,14 @@
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
   {
+   "claim": "Crowded-exit risk: stocks with high hedge-fund ownership overlap (13F-derived, point-in-time by filing date) underperform specifically during vol-spike windows \u2014 the pod-liquidation cascade priced as a conditional factor (Young&Calculated pod-contagion mechanism; Patterson/DESCO lenses as priors)",
+   "stage": "validation",
+   "reason": "comovement diff +0.009 (t=4.09), stress spread -142bps (t=-3.90, n=14) \u2014 neither claim clears the deflated stressed bar",
+   "status": "rejected",
+   "about": "Bets that stocks owned by the same many hedge funds get hit hardest when those funds all rush the exit at once.",
+   "tested": "2026-07-23"
+  },
+  {
    "claim": "Asness equal-risk benchmark: inverse-volatility weighting of the 7Twelve 12-ETF sleeve beats its equal-weight version and 60/40 SPY/AGG",
    "stage": "validation",
    "reason": "inverse-vol 7Twelve: -4.00%/yr vs equal-weight (t=-1.63), -6.59%/yr vs 60/40 (t=-3.58) \u2014 risk-weighting was not the missing ingredient either",

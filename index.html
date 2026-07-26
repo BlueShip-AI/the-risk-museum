@@ -176,16 +176,19 @@ research pipeline (I call it the swarm) that runs every night. The permanent
 collection: the ones that didn&rsquo;t survive.</p>
 <div class="stats">
   <div><b>257</b><span>ideas filed</span></div>
-  <div><b>101</b><span>retired, on view</span></div>
+  <div><b>102</b><span>retired, on view</span></div>
   <div><b>2</b><span>in the vault (survivors)</span></div>
   <div><b>$910,297 over 22 years</b><span>$100k in an S&amp;P index fund, same window
     &mdash; the bar every strategy must beat</span></div>
 </div>
 <p class="sub" style="font-size:.85rem">Of 257 ideas filed,
-140 carry a final verdict &mdash; 101 retired and shown
-below, 2 held in the vault, and 37 still inside the
-3-day publication lag; the remaining 117 are still in
-testing or did not complete a run.</p>
+140 carry a final verdict &mdash; 102 retired and shown
+below, 2 held in the vault, and 36 still inside the
+3-day publication lag. Of the rest, 19 are queued for
+testing and 98 could not run at all &mdash; machine-written
+candidates that call for paid data this free stack does not have. Counting those
+as &ldquo;in testing&rdquo; would flatter the number, so they are shown
+separately.</p>
 <div class="thesis">
 <h2>What this record is meant to show</h2>
 <p><b>A view, held against the consensus.</b> The published factor zoo does not
@@ -253,7 +256,7 @@ own name, retired by my own gates.</span></li>
     </article>
 <h2 class="sect" id="collection">Tested strategies: the permanent
 collection</h2>
-<p class="sect-sub">101 strategies tested and retired &middot;
+<p class="sect-sub">102 strategies tested and retired &middot;
 newest first</p>
 <p class="sub">Each plaque records the claim and the gate that retired
 it. The strategies that reached a full backtest are totalled first, the
@@ -271,6 +274,14 @@ quality score &middot; <b>LOW_SUB_UNIVERSE_SHARPE</b>: fails on the smaller-stoc
 subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
 &middot; <b>SELF_CORRELATION</b>: it duplicates a signal I already have.</p></details>
 
+    <article class="stone">
+      <div class="rip">Tested 2026-07-23</div>
+      <h3>Bets that stocks owned by the same many hedge funds get hit hardest when those funds all rush the exit at once.</h3>
+      <div class='tech'>Crowded-exit risk: stocks with high hedge-fund ownership overlap (13F-derived, point-in-time by filing date) underperform specifically during vol-spike windows — the pod-liquidation cascade priced as a conditional factor (Young&amp;Calculated pod-contagion mechanism; Patterson/DESCO lenses as priors)</div>
+      <div class="cause">Retired at <b>validation</b>:
+        comovement diff +0.009 (t=4.09), stress spread -142bps (t=-3.90, n=14) — neither claim clears the deflated stressed bar</div>
+      
+    </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-23</div>
       <h3>Cliff Asness&#x27;s argument (via Busca podcast): weighting by inverse volatility is the benchmark no optimizer reliably beats. Equal-weight 7Twelve just died; this asks whether risk-weighting, not asset count, was the missing ingredient.</h3>
