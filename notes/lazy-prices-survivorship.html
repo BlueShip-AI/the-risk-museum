@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lazy Prices Meets Survivorship — BlueShip Research Working Paper No. 15</title>
-<meta name="description" content="We test the Lazy-Prices disclosure-text anomaly on 14,155 EDGAR filings for 406 current large-cap constituents. It does not replicate: the year-over-year text-change measure is methodology-sensitive and, when significant, inverts (the biggest changers slightly outperform, |t|=2.55), below the promotion bar. The likely cause is survivorship, which deletes the informative short leg.">
+<meta name="description" content="I test the Lazy-Prices disclosure-text anomaly on 14,155 EDGAR filings for 406 current large-cap constituents. It does not replicate: the year-over-year text-change measure is methodology-sensitive and, when significant, inverts (the biggest changers slightly outperform, |t|=2.55), below the promotion bar. The likely cause is survivorship, which deletes the informative short leg.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/lazy-prices-survivorship.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -75,7 +75,7 @@ Anomaly Inverts in a Survivor-Only Sample</h1>
 
 <p class="abstract"><span class="lab">Abstract.</span> Cohen, Malloy and Nguyen
 (2020) show that firms which change the language of their periodic filings
-subsequently underperform &mdash; disclosure inertia is good news. We test the
+subsequently underperform &mdash; disclosure inertia is good news. I test the
 effect on 14,155 EDGAR 10-Q and 10-K filings for 406 current large-cap index
 constituents, measuring text change as one minus the year-over-year cosine
 similarity of a filing to the same period a year earlier. The effect does not
@@ -85,7 +85,7 @@ a seasonally-controlled, stopword-cleaned version is significant but
 <i>opposite</i> in sign &mdash; the firms that changed the most slightly
 outperformed (a low-minus-high spread of &minus;1.97% over the next quarter,
 Newey&ndash;West <i>t</i>&nbsp;=&nbsp;&minus;2.55), and even that is well below
-the museum&rsquo;s stressed promotion bar. We argue the inversion is a
+the museum&rsquo;s stressed promotion bar. I argue the inversion is a
 survivorship artifact: a current-constituents panel deletes the informative
 short leg &mdash; the firms that rewrote their disclosure on the way to trouble
 &mdash; leaving only the changers that survived. The anomaly cannot be cleanly
@@ -105,8 +105,8 @@ this kind is exactly what a price-exhausted research program should want to
 test.</p>
 
 <h2>2. Data and method</h2>
-<p>We harvest every 10-Q and 10-K primary document filed since 2015 by the 406
-names in our universe with EDGAR coverage &mdash; 14,155 filings in all &mdash;
+<p>I harvest every 10-Q and 10-K primary document filed since 2015 by the 406
+names in my universe with EDGAR coverage &mdash; 14,155 filings in all &mdash;
 and reduce each to a stripped-text word vector, discarding inline-XBRL
 scaffolding and high-frequency stopwords that every filing shares. Following
 Cohen, Malloy and Nguyen, text change is measured <i>year over year, same
@@ -160,7 +160,7 @@ what disclosure change predicts.</p>
 deflated bar this museum requires (near a raw <i>t</i> of 5), in the wrong
 direction, and with a mechanism that points at survivorship rather than
 information. The honest conclusion is not that Lazy Prices is false &mdash; the
-original result stands on a survivorship-free universe we do not have &mdash;
+original result stands on a survivorship-free universe I do not have &mdash;
 but that it cannot be tested here. Reading the language of filings remains a
 promising orthogonal lane; testing it properly requires point-in-time
 constituents and delisting returns, the data this program has repeatedly
