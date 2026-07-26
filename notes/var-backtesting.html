@@ -58,8 +58,8 @@ VaR models, twenty years of the S&amp;P&nbsp;500, one honest backtest
 
 <p>Value-at-Risk is a promise with a number attached: on 99 days out of
 100, tomorrow&rsquo;s loss will not exceed <em>this</em>. The museum&rsquo;s
-whole premise is that a number is worth exactly what its backtest says
-&mdash; so before you trust a VaR, you backtest it. This note backtests
+whole premise is that a number is worth exactly what its backtest says.
+So before you trust a VaR, you backtest it. This note backtests
 three of the standard ones on SPY, the S&amp;P&nbsp;500 ETF, using twenty
 years of daily returns and grading them strictly out of sample: every VaR
 quoted for a day is built only from returns <em>before</em> that day, then
@@ -70,7 +70,7 @@ checked against a return it never got to see.</p>
 re-estimated every day on a rolling 500-day window (about two years):
 <b>Historical Simulation</b> reads the empirical quantile straight off the
 window; the <b>Gaussian</b> assumes a normal and uses the window&rsquo;s
-mean and standard deviation; <b>EWMA</b> is the RiskMetrics recipe &mdash; a
+mean and standard deviation; <b>EWMA</b> is the RiskMetrics recipe, a
 zero-mean normal whose variance decays at &lambda;&nbsp;=&nbsp;0.94, so it
 forgets old calm quickly. All three are graded on the identical evaluation
 sample, <b>4,922 one-day forecasts</b> from December 2006 to July 2026, so
@@ -92,18 +92,18 @@ by hand.</p>
 </table></div>
 <p class="sub" style="font-size:.82rem;margin:-.3rem 0 1.4rem">Kupiec and
 Christoffersen p-values below 0.05 reject the model. A p of 0.0000 is the
-code&rsquo;s four-decimal print of a value too small to show &mdash; not an
+code&rsquo;s four-decimal print of a value too small to show. It is not an
 exact zero. The Basel traffic light is defined only for the 99% test.</p>
 
 <h2>What twenty years says</h2>
 <p>All three models fail Kupiec&rsquo;s unconditional-coverage test at both
 99% and 95%: every one of them under-covers the tail. The Gaussian is worst.
-It budgeted for 49 breaches at 99% and took <b>145</b> &mdash; a 2.95%
+It budgeted for 49 breaches at 99% and took <b>145</b>, a 2.95%
 exception rate on a number that promised 1%, roughly three times the losses
 it said it was insuring against. Historical Simulation is the least-bad on
 the full sample at 1.75%, EWMA sits between at 2.42%. Christoffersen&rsquo;s
 conditional-coverage test is rejected for all three, which means the
-breaches are not scattered evenly &mdash; they arrive in clusters. That is
+breaches are not scattered evenly. They arrive in clusters. That is
 the tell. A VaR that is wrong in bursts is worse than one that is wrong at
 random, because the bursts are the days you built it for.</p>
 
@@ -122,50 +122,50 @@ random, because the bursts are the days you built it for.</p>
 </table></div>
 
 <p>Now the ranking flips. In 2008 the Gaussian took 28 breaches where 2.5
-were expected and Historical Simulation took 20 &mdash; both because a
+were expected and Historical Simulation took 20, both because a
 trailing window is slow to admit that the world has changed, and a 99%
 number built on last year&rsquo;s calm is a fiction once the calm breaks.
 EWMA, whose variance reacts within days, took 6. COVID&rsquo;s near-vertical
 crash is the harder case: even EWMA took 6 against 0.6 expected, because no
-one-day model front-runs an overnight gap &mdash; but the window methods
+one-day model front-runs an overnight gap. But the window methods
 took 10 and 12. The model with the best <em>full-sample</em> rate,
 Historical Simulation, is not the model you want in a storm.</p>
 
 <h2>The green light</h2>
 <p>Here is the part a risk committee should sit with. Basel&rsquo;s traffic
 light looks only at the most recent 250 days. Today that window is quiet, so
-all three models glow <b>green</b> &mdash; a clean bill of health from the
+all three models glow <b>green</b>, a clean bill of health from the
 one test a regulator reads first. The same three models, over twenty years,
 under-cover their tails; the 2008 column says two of them come apart exactly
-when it matters. A green light is a statement about the last twelve months,
-not about the model. The backtest that spans the crises is the one that
+when it matters. A green light describes the last twelve months. It says
+nothing about the model. The backtest that spans the crises is the one that
 tells you what you actually own.</p>
 
 <h2>The verdict</h2>
-<p><b>No 1-day VaR here covered its tail: all three failed Kupiec at 99% and
-95%, the Gaussian failed worst, and the model that held up through the
-crises &mdash; EWMA &mdash; is not the one today&rsquo;s traffic light
+<p><b>No 1-day VaR here covered its tail. All three failed Kupiec at 99% and
+95%, and the Gaussian failed worst. EWMA held up best through the
+crises, and it is not the model today&rsquo;s traffic light
 rewards.</b> None of these numbers would earn a promotion in this museum;
 they earn a plaque for failing honestly, which is the only kind of failure
 worth hanging.</p>
 
 <h2>Declared limits</h2>
-<p>Three, stated plainly. <b>One instrument.</b> This is SPY alone &mdash; a
-single, deeply liquid index with continuous history, which is the
+<p>Three, stated plainly. <b>One instrument.</b> This is SPY alone. It is a
+single, deeply liquid index with continuous history, the
 <em>easy</em> case for VaR. A book of individual names, some of which
-delisted, is strictly harder and its VaR would look worse, not better; the
+delisted, is strictly harder and its VaR would look worse; the
 museum&rsquo;s wider price panel is survivorship-biased, and this study
 sidesteps that only by testing the index itself. <b>The normal tail.</b>
 Both parametric models assume a bell curve, which understates fat tails even
-when the volatility estimate is right &mdash; that is most of why the
-Gaussian and EWMA under-cover, and it is a modelling choice, not an accident
+when the volatility estimate is right. That is most of why the
+Gaussian and EWMA under-cover, and it is a modelling choice rather than an accident
 of this sample. <b>The window is a knob.</b> Five hundred days is a choice;
 a shorter window reacts faster to a regime change but estimates the 1%
 quantile from fewer tail points, and the honest reading is that no single
 window wins in both calm and crisis.</p>
 
-<div class="note">Why this hangs in the museum: most VaR you meet in the
-wild is quoted, never backtested &mdash; a number on a risk report with no
+<div class="note">This hangs in the museum because most VaR you meet in the
+wild is quoted but never backtested, a number on a risk report with no
 scorecard behind it. The museum&rsquo;s job is to run the scorecard and
 publish it even when the answer is &ldquo;all three failed, and here is how.&rdquo;
 A number that fails a test you can see is more useful than a number that
@@ -178,6 +178,6 @@ closes from the project price panel; log returns, December 2006 &ndash; July
 chi-square tail probabilities from SciPy; the traffic-light zones follow the
 Basel Committee&rsquo;s backtesting framework for the 99% one-day measure.
 Every statistic is computed by
-<code>pipeline/var_backtest.py</code> &mdash; the note reports the code&rsquo;s
+<code>pipeline/var_backtest.py</code>. The note reports the code&rsquo;s
 output and nothing else.</footer>
 </main></body></html>

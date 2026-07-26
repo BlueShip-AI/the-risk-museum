@@ -12,7 +12,7 @@
     --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
-  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+  font:17px/1.6 Georgia,'Times New Roman', serif; padding:2rem 1rem 4rem; }
 main { max-width:720px; margin:0 auto }
 h1 { font-size:1.9rem; margin-bottom:.4rem }
 .tag { letter-spacing:.22em; text-transform:uppercase; font-size:.75rem;
@@ -32,8 +32,8 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 .tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
-  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
-  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px), transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px), transparent) }
 .tabs::-webkit-scrollbar { display:none }
 .tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
   text-decoration:none; border:1px solid transparent;
@@ -55,7 +55,34 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <p style="color:var(--muted);font-size:.82rem;line-height:1.5;margin:0 0 1.4rem">The Risk Museum: an autonomous AI pipeline tests trading-strategy ideas the way a quant desk would, and publishes the ones that fail its gates. <a href="../">New here? Start at the entrance &rarr;</a></p>
 <h1>Research Notes</h1>
 <p class="tag">short essays from the research floor</p>
-<p style="color:var(--muted);font-size:.95rem;line-height:1.55;margin:0 0 1.8rem">Each note is a case study in what the pipeline tested, retired, and learned &mdash; written to be read cold by a practitioner, with every number traceable to the same gated code that runs the rest of the museum.</p>
+<p style="color:var(--muted);font-size:.95rem;line-height:1.55;margin:0 0 1.8rem">Each note is a case study in what the pipeline tested, retired, and learned, written to be read cold by a practitioner, with every number traceable to the same gated code that runs the rest of the museum.</p>
+
+<a class="note-card" href="research-foundations.html">
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<g stroke="var(--muted)" stroke-width="2">
+<path d="M32 10 V22 M32 22 H16 V34 M32 22 H48 V34 M16 34 V46 M48 34 V46"/></g>
+<circle cx="32" cy="10" r="4" fill="var(--blue)"/>
+<circle cx="16" cy="46" r="4" fill="var(--muted)"/>
+<circle cx="48" cy="46" r="4" fill="var(--accent)"/>
+</svg>
+<div class="note-body"><h2>The Museum&rsquo;s Method</h2>
+<p>V. Dimopoulos &middot; Research note #12 &middot; Jul 25, 2026 &middot; the
+methods canon behind every gate. Start from the counterfactual, settle the
+design before touching data, choose the test that fits the question, then raise
+the bar for how many tests you ran.</p></div></a>
+
+<a class="note-card" href="risk-teardown.html">
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<rect x="10" y="40" width="10" height="16" fill="var(--blue)" opacity=".5"/>
+<rect x="27" y="24" width="10" height="32" fill="var(--accent)"/>
+<rect x="44" y="34" width="10" height="22" fill="var(--blue)" opacity=".5"/>
+<line x1="6" y1="16" x2="58" y2="16" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 3"/>
+</svg>
+<div class="note-body"><h2>Reading a Book: a risk teardown</h2>
+<p>V. Dimopoulos &middot; Research note #11 &middot; Jul 25, 2026 &middot; a
+hypothetical long/short book, taken apart the way a risk desk does it, a
+hidden +0.56 market beta under +30% net, a &minus;0.50 growth tilt it never
+intended, one name driving 41% of the variance, then VaR, stress, and the fixes.</p></div></a>
 
 <a class="note-card" href="var-backtesting.html">
 <svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -66,7 +93,7 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 </svg>
 <div class="note-body"><h2>The Light Was Green</h2>
 <p>V. Dimopoulos &middot; Research note #10 &middot; Jul 25, 2026 &middot; three
-standard 1-day VaR models on 21 years of the S&amp;P &mdash; all under-covered
+standard 1-day VaR models on 21 years of the S&amp;P, all under-covered
 the tail (Kupiec fail), yet Basel&rsquo;s traffic light glowed green. A
 model-validation case study.</p></div></a>
 
@@ -82,7 +109,7 @@ model-validation case study.</p></div></a>
 </svg>
 <div class="note-body"><h2>The AI-CDO Is Already Being Built</h2>
 <p>V. Dimopoulos &middot; Research note #9 &middot; Jul 24, 2026 &middot;
-structured finance reassembles around AI infrastructure &mdash; the four
+structured finance reassembles around AI infrastructure, the four
 failures of 2008, each observable in the AI-credit complex today.</p></div></a>
 
 <a class="note-card" href="what-the-swarm-knows.html">
@@ -94,7 +121,7 @@ failures of 2008, each observable in the AI-credit complex today.</p></div></a>
 </g><path d="M32 32 32 44" stroke="var(--accent)" stroke-width="2" stroke-dasharray="2 3"/></svg>
 <div class="note-body"><h2>What the Swarm Knows and What It Does Not Know</h2>
 <p>V. Dimopoulos &middot; Research note #8 &middot; Jul 23, 2026 &middot;
-the swarm&rsquo;s provable blind spots &mdash; the regions it structurally
+the swarm&rsquo;s provable blind spots, the regions it structurally
 cannot cover, mapped and published on purpose.</p></div></a>
 
 <a class="note-card" href="edge-was-never-the-hard-part.html">
@@ -119,7 +146,7 @@ cannot cover, mapped and published on purpose.</p></div></a>
 <div class="note-body"><h2>Measuring the Crowd</h2>
 <p>V. Dimopoulos &middot; Research note #6 &middot; Jul 23, 2026 &middot;
 the 13F crowding study: two real effects (t=4.1, t=3.9) that still
-didn&rsquo;t clear the bar to become a tradable signal &mdash; crowding is a
+didn&rsquo;t clear the bar to become a tradable signal. Crowding is a
 risk measure, not an edge.</p></div></a>
 
 <a class="note-card" href="620-probabilities.html">
@@ -131,7 +158,7 @@ risk measure, not an edge.</p></div></a>
 </svg>
 <div class="note-body"><h2>620 Probabilities</h2>
 <p>V. Dimopoulos &middot; Research note #5 &middot; Jul 20, 2026 &middot; top 6% in Jump
-Trading&rsquo;s Brier-scored World Cup Probability Cup &mdash; with no
+Trading&rsquo;s Brier-scored World Cup Probability Cup, with no
 hero calls, and the calibration flaws published on purpose.</p></div></a>
 
 <a class="note-card" href="reading-a-pm-book.html">
@@ -145,7 +172,7 @@ hero calls, and the calibration flaws published on purpose.</p></div></a>
 </svg>
 <div class="note-body"><h2>How to Read a PM&rsquo;s Book</h2>
 <p>V. Dimopoulos &middot; Research note #4 &middot; Jul 17, 2026 &middot; factor dissection
-(intended vs unintended) and the drawdown protocol &mdash; what to do
+(intended vs unintended) and the drawdown protocol, what to do
 when a PM is losing money.</p></div></a>
 
 <a class="note-card" href="chain-program-v3.html">
@@ -158,7 +185,7 @@ when a PM is losing money.</p></div></a>
 <div class="note-body"><h2>&ldquo;I tightened my own gates. The gates took my model
 first.&rdquo;</h2>
 <p>V. Dimopoulos &middot; Research note #3 &middot; Jul 16, 2026 &middot; the Dimopoulos Chain (a dealer-positioning
-strategy), v1&rarr;v3 &mdash; a case study in iterating a research
+strategy), v1&rarr;v3, a case study in iterating a research
 process.</p></div></a>
 
 <a class="note-card" href="propulsion-room.html">
@@ -168,7 +195,7 @@ process.</p></div></a>
 <path d="M10 50 Q 26 52 40 44" stroke="var(--muted)" stroke-width="2" stroke-dasharray="3 3"/>
 </svg>
 <div class="note-body"><h2>The Propulsion Room</h2>
-<p>The BlueShip Research Engine &middot; Jul 13, 2026 &middot; flight mechanics for portfolios &mdash; thrust, drag, gravity, and
+<p>The BlueShip Research Engine &middot; Jul 13, 2026 &middot; flight mechanics for portfolios, thrust, drag, gravity, and
 the price of steering, with the pipeline&rsquo;s real friction
 ratios.</p></div></a>
 
@@ -182,7 +209,7 @@ ratios.</p></div></a>
 </svg>
 <div class="note-body"><h2>&ldquo;I brought a neural network. The 1993 model won again.&rdquo;</h2>
 <p>V. Dimopoulos &middot; Research note #2 &middot; Jul 13, 2026 &middot; a neural network priced the same bonds at daily
-frequency and still lost to a 1993 model &mdash; more capacity is not more
+frequency and still lost to a 1993 model, more capacity is not more
 information.</p></div></a>
 
 <a class="note-card" href="dimopoulos-chain-v1.html">
@@ -194,7 +221,7 @@ information.</p></div></a>
 <ellipse cx="46" cy="40" rx="9" ry="6" transform="rotate(-35 46 40)" stroke="var(--accent)" stroke-width="2.5"/>
 </svg>
 <div class="note-body"><h2>&ldquo;I named a model after myself. A 1993 model beat it.&rdquo;</h2>
-<p>V. Dimopoulos &middot; Research note #1 &middot; Jul 12, 2026 &middot; The Dimopoulos Chain, v1 &mdash; dealer
+<p>V. Dimopoulos &middot; Research note #1 &middot; Jul 12, 2026 &middot; The Dimopoulos Chain, v1, dealer
 positioning tested against a ladder of simple econometric baselines it had to
 beat.</p></div></a>
 

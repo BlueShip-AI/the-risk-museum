@@ -54,18 +54,18 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <p class="sub">by V. Dimopoulos &middot; Research note #1 &middot; The Dimopoulos Chain, v1 &middot; July 12, 2026</p>
 
 <p>Black-Scholes prices everything with one constant volatility. Markets
-don&rsquo;t work that way: volatility arrives in regimes, and one structural
-driver of those regimes is <em>options dealer positioning</em> &mdash; when
-dealers are long gamma their hedging pins the market, and when they are
+don&rsquo;t work that way. Volatility arrives in regimes, and one structural
+driver of those regimes is <em>options dealer positioning</em>. When
+dealers are long gamma their hedging pins the market. When they are
 short gamma the same hedging amplifies every move. Our pipeline had already
 validated that signal (it predicts next-day trading range beyond the VIX,
-t&nbsp;=&nbsp;7.4). So we promoted it to a model and gave it a name: the
-<strong>Dimopoulos Chain</strong> &mdash; a Markov chain over nine market
+t&nbsp;=&nbsp;7.4). So we promoted it to a model and named it the
+<strong>Dimopoulos Chain</strong>, a Markov chain over nine market
 states (dealer-gamma tercile &times; realized-vol tercile) whose
 state-conditional distributions forecast tomorrow&rsquo;s volatility.</p>
 
-<p>House rule: a name is earned Sharpe-style, by surviving gates &mdash;
-or the model gets an exhibit here under its own name. Out-of-sample,
+<p>The house rule is that a name is earned Sharpe-style, by surviving gates.
+Otherwise the model gets an exhibit here under its own name. Out-of-sample,
 2019&ndash;2026, 1,794 days, all forecasts refit monthly with no
 look-ahead. The ladder, strictest last:</p>
 
@@ -77,10 +77,10 @@ look-ahead. The ladder, strictest last:</p>
 <tr><td>HAR + VIX + GJR-GARCH combined</td><td>1.02</td><td class="fail">FAIL</td></tr>
 </table>
 
-<p>GJR-GARCH &mdash; Glosten, Jagannathan and Runkle&rsquo;s 1993 asymmetric
-volatility model &mdash; turned out to be the single best forecaster in the
+<p>GJR-GARCH (Glosten, Jagannathan and Runkle&rsquo;s 1993 asymmetric
+volatility model) turned out to be the single best forecaster in the
 stack, and once it enters the baseline, the Chain&rsquo;s states add nothing
-significant. The likely reason is the interesting part: the leverage effect
+significant. The likely reason is that the leverage effect
 GJR captures (down moves raise volatility more than up moves) is plausibly a
 <em>reduced form of the dealer mechanism itself</em>. Markets fall &rarr;
 investors buy puts &rarr; dealers go short gamma &rarr; volatility
@@ -89,19 +89,19 @@ of the structure we measured directly.</p>
 
 <h2>What survived</h2>
 <p>Two things, and they matter more than the scoreboard:</p>
-<p>1. Every decent forecast in the stack &mdash; GJR, HAR, the Chain,
-combinations &mdash; beats the <em>implied</em> forecast by a wide,
-significant margin. Options are traded against implied, not against your
-best econometric model; that gap is the variance risk premium, and its
-timing is the live research program.</p>
-<p>2. The state map cleanly locates the danger. Measuring implied-minus-realized
-variance by state: the premium is positive in eight of nine states (hit
-rates up to 90% when dealers are pinned) and negative in exactly one &mdash;
-dealers exposed <em>and</em> volatility already high. One state out of nine
-is where short-volatility strategies die, and it is identifiable a day in
-advance.</p>
+<p>1. Every decent forecast in the stack (GJR, HAR, the Chain,
+combinations) beats the <em>implied</em> forecast by a wide,
+significant margin. Options are traded against implied, and no econometric
+model sets that price. The gap between them is the variance risk premium,
+and its timing is the live research program.</p>
+<p>2. The state map cleanly locates the danger. Measured by state,
+implied-minus-realized variance is positive in eight of nine states (hit
+rates up to 90% when dealers are pinned) and negative in exactly one, where
+dealers are exposed <em>and</em> volatility is already high. One state out of
+nine is where short-volatility strategies die, and it is identifiable a day
+in advance.</p>
 
-<div class="note">Verdict recorded in the pipeline: PARTIAL &mdash; the
+<div class="note">The pipeline recorded a verdict of PARTIAL. The
 name is not yet earned at the strictest bar. v2 conditions the chain&rsquo;s
 transition rows on scheduled events (FOMC, CPI), which is precisely where
 return-history models like GJR are structurally blind. If v2 fails, the

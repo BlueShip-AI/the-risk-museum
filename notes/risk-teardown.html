@@ -1,0 +1,153 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research note: Reading a Book — The Risk Museum</title>
+<meta name="description" content="A worked risk teardown of one hypothetical long/short book: factor decomposition, concentration, VaR and expected shortfall, historical stress, and what a risk desk would tell the PM. Every number computed from real data.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/risk-teardown.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:720px; margin:0 auto }
+h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
+h2 { font-size:1.15rem; margin:2rem 0 .6rem }
+p, li { margin-bottom:.9rem; color:var(--fg) }
+ol, ul { padding-left:1.4rem }
+.sub { color:var(--muted); margin-bottom:2rem }
+.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto }
+table { border-collapse:collapse; margin:1rem 0; font-size:.92rem; width:100%;
+  table-layout:fixed }
+th, td { border:1px solid var(--line); padding:.45rem .7rem; text-align:right;
+  overflow-wrap:break-word }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.8rem }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+</style></head><body><main>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../reading-room.html">Reading Room</a>
+<a href="../masterpieces.html">Case Studies</a>
+<a href="../membership.html">Membership</a>
+</nav>
+<h1>Reading a Book: a risk teardown</h1>
+<p class="sub">by V. Dimopoulos &middot; Research note #11 &middot; July 25, 2026</p>
+
+<p>A portfolio is a set of claims. The manager claims the returns come from his
+ideas; the risk seat's job is to find out what the book actually owns. This
+note performs that job start to finish on a single book — the same sequence a
+platform risk desk runs when a new PM's positions land on the screen: take the
+book, decompose its risk, hand back findings. This book is <b>hypothetical and illustrative</b> — a teaching example built to be taken apart, not a real position, a recommendation, or advice.</p>
+
+<div class="note">This book is <b>hypothetical and illustrative</b> — a teaching example built to be taken apart, not a real position, a recommendation, or advice. It is a constant-weight, daily-rebalanced construction
+held over the full price history, so it carries hindsight of which names
+survived; the universe is current large-cap survivors. Read every in-sample
+number — the alpha above all — as an upper bound, not a forecast.</div>
+
+<h2>1 &mdash; The book</h2>
+<p>Ten names, 6 long / 4 short, US large-cap. Weights
+are fractions of NAV set by hand for the example; long dollars sit in mega-cap
+growth, short dollars in defensives.</p>
+<div class="tblwrap"><table><colgroup><col style="width:40%"><col style="width:30%"><col style="width:30%"></colgroup><tr><th>Ticker</th><th>Side</th><th>Weight (% NAV)</th></tr><tr><td>NVDA</td><td>Long</td><td>16.0%</td></tr><tr><td>AAPL</td><td>Long</td><td>13.0%</td></tr><tr><td>MSFT</td><td>Long</td><td>12.0%</td></tr><tr><td>GOOGL</td><td>Long</td><td>9.0%</td></tr><tr><td>AMZN</td><td>Long</td><td>8.0%</td></tr><tr><td>JPM</td><td>Long</td><td>7.0%</td></tr><tr><td>XOM</td><td>Short</td><td>-9.0%</td></tr><tr><td>KO</td><td>Short</td><td>-9.0%</td></tr><tr><td>PG</td><td>Short</td><td>-9.0%</td></tr><tr><td>DUK</td><td>Short</td><td>-8.0%</td></tr><tr><td><b>Gross 100% &middot; Net +30%</b></td><td><b>6 long / 4 short</b></td><td><b>10 names</b></td></tr></table></div>
+
+<h2>2 &mdash; Factor decomposition</h2>
+<p>The constant-weight book's daily return is regressed on the Fama-French five
+factors plus Carhart momentum (Newey-West standard errors), over 5,384
+days from 2005-01-04 to 2026-05-29. The intercept is the
+residual alpha; the slopes are what the book owns whether it meant to or not.</p>
+<div class="tblwrap"><table><colgroup><col style="width:60%"><col style="width:40%"></colgroup><tr><th>Exposure</th><th>Book beta</th></tr><tr><td>Market (Mkt-RF)</td><td>+0.56</td></tr><tr><td>Size (SMB)</td><td>-0.03</td></tr><tr><td>Value (HML)</td><td>-0.17</td></tr><tr><td>Profitability (RMW)</td><td>-0.13</td></tr><tr><td>Investment (CMA)</td><td>-0.50</td></tr><tr><td>Momentum (Mom)</td><td>+0.03</td></tr></table></div>
+<p>R&sup2; is 61.3%: 61.3% of the book's daily variance is these
+six factors, leaving only 38.7% idiosyncratic. Annualized residual
+alpha is +8.1% with a t-statistic of 3.75 —
+positive and in-sample significant, but see the survivorship caveat above: it is
+a ceiling, not a track record. The exposures, intended versus uninvited:</p>
+<ul><li><b>Market (Mkt-RF) beta +0.56.</b> The book's net dollar exposure is only +30%, yet its realized market beta is 0.56 — the shorts are low-beta defensives, so netting dollars did not net out direction. In beta terms the book is about 1.9× more market-directional than its net book implies. <b>Unintended.</b></li><li><b>Investment (CMA) beta -0.50:</b> a tilt toward aggressive, high-reinvestment growth names (long mega-cap tech) funded by short conservative payers. A style bet, not stock selection. <b>Unintended.</b></li><li><b>Value (HML) beta -0.17:</b> net short value / long growth. A style bet, not stock selection. <b>Unintended.</b></li><li><b>Profitability (RMW) beta -0.13:</b> mildly short quality — the shorts are the profitable defensives. A style bet, not stock selection. <b>Unintended.</b></li><li><b>Size (SMB) beta -0.03:</b> negligible — both sleeves are large-cap, so the book is correctly size-neutral. <b>Intended (clean).</b></li></ul>
+
+<h2>3 &mdash; Concentration and sizing</h2>
+<p>By dollars the book looks spread out; by risk it does not.</p>
+<div class="tblwrap"><table><colgroup><col style="width:62%"><col style="width:38%"></colgroup><tr><th>Metric</th><th>Value</th></tr><tr><td>Largest position</td><td>NVDA at 16.0% of gross</td></tr><tr><td>Herfindahl (HHI, gross-normalized)</td><td>0.11</td></tr><tr><td>Effective number of bets (1/HHI)</td><td>9.3</td></tr><tr><td>Annualized book volatility</td><td>15.6%</td></tr><tr><td>Largest risk contributor</td><td>NVDA at 41.4% of variance</td></tr></table></div>
+<p>The gap is the point. Dollar weights give 9.3 effective bets,
+but one name, NVDA, supplies 41.4% of the
+variance — marginal risk contribution, from the annualized covariance of the
+names, weight by weight:</p>
+<div class="tblwrap"><table><colgroup><col style="width:40%"><col style="width:30%"><col style="width:30%"></colgroup><tr><th>Name</th><th>Dollar weight (% gross)</th><th>Share of risk</th></tr><tr><td>NVDA</td><td>16.0%</td><td>41.4%</td></tr><tr><td>AAPL</td><td>13.0%</td><td>18.7%</td></tr><tr><td>MSFT</td><td>12.0%</td><td>14.5%</td></tr><tr><td>AMZN</td><td>8.0%</td><td>13.0%</td></tr><tr><td>GOOGL</td><td>9.0%</td><td>12.0%</td></tr><tr><td>JPM</td><td>7.0%</td><td>7.8%</td></tr><tr><td>DUK</td><td>8.0%</td><td>-0.7%</td></tr><tr><td>KO</td><td>9.0%</td><td>-1.6%</td></tr><tr><td>PG</td><td>9.0%</td><td>-1.7%</td></tr><tr><td>XOM</td><td>9.0%</td><td>-3.3%</td></tr></table></div>
+
+<h2>4 &mdash; Value-at-Risk and Expected Shortfall</h2>
+<p>One-day historical simulation on the book's 5,422 daily returns,
+expressed as a percent of capital (gross is 100%). VaR is the loss
+the book beats all but 1% (or 5%) of days; Expected Shortfall is the average loss
+on the days it does breach.</p>
+<div class="tblwrap"><table><colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup><tr><th>Confidence</th><th>1-day VaR</th><th>1-day Expected Shortfall</th></tr><tr><td>99%</td><td>2.67%</td><td>3.29%</td></tr><tr><td>95%</td><td>1.57%</td><td>2.24%</td></tr></table></div>
+
+<h2>5 &mdash; Stress tests</h2>
+<p>Not model losses — the book's <em>actual</em> return over real historical
+windows, computed by compounding its constant-weight daily returns across each
+range.</p>
+<div class="tblwrap"><table><colgroup><col style="width:42%"><col style="width:28%"><col style="width:18%"><col style="width:12%"></colgroup><tr><th>Scenario</th><th>Window</th><th>Book return</th><th>Days</th></tr><tr><td>Worst single day</td><td>2008-09-29</td><td>-7.0%</td><td>1</td></tr><tr><td>Mean of 10 worst market days</td><td>2005–2026</td><td>-3.3%</td><td>10</td></tr><tr><td>Global Financial Crisis</td><td>2008-09-01 → 2008-12-31</td><td>-19.0%</td><td>85</td></tr><tr><td>COVID crash</td><td>2020-02-19 → 2020-03-23</td><td>-4.8%</td><td>24</td></tr></table></div>
+<p>The COVID window is the instructive one: the book gave back only
+-4.8% peak-to-trough because its low-beta shorts fell alongside
+its longs, while the -19.0% Global Financial Crisis draw shows the
+same hidden market beta biting when the shorts stopped hedging.</p>
+
+<h2>6 &mdash; Findings and recommendations</h2>
+<p>What a risk desk would tell this PM — the three issues that matter, and a
+concrete fix for each:</p>
+<ol>
+<li><b>Hidden market beta.</b> The book runs a 0.56 market beta on
++30% net dollars — roughly 1.9&times; more directional
+than the net book suggests, because every short is a low-beta defensive.
+<em>Fix:</em> size to a beta target, not a dollar target — swap some defensive
+shorts for higher-beta names or overlay an index short until realized beta
+matches the intended net.</li>
+<li><b>Risk hides in one name.</b> NVDA is 16.0% of
+gross dollars but 41.4% of portfolio variance; the book is
+diversified by dollars and concentrated by risk (effective bets
+9.3 by dollars, far fewer by risk). <em>Fix:</em> cap single-name
+risk contribution, not just single-name weight — trim NVDA or
+add an offsetting position.</li>
+<li><b>It is a style bet wearing a stock-picker's coat.</b> Only 38.7%
+of daily variance is idiosyncratic; 61.3% is the six factors, led by an
+Investment (CMA) beta of -0.50 — a large long-growth / short-conservative
+tilt. <em>Fix:</em> neutralize the CMA/growth tilt if the thesis is single-name
+selection, or own it as the actual strategy and budget risk to it deliberately.</li>
+</ol>
+
+<div class="note">Why this hangs in the museum: the teardown is the product.
+Anyone can quote a book's net exposure; the work is showing that +30%
+net dollars carry a 0.56 market beta, that
+16.0% of gross is 41.4% of the risk, and that a
+book billed as stock-picking is 61.3% factor by variance. Same
+discipline the museum's machine runs nightly on its own strategies — here run
+on a book, on the page.</div>
+
+<footer>BlueShip-AI Research &middot; The Risk Museum &middot; educational
+research only, not investment advice. The book is hypothetical and illustrative
+— not a real position and not a recommendation. Data: adjusted daily closes for
+the project's survivorship-biased large-cap universe; Ken French Data Library
+(FF5 + momentum). Every statistic is computed by deterministic Python
+(pipeline/export_riskdesk.py); none is hand-derived.</footer>
+</main></body></html>

@@ -58,7 +58,7 @@ and it did not cause 2008. What caused 2008 was four specific,
 nameable failures that happened to ride inside a securitization. Name
 them, and you can watch for them anywhere the same machine reassembles.
 It is reassembling now, around artificial intelligence, and this note
-is an inventory &mdash; not a prediction of when, only a description of
+is an inventory. It is not a prediction of when, only a description of
 what.</p>
 
 <h2>What is being built</h2>
@@ -69,10 +69,9 @@ pace. Around that demand a financing complex has grown: data-center
 developers borrowing against future rents; &ldquo;neocloud&rdquo;
 providers borrowing against multi-year compute contracts; and lenders
 increasingly willing to take the graphics chips themselves as
-collateral. The Bank for International Settlements &mdash; the central
-banks&rsquo; central bank, and the institution that warned about
-mortgage risk years before 2008 &mdash; devoted part of its 2026
-annual report to this. Its language is worth quoting because it is so
+collateral. The Bank for International Settlements devoted part of its
+2026 annual report to this. It is the central banks&rsquo; central bank,
+and it warned about mortgage risk years before 2008. Its language is worth quoting because it is so
 careful: the sector shows &ldquo;circular financing,&rdquo; the
 &ldquo;opacity&rdquo; of the arrangements &ldquo;compounds
 vulnerabilities,&rdquo; collateral is in places &ldquo;pledged
@@ -88,8 +87,8 @@ booked as growth.</p>
 the passengers.</p>
 <ol>
 <li><b>The rating was corrupt.</b> Pools of poor mortgages were
-stamped AAA. The stamp, not the mortgage, was what institutions
-trusted &mdash; and the stamp was paid for by the people being rated.</li>
+stamped AAA. Institutions trusted the stamp rather than the mortgage, and the stamp
+was paid for by the people being rated.</li>
 <li><b>The correlation was hidden.</b> The models assumed one
 borrower&rsquo;s default said little about the next. That assumption
 held in calm and dissolved in the storm: when house prices fell, they
@@ -117,8 +116,8 @@ should keep a risk officer awake. These loans are not independent.
 They lean, almost all of them, on the continued spending of a handful
 of hyperscalers and on the fortunes of essentially one chip designer.
 A diversified-looking pool of data-center loans can be, underneath, a
-single concentrated bet on whether that spending continues &mdash; the
-2008 correlation trap with fewer moving parts, not more. And there is
+single concentrated bet on whether that spending continues. That is the
+2008 correlation trap with fewer moving parts. And there is
 a hazard mortgages never had: <b>technology obsolescence</b>. A house
 securing a loan is worth roughly what it was worth last year. A
 graphics chip securing a loan sits on a steep curve of replacement,
@@ -126,8 +125,8 @@ and its collateral value can fall for reasons that have nothing to do
 with the borrower&rsquo;s health and everything to do with a better
 chip shipping.</p>
 <p><b>Where does the tail land?</b> Increasingly, on insurance balance
-sheets. Private credit &mdash; including the infrastructure paper this
-note is about &mdash; is being sourced for the long-dated liabilities
+sheets. Private credit, including the infrastructure paper this
+note is about, is being sourced for the long-dated liabilities
 of annuity books precisely because it yields more than public bonds of
 the same stated grade. That extra yield is not free; it is payment for
 the illiquidity and the tail. The question a risk seat has to answer,
@@ -136,18 +135,17 @@ those liabilities is sized for the fat-tailed world or the modeled
 one.</p>
 <p><b>Are the incentives aligned?</b> Originate-to-distribute is a
 structure, not an era; it returns wherever the writer of the risk can
-sell it onward. The honest tell is skin in the game &mdash; whether
-the party that structures the pool keeps a real, loss-absorbing piece
-of it.</p>
+sell it onward. The honest tell is skin in the game. Does the party
+that structures the pool keep a real, loss-absorbing piece of it?</p>
 
 <h2>So what breaks, and who cashes out</h2>
 <p>Diagnosis is cheap; the useful question is <em>where the money
 goes when it goes wrong</em>. To answer it honestly I built a small
-simulation &mdash; deliberately simple, assumptions declared, not a
-forecast. Picture the AI-infrastructure debt as a single securitized
+simulation, deliberately simple and with its assumptions declared. It
+is not a forecast. Picture the AI-infrastructure debt as a single securitized
 pool, sliced into three claims that absorb losses from the bottom up.
 The <b>equity</b> tranche (15% of the pool) is the neocloud, lab, and
-circular-financing paper &mdash; first loss. The <b>mezzanine</b>
+circular-financing paper. It takes the first loss. The <b>mezzanine</b>
 (25%) is the GPU- and equipment-backed debt. The <b>senior</b> (60%)
 is secured by the things that survive a technology cycle: the land,
 the buildings, the power contracts.</p>
@@ -156,7 +154,7 @@ the buildings, the power contracts.</p>
 of the promised AI economics that actually shows up as <em>revenue</em>.
 I let R range from the bear case (half of what was promised) to the
 bull case (more than promised), ran two hundred thousand draws, and
-let the losses waterfall up through the stack. The picture:</p>
+let the losses waterfall up through the stack. The result is below.</p>
 
 <div style="overflow-x:auto;margin:1.2rem 0">
 <svg width="560" height="300" viewBox="0 0 560 300" role="img"
@@ -208,12 +206,12 @@ red is loss, filling the stack from the bottom. In the <b>good</b>
 world (revenue arrives near-promised, the 25th-percentile draw) the
 equity holders take a haircut and everyone above them is untouched. In
 the <b>bad</b> world (the median draw, revenue merely disappoints) the
-equity is wiped out entirely &mdash; and it is worth pausing on who
-holds that equity: increasingly, the yield-hungry buyers who were sold
-the juicy tranche as &ldquo;diversified AI exposure.&rdquo; In the
+equity is wiped out entirely, and who holds that equity matters.
+Increasingly it is the yield-hungry buyers who were sold the juicy
+tranche as &ldquo;diversified AI exposure.&rdquo; In the
 <b>ugly</b> world (a 95th-percentile draw, revenue collapses toward
 half) the equity and the GPU-backed mezzanine are both destroyed and
-the senior claim finally bleeds &mdash; because obsolescence means the
+the senior claim finally bleeds, because obsolescence means the
 chip collateral recovers little, and the circular financing unwinds
 faster than a single-name default ever could.</p>
 
@@ -221,12 +219,12 @@ faster than a single-name default ever could.</p>
 tranche loses <b>68%</b> of its value on average and is all but wiped
 in half of them; the mezzanine loses <b>28%</b>; the senior loses
 <b>1%</b> and stays fully intact <b>93%</b> of the time. That gap is
-the missing link &mdash; the reason the big players can build this and
-sleep. <b>The cash-out is structural, not directional.</b> You do not
+the missing link. It is the reason the big players can build this and
+sleep. <b>The cash-out is structural.</b> You do not
 have to bet that AI wins. You earn the origination fees whatever
 happens; you keep the senior, real-asset-backed claim that survives
-almost everything; and you sell the equity and mezzanine &mdash; the
-tranches that actually carry the technology risk &mdash; to the
+almost everything; and you sell the equity and mezzanine, the
+tranches that actually carry the technology risk, to the
 insurers and pensions reaching for yield. Heads you clip a fee and hold
 the safe piece; tails someone else holds the GPUs. The only honest
 question, the 2008 question, is whether the people doing the selling
@@ -245,7 +243,7 @@ people.</li>
 <li><b>&ldquo;It&rsquo;s diversified across hundreds of
 borrowers.&rdquo;</b> Diversification across borrowers who all depend
 on the same handful of hyperscalers continuing to spend is not
-diversification. It is one bet in many costumes &mdash; the exact
+diversification. It is one bet in many costumes, the exact
 mechanism that turned &ldquo;uncorrelated&rdquo; mortgage pools into a
 single wager in 2008.</li>
 <li><b>&ldquo;The senior tranche is safe, full stop.&rdquo;</b> Only
@@ -258,32 +256,31 @@ substance. The safety lives in the collateral, not the label.</li>
 <p>Here is the hopeful half, and it is real. The thing that makes this
 <em>not</em> 2008 is sitting in the one variable the whole simulation
 turns on. A house produces no cash flow; it only ever costs. Compute
-can produce cash flow &mdash; if the applications built on it actually
+can produce cash flow, if the applications built on it actually
 get paid for. The senior claim survives in ninety-three percent of my
 draws for exactly one reason: revenue has to collapse below roughly
 sixty percent of what was promised before it bleeds, and sustained
 revenue at that level is a genuinely different world from the sub-prime
 one, where the underlying asset could never service anything. <b>The
-saving grace of the AI boom is not the chips and it is not the models.
-It is revenue.</b> Enterprise adoption, inference demand actually
-invoiced, applications people renew &mdash; that is the water that
-fills the waterfall from the top and services the stack on the way
-down. Watch that number, not the capex headlines. When commentators
-cheer another hundred billion in datacenter spending, they are
-describing the size of the promise, not the arrival of the payment.</p>
+saving grace of the AI boom is revenue.</b> Enterprise adoption,
+inference demand actually invoiced, applications people renew. That is
+the water that fills the waterfall from the top and services the stack
+on the way down. Watch that number rather than the capex headlines. When
+commentators cheer another hundred billion in datacenter spending, they
+are describing the size of the promise. The payment has not arrived.</p>
 
 <h2>Why this hangs in the museum</h2>
 <p>Notice what I have <em>not</em> done. I have not called a top,
-named a date, or told you the AI buildout will fail &mdash; on a
+named a date, or told you the AI buildout will fail. On a
 decade&rsquo;s view it may well pay off, as the internet did. Timing
 is a forecast, and forecasts belong in this museum&rsquo;s Forecast
 Wing, under resolution criteria, not in an essay. What I have done is
 take the four things that actually broke in 2008 and show that each
-one is <em>observable</em> in the AI-credit complex today &mdash; and
-then run the stack forward to show the shape of the outcomes and name
+one is <em>observable</em> in the AI-credit complex today, then
+run the stack forward to show the shape of the outcomes and name
 the single variable that decides between them. That is the whole
 discipline. 2008 was not a failure to predict the future; it was a
-failure to describe the present &mdash; to say out loud, while the
+failure to describe the present, to say out loud, while the
 music played, that the diversification was fake, the rating was
 bought, and the safe tranche was only ever as safe as the revenue
 underneath it.</p>
@@ -296,15 +293,15 @@ they are over. This note is about a structure that is still being
 assembled, and the only useful thing to do with a structure that is
 still being assembled is to name its load-bearing assumptions before
 they are tested rather than after. The failure of 2008 was never a
-failure of arithmetic. It was a failure of nerve &mdash; the refusal
+failure of arithmetic. It was a failure of nerve, the refusal
 to write down what everyone could already see.</div>
 
 <footer>BlueShip-AI Research &middot; The Risk Museum &middot;
 educational research only, not investment advice, and not a forecast
 of any security or market. The waterfall is a <b>stylized</b> Monte
 Carlo (200,000 draws, seed fixed for reproducibility) built to show
-the <em>shape</em> of outcomes and the sensitivity to one driver
-&mdash; its inputs are illustrative, declared in the code, and not
+the <em>shape</em> of outcomes and the sensitivity to one driver.
+Its inputs are illustrative, declared in the code, and not
 estimates of any real pool. Public sources: Bank for International
 Settlements Annual Economic Report 2026; general history of structured
 finance and the 2007&ndash;2009 crisis.</footer>
