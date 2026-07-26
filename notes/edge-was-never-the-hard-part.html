@@ -1,30 +1,52 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research note: The Edge Was Never the Hard Part — The Risk Museum</title>
-<meta name="description" content="Sixty-one finance-trained people were handed a coin guaranteed to win. Twenty-eight percent went broke. The mathematics of bet sizing — Kelly, volatility drag, and why the museum sizes off the stressed estimate.">
+<title>The Edge Was Never the Hard Part — BlueShip Research Working Paper No. 7</title>
+<meta name="description" content="Sixty-one finance-trained subjects received a coin guaranteed to win; twenty-eight percent went broke. Bet sizing, the Kelly criterion, volatility drag, and why the museum sizes off the stressed edge estimate.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/edge-was-never-the-hard-part.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
   --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
     --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
-  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
-main { max-width:720px; margin:0 auto }
-h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
-h2 { font-size:1.15rem; margin:2rem 0 .6rem }
-p, li { margin-bottom:.9rem; color:var(--fg) }
-ol, ul { padding-left:1.4rem }
-.sub { color:var(--muted); margin-bottom:2rem }
-.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
-  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
 a { color:var(--blue) }
-footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
-  color:var(--muted); font-size:.8rem }
-.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
@@ -41,93 +63,119 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <nav class="tabs">
 <a href="../">Tested Strategies</a>
 <a href="../forecasts.html">Forecast Wing</a>
-<a class="on" href="./">Research/Personal Essays</a>
+<a class="on" href="./">Research Notes</a>
 <a href="../reading-room.html">Reading Room</a>
 <a href="../masterpieces.html">Case Studies</a>
 <a href="../membership.html">Membership</a>
 </nav>
-<h1>The Edge Was Never the Hard Part</h1>
-<p class="sub">by V. Dimopoulos &middot; Research note #7 &middot; the
-biased-coin experiment, the Kelly criterion, and how the museum sizes
-&middot; July 23, 2026</p>
 
-<p>In 2016, two researchers handed sixty-one finance-trained people a
-coin that lands heads 60% of the time, thirty minutes, twenty-five
-dollars, and a simple instruction: bet on flips, keep what you make
-(capped at $250). The game is guaranteed to favor the player. It is
-difficult to design a friendlier casino.</p>
+<div class="hdr">
+<h1>The Edge Was Never the Hard Part: Bet Sizing, the Kelly<br>
+Criterion, and Survival on a Favorable Coin</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 7 &middot; 23 July 2026</div>
+</div>
 
-<p><b>Twenty-eight percent of them went completely broke.</b> About a
-third finished below their starting stake. Only one in five reached
-the cap that sensible play makes nearly automatic. The average payout
-was $91, on a machine engineered to print money. The study is
-Haghani and Dewey, <i>Observed Betting Patterns on a Biased Coin</i>,
-and it deserves a plaque for what it isolates. These players
-had the edge handed to them, gift-wrapped, with the probability
-printed on the box. The thing that ruined them was the one variable
-left in their control, <b>how much to bet</b>.</p>
+<p class="abstract"><span class="lab">Abstract.</span> We revisit a controlled
+experiment in which sixty-one finance-trained subjects received a coin biased
+to land heads 60% of the time, thirty minutes, and a $25 stake, with winnings
+capped at $250. Despite a disclosed and guaranteed edge, 28% went bankrupt,
+about a third finished below their starting stake, and only one in five reached
+the cap; the average payout was $91. The failures trace to bet sizing rather
+than to the edge. For a 60/40 coin the growth-optimal Kelly fraction is 20%;
+long-run growth is single-peaked in bet size, asymmetric about the peak, and
+crosses zero near 39%, so a constant 40% stake on a favorable coin compounds
+negatively. Three sizing rules follow: size from the stressed edge estimate,
+hold the gates fixed, and treat survival as the objective.</p>
+<div class="keywords"><b>Keywords:</b> Kelly criterion, bet sizing, volatility
+drag, growth optimality, risk of ruin, position sizing.</div>
 
-<h2>The curve that decides everything</h2>
-<p>The answer they needed dates to 1956, when John Kelly at Bell Labs
-noticed that a gambler with an edge is a communication channel with
-signal in it. For an even-money bet, the growth-optimal fraction of
-your bankroll is twice your win probability minus one. For a 60/40
-coin, <b>bet 20%</b>. Plot long-run growth against bet size and you
-get a hill: zero at zero (bet nothing, make nothing), peaking at 20%
-(about 2% compounded per flip), falling past it, and crossing
-<em>zero</em> near 39%. Bet 40% of your bankroll on this guaranteed-
-winning coin, every flip, and your wealth <em>shrinks</em> at about a
-quarter percent per flip. Same edge. Wrong size. Slow ruin.</p>
+<h2>1. Introduction</h2>
+<p>In 2016, sixty-one finance-trained subjects were each given a coin that
+lands heads 60% of the time, thirty minutes, and twenty-five dollars, under a
+single instruction: bet on flips and keep the proceeds, capped at $250. The
+game is constructed to favor the player.</p>
+<p>Twenty-eight percent went completely broke. About a third finished below
+their starting stake. Only one in five reached the cap. The average payout was
+$91. The subjects were handed the edge explicitly, with the win probability
+disclosed; the one variable left in their control was how much to bet, and it
+was bet size that ruined them (Haghani and Dewey, 2016).</p>
 
-<p>The hill hides a second lesson in its asymmetry. Bet half of Kelly,
-10% instead of 20%, and you keep roughly
-three-quarters of the maximum growth rate for about half the swings.
-Underbetting costs a little; overbetting costs everything. When in
-doubt, miss low. The expected-value crowd should sit down for
-this one. Over 300 flips at full Kelly, the <em>average</em> outcome
-on a $25 start is over $3&nbsp;million, and the <em>median</em>
-is about $10,000. You do not get to live in the average of all
-universes. You live in one, and the log of your wealth is what compounds there. That gap
-is volatility drag, the same quiet thief on the Bernoulli plaque in
-our Antiquities Wing, the reason exhibits with positive average
-returns still turned $100k into $93k.</p>
+<h2>2. The growth-optimal bet fraction</h2>
+<h3>2.1 The Kelly fraction</h3>
+<p>The relevant result dates to 1956, when Kelly framed a gambler with an edge
+as a communication channel carrying signal. For an even-money bet, the
+growth-optimal fraction of the bankroll equals twice the win probability minus
+one. For a 60/40 coin that fraction is 20%. Long-run growth as a function of
+bet size traces a single-peaked curve: zero at a zero stake, a maximum near 20%
+(about 2% compounded per flip), and a second zero near 39%. A constant 40%
+stake on the same guaranteed-winning coin produces negative growth of roughly a
+quarter percent per flip. The edge is unchanged; only the size is wrong.</p>
 
-<h2>Why this hangs in the museum</h2>
-<p>Three house rules descend from that hill.</p>
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Long-run growth per flip by constant bet
+fraction on a 60/40 coin.</div>
+<table>
+<tr><th>Bet fraction</th><th>Long-run growth per flip</th></tr>
+<tr><td>0%</td><td>0</td></tr>
+<tr><td>10% (half-Kelly)</td><td>&asymp; &frac34; of maximum</td></tr>
+<tr><td>20% (Kelly)</td><td>&asymp; +2% (maximum)</td></tr>
+<tr><td>&asymp;&thinsp;39%</td><td>0</td></tr>
+<tr><td>40%</td><td>&asymp; &minus;0.25%</td></tr>
+</table>
+</div>
+
+<h3>2.2 Asymmetry and volatility drag</h3>
+<p>The curve is asymmetric. Betting half-Kelly, 10% rather than 20%, retains
+roughly three-quarters of the maximum growth rate for about half the swings.
+Underbetting is inexpensive; overbetting is ruinous. The distinction between
+mean and median outcome is large. Over 300 flips at full Kelly on a $25 start,
+the average outcome exceeds $3&nbsp;million while the median is about $10,000.
+Only one path is realized, and it is the logarithm of wealth that compounds
+along it. The gap between mean and median is volatility drag, the same
+mechanism by which a series with a positive average return converts $100k into
+$93k.</p>
+
+<h2>3. Sizing doctrine</h2>
+<p>Three house rules descend from the shape of the curve.</p>
 <ol>
-<li><b>Kelly is brutally sensitive to your edge estimate.</b>
-Overrate the edge and the formula marches you past the peak into the
-downslope. So the museum&rsquo;s sizing doctrine starts one step
-earlier. The edge that enters any sizing arithmetic is the
-<em>stressed</em> estimate, gross halved and costs doubled. The raw
-backtest never enters. A margin of safety on the input is worth more
-than precision in the formula.</li>
-<li><b>The lopsided hill is why the gates never loosen.</b> A fake
-survivor promoted by a loose gate doesn&rsquo;t just waste capital;
-it invites Kelly-sized bets on an edge of zero, which the curve says
-is negative growth dressed as opportunity.</li>
-<li><b>Survival is the strategy.</b> Multiplication is unforgiving. A
-single zero anywhere in the chain of returns collapses the product.
-Every drawdown rule in this museum, and the pre-committed
-ladders in our drawdown-protocol note, exists because there is
-no comeback from nothing, no matter how good the edge that remains.</li>
+<li><b>Kelly is highly sensitive to the edge estimate.</b> Overstating the edge
+moves the chosen stake past the peak onto the downslope. The sizing doctrine
+therefore begins one step earlier: the edge entering any sizing calculation is
+the <em>stressed</em> estimate, gross return halved and costs doubled. The raw
+backtest never enters. A margin of safety on the input is worth more than
+precision in the formula.</li>
+<li><b>The asymmetry is why the gates never loosen.</b> A false survivor
+promoted by a loose gate does more than waste capital; it invites Kelly-scaled
+bets on an edge of zero, which the curve identifies as negative growth.</li>
+<li><b>Survival is the strategy.</b> Returns compound multiplicatively, and a
+single zero anywhere in the chain collapses the product. The drawdown rules and
+pre-committed ladders exist because there is no recovery from zero, whatever
+edge remains.</li>
 </ol>
 
-<p>One more thing, offered with respect rather than irony. One of the
-experiment&rsquo;s authors was a founding partner of Long-Term
-Capital Management, whose plaque hangs in our Blowup Wing for the
-canonical sizing catastrophe. The man who lived the hardest version
-of this lesson went on to design the cleanest demonstration of it.
-That is what turning a loss into a curriculum looks like, and the
-museum takes the example seriously.</p>
+<h2>4. Provenance</h2>
+<p>One of the experiment&rsquo;s authors was a founding partner of Long-Term
+Capital Management, the canonical sizing catastrophe. The cleanest
+demonstration of the sizing lesson was designed by someone who had lived its
+most expensive version.</p>
 
-<div class="note">The version for the wall is short. A positive
-edge is a necessary condition; surviving your own bet size is the
-sufficient one. The edge was never the hard part.</div>
+<div class="note">A positive edge is a necessary condition; surviving the bet
+size is the sufficient one. The edge was never the hard part.</div>
 
-<footer>BlueShip-AI Research &middot; The Risk Museum &middot;
-educational research only, not investment advice. Study: Haghani
-&amp; Dewey (2016), &ldquo;Rational Decision-Making Under Uncertainty:
-Observed Betting Patterns on a Biased Coin&rdquo; (SSRN). Kelly
-arithmetic verified independently for this note.</footer>
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Haghani, V., and Dewey, R. (2016). Rational Decision-Making Under
+Uncertainty: Observed Betting Patterns on a Biased Coin. <i>SSRN Working
+Paper</i>.</li>
+<li>Kelly, J. L. (1956). A New Interpretation of Information Rate. <i>Bell
+System Technical Journal</i>, 35(4), 917&ndash;926.</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Primary source: Haghani and Dewey (2016).
+Kelly arithmetic verified independently for this note.</footer>
 </main></body></html>

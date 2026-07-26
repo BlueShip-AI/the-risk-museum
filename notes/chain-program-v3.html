@@ -1,34 +1,52 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research note: The gates took my model first — The Risk Museum</title>
-<meta name="description" content="I tightened my own gates; the gates took my model first — a quant case study in iterating a research process.">
+<title>The Dimopoulos Chain — BlueShip Research Working Paper No. 3</title>
+<meta name="description" content="A dealer-positioning volatility signal beats implied volatility (t=7.4) but adds no value over a HAR-GJR-implied ensemble. Three model versions and two promotion-gate changes retire the founder's namesake model.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/chain-program-v3.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
   --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
     --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
-  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
-main { max-width:720px; margin:0 auto }
-h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
-h2 { font-size:1.15rem; margin:2rem 0 .6rem }
-p, li { margin-bottom:.9rem; color:var(--fg) }
-.sub { color:var(--muted); margin-bottom:2rem }
-table { border-collapse:collapse; margin:1rem 0 1.4rem; width:100% }
-td, th { border:1px solid var(--line); padding:.45rem .7rem; font-size:.92rem;
-  text-align:left }
-th { color:var(--muted); font-weight:normal }
-.pass { color:#2e7d32; font-weight:bold } .fail { color:var(--accent); font-weight:bold }
-.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
-  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
 a { color:var(--blue) }
-footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
-  color:var(--muted); font-size:.8rem }
-.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
@@ -45,119 +63,165 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <nav class="tabs">
 <a href="../">Tested Strategies</a>
 <a href="../forecasts.html">Forecast Wing</a>
-<a class="on" href="./">Research/Personal Essays</a>
+<a class="on" href="./">Research Notes</a>
 <a href="../reading-room.html">Reading Room</a>
 <a href="../masterpieces.html">Case Studies</a>
 <a href="../membership.html">Membership</a>
 </nav>
-<h1>I tightened my own gates. The gates took my model first.</h1>
-<p class="sub">by V. Dimopoulos &middot; Research note #3 &middot; The Dimopoulos Chain program, v1&rarr;v3
-&middot; July 16, 2026 &middot; a case study in iterating a research process</p>
 
-<p>This note documents three versions of one model, two promotion-gate
-changes, and one retirement. That is the full iteration loop of this
-research program, written for readers who run such loops themselves.
-A signal that genuinely beats implied volatility does not automatically
-beat a competent econometric ensemble. A process that cannot retire its
-founder&rsquo;s favorite model is not a process.</p>
+<div class="hdr">
+<h1>The Dimopoulos Chain: Retiring a Dealer-Positioning Volatility<br>
+Model Under Backward-Biting Promotion Gates</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 3 &middot; 16 July 2026</div>
+</div>
 
-<h2>The program at a glance</h2>
+<p class="abstract"><span class="lab">Abstract.</span> This paper documents
+three revisions of a volatility-forecasting model built on options
+dealer-positioning states, and the promotion gates that retired the first. The
+underlying signal is real: dealer gamma exposure predicts the next-day trading
+range beyond implied volatility (<i>t</i>&nbsp;=&nbsp;7.4 in the standing
+classifier, which clears a stressed re-audit at 3.68). As a forecasting
+architecture, however, the state chain adds no value over a competent
+persistence, leverage, and implied-volatility ensemble. Version&nbsp;1 beat
+implied volatility (<i>t</i>&nbsp;=&nbsp;4.34) but lost to HAR and failed a
+newly tightened margin-of-safety gate (stressed <i>t</i>&nbsp;=&nbsp;2.17); a
+neural variant was buried (<i>t</i>&nbsp;=&nbsp;&minus;4.37); a pre-registered
+residual corrector did not improve a log HAR+VIX+GJR backbone
+(<i>t</i>&nbsp;=&nbsp;&minus;1.07). The central result is the retirement of the
+founder&rsquo;s namesake model by its own gates, without exception.</p>
+<div class="keywords"><b>Keywords:</b> realized volatility, HAR, GJR-GARCH,
+options dealer gamma, promotion gates, multiple testing, pre-registration,
+model retirement.</div>
+
+<h2>1. Introduction</h2>
+<p>This paper documents three versions of one volatility-forecasting model, two
+promotion-gate changes, and one retirement: the complete iteration loop of the
+research program. Two principles organize the account. A signal that beats
+implied volatility does not automatically beat a competent econometric
+ensemble. And a research process that cannot retire its founder&rsquo;s
+favorite model is not a process. The model under study, the Dimopoulos Chain,
+maps nine options dealer-positioning by realized-volatility states onto the
+next-day trading range; Table&nbsp;1 summarizes its three revisions and their
+outcomes.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Three versions of the Dimopoulos Chain and
+their outcomes.</div>
 <table>
-<tr><th>Version</th><th>Claim</th><th>Headline statistic</th><th>Verdict</th></tr>
-<tr><td>v1, state chain</td><td>9 dealer-positioning &times;
-realized-vol states forecast next-day range</td><td>t&nbsp;=&nbsp;4.34 vs
-implied vol; lost to HAR</td><td class="fail">retired after gate
-tightening (stressed t&nbsp;=&nbsp;2.17)</td></tr>
-<tr><td>v1.5, neural emissions</td><td>an MLP on the same states
-beats the linear ladder</td><td>t&nbsp;=&nbsp;&minus;4.37 (walk-forward,
-3-seed ensemble)</td><td class="fail">buried. Capacity is not
-information at daily frequency</td></tr>
-<tr><td>v3, residual corrector (pre-registered)</td><td>shrunk
-state corrections improve a log HAR+VIX+GJR backbone at the 5-day
-horizon</td><td>t&nbsp;=&nbsp;&minus;1.07</td>
-<td class="fail">buried, name and all</td></tr>
+<tr><th>Version</th><th>Claim</th><th>Statistic</th><th>Outcome</th></tr>
+<tr><td>v1 (state chain)</td><td>Nine dealer-positioning &times; realized-vol
+states forecast the next-day range</td><td><i>t</i>&nbsp;=&nbsp;4.34 vs implied
+vol; lost to HAR</td><td>Retired after gate tightening (stressed
+<i>t</i>&nbsp;=&nbsp;2.17)</td></tr>
+<tr><td>v1.5 (neural emissions)</td><td>An MLP on the same states beats the
+linear ladder</td><td><i>t</i>&nbsp;=&nbsp;&minus;4.37 (walk-forward, 3-seed
+ensemble)</td><td>Buried; capacity is not information at daily
+frequency</td></tr>
+<tr><td>v3 (residual corrector, pre-registered)</td><td>Shrunk state
+corrections improve a log HAR+VIX+GJR backbone at the 5-day horizon</td>
+<td><i>t</i>&nbsp;=&nbsp;&minus;1.07</td><td>Buried, name and all</td></tr>
 </table>
+</div>
 
-<h2>1. What v1 got right and wrong</h2>
-<p>The underlying signal is real. Options dealer gamma exposure predicts
-next-day trading range <em>beyond the VIX</em> (t&nbsp;=&nbsp;7.4 in our
-standing classifier, still in the vault, and it clears the
-stressed re-audit at 3.68). v1&rsquo;s mistake was architectural. It
-entered its nine states as OLS dummies alongside the baselines,
-level shifts that cannot repair <em>where</em> a baseline errs. It also
-fought the wrong opponent. In volatility space the incumbent
-factor structure is persistence (HAR), leverage asymmetry (GJR-GARCH),
-and the market&rsquo;s own forecast (implied vol). Beating a naive
-benchmark while losing to HAR means the &ldquo;new&rdquo; information
-was mostly old information wearing a new state label. We treat that
-exactly as we treat equity anomalies that die under a Fama-French +
-momentum decomposition. <strong>A claim must beat the incumbent factor
-model, not the naive benchmark.</strong></p>
+<h2>2. The Version 1 signal and its architectural error</h2>
+<p>The underlying signal is real. Options dealer gamma exposure predicts the
+next-day trading range beyond implied volatility (<i>t</i>&nbsp;=&nbsp;7.4 in
+the standing classifier, retained in the vault, clearing the stressed re-audit
+at 3.68). Version&nbsp;1&rsquo;s error was architectural. It entered its nine
+states as OLS dummies alongside the baselines, level shifts that cannot repair
+where a baseline errs. It also fought the wrong opponent. In volatility space
+the incumbent factor structure is persistence (HAR), leverage asymmetry
+(GJR-GARCH), and the market&rsquo;s own forecast (implied volatility). Beating a
+naive benchmark while losing to HAR indicates that the new information was
+mostly old information under a new state label, the verdict already applied to
+equity anomalies that die under a Fama-French plus momentum decomposition. A
+claim must beat the incumbent factor model, not the naive benchmark.</p>
 
-<h2>2. The process change: promotion criteria that bite backwards</h2>
-<p>Mid-program, two promotion criteria were added (proposed by the
-research critic, approved by the human owner; thresholds are
-never machine-changed here):</p>
-<p><strong>Multiple-testing deflator.</strong> Significance bars are
-Bonferroni-adjusted by the hypothesis family&rsquo;s attempt count,
-tracked in the state store. A survivor from a family of thirty siblings
-is judged as one draw of thirty. This converts the multiple-comparisons
-critique from a reviewer&rsquo;s eyeball into arithmetic that runs on
-every cycle.</p>
-<p><strong>Margin-of-safety rerun.</strong> Before promotion, every
-survivor is re-tested with its edge halved against the original HAC
-noise and its costs doubled. Note the mechanics. Naively halving the
-whole return series leaves a t-statistic unchanged (t is scale-free);
-the stressed test must halve the <em>mean</em> against the
-<em>unstressed</em> standard error, or it tests nothing. We caught that
-on a synthetic sanity check before shipping, and filed the lesson.</p>
-<p>Gates that apply only to future ideas are decorative, so the vault
-was re-audited. The GEX classifier survived (3.68). The tulip-mania
-screen survived (z&nbsp;=&nbsp;5.3). The Dimopoulos Chain v1, the
-founder&rsquo;s namesake model, came up at 2.17 and was retired.
-No exception was requested.</p>
+<h2>3. Promotion criteria that bite backwards</h2>
+<p>Mid-program, two promotion criteria were added, proposed by the research
+critic and approved by the human owner; thresholds are never machine-changed.</p>
+<h3>3.1 Multiple-testing deflator</h3>
+<p>Significance bars are Bonferroni-adjusted by the hypothesis family&rsquo;s
+attempt count, tracked in the state store. A survivor from a family of thirty
+siblings is judged as one draw of thirty. This converts the multiple-comparisons
+critique from a reviewer&rsquo;s eyeball into arithmetic that runs on every
+cycle.</p>
+<h3>3.2 Margin-of-safety rerun</h3>
+<p>Before promotion, every survivor is re-tested with its edge halved against
+the original HAC noise and its costs doubled. The mechanics matter. Naively
+halving the whole return series leaves the <i>t</i>-statistic unchanged, since
+<i>t</i> is scale-free; the stressed test must halve the mean against the
+unstressed standard error, or it tests nothing. A synthetic sanity check caught
+this before shipping, and the lesson was filed.</p>
+<p>Gates that apply only to future ideas are decorative, so the vault was
+re-audited. The GEX classifier survived (3.68). The tulip-mania screen survived
+(<i>z</i>&nbsp;=&nbsp;5.3). The Dimopoulos Chain v1, the founder&rsquo;s
+namesake model, came up at 2.17 and was retired. No exception was requested.</p>
 
-<h2>3. v3: designed for the harder bar, pre-registered, and buried</h2>
-<p>v3 inverted the architecture. It absorbed the strictest baseline (log-space
-HAR + implied + GJR, monthly-refit expanding OLS) as the backbone and
-let the states do the only job left, correcting the backbone&rsquo;s
-residuals. Corrections were shrunk toward zero (k&nbsp;=&nbsp;60,
-James-Stein flavor) across three cheap conditionings: the nine
-GEX&times;RV cells, the VIX term-structure sign, and a state-arrival
-flag. Target moved from next-day to 5-day range (v1.5 had already shown
-daily noise drowns real signal), with leakage guards for the overlapping
-targets (training truncated at the refit boundary minus the horizon;
-HAC lags &ge; 10; Duan smearing applied symmetrically to both models).</p>
-<p>One spec, committed to version control <em>before</em> the run.
-Under a family deflator this is not just hygiene. Every sibling variant
-raises the family&rsquo;s own bar, so the gate makes single-shot
-pre-registration the mathematically optimal research strategy. The
-incentive design does the disciplining.</p>
-<p>The corrections did not improve the backbone
-(MAE 34.1 vs 33.7 bps; kill-test t&nbsp;=&nbsp;&minus;1.07). The
-per-state decomposition shows the information is not uniformly zero.
-One high-gamma state gained 3.5 bps while a stressed state lost
-4.5. But a result you find by staring at the decomposition after
-the gate failed is a hypothesis for a future mechanism, not a spec to
-refit. It is logged as a question, unfished.</p>
+<h2>4. Version 3: a pre-registered residual corrector</h2>
+<p>Version&nbsp;3 inverted the architecture. It absorbed the strictest baseline,
+a log-space HAR plus implied plus GJR model refit monthly by expanding OLS, as
+the backbone, and left the states the only remaining job: correcting the
+backbone&rsquo;s residuals. Corrections were shrunk toward zero
+(<i>k</i>&nbsp;=&nbsp;60, James-Stein flavor) across three conditionings, the
+nine GEX&times;RV cells, the VIX term-structure sign, and a state-arrival flag.
+The target moved from next-day to 5-day range, since version&nbsp;1.5 had shown
+that daily noise drowns the signal, with leakage guards for the overlapping
+targets: training truncated at the refit boundary minus the horizon, HAC lags
+&ge;&nbsp;10, and Duan smearing applied symmetrically to both models.</p>
+<p>The specification was committed to version control before the run. Under a
+family deflator this is more than hygiene. Every sibling variant raises the
+family&rsquo;s own bar, so the gate makes single-shot pre-registration the
+mathematically optimal research strategy. The incentive design does the
+disciplining.</p>
+<p>The corrections did not improve the backbone (MAE 34.1 vs 33.7 bps;
+kill-test <i>t</i>&nbsp;=&nbsp;&minus;1.07). The per-state decomposition shows
+the information is not uniformly zero: one high-gamma state gained 3.5 bps while
+a stressed state lost 4.5. A result found by inspecting the decomposition after
+the gate has failed is a hypothesis for a future mechanism, not a specification
+to refit, and it is logged as an open question.</p>
 
-<h2>What stands after three versions</h2>
-<p>Dealer positioning carries real information relative to implied
-volatility alone. That classifier remains in the vault. It does
-not add forecast value over a competent persistence + leverage + implied
-ensemble at daily or weekly horizons, under promotion criteria that
-require the edge to survive at half strength. A v4 exists only if it
-brings a mechanism the ensemble structurally cannot carry.
-Event-conditioned transition rows (FOMC, CPI) are the standing candidate.
-It will face a bar near 3.1, because the deflator counts our
-own attempts against us.</p>
+<h2>5. Discussion: what stands after three versions</h2>
+<p>Dealer positioning carries real information relative to implied volatility
+alone, and that classifier remains in the vault. It does not add forecast value
+over a competent persistence, leverage, and implied-volatility ensemble at daily
+or weekly horizons under promotion criteria that require the edge to survive at
+half strength. A version&nbsp;4 is warranted only if it brings a mechanism the
+ensemble structurally cannot carry. Event-conditioned transition rows (FOMC,
+CPI) are the standing candidate; such a model would face a bar near 3.1, because
+the deflator counts prior attempts against it.</p>
 
-<div class="note">Everything above is reproducible from the program
-records: the baseline ladder, the neural post-mortem, the gate-tightening
-memo, the pre-registration (committed before results, verifiable by git
-timestamp), and the burial. The museum publishes the process precisely
-because most research shops only publish the survivors.</div>
+<div class="note">Every result above is reproducible from the program records:
+the baseline ladder, the neural post-mortem, the gate-tightening memo, the
+pre-registration committed before results and verifiable by git timestamp, and
+the burial. The museum publishes the process because most research shops publish
+only the survivors.</div>
 
-<footer>BlueShip-AI Research &middot; The Risk Museum &middot;
-educational research only, not investment advice.</footer>
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Carhart, M. M. (1997). On Persistence in Mutual Fund Performance.
+<i>Journal of Finance</i>, 52(1), 57&ndash;82.</li>
+<li>Corsi, F. (2009). A Simple Approximate Long-Memory Model of Realized
+Volatility. <i>Journal of Financial Econometrics</i>, 7(2), 174&ndash;196.</li>
+<li>Duan, N. (1983). Smearing Estimate: A Nonparametric Retransformation
+Method. <i>Journal of the American Statistical Association</i>, 78(383),
+605&ndash;610.</li>
+<li>Fama, E. F., and French, K. R. (1993). Common Risk Factors in the Returns
+on Stocks and Bonds. <i>Journal of Financial Economics</i>, 33(1),
+3&ndash;56.</li>
+<li>Glosten, L. R., Jagannathan, R., and Runkle, D. E. (1993). On the Relation
+between the Expected Value and the Volatility of the Nominal Excess Return on
+Stocks. <i>Journal of Finance</i>, 48(5), 1779&ndash;1801.</li>
+<li>James, W., and Stein, C. (1961). Estimation with Quadratic Loss.
+<i>Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and
+Probability</i>, 1, 361&ndash;379.</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational research
+only; not investment advice. Hypothetical results; reported statistics are
+upper bounds.</footer>
 </main></body></html>

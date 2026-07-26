@@ -1,33 +1,52 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Propulsion Room — The Risk Museum</title>
-<meta name="description" content="Flight mechanics for portfolios: measured friction ratios, steering costs, and gravity loads from a real research pipeline.">
+<title>The Propulsion Room — BlueShip Research Note</title>
+<meta name="description" content="A four-force decomposition of portfolio net return. Across 11 backtested strategies, about a third produced positive gross edge; median cost drag was 42% of gross thrust and median breakeven near 12 bps per unit turnover against a 5 bps model assumption.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/propulsion-room.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
   --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
     --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
-  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
-main { max-width:720px; margin:0 auto }
-h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
-h2 { font-size:1.15rem; margin:2rem 0 .6rem }
-p, li { margin-bottom:.9rem; color:var(--fg) }
-.sub { color:var(--muted); margin-bottom:2rem }
-table { border-collapse:collapse; margin:1rem 0 1.4rem; width:100% }
-td, th { border:1px solid var(--line); padding:.45rem .7rem; font-size:.92rem;
-  text-align:left }
-th { color:var(--muted); font-weight:normal }
-.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
-  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
 a { color:var(--blue) }
-footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
-  color:var(--muted); font-size:.8rem }
-.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
@@ -44,82 +63,109 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <nav class="tabs">
 <a href="../">Tested Strategies</a>
 <a href="../forecasts.html">Forecast Wing</a>
-<a class="on" href="./">Research/Personal Essays</a>
+<a class="on" href="./">Research Notes</a>
 <a href="../reading-room.html">Reading Room</a>
 <a href="../masterpieces.html">Case Studies</a>
 <a href="../membership.html">Membership</a>
 </nav>
-<h1>The Propulsion Room</h1>
-<p class="sub">by The BlueShip Research Engine &middot; Flight mechanics for portfolios &middot; thrust, drag,
-gravity, and the price of steering &middot; July 13, 2026</p>
 
-<p>An aircraft is a negotiation between four forces. So is a portfolio.
-This room translates the museum&rsquo;s own telemetry, the strategies
-that flew far enough to be measured, into the engineer&rsquo;s
-vocabulary, which is honest. Nothing flies on thrust alone, and drag
-kills more designs than weak engines do.</p>
+<div class="hdr">
+<h1>The Propulsion Room: Thrust, Drag, Gravity, and Steering<br>
+in the Net-Return Accounting of Eleven Measured Strategies</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Research Note &middot; 13 July 2026</div>
+</div>
 
+<p class="abstract"><span class="lab">Abstract.</span> A portfolio&rsquo;s net
+return is decomposed into four forces by analogy with powered flight: thrust
+(gross edge before costs), drag (the friction of trading), gravity (the
+volatility drag of compounding), and steering (the cost of each rebalance).
+Using backtest telemetry from 11 strategies with complete cost accounting,
+about a third produced positive gross thrust. Among those, the median cost
+drag was 42% of gross thrust, and the median breakeven cost, or stall speed,
+was about 12 bps per unit of turnover, against a model assumption of 5 bps and
+realistic institutional costs of 10 to 20 bps. Median annual turnover was
+approximately 10&times;, reaching 19&times; at the extreme. One strategy earned
+a positive average return yet compounded to a loss, turning $100k into $93k
+over twenty years, because its variance load exceeded its arithmetic lift. The
+governing conclusion is that gross edge net of drag and volatility drag must
+exceed a passive benchmark, at realistic friction and out of sample, before an
+active strategy is worth flying.</p>
+<div class="keywords"><b>Keywords:</b> transaction costs, portfolio turnover,
+volatility drag, net return, backtesting, passive benchmark.</div>
+
+<h2>1. Introduction</h2>
+<p>Powered flight balances four forces, and a portfolio&rsquo;s net return
+admits the same decomposition. Thrust is the gross edge before costs; drag is
+the friction of trading; gravity is the volatility drag of compounding; and
+steering is the cost of each course change. The decomposition matters because a
+positive gross edge is neither necessary nor sufficient for a positive net
+result, and drag ends more strategies than weak signals do. This note maps the
+pipeline&rsquo;s backtest telemetry onto the four forces and measures each.
+Table 1 states the correspondence.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> The four-force decomposition and where each
+force is measured.</div>
 <table>
 <tr><th>Flight force</th><th>Portfolio force</th><th>Where it is measured here</th></tr>
 <tr><td>Thrust</td><td>Gross edge, before costs</td><td>backtest gross return</td></tr>
 <tr><td>Drag</td><td>Friction: costs &times; turnover, slippage, borrow</td>
 <td>5bps per unit turnover + 25bps/yr borrow</td></tr>
 <tr><td>Gravity</td><td>Volatility drag: growth &asymp; return &minus; &sigma;&sup2;/2</td>
-<td>the \$100k&rarr;\$93k plaques</td></tr>
+<td>the $100k&rarr;$93k plaques</td></tr>
 <tr><td>Steering (control inputs)</td><td>Trading: every course change burns fuel</td>
 <td>annual turnover &times; cost per trade</td></tr>
 </table>
+</div>
 
-<h2>The measured friction ratios</h2>
-<p>Of the strategies with full flight telemetry, only about a third
-produced positive thrust at all. Among those that did, the <strong>median
-friction ratio, cost drag as a share of gross thrust, was
-42%</strong>. Nearly half of everything the engine produced was burned
-overcoming drag before a dollar reached the account. The median
-<em>stall speed</em>, the cost level at which net return hits
-zero, was about 12 bps per unit of turnover. Our model assumes a
-generous 5; real institutional all-in costs for anything less liquid
-run 10&ndash;20. A strategy whose breakeven is 12 bps flies only in a
-wind tunnel.</p>
+<h2>2. Measured forces</h2>
+<h3>2.1 Cost drag</h3>
+<p>Of the strategies with full cost telemetry, about a third produced positive
+gross thrust. Among those, the median friction ratio, defined as cost drag as a
+share of gross thrust, was 42%. Nearly half of the gross edge was consumed by
+trading before any return reached the account. The median stall speed, the
+per-unit-turnover cost level at which net return reaches zero, was about 12 bps.
+The cost model assumes a generous 5 bps per unit of turnover; realistic
+institutional all-in costs for less liquid names run 10 to 20 bps. A strategy
+whose breakeven is 12 bps is viable only under the model&rsquo;s cost
+assumption, not under realistic friction.</p>
 
-<h2>Steering outcomes under load</h2>
-<p>Steering is not free. Each course correction (rebalance) pays the
-friction toll, so steering <em>authority</em> must be budgeted like
-fuel. The telemetry median here is ~10&times; annual turnover; the
-worst steerers hit ~19&times;. The gate that matters is the signal
-half-life check. A pilot who corrects course faster than the
-instruments update is only oscillating. A strategy whose signal
-half-life is shorter than its rebalance period pays turnover to chase
-noise. That check is stage-4 standard here.</p>
+<h3>2.2 Steering and turnover</h3>
+<p>Each course correction, or rebalance, pays the friction toll, so steering
+authority must be budgeted like fuel. The telemetry median is approximately
+10&times; annual turnover; the highest-turnover strategies reach approximately
+19&times;. The governing constraint is the signal half-life check: a strategy
+whose signal half-life is shorter than its rebalance period pays turnover to
+chase noise rather than to track a persistent edge. This check is a stage-4
+standard in the pipeline.</p>
 
-<h2>Gravity loads</h2>
-<p>Volatility drag is the gravity of compounding. Geometric growth
-&asymp; arithmetic return minus half the variance. One measured
-strategy in this collection flew arithmetically (positive average
-return) and still sank geometrically, because its variance load
-exceeded its lift. This is how an exhibit with a positive
-&ldquo;average&rdquo; turns \$100k into \$93k over twenty years.
-Leverage multiplies thrust and gravity alike; LTCM&rsquo;s plaque in
-the Case Studies wing is what a structural failure under g-load looks
-like.</p>
+<h3>2.3 Volatility drag</h3>
+<p>Volatility drag is the gravity of compounding: geometric growth is
+approximately the arithmetic return minus half the variance. One strategy in
+the sample had a positive average return yet compounded to a loss, because its
+variance load exceeded its arithmetic lift; a positive average turned $100k
+into $93k over twenty years. Leverage scales thrust and volatility drag
+together, which is the mechanism behind structural failures under load such as
+LTCM, documented separately in the Case Studies.</p>
 
-<h2>The glider and the fighter jet</h2>
-<p>The index fund is a glider. It has almost no thrust of its own and
-almost no drag (single-digit bps, near-zero turnover), and it converts
-gravity into forward motion. Compounding does the flying. Its
-lift-to-drag ratio is enormous. Most active strategies are fighter
-jets: impressive thrust, violent maneuvers, and a fuel burn that
-demands the mission be <em>worth it</em>. The museum&rsquo;s standing
-finding is that most jets tested here could not outrun the glider after
-paying for their own fuel. The bar for flying anything active is
-therefore precise. Thrust minus drag minus gravity must beat the
-glider, net, at realistic friction, measured out of sample.</p>
+<h2>3. Benchmark and discussion</h2>
+<p>A passive index fund is the limiting case: near-zero thrust of its own,
+single-digit-bps drag, near-zero turnover, and a high ratio of return to cost,
+so compounding does the flying. Most active strategies carry large gross thrust
+but also large drag and turnover. The standing finding across this sample is
+that most of the active strategies tested did not exceed the passive benchmark
+once their own trading costs were charged. The bar for an active strategy is
+therefore explicit: gross thrust net of drag and volatility drag must exceed
+the passive benchmark, at realistic friction, measured out of sample.</p>
 
-<div class="note">Full flight data exists for the 11 strategies that
-reached the backtest stage with complete cost accounting. Research-lane
-studies and external sims track different instruments. The sample is
-small, and the numbers are honest.</div>
+<div class="note">Complete cost accounting exists for the 11 strategies that
+reached the backtest stage. Research-lane studies and external simulations
+measure different instruments and are excluded. The sample is small.</div>
 
-<footer>BlueShip-AI Research &middot; The Risk Museum &middot;
-educational research only, not investment advice.</footer>
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Telemetry from the pipeline&rsquo;s
+backtest stage; the sample is small and the reported cost and turnover figures
+are sample medians.</footer>
 </main></body></html>

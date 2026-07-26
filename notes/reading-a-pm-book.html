@@ -1,30 +1,52 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research note: How to Read a PM's Book — The Risk Museum</title>
-<meta name="description" content="Field notes on dissecting a portfolio manager's book with factors, and the drawdown protocol — what to do when a PM is losing money.">
+<title>Reading a PM's Book — BlueShip Research Note No. 4</title>
+<meta name="description" content="A risk-seat method for dissecting a portfolio into intended and unintended exposures across six layers, decomposed by risk contribution, paired with a pre-committed drawdown protocol that fixes diagnosis, escalation ladder, and de-grossing order in advance.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/reading-a-pm-book.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
   --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
     --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
-  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
-main { max-width:720px; margin:0 auto }
-h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
-h2 { font-size:1.15rem; margin:2rem 0 .6rem }
-p, li { margin-bottom:.9rem; color:var(--fg) }
-ol, ul { padding-left:1.4rem }
-.sub { color:var(--muted); margin-bottom:2rem }
-.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
-  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
 a { color:var(--blue) }
-footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
-  color:var(--muted); font-size:.8rem }
-.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
@@ -41,107 +63,133 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <nav class="tabs">
 <a href="../">Tested Strategies</a>
 <a href="../forecasts.html">Forecast Wing</a>
-<a class="on" href="./">Research/Personal Essays</a>
+<a class="on" href="./">Research Notes</a>
 <a href="../reading-room.html">Reading Room</a>
 <a href="../masterpieces.html">Case Studies</a>
 <a href="../membership.html">Membership</a>
 </nav>
-<h1>How to Read a PM&rsquo;s Book</h1>
-<p class="sub">by V. Dimopoulos &middot; Research note #4 &middot; field
-notes on factor dissection and the drawdown protocol &middot; July 17, 2026</p>
 
-<p>A portfolio is a set of claims. The portfolio manager claims the
-returns come from his ideas; the risk seat&rsquo;s job is to find out
-what the book actually owns. These are field notes from fifteen years
-on the risk side of that conversation. They cover two disciplines, both
-practiced nightly by this museum&rsquo;s own machine on its own
-strategies.</p>
+<div class="hdr">
+<h1>Reading a PM&rsquo;s Book: Exposure Dissection and a Pre-Committed<br>
+Drawdown Protocol for Discretionary Risk Oversight</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Research Note No. 4 &middot; 17 July 2026</div>
+</div>
 
-<h2>Part I. The dissection, intended versus unintended</h2>
-<p>The organizing question is never &ldquo;is the book risky?&rdquo;
-Risk is the job. The question is <strong>which exposures were
-chosen, and which arrived uninvited.</strong> A fundamental stock
-picker is paid for idiosyncratic judgment; everything else in the book
-is either deliberate ballast or a stowaway. The dissection proceeds in
-six layers, cheapest explanation first:</p>
+<p class="abstract"><span class="lab">Abstract.</span> A portfolio is a set of
+claims: the manager attributes its returns to idiosyncratic judgment, while the
+risk seat must establish what the book actually owns. We describe two
+disciplines, both run nightly by this system on its own strategies. The first is
+an exposure dissection separating intended positioning from unintended exposure
+across six ordered layers (market, styles, industry and sector, macro
+sensitivities, crowding and liquidity, and the residual idiosyncratic share),
+decomposed by risk contribution rather than dollar weight and audited for
+factors concealed inside the residual. The second is a pre-committed drawdown
+protocol that fixes diagnosis, escalation ladder, and de-grossing order before
+the loss, so that a failing book is governed by rules set on a calm day. Both
+disciplines are applied to the system itself, which retired its founder&rsquo;s
+namesake model under its own triggers.</p>
+<div class="keywords"><b>Keywords:</b> risk decomposition, factor exposure,
+intended versus unintended risk, risk contribution, drawdown protocol,
+de-grossing, liquidity.</div>
+
+<h2>1. Introduction</h2>
+<p>A portfolio is a set of claims. The manager claims the returns come from his
+ideas; the risk seat&rsquo;s task is to establish what the book actually owns.
+These notes distill fifteen years of practice on the risk side of that
+conversation. They cover two disciplines, both practiced nightly by this
+system on its own strategies: a dissection of intended versus unintended
+exposure, and a protocol for the days on which the manager is losing money.</p>
+
+<h2>2. Exposure dissection: intended versus unintended</h2>
+<p>The organizing question is not whether the book is risky; risk is the
+mandate. The question is which exposures were chosen and which arrived
+uninvited. A fundamental stock picker is paid for idiosyncratic judgment;
+everything else in the book is either deliberate ballast or a stowaway. The
+dissection proceeds in six layers, cheapest explanation first.</p>
+
+<h3>2.1 The six layers</h3>
 <ol>
-<li><strong>Market.</strong> Net and gross beta. The oldest stowaway is
-a &ldquo;hedged&rdquo; book whose longs are high-beta and shorts
-low-beta, net long the market while its net dollars say zero.</li>
-<li><strong>Styles.</strong> Size, value, momentum, quality,
-low-volatility, short-term reversal. Regress the book&rsquo;s returns
-on the factor set; check loadings against what the PM thinks he
-runs.</li>
-<li><strong>Industry and sector.</strong> Concentrations, and the
-peer-relative view. A &ldquo;diversified&rdquo; book of one
-sector&rsquo;s suppliers is one bet in many costumes.</li>
-<li><strong>Macro sensitivities.</strong> Rates, oil, the dollar,
-whatever the book&rsquo;s names transmit. Duration is not
-only a bond concept.</li>
-<li><strong>Crowding and liquidity.</strong> Ownership overlap with
-other funds; days-to-liquidate at a sane participation rate. The
-position that cannot be exited is the one that decides the worst
-week.</li>
-<li><strong>The residual share, the punchline.</strong> After
-all of the above, what fraction of the book&rsquo;s risk is actually
-idiosyncratic? A &ldquo;stock picker&rdquo; whose variance is mostly
-factor is a closet factor fund at stock-picker fees. And run it
-<em>rolling</em> rather than quarterly. Weights drift, and books wander into
-factor bets that nobody chose. Passivity is not
+<li><b>Market.</b> Net and gross beta. The oldest stowaway is a
+&ldquo;hedged&rdquo; book whose longs are high-beta and shorts low-beta, net
+long the market while its net dollar exposure reads zero.</li>
+<li><b>Styles.</b> Size, value, momentum, quality, low-volatility, short-term
+reversal. The book&rsquo;s returns are regressed on the factor set and the
+loadings checked against what the manager believes he runs.</li>
+<li><b>Industry and sector.</b> Concentrations, and the peer-relative view. A
+&ldquo;diversified&rdquo; book of one sector&rsquo;s suppliers is a single bet
+expressed through many names.</li>
+<li><b>Macro sensitivities.</b> Rates, oil, the dollar, whatever the
+book&rsquo;s names transmit. Duration is not only a bond concept.</li>
+<li><b>Crowding and liquidity.</b> Ownership overlap with other funds;
+days-to-liquidate at a reasonable participation rate. The position that cannot
+be exited determines the worst week.</li>
+<li><b>The residual idiosyncratic share.</b> After the preceding layers, what
+fraction of the book&rsquo;s risk is genuinely idiosyncratic. A stock picker
+whose variance is mostly factor is a closet factor fund at stock-picker fees.
+The decomposition is run rolling rather than quarterly, because weights drift
+and books wander into factor bets that no one chose. Passivity is not
 factor-neutrality.</li>
 </ol>
-<p>Two humility clauses come from this museum&rsquo;s own workshop. The
-first is the blame counter. Dollar weights lie about where risk lives, so
-decompose by risk contribution; the pieces sum exactly, and
-the ranking rarely matches the position sheet. The second comes from our
-random-matrix work. Even the &ldquo;residuals&rdquo; can hide a
-common factor in a concentrated regime, so treat idiosyncratic as a
-label to verify.</p>
 
-<h2>Part II. The drawdown protocol for when the PM is losing money</h2>
-<p>The worst time to design a policy is inside the loss. The protocol
-exists so that nobody has to be brave or brilliant on the worst day,
-only obedient to decisions made on a calm one.</p>
+<h3>2.2 Two adjustments</h3>
+<p>Two adjustments come from this system&rsquo;s own workshop. The first is the
+blame counter: dollar weights misstate where risk lives, so the book is
+decomposed by risk contribution, whose pieces sum exactly and whose ranking
+rarely matches the position sheet. The second follows from random-matrix work:
+even the residuals can conceal a common factor in a concentrated regime, so
+idiosyncratic is treated as a label to verify rather than a property to
+assume.</p>
+
+<h2>3. The drawdown protocol</h2>
+<p>The worst time to design a policy is inside the loss. The protocol exists so
+that the decisions are made on a calm day and merely executed on the worst
+one.</p>
 <ol>
-<li><strong>Diagnose before acting.</strong> Decompose the loss. Is it
-factor or idiosyncratic? A few names or the whole book? Inside the
-risk budget or breaching it? &ldquo;Is he losing on his thesis, or on
-exposures he didn&rsquo;t know he had?&rdquo; The two have
-opposite remedies, and acting before answering treats both
-wrongly.</li>
-<li><strong>Run the pre-committed ladder.</strong> Early-warning
-indicator &rarr; the PM adjusts; first threshold &rarr; escalation;
-second &rarr; mandatory de-risking. Mechanical de-grossing at
-drawdown levels is not a failure of nerve; it is the nerve,
-exercised in advance. Triggers set at promotion are never renegotiated
-mid-drawdown; this museum applies the same rule to its own
+<li><b>Diagnose before acting.</b> Decompose the loss. Is it factor or
+idiosyncratic? A few names or the whole book? Inside the risk budget or
+breaching it? Is the manager losing on his thesis, or on exposures he did not
+know he held? The two have opposite remedies, and acting before answering
+treats both wrongly.</li>
+<li><b>Run the pre-committed ladder.</b> Early-warning indicator &rarr; the
+manager adjusts; first threshold &rarr; escalation; second threshold &rarr;
+mandatory de-risking. Mechanical de-grossing at drawdown levels is the exercise
+of nerve set in advance, not its failure. Triggers set at promotion are never
+renegotiated mid-drawdown; this system applies the same rule to its own
 strategies.</li>
-<li><strong>Cut in the right order.</strong> Gross first. It
-lowers the dose while preserving the PM&rsquo;s relative bets. Unintended
-factor exposures second. Hedge or trim the stowaways; they were
-never the thesis. Concentrated and illiquid positions early.
-The exit you cannot make later must be right-sized while you still
-can. The highest-conviction idiosyncratic names last. They are the
-reason the PM has a seat.</li>
-<li><strong>Separate loss from error.</strong> Good process loses
-money on bad days; that is what risk means. The review asks whether
-the process was followed, not whether the outcome was pleasant.
-But repeated breaches are structure rather than weather, and structure
-escalates.</li>
-<li><strong>Talk to the PM.</strong> Thesis intact, or broken by new
-information? The risk seat&rsquo;s deepest job is keeping a skilled
-PM solvent long enough for the skill to compound, and knowing
-the difference between defending a position and defending a
-person.</li>
+<li><b>Cut in the right order.</b> The de-grossing sequence is fixed in advance
+(Table 1): gross exposure is reduced first, unintended factor exposures next,
+concentrated and illiquid positions early, and the highest-conviction
+idiosyncratic names last.</li>
+<li><b>Separate loss from error.</b> Good process loses money on bad days; that
+is what risk means. The review asks whether the process was followed, not
+whether the outcome was pleasant. Repeated breaches, however, are structure
+rather than weather, and structure escalates.</li>
+<li><b>Talk to the PM.</b> Thesis intact, or broken by new information? The risk
+seat&rsquo;s deepest task is keeping a skilled manager solvent long enough for
+the skill to compound, and distinguishing the defense of a position from the
+defense of a person.</li>
 </ol>
 
-<div class="note">This hangs in the museum for a reason. The machine behind
-this site runs both disciplines on itself, risk-contribution
-blame counters and liquidity slices on every backtest, and
-pre-committed retirement triggers on everything promoted. It retired
-the founder&rsquo;s own namesake model under those triggers. A
-protocol you exempt yourself from is a brochure.</div>
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> De-grossing order in a drawdown.</div>
+<table>
+<tr><th>Priority</th><th>Instrument cut</th><th>Rationale</th></tr>
+<tr><td>First</td><td>Gross exposure</td><td>Lowers the dose while preserving the manager&rsquo;s relative bets.</td></tr>
+<tr><td>Second</td><td>Unintended factor exposures</td><td>Hedge or trim the stowaways; they were never the thesis.</td></tr>
+<tr><td>Early</td><td>Concentrated and illiquid positions</td><td>The exit that cannot be made later must be right-sized while it still can be.</td></tr>
+<tr><td>Last</td><td>Highest-conviction idiosyncratic names</td><td>They are the reason the manager holds a seat.</td></tr>
+</table>
+</div>
 
-<footer>BlueShip-AI Research &middot; The Risk Museum &middot;
-educational research only, not investment advice.</footer>
+<div class="note">This system runs both disciplines on itself:
+risk-contribution blame counters and liquidity slices on every backtest, and
+pre-committed retirement triggers on everything promoted. It retired the
+founder&rsquo;s namesake model under those triggers. A protocol whose author
+exempts himself from it is a brochure.</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational research
+only; not investment advice. Methodological field notes; no dataset or backtest
+is reported herein.</footer>
 </main></body></html>

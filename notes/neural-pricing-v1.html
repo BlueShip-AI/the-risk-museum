@@ -1,34 +1,52 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research note: The 1993 model won again — The Risk Museum</title>
-<meta name="description" content="I brought a neural network; the 1993 model won again — why capacity is not information at daily frequency.">
+<title>Neural Pricing — BlueShip Research Working Paper No. 2</title>
+<meta name="description" content="A ~2,000-parameter neural network forecasting next-day volatility range loses significantly to a four-parameter 1993 GJR-GARCH model (Newey-West t = -4.37) on ~3,500 daily observations; the same architecture family passes every gate approximating the Heston pricing map from 9,000 dense implied-vol surfaces. Data density, not model capacity, governs the outcome.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/neural-pricing-v1.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
   --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
     --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
-  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
-main { max-width:720px; margin:0 auto }
-h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
-h2 { font-size:1.15rem; margin:2rem 0 .6rem }
-p, li { margin-bottom:.9rem }
-.sub { color:var(--muted); margin-bottom:2rem }
-table { border-collapse:collapse; margin:1rem 0 1.4rem; width:100% }
-td, th { border:1px solid var(--line); padding:.45rem .7rem; font-size:.92rem;
-  text-align:left }
-th { color:var(--muted); font-weight:normal }
-.pass { color:#2e7d32; font-weight:bold } .fail { color:var(--accent); font-weight:bold }
-.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
-  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
 a { color:var(--blue) }
-footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
-  color:var(--muted); font-size:.8rem }
-.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
@@ -45,24 +63,69 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <nav class="tabs">
 <a href="../">Tested Strategies</a>
 <a href="../forecasts.html">Forecast Wing</a>
-<a class="on" href="./">Research/Personal Essays</a>
+<a class="on" href="./">Research Notes</a>
 <a href="../reading-room.html">Reading Room</a>
 <a href="../masterpieces.html">Case Studies</a>
 <a href="../membership.html">Membership</a>
 </nav>
-<h1>I brought a neural network. The 1993 model won again.</h1>
-<p class="sub">by V. Dimopoulos &middot; Research note #2 &middot; Neural pricing, part one &middot; July 13, 2026</p>
 
-<p>Last note ended with GJR-GARCH (Glosten, Jagannathan and Runkle&rsquo;s
-1993 asymmetric volatility model, four parameters) beating a Markov
-state model we had named after ourselves. The obvious next question was
-whether a <em>neural network</em> could do better. Nonlinear
-interactions are exactly what a linear ladder cannot see. So we built
-one: a small MLP (~2,000 parameters), forecasting next-day range from
-the same information set plus the dealer-positioning state components,
-walk-forward with monthly refits, three-seed ensembles, early stopping.
-Same 1,794-day out-of-sample window, same gates as everything else.</p>
+<div class="hdr">
+<h1>Neural Pricing: Data Density, Not Model Capacity, Governs When<br>
+Neural Networks Beat Parsimonious Volatility Econometrics</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 2 &middot; 13 July 2026</div>
+</div>
 
+<p class="abstract"><span class="lab">Abstract.</span> We test whether a
+neural network improves on parsimonious econometric models for next-day
+volatility. A small multilayer perceptron (~2,000 parameters), forecasting
+next-day range from a fixed information set plus dealer-positioning state
+components, is evaluated over the same 1,794-day out-of-sample window and the
+same gates as its competitors. It loses significantly: best-network mean
+absolute error is 58.9 basis points, against 41.2 for a linear HAR&nbsp;+&nbsp;VIX&nbsp;+&nbsp;GJR
+ladder and 41.6 for the four-parameter GJR-GARCH model of Glosten,
+Jagannathan, and Runkle (1993), with a Newey&ndash;West <i>t</i> of &minus;4.37
+on the error differential over roughly 3,500 daily observations. The identical
+architecture family, applied instead to approximating the Heston (1993)
+pricing map from 9,000 self-generated implied-volatility surfaces, clears every
+gate (0.23 volatility-point accuracy, ~45,000x speedup, correct skew). Data
+density, not model capacity, governs the outcome.</p>
+<div class="keywords"><b>Keywords:</b> neural networks, volatility
+forecasting, GJR-GARCH, HAR, Heston model, deep learning volatility, data
+efficiency, model parsimony.</div>
+
+<h2>1. Introduction</h2>
+<p>A prior note in this series found that GJR-GARCH, the four-parameter
+asymmetric volatility model of Glosten, Jagannathan, and Runkle (1993),
+outperformed a Markov state-switching model of our own construction.
+Nonlinear interactions are precisely what a linear recursion cannot represent,
+which motivates the present question: can a neural network do better? This
+note, the first on neural pricing, reports two experiments run under identical
+out-of-sample discipline and reaches opposite verdicts.</p>
+
+<h2>2. Method</h2>
+<p>We trained a small multilayer perceptron (~2,000 parameters) to forecast
+next-day range from the same information set as the linear models, augmented
+with the dealer-positioning state components. Training was walk-forward with
+monthly refits, three-seed ensembles, and early stopping, evaluated on the
+same 1,794-day out-of-sample window and the same gates applied to every other
+forecaster.</p>
+
+<h2>3. Results</h2>
+<h3>3.1 Daily volatility forecasting</h3>
+<p>Table 1 reports out-of-sample mean absolute error. The network failed to
+win, and lost significantly: the Newey&ndash;West <i>t</i>-statistic on the
+error differential is &minus;4.37. A model of roughly 2,000 parameters was
+beaten by one of four, on approximately 3,500 daily observations. The state
+inputs helped the network (58.9 against 63.4 basis points), consistent with
+prior measurements of dealer positioning, but no adjustment rescued the
+architecture at this data scale. Daily-frequency volatility yields about 250
+observations per year, which is starvation for a neural network and ample for
+a parsimonious recursion.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Out-of-sample next-day range forecast error, 1,794-day window.</div>
 <table>
 <tr><th>Forecaster</th><th>next-day range MAE (bps)</th></tr>
 <tr><td>GJR-GARCH alone (4 parameters, 1993)</td><td>41.6</td></tr>
@@ -70,47 +133,59 @@ Same 1,794-day out-of-sample window, same gates as everything else.</p>
 <tr><td>Neural net, no state inputs</td><td>63.4</td></tr>
 <tr><td>Neural net, with state inputs</td><td>58.9</td></tr>
 </table>
+</div>
 
-<p>The network failed to win. It lost <em>significantly</em>
-(Newey-West t = &minus;4.37 on the error differential). Two thousand
-parameters, beaten by four, on ~3,500 daily observations. The states
-helped the network (58.9 vs 63.4), consistent with everything we have
-measured about dealer positioning, but nothing rescues the
-architecture at this data scale. Daily-frequency volatility gives you
-about 250 observations a year; that is starvation rations for a neural
-net and a feast for a parsimonious recursion.</p>
+<h3>3.2 Option-surface approximation</h3>
+<p>We then applied the same architecture family to a different task:
+approximating the Heston (1993) stochastic-volatility pricing map, following
+the Deep Learning Volatility approach of Horvath, Muguruza, and Tomas (2021).
+Training used 9,000 implied-volatility surfaces generated by the model itself,
+a dense and effectively unlimited sample. Against pre-set gates the
+approximation passed on every axis (Table 2).</p>
 
-<h2>The same tool won somewhere else</h2>
-<p>Then we pointed the identical technology at a different kind of
-problem, approximating the Heston (1993, good year) stochastic-vol
-pricing map, the &ldquo;Deep Learning Volatility&rdquo; program of
-Horvath, Muguruza &amp; Tomas. The training data was 9,000 implied-vol
-surfaces the model generated itself, dense and unlimited.</p>
-
+<div class="tblwrap">
+<div class="cap"><b>Table 2.</b> Heston pricing-map approximation against pre-set gates.</div>
 <table>
-<tr><th>Gate</th><th>Result</th><th></th></tr>
-<tr><td>Surface accuracy (gate &lt; 0.5 vol pts)</td><td>0.23 vol pts MAE</td><td class="pass">PASS</td></tr>
-<tr><td>Speedup vs direct integration (gate &ge; 100x)</td><td>~45,000x</td><td class="pass">PASS</td></tr>
-<tr><td>Skew sanity (rho &lt; 0 &rArr; downward skew)</td><td>put wing 24.3%, calls 14.3%</td><td class="pass">PASS</td></tr>
+<tr><th>Gate</th><th>Result</th><th>Outcome</th></tr>
+<tr><td>Surface accuracy (gate &lt; 0.5 vol pts)</td><td>0.23 vol pts MAE</td><td>Pass</td></tr>
+<tr><td>Speedup vs direct integration (gate &ge; 100x)</td><td>~45,000x</td><td>Pass</td></tr>
+<tr><td>Skew sanity (rho &lt; 0 &rArr; downward skew)</td><td>put wing 24.3%, calls 14.3%</td><td>Pass</td></tr>
 </table>
+</div>
 
-<p>The architecture family was the same. The verdicts were opposite.
-Neural networks are not an upgrade you sprinkle on a forecast. They win
-where data is dense and structured (an option surface is thousands of
-simultaneous, arbitrage-linked quotes) and lose to forty-year-old
-econometrics where data is scarce and noisy. Anyone selling you a
-neural net fitted to one daily time series is selling you the 63.4 in
-the first table.</p>
+<h2>4. Discussion</h2>
+<p>The architecture family was identical; the verdicts were opposite. Neural
+capacity is not a modular upgrade to a forecast. It adds information where data
+is dense and structured (an option surface is thousands of simultaneous,
+arbitrage-linked quotes) and loses to forty-year-old econometrics where data
+is scarce and noisy. A neural network fitted to a single daily time series
+reproduces the 63.4 basis points of Table 1, not the 0.23 volatility points of
+Table 2.</p>
 
-<div class="note">The first run
-of the Heston lab FAILED. Every implied vol pinned at exactly 150%,
-caused by a one-line bisection bug in our own inversion
-code. It was caught by a degenerate-case test (vol-of-vol &rarr; 0 must
-recover Black-Scholes exactly; it then did, to four decimals). Verify
-your machinery before you trust its verdicts. The bug looked exactly
-like a result.</div>
+<div class="note">The first run of the Heston laboratory failed: every implied
+volatility pinned at exactly 150%, the result of a one-line bisection bug in
+our own inversion code. A degenerate-case test caught it, since vol-of-vol
+&rarr; 0 must recover Black&ndash;Scholes exactly, which the corrected code
+then did to four decimals. The failure was indistinguishable from a result
+until the test caught it.</div>
 
-<footer>BlueShip-AI Research &middot; methodology open-sourced in the
-quant-validation-harness repo &middot; educational research only, not
-investment advice.</footer>
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Glosten, L. R., Jagannathan, R., and Runkle, D. E. (1993). On the Relation
+between the Expected Value and the Volatility of the Nominal Excess Return on
+Stocks. <i>Journal of Finance</i>, 48(5), 1779&ndash;1801.</li>
+<li>Heston, S. L. (1993). A Closed-Form Solution for Options with Stochastic
+Volatility with Applications to Bond and Currency Options. <i>Review of
+Financial Studies</i>, 6(2), 327&ndash;343.</li>
+<li>Horvath, B., Muguruza, A., and Tomas, M. (2021). Deep Learning Volatility:
+A Deep Neural Network Perspective on Pricing and Calibration in (Rough)
+Volatility Models. <i>Quantitative Finance</i>, 21(1), 11&ndash;27.</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Methodology open-sourced in the
+quant-validation-harness repository. Hypothetical out-of-sample results on a
+single daily time series; reported statistics are estimates.</footer>
 </main></body></html>

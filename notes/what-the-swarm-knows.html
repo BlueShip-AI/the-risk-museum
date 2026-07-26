@@ -1,30 +1,52 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research note: What the Swarm Knows and What It Does Not Know — The Risk Museum</title>
-<meta name="description" content="Bees build optimal honeycomb in the light and lose a fraction of a percent in the dark caps. A research machine has dark caps too. The museum's policy is to publish its own — after Fejes Tóth, 1964.">
+<title>What the Swarm Knows — BlueShip Research Working Paper No. 8</title>
+<meta name="description" content="A systematic alpha-research process read through Fejes Tóth (1964): 212 hypotheses tested under fixed gates, two crowding effects (t of 4.1 and 3.9) held but not promoted, and five structural limits published as standing policy. Performance is inexpensive; certainty is costly.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/what-the-swarm-knows.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
   --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
     --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
-  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
-main { max-width:720px; margin:0 auto }
-h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
-h2 { font-size:1.15rem; margin:2rem 0 .6rem }
-p, li { margin-bottom:.9rem; color:var(--fg) }
-ol, ul { padding-left:1.4rem }
-.sub { color:var(--muted); margin-bottom:2rem }
-.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
-  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
 a { color:var(--blue) }
-footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
-  color:var(--muted); font-size:.8rem }
-.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
@@ -41,92 +63,121 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <nav class="tabs">
 <a href="../">Tested Strategies</a>
 <a href="../forecasts.html">Forecast Wing</a>
-<a class="on" href="./">Research/Personal Essays</a>
+<a class="on" href="./">Research Notes</a>
 <a href="../reading-room.html">Reading Room</a>
 <a href="../masterpieces.html">Case Studies</a>
 <a href="../membership.html">Membership</a>
 </nav>
-<h1>What the Swarm Knows and What It Does Not Know</h1>
-<p class="sub">by V. Dimopoulos &middot; Research note #8 &middot; the
-machine&rsquo;s own dark caps, published on purpose &middot;
-July 23, 2026</p>
 
-<p>In 1964 the Hungarian mathematician L&aacute;szl&oacute; Fejes
-T&oacute;th published a paper with a perfect title, <i>What the Bees
-Know and What They Do Not Know</i>. The bees, it turns out, are
-optimal where you can see. The hexagonal comb is provably the
-cheapest way to divide a plane into equal cells, though
-proving it against every curved and conspiring alternative took our
-species until 1999. But at the bottom of each cell, where two layers
-of comb meet in the dark, Fejes T&oacute;th showed the bees&rsquo;
-three-panel cap can be beaten by a fraction of one percent of wax.
-Perfect in the visible architecture. A whisker off in the dark. And
-no bee will ever know either fact.</p>
+<div class="hdr">
+<h1>What the Swarm Knows and What It Does Not:<br>
+Declared Epistemic Limits of a Gated Alpha-Research Process</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 8 &middot; 23 July 2026</div>
+</div>
 
-<p>The research machine behind this museum is named the swarm, so the
-question inherits itself. What does our swarm know, and what does it
-not know? Most research shops publish only the first half. This note
-is the second half, hung deliberately.</p>
+<p class="abstract"><span class="lab">Abstract.</span> A systematic
+alpha-research process is examined through Fejes T&oacute;th&rsquo;s (1964)
+result on the honeycomb, in which bees build a provably optimal partition of
+the visible plane yet fall a fraction of one percent short where the comb
+closes in the dark. The process reported here has evaluated 212 hypotheses
+under fixed gates (Newey&ndash;West statistics, margin-of-safety reruns, and
+multiplicity deflators), with every statistic produced by deterministic code
+rather than a language model; two crowding effects, at <i>t</i> of 4.1 and 3.9,
+were held significant but not promoted. Against these established results the
+paper sets the process&rsquo;s structural limits, published as standing policy:
+survivorship in the universe, regimes absent from the sample, capacity assumed
+rather than proven, crowding unmeasured beyond long public filings, and
+near-fitting strategies at <i>t</i>&nbsp;=&nbsp;2.3 that fail the promotion bar.
+The claim is that performance is inexpensive and certainty costly, and that the
+durable edge favors a process that accounts honestly for what it cannot know.</p>
+<div class="keywords"><b>Keywords:</b> research epistemics, systematic alpha,
+pre-registration, multiple testing, survivorship bias, crowding, honeycomb
+conjecture.</div>
 
-<h2>What the swarm knows</h2>
-<p>It knows what it has tested. To date, 212 hypotheses have gone
-through the same gates: Newey-West statistics, margin-of-safety
-reruns, multiplicity deflators. Every verdict is on the public wall,
-including the founder&rsquo;s own retired namesake model. It knows
-the difference between significant and promoted. This month it found
-two real crowding effects (t of 4.1 and 3.9) and declined to promote
-either, because the bar is the bar. And it knows its arithmetic is
-not an opinion. The statistics are deterministic code; no language
-model in this shop is permitted to compute so much as a Sharpe ratio.
-When mathematicians spent four years refereeing the sphere-packing
-proof and could only reach &ldquo;99% certain,&rdquo; Thomas Hales
-spent a decade more getting a machine to verify every line.
-Performance is cheap. Certainty is expensive. That is the exchange
-rate this museum trades at.</p>
+<h2>1. Introduction</h2>
+<p>In 1964 the Hungarian mathematician L&aacute;szl&oacute; Fejes T&oacute;th
+published a paper titled <i>What the Bees Know and What They Do Not Know</i>.
+The bees are optimal where the structure is visible. The hexagonal comb is
+provably the cheapest way to divide a plane into equal cells, though
+establishing that against every curved and conspiring alternative took until
+1999. At the base of each cell, where two layers of comb meet out of sight,
+Fejes T&oacute;th showed the bees&rsquo; three-panel cap can be beaten by a
+fraction of one percent of wax. The architecture is optimal in the light and a
+whisker off in the dark, and no bee registers either fact. The research process
+behind this museum is named the swarm, so the question transfers directly: what
+does the process know, and what does it not? Most research programs publish only
+the first half. This note sets out the second.</p>
 
-<h2>What the swarm does not know</h2>
-<p>Here are our dark caps, stated as plainly as we can see them.</p>
+<h2>2. What the process has established</h2>
+<p>The process reports what it has tested. To date, 212 hypotheses have passed
+through identical gates: Newey&ndash;West statistics, margin-of-safety reruns,
+and multiplicity deflators. Every verdict is recorded on the public wall,
+including the founder&rsquo;s own retired namesake model. The process
+distinguishes significant from promoted. This month it identified two real
+crowding effects, at <i>t</i> of 4.1 and 3.9, and promoted neither, because the
+threshold does not move. Its arithmetic is not an opinion: the statistics are
+produced by deterministic code, and no language model in the shop computes so
+much as a Sharpe ratio. When referees spent four years on the sphere-packing
+proof and reached only 99 percent certainty, Thomas Hales spent a further decade
+having a machine verify every line. Performance is inexpensive; certainty is
+costly.</p>
+
+<h2>3. Declared limits</h2>
+<p>The following limits are stated as plainly as the process can see them.</p>
 <ol>
-<li><b>The universe flatters us.</b> Our panel is today&rsquo;s
-index constituents, the companies that survived. Every Sharpe
-ratio on the wall is an upper bound for this reason, and says so.</li>
-<li><b>The regimes we haven&rsquo;t met.</b> Our sample contains a
-few crises; the future is not obligated to draw from the same urn.
-Correlations measured in calm are fiction in storms. We stress for
-this, but a stress test is only a rehearsal.</li>
-<li><b>Capacity is assumed, not proven.</b> Every backtest presumes
-our trading does not move the price. At our size that is nearly
-true, which says more about our size than our cleverness.</li>
-<li><b>The crowding we cannot see.</b> Our own 13F study measures
-crowding among long positions in public filings. No shorts, no
-swaps. It captures the floor of the crowd and misses the ceiling.</li>
-<li><b>The near-fits we will be offered.</b> Newton was right that
-twelve spheres kiss and a thirteenth never quite fits, though the
-slack looks so inviting. Proving it took 250 years. Every week our
-pipeline meets a strategy at t&nbsp;=&nbsp;2.3 that looks like it
-almost fits. The slack is real. It still doesn&rsquo;t fit.</li>
+<li><b>The universe flatters the results.</b> The panel comprises today&rsquo;s
+index constituents, the companies that survived. Every Sharpe ratio on the wall
+is an upper bound for this reason, and is labeled as such.</li>
+<li><b>Unmet regimes.</b> The sample contains a few crises; the future is not
+obligated to draw from the same urn. Correlations measured in calm are fiction
+in a storm. The process stresses for this, but a stress test is only a
+rehearsal.</li>
+<li><b>Capacity is assumed, not proven.</b> Every backtest presumes that the
+process&rsquo;s own trading does not move the price. At current size that is
+nearly true, which reflects the size more than the method.</li>
+<li><b>Unmeasured crowding.</b> The in-house 13F study measures crowding among
+long positions in public filings, excluding shorts and swaps. It captures the
+floor of the crowd and misses the ceiling.</li>
+<li><b>Tempting near-fits.</b> Newton held that twelve spheres can touch a
+central one and a thirteenth never quite fits, though the remaining slack looks
+inviting; the proof took 250 years. Each week the pipeline meets a strategy at
+<i>t</i>&nbsp;=&nbsp;2.3 that appears to almost fit. The slack is real, and it
+still does not fit.</li>
 </ol>
 
-<h2>The bee and the mathematician</h2>
-<p>The bee only has to be right. The mathematician has to be certain
-against every competitor, including the infinitely many nobody has
-drawn. A backtest that works is the bee. It is impressive and locally
-optimal, yet blind to its own caps. A claim that survives
-pre-registration, stress, and deflation is a step toward the
-mathematician&rsquo;s standard. It never gets all the way there,
-because markets are not geometry. The museum&rsquo;s wager is that in
-a market full of confident bees, the durable edge belongs to whoever
-keeps honest books about the dark.</p>
+<h2>4. Discussion: the bee and the mathematician</h2>
+<p>The bee needs only to be right. The mathematician must be certain against
+every competitor, including the infinitely many nobody has drawn. A backtest
+that works is the bee: impressive and locally optimal, yet blind to its own
+caps. A claim that survives pre-registration, stress, and deflation is a step
+toward the mathematician&rsquo;s standard. It never arrives there, because
+markets are not geometry. The wager of this program is that in a market full of
+confident bees, the durable edge belongs to whoever keeps honest accounts of
+the dark.</p>
 
-<div class="note">This hangs in the museum because a research process
-that cannot name what it doesn&rsquo;t know will eventually sell you
-what it doesn&rsquo;t have. The caps above are permanent exhibits.
-When we find another, it goes on this wall. That is the whole policy.
-Fejes T&oacute;th said it first. The bees are not perfect. They are
-merely astonishing, and only a whisker off in the dark.</div>
+<div class="note">A research process that cannot name what it does not know will
+eventually sell what it does not have. The limits above are permanent exhibits,
+and each further one is added as it is found. Fejes T&oacute;th stated the form
+first: the bees are not perfect, merely astonishing, and a whisker off in the
+dark.</div>
 
-<footer>BlueShip-AI Research &middot; The Risk Museum &middot;
-educational research only, not investment advice. After Fejes
-T&oacute;th (1964); honeycomb conjecture proved by Hales (1999);
-Kepler conjecture Hales (1998), machine-verified 2014.</footer>
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Fejes T&oacute;th, L. (1964). What the Bees Know and What They Do Not Know.
+<i>Bulletin of the American Mathematical Society</i>, 70, 468&ndash;481.</li>
+<li>Hales, T. C. (2001). The Honeycomb Conjecture. <i>Discrete &amp;
+Computational Geometry</i>, 25(1), 1&ndash;22.</li>
+<li>Hales, T. C. (2005). A Proof of the Kepler Conjecture. <i>Annals of
+Mathematics</i>, 162(3), 1065&ndash;1185.</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational research
+only; not investment advice. After Fejes T&oacute;th (1964); honeycomb
+conjecture proved by Hales (1999); Kepler conjecture by Hales (1998),
+machine-verified 2014. Hypothetical results on a survivorship-biased universe;
+reported statistics are upper bounds.</footer>
 </main></body></html>

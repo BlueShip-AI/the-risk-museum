@@ -1,35 +1,52 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research note: Measuring the Crowd — The Risk Museum</title>
-<meta name="description" content="I went looking for the Quant Quake's fingerprint in eleven years of 13F filings. I found it — and then my own gates refused to promote it. Why that refusal is the most important number in the note.">
+<title>Measuring the Crowd — BlueShip Research Working Paper No. 6</title>
+<meta name="description" content="Stocks jointly held by hedge-fund-like 13F filers show excess co-movement (t=4.09) and crisis-state underperformance (142 bps/month, t=3.90). Both are significant; neither clears the promotion hurdle. Crowding is a risk measure, not a signal.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/measuring-the-crowd.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
   --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
     --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
-  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
-main { max-width:720px; margin:0 auto }
-h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
-h2 { font-size:1.15rem; margin:2rem 0 .6rem }
-p, li { margin-bottom:.9rem; color:var(--fg) }
-ol, ul { padding-left:1.4rem }
-.sub { color:var(--muted); margin-bottom:2rem }
-.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
-  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
 a { color:var(--blue) }
-.tblwrap { overflow-x:auto }
-table { border-collapse:collapse; margin:1rem 0; font-size:.92rem; width:100% }
-th, td { border:1px solid var(--line); padding:.45rem .7rem; text-align:right }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
 th:first-child, td:first-child { text-align:left }
 th { background:var(--card); font-weight:bold }
-footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
-  color:var(--muted); font-size:.8rem }
-.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
@@ -46,98 +63,124 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <nav class="tabs">
 <a href="../">Tested Strategies</a>
 <a href="../forecasts.html">Forecast Wing</a>
-<a class="on" href="./">Research/Personal Essays</a>
+<a class="on" href="./">Research Notes</a>
 <a href="../reading-room.html">Reading Room</a>
 <a href="../masterpieces.html">Case Studies</a>
 <a href="../membership.html">Membership</a>
 </nav>
-<h1>Measuring the Crowd</h1>
-<p class="sub">by V. Dimopoulos &middot; Research note #6 &middot; the
-13F crowding study: two real effects, one held bar &middot;
-July 23, 2026</p>
 
-<p>The Quant Quake plaque in the Case Studies wing ends with a
-promise: crowding is a factor to be measured, not a surprise to be
-survived, and a study sits in the museum&rsquo;s own queue.
-This note keeps that promise. The study was pre-registered before a
-single filing was downloaded: one crowding measure, two claims, the
-hedge-fund filter defined in advance, the family of tests declared at
-n&nbsp;=&nbsp;2 so the multiplicity deflator knew what was coming.</p>
+<div class="hdr">
+<h1>Measuring the Crowd: Excess Co-movement and Crisis-State<br>
+Underperformance in 13F-Inferred Hedge-Fund Crowding</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 6 &middot; 23 July 2026</div>
+</div>
 
-<h2>The data</h2>
-<p>The SEC publishes every institutional holdings report (Form 13F)
-as structured data. I took 53 quarters of it (2013 through
-mid-2026, 2.9&nbsp;GB) and identified, among 11,750 filers,
-the 1,216 that behave like hedge funds: fewer than 250 positions and
-quarterly name-turnover above 25%, both thresholds written down
-before any results existed. A stock&rsquo;s <em>crowding</em> in a
-given quarter is simply how many of those funds hold it,
-usable only after the 45-day filing deadline, because the museum does
-not read tomorrow&rsquo;s newspaper.</p>
+<p class="abstract"><span class="lab">Abstract.</span> We test whether
+stocks jointly held by hedge-fund-like 13F filers exhibit excess co-movement
+and elevated underperformance in market stress, using 53 quarters of Form 13F
+data (2013&ndash;2026). Both effects are present and statistically significant:
+residual pairwise correlation among co-held stocks is elevated relative to
+matched controls (Newey&ndash;West <i>t</i>&nbsp;=&nbsp;4.09), and the
+most-crowded quintile underperforms the least-crowded by 142 basis points per
+month in the worst decile of market months (<i>t</i>&nbsp;=&nbsp;3.90). Neither
+effect clears a margin-of-safety promotion hurdle calibrated near a raw
+<i>t</i> of 5. We therefore classify crowding as a risk measure rather than a
+tradable signal, and treat the non-promotion as the paper&rsquo;s central
+result.</p>
+<div class="keywords"><b>Keywords:</b> crowding, institutional ownership,
+Form 13F, excess co-movement, multiple testing, systematic risk.</div>
 
-<h2>Claim one: the crowd moves together</h2>
-<p>If many funds hold the same two stocks, those stocks should
-co-move beyond what sector, size, and the six standard factors
-explain. This is the classic &ldquo;connected stocks&rdquo; result.
-They do. Across 3,312 co-held pairs, each matched against a control
-of the same sector and size that the crowd does <em>not</em> co-hold,
-residual correlation runs higher by about 0.9 correlation points,
-with a Newey-West t-statistic of <b>4.09</b>. The effect is real but small.</p>
+<h2>1. Introduction</h2>
+<p>The August 2007 &ldquo;Quant Quake&rdquo; demonstrated that positions held
+in common across leveraged managers can unwind together, transmitting one
+fund&rsquo;s deleveraging into every co-holder&rsquo;s drawdown
+(Khandani and Lo, 2011). This paper asks whether that channel is measurable
+ex ante in institutional holdings, and whether the resulting signal is strong
+enough to trade. The study was pre-registered before any filing was retrieved:
+one crowding measure, two claims, a hedge-fund filter fixed in advance, and the
+family of tests declared at <i>n</i>&nbsp;=&nbsp;2 so that the multiple-testing
+correction was specified before results existed.</p>
 
-<h2>Claim two: the crowd bleeds together</h2>
-<p>The Quant Quake left a signature. In bad months, crowded names should
-underperform uncrowded ones, because one fund&rsquo;s deleveraging is
-every co-holder&rsquo;s drawdown. In the worst decile of market
-months since 2014, the most-crowded quintile of my panel
-underperformed the least-crowded by <b>142 basis points per
-month</b>, factor-adjusted (t&nbsp;=&nbsp;3.9). Across all months the
-spread is &minus;33 basis points. The crowd pays a small toll
-in ordinary times and a heavy one in storms, which is exactly what
-the 2007 story predicts.</p>
+<h2>2. Data</h2>
+<p>The Securities and Exchange Commission publishes every institutional
+holdings report (Form 13F) as a structured data set. We take 53 quarters
+(2013 through mid-2026; 2.9&nbsp;GB) and identify, among 11,750 filers, the
+1,216 that behave like hedge funds &mdash; fewer than 250 positions and
+quarterly name-turnover above 25%, both thresholds fixed in advance. A
+stock&rsquo;s <i>crowding</i> in a given quarter is the number of such funds
+holding it, applied only after the 45-day filing deadline to preserve a
+point-in-time information set.</p>
 
-<h2>The verdict, and why it is the point</h2>
-<p>Both effects are statistically significant. Neither was promoted.
-The museum&rsquo;s bar demands that a claim survive its
-margin-of-safety rerun at roughly a raw t-statistic of 5. Neither
-4.09 nor 3.9 does. Fourteen stress months is precisely the
-small sample the pre-registration predicted, and a small sample is a
-small sample no matter how well it agrees with your thesis. So the
-finding stands as the pre-registration said it must:
-<b>crowding is a risk measure, not a signal</b>. It tells a risk desk
-where the exits are narrow; it does not tell a trading desk what to
-buy.</p>
+<h2>3. Results</h2>
+<h3>3.1 Excess co-movement</h3>
+<p>If many funds hold the same two stocks, those stocks should co-move beyond
+what sector, size, and the six standard factors explain (Anton and Polk, 2014).
+Across 3,312 co-held pairs, each matched to a control of the same sector and
+size decile that the crowd does not co-hold, residual correlation is higher by
+approximately 0.9 correlation points, with a Newey&ndash;West <i>t</i>-statistic
+of 4.09. The effect is real but economically small.</p>
+<h3>3.2 Crisis-state underperformance</h3>
+<p>In the worst decile of market months since 2014, the most-crowded quintile
+of the panel underperforms the least-crowded by 142 basis points per month,
+factor-adjusted (<i>t</i>&nbsp;=&nbsp;3.90). Across all months the spread is
+&minus;33 basis points. The crowd pays a small toll in ordinary conditions and
+a heavy one in stress, consistent with the deleveraging channel documented in
+2007.</p>
 
-<div class="tblwrap"><table>
-<tr><th>Claim</th><th>Effect</th><th>NW t</th><th>Promotion bar</th></tr>
+<h2>4. Promotion test and discussion</h2>
+<p>Both effects are statistically significant; neither is promoted. The
+promotion rule requires a claim to survive a margin-of-safety re-audit &mdash;
+gross return halved, costs doubled &mdash; at approximately a raw
+<i>t</i>-statistic of 5, a threshold in the spirit of the multiple-testing
+corrections of Harvey, Liu, and Zhu (2016). Neither 4.09 nor 3.90 qualifies.
+The stress result rests on fourteen months, the small sample the
+pre-registration anticipated, and a small sample remains a small sample
+however well it agrees with the prior. The finding therefore stands as
+pre-registered: crowding is a risk measure, not a signal. It indicates to a
+risk desk where liquidity is narrow; it does not indicate to a trading desk
+what to buy.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Crowding effects and promotion outcome.</div>
+<table>
+<tr><th>Claim</th><th>Effect</th><th>NW <i>t</i></th><th>Outcome</th></tr>
 <tr><td>Co-held pairs co-move (3,312 pairs)</td><td>+0.9 corr pts</td><td>4.09</td><td>held, not promoted</td></tr>
 <tr><td>Crowded underperform in stress (14 months)</td><td>&minus;142 bps/mo</td><td>&minus;3.90</td><td>held, not promoted</td></tr>
-</table></div>
+</table>
+</div>
 
-<h2>Declared limits</h2>
-<p>Three, written before and during, never after. The panel is
-survivorship-biased (current constituents only), so crowding is
-counted among survivors. The pre-registration specified industry
-matching; my data honestly supports sector matching, and the
-deviation was recorded in the code before results existed. And 13F
-filings see no shorts and no swaps. By construction, an
-Archegos is invisible to this measure. The crowding you can measure
-is the floor, not the
+<h2>5. Limitations</h2>
+<p>Three, recorded before and during the study rather than after. First, the
+panel is survivorship-biased (current constituents only), so crowding is
+counted among survivors. Second, the pre-registration specified industry
+matching; the available data support sector matching, and the deviation was
+recorded in code before results existed. Third, 13F filings disclose neither
+short positions nor swaps; an Archegos-type exposure is invisible by
+construction. The crowding that can be measured here is a floor, not a
 ceiling.</p>
 
-<div class="note">This study hangs in the museum because most shops would have
-shipped these two t-statistics as product. The museum&rsquo;s
-scoreboard pays honesty and taxes theater. Significant-but-not-promoted
-is a category, and it keeps the two
-signals that <em>did</em> survive worth believing. The bar that
-refused this study is the same bar that validates everything it ever
-passes.</div>
+<div class="note">This study is retained precisely because most desks would
+have shipped these two <i>t</i>-statistics as product. Significant-but-not-
+promoted is a distinct category, and maintaining it is what keeps the signals
+that <i>do</i> pass worth believing.</div>
 
-<footer>BlueShip-AI Research &middot; The Risk Museum &middot;
-educational research only, not investment advice. Data: SEC Form 13F
-structured data sets; Ken French Data Library. The museum&rsquo;s
-deflated promotion hurdle follows the spirit of Harvey, Liu &amp;
-Zhu (2016), &ldquo;&hellip;and the Cross-Section of Expected
-Returns&rdquo;. The paper argues that most claimed findings fail
-under honest multiple-testing corrections. This wing exists to
-take that argument seriously.</footer>
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Anton, M., and Polk, C. (2014). Connected Stocks. <i>Journal of
+Finance</i>, 69(3), 1099&ndash;1127.</li>
+<li>Harvey, C. R., Liu, Y., and Zhu, H. (2016). &hellip;and the Cross-Section
+of Expected Returns. <i>Review of Financial Studies</i>, 29(1), 5&ndash;68.</li>
+<li>Khandani, A. E., and Lo, A. W. (2011). What Happened to the Quants in
+August 2007? Evidence from Factors and Transactions Data. <i>Journal of
+Financial Markets</i>, 14(1), 1&ndash;46.</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Data: SEC Form 13F structured data sets;
+Kenneth R. French Data Library. Hypothetical results on a survivorship-biased
+universe; reported statistics are upper bounds.</footer>
 </main></body></html>

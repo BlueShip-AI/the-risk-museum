@@ -1,36 +1,52 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research note: 620 Probabilities — The Risk Museum</title>
+<title>620 Probabilities — BlueShip Research Working Paper No. 5</title>
 <meta name="description" content="Forecasting the 2026 World Cup in Jump Trading's Brier-scored Probability Cup: a top-6% finish with no hero calls — 620 forecasts, a two-cent edge over the coin, and two calibration flaws published on purpose.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/620-probabilities.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
   --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
     --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
 * { box-sizing:border-box; margin:0 }
 body { background:var(--bg); color:var(--fg);
-  font:17px/1.6 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
-main { max-width:720px; margin:0 auto }
-h1 { font-size:1.9rem; letter-spacing:.01em; margin-bottom:.4rem }
-h2 { font-size:1.15rem; margin:2rem 0 .6rem }
-p, li { margin-bottom:.9rem; color:var(--fg) }
-ol, ul { padding-left:1.4rem }
-.sub { color:var(--muted); margin-bottom:2rem }
-.note { border-left:3px solid var(--blue); padding:.2rem 0 .2rem 1rem;
-  margin:1.6rem 0; color:var(--muted); font-size:.95rem }
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
 a { color:var(--blue) }
-.tblwrap { overflow-x:auto }
-table { border-collapse:collapse; margin:1rem 0; font-size:.92rem; width:100% }
-th, td { border:1px solid var(--line); padding:.45rem .7rem; text-align:right }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
 th:first-child, td:first-child { text-align:left }
 th { background:var(--card); font-weight:bold }
-.bad { color:var(--accent); font-weight:bold }
-footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
-  color:var(--muted); font-size:.8rem }
-.tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
@@ -47,111 +63,134 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <nav class="tabs">
 <a href="../">Tested Strategies</a>
 <a href="../forecasts.html">Forecast Wing</a>
-<a class="on" href="./">Research/Personal Essays</a>
+<a class="on" href="./">Research Notes</a>
 <a href="../reading-room.html">Reading Room</a>
 <a href="../masterpieces.html">Case Studies</a>
 <a href="../membership.html">Membership</a>
 </nav>
-<h1>620 Probabilities</h1>
-<p class="sub">by V. Dimopoulos &middot; Research note #5 &middot; what a
-World Cup forecasting competition taught the museum about calibration
-&middot; July 20, 2026</p>
 
-<p>This summer, Jump Trading ran a public forecasting competition on
-the 2026 World Cup &mdash; the Probability Cup. Every entrant submits
-probabilities on match questions (will there be 22+ shots? will Spain
-put 5 on target?), and every forecast is scored by the <b>Brier
-score</b>: the squared error between your stated probability and what
-happened. There is no arguing with it, no narrative, no partial
-credit for a good story. It is the cleanest scoreboard in the
-forecasting business, and it is the reason this museum entered a bot:
-we wanted our research habits graded by a referee we couldn&rsquo;t
-charm.</p>
+<div class="hdr">
+<h1>620 Probabilities: Calibration and Compounded Breadth in a<br>
+Brier-Scored World Cup Forecasting Competition</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 5 &middot; 20 July 2026</div>
+</div>
 
-<p>Final standing: <b>top 6% of entrants</b>. Here is the part worth
-writing about &mdash; the bot got there with <em>no hero calls at
-all</em>.</p>
+<p class="abstract"><span class="lab">Abstract.</span> We report the performance
+of a systematic forecasting agent entered in Jump Trading&rsquo;s Probability
+Cup, a Brier-scored competition on the 2026 World Cup. Across 620 settled
+forecasts the agent&rsquo;s mean Brier score was 0.2309, against a coin-flip
+baseline of 0.25. That roughly two-cent per-question edge compounded to a
+top-6% finish with no single high-conviction call. A calibration audit isolates
+two opposite errors: in the 45&ndash;55% band the agent was underconfident, with
+outcomes realizing 59.6% of the time, and in the 80&ndash;100% band it was
+overconfident, realizing 55.6% across nine forecasts. We interpret the result
+through Grinold&rsquo;s fundamental law: measured skill accrues through the
+number of honest, independent attempts rather than the magnitude of any single
+call.</p>
+<div class="keywords"><b>Keywords:</b> forecasting, calibration, Brier score,
+proper scoring rules, fundamental law of active management, prediction
+markets.</div>
 
-<h2>The arithmetic of honesty</h2>
-<p>The Brier score of always answering 50% is 0.25 &mdash; the
-coin-flip baseline. Across <b>620 settled forecasts</b>, the
-bot&rsquo;s mean Brier was <b>0.2309</b>. That is a roughly two-cent
-edge over the coin, per question. Nobody brags about two cents at a
-dinner party. But a proper scoring rule compounds honesty the way
-markets compound returns: a small real edge, taken 620 independent
-times, walks you quietly past the field &mdash; most of which is
-either guessing (0.25) or, worse, confident (much more than 0.25).</p>
+<h2>1. Introduction</h2>
+<p>Jump Trading&rsquo;s Probability Cup is a public forecasting competition on
+the 2026 World Cup. Entrants submit probabilities on match questions, for
+example whether a match will produce 22 or more shots or whether Spain will put
+five shots on target, and every forecast is scored by the Brier score, the
+squared error between the stated probability and the realized outcome (Brier,
+1950). The rule admits no narrative and awards no partial credit for a plausible
+story. This study entered an automated agent for that reason: the aim was to
+have the pipeline&rsquo;s research habits graded by a scoreboard that cannot be
+argued with. The final standing was the top 6% of entrants, reached with no
+high-conviction call.</p>
 
-<p>This is the same law that runs the museum&rsquo;s equity pipeline
-&mdash; Grinold&rsquo;s fundamental law, IR = IC &times;
-&radic;breadth. Skill compounds through the <em>number of honest,
-independent attempts</em>, not the loudness of any one of them. The
-Medallion plaque in our Case Studies wing says it for trading;
-the Probability Cup says it for forecasting. It is apparently just
-true.</p>
+<h2>2. A Proper Scoring Rule and Compounded Breadth</h2>
+<p>Always answering 50% yields a Brier score of 0.25, the coin-flip baseline.
+Across 620 settled forecasts the agent&rsquo;s mean Brier score was 0.2309, a
+roughly two-cent edge over the coin per question. A proper scoring rule
+compounds that edge the way a return stream compounds: a small, genuine edge
+taken 620 independent times separates a forecaster from a field that is largely
+either guessing, at 0.25, or confident and wrong, above it.</p>
+<p>This is the mechanism of Grinold&rsquo;s fundamental law of active
+management, IR = IC &times; &radic;breadth (Grinold, 1989): the skill realized
+in the information ratio scales with the number of independent, honest attempts,
+not with the conviction attached to any one. The same law governs the
+collection&rsquo;s equity pipeline and its Medallion case study; the Probability
+Cup supplies an out-of-sample instance in a separate arena.</p>
 
-<h2>The calibration table, flaws included</h2>
-<p>Calibration asks the only question that matters for a
-probabilist: <em>when you say 40%, does it happen 40% of the
-time?</em> Here is the bot&rsquo;s full table &mdash; including the
-two rows we are least proud of, because a museum that only hangs its
-flattering angles is a gift shop.</p>
+<h2>3. Calibration</h2>
+<h3>3.1 The calibration table</h3>
+<p>Calibration asks whether a stated probability matches its realized
+frequency: when the agent says 40%, does the event occur 40% of the time? The
+full table is reported below, including the two bands in which calibration
+failed.</p>
 
-<div class="tblwrap"><table>
-<tr><th>When the bot said&hellip;</th><th>&hellip;it happened</th><th>forecasts</th><th>verdict</th></tr>
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Calibration by stated-probability band:
+realized frequency, forecast count, and verdict.</div>
+<table>
+<tr><th>Stated probability</th><th>Realized</th><th>Forecasts</th><th>Verdict</th></tr>
 <tr><td>0&ndash;20%</td><td>24.1%</td><td>54</td><td>slightly overconfident on longshots</td></tr>
 <tr><td>20&ndash;35%</td><td>32.1%</td><td>187</td><td>calibrated</td></tr>
 <tr><td>35&ndash;45%</td><td>40.5%</td><td>158</td><td>calibrated</td></tr>
-<tr><td>45&ndash;55%</td><td class="bad">59.6%</td><td>104</td><td class="bad">underconfident &mdash; edge left on the table</td></tr>
+<tr><td>45&ndash;55%</td><td>59.6%</td><td>104</td><td>underconfident; edge left on the table</td></tr>
 <tr><td>55&ndash;65%</td><td>60.9%</td><td>69</td><td>calibrated</td></tr>
 <tr><td>65&ndash;80%</td><td>71.8%</td><td>39</td><td>calibrated</td></tr>
-<tr><td>80&ndash;100%</td><td class="bad">55.6%</td><td>9</td><td class="bad">overconfident in the tail (small n)</td></tr>
-</table></div>
+<tr><td>80&ndash;100%</td><td>55.6%</td><td>9</td><td>overconfident in the tail (small n)</td></tr>
+</table>
+</div>
 
-<p>Read the two red rows carefully; they are opposite sins. In the
-middle, the bot <em>knew more than it said</em>: when it whispered
-&ldquo;51%,&rdquo; reality answered &ldquo;60%.&rdquo; Hedging toward
-the coin feels prudent and is actually a tax &mdash; 40% of all
-forecasts huddled in the 40&ndash;60 band. At the top, the opposite:
-the nine times the bot felt nearly certain, it was right barely half
-the time. Certainty was rare and <em>still</em> overpriced. The tail
-is where hubris lives, in forecasting as in portfolios &mdash; our
-LTCM plaque makes the identical point with nine fewer decimal
-places.</p>
+<h3>3.2 Two opposite errors</h3>
+<p>The two failing bands are opposite errors. In the middle band the agent knew
+more than it stated: when it reported near 51%, outcomes realized near 60%.
+Hedging toward the coin is not prudence but a tax, and 40% of all forecasts fell
+in the 40&ndash;60 band. In the tail the reverse held: on the nine occasions the
+agent was nearly certain, it was right barely half the time. Certainty was rare
+and still overpriced, the same tail-risk error documented in the
+collection&rsquo;s LTCM case study.</p>
 
-<h2>What transfers to markets</h2>
+<h2>4. Transfer to Equity Research</h2>
 <ol>
-<li><b>Breadth beats heroics.</b> Top 6% with zero memorable
-predictions. The museum&rsquo;s pipeline is built on the same bet:
-182 strategies tested, promotion decided by accumulated honest
-attempts, not by any single backtest&rsquo;s fireworks.</li>
-<li><b>Get a referee you can&rsquo;t charm.</b> The Brier score is a
-proper scoring rule: the only way to maximize it is to report what
-you actually believe. Our promotion gates (Newey-West t-statistics,
-margin-of-safety reruns, multiple-testing deflators) are our attempt
-to build the same property into equity research &mdash; a scoreboard
-that pays honesty and taxes theater.</li>
-<li><b>The market is the prior.</b> The bot&rsquo;s edge came from
-disciplined base rates updated with public information &mdash; not
-from out-thinking the crowd from scratch. Prediction markets are
-currently being quantified by the largest firms in the world for
-exactly this reason: they are young markets, and young markets pay
-the early and the systematic.</li>
-<li><b>Publish your misses with your rank.</b> The red rows above
-cost the bot places on the leaderboard, and they are the most useful
-rows in the table &mdash; next cycle&rsquo;s bot sharpens the 50s and
-mutes the 90s. A forecast log you cannot audit is a highlight
-reel.</li>
+<li><b>Breadth beats heroics.</b> A top-6% finish came with no memorable single
+prediction. The pipeline rests on the same premise: 182 strategies tested, with
+promotion decided by accumulated honest attempts rather than by any one
+backtest.</li>
+<li><b>Use a scoreboard that cannot be charmed.</b> The Brier score is a proper
+scoring rule; its maximum is reached only by reporting one&rsquo;s true belief.
+The promotion gates in the equity work, Newey-West t-statistics,
+margin-of-safety reruns, and multiple-testing deflators, are the attempt to
+build the same property into research.</li>
+<li><b>The market is the prior.</b> The agent&rsquo;s edge came from disciplined
+base rates updated with public information, not from out-thinking the field from
+scratch. Prediction markets are being quantified by large firms for this reason:
+they are young markets, and young markets reward the early and the
+systematic.</li>
+<li><b>Publish misses alongside rank.</b> The two failing bands cost leaderboard
+places and are the most useful rows in the table: the next cycle sharpens the
+mid-range forecasts and tempers the near-certain ones. A forecast log that
+cannot be audited is a highlight reel.</li>
 </ol>
 
-<div class="note">Why this hangs in the museum: the collection&rsquo;s
-whole argument is that tested breadth under an incorruptible
-scoreboard beats brilliance under a flattering one. The Probability
-Cup was a chance to make that argument in someone else&rsquo;s arena,
-against a live field, with a referee owned by a firm that does this
-for a living &mdash; and the argument held.</div>
+<div class="note">This study is retained because the collection&rsquo;s argument
+is that tested breadth under an incorruptible scoreboard beats brilliance under
+a flattering one. The Probability Cup tested that argument in an external arena,
+against a live field, under a referee run by a firm that forecasts for a living,
+and the argument held.</div>
 
-<footer>BlueShip-AI Research &middot; The Risk Museum &middot;
-competition results as scored by the organizer; educational research
-only, not investment advice.</footer>
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Brier, G. W. (1950). Verification of Forecasts Expressed in Terms of
+Probability. <i>Monthly Weather Review</i>, 78(1), 1&ndash;3.</li>
+<li>Grinold, R. C. (1989). The Fundamental Law of Active Management.
+<i>Journal of Portfolio Management</i>, 15(3), 30&ndash;37.</li>
+<li>Newey, W. K., and West, K. D. (1987). A Simple, Positive Semi-Definite,
+Heteroskedasticity and Autocorrelation Consistent Covariance Matrix.
+<i>Econometrica</i>, 55(3), 703&ndash;708.</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; competition results
+as scored by the organizer; educational research only, not investment advice.</footer>
 </main></body></html>
