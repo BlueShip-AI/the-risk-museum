@@ -297,7 +297,7 @@
   {
    "claim": "Flight-to-safety nonlinearity (Adrian-Crump-Vogt JF 2019): 1m forward stock returns RISE with lagged VIX while Treasury returns FALL \u2014 replication on SPY/TLT 2012-2026 with post-publication subsample",
    "stage": "validation",
-   "reason": "Directionally replicates ACV in AND out of sample \u2014 monotone SPY rise, TLT mirror \u2014 but t=2.25 sits under the 2.5 bar with overlapping-window inference, and far under the 5.0 stressed promotion bar. Verdict: the paper's shape is visible in free data; our sample (2012+) lacks the power their 1990+ sample and sieve estimator had. Graded promising-but-unproven, not vaulted.",
+   "reason": "Directionally replicates ACV in AND out of sample \u2014 monotone SPY rise, TLT mirror \u2014 but t=2.25 sits under the 2.5 bar with overlapping-window inference, and far under the 5.0 stressed promotion bar. Verdict: the paper's shape is visible in free data; my sample (2012+) lacks the power their 1990+ sample and sieve estimator had. Graded promising-but-unproven, not vaulted.",
    "status": "rejected",
    "about": "Tests whether scary markets pay stock holders extra while bond prices have already flown to safety \u2014 fear as a priced premium, not just a mood.",
    "tested": "2026-07-13"
@@ -311,7 +311,7 @@
    "tested": "2026-07-13"
   },
   {
-   "claim": "Betting-against-beta (Frazzini-Pedersen 2014): leverage-constrained investors overpay for high beta; L/S beta-neutral spread earns a premium on our panel",
+   "claim": "Betting-against-beta (Frazzini-Pedersen 2014): leverage-constrained investors overpay for high beta; L/S beta-neutral spread earns a premium on my panel",
    "stage": "validation",
    "reason": "gate t=0.29; promotion needs t>=5.0 (2.5 base + margin-of-safety)",
    "status": "rejected",
