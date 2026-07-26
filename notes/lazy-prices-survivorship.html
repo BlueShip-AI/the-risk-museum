@@ -1,0 +1,193 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lazy Prices Meets Survivorship — BlueShip Research Working Paper No. 15</title>
+<meta name="description" content="We test the Lazy-Prices disclosure-text anomaly on 14,155 EDGAR filings for 406 current large-cap constituents. It does not replicate: the year-over-year text-change measure is methodology-sensitive and, when significant, inverts (the biggest changers slightly outperform, |t|=2.55), below the promotion bar. The likely cause is survivorship, which deletes the informative short leg.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/lazy-prices-survivorship.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:16px/1.55 Georgia,'Times New Roman',serif; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em; font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card); margin-bottom:-1px }
+</style></head><body><main>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../reading-room.html">Reading Room</a>
+<a href="../masterpieces.html">Case Studies</a>
+<a href="../membership.html">Membership</a>
+</nav>
+
+<div class="hdr">
+<h1>Lazy Prices Meets Survivorship: Why a Disclosure-Text<br>
+Anomaly Inverts in a Survivor-Only Sample</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 15 &middot; 26 July 2026</div>
+</div>
+
+<p class="abstract"><span class="lab">Abstract.</span> Cohen, Malloy and Nguyen
+(2020) show that firms which change the language of their periodic filings
+subsequently underperform &mdash; disclosure inertia is good news. We test the
+effect on 14,155 EDGAR 10-Q and 10-K filings for 406 current large-cap index
+constituents, measuring text change as one minus the year-over-year cosine
+similarity of a filing to the same period a year earlier. The effect does not
+replicate. The measure is highly specification-sensitive: a naive
+quarter-over-quarter version is a precise zero (<i>t</i>&nbsp;=&nbsp;0.13), while
+a seasonally-controlled, stopword-cleaned version is significant but
+<i>opposite</i> in sign &mdash; the firms that changed the most slightly
+outperformed (a low-minus-high spread of &minus;1.97% over the next quarter,
+Newey&ndash;West <i>t</i>&nbsp;=&nbsp;&minus;2.55), and even that is well below
+the museum&rsquo;s stressed promotion bar. We argue the inversion is a
+survivorship artifact: a current-constituents panel deletes the informative
+short leg &mdash; the firms that rewrote their disclosure on the way to trouble
+&mdash; leaving only the changers that survived. The anomaly cannot be cleanly
+tested without survivorship-free data. No signal is promoted.</p>
+<div class="keywords"><b>Keywords:</b> disclosure text, filing similarity,
+Lazy Prices, survivorship bias, forensic accounting, multiple testing.</div>
+
+<h2>1. The anomaly, and why it should be orthogonal</h2>
+<p>Most published equity signals are functions of price. The Lazy-Prices effect
+is not: it reads the <i>language</i> of a filing. When a firm reproduces last
+year&rsquo;s disclosure nearly verbatim, nothing material has changed and the
+stock does well; when it rewrites, something is being managed, and the stock
+underperforms. The mechanism is forensic rather than statistical, in the
+tradition of reading the narrative for what the numbers omit (Mayew,
+Sethuraman and Venkatachalam, 2015). An orthogonal, lightly-crowded signal of
+this kind is exactly what a price-exhausted research program should want to
+test.</p>
+
+<h2>2. Data and method</h2>
+<p>We harvest every 10-Q and 10-K primary document filed since 2015 by the 406
+names in our universe with EDGAR coverage &mdash; 14,155 filings in all &mdash;
+and reduce each to a stripped-text word vector, discarding inline-XBRL
+scaffolding and high-frequency stopwords that every filing shares. Following
+Cohen, Malloy and Nguyen, text change is measured <i>year over year, same
+period</i>: a 10-Q is compared to the same fiscal quarter a year earlier and a
+10-K to the prior year&rsquo;s 10-K, so that ordinary seasonal differences in
+disclosure are not counted as change. Each filing&rsquo;s market-adjusted return
+is measured over the 63 trading days beginning the day after the filing.
+Everything is point-in-time; the universe is current constituents, so it is
+survivorship-biased by construction.</p>
+
+<h2>3. Results: fragile, and the wrong way round</h2>
+<p>The measure does not survive its own robustness. Compared quarter over
+quarter, the low-minus-high-change spread is an exact zero
+(<i>t</i>&nbsp;=&nbsp;0.13). Compared year over year and cleaned of boilerplate,
+the same spread becomes significant and reverses: the least-changed filings
+underperform and the most-changed slightly outperform. That is the opposite of
+the published effect, and a signal whose sign depends on the specification is
+not a signal one trades.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Market-adjusted 63-day forward return by
+year-over-year disclosure text-change quintile (Q1 = least changed, Q5 = most
+changed); 9,644 filings with forward returns.</div>
+<table>
+<tr><th>Change quintile</th><th>Fwd. return</th></tr>
+<tr><td>Q1 &mdash; least changed</td><td>&minus;0.89%</td></tr>
+<tr><td>Q2</td><td>+0.05%</td></tr>
+<tr><td>Q3</td><td>&minus;0.21%</td></tr>
+<tr><td>Q4</td><td>&minus;0.26%</td></tr>
+<tr><td>Q5 &mdash; most changed</td><td>+0.44%</td></tr>
+<tr><td>Low minus high (tradable side)</td><td>&minus;1.97% (<i>t</i>=&minus;2.55)</td></tr>
+</table>
+</div>
+
+<h2>4. The mechanism: survivorship deletes the short leg</h2>
+<p>The inversion has a clean explanation. Lazy Prices is, in large part, a
+short-side result: the money is in avoiding, or shorting, the firms that rewrite
+their disclosure because trouble is coming. Those are precisely the firms that
+underperform, are removed from the index, and in many cases delist. A panel of
+<i>current</i> constituents has already deleted them. What remains among the
+heavy changers are the survivors &mdash; firms that rewrote their filings while
+growing, restructuring successfully, or acquiring, and lived to stay in the
+index. Conditioning on survival keeps the benign changers and discards the
+malign ones, which is enough to flip the sign of a short-heavy anomaly. The
+result in Table 1 is therefore most likely a measurement of who survived, not of
+what disclosure change predicts.</p>
+
+<h2>5. Verdict</h2>
+<p>Nothing is promoted. The strongest specification reaches
+<i>t</i>&nbsp;=&nbsp;&minus;2.55, far short of the stressed, multiplicity-
+deflated bar this museum requires (near a raw <i>t</i> of 5), in the wrong
+direction, and with a mechanism that points at survivorship rather than
+information. The honest conclusion is not that Lazy Prices is false &mdash; the
+original result stands on a survivorship-free universe we do not have &mdash;
+but that it cannot be tested here. Reading the language of filings remains a
+promising orthogonal lane; testing it properly requires point-in-time
+constituents and delisting returns, the data this program has repeatedly
+identified as its binding constraint.</p>
+
+<div class="note">The result that a signal <i>inverts</i> under survivorship is
+worth more than a signal that merely fails: it names the bias precisely and
+prices what a clean test would cost. A flag is a question, not a conviction;
+this one asks for better data before it asks for capital.</div>
+
+<div class="refs">
+<h2>References</h2>
+<ol>
+<li>Cohen, L., Malloy, C., and Nguyen, Q. (2020). Lazy Prices. <i>Journal of
+Finance</i>, 75(3), 1371&ndash;1415.</li>
+<li>Loughran, T., and McDonald, B. (2011). When Is a Liability Not a Liability?
+Textual Analysis, Dictionaries, and 10-Ks. <i>Journal of Finance</i>, 66(1),
+35&ndash;65.</li>
+<li>Mayew, W. J., Sethuraman, M., and Venkatachalam, M. (2015). MD&amp;A
+Disclosure and the Firm&rsquo;s Ability to Continue as a Going Concern.
+<i>The Accounting Review</i>, 90(4), 1621&ndash;1651.</li>
+</ol>
+</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational research
+only; not investment advice. Data: SEC EDGAR (10-Q / 10-K full text); Yahoo
+Finance (derived returns). Hypothetical results on a survivorship-biased
+universe; reported statistics are upper bounds and the central finding is that
+this bias is disqualifying for the test.</footer>
+</main></body></html>
