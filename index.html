@@ -67,6 +67,11 @@ details[open] > .ledger-h .hint { display:none }
   border-radius:10px; padding:1.1rem 1.3rem; margin:0 0 1rem }
 .stone h3 { font-size:1.05rem; margin:.2rem 0 .5rem }
 .rip { color:var(--muted); font-size:.8rem }
+.hero { font-size:1.25rem; line-height:1.4; color:var(--fg); font-weight:bold;
+  margin:.3rem 0 .5rem; max-width:34ch }
+.tech { font-size:.78rem; color:var(--muted); font-family:ui-monospace,
+  SFMono-Regular,Menlo,monospace; word-break:break-word; margin:0 0 .4rem;
+  opacity:.75 }
 .about { font-size:.93rem; font-style:italic; color:var(--fg);
   opacity:.85; margin:0 0 .5rem }
 .cause { font-size:.9rem; color:var(--muted) }
@@ -119,7 +124,9 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   color:var(--muted); font-size:.78rem; max-width:80ch }
 </style></head><body><main>
 <h1>The Risk Museum</h1>
-<p class="tag">Home of Risk Masterpieces &middot; curated by Vasilios
+<p class="hero">I test trading ideas the way a hedge fund would, and I publish
+the ones that fail.</p>
+<p class="tag">by Vasilios
 Dimopoulos &middot;
 <a href="https://x.com/VasiliDmop" target="_blank" rel="noopener"
 style="color:var(--blue);text-decoration:none">@VasiliDmop on X</a>
@@ -127,13 +134,11 @@ style="color:var(--blue);text-decoration:none">@VasiliDmop on X</a>
 <a href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank"
 rel="noopener" style="color:var(--blue);text-decoration:none">LinkedIn</a>
 &middot; updated July 26, 2026</p>
-<div class="banner"><b>First visit? Here is what is going on.</b>
-Every night an autonomous AI research pipeline tests trading-strategy
-ideas &mdash; from academic papers and its own hypotheses &mdash; the way
-a professional quant desk would. Nearly all of them fail, and the
-failures are exhibited here with the reason they fell short. The rare survivors
-are not exhibited; they stay in the vault. On this floor:
-<a href="#ledger">recent updates</a> &middot; <a href="#tulip-wing">stocks that doubled in the past two years</a> &middot; <a href="#collection">the collection of tested &amp; retired strategies</a>.</div>
+<div class="banner"><b>First visit? Here is the whole idea.</b>
+Every night a machine tests trading ideas against the same statistical bar a
+professional desk uses. Almost all of them fail. The failures hang on these
+walls with the reason they died. The rare winners stay private, because a
+published edge stops working. On this floor: <a href="#ledger">recent updates</a> &middot; <a href="#tulip-wing">stocks that doubled in the past two years</a> &middot; <a href="#collection">the collection of tested &amp; retired strategies</a>.</div>
 <svg viewBox="0 0 860 132" role="img" aria-label="A field of tulips; one is blue"
  style="width:100%;height:auto;margin:0 0 1.6rem" xmlns="http://www.w3.org/2000/svg">
  <line x1="0" y1="118" x2="860" y2="118" stroke="var(--line)" stroke-width="2"/>
@@ -171,14 +176,14 @@ research pipeline (I call it the swarm) that runs every night. The permanent
 collection: the ones that didn&rsquo;t survive.</p>
 <div class="stats">
   <div><b>257</b><span>ideas filed</span></div>
-  <div><b>100</b><span>retired, on view</span></div>
+  <div><b>101</b><span>retired, on view</span></div>
   <div><b>2</b><span>in the vault (survivors)</span></div>
   <div><b>$910,297 over 22 years</b><span>$100k in an S&amp;P index fund, same window
     &mdash; the bar every strategy must beat</span></div>
 </div>
 <p class="sub" style="font-size:.85rem">Of 257 ideas filed,
-140 carry a final verdict &mdash; 100 retired and shown
-below, 2 held in the vault, and 38 still inside the
+140 carry a final verdict &mdash; 101 retired and shown
+below, 2 held in the vault, and 37 still inside the
 3-day publication lag; the remaining 117 are still in
 testing or did not complete a run.</p>
 <div class="thesis">
@@ -248,7 +253,7 @@ own name, retired by my own gates.</span></li>
     </article>
 <h2 class="sect" id="collection">Tested strategies: the permanent
 collection</h2>
-<p class="sect-sub">100 strategies tested and retired &middot;
+<p class="sect-sub">101 strategies tested and retired &middot;
 newest first</p>
 <p class="sub">Each plaque records the claim and the gate that retired
 it. The strategies that reached a full backtest are totalled first, the
@@ -268,800 +273,808 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
 
     <article class="stone">
       <div class="rip">Tested 2026-07-23</div>
-      <h3>BRAIN candidate: -rank(snt_value / ts_mean(snt_value, 120))</h3>
-      <div class='about'>Bets against companies whose news and social-media sentiment has climbed far above its own six-month average.</div>
+      <h3>Cliff Asness&#x27;s argument (via Busca podcast): weighting by inverse volatility is the benchmark no optimizer reliably beats. Equal-weight 7Twelve just died; this asks whether risk-weighting, not asset count, was the missing ingredient.</h3>
+      <div class='tech'>Asness equal-risk benchmark: inverse-volatility weighting of the 7Twelve 12-ETF sleeve beats its equal-weight version and 60/40 SPY/AGG</div>
+      <div class="cause">Retired at <b>validation</b>:
+        inverse-vol 7Twelve: -4.00%/yr vs equal-weight (t=-1.63), -6.59%/yr vs 60/40 (t=-3.58) — risk-weighting was not the missing ingredient either</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-23</div>
+      <h3>Bets against companies whose news and social-media sentiment has climbed far above its own six-month average.</h3>
+      <div class='tech'>BRAIN candidate: -rank(snt_value / ts_mean(snt_value, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-22</div>
-      <h3>BRAIN candidate: rank(ts_delta(implied_volatility_mean_skew_60, 60))</h3>
-      <div class='about'>Buys stocks where the options market&#x27;s gauge of downside fear has risen the most over the past three months.</div>
+      <h3>Buys stocks where the options market&#x27;s gauge of downside fear has risen the most over the past three months.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(implied_volatility_mean_skew_60, 60))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-21</div>
-      <h3>BRAIN candidate: rank(fnd6_acqintan / ts_mean(fnd6_acqintan, 120))</h3>
-      <div class='about'>Buys companies whose acquired intangible assets have grown most above their own six-month average.</div>
+      <h3>Buys companies whose acquired intangible assets have grown most above their own six-month average.</h3>
+      <div class='tech'>BRAIN candidate: rank(fnd6_acqintan / ts_mean(fnd6_acqintan, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-21</div>
-      <h3>Consumer-credit deterioration predicts consumer-finance equity underperformance: rising card delinquency rates (FRED DRCCLACBS, release-date aligned) lead relative returns of consumer lenders vs market (KKR JD stress-scenario translation)</h3>
-      <div class='about'>Watches Americans falling behind on credit cards and bets the lenders&#x27; stocks feel it after the data drops.</div>
+      <h3>Watches Americans falling behind on credit cards and bets the lenders&#x27; stocks feel it after the data drops.</h3>
+      <div class='tech'>Consumer-credit deterioration predicts consumer-finance equity underperformance: rising card delinquency rates (FRED DRCCLACBS, release-date aligned) lead relative returns of consumer lenders vs market (KKR JD stress-scenario translation)</div>
       <div class="cause">Retired at <b>validation</b>:
         rising-vs-falling delinquency: -1.2pct/qtr relative, t=-0.51 on 87 quarters — declared-underpowered test, honest inconclusive</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-21</div>
-      <h3>7Twelve multi-asset equal-weight (Israelsen 2010) beats 60/40 and SPY on geometric growth and drawdown via cross-asset-class breadth</h3>
-      <div class='about'>Splits money equally across twelve funds in seven asset classes, betting that true breadth lives across asset classes, not across more stocks.</div>
+      <h3>Splits money equally across twelve funds in seven asset classes, betting that true breadth lives across asset classes, not across more stocks.</h3>
+      <div class='tech'>7Twelve multi-asset equal-weight (Israelsen 2010) beats 60/40 and SPY on geometric growth and drawdown via cross-asset-class breadth</div>
       <div class="cause">Retired at <b>validation</b>:
         7Twelve vs 60/40: CAGR diff -2.51%/yr, t=-1.82 — cross-asset equal weight did not beat the boring benchmark on this sample</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-21</div>
-      <h3>Sunshine effect replication (Hirshleifer-Shumway JF 2003): morning cloud cover in New York predicts daily index returns — the classic behavioral claim, retested 2005-2026 under modern gates</h3>
-      <div class='about'>Tests the famous claim that traders buy more on sunny mornings in New York — mood as a market force.</div>
+      <h3>Tests the famous claim that traders buy more on sunny mornings in New York — mood as a market force.</h3>
+      <div class='tech'>Sunshine effect replication (Hirshleifer-Shumway JF 2003): morning cloud cover in New York predicts daily index returns — the classic behavioral claim, retested 2005-2026 under modern gates</div>
       <div class="cause">Retired at <b>validation</b>:
         gloom-day effect -1.2bps/day, t=-0.34 (PRCP&gt;0 (precipitation day)) — the famous mood effect does not clear modern gates on 2005-2026 data</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-19</div>
-      <h3>BRAIN candidate: -rank(implied_volatility_mean_270 / ts_mean(implied_volatility_mean_270, 120))</h3>
-      <div class='about'>Bets against stocks whose expected future price swings stand highest above their own six-month average.</div>
+      <h3>Bets against stocks whose expected future price swings stand highest above their own six-month average.</h3>
+      <div class='tech'>BRAIN candidate: -rank(implied_volatility_mean_270 / ts_mean(implied_volatility_mean_270, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-18</div>
-      <h3>BRAIN candidate: rank(ts_delta(actual_sales_value_annual, 10))</h3>
-      <div class='about'>Buys companies whose reported annual sales have risen over the past two weeks.</div>
+      <h3>Buys companies whose reported annual sales have risen over the past two weeks.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(actual_sales_value_annual, 10))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-18</div>
-      <h3>BRAIN candidate: rank(zscore(anl4_capex_number) - zscore(actual_dividend_value_quarterly))</h3>
-      <div class='about'>Buys companies covered by many analysts&#x27; capital-spending estimates while paying out little in dividends, and bets against the reverse.</div>
+      <h3>Buys companies covered by many analysts&#x27; capital-spending estimates while paying out little in dividends, and bets against the reverse.</h3>
+      <div class='tech'>BRAIN candidate: rank(zscore(anl4_capex_number) - zscore(actual_dividend_value_quarterly))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-17</div>
-      <h3>BRAIN candidate: -group_rank(ts_zscore(anl4_afv4_eps_high, 20), subindustry)</h3>
-      <div class='about'>Within its narrow peer group, bets against companies whose most optimistic earnings forecast has spiked above its own recent norm.</div>
+      <h3>Within its narrow peer group, bets against companies whose most optimistic earnings forecast has spiked above its own recent norm.</h3>
+      <div class='tech'>BRAIN candidate: -group_rank(ts_zscore(anl4_afv4_eps_high, 20), subindustry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: group_zscore(ts_delta(anl4_bvps_mean, 120), industry)</h3>
-      <div class='about'>Within each industry, buys companies whose analysts have raised their book-value-per-share estimates the most over the past six months.</div>
+      <h3>Within each industry, buys companies whose analysts have raised their book-value-per-share estimates the most over the past six months.</h3>
+      <div class='tech'>BRAIN candidate: group_zscore(ts_delta(anl4_bvps_mean, 120), industry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: rank(ts_rank(implied_volatility_mean_skew_1080, 250))</h3>
-      <div class='about'>Buys stocks whose option-market measure of downside fear now sits near the top of its own past-year range.</div>
+      <h3>Buys stocks whose option-market measure of downside fear now sits near the top of its own past-year range.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_rank(implied_volatility_mean_skew_1080, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: -rank(winsorize(ts_zscore(anl4_bvps_value, 500), std=4))</h3>
-      <div class='about'>Bets against companies whose book value per share has risen unusually far above its own two-year average.</div>
+      <h3>Bets against companies whose book value per share has risen unusually far above its own two-year average.</h3>
+      <div class='tech'>BRAIN candidate: -rank(winsorize(ts_zscore(anl4_bvps_value, 500), std=4))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: -group_rank(ts_zscore(implied_volatility_call_20, 250), sector)</h3>
-      <div class='about'>Within each sector, bets against companies whose expected near-term price swings, as priced by their call options, have climbed furthest above their own past-year norm.</div>
+      <h3>Within each sector, bets against companies whose expected near-term price swings, as priced by their call options, have climbed furthest above their own past-year norm.</h3>
+      <div class='tech'>BRAIN candidate: -group_rank(ts_zscore(implied_volatility_call_20, 250), sector)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: -rank(snt_value_fast_d1 / ts_mean(snt_value_fast_d1, 120))</h3>
-      <div class='about'>Bets against stocks whose news and social sentiment is running high relative to its own six-month average.</div>
+      <h3>Bets against stocks whose news and social sentiment is running high relative to its own six-month average.</h3>
+      <div class='tech'>BRAIN candidate: -rank(snt_value_fast_d1 / ts_mean(snt_value_fast_d1, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: group_zscore(ts_delta(implied_volatility_put_1080, 120), industry)</h3>
-      <div class='about'>Within each industry, buys stocks whose long-dated put-option implied volatility has climbed the most over the past six months.</div>
+      <h3>Within each industry, buys stocks whose long-dated put-option implied volatility has climbed the most over the past six months.</h3>
+      <div class='tech'>BRAIN candidate: group_zscore(ts_delta(implied_volatility_put_1080, 120), industry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: rank(ts_zscore(debt_repayment_year_three, 250))</h3>
-      <div class='about'>Buys companies whose scheduled third-year debt repayments are unusually high versus their own yearly norm.</div>
+      <h3>Buys companies whose scheduled third-year debt repayments are unusually high versus their own yearly norm.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_zscore(debt_repayment_year_three, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: -group_rank(ts_zscore(actual_sales_value_annual, 250), sector)</h3>
-      <div class='about'>Within each sector, bets against companies whose yearly sales look unusually high versus their own history.</div>
+      <h3>Within each sector, bets against companies whose yearly sales look unusually high versus their own history.</h3>
+      <div class='tech'>BRAIN candidate: -group_rank(ts_zscore(actual_sales_value_annual, 250), sector)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: rank(ts_delta(fnd6_cptmfmq_actq, 60))</h3>
-      <div class='about'>Buys companies whose quarterly accounting figure rose the most over the past three months.</div>
+      <h3>Buys companies whose quarterly accounting figure rose the most over the past three months.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(fnd6_cptmfmq_actq, 60))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: rank(zscore(accumulated_oci_net_of_tax_value) - zscore(deferred_local_income_tax_expense))</h3>
-      <div class='about'>Buys companies that rank high on accumulated other comprehensive income but low on deferred local income taxes versus peers.</div>
+      <h3>Buys companies that rank high on accumulated other comprehensive income but low on deferred local income taxes versus peers.</h3>
+      <div class='tech'>BRAIN candidate: rank(zscore(accumulated_oci_net_of_tax_value) - zscore(deferred_local_income_tax_expense))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: -rank(ts_delta(debt_issuance_costs_expense, 5))</h3>
-      <div class='about'>Bets against companies whose debt-issuance costs climbed the most over the past week.</div>
+      <h3>Bets against companies whose debt-issuance costs climbed the most over the past week.</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_delta(debt_issuance_costs_expense, 5))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-16</div>
-      <h3>BRAIN candidate: -rank(ts_delta(current_federal_tax_expense_amount, 5))</h3>
-      <div class='about'>Bets against companies whose reported federal tax expense jumped the most over the past week.</div>
+      <h3>Bets against companies whose reported federal tax expense jumped the most over the past week.</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_delta(current_federal_tax_expense_amount, 5))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: rank(ts_rank(pv13_custretsig_retsig, 250))</h3>
-      <div class='about'>Buys stocks whose price-and-volume momentum signal sits near the top of its own past-year range.</div>
+      <h3>Buys stocks whose price-and-volume momentum signal sits near the top of its own past-year range.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_rank(pv13_custretsig_retsig, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: rank(anl4_cfo_number / ts_mean(anl4_cfo_number, 120))</h3>
-      <div class='about'>Buys companies whose operating cash flow is running high relative to its own six-month average.</div>
+      <h3>Buys companies whose operating cash flow is running high relative to its own six-month average.</h3>
+      <div class='tech'>BRAIN candidate: rank(anl4_cfo_number / ts_mean(anl4_cfo_number, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: rank(ts_corr(implied_volatility_mean_90, diluted_shares_outstanding_adjustment_avg, 120))</h3>
-      <div class='about'>Buys the stocks whose option-implied volatility has risen and fallen most in step with changes in their diluted share count.</div>
+      <h3>Buys the stocks whose option-implied volatility has risen and fallen most in step with changes in their diluted share count.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_corr(implied_volatility_mean_90, diluted_shares_outstanding_adjustment_avg, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: group_rank(anl4_af_div_value / ts_mean(anl4_af_div_value, 120), industry)</h3>
-      <div class='about'>Within each industry, buys the companies whose expected dividend has climbed most above its own six-month average.</div>
+      <h3>Within each industry, buys the companies whose expected dividend has climbed most above its own six-month average.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(anl4_af_div_value / ts_mean(anl4_af_div_value, 120), industry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: group_rank(debt_repayments_total_2 / ts_mean(debt_repayments_total_2, 120), industry)</h3>
-      <div class='about'>Within each industry, buys the companies whose debt repayments stand highest versus their own six-month average.</div>
+      <h3>Within each industry, buys the companies whose debt repayments stand highest versus their own six-month average.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(debt_repayments_total_2 / ts_mean(debt_repayments_total_2, 120), industry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: rank(ts_zscore(implied_volatility_mean_1080, 250))</h3>
-      <div class='about'>Buys the stocks whose long-dated expected volatility sits furthest above its own level of the past year.</div>
+      <h3>Buys the stocks whose long-dated expected volatility sits furthest above its own level of the past year.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_zscore(implied_volatility_mean_1080, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: group_rank(ts_delta(actual_sales_value_annual, 10), subindustry)</h3>
-      <div class='about'>Within each narrow industry group, buys the companies whose reported annual sales have most recently jumped.</div>
+      <h3>Within each narrow industry group, buys the companies whose reported annual sales have most recently jumped.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(ts_delta(actual_sales_value_annual, 10), subindustry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: rank(ts_corr(implied_volatility_mean_30, returns, 20))</h3>
-      <div class='about'>Buys the stocks whose option-implied volatility has risen and fallen most in step with their own returns over the past month.</div>
+      <h3>Buys the stocks whose option-implied volatility has risen and fallen most in step with their own returns over the past month.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_corr(implied_volatility_mean_30, returns, 20))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: group_zscore(ts_delta(parkinson_volatility_150, 120), industry)</h3>
-      <div class='about'>Within each industry, buys the stocks whose price swings have widened the most over roughly six months compared with their peers.</div>
+      <h3>Within each industry, buys the stocks whose price swings have widened the most over roughly six months compared with their peers.</h3>
+      <div class='tech'>BRAIN candidate: group_zscore(ts_delta(parkinson_volatility_150, 120), industry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: -group_rank(ts_zscore(historical_volatility_30, 250), sector)</h3>
-      <div class='about'>Within each sector, bets against the stocks whose recent price swings tower most above their own level of the past year.</div>
+      <h3>Within each sector, bets against the stocks whose recent price swings tower most above their own level of the past year.</h3>
+      <div class='tech'>BRAIN candidate: -group_rank(ts_zscore(historical_volatility_30, 250), sector)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: rank(ts_corr(anl4_cff_mean, snt_buzz_bfl_fast_d1, 120))</h3>
-      <div class='about'>Buys the stocks whose analyst cash-flow forecasts have moved most in step with their news and social buzz over the past six months.</div>
+      <h3>Buys the stocks whose analyst cash-flow forecasts have moved most in step with their news and social buzz over the past six months.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_corr(anl4_cff_mean, snt_buzz_bfl_fast_d1, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-15</div>
-      <h3>BRAIN candidate: -group_rank(ts_zscore(fnd6_fatp, 20), subindustry)</h3>
-      <div class='about'>Within each narrow industry group, bets against the companies whose reported accounting figure has spiked furthest above its own recent norm.</div>
+      <h3>Within each narrow industry group, bets against the companies whose reported accounting figure has spiked furthest above its own recent norm.</h3>
+      <div class='tech'>BRAIN candidate: -group_rank(ts_zscore(fnd6_fatp, 20), subindustry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-14</div>
-      <h3>BRAIN candidate: -rank(pv13_revere_parent / ts_mean(pv13_revere_parent, 120))</h3>
-      <div class='about'>Ranks stocks on how far one data feed sits above its own 120-day average, betting the most stretched will fall back.</div>
+      <h3>Ranks stocks on how far one data feed sits above its own 120-day average, betting the most stretched will fall back.</h3>
+      <div class='tech'>BRAIN candidate: -rank(pv13_revere_parent / ts_mean(pv13_revere_parent, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-14</div>
-      <h3>BRAIN candidate: rank(ts_delta(historical_volatility_90, 10))</h3>
-      <div class='about'>Buys stocks whose price swings have widened over the past two weeks and sells those that are calming down.</div>
+      <h3>Buys stocks whose price swings have widened over the past two weeks and sells those that are calming down.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(historical_volatility_90, 10))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>Flight-to-safety nonlinearity (Adrian-Crump-Vogt JF 2019): 1m forward stock returns RISE with lagged VIX while Treasury returns FALL — replication on SPY/TLT 2012-2026 with post-publication subsample</h3>
-      <div class='about'>Tests whether scary markets pay stock holders extra while bond prices have already flown to safety — fear as a priced premium, not just a mood.</div>
+      <h3>Tests whether scary markets pay stock holders extra while bond prices have already flown to safety — fear as a priced premium, not just a mood.</h3>
+      <div class='tech'>Flight-to-safety nonlinearity (Adrian-Crump-Vogt JF 2019): 1m forward stock returns RISE with lagged VIX while Treasury returns FALL — replication on SPY/TLT 2012-2026 with post-publication subsample</div>
       <div class="cause">Retired at <b>validation</b>:
         Directionally replicates ACV in AND out of sample — monotone SPY rise, TLT mirror — but t=2.25 sits under the 2.5 bar with overlapping-window inference, and far under the 5.0 stressed promotion bar. Verdict: the paper&#x27;s …</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>Vol-managed SPY (Moreira-Muir 2017): scale exposure by inverse realized variance, cap 2x — higher Sharpe than buy-and-hold</h3>
-      <div class='about'>Holds more stock when markets are calm and less when they are stormy, betting risk isn&#x27;t paid extra in high-vol months.</div>
+      <h3>Holds more stock when markets are calm and less when they are stormy, betting risk isn&#x27;t paid extra in high-vol months.</h3>
+      <div class='tech'>Vol-managed SPY (Moreira-Muir 2017): scale exposure by inverse realized variance, cap 2x — higher Sharpe than buy-and-hold</div>
       <div class="cause">Retired at <b>validation</b>:
         gate t=1.55; promotion needs t&gt;=5.0 (2.5 base + margin-of-safety)</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>Betting-against-beta (Frazzini-Pedersen 2014): leverage-constrained investors overpay for high beta; L/S beta-neutral spread earns a premium on my panel</h3>
-      <div class='about'>Buys boring low-beta stocks and shorts exciting high-beta ones, levering the boring side to match risk.</div>
+      <h3>Buys boring low-beta stocks and shorts exciting high-beta ones, levering the boring side to match risk.</h3>
+      <div class='tech'>Betting-against-beta (Frazzini-Pedersen 2014): leverage-constrained investors overpay for high beta; L/S beta-neutral spread earns a premium on my panel</div>
       <div class="cause">Retired at <b>validation</b>:
         gate t=0.29; promotion needs t&gt;=5.0 (2.5 base + margin-of-safety)</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>Turn-of-month effect (McConnell-Xu 2008): SPY returns concentrate in the last 2 + first 3 trading days of the month (mechanical month-end flows)</h3>
-      <div class='about'>Owns stocks only around month-end, betting paycheck and fund flows push prices up on a calendar schedule.</div>
+      <h3>Owns stocks only around month-end, betting paycheck and fund flows push prices up on a calendar schedule.</h3>
+      <div class='tech'>Turn-of-month effect (McConnell-Xu 2008): SPY returns concentrate in the last 2 + first 3 trading days of the month (mechanical month-end flows)</div>
       <div class="cause">Retired at <b>validation</b>:
         gate t=0.64; promotion needs t&gt;=5.0 (2.5 base + margin-of-safety)</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>A 10-20% time-series-momentum sleeve improves the GEOMETRIC growth and max drawdown of an equity book vs equity-only (crisis-alpha portfolio construction; Moskowitz-Ooi-Pedersen lineage). Distinct from the rejected standalone walk-forward TSMOM family: this claims drag reduction at the PORTFOLIO level, not timing alpha</h3>
-      <div class='about'>Adds a small trend-following sleeve to a stock portfolio, betting the hedge cheapens crashes enough to speed up long-run compounding.</div>
+      <h3>Adds a small trend-following sleeve to a stock portfolio, betting the hedge cheapens crashes enough to speed up long-run compounding.</h3>
+      <div class='tech'>A 10-20% time-series-momentum sleeve improves the GEOMETRIC growth and max drawdown of an equity book vs equity-only (crisis-alpha portfolio construction; Moskowitz-Ooi-Pedersen lineage). Distinct from the rejected standalone walk-forward TSMOM family: this claims drag reduction at the PORTFOLIO level, not timing alpha</div>
       <div class="cause">Retired at <b>validation</b>:
         80/20 trend sleeve: CAGR diff -0.06%/yr, t=-0.10 vs bar 2.74 + stressed 2.5 — did not clear</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>Tax-loss harvesting adds ~1%/yr after-tax alpha in early years on a direct-indexed S&amp;P portfolio, decaying as embedded gains age (Chaudhuri-Burnham-Lo 2020 replication; the Parametric mechanism)</h3>
-      <div class='about'>Holds the index as individual stocks and systematically sells losers to bank tax losses, swapping into similar names to keep tracking the index.</div>
+      <h3>Holds the index as individual stocks and systematically sells losers to bank tax losses, swapping into similar names to keep tracking the index.</h3>
+      <div class='tech'>Tax-loss harvesting adds ~1%/yr after-tax alpha in early years on a direct-indexed S&amp;P portfolio, decaying as embedded gains age (Chaudhuri-Burnham-Lo 2020 replication; the Parametric mechanism)</div>
       <div class="cause">Retired at <b>validation</b>:
         full-liquidation tax alpha -1.75%/yr, t=-2.34: the pre-tax bleed of sell-the-losers swaps (~180bps/yr) dwarfs the tax credits (~6bps/yr on a no-contribution book). Two honest caveats: (1) survivorship interaction — on a …</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>BRAIN candidate: rank(ts_zscore(fair_value_derivative_liabilities, 250))</h3>
-      <div class='about'>Buys big companies whose reported derivative liabilities sit unusually high relative to their own past year.</div>
+      <h3>Buys big companies whose reported derivative liabilities sit unusually high relative to their own past year.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_zscore(fair_value_derivative_liabilities, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>BRAIN candidate: rank(ts_delta(implied_volatility_mean_180, 60))</h3>
-      <div class='about'>Buys big stocks whose options now price in much more turbulence than three months ago, and sells those pricing in less.</div>
+      <h3>Buys big stocks whose options now price in much more turbulence than three months ago, and sells those pricing in less.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(implied_volatility_mean_180, 60))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>BRAIN candidate: -rank(ts_zscore(anl4_afv4_div_high, 250))</h3>
-      <div class='about'>Bets against stocks where an analyst-estimate figure sits unusually high versus its own past year, and buys the lows.</div>
+      <h3>Bets against stocks where an analyst-estimate figure sits unusually high versus its own past year, and buys the lows.</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_zscore(anl4_afv4_div_high, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>Quantile-regression VaR on SPY from free implied-moment proxies (VIX level, VIX/VIX3M term slope, CBOE SKEW) beats GARCH-based and historical-simulation VaR on coverage and pinball loss (Blom/de Lange/Risstad JRFM 2023, EURUSD -&gt; US equity translation)</h3>
-      <div class='about'>Tests whether free market-fear gauges forecast worst-case daily stock losses better than standard statistical models.</div>
+      <h3>Tests whether free market-fear gauges forecast worst-case daily stock losses better than standard statistical models.</h3>
+      <div class='tech'>Quantile-regression VaR on SPY from free implied-moment proxies (VIX level, VIX/VIX3M term slope, CBOE SKEW) beats GARCH-based and historical-simulation VaR on coverage and pinball loss (Blom/de Lange/Risstad JRFM 2023, EURUSD -&gt; US equity translation)</div>
       <div class="cause">Retired at <b>validation</b>:
         primary cell: FAIL</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>GEX states condition the TAILS, not the mean: adding dealer-positioning state to the implied-moment quantile regression improves tail coverage where the Chain&#x27;s mean forecast failed (chain-family lineage declared for the deflator; per-state residue s2/s6 from v3 is the motivating anomaly, mechanism = short-gamma amplification is a tail phenomenon)</h3>
-      <div class='about'>Tests whether knowing option dealers&#x27; positioning sharpens forecasts of the market&#x27;s worst days, not its typical ones.</div>
+      <h3>Tests whether knowing option dealers&#x27; positioning sharpens forecasts of the market&#x27;s worst days, not its typical ones.</h3>
+      <div class='tech'>GEX states condition the TAILS, not the mean: adding dealer-positioning state to the implied-moment quantile regression improves tail coverage where the Chain&#x27;s mean forecast failed (chain-family lineage declared for the deflator; per-state residue s2/s6 from v3 is the motivating anomaly, mechanism = short-gamma amplification is a tail phenomenon)</div>
       <div class="cause">Retired at <b>validation</b>:
         primary cell: FAIL</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>Dimopoulos Chain v3: shrunk state corrections (GEX x RV cells + term structure + arrival) on a log HAR+VIX+GJR backbone improve 5-day range forecasts (pre-registered spec)</h3>
-      <div class='about'>Tests whether option-dealer positioning and market state improve five-day forecasts of how far the S&amp;P 500 will swing.</div>
+      <h3>Tests whether option-dealer positioning and market state improve five-day forecasts of how far the S&amp;P 500 will swing.</h3>
+      <div class='tech'>Dimopoulos Chain v3: shrunk state corrections (GEX x RV cells + term structure + arrival) on a log HAR+VIX+GJR backbone improve 5-day range forecasts (pre-registered spec)</div>
       <div class="cause">Retired at <b>validation</b>:
         FAIL — buried, name and all</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>Dimopoulos Chain v1: GEX x RV state chain adds next-day range information beyond VIX (OOS, monthly-refit)</h3>
-      <div class='about'>Tests whether dealer hedging plus recent choppiness predicts tomorrow&#x27;s trading range beyond the market&#x27;s fear gauge.</div>
+      <h3>Tests whether dealer hedging plus recent choppiness predicts tomorrow&#x27;s trading range beyond the market&#x27;s fear gauge.</h3>
+      <div class='tech'>Dimopoulos Chain v1: GEX x RV state chain adds next-day range information beyond VIX (OOS, monthly-refit)</div>
       <div class="cause">Retired at <b>validation</b>:
         margin-of-safety rerun (edge halved vs VIX baseline, original noise) t=2.17 &lt; 2.5 — edge has no buffer; gate tightened 2026-07-12 (Graham overlay), prior pass was under the old regime</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-12</div>
-      <h3>BRAIN candidate: group_rank(zscore(historical_volatility_20) - zscore(anl4_bvps_high), subindustry)</h3>
-      <div class='about'>Within industry peer groups, favors stocks whose recent price swings run high relative to an analyst-estimate figure.</div>
+      <h3>Within industry peer groups, favors stocks whose recent price swings run high relative to an analyst-estimate figure.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(zscore(historical_volatility_20) - zscore(anl4_bvps_high), subindustry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-11</div>
-      <h3>BRAIN candidate: -group_rank(ts_zscore(fnd6_dcvsub, 250), sector)</h3>
-      <div class='about'>Bets against stocks where one company-accounts field sits unusually high versus its own past year, within each sector.</div>
+      <h3>Bets against stocks where one company-accounts field sits unusually high versus its own past year, within each sector.</h3>
+      <div class='tech'>BRAIN candidate: -group_rank(ts_zscore(fnd6_dcvsub, 250), sector)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: group_rank(pv13_com_rk_au / ts_mean(pv13_com_rk_au, 120), industry)</h3>
-      <div class='about'>Ranks industry peers on a cryptic price-and-volume data field versus its own six-month average and buys the highs.</div>
+      <h3>Ranks industry peers on a cryptic price-and-volume data field versus its own six-month average and buys the highs.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(pv13_com_rk_au / ts_mean(pv13_com_rk_au, 120), industry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: -rank(ts_zscore(diluted_shares_outstanding_adjustment_avg, 250))</h3>
-      <div class='about'>Bets against companies with an unusually large gap between shares that exist and shares that could be created.</div>
+      <h3>Bets against companies with an unusually large gap between shares that exist and shares that could be created.</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_zscore(diluted_shares_outstanding_adjustment_avg, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: rank(anl4_afv4_div_number / ts_mean(anl4_afv4_div_number, 120))</h3>
-      <div class='about'>Buys stocks where an analyst dividend-related count runs high relative to its own six-month average.</div>
+      <h3>Buys stocks where an analyst dividend-related count runs high relative to its own six-month average.</h3>
+      <div class='tech'>BRAIN candidate: rank(anl4_afv4_div_number / ts_mean(anl4_afv4_div_number, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: rank(ts_delta(historical_volatility_20, 60))</h3>
-      <div class='about'>Buys stocks whose day-to-day price swings have grown the most over the past three months.</div>
+      <h3>Buys stocks whose day-to-day price swings have grown the most over the past three months.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(historical_volatility_20, 60))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: rank(ts_zscore(implied_volatility_mean_skew_720, 250))</h3>
-      <div class='about'>Buys stocks whose option prices tilt unusually far between downside and upside bets compared with the past year.</div>
+      <h3>Buys stocks whose option prices tilt unusually far between downside and upside bets compared with the past year.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_zscore(implied_volatility_mean_skew_720, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: -rank(ts_zscore(common_stock_buyback_payments, 250))</h3>
-      <div class='about'>Bets against companies spending unusually heavily on buying back their own shares compared with their past year.</div>
+      <h3>Bets against companies spending unusually heavily on buying back their own shares compared with their past year.</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_zscore(common_stock_buyback_payments, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: group_rank(ts_zscore(anl4_afv4_dts_spe, 250), subindustry)</h3>
-      <div class='about'>Buys stocks where a cryptic analyst-estimate field runs unusually high versus its own past year, within each industry.</div>
+      <h3>Buys stocks where a cryptic analyst-estimate field runs unusually high versus its own past year, within each industry.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(ts_zscore(anl4_afv4_dts_spe, 250), subindustry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: group_rank(ts_zscore(anl4_bvps_mean, 250), subindustry)</h3>
-      <div class='about'>Buys stocks whose forecast book value per share is unusually high versus its own past year, judged against close peers.</div>
+      <h3>Buys stocks whose forecast book value per share is unusually high versus its own past year, judged against close peers.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(ts_zscore(anl4_bvps_mean, 250), subindustry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: group_rank(ts_delta(anl4_capex_mean, 10), subindustry)</h3>
-      <div class='about'>Buys stocks whose average forecast for capital spending rose most over ten days compared with close industry peers.</div>
+      <h3>Buys stocks whose average forecast for capital spending rose most over ten days compared with close industry peers.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(ts_delta(anl4_capex_mean, 10), subindustry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: -rank(ts_delta(equity_awards_granted_non_option_period, 5))</h3>
-      <div class='about'>Ranks companies on the five-day change in employee stock grants and bets against those handing out more.</div>
+      <h3>Ranks companies on the five-day change in employee stock grants and bets against those handing out more.</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_delta(equity_awards_granted_non_option_period, 5))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>BRAIN candidate: -group_rank(ts_zscore(common_stock_issuance_proceeds, 20), subindustry)</h3>
-      <div class='about'>Bets against companies whose recent cash raised from selling new shares is unusually high versus industry peers.</div>
+      <h3>Bets against companies whose recent cash raised from selling new shares is unusually high versus industry peers.</h3>
+      <div class='tech'>BRAIN candidate: -group_rank(ts_zscore(common_stock_issuance_proceeds, 20), subindustry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>Heston neural forward-approximator: params-&gt;IV surface to &lt;0.5 vol pt with &gt;=100x speedup (Horvath-Muguruza-Tomas program)</h3>
-      <div class='about'>Trains a neural network to imitate a slow options-pricing model, trading a long calculation for an instant lookup.</div>
+      <h3>Trains a neural network to imitate a slow options-pricing model, trading a long calculation for an instant lookup.</h3>
+      <div class='tech'>Heston neural forward-approximator: params-&gt;IV surface to &lt;0.5 vol pt with &gt;=100x speedup (Horvath-Muguruza-Tomas program)</div>
       <div class="cause">Retired at <b>approximation-quality</b>:
         MAE 66.86 vp / speedup 51684x missed gates</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>Dimopoulos Chain v1.5: neural emissions (MLP on HAR+VIX+GJR+state components) beat the full linear baseline OOS</h3>
-      <div class='about'>Trains a small neural network on hedging and volatility signals to forecast the size of tomorrow&#x27;s market moves.</div>
+      <h3>Trains a small neural network on hedging and volatility signals to forecast the size of tomorrow&#x27;s market moves.</h3>
+      <div class='tech'>Dimopoulos Chain v1.5: neural emissions (MLP on HAR+VIX+GJR+state components) beat the full linear baseline OOS</div>
       <div class="cause">Retired at <b>vs-linear-frontier-oos</b>:
         neural emissions did not beat linear ladder (t=-4.37)</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>VRP timing E_no_steamroller: signal-gated SVXY beats always-long SVXY</h3>
-      <div class='about'>Bets on market calm but steps aside whenever warning signs point to a sudden violent snap-back in fear.</div>
+      <h3>Bets on market calm but steps aside whenever warning signs point to a sudden violent snap-back in fear.</h3>
+      <div class='tech'>VRP timing E_no_steamroller: signal-gated SVXY beats always-long SVXY</div>
       <div class="cause">Retired at <b>excess-vs-always</b>:
         no significant excess over always-long (t=-0.36, p=0.660)</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>VRP timing B_contango: signal-gated SVXY beats always-long SVXY</h3>
-      <div class='about'>Bets on market calm, but only when insurance against swings costs more for later dates than for the near term.</div>
+      <h3>Bets on market calm, but only when insurance against swings costs more for later dates than for the near term.</h3>
+      <div class='tech'>VRP timing B_contango: signal-gated SVXY beats always-long SVXY</div>
       <div class="cause">Retired at <b>excess-vs-always</b>:
         no significant excess over always-long (t=0.57, p=0.313)</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>VRP timing C_contango_pinned: signal-gated SVXY beats always-long SVXY</h3>
-      <div class='about'>Bets on market calm only when swing insurance is pricier further out and dealers&#x27; hedging is steadying the market.</div>
+      <h3>Bets on market calm only when swing insurance is pricier further out and dealers&#x27; hedging is steadying the market.</h3>
+      <div class='tech'>VRP timing C_contango_pinned: signal-gated SVXY beats always-long SVXY</div>
       <div class="cause">Retired at <b>excess-vs-always</b>:
         no significant excess over always-long (t=-1.72, p=0.962)</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>VRP timing D_pinned: signal-gated SVXY beats always-long SVXY</h3>
-      <div class='about'>Bets on market calm only on days when options dealers&#x27; hedging tends to pin the market in place.</div>
+      <h3>Bets on market calm only on days when options dealers&#x27; hedging tends to pin the market in place.</h3>
+      <div class='tech'>VRP timing D_pinned: signal-gated SVXY beats always-long SVXY</div>
       <div class="cause">Retired at <b>excess-vs-always</b>:
         no significant excess over always-long (t=-1.68, p=0.959)</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-09</div>
-      <h3>GEX-scaled position sizing (0.5x exposed -&gt; 1.5x pinned) beats plain vol-targeted SPY after costs</h3>
-      <div class='about'>Holds more stock when options dealers&#x27; hedging tends to calm the market, and less when it tends to amplify swings.</div>
+      <h3>Holds more stock when options dealers&#x27; hedging tends to calm the market, and less when it tends to amplify swings.</h3>
+      <div class='tech'>GEX-scaled position sizing (0.5x exposed -&gt; 1.5x pinned) beats plain vol-targeted SPY after costs</div>
       <div class="cause">Retired at <b>overlay-excess</b>:
         overlay excess vs plain vol targeting: t=-3.80, p=1.000</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>Dimopoulos Chain v1.1: GEX x RV states add next-day range info beyond the combined HAR+VIX+GARCH baseline (OOS, monthly-refit)</h3>
-      <div class='about'>Tests whether dealer-hedging and choppiness states improve on a full battery of standard volatility forecasters.</div>
+      <h3>Tests whether dealer-hedging and choppiness states improve on a full battery of standard volatility forecasters.</h3>
+      <div class='tech'>Dimopoulos Chain v1.1: GEX x RV states add next-day range info beyond the combined HAR+VIX+GARCH baseline (OOS, monthly-refit)</div>
       <div class="cause">Retired at <b>beyond-full-baseline-oos</b>:
         Passed vs HAR+VIX+plain-GARCH (t_full=2.83) but failed the stricter GJR-augmented baseline (t_full=1.02) in the same-day rerun; duplicate-claim guard prevented overwrite. Demoted 2026-07-10 — the strictest run is the …</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>Walk-forward-tuned TSMOM family (216 variants, 5y/1y, DD&lt;-35% filter, max-Sharpe selection) beats B&amp;H out-of-sample</h3>
-      <div class='about'>Follows the stock market&#x27;s trend, re-picking the best-performing trend rule from recent years as it goes.</div>
+      <h3>Follows the stock market&#x27;s trend, re-picking the best-performing trend rule from recent years as it goes.</h3>
+      <div class='tech'>Walk-forward-tuned TSMOM family (216 variants, 5y/1y, DD&lt;-35% filter, max-Sharpe selection) beats B&amp;H out-of-sample</div>
       <div class="cause">Retired at <b>oos-excess</b>:
         stitched OOS excess vs B&amp;H: t=-0.62, p=0.738</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>TSMOM vol-targeted SPY (video &#x27;winner&#x27; TREND_MOMENTUM_PRO; Moskowitz 2012 lineage) beats buy-and-hold risk-adjusted across regimes</h3>
-      <div class='about'>Tests whether riding the stock market&#x27;s trend, and easing off when it turns choppy, beats simply holding it.</div>
+      <h3>Tests whether riding the stock market&#x27;s trend, and easing off when it turns choppy, beats simply holding it.</h3>
+      <div class='tech'>TSMOM vol-targeted SPY (video &#x27;winner&#x27; TREND_MOMENTUM_PRO; Moskowitz 2012 lineage) beats buy-and-hold risk-adjusted across regimes</div>
       <div class="cause">Retired at <b>excess-significance</b>:
         excess over B&amp;H is a coin flip (t=0.14, p=0.45); DD reduction real but modest; 9000-attempt source deflator applies</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>Circular/servitization quality: firms disclosing longer equipment useful lives and larger warranty/service obligations are durable-asset custodians with underpriced earnings quality (Stahel stocks-vs-flows via Rishel/Circudyne)</h3>
-      <div class='about'>Buys companies now reporting longer lifespans for their equipment, betting built-to-last firms are underpriced.</div>
+      <h3>Buys companies now reporting longer lifespans for their equipment, betting built-to-last firms are underpriced.</h3>
+      <div class='tech'>Circular/servitization quality: firms disclosing longer equipment useful lives and larger warranty/service obligations are durable-asset custodians with underpriced earnings quality (Stahel stocks-vs-flows via Rishel/Circudyne)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>Local-news coverage spikes in small caps precede abnormal returns (GDELT volume, v1 all-outlets)</h3>
-      <div class='about'>Tests whether sudden bursts of local news coverage about small companies come before unusual stock moves.</div>
+      <h3>Tests whether sudden bursts of local news coverage about small companies come before unusual stock moves.</h3>
+      <div class='tech'>Local-news coverage spikes in small caps precede abnormal returns (GDELT volume, v1 all-outlets)</div>
       <div class="cause">Retired at <b>event-study</b>:
         10d CAR t=-1.3 below 2.5 (upper bound)</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: group_rank(fnd6_cptnewqv1300_saleq / ts_mean(fnd6_cptnewqv1300_saleq, 120), industry)</h3>
-      <div class='about'>Within each industry, favors companies whose quarterly sales run above their own six-month trend.</div>
+      <h3>Within each industry, favors companies whose quarterly sales run above their own six-month trend.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(fnd6_cptnewqv1300_saleq / ts_mean(fnd6_cptnewqv1300_saleq, 120), industry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(fnd6_dilavx / ts_mean(fnd6_dilavx, 120))</h3>
-      <div class='about'>Ranks stocks on how one accounting figure compares with its own six-month average and buys the risers.</div>
+      <h3>Ranks stocks on how one accounting figure compares with its own six-month average and buys the risers.</h3>
+      <div class='tech'>BRAIN candidate: rank(fnd6_dilavx / ts_mean(fnd6_dilavx, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: group_rank(anl4_capex_mean / ts_mean(anl4_capex_mean, 120), industry)</h3>
-      <div class='about'>Within each industry, favors companies whose forecast capital spending is rising versus its recent average.</div>
+      <h3>Within each industry, favors companies whose forecast capital spending is rising versus its recent average.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(anl4_capex_mean / ts_mean(anl4_capex_mean, 120), industry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: -group_rank(ts_zscore(actual_sales_value_annual, 250), sector)</h3>
-      <div class='about'>Within each sector, bets against companies whose yearly sales look unusually high versus their own history.</div>
+      <h3>Within each sector, bets against companies whose yearly sales look unusually high versus their own history.</h3>
+      <div class='tech'>BRAIN candidate: -group_rank(ts_zscore(actual_sales_value_annual, 250), sector)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(anl4_afv4_div_low / ts_mean(anl4_afv4_div_low, 120))</h3>
-      <div class='about'>Favors stocks where an analyst forecast figure runs high compared with its own six-month average.</div>
+      <h3>Favors stocks where an analyst forecast figure runs high compared with its own six-month average.</h3>
+      <div class='tech'>BRAIN candidate: rank(anl4_afv4_div_low / ts_mean(anl4_afv4_div_low, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(ts_zscore(fnd6_fatp, 250))</h3>
-      <div class='about'>Ranks stocks by how far an accounting figure sits above its own one-year norm and favors the unusually high ones.</div>
+      <h3>Ranks stocks by how far an accounting figure sits above its own one-year norm and favors the unusually high ones.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_zscore(fnd6_fatp, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(ts_zscore(fnd6_dd2, 250))</h3>
-      <div class='about'>Bets on stocks where a company accounting figure sits unusually high versus its own past year.</div>
+      <h3>Bets on stocks where a company accounting figure sits unusually high versus its own past year.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_zscore(fnd6_dd2, 250))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(ts_delta(implied_volatility_mean_skew_30, 10))</h3>
-      <div class='about'>Buys stocks whose option markets have grown more fearful of a price fall over the past two weeks.</div>
+      <h3>Buys stocks whose option markets have grown more fearful of a price fall over the past two weeks.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(implied_volatility_mean_skew_30, 10))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(ts_delta(anl4_af_cfps_value, 10))</h3>
-      <div class='about'>Buys stocks where analysts&#x27; cash-flow forecasts rose over the past two weeks, betting the upgrades keep working.</div>
+      <h3>Buys stocks where analysts&#x27; cash-flow forecasts rose over the past two weeks, betting the upgrades keep working.</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(anl4_af_cfps_value, 10))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: group_rank(ts_delta(pv13_ustomergraphrank_hub_rank, 10), subindustry)</h3>
-      <div class='about'>Bets on stocks whose importance in the customer-supplier network just rose, ranked against industry peers.</div>
+      <h3>Bets on stocks whose importance in the customer-supplier network just rose, ranked against industry peers.</h3>
+      <div class='tech'>BRAIN candidate: group_rank(ts_delta(pv13_ustomergraphrank_hub_rank, 10), subindustry)</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: rank(snt_buzz / ts_mean(snt_buzz, 60))</h3>
-      <div class='about'>Buys stocks whose online chatter runs above its two-month norm, betting spikes in attention move prices.</div>
+      <h3>Buys stocks whose online chatter runs above its two-month norm, betting spikes in attention move prices.</h3>
+      <div class='tech'>BRAIN candidate: rank(snt_buzz / ts_mean(snt_buzz, 60))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: group_rank validation test</h3>
-      <div class='about'>Tests ranking each stock against close industry peers on how unusual an analyst figure is versus its past year.</div>
+      <h3>Tests ranking each stock against close industry peers on how unusual an analyst figure is versus its past year.</h3>
+      <div class='tech'>BRAIN candidate: group_rank validation test</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: -rank(ts_delta(implied_volatility_mean_skew_120, 20))</h3>
-      <div class='about'>Bets against stocks whose option markets have grown more fearful of a price fall over the past month.</div>
+      <h3>Bets against stocks whose option markets have grown more fearful of a price fall over the past month.</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_delta(implied_volatility_mean_skew_120, 20))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: -rank(ts_zscore(anl4_afv4_div_low, 120))</h3>
-      <div class='about'>Bets against stocks where an analyst estimate figure sits unusually high versus its own six-month history.</div>
+      <h3>Bets against stocks where an analyst estimate figure sits unusually high versus its own six-month history.</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_zscore(anl4_afv4_div_low, 120))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-08</div>
-      <h3>BRAIN candidate: -rank(ts_delta(fnd6_txtubend, 20))</h3>
-      <div class='about'>Ranks stocks on the 20-day change in a company accounting figure and bets against those where it just rose.</div>
+      <h3>Ranks stocks on the 20-day change in a company accounting figure and bets against those where it just rose.</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_delta(fnd6_txtubend, 20))</div>
       <div class="cause">Retired at <b>brain-checks</b>:
         LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>Illiquid stocks earn a premium (Amihud 2002)</h3>
-      <div class='about'>Buys hard-to-trade large stocks whose prices swing on light trading, betting investors earn extra for the hassle.</div>
+      <h3>Buys hard-to-trade large stocks whose prices swing on light trading, betting investors earn extra for the hassle.</h3>
+      <div class='tech'>Illiquid stocks earn a premium (Amihud 2002)</div>
       <div class="cause">Retired at <b>validation</b>:
         IS/OOS degradation 53% &gt; 30% (IS 1.47 -&gt; OOS 0.69) — overfitting signature</div>
       <div class='metrics'><span>Sharpe 1.188</span><span>max DD -9%</span><span class='tenk'>$100k &rarr; $311,748 over 21y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>1-month short-term reversal, retested on the ~500-name S&amp;P universe (Jegadeesh 1990)</h3>
-      <div class='about'>Buys last month&#x27;s losers and sells its winners, this time only among the 500 largest US stocks.</div>
+      <h3>Buys last month&#x27;s losers and sells its winners, this time only among the 500 largest US stocks.</h3>
+      <div class='tech'>1-month short-term reversal, retested on the ~500-name S&amp;P universe (Jegadeesh 1990)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=0.95 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.168 &gt; 0.05</div>
       <div class='metrics'><span>Sharpe 0.192</span><span>max DD -17%</span><span class='tenk'>$100k &rarr; $128,773 over 21y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>12-1 momentum, retested on the ~500-name S&amp;P universe (Jegadeesh &amp; Titman 1993)</h3>
-      <div class='about'>Buys the past year&#x27;s winners, skipping the latest month, and sells its losers, only among the 500 largest US stocks.</div>
+      <h3>Buys the past year&#x27;s winners, skipping the latest month, and sells its losers, only among the 500 largest US stocks.</h3>
+      <div class='tech'>12-1 momentum, retested on the ~500-name S&amp;P universe (Jegadeesh &amp; Titman 1993)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=-0.98 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.798 &gt; 0.05; in-sample Sharpe -0.29 &lt;= 0</div>
       <div class='metrics'><span>Sharpe -0.21</span><span>max DD -51%</span><span class='tenk'>$100k &rarr; $61,519 over 20y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>Unusually high recent volume predicts higher returns (Gervais, Kaniel, Mingelgrin 2001)</h3>
-      <div class='about'>Buys large stocks trading far more heavily this week than usual, betting the burst of attention pulls in new buyers.</div>
+      <h3>Buys large stocks trading far more heavily this week than usual, betting the burst of attention pulls in new buyers.</h3>
+      <div class='tech'>Unusually high recent volume predicts higher returns (Gervais, Kaniel, Mingelgrin 2001)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=-2.31 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.987 &gt; 0.05; in-sample Sharpe -0.67 &lt;= 0</div>
       <div class='metrics'><span>Sharpe -0.493</span><span>max DD -43%</span><span class='tenk'>$100k &rarr; $64,849 over 21y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>Negative return skewness predicts higher returns (skewness preference / lottery overpricing)</h3>
-      <div class='about'>Buys large stocks whose surprises tilt toward drops rather than jumps, betting jackpot-style shares are overpriced.</div>
+      <h3>Buys large stocks whose surprises tilt toward drops rather than jumps, betting jackpot-style shares are overpriced.</h3>
+      <div class='tech'>Negative return skewness predicts higher returns (skewness preference / lottery overpricing)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=-0.87 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.829 &gt; 0.05; in-sample Sharpe -0.09 &lt;= 0</div>
       <div class='metrics'><span>Sharpe -0.168</span><span>max DD -19%</span><span class='tenk'>$100k &rarr; $84,789 over 21y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>Low lottery demand (small max daily gain) predicts higher returns (Bali, Cakici, Whitelaw 2011 MAX effect)</h3>
-      <div class='about'>Buys large stocks with no big one-day pop in the past month, betting lottery-style shares are overpriced.</div>
+      <h3>Buys large stocks with no big one-day pop in the past month, betting lottery-style shares are overpriced.</h3>
+      <div class='tech'>Low lottery demand (small max daily gain) predicts higher returns (Bali, Cakici, Whitelaw 2011 MAX effect)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=-3.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.65 &lt;= 0</div>
       <div class='metrics'><span>Sharpe -0.699</span><span>max DD -77%</span><span class='tenk'>$100k &rarr; $23,572 over 21y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>Low idiosyncratic volatility predicts higher returns (Ang, Hodrick, Xing, Zhang 2006)</h3>
-      <div class='about'>Buys large stocks with the least stock-specific wobble, betting investors overpay for excitement.</div>
+      <h3>Buys large stocks with the least stock-specific wobble, betting investors overpay for excitement.</h3>
+      <div class='tech'>Low idiosyncratic volatility predicts higher returns (Ang, Hodrick, Xing, Zhang 2006)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=-3.89 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.74 &lt;= 0</div>
       <div class='metrics'><span>Sharpe -0.795</span><span>max DD -77%</span><span class='tenk'>$100k &rarr; $22,966 over 21y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>Stocks with high trend consistency (share of up days) exhibit continuation — continuous information momentum (Da, Gurun, Warachka 2014 &#x27;frog in the pan&#x27;)</h3>
-      <div class='about'>Buys stocks whose gains come on heavy trading over three months, betting trends confirmed by volume keep going.</div>
+      <h3>Buys stocks whose gains come on heavy trading over three months, betting trends confirmed by volume keep going.</h3>
+      <div class='tech'>Stocks with high trend consistency (share of up days) exhibit continuation — continuous information momentum (Da, Gurun, Warachka 2014 &#x27;frog in the pan&#x27;)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=-1.77 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.948 &gt; 0.05; in-sample Sharpe -0.34 &lt;= 0</div>
       <div class='metrics'><span>Sharpe -0.382</span><span>max DD -53%</span><span class='tenk'>$100k &rarr; $53,648 over 21y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>Proximity to 52-week high predicts returns (George &amp; Hwang 2004)</h3>
-      <div class='about'>Buys stocks sitting near their highest price of the past year, betting hesitant investors let winners keep climbing.</div>
+      <h3>Buys stocks sitting near their highest price of the past year, betting hesitant investors let winners keep climbing.</h3>
+      <div class='tech'>Proximity to 52-week high predicts returns (George &amp; Hwang 2004)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=-2.22 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.988 &gt; 0.05; in-sample Sharpe -0.50 &lt;= 0</div>
       <div class='metrics'><span>Sharpe -0.484</span><span>max DD -76%</span><span class='tenk'>$100k &rarr; $28,633 over 20y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>1-month short-term reversal predicts returns (Jegadeesh 1990)</h3>
-      <div class='about'>Buys last month&#x27;s losers and sells its winners, betting crowds overreact and prices snap back.</div>
+      <h3>Buys last month&#x27;s losers and sells its winners, betting crowds overreact and prices snap back.</h3>
+      <div class='tech'>1-month short-term reversal predicts returns (Jegadeesh 1990)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=0.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.286 &gt; 0.05; IS/OOS degradation 71% &gt; 30% (IS 0.17 -&gt; OOS 0.05) — overfitting signature</div>
       <div class='metrics'><span>Sharpe 0.125</span><span>max DD -19%</span><span class='tenk'>$100k &rarr; $116,411 over 21y</span></div>
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
-      <h3>12-1 month cross-sectional momentum predicts returns (Jegadeesh &amp; Titman 1993)</h3>
-      <div class='about'>Buys the past year&#x27;s biggest gainers, skipping the most recent month, and sells the laggards, betting trends persist.</div>
+      <h3>Buys the past year&#x27;s biggest gainers, skipping the most recent month, and sells the laggards, betting trends persist.</h3>
+      <div class='tech'>12-1 month cross-sectional momentum predicts returns (Jegadeesh &amp; Titman 1993)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=0.09 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.420 &gt; 0.05; in-sample Sharpe -0.02 &lt;= 0</div>
       <div class='metrics'><span>Sharpe 0.02</span><span>max DD -42%</span><span class='tenk'>$100k &rarr; $93,380 over 20y</span></div>

@@ -7,6 +7,14 @@
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
   {
+   "claim": "Asness equal-risk benchmark: inverse-volatility weighting of the 7Twelve 12-ETF sleeve beats its equal-weight version and 60/40 SPY/AGG",
+   "stage": "validation",
+   "reason": "inverse-vol 7Twelve: -4.00%/yr vs equal-weight (t=-1.63), -6.59%/yr vs 60/40 (t=-3.58) \u2014 risk-weighting was not the missing ingredient either",
+   "status": "rejected",
+   "about": "Cliff Asness's argument (via Busca podcast): weighting by inverse volatility is the benchmark no optimizer reliably beats. Equal-weight 7Twelve just died; this asks whether risk-weighting, not asset count, was the missing ingredient.",
+   "tested": "2026-07-23"
+  },
+  {
    "claim": "BRAIN candidate: -rank(snt_value / ts_mean(snt_value, 120))",
    "stage": "brain-checks",
    "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
