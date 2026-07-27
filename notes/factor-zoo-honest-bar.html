@@ -62,6 +62,21 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 .plain { font-size:1.02rem; line-height:1.45; text-align:center; margin:0 auto 1.4rem;
   padding:.7rem 1rem; background:var(--card); border:1px solid var(--line);
   border-left:4px solid var(--accent); border-radius:6px; max-width:600px; }
+/* provenance block — bs-prov/1.0, docs/ontology_provenance_standard.md */
+.prov { margin:2.2rem 0 0; border:1px solid var(--line); border-radius:6px;
+  background:var(--card); padding:.9rem 1.1rem; font-size:.8rem;
+  line-height:1.5; color:var(--muted) }
+.prov h2 { font-size:.82rem; margin:0 0 .6rem; color:var(--fg);
+  font-variant:small-caps; letter-spacing:.07em }
+.prov dl { display:grid; grid-template-columns:8.5rem 1fr; gap:.32rem .9rem;
+  margin:0 }
+.prov dt { color:var(--fg); font-weight:bold }
+.prov dd { margin:0; text-align:left }
+.prov code { font-family:ui-monospace,Menlo,monospace; font-size:.94em }
+.prov ul { margin:0; padding-left:1.05rem }
+@media (max-width:520px) {
+  .prov dl { grid-template-columns:1fr; gap:.1rem }
+  .prov dd { margin-bottom:.5rem } }
 </style></head><body><main>
 <nav class="tabs">
 <a href="../">Tested Strategies</a>
@@ -197,6 +212,173 @@ Paper 3341728.</li>
 Expected Returns. <i>Review of Financial Studies</i>, 29(1), 5&ndash;68.</li>
 </ol>
 </div>
+
+<section class="prov" data-note-id="bs-note:factor-zoo-honest-bar">
+<h2>Provenance</h2>
+<dl>
+<dt>Asserts about</dt>
+<dd>Hypothesis <code>d57232a184d38ec1</code>, status rejected, and the Alpha158
+feature family of 158 members. The features were reimplemented in this
+system&rsquo;s own point-in-time registry from Qlib&rsquo;s public definitions;
+Qlib&rsquo;s data layer and backtester were not used.</dd>
+
+<dt>Data veins</dt>
+<dd>Adjusted OHLCV and dollar volume (Yahoo), roughly 425 current S&amp;P
+constituents, 2005 to July 2026, one trading day of information lag. Ken French
+FF5 plus momentum stood behind the residual-alpha stage, which no member
+reached. Both veins are free; neither is snapshotted.</dd>
+
+<dt>Gate regime</dt>
+<dd>G2, in force 12 to 25 July 2026: deflated significance, deflated bootstrap,
+a 30% limit on in-sample to out-of-sample degradation, and the margin-of-safety
+rerun. The verdict was rendered 25 July 2026. Two engine changes dated 26 July,
+a small-sample guard and a fix to the factor-stage risk-free treatment, postdate
+this verdict and neither moves it.</dd>
+
+<dt>Family</dt>
+<dd>316, declared before testing as 158 features by two sign choices, giving a
+deflated bar of <i>t</i>&nbsp;&ge;&nbsp;4.11. The store records a family as a
+count, not as a membership; the 158 names survive only in the run artifact, not
+in the hypothesis record.</dd>
+
+<dt>Binding gate</dt>
+<dd>Out-of-sample decay, not multiplicity. The strongest member, IMAX20,
+cleared the deflated bar at <i>t</i>&nbsp;=&nbsp;4.46 and cleared the
+margin-of-safety rerun at a stressed <i>t</i>&nbsp;=&nbsp;3.68 against a base
+bar of 2.50. What stopped it was a 55% Sharpe degradation from in-sample to
+out-of-sample against a 30% limit. Per-member rejection reasons were not
+recorded by the runner, so this identification covers the strongest member
+only.</dd>
+
+<dt>Retracts if</dt>
+<dd><ul>
+<li>a walk-forward re-audit shows that the 55% degradation is an artifact of the
+single fixed 70/30 split, which would carry IMAX20 to the factor stage and make
+the headline one of 158 rather than zero;</li>
+<li>point-in-time constituents replace this current-membership universe and the
+naive count rises above 29 instead of falling, contradicting Section 5;</li>
+<li>the reimplemented definitions are shown to diverge materially from
+Qlib&rsquo;s published Alpha158 definitions, in which case the family tested is
+not the family named.</li>
+</ul>
+Family size is not a retraction lever here. The strongest member cleared the
+deflated bar unaided, so the null does not rest on the multiplicity
+correction.</dd>
+
+<dt>Reproducibility</dt>
+<dd>Not pinned. Prices are refetched nightly and the universe is resolved from
+the current index list, so neither is frozen at publication, and the runner
+recorded no data window. A re-run on 27 July 2026 returned
+<i>t</i>&nbsp;=&nbsp;4.25 and a stressed <i>t</i>&nbsp;=&nbsp;3.56 for IMAX20
+against the 4.46 and 3.68 reported above. The verdict and the binding gate were
+unchanged.</dd>
+</dl>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": ["https://schema.org", {"@vocab": "https://theriskmuseum.com/ns/prov/v1#"}],
+  "@type": "ScholarlyArticle",
+  "@id": "https://theriskmuseum.com/notes/factor-zoo-honest-bar.html",
+  "headline": "The Factor Zoo Meets an Honest Bar: 158 Published Technical Alphas, Zero Survivors of a Deflated, Cost-Stressed Promotion Test",
+  "datePublished": "2026-07-26",
+  "author": {"@type": "Person", "name": "Vasilios Dimopoulos"},
+  "publisher": {"@type": "Organization", "name": "BlueShip Research"},
+  "provenance": {
+    "spec_version": "bs-prov/1.0",
+    "note_id": "bs-note:factor-zoo-honest-bar",
+    "asserts_about": [
+      {
+        "object": "Hypothesis",
+        "store_id": "d57232a184d38ec1",
+        "identity_basis": "spec-hash",
+        "status": "rejected",
+        "verdict_recorded_at": "2026-07-25T07:02:41Z"
+      },
+      {
+        "object": "FeatureFamily",
+        "name": "Alpha158",
+        "n_members": 158,
+        "implementation": "swarm/alpha158.py, reimplemented from Qlib's public definitions; Qlib's data layer and backtester not used"
+      }
+    ],
+    "data_veins": [
+      {
+        "vein": "prices.adjusted_ohlcv",
+        "provider": "Yahoo Finance",
+        "fields": "adjusted OHLCV, dollar volume",
+        "universe": "~425 current S&P 500 constituents, resolved at run time",
+        "window": "2005-03 to 2026-07, approx. 5,380 trading days",
+        "window_recorded": false,
+        "pit_lag": "1 trading day, applied by the backtester",
+        "cost": "free",
+        "snapshot": "none, vein is live and restatable"
+      },
+      {
+        "vein": "factors.ken_french",
+        "provider": "Kenneth R. French Data Library",
+        "fields": "FF5 + Mom",
+        "role": "stage-6 residual alpha; not reached, no member cleared stage 4",
+        "cost": "free",
+        "snapshot": "none"
+      }
+    ],
+    "gate_regime": {
+      "id": "G2",
+      "in_force": "2026-07-12/2026-07-25",
+      "verdict_rendered": "2026-07-25",
+      "code_ref": "swarm/validate.py, swarm/backtest.py, swarm/factors.py @ 56aeb88",
+      "runner": "pipeline/alpha158_excavation.py",
+      "gates": {
+        "nw_t": "deflated by family n",
+        "bootstrap_p_sharpe_le_0": "deflated by family n",
+        "is_oos_degradation": "<= 0.30, single fixed 70/30 split",
+        "margin_of_safety": "gross x0.5, costs x2, must clear the base t >= 2.50"
+      },
+      "later_changes_not_applied": [
+        {
+          "date": "2026-07-26",
+          "change": "MIN_HAC_OBS = 30 small-sample guard",
+          "effect_on_this_verdict": "none, n_obs is approx. 5,380"
+        },
+        {
+          "date": "2026-07-26",
+          "change": "decompose() no longer subtracts RF from dollar-neutral spreads",
+          "effect_on_this_verdict": "none, the factor stage was never reached; the old bias made that gate stricter, not looser"
+        }
+      ]
+    },
+    "family": {
+      "id": "alpha158_library",
+      "n_declared": 316,
+      "basis": "158 features x 2 sign choices, declared before testing",
+      "declared_when": "pre-test",
+      "deflator": "Bonferroni/Taleb, t_eff = Phi^-1(1 - sf(2.50)/n)",
+      "t_effective": 4.11,
+      "p_effective": 0.000158,
+      "membership_recorded": false,
+      "membership_note": "the store holds family size as an integer only; the member list exists solely in state/cache/alpha158_excavation.json",
+      "binds_this_verdict": false
+    },
+    "verdict": {
+      "outcome": "no promotion, 0 of 158; 29 clear the naive t >= 2.50 bar",
+      "binding_gate": "is_oos_degradation",
+      "binding_gate_scope": "strongest member only; per-member rejection reasons were not recorded by the runner",
+      "binding_gate_detail": "IMAX20 cleared the deflated significance bar (t = 4.46 >= 4.11) and the margin-of-safety rerun (stressed t = 3.68 >= 2.50). It was stopped by 55% in-sample to out-of-sample Sharpe degradation (1.14 -> 0.52) against a 30% limit. The null is produced by decay, not by multiplicity."
+    },
+    "retracts_if": [
+      "a walk-forward re-audit shows the 55% IS/OOS degradation is an artifact of the single fixed 70/30 split; IMAX20 would then clear stage 4 and the headline becomes 1 of 158 pending factor decomposition",
+      "point-in-time constituents replace the current-membership universe and the naive count rises above 29 rather than falling, contradicting Section 5",
+      "swarm/alpha158.py is shown to diverge materially from Qlib's published Alpha158 definitions"
+    ],
+    "reproducibility": {
+      "status": "not pinned",
+      "detail": "prices are refetched nightly, the universe is resolved from the current index list, and the runner recorded no data window; a re-run on 2026-07-27 returned t = 4.25 and stressed t = 3.56 for IMAX20 against the published 4.46 and 3.68, with the verdict and the binding gate unchanged",
+      "artifact": "state/cache/alpha158_excavation.json, private repo"
+    }
+  }
+}
+</script>
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Signals: Microsoft Qlib Alpha158.

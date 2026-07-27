@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Where the Edge Was — BlueShip Research Working Paper No. 17</title>
-<meta name="description" content="A category decomposition of 620 settled forecasts: the three best-scoring categories were thin process markets on 38 forecasts between them, while the two largest, Match Outcome at 179 and Goals and Scoring at 145, both lost ground to the platform's benchmark.">
+<meta name="description" content="A category decomposition of 620 Brier-scored World Cup forecasts. Rescored against a documented benchmark, the two categories that lost most ground to the crowd turn positive, which locates the deficit in the strength of the competition rather than in the forecasts. 42.2% of questions resolved yes.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/where-the-edge-was.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -80,7 +80,7 @@ of 620 Brier-Scored World Cup Forecasts</h1>
 <div class="meta">Working Paper No. 17 &middot; 27 July 2026</div>
 </div>
 
-<p class="plain"><b>In one line:</b> I scored best in small markets nobody prices carefully. In the two biggest markets, I lost ground.</p>
+<p class="plain"><b>In one line:</b> I scored best in small markets nobody prices carefully. In the two biggest I lost ground, and it turns out my forecasts there were fine. The crowd was just better.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> I decompose by category
 the 620 settled forecasts of Working Paper No. 5, entered in a Brier-scored
@@ -92,7 +92,13 @@ contrarian win rate was 48%, below half, on an undisclosed denominator and at a
 distance from half that no subset size makes significant. I therefore retire
 the reading that the edge came from out-thinking the field, and read the same
 calibration table, resolution 0.020 against reliability 0.006, as discrimination
-rather than calibration.</p>
+rather than calibration. Rescoring 555 of the forecasts against a benchmark that
+is documented, the best constant forecast in each category, reverses the sign on
+both of the platform&rsquo;s worst categories and puts match outcome second of
+nine, which locates the deficit in the strength of the competition rather than
+in the forecasts. Of those 555, 42.2% resolved yes, and a flat 42% forecast
+would have earned 44% of this book&rsquo;s edge over the same benchmark knowing
+nothing else.</p>
 <div class="keywords"><b>Keywords:</b> forecasting, Brier score, category
 decomposition, shrinkage, market-implied priors, prediction markets.</div>
 
@@ -169,6 +175,69 @@ semi-final and supplied more fixtures than most sides. Without France&rsquo;s
 fixture count or a test against it, that concentration is a hypothesis for the
 next cycle and not a diagnosis.</p>
 
+<h3>2.3 The same book against a documented benchmark</h3>
+<p>Everything above is the platform&rsquo;s scale, whose benchmark it does not
+publish. That limitation is removable. The settled log carries a stated
+probability and a Brier score for every forecast, and squaring back recovers
+each outcome, so the book can be scored against a benchmark that is written
+down. The benchmark used here is the best constant forecast available in each
+category, its own realized base rate <i>b</i>, which scores
+<i>b</i>(1&nbsp;&minus;&nbsp;<i>b</i>). It represents a forecaster who knows how
+often that kind of question resolves yes and nothing else whatever. The
+reconstruction covers 555 of the 620 settled forecasts, the last dump taken
+before the semi-finals, and categories are assigned by question wording rather
+than by the platform&rsquo;s own grouping.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 2.</b> Mean Brier score by category against the best
+constant forecast for that category, reconstructed from 555 settled forecasts.
+Edge is benchmark less mean Brier, so positive is better.</div>
+<table>
+<tr><th>Category</th><th>n</th><th>Mean Brier</th><th>Base rate</th><th>Benchmark</th><th>Edge</th></tr>
+<tr><td>Halftime state</td><td>28</td><td>0.2203</td><td>0.500</td><td>0.2500</td><td>+0.0297</td></tr>
+<tr><td>Match outcome</td><td>35</td><td>0.2073</td><td>0.629</td><td>0.2335</td><td>+0.0262</td></tr>
+<tr><td>Cards</td><td>43</td><td>0.2073</td><td>0.349</td><td>0.2271</td><td>+0.0198</td></tr>
+<tr><td>Corners</td><td>42</td><td>0.2284</td><td>0.405</td><td>0.2409</td><td>+0.0125</td></tr>
+<tr><td>Penalty and red card</td><td>34</td><td>0.1676</td><td>0.235</td><td>0.1799</td><td>+0.0123</td></tr>
+<tr><td>Goals and scoring</td><td>165</td><td>0.2433</td><td>0.455</td><td>0.2479</td><td>+0.0047</td></tr>
+<tr><td>Shots</td><td>134</td><td>0.2380</td><td>0.403</td><td>0.2406</td><td>+0.0026</td></tr>
+<tr><td>Offsides</td><td>28</td><td>0.2518</td><td>0.429</td><td>0.2449</td><td>&minus;0.0069</td></tr>
+<tr><td>Timing</td><td>18</td><td>0.2385</td><td>0.333</td><td>0.2222</td><td>&minus;0.0163</td></tr>
+<tr><td>All 555</td><td>555</td><td>0.2299</td><td>0.422</td><td>0.2439</td><td>+0.0139</td></tr>
+</table>
+</div>
+
+<p>The two readings disagree, and the disagreement is the finding. Match outcome
+and goals and scoring are the platform&rsquo;s two worst categories and are
+positive here, match outcome second best of the nine. Both statements can hold
+at once, because they are measured against different things. Beating the base
+rate and beating a well-informed crowd are separate achievements, and the
+categories where this book lost ground are the ones where the crowd was
+sharpest, not the ones where it forecast badly. Section 2.2 read a deficit
+against an undocumented benchmark as a fault in the forecasts. On the evidence
+here that reading is too strong, and what the deficit locates is competition
+rather than error.</p>
+<p>Two results survive both readings. Halftime state is the strongest category
+under either, and its base rate is 0.500 to three figures, so none of its edge
+is the tilt described below and all of it is discrimination. Timing is negative
+under both, which is the category the hydration call sits in. Offsides is
+negative here on 28 forecasts and was not separately displayed by the platform.
+The counts remain small and the categories were assigned after the fact, so this
+table reorders the account&rsquo;s own book and does not establish where an edge
+exists in the venue.</p>
+
+<h3>2.4 The tilt nobody had to model</h3>
+<p>Of the 555 reconstructed forecasts, 42.2% resolved yes. The question set was
+written as thresholds, four or more cards, three or more goals, a penalty
+awarded, a named player scoring, and threshold questions of that kind resolve no
+more often than not. A forecaster who answered a flat 42% to every question,
+knowing nothing about football, scores 0.2439. A forecaster who answered a flat
+50% scores 0.2500. The difference, 0.0061 a question, is available for
+recognising the shape of the question set and is 44% of this book&rsquo;s 0.0139
+edge over the same benchmark. It was not deliberately taken. The account
+hedged toward 50% rather than toward 42%, which Working Paper No.&nbsp;5 recorded
+as underconfidence in the 45&ndash;55% band without identifying its cause.</p>
+
 <h2>3. What the Record Does Not Establish</h2>
 <h3>3.1 Departure was not shown to be the edge</h3>
 <p>The tempting reading of a strong finish is that the account out-thought the
@@ -229,7 +298,7 @@ that work is unpublished, a fuller comparison is deferred pending permission,
 and nothing here rests on it.</p>
 
 <h2>4. Limitations</h2>
-<p>Six, recorded during the decomposition rather than after it. First, this is
+<p>Seven, recorded during the decomposition rather than after it. First, this is
 one tournament, one crowd and one settlement, and the forecasts are not 620
 independent draws. Second, the categories that scored highest rest on the small
 counts given in Section 2.1 and were selected on the outcome from an undisclosed
@@ -244,8 +313,13 @@ that section states what the omission costs. Fifth, the category-type units are
 undisclosed and no reading of them reconciles to the account&rsquo;s overall
 figure. Sixth, the markets were chosen by the account rather than assigned, so
 the category mix is itself an output of the process and not a grid the process
-was tested on. What can be read from this decomposition is where the account
-scored, not where an edge exists.</p>
+was tested on. Seventh, the rescoring in Section 2.3 covers 555 of the 620
+forecasts, the categories there are assigned by question wording rather than by
+the platform, and each outcome is recovered by matching the reported Brier score
+to the nearer of the two values the stated probability admits. That recovery is
+exact wherever the two differ, which is everywhere except a stated 50%. What can
+be read from this decomposition is where the account scored, not where an edge
+exists.</p>
 
 <h2>5. What Changes Next Cycle</h2>
 <ol>
@@ -264,13 +338,24 @@ call was priced without one. Cards and corners are counts that may be
 overdispersed relative to Poisson, which this book has not tested.</li>
 <li><b>No departures on well-covered outcome markets.</b> Where a liquid public
 line exists the job is to match it, and the risk budget goes where the line is
-absent. Section 2.2 is the price of not doing that.</li>
+absent. Section 2.3 sharpens rather than softens this. Those forecasts were
+sound against a base rate and still lost ground, which is what being outclassed
+looks like, and the remedy is to stop competing there rather than to forecast
+harder.</li>
+<li><b>Measure the base rate first, and hedge toward it.</b> The question set
+resolved yes 42.2% of the time and the account hedged toward 50%. Next cycle
+computes the running base rate over settled questions of the same type and
+treats that, not the coin, as the answer given in the absence of a view.</li>
 </ol>
 
 <div class="note">This study is retained because it withdraws a claim the
-collection published. The earlier paper let a strong finish stand as evidence of
-judgment; the category record says the largest books lost ground, and a
-collection that only ever <i>adds</i> papers is not keeping a ledger.</div>
+collection published, and then withdraws one of its own. The earlier paper let a
+strong finish stand as evidence of judgment. The platform&rsquo;s category record
+appeared to say the largest books forecast badly, and rescoring them against a
+benchmark that is written down says instead that they were outclassed, which is
+a different fault with a different remedy. A collection that only ever
+<i>adds</i> papers is not keeping a ledger, and one that will not correct the
+paper it published this morning is not keeping one either.</div>
 
 <div class="refs">
 <h2>References</h2>
@@ -285,7 +370,8 @@ Probability. <i>Monthly Weather Review</i>, 78(1), 1&ndash;3.</li>
 </div>
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; competition results
-as scored by the organizer; category figures are reported as displayed by the
-platform, whose benchmark construction and point scale are not documented;
+as scored by the organizer; Table&nbsp;1 figures are reported as displayed by
+the platform, whose benchmark construction and point scale are not documented,
+and Table&nbsp;2 is reconstructed from the account&rsquo;s own settled log;
 educational research only, not investment advice.</footer>
 </main></body></html>
