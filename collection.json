@@ -1,11 +1,27 @@
 {
  "museum": "The Risk Museum \u2014 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-07-27",
+ "exported": "2026-07-28",
  "works_tested": 265,
  "in_the_vault": 2,
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
+  {
+   "claim": "Tax-loss-selling bounce (Manual of Ideas Table 8.1, 'end-of-year tax selling'): stocks most depressed into year-end (biggest YTD losers) outperform in January as tax-loss selling pressure lifts",
+   "stage": "validation",
+   "reason": "January tax-loss bounce: worst-decile losers beat the panel by +179bps over Dec20-Jan31, NW t=2.20 on 20 years - the classic January effect does not clear the museum bar in the recent large-cap era (survivorship-biased panel, ~20 obs); Table 8.1 row 1, tested and shelved",
+   "status": "rejected",
+   "about": "Distinct from my rejected TLH-cost study: this is the OPPORTUNITY side - buying the victims of December tax-loss selling for the January bounce. Table 8.1's first row, made testable.",
+   "tested": "2026-07-24"
+  },
+  {
+   "claim": "HML redundancy on home turf: is the value factor subsumed by RMW+CMA+Mom in my US large-cap panel 2005-2026, as Fama-French (2015) claimed for the US - or does it retain alpha, as post-2015 international evidence finds?",
+   "stage": "validation",
+   "reason": "no promotable factor alpha: HML redundant in US large-cap (alpha -0.4%/yr full, +0.9%/yr post-2015, |t|<0.3 both) - a clean replication of Fama-French 2015's US redundancy result; CMA also redundant (t=0.25); only RMW carries marginal standalone alpha (3.4%/yr, t=2.4) below the deflated bar. The value factor being redundant AT HOME while the global literature finds it non-redundant ABROAD is the segmentation thesis in one regression.",
+   "status": "rejected",
+   "about": "Fama-French declared HML redundant in the US in 2015 (subsumed by profitability and investment). A 2026 deep-research sweep found HML is NOT redundant internationally. Simplest honest question: is it redundant in OUR specific US large-cap, survivorship-biased, recent-era panel? A clean replication with a public verdict either way.",
+   "tested": "2026-07-24"
+  },
   {
    "claim": "BRAIN candidate: rank(fnd6_cshr / ts_mean(fnd6_cshr, 120))",
    "stage": "brain-checks",

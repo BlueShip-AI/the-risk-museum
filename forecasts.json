@@ -60,7 +60,7 @@
   {
    "id": "nvda-china-dc-2b",
    "title": "The double-veto chip trade",
-   "statement": "Nvidia reports >=$2B of Data Center revenue attributable to China (incl. Hong Kong) for any single fiscal quarter from FY2027 Q2 through FY2028 Q4.",
+   "statement": "Nvidia reports China (including Hong Kong) revenue of at least $2.5B in the geographic revenue disaggregation of any single Form 10-Q or 10-K covering a fiscal quarter from FY2027 Q2 through FY2028 Q4.",
    "probability": 34,
    "engine_band": "25-45%",
    "resolution_criteria": "Covered quarters: Nvidia fiscal quarters ending after 2026-07-21 and on or before 2028-01-31. PRIMARY RESOLVER: China (including Hong Kong) revenue as reported in the geographic revenue disaggregation of the relevant Form 10-Q or 10-K. Resolves YES if that line is >=$2.5B for any single covered quarter. The $2.5B total-China threshold, rather than $2.0B, is used because the geographic line is billing-location total revenue and is broader than data-center revenue. SECONDARY: if Nvidia separately states a China Data Center figure of >=$2.0B for a covered quarter in its CFO Commentary or prepared remarks, that also resolves YES. Qualitative descriptors never trigger. Latest statement as of 2028-03-31 governs; a restatement below threshold before then defeats it. If neither condition is met by 2028-03-31, resolves NO.",
@@ -162,7 +162,7 @@
    "resolution_criteria": "YES if the Grand Total of the Treasury's mfh.txt table is >= $10,000.0B as published to one decimal for any data month July 2026 through June 2028, using the FIRST publication of that month (a new month appears in the release ~mid month+2). Revisions and benchmark restatements ignored. mfh.txt is overwritten in place — first prints are verified contemporaneously or via a release-date archive (e.g. Wayback); the archived first print governs. A renamed table resolves to the successor total-foreign-UST line. The June-2028 print is scheduled ~2028-08-17. NO if no qualifying first print by 2028-08-31; publication delays do not extend the window; later-published figures do not count.",
    "resolution_source": "US Treasury TIC MFH table",
    "horizon": "2028-08-31",
-   "base_rate_current": "~$9.2T (Dec 2025), +$1.5T over four years (~+$375B/yr) even as China exits (~-$0.7T) and the foreign share of federal debt falls; May-2026 first print ~$9,370B; record $9,490B (Feb 2026). Trend crosses $10T ~mid-2028, window-edge by design.",
+   "base_rate_current": "All TIC figures here are first prints as published by the US Treasury, vintage stated for each. ~$9.2T (Dec-2025 data month), +$1.5T over four years (~+$375B/yr) even as China exits (~-$0.7T) and the foreign share of federal debt falls; ~$9,370B (May-2026 data month, first print); record $9,490B (Feb-2026 data month). Trend crosses $10T ~mid-2028, window-edge by design. No figure here is older than Dec-2025.",
    "cluster": "Monetary order (cross-loads rates)",
    "crowdedness": "uncrowded",
    "bw_claim": "The flow side of 'foreign demand for US debt is structurally weakening' — tested in the level series the de-dollarization debate ignores in favor of share data.",
@@ -204,7 +204,7 @@
   {
    "id": "btos-ai-adoption-25pct-2028",
    "title": "Buildout vs adoption, measured",
-   "statement": "The share of US businesses reporting current AI use in the Census Bureau's BTOS survey reaches >=25% in any biweekly period ending by 2028-12-31.",
+   "statement": "The firm-weighted share of US businesses reporting current AI use in the Census Bureau's BTOS survey reaches >=25.0% in any biweekly period ending by 2028-12-31.",
    "probability": 58,
    "engine_band": "35-55%",
    "resolution_criteria": "Resolves YES if any Census Bureau BTOS biweekly period ending on or before 2028-12-31 shows a national estimate of >=25.0% of firms answering Yes to the CURRENT AI-use item, on the FIRM-WEIGHTED basis as published in the standard national tables at census.gov/hfp/btos, in any vintage published by 2029-01-31. The employment-weighted series, which runs materially higher, does NOT resolve this forecast. The governing item is the current-use question in effect for that period (from Nov-2025, use 'in any of its business functions' in the two-week reference period). If Census rewords the item again, the single current-use item governs; if multiple current-use items exist, the one whose wording most closely matches the Nov-2025 formulation governs. The 'next six months' item never counts. Exactly 25.0 = YES. Nothing qualifying published by 2029-01-31, including discontinuation, resolves NO.",

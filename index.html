@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Risk Museum — Trading Strategies Tested, Retired &amp; Explained | BlueShip-AI Research</title>
-<meta name="description" content="The Risk Museum: 265+ published trading strategies tested with institutional rigor by an autonomous AI research pipeline — ~22-year backtests, real costs, out-of-sample gates. The permanent collection is the ones that didn't survive. Home of Risk Masterpieces.">
+<title>Vasilios Dimopoulos | The Risk Museum, Risk &amp; Quantitative Research</title>
+<meta name="description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 265 filed, 116 retired and on public view. The permanent collection is the ones that didn't survive.">
 <link rel="canonical" href="https://theriskmuseum.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Risk Museum — Home of Risk Masterpieces">
@@ -125,7 +125,24 @@ details[open] > .ledger-h .hint { display:none }
 .papers .d { color:var(--muted); font-weight:normal }
 footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   color:var(--muted); font-size:.78rem; max-width:80ch }
+
+.tearmark { position:absolute; top:0; right:0; z-index:60; display:block;
+  padding:.5rem .9rem .55rem; background:var(--card);
+  border-left:1px solid var(--line); border-bottom:1px solid var(--line);
+  border-bottom-left-radius:12px; text-decoration:none; line-height:1.3;
+  box-shadow:0 2px 10px rgba(0,0,0,.07) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font-size:.57rem; font-weight:600; color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.84rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:1024px) {
+  body { padding-top:3.7rem }
+  .tearmark { padding:.4rem .7rem .45rem }
+  .tearmark i { font-size:.78rem } }
+@media print { .tearmark { display:none } }
 </style></head><body><main>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
 <h1>The Risk Museum</h1>
 <p class="hero">I test trading ideas the way a quant desk would, and I publish
 the ones that fail.</p>
@@ -182,14 +199,14 @@ research pipeline I call the swarm. The permanent
 collection: the ones that didn&rsquo;t survive.</p>
 <div class="stats">
   <div><b>265</b><span>ideas filed</span></div>
-  <div><b>114</b><span>retired, on view</span></div>
+  <div><b>116</b><span>retired, on view</span></div>
   <div><b>2</b><span>in the vault (survivors)</span></div>
   <div><b>$910,297 over 22 years</b><span>$100k in an S&amp;P index fund, same window.
     The bar every strategy must beat</span></div>
 </div>
 <p class="sub" style="font-size:.85rem">Of 265 ideas filed,
-148 carry a final verdict. 114 are retired and shown
-below, 2 held in the vault, and 32 still inside the
+148 carry a final verdict. 116 are retired and shown
+below, 2 held in the vault, and 30 still inside the
 3-day publication lag. Of the rest, 15 are queued for
 testing and 102 could not run at all. These are machine-written
 candidates that call for paid data this free stack does not have. Counting those
@@ -262,7 +279,7 @@ own name, retired by my own gates.</span></li>
     </article>
 <h2 class="sect" id="collection">Tested strategies: the permanent
 collection</h2>
-<p class="sect-sub">114 strategies tested and retired &middot;
+<p class="sect-sub">116 strategies tested and retired &middot;
 newest first</p>
 <p class="sub">Each plaque records the claim and the gate that retired
 it. The strategies that reached a full backtest are totalled first, the
@@ -280,6 +297,22 @@ quality score &middot; <b>LOW_SUB_UNIVERSE_SHARPE</b>: fails on the smaller-stoc
 subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
 &middot; <b>SELF_CORRELATION</b>: it duplicates a signal I already have.</p></details>
 
+    <article class="stone">
+      <div class="rip">Tested 2026-07-24</div>
+      <h3>Distinct from my rejected TLH-cost study: this is the OPPORTUNITY side - buying the victims of December tax-loss selling for the January bounce. Table 8.1&#x27;s first row, made testable.</h3>
+      <div class='tech'>Tax-loss-selling bounce (Manual of Ideas Table 8.1, &#x27;end-of-year tax selling&#x27;): stocks most depressed into year-end (biggest YTD losers) outperform in January as tax-loss selling pressure lifts</div>
+      <div class="cause">Retired at <b>validation</b>:
+        January tax-loss bounce: worst-decile losers beat the panel by +179bps over Dec20-Jan31, NW t=2.20 on 20 years - the classic January effect does not clear the museum bar in the recent large-cap era (survivorship-biased …</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-24</div>
+      <h3>Fama-French declared HML redundant in the US in 2015 (subsumed by profitability and investment). A 2026 deep-research sweep found HML is NOT redundant internationally. Simplest honest question: is it redundant in OUR specific US large-cap, survivorship-biased, recent-era panel? A clean replication with a public verdict either way.</h3>
+      <div class='tech'>HML redundancy on home turf: is the value factor subsumed by RMW+CMA+Mom in my US large-cap panel 2005-2026, as Fama-French (2015) claimed for the US - or does it retain alpha, as post-2015 international evidence finds?</div>
+      <div class="cause">Retired at <b>validation</b>:
+        no promotable factor alpha: HML redundant in US large-cap (alpha -0.4%/yr full, +0.9%/yr post-2015, |t|&lt;0.3 both) - a clean replication of Fama-French 2015&#x27;s US redundancy result; CMA also redundant (t=0.25); only RMW …</div>
+      
+    </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-24</div>
       <h3>Buys companies whose number of shares outstanding has grown above its own six-month average.</h3>
