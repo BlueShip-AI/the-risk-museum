@@ -2,10 +2,114 @@
  "museum": "The Risk Museum \u2014 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
  "exported": "2026-07-28",
- "works_tested": 265,
+ "works_tested": 274,
  "in_the_vault": 2,
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
+  {
+   "claim": "The Alpha158 excavation: Microsoft Qlib's 158 public technical alphas, run as ONE family through the museum's gates - how many famous library alphas survive honest deflation?",
+   "stage": "pipeline",
+   "reason": "Alpha158 family (158 alphas): 29 clear naive t>=2.5, 0 survive the deflated bar t>=4.1 (family=316, both signs) + margin-of-safety stress. The zoo is short-term reversal + vol risk-premium in disguise; real gross edge, killed by doubled costs. Tested and shelved as one family.",
+   "status": "rejected",
+   "about": "A public library of 158 alphas that half the industry has mined is the perfect multiplicity teaching exhibit: with the family honestly declared at n=158, the deflator does to a famous alpha library what it did to my own founder's model. Museum series material.",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(equipment_maximum_useful_life, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(anl4_afv4_dts_spe, 60))",
+   "stage": "brain-checks",
+   "reason": "SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(adj_net_income_median, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(implied_volatility_mean_20, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_bvps_median, exercisable_options_count, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(business_acquisition_payments_net, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(snt_value_fast_d1, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(actual_sales_value_annual, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(anl4_bvps_value, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(implied_volatility_mean_150, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(fnd6_dd2, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(snt_value_fast_d1, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-25"
+  },
   {
    "claim": "Tax-loss-selling bounce (Manual of Ideas Table 8.1, 'end-of-year tax selling'): stocks most depressed into year-end (biggest YTD losers) outperform in January as tax-loss selling pressure lifts",
    "stage": "validation",
