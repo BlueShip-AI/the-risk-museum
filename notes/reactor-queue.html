@@ -1,0 +1,663 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nobody Bought a Reactor for Speed — BlueShip Research Working Paper No. 19</title>
+<meta name="description" content="I audited every hyperscaler nuclear deal against primary sources. Roughly 14.7 GW announced, 50 MW of new build under construction, about 35 percent of the megawatts already existed, and the fuel for the advanced half mostly cannot yet be made in the United States. With a falsifiable prediction ledger.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/reactor-queue.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:16px/1.55 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif; font-variant-numeric:lining-nums; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+.plain { font-size:1.02rem; line-height:1.45; text-align:center; margin:0 auto 1.4rem;
+  padding:.7rem 1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; max-width:600px; }
+
+.tearmark { position:absolute; top:0; right:0; z-index:60; display:block;
+  padding:.5rem .9rem .55rem; background:var(--card);
+  border-left:1px solid var(--line); border-bottom:1px solid var(--line);
+  border-bottom-left-radius:12px; text-decoration:none; line-height:1.3;
+  box-shadow:0 2px 10px rgba(0,0,0,.07) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font-size:.57rem; font-weight:600; color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.84rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:1024px) {
+  body { padding-top:3.7rem }
+  .tearmark { padding:.4rem .7rem .45rem }
+  .tearmark i { font-size:.78rem } }
+@media print { .tearmark { display:none } }
+</style></head><body><main>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+</nav>
+
+<div class="hdr">
+<h1>Nobody Bought a Reactor for Speed.<br>They Bought a Place in Line.</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 19 &middot; 28 July 2026 &middot; data as of 2026-07-28</div>
+</div>
+
+<p class="plain"><b>In one line:</b> Hyperscalers have announced roughly 15 gigawatts of nuclear power. Fifty megawatts of new build is under construction. A third of the announced megawatts existed before the deals were signed, and the fuel for the advanced half mostly cannot yet be made in America.</p>
+
+<p>A note on credit. The framing of this paper, including the count-of-deals-versus-count-of-construction-sites test and the half-of-one-percent arithmetic, comes from the video essay that seeded it. The framing is theirs. My contribution is verification, correction, extension into fuel and market pricing, and a falsifiable prediction ledger. Most of the video's claims survived diligence. The ones that did not are in Section 4, in full.</p>
+<hr />
+<h2>1. Summary and abstract</h2>
+<p><strong>One line.</strong> Hyperscalers have announced roughly 13 to 15 GW of nuclear commitments; as of July 28, 2026, exactly 50 MW of hyperscaler-contracted new build is under construction, about 35 percent of the announced megawatts already existed before the deals were signed, and the fuel for the advanced-reactor half mostly cannot yet be made in the United States.</p>
+<p><strong>Abstract.</strong> I audited every announced nuclear agreement between Microsoft, Google, Amazon, and Meta against primary sources (company releases, NRC dockets, Federal Register, DOE, SEC filings). The ledger sums to roughly 14.7 GW at face value, not the ~10 GW figure in circulation, which traces to an internally inconsistent tracker. The composition matters more than the total. 5,187 MW is existing plant output contractually reallocated to a single buyer. 1,450 MW is restarts of shut plants. 463 MW is uprates. The rest is new-build frameworks, of which 50 MW (Kairos Hermes 2, ground broken April 17, 2026) is physically under construction. I then checked the alternative. The gas turbine queue now runs to 2031 for a new heavy-frame order, so the fast option is not fast either. What every buyer actually purchased, on either fuel, is a position in a queue. I extend the story to the bottleneck the deals do not mention, HALEU enrichment, where licensed US capacity is 900 kg per year against a DOE-stated need above 40 tonnes by 2030. I close with where the market prices the chain and twelve falsifiable predictions, including one that would kill this paper's thesis if it resolves yes.</p>
+<hr />
+<h2>2. The deal ledger</h2>
+<p>Counting is the first honest act. "A deal" spans everything from a 20-year PPA on an operating plant to a memorandum to explore. I count 13 rows below. Lump the Kairos master agreement with its first deployment and the X-energy equity with its Cascade project and you get 12. Other defensible lumpings give 11 to 14. The video's "about 13" is fine. Its "about 10 GW" is not (Section 4, item 1).</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Buyer</th>
+<th>Counterparty / plant</th>
+<th>MW</th>
+<th>Structure</th>
+<th>Announced</th>
+<th>Stated first power</th>
+<th>Physical work, Jul 2026</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Microsoft</td>
+<td>Constellation, Crane (ex-TMI-1), PA</td>
+<td>835</td>
+<td>20-yr PPA funding restart</td>
+<td>Sep 20, 2024</td>
+<td>2027</td>
+<td>Yes, heavy. 550+ FTEs, transformers ordered, DOE $1B loan closed Nov 2025, FERC waiver Jun 2026, NRC restart authorization still pending</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Google</td>
+<td>Kairos Power, master PPA</td>
+<td>500 by 2035</td>
+<td>New-build SMR framework</td>
+<td>Oct 14, 2024</td>
+<td>~2030</td>
+<td>First unit only (row 3)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Google (via TVA)</td>
+<td>Kairos Hermes 2, Oak Ridge TN</td>
+<td>50</td>
+<td>First US utility PPA for a Gen IV reactor</td>
+<td>Aug 18, 2025</td>
+<td>2030</td>
+<td>Yes. Ground broken Apr 17, 2026</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Google</td>
+<td>NextEra, Duane Arnold, IA</td>
+<td>615</td>
+<td>25-yr PPA funding restart</td>
+<td>Oct 27, 2025</td>
+<td>early 2029, possibly Q4 2028</td>
+<td>Partial. Major equipment ordered; NRC license amendments in review; not full construction</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Google</td>
+<td>Elementl Power, 3 undisclosed sites</td>
+<td>1,800</td>
+<td>Development capital + offtake option, no reactor tech chosen</td>
+<td>May 7, 2025</td>
+<td>~2035</td>
+<td>None. No sites announced</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Amazon</td>
+<td>Talen, Susquehanna, PA</td>
+<td>1,920</td>
+<td>PPA on existing output through 2042 (restructured front-of-meter Jun 11, 2025 after FERC rejected the behind-meter ISA 2-1 on Nov 1, 2024)</td>
+<td>Jun 11, 2025 (orig. Mar 2024)</td>
+<td>n/a, operating since 1983/85</td>
+<td>Plant running. Zero new generation</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Amazon</td>
+<td>X-energy</td>
+<td>~5,000 ambition by 2039</td>
+<td>Equity, anchor of ~$500M round</td>
+<td>Oct 16, 2024</td>
+<td>early 2030s</td>
+<td>None</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Amazon</td>
+<td>Energy Northwest / X-energy, Cascade, Richland WA</td>
+<td>320 initial, 960 full</td>
+<td>Amazon funds development; EN owns/operates</td>
+<td>Oct 16, 2024</td>
+<td>early 2030s</td>
+<td>None. Construction permit application not yet submitted</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Amazon</td>
+<td>Dominion, North Anna VA</td>
+<td>~300</td>
+<td>MoU to explore an SMR. Weakest structure in the ledger</td>
+<td>Oct 17, 2024</td>
+<td>none stated</td>
+<td>None</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Meta</td>
+<td>Constellation, Clinton IL</td>
+<td>1,121 (incl. 30 uprate)</td>
+<td>20-yr PPA on existing plant from Jun 2027</td>
+<td>Jun 3, 2025</td>
+<td>n/a, operating since 1987</td>
+<td>Plant running. Only the 30 MW uprate is new</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Meta</td>
+<td>TerraPower, up to 8 Natrium plants</td>
+<td>2,800 baseload (~4 GW with storage)</td>
+<td>Funds first 2 units + rights to 6</td>
+<td>Jan 9, 2026</td>
+<td>as early as 2032</td>
+<td>None on Meta units. Kemmerer WY, under construction, is PacifiCorp's, not Meta's</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Meta</td>
+<td>Oklo, Pike County OH</td>
+<td>1,200</td>
+<td>Development funding</td>
+<td>Jan 9, 2026</td>
+<td>first phase as early as 2030</td>
+<td>None. Site characterization slated to begin 2026</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Meta</td>
+<td>Vistra, Perry + Davis-Besse + Beaver Valley</td>
+<td>2,609 (2,176 existing from Perry and Davis-Besse + 433 uprates across all three, 140 at Beaver Valley)</td>
+<td>20-yr PPAs, purchases from late 2026, full 2,609 by 2034</td>
+<td>Jan 9, 2026</td>
+<td>n/a existing; uprates through 2034</td>
+<td>Plants running. Uprates are the only new MW</td>
+</tr>
+</tbody>
+</table></div>
+<p>Sources per row: company press releases and regulator dockets listed in Section 9. Fusion (Microsoft-Helion, Google-Commonwealth Fusion) is excluded from all fission arithmetic; the video also excluded it. Oracle has no nuclear deal. I looked. Only Ellison's September 2024 earnings remark exists. OpenAI has no direct nuclear deal I could find as of July 2026.</p>
+<p><strong>The honest split.</strong> This is the table the announcements do not print.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>MW</th>
+<th>Share of ~14.7 GW</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Existing output reallocated to one buyer</td>
+<td>5,187</td>
+<td>~35%</td>
+<td>Talen 1,920; Clinton 1,091 ex-uprate; Vistra 2,176. Zero new electrons</td>
+</tr>
+<tr>
+<td>Restarts in progress</td>
+<td>1,450</td>
+<td>~10%</td>
+<td>Crane 835 (2027 target); Duane Arnold 615 (late 2028/29)</td>
+</tr>
+<tr>
+<td>Uprates</td>
+<td>463</td>
+<td>~3%</td>
+<td>Vistra 433; Clinton 30. Real new MW, no new plant</td>
+</tr>
+<tr>
+<td>New-build contracted or framework</td>
+<td>~7,560 upper bound</td>
+<td>~51%</td>
+<td>Kairos 500, Elementl 1,800, Cascade 960, Dominion ~300 MoU, TerraPower 2,800, Oklo 1,200</td>
+</tr>
+<tr>
+<td>Of which under construction</td>
+<td>50</td>
+<td>0.34%</td>
+<td>Hermes 2, and nothing else</td>
+</tr>
+</tbody>
+</table></div>
+<p>My totals: ~13.4 GW of firm-ish commitments excluding the weakest structures, ~14.7 GW counting everything at face value (deal-ledger diligence, Jul 2026). Carnegie Endowment independently gets "up to 13 GW" (Pendleton and Schuessler, Jun 2, 2026). About a third of the headline is power that already existed. The buyer changed. The grid did not.</p>
+<hr />
+<h2>3. The queue arithmetic. Every shelf is empty.</h2>
+<h3>3.1 The turbine shelf</h3>
+<p>The obvious rejoinder to slow nuclear is fast gas. The order book says otherwise.</p>
+<p>Worldwide gas turbine orders went from 399 units and 58.2 GW in 2024 to 846 units and 100.3 GW in 2025; the US took 427 units, 43.1 GW (EPRI analysis published by Utility Dive, Mar 23, 2026; trade press elsewhere attributes the same counts to McCoy Power Reports, whose primary report I could not access). Scope caveat that circulating versions drop: those are all gas turbines. 70 percent of 2025 units were under 100 MW; advanced H/J-class machines were ~14 percent of units but over half the new MW (same source).</p>
+<p>GE Vernova's backlog arc: ~80 GW expected at end-2025 "into 2029" (investor update via Utility Dive, Dec 11, 2025), 100 GW at Q1 2026, 116 GW at Q2 2026, guiding to at least 125 GW by year-end 2026 (GEV Q2 2026 press release, Jul 22, 2026). Composition per Utility Dive's Q2 coverage: 53 GW firm equipment backlog plus 63 GW slot reservations. More than half the headline is reservations, not orders. GEV is already selling 2031 delivery slots and expects 2031 more than half contracted by year-end; on 2032, Strazik said the company needs more time before it can talk about contracting (Utility Dive, Jul 2026). Output ramps to 20 GW per year in Q3 2026, 24 GW in 2028, 30 GW in 2030 (Strazik, Q2 2026 call).</p>
+<p>This is not one vendor's problem. Siemens Energy's backlog is ~60 GW, booked out to fiscal 2028, after selling 194 turbines in 2025, nearly double its 2024 total (S&amp;P Global, Jun 30, 2026; Enlit). Mitsubishi Heavy has most slots booked for 2027 and 2028, with orders stretching to 2030 (Bloomberg, May 12, 2026; S&amp;P Global, Jul 2026). Wood Mackenzie's arithmetic closes the case: ~110 GW of 2025 orders against 60 to 70 GW per year of world manufacturing capacity, six-year lead times, prices up 195 percent since 2019 (Wood Mackenzie press release, Apr 1, 2026). The queue grows even at record output. OEMs have told developers to call 7 to 8 years ahead (Power Engineering, Feb 20, 2025; S&amp;P Global put wait times at as much as seven years in May 2025). Full-plant CCGT costs have moved from the $1,116 to $1,427 per kW range for plants scheduled years ago to $2,000+ (GridLab via APPA, Sep 2025), consistent with Wood Mackenzie's 195 percent equipment price rise. Beware units. Dollars per kW circulate on at least two bases: equipment (analyst estimates around $790 heavy-duty, $950 HA-class combined cycle, $1,800 aeroderivative; Utility Dive, Jul 2026) and full plant ($2,000+).</p>
+<p>There are side doors, and they prove the thesis rather than refute it. Chevron and Engine No. 1 reserved seven 7HA turbine slots before the panic and announced up to 4 GW of data-center power with in-service originally targeted from end-2027 (S&amp;P Global, Jan 28, 2025), culminating in Project Kilby, a 2.67 GW co-located plant at Pecos, Texas under a 20-year Microsoft PPA, FID expected in 2026 and generation starting 2028 (Chevron release, Jun 22, 2026; CNBC). The deal's speed is the slot reservation. Aeroderivative and refurbished units run roughly 12 to 30 months to power at roughly $1,800 per kW equipment, ~2.3x heavy-duty, proven at scale by Crusoe's 1.2 GW Abilene campus, bridged by 29 GE Vernova LM2500XPRESS packages totaling nearly 1 GW (Data Center Frontier, Feb 25, 2026; GE Vernova). Mobile turbines deliver in months with permitting exposure as the price; xAI ran 46 "temporary-mobile" units at Southaven per Mississippi DEQ before the state permitted 41 permanent turbines on March 10, 2026, and EPA's January 2026 actions closed the mobile-source loophole that made the maneuver possible (Mississippi Today, May 11, 2026; Mississippi Free Press; CNBC, Jan 16, 2026).</p>
+<p>Front-door arithmetic for a new campus decided today: turbine slot 2031, first power roughly 2031 to 2033. That is as slow as or slower than the Meta-TerraPower 2032 claim. The fast option is not fast. The scarce asset is the queue position.</p>
+<h3>3.2 The restart shelf</h3>
+<p>Hard fact first. As of July 28, 2026, zero US nuclear restarts have delivered a single MWh. Every restart timeline in circulation is a projection.</p>
+<p>The whole shelf is three plants: Palisades (~800 to 805 MW), Crane (835 MW), Duane Arnold (601 to 615 MW), together ~2,236 to 2,255 MW, about 2 percent of the ~97 GW US fleet (Utility Dive, Oct 22, 2024). Industry consensus is that essentially nothing else can restart; Oyster Creek, Pilgrim, and Indian Point are too far into decommissioning (Utility Dive, Oct 22, 2024; Manhattan Institute, Nov 2022). This shelf does not restock.</p>
+<p>Palisades is the pathfinder and the cautionary tale. Shut May 20, 2022 after ~50 years, sold to Holtec for decommissioning, then reversed. Public support totals roughly $3B, not the $1.52B usually quoted: the DOE loan (of which $491M disbursed as of Sep 16, 2025, per DOE), $1.3B of USDA money to the co-op offtakers Wolverine (435 MW) and Hoosier (369 MW), and $300M from Michigan. The NRC work was genuinely novel; the plant formally returned to operations status on August 25, 2025, a US first from decommissioning status. And the schedule has slipped serially: on track for October 2025, then end of 2025, then early 2026, then grid reconnection by end-February 2026, missed. As of July 28, 2026 there is no announced restart date (ANS, Jul 8, 2026), with more than 5,000 individual work activities remaining after major projects closed out (Holtec, Jul 2, 2026). Fuel, 68 fresh assemblies, has been on site since October 2025 (World Nuclear News, Oct 21, 2025), not loaded as of the last disclosure. CEO Kris Singh expects power this year, ahead of the March 2027 contract obligation (FT interview via ANS).</p>
+<p>Crane is the best-run restart and it still nearly lost years to the wires. Announced September 20, 2024 with a 20-year Microsoft PPA at ~$1.6B project cost; accelerated from 2028 to 2027; DOE closed a $1B loan in November 2025. In 2026 a PJM study implied interconnection could slip toward 2031; Constellation fixed it by transferring capacity injection rights from its retired Eddystone site, granted by FERC June 2, 2026. NRC restart authorization is still pending (draft environmental assessment June 8, 2026). Fuel load is planned for Q2 2027.</p>
+<p>Duane Arnold, derecho-damaged rather than economically shut, targets early 2029, possibly Q4 2028, at over $1.6B, with the NRC licensing bundle due before January 2028 (ANS; NextEra; NucNet; Iowa Public Radio, Apr 29, 2026).</p>
+<p>Working number: 3 to 4+ years from decision to grid for plants that were never gutted, and the nearest-to-finish project has missed every date it named.</p>
+<h3>3.3 The new-build shelf</h3>
+<p>The reference points are brutal. Vogtle 3&amp;4: certified 2009 at ~$14B for 2016/2017 operation; first nuclear concrete March 2013; Unit 3 COD July 31, 2023; Unit 4 COD April 29, 2024; over $31B to the owners, ~$35B including the $3.7B Toshiba settlement (AP via GPB; Oglethorpe 8-K). NuScale's CFPP died November 8, 2023, before any concrete, at $89 per MWh with the ~$1.4B DOE cost-share plus assumed IRA benefits already inside the price (NuScale/UAMPS 8-K; UAMPS DCRA).</p>
+<p>The cost ladder, all-in unless noted:</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Project</th>
+<th>$/kW</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Barakah, contract</td>
+<td>~$3,650</td>
+<td>$20.4B / 5.6 GW, 2009 contract</td>
+</tr>
+<tr>
+<td>DOE Liftoff NOAK target</td>
+<td>$4,700 overnight</td>
+<td>DOE Liftoff (Sep 2024); MIT CANES NOAK $4,625, 2024 USD</td>
+</tr>
+<tr>
+<td>Summer 2&amp;3 completion, marginal</td>
+<td>$6,500–10,900</td>
+<td>circulating completion estimates $15–25B / ~2.3 GW, excluding ~$9B sunk</td>
+</tr>
+<tr>
+<td>$80B Westinghouse program, implied</td>
+<td>~$7,000</td>
+<td>$80B / 10 AP1000s, my arithmetic</td>
+</tr>
+<tr>
+<td>MIT next-2-at-Vogtle FOAK</td>
+<td>$8,300–10,375 overnight</td>
+<td>MIT CANES ANP-201, 2024 USD; greenfield $9,300–11,625</td>
+</tr>
+<tr>
+<td>Vogtle all-in</td>
+<td>~$13,900–15,700</td>
+<td>$31–35B / 2,234 MW</td>
+</tr>
+<tr>
+<td>Hinkley Point C, current money</td>
+<td>~$19–20k</td>
+<td>£48.7B / 3.26 GW (EDF, Feb 2026); my FX conversion, approximate</td>
+</tr>
+<tr>
+<td>CFPP, cancelled</td>
+<td>~$20,100</td>
+<td>$9.3B / 462 MW</td>
+</tr>
+</tbody>
+</table></div>
+<p>What moved recently: DOE announced $17.5B in conditional loan commitments on June 23, 2026 for up to five projects totaling ten new AP1000s, construction to begin by 2030 (ANS; Westinghouse). Westinghouse filed DCD Revision 20 in April 2026 making Vogtle Unit 4 the US reference plant. The Summer 2&amp;3 completion, Brookfield plus The Nuclear Company, is still effectively a nonbinding MOU with an FID package promised by 2028. No firm site-specific AP1000 order existed as of late July 2026 that I could verify. Barakah, the honest counterexample, built four units in ~12 years at roughly a third of Vogtle's cost per kW, but Unit 1 was ~4 years late against its original 2017 plan. Do not call it on-time.</p>
+<p>The SMR field, physically, as of today: Darlington BWRX-300 Unit 1 in Ontario is the Western front-runner, 953-tonne basemat placed in early May 2026, grid target end-2030, Canadian-licensed, conventional fuel. In the US, Kairos has had safety-related nuclear concrete at Hermes 1 since May 1, 2025 (a test reactor, no electricity, completion pushed to ~2028), Hermes 2 broke ground April 17, 2026, TerraPower's Kemmerer unit entered nuclear construction April 23, 2026 with grid COD 2031 per its own COO, and Oklo broke ground at INL September 22, 2025 under DOE authorization rather than an NRC license. My realistic estimate for SMR MW on any grid by end-2030 is roughly 300 to 425 MWe, with meaningful probability of 50 to 350, and essentially zero of it hyperscaler-contracted (SMR-field diligence, Jul 2026).</p>
+<h3>3.4 What the shelves say together</h3>
+<p>A new heavy-frame gas order today reaches first power around 2031 to 2033. The restart shelf holds 2.25 GW total and its pathfinder has missed four dates. New-build nuclear promises 2030 to 2032 at costs between $6,500 and $20,000 per kW depending on which history you believe. Nobody in the Section 2 ledger bought speed, because speed was not for sale. They bought positions in queues, and the Kilby transaction shows the queue position itself is now the tradable asset. That is the paper's thesis, and it was the video's before it was mine.</p>
+<hr />
+<h2>4. What the video got wrong, and what I could not verify</h2>
+<p>This section is required by house rules. Corrections first, plainly.</p>
+<ol>
+<li><strong>"About 10 GW" is wrong-low.</strong> The likely source is a tracker showing 13 deals and 9.8 GW that lists MW as "TBD" for rows it still counts (AWS-Talen 1,920, Meta-Vistra 2,609, Meta-Clinton 1,121) and omits Duane Arnold (615) and Elementl (1,800) entirely. Worse for the "13 deals among the big four" framing: the tracker's 13 deals span seven buyers, including Equinix, Last Energy, and Aalo, so its deal count and the big-four framing do not describe the same set. Honest total: ~13.4 GW firm-ish, ~14.7 GW at face value. Carnegie independently reaches "up to 13 GW."</li>
+<li><strong>"Palisades got its operating license back in July 2025" is wrong as stated.</strong> The license never lapsed; it runs to March 24, 2031. July 24, 2025 was the transfer of operating authority and fuel-receipt authorization. August 25, 2025 was the formal return to operations status. Two events, compressed into a false one.</li>
+<li><strong>Vogtle Unit 4's COD is April 29, 2024, not May 2024</strong> (Oglethorpe 8-K; EIA).</li>
+<li><strong>"Vogtle construction from 2009" is imprecise.</strong> 2009 was certification and site work; the COL came February 2012; first safety-related nuclear concrete March 2013.</li>
+<li><strong>The 846 turbines are all gas turbines, not heavy-duty units.</strong> 70 percent were under 100 MW; H/J-class was ~14 percent of units but over half of MW.</li>
+<li><strong>The 80 GW GE Vernova backlog was stale on arrival.</strong> 116 GW at Q2 2026, at least 125 GW guided by year-end, and more than half the number is slot reservations, not firm orders.</li>
+<li><strong>"Only two projects have physical work" is true only for the hyperscaler-contracted set.</strong> Crane and Hermes 2, correct. But the same vendors have four other reactors physically underway on non-hyperscaler units (Hermes 1, Kemmerer, Oklo INL, Darlington), and Duane Arnold sits in between with major equipment ordered.</li>
+<li><strong>The half-of-one-percent arithmetic survives strengthening.</strong> 50/9,800 = 0.51 percent on the video's denominator; 0.34 percent on my larger one. The video's point gets stronger, not weaker.</li>
+<li><strong>Crane's capacity is 835 MW in Constellation's materials and 837 MWe in World Nuclear News.</strong> My own diligence reports conflict. I use 835 and flag it.</li>
+<li><strong>Duane Arnold's buyer is Google.</strong> One NucNet URL slug says Amazon; the headline and NextEra's own release say Google.</li>
+<li><strong>Meta-TerraPower's "4 GW" includes 1.2 GW of salt-storage boost.</strong> Baseload is 2.8 GW.</li>
+<li><strong>If Barakah is cited as the on-time counterexample, it isn't.</strong> Unit 1 was ~4 years late. The honest version is four units in ~12 years at roughly 3x cheaper per kW than Vogtle.</li>
+<li><strong>Oracle has no nuclear deal, and OpenAI has no direct one</strong>, as of this search. Absence of evidence, stated as such.</li>
+</ol>
+<p>Could not verify, carried openly:</p>
+<ul>
+<li>Fusion deal dates (Helion May 2023; CFS June 2025) and the Oklo-Equinix announcement date are from model memory, not re-verified.</li>
+<li>The exact day of the June 2025 NRC exemption for Palisades, and whether Palisades fuel load has begun as of July 28, 2026.</li>
+<li>The exact date Crane's 2027 acceleration was first announced; the June 2027 PPA commencement (single secondary source); the reported $16B Microsoft PPA value (press estimate, not in Constellation's release); Crane spend to date.</li>
+<li>McCoy Power Reports primary data. The 2024/2025 order counts I use are attributed to EPRI in the Utility Dive analysis I relied on and to McCoy elsewhere in trade press; the counts agree across outlets, the underlying report I could not access.</li>
+<li>Siemens Energy's per-unit sales for H1 fiscal 2026 (a "179 turbines" figure circulated; I could verify only 194 units for calendar 2025 and dropped the H1 number).</li>
+<li>A verbatim Strazik "sold out through 2030" sentence (reported paraphrase only), and any GEV sequential per-kW pricing step-up (a claim to that effect was cut from Section 6 when I could not source it).</li>
+<li>A hard HRSG lead-time number and any gas-plant-specific EPC craft-labor statistic. Gaps, not numbers I invented.</li>
+<li>An NRC permit amendment approving Hermes 2's redesign from two units to a single 50 MWe reactor. The issued permits still describe two units.</li>
+<li>The exact day of the Darlington basemat placement (installation reported complete in early May 2026; NucNet's report is dated May 5).</li>
+<li>Natrium first-core HALEU tonnage (~15 to 20 t) and ~3.6 t per year refuel. Trade press only; no TerraPower primary document.</li>
+<li>DOE's per-company HALEU allocation tonnages and total inventory. Not published.</li>
+<li>The full list of Russian-uranium waiver recipients, and the status of Russia's export counter-ban after December 31, 2025.</li>
+<li>The identity of Palisades' fuel fabricator. Holtec said "fabricated domestically" and named no one. Do not print Framatome.</li>
+<li>A single official Vogtle all-in total (the $31B and $35B are AP computations from owner filings) and Barakah's true all-in cost ($24.4B versus $32B, unresolved).</li>
+<li>A single authoritative Summer 2&amp;3 completion cost. Circulating estimates run from ~$15B (greenfield arithmetic at $6,500 per kW) to ~$25B; I carry the range, not a point.</li>
+<li>The 20 percent above $17.5B government profit mechanics of the Westinghouse partnership in a primary document.</li>
+<li>A specific catalyst for the July 28, 2026 sector-wide down session; Talen's market-cap vendor discrepancy; the ~$107/lb 2024 uranium peak (not re-verified); the EIA denominator behind Russia's ~20 percent SWU share (Table S2 check pending).</li>
+</ul>
+<hr />
+<h2>5. The bottleneck the story misses</h2>
+<p>The video argues construction lags contracts. It does. But the deeper constraint sits upstream, in fuel, and almost none of the deal coverage mentions it.</p>
+<p>Most of the contracted new-build fleet (Natrium, Xe-100, Hermes) burns HALEU, uranium enriched to just under 20 percent. One company holds an NRC license to make it commercially in the US. Centrus produces 900 kg per year at Piketon under DOE contract, with cumulative lifetime production above 1,900 kg (DOE, Jun 2025; IPFM, Jul 2026). DOE's own statement of need is more than 40 tonnes by 2030 (energy.gov HALEU program page). One Natrium first core alone is reported at 15 to 20 tonnes (trade press; unverified in a TerraPower primary source). Today's entire US output is under 6 percent of one first core per year. Meta's eight Natrium units imply roughly 120 to 160 tonnes of first cores.</p>
+<p>The fixes are funded and late by construction's own clock. DOE's $2.7B package (January 2026, finalized July 2026) buys Centrus expansion to 12 tonnes per year with first new capacity in 2029, Orano's LEU plant for the existing fleet in the 2030s, and General Matter at Paducah. TRISO-X's fabrication plant, licensed February 13, 2026, starts making fuel in the first half of 2028. TerraPower's hedge is a loan to ASP Isotopes to build an enrichment plant at Pelindaba, South Africa, supply promised "2027/2028," plant unbuilt. A US flagship reactor's fuel security resting on a customer-financed, not-yet-built South African facility is a finding in itself. Precedent already exists: in December 2022 TerraPower delayed Natrium two years and named fuel, not construction, as the reason (CNBC, Dec 16, 2022). The only advanced reactor under construction slipped first on fuel.</p>
+<p>The conventional cycle has its own cliff. The Russian import ban took effect August 11, 2024; DOE waivers are legal only until January 1, 2028 (H.R.1042). In 2024, US utilities bought 15.0M SWU at an average $97.66; only 19 percent was US-origin and Russia supplied roughly 20 percent (EIA Uranium Marketing Annual Report, 2024 data). Rosatom holds ~44 percent of world enrichment capacity (WNA). Urenco's Eunice plant, the only operating commercial enrichment facility in the US, covers about a third of US LWR needs; its major new capacity arrives 2032 to 2036. SWU spot went from ~$56 in 2021 to a reported $188 to $190 in 2025 (secondary sources; UxC primary is paywalled). Conversion went from ~$6 per kgU in 2016 to $64 to $66 spot (Nuclear Engineering International, Sep 2025). Restarts are the exception that proves the rule; they burn ordinary LEU, and Palisades' fuel was among its earliest completed items, not its delay.</p>
+<p>Two more choke points surfaced in diligence. Generator step-up transformers run ~144 weeks, large power transformers ~128 weeks average, up to 4 years for large HV units (IndustrialSage; POWER; Wood Mackenzie). And interconnection can eat years even with a signed PPA and an existing plant; Crane's 2031 scare was resolved only by a FERC waiver moving retired-plant injection rights (Jun 2, 2026). On the builders' own dates, the reactors of 2030 to 2032 meet fuel plants of 2028 to 2036. The queue behind the queue is longer than the queue.</p>
+<hr />
+<h2>6. Where the market is pricing it</h2>
+<p>Descriptive only. Snapshot taken July 28, 2026, which was itself a heavy down day across the complex (CEG -3.8%, VST -5.4%, TLN -6.1%, GEV -5.3%, OKLO -5.3%, SMR -3.8%, NNE -4.4%, CCJ -2.7%, LEU -3.6%; stockanalysis.com closes). I could not identify a verified single catalyst for the session. Read the table as mid-drawdown.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Ticker</th>
+<th>Role in the chain</th>
+<th>Close 7/28/26</th>
+<th>YTD 2026 (approx.)</th>
+<th>vs 52-wk high</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CEG</td>
+<td>Fleet + restart</td>
+<td>$259.82</td>
+<td>-24.4%</td>
+<td>-37%</td>
+<td>PE 22.2</td>
+</tr>
+<tr>
+<td>VST</td>
+<td>Fleet</td>
+<td>$148.64</td>
+<td>-3.9%</td>
+<td>-32%</td>
+<td>fwd PE 16.3</td>
+</tr>
+<tr>
+<td>TLN</td>
+<td>Fleet</td>
+<td>$326.05</td>
+<td>-13.0%</td>
+<td>-28%</td>
+<td>fwd PE ~10–12; vendor data conflict flagged</td>
+</tr>
+<tr>
+<td>GEV</td>
+<td>Turbine queue</td>
+<td>$943.38</td>
+<td>+51%</td>
+<td>-21%</td>
+<td>fwd PE 44.3</td>
+</tr>
+<tr>
+<td>OKLO</td>
+<td>2030s queue</td>
+<td>$39.58</td>
+<td>-43.5%</td>
+<td>-80%</td>
+<td>no revenue</td>
+</tr>
+<tr>
+<td>SMR</td>
+<td>2030s queue</td>
+<td>$8.22</td>
+<td>-41.3%</td>
+<td>-86%</td>
+<td>$18.7M TTM revenue</td>
+</tr>
+<tr>
+<td>NNE</td>
+<td>2030s queue</td>
+<td>$16.06</td>
+<td>-33.2%</td>
+<td>-74%</td>
+<td>no revenue</td>
+</tr>
+<tr>
+<td>CCJ</td>
+<td>Fuel</td>
+<td>$86.96</td>
+<td>-3.9%</td>
+<td>-36%</td>
+<td>fwd PE 65.2</td>
+</tr>
+<tr>
+<td>LEU</td>
+<td>Fuel / HALEU</td>
+<td>$169.65</td>
+<td>-29%</td>
+<td>-63%</td>
+<td>PE 59.6</td>
+</tr>
+</tbody>
+</table></div>
+<p>(stockanalysis.com quote pages, Jul 28, 2026; YTD via StatMuse through Jul 27, labeled approximate.)</p>
+<p>The single most descriptive number I found: Constellation closed at $254.98 on September 20, 2024, the day the Microsoft deal added 22 percent. On July 28, 2026 it closed at $259.82, about 2 percent higher. The entire subsequent re-rating round-tripped in 22 months. The multiple history says the same thing more slowly. CEG's EV/EBITDA ran 11.2 (FY23) to 20.4 (FY25 peak) to 14.1 now; VST 5.9 to 15.5 to 10.7 (stockanalysis.com ratio pages). The scarcity premium peaked around 2x the pre-AI multiple at end-2025 and has compressed roughly a third to 40 percent of the way back, while staying well above 2023.</p>
+<p>The scarcity rent itself is administratively capped. PJM's 2028/29 capacity auction cleared at the $325 per MW-day legislated cap for the third consecutive auction, 6.8 GW short of the reserve-margin target; PJM's own uncapped simulation clears at $555, 71 percent higher (PJM, Jul 14, 2026; Modo Energy). Measured scarcity exceeds what the fleet is allowed to collect, which is precisely why the bilateral hyperscaler PPAs exist.</p>
+<p>The cash-flow split is the cleanest way to read the tape. Collecting in 2026 to 2028: GEV (shipping now, 3 GW shipped against 20 GW of new orders and reservations in the quarter, total company orders up 88 percent organically, guidance raised mid-year), VST (Meta deliveries start late 2026 from existing plants), TLN (Susquehanna PPA running; FY25 adjusted EBITDA $1,035M per its Feb 26, 2026 release), CEG (Clinton PPA June 2027, Crane targeted 2027), CCJ and LEU (selling fuel now). First revenue 2030 or later: Kairos and TerraPower (private), X-energy (public since April 2026), and the listed pre-revenue trio OKLO, SMR, NNE, which are down 74 to 86 percent from their highs yet still carry $0.8B to $6.9B of market cap against zero or de-minimis revenue. The 2030s optionality is still priced, at a fraction of its January 2026 clearing level. The one place scarcity gets paid at full price is the turbine queue. GEV is up 51 percent year to date in a falling sector at 44x forward earnings, which is itself a 2030s-delivery price on a queue, only one where the deposits are cash today. And the private queue positions are coming to market near the top of the narrative: Holtec has S-1 paperwork on file with the SEC and is planning an IPO at a reported ~$10B valuation (ANS, Jul 8, 2026), and X-energy already went. It priced an upsized IPO at $23, above the $16 to $19 range, and began trading on Nasdaq as XE on April 24, 2026, raising roughly $1.0B at a ~$9B valuation (Renaissance Capital; CNBC, Apr 24, 2026).</p>
+<hr />
+<h2>7. The Prediction Ledger</h2>
+<p>Twelve predictions. Each has a binding resolution criterion and a base-rate band with one sentence of reasoning. I assign no probabilities. Pricing is the curator's human-only gate, same as the Forecast Wing.</p>
+<p><strong>P1. Palisades synchronizes to the grid on or before December 31, 2026.</strong>
+Resolves YES if an NRC power reactor status report or a Holtec announcement documents first grid synchronization by that date. Resolve by January 15, 2027.
+Base-rate band: 45–70%. Commissioning programs that have closed out major systems with fuel on site usually finish within one or two further slips, and this one has already burned four named dates.
+Pricing: [curator].</p>
+<p><strong>P2. Palisades delivers contracted power to Wolverine and Hoosier on or before March 31, 2027.</strong>
+Resolves YES on a Holtec, Wolverine, or Hoosier confirmation of commercial deliveries under the PPAs by the contract obligation date. Resolve by April 30, 2027.
+Base-rate band: 55–80%. This adds a quarter of buffer to P1 and matches the obligation the CEO himself keeps citing.
+Pricing: [curator].</p>
+<p><strong>P3. Crane synchronizes to the grid on or before December 31, 2027.</strong>
+Resolves YES if Constellation or NRC records show first grid synchronization by that date. Resolve by January 15, 2028.
+Base-rate band: 40–65%. NRC restart authorization was still pending in July 2026 and the only reference-class plant missed every date it named, but Crane was never defueled into decommissioning and has hit milestones early.
+Pricing: [curator].</p>
+<p><strong>P4. Grid-connected SMR capacity in the US and Canada totals at least 300 MWe by December 31, 2030.</strong>
+Definition: an SMR here is a reactor unit of 345 MWe design capacity or less, first synchronized to a grid after January 1, 2027. Resolves YES if IAEA PRIS, CNSC, or NRC records show such units summing to at least 300 MWe net grid-connected in the US or Canada by December 31, 2030. Resolve by January 31, 2031.
+Base-rate band: 30–55%. This effectively requires Darlington 1 (300 MWe, target end-2030) on time or two smaller units early, against a FOAK base rate of one-to-three-year slips.
+Pricing: [curator].</p>
+<p><strong>P5. At least one MWh is delivered to a grid or buyer from a hyperscaler-contracted new-build SMR by December 31, 2030.</strong>
+Resolves YES on TVA/Kairos/Google, Amazon, or Meta project documentation (or EIA-923 data) showing generation from Hermes 2, Cascade, a Meta-TerraPower unit, or Meta-Oklo Pike County. Resolve by March 1, 2031.
+Base-rate band: 15–40%. Only Hermes 2 even targets 2030, and its simpler non-power sibling will not finish construction until about 2028 on a permit extended to April 2029.
+Pricing: [curator].</p>
+<p><strong>P6. GE Vernova reports gas equipment backlog plus slot reservations of at least 125 GW for year-end 2026.</strong>
+Resolves YES if GEV's Q4 2026 earnings release states a combined figure ≥125 GW. Resolve by February 28, 2027.
+Base-rate band: 70–90%. Management re-raised to "at least 125 GW" mid-year after adding 16 GW in one quarter, and reiterated same-year guidance of this kind is usually met.
+Pricing: [curator].</p>
+<p><strong>P7. GE Vernova is publicly taking reservations or orders for 2032 turbine delivery by its Q2 2027 report.</strong>
+Resolves YES if a GEV release or call transcript through August 31, 2027 states 2032 slots are being sold or reserved. Resolve by August 31, 2027.
+Base-rate band: 60–85%. Orders ran ~110 GW in 2025 against 60 to 70 GW per year of world manufacturing capacity, so the queue lengthens mechanically unless demand collapses.
+Pricing: [curator].</p>
+<p><strong>P8. New capacity actually delivering under big-four nuclear contracts totals less than 3,000 MW by December 31, 2030.</strong>
+Definition: restarts, uprates, and new build delivering power under the Section 2 ledger, excluding reallocated existing output. Resolves YES if company COD announcements and EIA-860/923 data sum below 3,000 MW at that date. Resolve by March 1, 2031.
+Base-rate band: 75–95%. The maximum plausible on-schedule sum is ~1,963 MW (Crane 835, Duane Arnold 615, uprates 463, Hermes 2 50), so exceeding 3,000 requires multiple 2032-targeted units to arrive years early, against a base rate of zero early FOAK nuclear. A NO here would cut directly against this paper's core claim.
+Pricing: [curator].</p>
+<p><strong>P9. NRC-licensed US commercial HALEU production reaches at least 5 tonnes in calendar 2029.</strong>
+Resolves YES if DOE announcements or Centrus's 10-K covering 2029 document ≥5,000 kg of HALEU produced in the calendar year. Resolve by March 31, 2030.
+Base-rate band: 25–50%. The $900M Piketon expansion promises first new capacity in 2029 under a fixed-price task order, and enrichment scale-ups have historically slipped a year or two.
+Pricing: [curator].</p>
+<p><strong>P10. TRISO-X's TX-1 plant begins commercial fuel fabrication by June 30, 2028.</strong>
+Resolves YES on an X-energy or NRC confirmation that commercial fabrication operations have begun by that date, matching the company's stated first-half-2028 target. Resolve by July 31, 2028.
+Base-rate band: 35–60%. The license arrived early, but first-of-a-kind fuel plants carry their own commissioning tail.
+Pricing: [curator].</p>
+<p><strong>P11. A binding final investment decision to complete V.C. Summer 2&amp;3 is announced by December 31, 2028.</strong>
+Resolves YES only on publicly announced, executed definitive completion agreements from Santee Cooper and the Brookfield JV, not a further MOU or letter of intent. Resolve by January 31, 2029.
+Base-rate band: 25–50%. The JV itself promised an FID package by 2028, but today's structure is a nonbinding MOU and promised nuclear FIDs slip more often than they hold.
+Pricing: [curator].</p>
+<p><strong>P12. A hyperscaler-contracted new-build reactor delivers grid power by December 31, 2028.</strong>
+Resolves YES if any new-build unit under a Microsoft, Google, Amazon, or Meta contract (not a restart, not an uprate) is documented delivering power by that date. Resolve by March 1, 2029.
+Base-rate band: 2–10%. The earliest new-build target anywhere in the ledger is 2030, so YES requires something not currently scheduled to exist. This is the thesis falsifier. If it resolves YES, the line was short, speed was real, and this paper was wrong.
+Pricing: [curator].</p>
+<hr />
+<h2>8. Cross-references inside the museum</h2>
+<p>This paper is the supply-side companion to two live exhibits. The Forecast Wing's F7 tracks PJM scarcity pricing; the 2028/29 auction clearing at the $325 per MW-day cap for a third consecutive year, 6.8 GW short of target, is the demand-side symptom of the empty shelves in Section 3, and F7's resolution will be partly decided by whether the restart trio in P1 through P3 shows up on time. The museum's AI-capex forecasts price the other end of the same chain. Every megawatt in the Section 2 ledger is a line item in someone's AI capex budget. If those forecasts break lower, the queue positions documented here are the natural first write-offs, which is the second, quieter way the title's thesis could die; P12 covers the first.</p>
+<hr />
+<h2>9. Sources</h2>
+<p>Seed video: citation to be inserted by the curator. The framing of this paper originates there; the verification is mine.</p>
+<p><strong>Company and project primary documents</strong>
+- Meta, Jan 9, 2026: https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/
+- TerraPower–Meta: https://www.terrapower.com/terrapower-announces-deal-with-meta
+- Vistra IR, Jan 9, 2026: https://investor.vistracorp.com/2026-01-09-Vistra-and-Meta-Announce-Agreements-to-Support-Nuclear-Plants-in-PJM-and-Add-New-Nuclear-Generation-to-the-Grid (mirror: PRNewswire release 302656941)
+- Oklo IR (Meta agreement): https://oklo.com/newsroom/news-details/2026/Oklo-Meta-Announce-Agreement-in-Support-of-1-2-GW-Nuclear-Energy-Development-in-Southern-Ohio/default.aspx
+- Oklo IR (Aurora-INL groundbreaking, Sep 22, 2025): https://oklo.com/newsroom/news-details/2025/Oklo-Breaks-Ground-on-First-Aurora-Powerhouse/default.aspx
+- Constellation, Crane announcement, Sep 20, 2024: https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html
+- Constellation–Meta Clinton, Jun 3, 2025: https://investors.constellationenergy.com/news-releases/news-release-details/constellation-meta-sign-20-year-deal-clean-reliable-nuclear
+- Constellation, DOE $1B loan, Nov 2025: https://www.constellationenergy.com/news/2025/11/us-government-backs-constellations-plan-to-launch-crane-clean-energy-center-adding-835-mws-of-new-baseload-power-to-the-grid.html
+- Constellation, "One Year Later," Sep 23, 2025: https://www.constellationenergy.com/news/2025/09/one-year-later-crane-clean-energy-center-still-in-the-spotlight-and-ahead-of-schedule.html
+- Talen IR, Jun 11, 2025: https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon and 8-K: https://www.sec.gov/Archives/edgar/data/1622536/000162828025030559/a20250611talenbusinessup.htm
+- Talen IR, Q4/FY2025 results, Feb 26, 2026: https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-reports-fourth-quarter-and-full-year-2025-results
+- Kairos, Hermes 2 groundbreaking, Apr 17, 2026: https://www.kairospower.com/updates/kairos-power-breaks-ground-on-hermes-2-demonstration-plant
+- Google–Kairos–TVA PPA, Aug 18, 2025: https://www.prnewswire.com/news-releases/google-kairos-power-tva-collaborate-to-meet-americas-growing-energy-needs-302531747.html
+- NextEra–Google, Duane Arnold: https://newsroom.nexteraenergy.com/NextEra-Energy-and-Google-Announce-New-Collaboration-to-Accelerate-Nuclear-Energy-Deployment-in-the-U-S?l=12
+- Elementl–Google, May 7, 2025: https://www.prnewswire.com/news-releases/elementl-power-and-google-sign-strategic-agreement-to-develop-locations-for-advanced-nuclear-projects-302447957.html
+- X-energy–Amazon, Oct 16, 2024: https://x-energy.com/news/amazon-invests-in-x-energy-to-support-advanced-small-modular-nuclear-reactors-and-expand-carbon-free-power/
+- X-energy IPO: draft S-1 submitted Mar 20, 2026 (x-energy.com); priced $23 upsized Apr 23, traded Nasdaq "XE" Apr 24, 2026, ~$1.0B raised (Renaissance Capital; CNBC, Apr 24, 2026: https://www.cnbc.com/2026/04/24/nuclear-reactor-company-x-energy-begins-trading-as-ai-drives-interest-in-the-industry.html)
+- Energy Northwest, Cascade design-builder: https://www.energy-northwest.com/news-releases/energy-northwest-selects-design-builder-for-cascade-advanced-energy-facility-in-washington-state/
+- Dominion–Amazon MoU, Oct 2024: https://www.prnewswire.com/news-releases/dominion-energy-and-amazon-to-explore-advancement-of-small-modular-reactor-smr-nuclear-development-in-virginia-302277514.html
+- Holtec, Palisades milestone, Jul 2, 2026: https://www.globenewswire.com/news-release/2026/07/02/3321266/0/en/Palisades-Methodical-March-Toward-Restart-Reaches-a-Major-Milestone.html
+- Holtec, $1.52B conditional commitment, Mar 27, 2024: https://holtecinternational.com/2024/03/27/historic-repowering-of-michigans-palisades-power-plant-closer-to-reality-as-holtec-obtains-up-to-1-52-billion-in-conditional-loan-commitment-from-the-doe/
+- GE Vernova, Q2 2026 results, Jul 22, 2026: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+- Chevron, West Texas power announcement, Jan 2025: https://www.chevron.com/newsroom/2025/q1/power-solutions-for-us-data-centers
+- Chevron, Kilby Microsoft PPA, Jun 22, 2026: https://www.chevron.com/newsroom/2026/q2/chevron-signs-20-year-power-agreement-with-microsoft-for-west-texas-data-center
+- Oglethorpe 8-K, Vogtle 4 COD, Apr 29, 2024: https://www.sec.gov/Archives/edgar/data/788816/000162828024018788/pressreleasedated042924.htm
+- Georgia Power, Vogtle Unit 3: https://www.georgiapower.com/content/dam/georgia-power/pdfs/company-pdfs/vogtleonepager_073023.pdf
+- NuScale–UAMPS termination, Nov 8, 2023: https://www.nuscalepower.com/press-releases/2023/utah-associated-municipal-power-systems-and-nuscale-power-agree-to-terminate-the-carbon-free-power-project
+- Santee Cooper RFP, Jan 22, 2025: https://www.santeecooper.com/global-news/2025/01222025-Santee-Cooper-seeking-proposals-to-acquire-and-finish-VC-Summer-Nuclear-Station-expansion.aspx
+- Cameco, Westinghouse partnership, Oct 28, 2025: https://www.cameco.com/media/news/united-states-government-brookfield-and-cameco-announce-transformational-partnership
+- ASP Isotopes–TerraPower agreements, May 22, 2025 (8-K/PR via SEC and company)
+- Urenco, LEU+ authorization, Sep 30, 2025, and Eunice expansion, Jun 2, 2026 (urenco.com press releases)
+- Centrus, $900M task order, Jan 2026: https://investors.centrusenergy.com (press releases and 8-K/10-K filings)</p>
+<p><strong>Regulators and government</strong>
+- NRC, Crane docket: https://www.nrc.gov/info-finder/reactors/ccec ; Duane Arnold: https://www.nrc.gov/info-finder/reactors/duan
+- Federal Register: Crane draft EA, Jun 8, 2026: https://www.federalregister.gov/documents/2026/06/08/2026-11377/ ; Duane Arnold notices, Apr 22 and Jun 29, 2026: https://www.federalregister.gov/documents/2026/04/22/2026-07796/ and https://www.federalregister.gov/documents/2026/06/29/2026-13004/ ; Palisades SG sleeve LAR, Apr 15, 2025: https://www.federalregister.gov/documents/2025/04/15/2025-06396/ ; Hermes 1 permit extension, May 18, 2026 (doc 2026-09880); TRISO-X FEIS, Feb 13, 2026 (doc 2026-02920); EPA stationary combustion turbine NSPS, Jan 15, 2026
+- DOE: LPO Vogtle page: https://www.energy.gov/lpo/vogtle ; Palisades sixth disbursement, Sep 16, 2025: https://www.energy.gov/articles/doe-approves-sixth-loan-disbursement-restart-palisades-nuclear-plant ; HALEU allocation process page: https://www.energy.gov/ne/us-department-energy-haleu-allocation-process ; American Nuclear Supply Chain Loans handout, Jun 23, 2026: https://www.energy.gov/documents/doe-edf-american-nuclear-supply-chain-loans-overview-handout-2026-06-23 ; Pathways to Commercial Liftoff, Advanced Nuclear (Sep 2024): https://gain.inl.gov/content/uploads/4/2024/11/DOE-Advanced-Nuclear-Liftoff-Report.pdf ; TRISO-X license announcement: https://www.energy.gov/ne/articles/triso-x-receives-nrc-special-nuclear-material-license-advanced-fuel-fabrication
+- USDA/co-op funding: https://www.electric.coop/wolverine-hoosier-awarded-1-3-billion-to-aid-nuclear-plant-restart
+- Congress, H.R.1042 (Russian uranium ban): https://www.congress.gov
+- EIA: Vogtle COL: https://www.eia.gov/todayinenergy/detail.php?id=5250 ; Vogtle 4: https://www.eia.gov/todayinenergy/detail.php?id=61963 ; Uranium Marketing Annual Report (2024 data, released Sep 30, 2025; corroborated by World Nuclear News summary)
+- PJM, 2028/29 auction results, Jul 14, 2026: https://insidelines.pjm.com/pjm-capacity-auction-procures-138318-mw-of-generation-resources-as-work-continues-to-address-growing-electricity-demand/
+- CNSC, Darlington SMR licensing (cnsc-ccsn.gc.ca)
+- Michigan state funding: https://www.michigan.gov/whitmer/news/press-releases/2024/09/05/gov-whitmer-applauds-bidenharris-announcement-delivering
+- Mississippi Environmental Quality Permit Board, xAI Southaven permit, Mar 10, 2026 (via Mississippi Free Press; CNBC)</p>
+<p><strong>Analysis and corroborating secondary sources</strong>
+- Carnegie Endowment, Jun 2, 2026: https://carnegieendowment.org/research/2026/06/beyond-the-hype-assessing-hyperscaler-nuclear-commitments-against-us-energy-realities
+- MIT CANES, next-AP1000 cost study (ANP-201, 2024): https://web.mit.edu/kshirvan/www/research/ANP201%20TR%20CANES.pdf
+- Utility Dive: GEV 116 GW (Jul 2026): https://www.utilitydive.com/news/ge-vernova-gas-turbine-backlog-climbs-to-116-gw/826039/ ; GEV investor day (Dec 11, 2025): https://www.utilitydive.com/news/ge-vernova-gas-turbine-investor/807662/ ; EPRI turbine-order analysis (Mar 23, 2026): https://www.utilitydive.com/news/5-year-waits-and-rising-costs-how-demand-is-redefining-the-gas-turbine-mar/813385/ ; restart pool (Oct 22, 2024): https://www.utilitydive.com/news/palisades-three-mile-island-duane-arnold-nuclear-reactor-restart-holtec-nextera-constellation-nrc/730393/ ; Crane FERC waiver: https://www.utilitydive.com/news/constellation-three-mile-island-crane-nuclear-ferc-waiver/821836/ ; DOE $17.5B loans: https://www.utilitydive.com/news/doe-offers-175b-loans-help-build-10-large-nuclear-reactors/823633/
+- Wood Mackenzie, Apr 1, 2026: https://www.woodmac.com/press-releases/gas-turbine-prices-soar-195-as-market-faces-supply-demand-crisis/
+- GridLab / Energy Futures Group / Halcyon, "The New Reality of Power Generation," Sep 2025 (via APPA): https://www.publicpower.org/periodical/article/new-report-finds-rising-cost-new-gas-plants-outpacing-planning-assumptions
+- ANS Nuclear Newswire: Palisades status (Jul 8, 2026): https://www.ans.org/news/2026-07-08/article-8187/ ; DOE $17.5B AP1000 loans (Jun 23, 2026): https://www.ans.org/news/2026-06-23/article-8142/ ; Duane Arnold (Oct 28, 2025): https://www.ans.org/news/2025-10-28/article-7501/ ; Oklo INL groundbreaking (Sep 29, 2025, event Sep 22): https://www.ans.org/news/2025-09-29/article-7414/ ; TRISO-X license (Feb 17, 2026): https://www.ans.org/news/2026-02-17/article-7762/
+- World Nuclear News: Palisades fuel delivery, 68 assemblies (Oct 21, 2025), Palisades operational status (Aug 2025), Hermes 1 first concrete (May 2025), Darlington basemat (May 2026), RoPower FID (Feb 2026), DOE AP1000 loans (Jun 2026)
+- NucNet: Duane Arnold restart cost (Oct 2025); Darlington basemat (May 5, 2026)
+- Manhattan Institute, Nov 2022: https://manhattan.institute/article/back-from-the-dead-prospects-for-restoring-closed-nuclear-plants-to-operation
+- S&amp;P Global (Chevron/Engine No. 1, Jan 28, 2025; turbine wait times, May 2025; Siemens outlook, Jun 30, 2026; Mitsubishi orders to 2030, Jul 2026), Bloomberg (Mitsubishi, May 12, 2026), Power Engineering (Feb 20, 2025; Q1 2026), Data Center Frontier (Crusoe Abilene, Feb 25, 2026), GE Vernova newsroom (LM2500XPRESS/Crusoe), BIC Magazine and CNBC (Kilby, Jun 22, 2026), POWER Magazine (transformers; Rev 20 DCD; Cascade), IndustrialSage (transformer lead times), CNBC (TMI Sep 20, 2024; TerraPower Dec 16, 2022; Meta Jan 9, 2026; EPA guidance Jan 16, 2026; xAI permit Mar 10, 2026; X-energy Apr 24, 2026), Michigan Public (Dec 17, 2025; Jul 3, 2026), Canary Media (Jul 10, 2026), Mississippi Today (May 11, 2026), Mississippi Free Press (Mar 2026), NucNet, IPFM blog (Jul 2026), New Civil Engineer (Hinkley, Feb 20, 2026), NS Energy and ENEC (Barakah), The Globe and Mail (Summer completion estimates, 2026), Modo Energy (PJM cap analysis), smrintel.com deal tracker (the probable source of the 13-deal/9.8 GW figure; internally inconsistent as documented in Section 4)
+- Market data: stockanalysis.com quote and ratio pages (accessed Jul 28, 2026); StatMuse Money period returns (through Jul 27, 2026); finviz (TLN, flagged discrepancy); Cameco/UxC uranium price page (Jun 30, 2026)</p>
+<hr />
+<p><em>Working Paper No. 19, The Risk Museum. Drafted July 28, 2026. Corrections welcome and expected. The prediction ledger resolves on the dates stated, whether or not the resolutions flatter this paper.</em></p>
+<hr>
+<h1>CHANGE LOG (checker pass, July 28, 2026)</h1>
+<p><strong>Errors corrected (would have been wrong in print):</strong></p>
+<ol>
+<li><strong>X-energy IPO (Section 6, worst error in the draft).</strong> The draft said X-energy "has confidential draft registration statements on file with the SEC" and listed it among private companies. X-energy submitted its draft S-1 on March 20, 2026, priced an upsized IPO at $23 (above the $16–19 range) on April 23, and began trading on Nasdaq as XE on April 24, 2026, raising ~$1.0B at a ~$9B valuation (Renaissance Capital; CNBC, Apr 24, 2026). This also matches diligence Report 0 ("X-energy IPO'd 2026, raised ~$1.02B"), which the draft contradicted. Rewrote both sentences and the "private" trio.</li>
+<li><strong>Project Kilby (Section 3.1).</strong> Draft said "~$7B, ~2.5 GW behind-the-meter... first-power year 2027 or 2028, unresolved." Chevron's own June 22, 2026 release: 2.67 GW, co-located at Pecos TX, FID expected 2026, generation starting 2028. The ~$7B figure could not be sourced anywhere and was cut (one outlet says "$9B power-and-compute," which is a different quantity). The 2027-vs-2028 "unresolved" flag was removed because it is resolved: end-2027 was the January 2025 slot-reservation announcement's target, 2028 is Kilby's.</li>
+<li><strong>Turbine-order attribution (Section 3.1, Section 4).</strong> The Utility Dive piece (Mar 23, 2026) carrying 399→846 units / 58.2→100.3 GW / 427 US units is an EPRI-authored analysis (Bobby Noble), not "McCoy data via Utility Dive." Other trade press attributes the same counts to McCoy. Reworded the attribution and the could-not-verify entry. The numbers themselves check out.</li>
+<li><strong>xAI turbine counts (Section 3.1).</strong> Draft's "~59 mobile units" could not be sourced. MDEQ's count is 46 temporary-mobile turbines at Southaven (Mississippi Today, May 11, 2026); the permit board approved 41 permanent turbines March 10, 2026 (Mississippi Free Press; CNBC). Replaced. Also made the EPA reference precise: Jan 15, 2026 NSPS plus revised guidance closing the mobile-source loophole, CNBC coverage Jan 16, 2026.</li>
+<li><strong>GE Vernova pricing claim (Section 6).</strong> "Priced 10 to 20 points per kW above the prior quarter's cohort" appears in no source I could find, including the Q2 release and Utility Dive's coverage. Cut; noted the cut in Section 4. Also clarified that "+88%" is total-company orders growth, organically, not gas orders. The 3 GW shipped / 20 GW signed figures verified (Utility Dive, Jul 2026).</li>
+<li><strong>"Turbine-only ~$600/kW" (Section 3.1).</strong> Unsourced; cut. Replaced the units warning with the verified analyst per-kW estimates by class ($790 heavy-duty, $950 HA CC, $1,800 aero; Utility Dive, Jul 2026), which also independently confirm the draft's 2.3x aero-vs-heavy ratio.</li>
+<li><strong>Siemens "179 turbines in H1 FY2026" (Section 3.1).</strong> Could not verify; the verifiable figure is 194 turbines in calendar 2025, nearly double 2024 (S&amp;P Global, Jun 30, 2026). The ~60 GW backlog and fiscal-2028 booked-out are confirmed. Replaced and flagged.</li>
+<li><strong>Meta-Vistra plant split (Section 2 ledger; could-not-verify list).</strong> Now resolved with the primary release: 2,176 MW existing comes from Perry and Davis-Besse only; the 433 MW of uprates span all three plants, 140 MW at Beaver Valley; full 2,609 MW online by 2034. Updated row 13 and removed the item from the could-not-verify list.</li>
+<li><strong>Summer 2&amp;3 completion row (cost ladder).</strong> The draft's "$15–21B" is not a citable range. Circulating estimates run ~$15B (greenfield arithmetic at $6,500/kW) to ~$25B (Globe and Mail, 2026). Widened the row to $15–25B → $6,500–10,900/kW and added an explicit could-not-verify entry.</li>
+<li><strong>Darlington basemat date.</strong> "May 1, 2026" not confirmable; installation was reported complete in early May (NucNet, May 5, 2026). Changed to "early May 2026" and flagged. The 953-tonne figure is confirmed (WNN; NucNet).</li>
+<li><strong>Mitsubishi (Section 3.1).</strong> Rephrased to what Bloomberg (May 12, 2026) and S&amp;P (Jul 2026) actually support: most slots booked for 2027–2028, orders stretching to 2030.</li>
+<li><strong>Palisades slip sequence.</strong> Draft's "Q4 2025" tightened to "end of 2025" to match how Holtec stated it (NucNet; Michigan Public, Dec 17, 2025). The four-named-dates claim itself is verified (Oct 2025 → end-2025 → early 2026 → end-Feb 2026 grid target, missed).</li>
+<li><strong>CCGT cost sentence.</strong> "$1,100–1,400" tightened to GridLab's actual $1,116–1,427; the unverifiable "reportedly toward $3,000" clause replaced with the Wood Mackenzie 195-percent tie-in.</li>
+<li><strong>CFPP subsidy wording.</strong> "roughly $1.4B of federal subsidies" made precise: the ~$1.4B DOE cost-share plus assumed IRA benefits (Report 3's nuance).</li>
+<li><strong>Section 4, item 1 strengthened.</strong> Added the tracker's seven-buyer composition (Equinix, Last Energy, Aalo per Report 6), which further undermines the video's "13 deals among the big four."</li>
+<li><strong>P4 resolution criterion tightened.</strong> "SMR" was fudgeable; now defined as units of ≤345 MWe design capacity first synchronized after Jan 1, 2027, summed net MWe. P11 tightened from "definitive, binding" to "publicly announced, executed definitive agreements." P10's "three months early" claim (unverified) softened to "early." All other predictions checked: named source, exact threshold, exact date — binding.</li>
+</ol>
+<p><strong>Load-bearing spot-checks performed fresh (all confirmed):</strong>
+- Carnegie "up to 13 GW," Pendleton and Schuessler, Jun 2, 2026 (carnegieendowment.org, fetched today).
+- GEV 100→116 GW in Q2, "at least 125 GW by year-end 2026" (gevernova.com Q2 release, Jul 22, 2026, fetched today).
+- Vogtle $31B owners / ~$35B incl. $3.7B Toshiba settlement (AP via GPB, Apr 29, 2024 coverage).
+- Palisades July 24, 2025 (operating-authority transfer + fuel receipt, NRC order) vs Aug 25, 2025 (return to operations status) — the draft's two-event correction of the video is right (Federal Register; WNN; ANS Jul 28, 2025).
+- 399/58.2 GW (2024) → 846/100.3 GW (2025), US 427/43.1 GW, 70% under 100 MW, H/J ~14% of units &gt;50% of MW (Utility Dive/EPRI, Mar 23, 2026, fetched today).</p>
+<p><strong>Additional numbers verified against primary sources this pass (no change needed):</strong> MIT CANES ANP-201 $8,300–10,375/kW next-2-at-Vogtle and $4,625/kW NOAK, extracted from the PDF itself (also available: greenfield $9,300–11,625, Vogtle realized $11,000/kW, 2024 USD — added greenfield to the ladder basis note); DOE Liftoff $4,700/kW AP1000 NOAK; PJM $325 cap / 6.8 GW short / third consecutive (PJM, Jul 14, 2026); $555 uncapped per Modo; CEG $254.98 close on Sep 20, 2024, +22% (CNBC/IBKR); Holtec "more than 5,000 individual work activities" (Jul 2, 2026 release, verbatim); 68 fuel assemblies (WNN, Oct 21, 2025); Duane Arnold "&gt;$1.6B" and 601 MW (NucNet); TRISO-X license Feb 13, 2026, fabrication early 2028 (NRC/DOE/WNN); DOE $17.5B / 10 AP1000s / 5 projects / construction by 2030 (ANS, DOE, Utility Dive, Jun 23, 2026); Talen FY25 adjusted EBITDA $1,035M (Feb 26, 2026 release); EIA 15.0M SWU at $97.66, 2024 (EIA UMAR via WNN); Oklo INL groundbreaking Sep 22, 2025 (Oklo PR; the ANS article is dated Sep 29, explaining the report discrepancy); Hinkley £48.7B (EDF Feb 2026 via multiple UK outlets); Crusoe Abilene 1.2 GW campus with ~1 GW from 29 LM2500XPRESS aeroderivatives (Crusoe; GE Vernova; DCD); OEM 7-8-year guidance (Power Engineering; S&amp;P May 2025); Holtec S-1/DRS on file with SEC (EDGAR, corroborating the ANS IPO report).</p>
+<p><strong>House voice check:</strong> no em-dashes anywhere; colons only functional (table/list intros); no hype vocabulary ("massive," "incredible," "game-changer" absent); Section 6 remains descriptive with no buy/sell language; prediction ledger assigns no probabilities, consistent with the human pricing gate; first person reserved for the author throughout; "I could not verify" statements retained and expanded.</p>
+<p><strong>Honesty check on the could-not-verify section:</strong> it was honest but incomplete. Removed two items that are now resolved (Kilby first-power year; Meta-Vistra split), reworded the McCoy item, and added four new open items surfaced by this pass (Siemens H1 unit count; the cut GEV pricing claim; Darlington basemat day; Summer completion cost range). All flags from the diligence reports that remain open are carried: Natrium HALEU tonnage (trade press only), DOE per-company HALEU allocations, Palisades fuel fabricator identity, Hermes 2 permit-amendment status, fusion dates from memory, Barakah all-in cost, uranium peak price, EIA Table S2 denominator, and the July 28 session catalyst.</p>
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Data: daily SPY adjusted closes from
+the project price panel; log returns, December 2006 &ndash; July 2026.
+Coverage tests follow Kupiec (1995) and Christoffersen (1998); chi-square
+tail probabilities from SciPy; traffic-light zones follow the Basel
+Committee&rsquo;s backtesting framework for the 99% one-day measure. Every
+statistic is computed by <code>pipeline/var_backtest.py</code>.</footer>
+</main></body></html>
