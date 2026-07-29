@@ -1,11 +1,67 @@
 {
  "museum": "The Risk Museum \u2014 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-07-28",
- "works_tested": 275,
+ "exported": "2026-07-29",
+ "works_tested": 283,
  "in_the_vault": 2,
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
+  {
+   "claim": "Regime-timed equal-weight/cap-weight tilt: lean to equal-weight when market concentration is falling, cap-weight when rising",
+   "stage": "pipeline",
+   "reason": "Concentration is a real descriptive regime \u2014 EW lags CW -3.3%/yr when top-heavy vs -0.75%/yr when broad \u2014 but the regime-timed EW/CW tilt earns -1.28%/yr at NW t=-0.68 (bar 2.5), fails. A real regime, not a tradable signal; mirrors the gold result. Tested, shelved.",
+   "status": "rejected",
+   "about": "market concentration / breadth regime (topical macro)",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Regime-timed gold overlay: hold gold when the stock-bond correlation is positive (bonds stop hedging), a tradable macro-diversification signal",
+   "stage": "pipeline",
+   "reason": "Gold returned more in the positive stock-bond-correlation regime (19.3%/yr vs 9.8%), but its 60/40 vol-reduction is regime-invariant (~0.4-0.6%, slightly better when bonds hedge), and the regime-timed overlay earns -3.86%/yr at NW t=-1.04 (bar 2.5) -- fails. Gold is a real diversifier, not a tradable regime signal. Tested and shelved.",
+   "status": "rejected",
+   "about": "gold as a conditional diversifier (macro/regime)",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Short-side crowding (FINRA daily short-volume ratio) predicts large-cap cross-sectional returns, and flags stress underperformance",
+   "stage": "pipeline",
+   "reason": "Free FINRA short-volume panel (2006 days x 406 names, 2017-12-29..2026-07-24). Family of 4 cross-sectional SVR signals all fail the deflated bar t>=2.96 (best |t|=2.24). Conditional risk measure is loud \u2014 most-shorted minus least-shorted = +220.4 bps/mo over 9 worst months (NW t=5.34) \u2014 but survivorship-biased (surviving squeezes, not collapses) and small-sample. A risk measure, not a signal; mirrors the 13F crowding study. Tested and shelved.",
+   "status": "rejected",
+   "about": "FINRA short-volume positioning (free, orthogonal)",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "End-of-quarter window-dressing effect (Altucher #12): returns around quarter turns, equal-weight universe",
+   "stage": "pipeline",
+   "reason": "Quarter-end spread +5.87 bps/day, gross +0.89%/yr, NW t=0.83 \u2014 not significant against the deflated 3.03 bar. Tested and shelved.",
+   "status": "rejected",
+   "about": "Altucher calendar/flow family (non-price market-timing)",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Option-expiration-week effect (Altucher #14): the five days ending on the 3rd-Friday expiry, a dealer-positioning calendar",
+   "stage": "pipeline",
+   "reason": "Expiry week underperforms mildly (4.62 bps/day, gross 2.09%/yr) at only NW t=-1.19; no gate-clearing edge either direction. Tested and shelved.",
+   "status": "rejected",
+   "about": "Altucher calendar/flow family (non-price market-timing)",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Weekend / Monday effect (Altucher day-of-week family): Mondays vs the rest of the week, equal-weight universe",
+   "stage": "pipeline",
+   "reason": "Weekend effect has decayed: Mondays underperform by ~6.62 bps/day but only at NW t=-1.35 gross, it reverses post-2013 (subperiod t 0.99->1.19->1.29->-0.22), and twice-weekly rebalancing costs (~4.71%/yr) swamp the ~2.54%/yr gross. A loud -3.86 in the raw run was a cost-drift artifact. Tested and shelved.",
+   "status": "rejected",
+   "about": "Altucher calendar/flow family (non-price market-timing)",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Pre-holiday effect (Altucher / Ariel 1990): last trading day before a market holiday, equal-weight universe",
+   "stage": "pipeline",
+   "reason": "Pre-holiday days average +14.82 bps vs the rest, a real magnitude \u2014 but only ~3% of days: gross +1.33%/yr at NW t=2.11, below even the naive 2.5 bar and well under the family-deflated 3.03. Underpowered, tested and shelved.",
+   "status": "rejected",
+   "about": "Altucher calendar/flow family (non-price market-timing)",
+   "tested": "2026-07-26"
+  },
   {
    "claim": "The Alpha158 excavation: Microsoft Qlib's 158 public technical alphas, run as ONE family through the museum's gates - how many famous library alphas survive honest deflation?",
    "stage": "pipeline",
