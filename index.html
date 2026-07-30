@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vasilios Dimopoulos | The Risk Museum, Risk &amp; Quantitative Research</title>
-<meta name="description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 284 filed, 144 retired and on public view. The permanent collection is the ones that didn't survive.">
+<meta name="description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 296 filed, 146 retired and on public view. The permanent collection is the ones that didn't survive.">
 <link rel="canonical" href="https://theriskmuseum.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Risk Museum — Home of Risk Masterpieces">
-<meta property="og:description" content="284+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
+<meta property="og:description" content="296+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
 <meta property="og:url" content="https://theriskmuseum.com/">
 <meta property="og:site_name" content="The Risk Museum">
 <meta name="twitter:card" content="summary">
@@ -208,17 +208,17 @@ limits, regime audits, and six-factor decomposition. The work runs nightly on an
 research pipeline I call the swarm. The permanent
 collection: the ones that didn&rsquo;t survive.</p>
 <div class="stats">
-  <div><b>284</b><span>ideas filed</span></div>
-  <div><b>144</b><span>retired, on view</span></div>
+  <div><b>296</b><span>ideas filed</span></div>
+  <div><b>146</b><span>retired, on view</span></div>
   <div><b>2</b><span>in the vault (survivors)</span></div>
   <div><b>$898,631 over 22 years</b><span>$100k in an S&amp;P index fund, same window.
     The bar every strategy must beat</span></div>
 </div>
-<p class="sub" style="font-size:.85rem">Of 284 ideas filed,
-170 carry a final verdict. 144 are retired and shown
-below, 2 held in the vault, and 24 still inside the
+<p class="sub" style="font-size:.85rem">Of 296 ideas filed,
+170 carry a final verdict. 146 are retired and shown
+below, 2 held in the vault, and 22 still inside the
 3-day publication lag. Of the rest, 3 are queued for
-testing and 111 could not run at all. These are machine-written
+testing and 123 could not run at all. These are machine-written
 candidates that call for paid data this free stack does not have. Counting those
 as &ldquo;in testing&rdquo; would flatter the number, so they are shown
 separately.</p>
@@ -292,7 +292,7 @@ own name, retired by my own gates.</span></li>
     </article>
 <h2 class="sect" id="collection">Tested strategies: the permanent
 collection</h2>
-<p class="sect-sub">144 strategies tested and retired &middot;
+<p class="sect-sub">146 strategies tested and retired &middot;
 newest first</p>
 <p class="sub">Each plaque records the claim and the gate that retired
 it. The strategies that reached a full backtest are totalled first, the
@@ -310,6 +310,22 @@ quality score &middot; <b>LOW_SUB_UNIVERSE_SHARPE</b>: fails on the smaller-stoc
 subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
 &middot; <b>SELF_CORRELATION</b>: it duplicates a signal I already have.</p></details>
 
+    <article class="stone">
+      <div class="rip">Tested 2026-07-27</div>
+      <h3>A machine-written signal</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(domestic_ebit_value, 10))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-27</div>
+      <h3>A machine-written signal built from analyst estimates</h3>
+      <div class='tech'>BRAIN candidate: rank(zscore(adj_net_income_median) - zscore(anl4_af_eps_value))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
+      
+    </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-26</div>
       <h3>Kalshi calibration, favourite-longshot bias, and crowding</h3>
