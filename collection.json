@@ -1,11 +1,75 @@
 {
  "museum": "The Risk Museum \u2014 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-07-29",
- "works_tested": 283,
+ "exported": "2026-07-30",
+ "works_tested": 284,
  "in_the_vault": 2,
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
+  {
+   "claim": "Prediction markets (Kalshi) are calibrated, and one-sided books resolve against the crowd (pre-registered: docs/prediction_market_prereg.md, family n=3)",
+   "stage": "pipeline",
+   "reason": "250,858 resolved Kalshi markets across 59,748 distinct events, price = VWAP over the final 24h. C1 CALIBRATION FALSIFIED: the reliability curve departs sharply from the diagonal (reliability component 0.019 of a 0.093 Brier). C2 FAVOURITE-LONGSHOT CONFIRMED and large: contracts priced 0.30-0.40 resolve YES 17% of the time (+14 to +18 points overpriced) while contracts priced 0.60-0.70 resolve 88% (-21 to -23 points underpriced). ROBUST: holds at +0.140/-0.214 on ONE market per event (59,748 independent events, killing multi-strike correlation) and across every duration bucket from intraday to multi-day, so it is not an artifact of hourly churn. C3 CROWDING FALSIFIED IN SIGN: I predicted one-sided books would be WORSE calibrated; they are BETTER (mean |error| 0.199 vs 0.275 balanced, Brier 0.076 vs 0.105). Concentrated flow tracks obvious outcomes rather than crowd error. NOT PROMOTED and NOT TRADABLE ON THIS EVIDENCE: the dataset carries no orderbook, so the pre-registered limitation stands unresolved -- a 21-point gap measured on traded VWAP is not an edge until top-of-book shows the spread does not eat it.",
+   "status": "rejected",
+   "about": "Kalshi calibration, favourite-longshot bias, and crowding",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Concentration regime (top-10 share of dollar volume, rolling) conditions the EW-vs-CW spread and cross-sectional signal ICs \u2014 rising concentration predicts EW underperformance and IC compression (DESCO Concentration Game 2026)",
+   "stage": "pipeline",
+   "reason": "Answered under the concentration_lab study: EW lags CW -3.3%/yr when the market is top-heavy vs -0.75% when broad, but the regime-timed EW/CW tilt fails (t=-0.68). Duplicate; see the concentration tombstone.",
+   "status": "rejected",
+   "about": "Tests whether trading crowding into a few giant stocks foretells weaker stock-picking signals and lagging small stocks.",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Gold conditional diversification: stock-bond correlation regime (rolling SPY/TLT) conditions gold allocation value \u2014 60/40 vs 60/35/5+GLD by SB-corr sign (DESCO Worth Its Weight)",
+   "stage": "pipeline",
+   "reason": "Answered under the gold_lab study: gold is a real conditional diversifier (19.3%/yr in positive stock-bond-correlation regimes vs 9.8%) but the regime-timed overlay fails the gates (t=-1.04). Duplicate; see the gold tombstone.",
+   "status": "rejected",
+   "about": "Tests whether gold's value in a stock-bond portfolio depends on whether stocks and bonds move together or apart.",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Sector-exclusion tilts are factor bets in disguise: ex-energy active returns largely explained by HML loading (DESCO Factored In)",
+   "stage": "pipeline",
+   "reason": "Eleven sector exclusions tested on 21 years. Excluding a sector moves the active return by under 1%/yr in every case and only two are even nominally significant (ex-tech -0.73%/yr t=-2.56, ex-consumer-discretionary -0.38%/yr t=-2.41), both NEGATIVE, meaning the exclusion cost money. After FF5+Mom, residual alpha is significant for: ['XLK', 'XLY']. Factor R-squared reaches 0.60 for staples and 0.59 for financials, so the tilt is largely factor exposure by construction. Confirms the DESCO lens: an exclusion is a factor bet until decomposed, and it is not a free ethical or thematic lunch. Tested and shelved.",
+   "status": "rejected",
+   "about": "Tests whether dropping energy stocks from a portfolio secretly amounts to a bet on cheap versus expensive stocks.",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "AI-adoption language in 10-K filings carries residual alpha after size and factor control (MIT scoring, Increase Alpha's mega-cap critique applied from the start)",
+   "stage": "pipeline",
+   "reason": "14,155 EDGAR filings across 406 names scored for AI vocabulary per 10,000 words. AI language exploded 76x (0.01 in 2015 to 0.76 in 2026), but it does NOT predict returns: Fama-MacBeth t=1.80 controlling for momentum, reversal and size, and as a traded long-high/short-low book it LOST money (Sharpe -0.61, NW t=-2.12, stressed -1.20), failing every gate. DECLARED LIMITATION: term counting cannot distinguish 'we are deploying AI' from 'AI threatens our business' in risk factors, so the score mixes adoption with disclosed threat. A sentiment-aware or section-aware score is the honest follow-up. Talking about AI is not AI alpha.",
+   "status": "rejected",
+   "about": "MIT scored S&P 500 AI adoption from SEC filings; a replicator found the return premium vanishes once the 38 biggest companies leave the sample - the AI premium may be mega-cap beta in costume. I test adoption with the confounder control built in from day one.",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Fama-MacBeth cross-sectional panel: which characteristics are priced in US large caps once momentum, reversal, volatility, size, illiquidity and short-volume positioning are held constant",
+   "stage": "pipeline",
+   "reason": "Fama-MacBeth on 5,170 dates (348 names/date). Controlling for each other, momentum is NOT priced (t=1.22) and illiquidity is not either over the full history (t=1.26). Short-term reversal is the strongest price characteristic (t=3.29, +3.9%/yr GROSS), with a size effect (t=-2.86) and a volatility premium (t=2.78). This independently reproduces the Alpha158 verdict by a different method: the cross-section is short-term reversal in disguise, and reversal is precisely what the cost-stress book destroys. In the FINRA window the short-volume ratio carries the right sign (heavily shorted underperform) but is insignificant (t=-1.42, and -0.52 against price controls). Gross, before costs; no promotion.",
+   "status": "rejected",
+   "about": "cross-sectional panel regression, all characteristics at once",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "Disclosure text-change predicts returns (Cohen-Malloy-Nguyen 'Lazy Prices'): when a firm rewrites its 10-Q/10-K vs the prior year, its stock underperforms",
+   "stage": "pipeline",
+   "reason": "14,155 EDGAR 10-Q/10-K filings, 406 names. A year-over-year cosine text-change measure is methodology-sensitive and does NOT replicate Lazy Prices here: cleaned and seasonally controlled it is significant but OPPOSITE-signed (biggest changers slightly outperformed, low-minus-high -1.97%/qtr, |t|=2.55) and well below the stressed promotion bar (~raw t>=5). Most likely a survivorship artifact -- the informative short leg (changers heading for trouble) is delisted out of a current-constituents panel. A clean test needs survivorship-free data (CRSP). Tested and shelved; the vault holds at two.",
+   "status": "rejected",
+   "about": "EDGAR filing-language change (forensic text, orthogonal)",
+   "tested": "2026-07-26"
+  },
+  {
+   "claim": "BRAIN candidate: rank(anl4_cff_mean / ts_mean(anl4_cff_mean, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-26"
+  },
   {
    "claim": "Regime-timed equal-weight/cap-weight tilt: lean to equal-weight when market concentration is falling, cap-weight when rising",
    "stage": "pipeline",
@@ -792,8 +856,8 @@
   },
   {
    "claim": "Heston neural forward-approximator: params->IV surface to <0.5 vol pt with >=100x speedup (Horvath-Muguruza-Tomas program)",
-   "stage": "approximation-quality",
-   "reason": "MAE 66.86 vp / speedup 51684x missed gates",
+   "stage": "superseded-by-rev2-see-reason",
+   "reason": "CORRECTED 2026-07-29 (audit of vault against published notes, per lessons/rerun-verdicts-must-overwrite.md rule 2). The original reason recorded here, 'MAE 66.86 vp / speedup 51684x missed gates', was a BUG ARTIFACT, not a finding: a one-line bisection error pinned every implied vol at 150%, and a degenerate-case test (vol-of-vol -> 0 must recover Black-Scholes) caught it. The rev2 run PASSED every pre-set gate: 0.23 vol-point MAE (worst 11.8) on 9,000 self-generated surfaces, ~45,182x speedup vs characteristic-function integration, skew sanity pass; published in Working Paper No. 2 'Neural Pricing'. THIS ROW REMAINS status='rejected' DELIBERATELY, and not because the technique failed. The Heston surrogate is a PRICING TOOL that passed its own approximation gates, not an alpha edge that cleared stage 4/6, so counting it as a vault survivor would conflate two different claims and inflate the public survivor count. Promotion, if ever wanted, is the owner's gate. READ THIS BEFORE APPLYING CLAUDE.md RULE 2: do NOT treat neural approximation of a known pricing map as a dead idea. It works. What died was neural FORECASTING of financial series (chain v1.5 MLP, NW t=-4.37; zero-shot Kronos, DM t=-12.37). See docs/neural_house_view.md: data density, not model capacity, decides.",
    "status": "rejected",
    "about": "Trains a neural network to imitate a slow options-pricing model, trading a long calculation for an instant lookup.",
    "tested": "2026-07-09"
