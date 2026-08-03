@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vasilios Dimopoulos | The Risk Museum, Risk &amp; Quantitative Research</title>
-<meta name="description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 296 filed, 146 retired and on public view. The permanent collection is the ones that didn't survive.">
+<meta name="description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 302 filed, 168 retired and on public view. The permanent collection is the ones that didn't survive.">
 <link rel="canonical" href="https://theriskmuseum.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Risk Museum — Home of Risk Masterpieces">
-<meta property="og:description" content="296+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
+<meta property="og:description" content="302+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
 <meta property="og:url" content="https://theriskmuseum.com/">
 <meta property="og:site_name" content="The Risk Museum">
 <meta name="twitter:card" content="summary">
@@ -166,7 +166,7 @@ style="color:var(--blue);text-decoration:none">@VasiliDmop on X</a>
 &middot;
 <a href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank"
 rel="noopener" style="color:var(--blue);text-decoration:none">LinkedIn</a>
-&middot; updated July 30, 2026</p>
+&middot; updated August 3, 2026</p>
 <div class="banner"><b>First visit? Here is the whole idea.</b>
 Every night the engine I built tests trading ideas against the same statistical
 bar a professional desk uses. Almost all of them fail. Journals and marketing
@@ -208,17 +208,17 @@ limits, regime audits, and six-factor decomposition. The work runs nightly on an
 research pipeline I call the swarm. The permanent
 collection: the ones that didn&rsquo;t survive.</p>
 <div class="stats">
-  <div><b>296</b><span>ideas filed</span></div>
-  <div><b>146</b><span>retired, on view</span></div>
+  <div><b>302</b><span>ideas filed</span></div>
+  <div><b>168</b><span>retired, on view</span></div>
   <div><b>2</b><span>in the vault (survivors)</span></div>
-  <div><b>$898,631 over 22 years</b><span>$100k in an S&amp;P index fund, same window.
+  <div><b>$920,275 over 22 years</b><span>$100k in an S&amp;P index fund, same window.
     The bar every strategy must beat</span></div>
 </div>
-<p class="sub" style="font-size:.85rem">Of 296 ideas filed,
-170 carry a final verdict. 146 are retired and shown
-below, 2 held in the vault, and 22 still inside the
+<p class="sub" style="font-size:.85rem">Of 302 ideas filed,
+182 carry a final verdict. 168 are retired and shown
+below, 2 held in the vault, and 12 still inside the
 3-day publication lag. Of the rest, 3 are queued for
-testing and 123 could not run at all. These are machine-written
+testing and 117 could not run at all. These are machine-written
 candidates that call for paid data this free stack does not have. Counting those
 as &ldquo;in testing&rdquo; would flatter the number, so they are shown
 separately.</p>
@@ -292,13 +292,13 @@ own name, retired by my own gates.</span></li>
     </article>
 <h2 class="sect" id="collection">Tested strategies: the permanent
 collection</h2>
-<p class="sect-sub">146 strategies tested and retired &middot;
+<p class="sect-sub">168 strategies tested and retired &middot;
 newest first</p>
 <p class="sub">Each plaque records the claim and the gate that retired
 it. The strategies that reached a full backtest are totalled first, the
 way a desk reads its book. What $100k put into each would have
 become.</p>
-<p class='sect-sub' style='margin-top:1.4rem'>The backtested wall &middot; $100k in, sorted best to worst</p><div class='blotter-wrap'><table class='blotter'><thead><tr><th>Strategy</th><th class='bl-style'>Style</th><th>Sharpe</th><th>Max&nbsp;DD</th><th>Yrs</th><th>$100k&nbsp;&rarr;</th><th>Net&nbsp;P&amp;L</th><th>Return</th></tr></thead><tbody><tr class='bench'><td><div class='bl-name'>S&amp;P 500 index fund</div><div class='bl-why'>Buy and hold, the bar every strategy must clear</div><div class='bl-date'>same 22-year window</div></td><td class='bl-style'>index</td><td>&mdash;</td><td>&mdash;</td><td>22</td><td>$898,631</td><td class='pos'>+$798,631</td><td class='pos'>+799%</td></tr><tr><td><div class='bl-name'>Illiquid stocks earn a premium</div><div class='bl-why'>IS/OOS degradation 53% &gt; 30% (IS 1.47 -&gt; OOS 0.69) — overfitting signature</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Liquidity</td><td>1.19</td><td class='neg'>−9%</td><td>21</td><td>$311,748</td><td class='pos'>+$211,748</td><td class='pos'>+212%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal, retested on the ~500-n…</div><div class='bl-why'>Newey-West t=0.95 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.168 &gt; 0.05</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Reversal</td><td>0.19</td><td class='neg'>−17%</td><td>21</td><td>$128,773</td><td class='pos'>+$28,773</td><td class='pos'>+29%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal predicts returns</div><div class='bl-why'>Newey-West t=0.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.286 &gt; 0.05; IS/OOS degradation 71% &gt; 30% (IS 0.17 -&gt; OOS 0.05)…</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Reversal</td><td>0.12</td><td class='neg'>−19%</td><td>21</td><td>$116,411</td><td class='pos'>+$16,411</td><td class='pos'>+16%</td></tr><tr><td><div class='bl-name'>12-1 month cross-sectional momentum predicts returns</div><div class='bl-why'>Newey-West t=0.09 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.420 &gt; 0.05; in-sample Sharpe -0.02 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>0.02</td><td class='neg'>−42%</td><td>20</td><td>$93,380</td><td class='neg'>−$6,620</td><td class='neg'>−7%</td></tr><tr><td><div class='bl-name'>Negative return skewness predicts higher returns</div><div class='bl-why'>Newey-West t=-0.87 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.829 &gt; 0.05; in-sample Sharpe -0.09 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Skewness</td><td>−0.17</td><td class='neg'>−19%</td><td>21</td><td>$84,789</td><td class='neg'>−$15,211</td><td class='neg'>−15%</td></tr><tr><td><div class='bl-name'>Unusually high recent volume predicts higher returns</div><div class='bl-why'>Newey-West t=-2.31 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.987 &gt; 0.05; in-sample Sharpe -0.67 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Volume</td><td>−0.49</td><td class='neg'>−43%</td><td>21</td><td>$64,849</td><td class='neg'>−$35,151</td><td class='neg'>−35%</td></tr><tr><td><div class='bl-name'>12-1 momentum, retested on the ~500-name S&amp;P univer…</div><div class='bl-why'>Newey-West t=-0.98 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.798 &gt; 0.05; in-sample Sharpe -0.29 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.21</td><td class='neg'>−51%</td><td>20</td><td>$61,519</td><td class='neg'>−$38,481</td><td class='neg'>−38%</td></tr><tr><td><div class='bl-name'>Stocks with high trend consistency</div><div class='bl-why'>Newey-West t=-1.77 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.948 &gt; 0.05; in-sample Sharpe -0.34 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.38</td><td class='neg'>−53%</td><td>21</td><td>$53,648</td><td class='neg'>−$46,352</td><td class='neg'>−46%</td></tr><tr><td><div class='bl-name'>Proximity to 52-week high predicts returns</div><div class='bl-why'>Newey-West t=-2.22 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.988 &gt; 0.05; in-sample Sharpe -0.50 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.48</td><td class='neg'>−76%</td><td>20</td><td>$28,633</td><td class='neg'>−$71,367</td><td class='neg'>−71%</td></tr><tr><td><div class='bl-name'>Low lottery demand</div><div class='bl-why'>Newey-West t=-3.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.65 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Lottery</td><td>−0.70</td><td class='neg'>−77%</td><td>21</td><td>$23,572</td><td class='neg'>−$76,428</td><td class='neg'>−76%</td></tr><tr><td><div class='bl-name'>Low idiosyncratic volatility predicts higher returns</div><div class='bl-why'>Newey-West t=-3.89 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.74 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Low-risk</td><td>−0.80</td><td class='neg'>−77%</td><td>21</td><td>$22,966</td><td class='neg'>−$77,034</td><td class='neg'>−77%</td></tr></tbody></table></div><p class='blotter-foot'>Not one retired strategy cleared the index, which is why they hang here and not in the vault. Sharpe is an upper bound on a survivorship-biased universe; every figure is a hypothetical backtest net of assumed costs, not a live result. Every strategy here is cross-sectional across US large-caps, long the factor, short its opposite, so it touches every sector by construction; the Style column is the factor family, not a GICS sector.</p>
+<p class='sect-sub' style='margin-top:1.4rem'>The backtested wall &middot; $100k in, sorted best to worst</p><div class='blotter-wrap'><table class='blotter'><thead><tr><th>Strategy</th><th class='bl-style'>Style</th><th>Sharpe</th><th>Max&nbsp;DD</th><th>Yrs</th><th>$100k&nbsp;&rarr;</th><th>Net&nbsp;P&amp;L</th><th>Return</th></tr></thead><tbody><tr class='bench'><td><div class='bl-name'>S&amp;P 500 index fund</div><div class='bl-why'>Buy and hold, the bar every strategy must clear</div><div class='bl-date'>same 22-year window</div></td><td class='bl-style'>index</td><td>&mdash;</td><td>&mdash;</td><td>22</td><td>$920,275</td><td class='pos'>+$820,275</td><td class='pos'>+820%</td></tr><tr><td><div class='bl-name'>Illiquid stocks earn a premium</div><div class='bl-why'>IS/OOS degradation 53% &gt; 30% (IS 1.47 -&gt; OOS 0.69) — overfitting signature</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Liquidity</td><td>1.19</td><td class='neg'>−9%</td><td>21</td><td>$311,748</td><td class='pos'>+$211,748</td><td class='pos'>+212%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal, retested on the ~500-n…</div><div class='bl-why'>Newey-West t=0.95 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.168 &gt; 0.05</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Reversal</td><td>0.19</td><td class='neg'>−17%</td><td>21</td><td>$128,773</td><td class='pos'>+$28,773</td><td class='pos'>+29%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal predicts returns</div><div class='bl-why'>Newey-West t=0.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.286 &gt; 0.05; IS/OOS degradation 71% &gt; 30% (IS 0.17 -&gt; OOS 0.05)…</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Reversal</td><td>0.12</td><td class='neg'>−19%</td><td>21</td><td>$116,411</td><td class='pos'>+$16,411</td><td class='pos'>+16%</td></tr><tr><td><div class='bl-name'>12-1 month cross-sectional momentum predicts returns</div><div class='bl-why'>Newey-West t=0.09 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.420 &gt; 0.05; in-sample Sharpe -0.02 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>0.02</td><td class='neg'>−42%</td><td>20</td><td>$93,380</td><td class='neg'>−$6,620</td><td class='neg'>−7%</td></tr><tr><td><div class='bl-name'>Negative return skewness predicts higher returns</div><div class='bl-why'>Newey-West t=-0.87 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.829 &gt; 0.05; in-sample Sharpe -0.09 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Skewness</td><td>−0.17</td><td class='neg'>−19%</td><td>21</td><td>$84,789</td><td class='neg'>−$15,211</td><td class='neg'>−15%</td></tr><tr><td><div class='bl-name'>Unusually high recent volume predicts higher returns</div><div class='bl-why'>Newey-West t=-2.31 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.987 &gt; 0.05; in-sample Sharpe -0.67 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Volume</td><td>−0.49</td><td class='neg'>−43%</td><td>21</td><td>$64,849</td><td class='neg'>−$35,151</td><td class='neg'>−35%</td></tr><tr><td><div class='bl-name'>12-1 momentum, retested on the ~500-name S&amp;P univer…</div><div class='bl-why'>Newey-West t=-0.98 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.798 &gt; 0.05; in-sample Sharpe -0.29 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.21</td><td class='neg'>−51%</td><td>20</td><td>$61,519</td><td class='neg'>−$38,481</td><td class='neg'>−38%</td></tr><tr><td><div class='bl-name'>Stocks with high trend consistency</div><div class='bl-why'>Newey-West t=-1.77 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.948 &gt; 0.05; in-sample Sharpe -0.34 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.38</td><td class='neg'>−53%</td><td>21</td><td>$53,648</td><td class='neg'>−$46,352</td><td class='neg'>−46%</td></tr><tr><td><div class='bl-name'>Proximity to 52-week high predicts returns</div><div class='bl-why'>Newey-West t=-2.22 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.988 &gt; 0.05; in-sample Sharpe -0.50 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.48</td><td class='neg'>−76%</td><td>20</td><td>$28,633</td><td class='neg'>−$71,367</td><td class='neg'>−71%</td></tr><tr><td><div class='bl-name'>Low lottery demand</div><div class='bl-why'>Newey-West t=-3.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.65 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Lottery</td><td>−0.70</td><td class='neg'>−77%</td><td>21</td><td>$23,572</td><td class='neg'>−$76,428</td><td class='neg'>−76%</td></tr><tr><td><div class='bl-name'>Low idiosyncratic volatility predicts higher returns</div><div class='bl-why'>Newey-West t=-3.89 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.74 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Low-risk</td><td>−0.80</td><td class='neg'>−77%</td><td>21</td><td>$22,966</td><td class='neg'>−$77,034</td><td class='neg'>−77%</td></tr></tbody></table></div><p class='blotter-foot'>Not one retired strategy cleared the index, which is why they hang here and not in the vault. Sharpe is an upper bound on a survivorship-biased universe; every figure is a hypothetical backtest net of assumed costs, not a live result. Every strategy here is cross-sectional across US large-caps, long the factor, short its opposite, so it touches every sector by construction; the Style column is the factor family, not a GICS sector.</p>
 <details class="note"><summary style="cursor:pointer;color:var(--blue)">How to read the collection, including what &ldquo;BRAIN candidate&rdquo; and the retirement codes mean</summary>
 <p style="margin:.6rem 0 0"><b>BRAIN candidates</b> are machine-written alpha
 formulas (in WorldQuant BRAIN syntax) that the swarm screens on four fast
@@ -310,6 +310,182 @@ quality score &middot; <b>LOW_SUB_UNIVERSE_SHARPE</b>: fails on the smaller-stoc
 subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
 &middot; <b>SELF_CORRELATION</b>: it duplicates a signal I already have.</p></details>
 
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal</h3>
+      <div class='tech'>BRAIN candidate: -rank(ts_zscore(rel_ret_part, 250))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal built from options prices</h3>
+      <div class='tech'>BRAIN candidate: rank(zscore(implied_volatility_mean_skew_10) - zscore(diluted_shares_outstanding_adjustment_avg))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal built from analyst estimates</h3>
+      <div class='tech'>BRAIN candidate: rank(anl4_afv4_div_low / ts_mean(anl4_afv4_div_low, 120))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_rank(parkinson_volatility_90, 250))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal built from news buzz</h3>
+      <div class='tech'>BRAIN candidate: group_rank(scl12_buzz_fast_d1 / ts_mean(scl12_buzz_fast_d1, 120), industry)</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal built from analyst estimates</h3>
+      <div class='tech'>BRAIN candidate: rank(zscore(pv13_com_page_rank) - zscore(anl4_afv4_dts_spe))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal built from past returns</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_corr(finite_intangibles_gross_value, returns, 20))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal</h3>
+      <div class='tech'>BRAIN candidate: group_zscore(ts_delta(effective_tax_rate_continuing_ops_2, 120), industry)</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_rank(finite_intangibles_gross_value, 250))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal built from analyst estimates</h3>
+      <div class='tech'>BRAIN candidate: -rank(anl4_bvps_median / ts_mean(anl4_bvps_median, 120))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_delta(parkinson_volatility_180, 60))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>A machine-written signal built from past returns</h3>
+      <div class='tech'>BRAIN candidate: rank(ts_corr(finite_intangibles_gross_value, returns, 20))</div>
+      <div class="cause">Retired at <b>brain-checks</b>:
+        LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-29</div>
+      <h3>Asks a 25-million-parameter pretrained model to out-forecast a 20-parameter regression on volatility.</h3>
+      <div class='tech'>Kronos-small (24.7M-param K-line foundation model, zero-shot) beats expanding-window log-Parkinson HAR on 5-day realized volatility (prereg docs/kronos_vol_prereg.md, locked 2026-07-21 before any run)</div>
+      <div class="cause">Retired at <b>vs-linear-frontier-oos</b>:
+        Pre-registered head-to-head: HAR beats zero-shot Kronos on all 21 tickers (19/21 individually significant), pooled QLIKE 0.148 vs 0.591 (~4x), DM NW-t=-12.37. Verdict existed only in docs since 2026-07-21; filed to the …</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-28</div>
+      <h3>Tests whether stocks with chunky price grids relative to their volatility trend differently from fine-grid names.</h3>
+      <div class='tech'>Volatility-normalised tick size conditions short-horizon trend/reversal in US large caps (Kurth-Eisler-Rej-Bouchaud 2026 transfer): high tick-to-dollar-vol names behave like the papers large-tick tier (continuation survives), low ratio like small-tick (dead or reverting)</div>
+      <div class="cause">Retired at <b>stage4_validation</b>:
+        none of the 4 declared looks clears the deflated bar (best NW t=0.10 vs t_bar=2.96, family n=4); the conditioning contrast (continuation high-minus-low, ann=6.14%, NW t=3.21) clears the deflated t bar but fails: …</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-28</div>
+      <h3>One of the oldest anomalies says companies that grow assets fastest underperform - empire-building destroys value. The AI buildout is history&#x27;s biggest capex boom since WWII (Bridgewater). Is the old rule holding, or is this the cycle that breaks it?</h3>
+      <div class='tech'>Asset-growth anomaly vs the AI capex boom: the classic high-capex-underperforms effect (Cooper-Gulen-Schill) weakens or inverts for AI-buildout leaders post-2023</div>
+      <div class="cause">Retired at <b>validate</b>:
+        neither declared look clears the joint family gate (n=2, bar t&gt;=2.74): full-sample anomaly D1-D10 NW t=-0.71 (stressed -0.6), post-2023 inversion D10-D1 NW t=0.91 (stressed 0.33)</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-28</div>
+      <h3>Tests whether the recent gains of a stock&#x27;s connected peers predict its own next move, beyond its own trend.</h3>
+      <div class='tech'>Peer-momentum spillover: sector/rolling-correlation-graph peer signals add return information beyond own momentum AND Moskowitz-Grinblatt industry momentum (point-in-time edges, turnover-costed)</div>
+      <div class="cause">Retired at <b>4</b>:
+        Neither graph&#x27;s peer-momentum signal carries information beyond own momentum and Moskowitz-Grinblatt industry momentum once those are residualized out cross-sectionally. Sector leave-one-out peer signal: NW t=0.27 vs …</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-28</div>
+      <h3>Tests whether the market&#x27;s price of fear and the bond term premium predict WHEN the classic factor strategies pay, instead of assuming they always pay the same.</h3>
+      <div class='tech'>Time-varying price of risk (Adrian-Crump-Moench JFE 2015 lineage): lagged price-of-risk states (VIX level, ACM term premium, term spread) forecast the FF factor premia time-series — factor timing via priced states, not constant lambdas</div>
+      <div class="cause">Retired at <b>4</b>:
+        Newey-West t=-0.14 &lt; 2.50 (base 2.5, family n=1); bootstrap P(Sharpe&lt;=0)=0.5682 &gt; 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=-0.07 &lt; 2.5 — edge has no buffer; IS/OOS degradation …</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-28</div>
+      <h3>Tests whether American fear prices the whole world&#x27;s stock markets, and whether emerging markets load on it harder than developed ones.</h3>
+      <div class='tech'>Global price of risk (Adrian-Stackman-Vogt IMF ER 2019): the US-VIX-based price of risk forecasts international equity returns (EFA/EEM) with heterogeneous loadings — US fear is a global state variable</div>
+      <div class="cause">Retired at <b>4</b>:
+        No leg clears the gates (family_n=3, deflated bar t&gt;=2.87). EFA leg is dead (NW t=0.11). EEM leg: NW t=2.19 &lt; 2.87, stressed t=1.09, IS/OOS degradation 37%. The heterogeneity leg (EEM-EFA, the paper&#x27;s core claim) clears …</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-28</div>
+      <h3>The BIS&#x27;s 2026 warning in one sentence: hyperscalers flipped from cash machines to net borrowers to fund AI. The oldest financing anomaly says heavy issuers underperform. Is the oldest rule holding through the loudest capex boom - or is this the exception the borrowers are betting on?</h3>
+      <div class='tech'>External-financing anomaly, AI-capex edition: heavy net debt issuers among AI-buildout names underperform (BIS 2026: top-5 AI commitments now exceed free cash flow; the classic Bradshaw-Richardson-Sloan effect meets the biggest debt-funded capex boom since the telecoms)</div>
+      <div class="cause">Retired at <b>stage4_validate</b>:
+        Right sign, no significance. Trailing-12m BRS net external financing (PIT from EDGAR companyfacts cash-flow XBRL, 435 tickers, 27,772 PIT events, coverage from 2010-05), quintile L/S long retirers / short heavy issuers: …</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-28</div>
+      <h3>A weather cycle with a 75-year public index and a mechanical pass-through story (crops, cooling demand, hydro shortfalls). Kin to the retired sunshine study but a different animal: seasonal-scale supply shocks, not daily mood. CIBC&#x27;s own rule of thumb - normal El Nino adds ~5% to commodity inflation - is the claim I make testable in equities.</h3>
+      <div class='tech'>El Nino regimes (NOAA ONI index) predict relative returns of commodity-sensitive equity sectors: energy and staples names outperform the panel during El Nino phases as food and fuel inflation passes through</div>
+      <div class="cause">Retired at <b>4</b>:
+        Newey-West t=0.24 &lt; 2.50 (base 2.5, family n=1); bootstrap P(Sharpe&lt;=0)=0.7298 &gt; 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=0.12 &lt; 2.5 — edge has no buffer; IS/OOS degradation …</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-28</div>
+      <h3>A global affordability map (UN Habitat via Visual Capitalist) shows the US at 4.5x income - 7th most affordable of 181 - while China sits at 34.6x. The testable US question: does a stretched domestic affordability ratio predict homebuilder underperformance? Intuitive, probably weak - a tested rejection is the likely honest outcome, and that is museum content.</h3>
+      <div class='tech'>Housing affordability ceiling: when the US home-price-to-income ratio is stretched (top tercile), US homebuilder stocks (DHI/LEN/PHM/NVR) subsequently underperform the panel over the next 1-2 quarters as affordability caps demand</div>
+      <div class="cause">Retired at <b>4</b>:
+        Newey-West t=0.67 &lt; 2.50 (base 2.5, family n=1); bootstrap P(Sharpe&lt;=0)=0.1873 &gt; 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=0.33 &lt; 2.5 — edge has no buffer; IS/OOS degradation …</div>
+      
+    </article>
+    <article class="stone">
+      <div class="rip">Tested 2026-07-28</div>
+      <h3>Table 8.1 row 3: income funds forced to sell on a dividend cut may push price below fair value, creating a reversal. Testable event study; needs a dividend-action date harvest.</h3>
+      <div class='tech'>Dividend-cut forced-selling overshoot (Manual of Ideas Table 8.1, &#x27;dividend cancellation&#x27;): stocks cutting/suspending dividends overshoot to the downside on yield-seeker forced selling, then partially reverse over the next 1-3 months</div>
+      <div class="cause">Retired at <b>4</b>:
+        reversal (tradeable) leg fails the gates: margin-of-safety rerun (gross halved, costs doubled) t=1.85 &lt; 2.5 — edge has no buffer</div>
+      
+    </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-27</div>
       <h3>A machine-written signal</h3>

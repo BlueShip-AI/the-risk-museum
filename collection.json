@@ -1,11 +1,187 @@
 {
  "museum": "The Risk Museum \u2014 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-07-30",
- "works_tested": 296,
+ "exported": "2026-08-03",
+ "works_tested": 302,
  "in_the_vault": 2,
  "license": "CC BY 4.0 \u2014 reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(rel_ret_part, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(implied_volatility_mean_skew_10) - zscore(diluted_shares_outstanding_adjustment_avg))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: rank(anl4_afv4_div_low / ts_mean(anl4_afv4_div_low, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(parkinson_volatility_90, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(scl12_buzz_fast_d1 / ts_mean(scl12_buzz_fast_d1, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(pv13_com_page_rank) - zscore(anl4_afv4_dts_spe))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(finite_intangibles_gross_value, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(effective_tax_rate_continuing_ops_2, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(finite_intangibles_gross_value, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(anl4_bvps_median / ts_mean(anl4_bvps_median, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(parkinson_volatility_180, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(finite_intangibles_gross_value, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "Kronos-small (24.7M-param K-line foundation model, zero-shot) beats expanding-window log-Parkinson HAR on 5-day realized volatility (prereg docs/kronos_vol_prereg.md, locked 2026-07-21 before any run)",
+   "stage": "vs-linear-frontier-oos",
+   "reason": "Pre-registered head-to-head: HAR beats zero-shot Kronos on all 21 tickers (19/21 individually significant), pooled QLIKE 0.148 vs 0.591 (~4x), DM NW-t=-12.37. Verdict existed only in docs since 2026-07-21; filed to the store 2026-07-28 so rule 2 can prevent a retest.",
+   "status": "rejected",
+   "about": "Asks a 25-million-parameter pretrained model to out-forecast a 20-parameter regression on volatility.",
+   "tested": "2026-07-29"
+  },
+  {
+   "claim": "Volatility-normalised tick size conditions short-horizon trend/reversal in US large caps (Kurth-Eisler-Rej-Bouchaud 2026 transfer): high tick-to-dollar-vol names behave like the papers large-tick tier (continuation survives), low ratio like small-tick (dead or reverting)",
+   "stage": "stage4_validation",
+   "reason": "none of the 4 declared looks clears the deflated bar (best NW t=0.10 vs t_bar=2.96, family n=4); the conditioning contrast (continuation high-minus-low, ann=6.14%, NW t=3.21) clears the deflated t bar but fails: margin-of-safety rerun (gross halved, costs doubled) t=1.64 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 80% > 30% (IS 0.89 -> OOS 0.18) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "Tests whether stocks with chunky price grids relative to their volatility trend differently from fine-grid names.",
+   "tested": "2026-07-28"
+  },
+  {
+   "claim": "Asset-growth anomaly vs the AI capex boom: the classic high-capex-underperforms effect (Cooper-Gulen-Schill) weakens or inverts for AI-buildout leaders post-2023",
+   "stage": "validate",
+   "reason": "neither declared look clears the joint family gate (n=2, bar t>=2.74): full-sample anomaly D1-D10 NW t=-0.71 (stressed -0.6), post-2023 inversion D10-D1 NW t=0.91 (stressed 0.33)",
+   "status": "rejected",
+   "about": "One of the oldest anomalies says companies that grow assets fastest underperform - empire-building destroys value. The AI buildout is history's biggest capex boom since WWII (Bridgewater). Is the old rule holding, or is this the cycle that breaks it?",
+   "tested": "2026-07-28"
+  },
+  {
+   "claim": "Peer-momentum spillover: sector/rolling-correlation-graph peer signals add return information beyond own momentum AND Moskowitz-Grinblatt industry momentum (point-in-time edges, turnover-costed)",
+   "stage": "4",
+   "reason": "Neither graph's peer-momentum signal carries information beyond own momentum and Moskowitz-Grinblatt industry momentum once those are residualized out cross-sectionally. Sector leave-one-out peer signal: NW t=0.27 vs deflated bar 2.74 (family n=2), bootstrap P(Sharpe<=0)=0.39, stressed t=-0.87, stage-6 residual alpha t=0.55. Corr top-10 peer signal: NW t=-1.63 (wrong sign), stage-6 alpha t=-1.40. Both fail stage 4 and stage 6 outright; not marginal.",
+   "status": "rejected",
+   "about": "Tests whether the recent gains of a stock's connected peers predict its own next move, beyond its own trend.",
+   "tested": "2026-07-28"
+  },
+  {
+   "claim": "Time-varying price of risk (Adrian-Crump-Moench JFE 2015 lineage): lagged price-of-risk states (VIX level, ACM term premium, term spread) forecast the FF factor premia time-series \u2014 factor timing via priced states, not constant lambdas",
+   "stage": "4",
+   "reason": "Newey-West t=-0.14 < 2.50 (base 2.5, family n=1); bootstrap P(Sharpe<=0)=0.5682 > 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=-0.07 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 771% > 30% (IS 0.02 -> OOS -0.13) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "Tests whether the market's price of fear and the bond term premium predict WHEN the classic factor strategies pay, instead of assuming they always pay the same.",
+   "tested": "2026-07-28"
+  },
+  {
+   "claim": "Global price of risk (Adrian-Stackman-Vogt IMF ER 2019): the US-VIX-based price of risk forecasts international equity returns (EFA/EEM) with heterogeneous loadings \u2014 US fear is a global state variable",
+   "stage": "4",
+   "reason": "No leg clears the gates (family_n=3, deflated bar t>=2.87). EFA leg is dead (NW t=0.11). EEM leg: NW t=2.19 < 2.87, stressed t=1.09, IS/OOS degradation 37%. The heterogeneity leg (EEM-EFA, the paper's core claim) clears the deflated NW bar (t=4.19) but fails the margin-of-safety rerun (stressed t=2.10 < 2.5) and shows a 62% IS/OOS Sharpe degradation (0.95 -> 0.36) \u2014 the EM loading on US fear was real in-sample (GFC era) and has decayed. Promising but unproven is a rejection.",
+   "status": "rejected",
+   "about": "Tests whether American fear prices the whole world's stock markets, and whether emerging markets load on it harder than developed ones.",
+   "tested": "2026-07-28"
+  },
+  {
+   "claim": "External-financing anomaly, AI-capex edition: heavy net debt issuers among AI-buildout names underperform (BIS 2026: top-5 AI commitments now exceed free cash flow; the classic Bradshaw-Richardson-Sloan effect meets the biggest debt-funded capex boom since the telecoms)",
+   "stage": "stage4_validate",
+   "reason": "Right sign, no significance. Trailing-12m BRS net external financing (PIT from EDGAR companyfacts cash-flow XBRL, 435 tickers, 27,772 PIT events, coverage from 2010-05), quintile L/S long retirers / short heavy issuers: NW t=1.63 < deflated bar 2.74 (family capex_financing, n=2); bootstrap P(Sharpe<=0)=0.0558 > 0.025; margin-of-safety stress t=0.54 < 2.5; FF5+Mom residual alpha 0.63%/yr, t=0.77 < 2.0. AI-capex subsample shows the anomaly direction more strongly (Sharpe 0.46, ann +5.07%, t=1.78) but also fails; 'promising but unproven' is a rejection reason, not a pass.",
+   "status": "rejected",
+   "about": "The BIS's 2026 warning in one sentence: hyperscalers flipped from cash machines to net borrowers to fund AI. The oldest financing anomaly says heavy issuers underperform. Is the oldest rule holding through the loudest capex boom - or is this the exception the borrowers are betting on?",
+   "tested": "2026-07-28"
+  },
+  {
+   "claim": "El Nino regimes (NOAA ONI index) predict relative returns of commodity-sensitive equity sectors: energy and staples names outperform the panel during El Nino phases as food and fuel inflation passes through",
+   "stage": "4",
+   "reason": "Newey-West t=0.24 < 2.50 (base 2.5, family n=1); bootstrap P(Sharpe<=0)=0.7298 > 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=0.12 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 117% > 30% (IS 0.43 -> OOS -0.07) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "A weather cycle with a 75-year public index and a mechanical pass-through story (crops, cooling demand, hydro shortfalls). Kin to the retired sunshine study but a different animal: seasonal-scale supply shocks, not daily mood. CIBC's own rule of thumb - normal El Nino adds ~5% to commodity inflation - is the claim I make testable in equities.",
+   "tested": "2026-07-28"
+  },
+  {
+   "claim": "Housing affordability ceiling: when the US home-price-to-income ratio is stretched (top tercile), US homebuilder stocks (DHI/LEN/PHM/NVR) subsequently underperform the panel over the next 1-2 quarters as affordability caps demand",
+   "stage": "4",
+   "reason": "Newey-West t=0.67 < 2.50 (base 2.5, family n=1); bootstrap P(Sharpe<=0)=0.1873 > 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=0.33 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 171% > 30% (IS 1.91 -> OOS -1.36) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "A global affordability map (UN Habitat via Visual Capitalist) shows the US at 4.5x income - 7th most affordable of 181 - while China sits at 34.6x. The testable US question: does a stretched domestic affordability ratio predict homebuilder underperformance? Intuitive, probably weak - a tested rejection is the likely honest outcome, and that is museum content.",
+   "tested": "2026-07-28"
+  },
+  {
+   "claim": "Dividend-cut forced-selling overshoot (Manual of Ideas Table 8.1, 'dividend cancellation'): stocks cutting/suspending dividends overshoot to the downside on yield-seeker forced selling, then partially reverse over the next 1-3 months",
+   "stage": "4",
+   "reason": "reversal (tradeable) leg fails the gates: margin-of-safety rerun (gross halved, costs doubled) t=1.85 < 2.5 \u2014 edge has no buffer",
+   "status": "rejected",
+   "about": "Table 8.1 row 3: income funds forced to sell on a dividend cut may push price below fair value, creating a reversal. Testable event study; needs a dividend-action date harvest.",
+   "tested": "2026-07-28"
+  },
   {
    "claim": "BRAIN candidate: rank(ts_delta(domestic_ebit_value, 10))",
    "stage": "brain-checks",
