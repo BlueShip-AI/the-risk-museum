@@ -1,0 +1,169 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nothing Could Have Hedged This Book &middot; Working Paper No. 21</title>
+<meta name="description" content="The two legs of the Situational Awareness book were correlated at 0.70, which caps any hedge between them at about 29% risk reduction however it is sized. The failure was instrument selection, not sizing and not leverage. Measured from the fund's own 13F and public prices.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/hedge-27-percent.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:16px/1.55 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif; font-variant-numeric:lining-nums; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+.plain { font-size:1.02rem; line-height:1.45; text-align:center; margin:0 auto 1.4rem;
+  padding:.7rem 1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; max-width:600px; }
+
+.tearmark { position:absolute; top:0; right:0; z-index:60; display:block;
+  padding:.5rem .9rem .55rem; background:var(--card);
+  border-left:1px solid var(--line); border-bottom:1px solid var(--line);
+  border-bottom-left-radius:12px; text-decoration:none; line-height:1.3;
+  box-shadow:0 2px 10px rgba(0,0,0,.07) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font-size:.57rem; font-weight:600; color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.84rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:1024px) {
+  body { padding-top:3.7rem }
+  .tearmark { padding:.4rem .7rem .45rem }
+  .tearmark i { font-size:.78rem } }
+@media print { .tearmark { display:none } }
+</style></head><body><main>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+</nav>
+
+<div class="hdr">
+<h1>Nothing Could Have Hedged This Book</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 21 &middot; 3 August 2026</div>
+</div>
+
+<p class="plain"><b>In one line:</b> The two legs of the Situational Awareness book were correlated at 0.70, and that number caps any hedge between them at about 29% risk reduction no matter how it is sized. The failure was instrument selection, not sizing and not leverage. Every figure comes from their own public filing and public prices, and the disclosed short book is partial, which is the one fact that could overturn this.</p>
+
+<h2>1. The claim I am making, and the one I am not</h2>
+<p>The consensus reading, put well by Tae Kim on 30 July, is that the positions were right and the leverage was wrong: at four times gross, a drawdown became a liquidation, and unlevered the fund would have finished near the top of its field.</p>
+<p>I agree with all of that. The proximate cause was margin, and I have nothing to add to it.</p>
+<p>What I want to add is one layer underneath. Leverage is judged against net exposure, and net exposure is a model. This note is about what happens when that model is built on two baskets that cannot offset each other, and about how cheaply you can find that out in advance.</p>
+<p>I also want to correct something I believed when I started. My first draft argued the hedge was mis-sized. It was not. Working through the arithmetic showed the opposite, and the corrected version is the more interesting result.</p>
+<h2>2. What the filing shows</h2>
+<p>The Q1 2026 13F is public, filed 18 May 2026 for the period ending 31 March, forty-two positions totalling $13.68bn.</p>
+<p>The long book is $3.86bn of small and mid-cap AI infrastructure. The eight largest names, about 91% of it, are Bloom Energy, Sandisk, CoreWeave, IREN, Core Scientific, Applied Digital, Riot and CleanSpark.</p>
+<p>The disclosed short side is not software. It is $8.46bn of notional in <strong>puts on mega-cap semiconductors and Oracle</strong>: the VanEck semiconductor ETF, Nvidia, Oracle, Broadcom, AMD, Micron, TSMC, ASML and Intel. There is also $1.36bn of calls, several on names that appear in the put list as well, so the disclosed structure is more layered than long-one-basket-against-short-another.</p>
+<p>Both sides are the AI capital cycle. One side is the high-beta expression of it and the other is the low-beta expression.</p>
+<h2>3. How much these two baskets can hedge each other</h2>
+<p>I formed an equal-weight daily-return basket of the disclosed long names and another of the names underlying the disclosed puts, then repeated the exercise weighting by the actual dollar amounts in the filing. Prices are adjusted daily closes, June 2025 through July 2026.</p>
+<p>The relevant quantity is not how the hedge was sized. It is how much risk a short in the second basket can remove from a long in the first, at best. For two return series with correlation ρ, the minimum achievable volatility of a hedged book is the unhedged volatility times the square root of one minus ρ squared. That sets a ceiling that no sizing decision can beat.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Window</th>
+<th>Correlation</th>
+<th>Ceiling: most any hedge can remove</th>
+<th>Dollar-neutral achieved</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Before July</td>
+<td>0.70</td>
+<td><strong>28.6%</strong></td>
+<td>27.2%</td>
+</tr>
+<tr>
+<td>July</td>
+<td>0.95</td>
+<td>67.3%</td>
+<td>42.8%</td>
+</tr>
+</tbody>
+</table></div>
+<p>Before the stress, the most that shorting these semiconductors could ever have removed from that long book was <strong>28.6% of its volatility</strong>. The dollar-neutral version achieved 27.2%, which is 95% of the ceiling.</p>
+<p>The hedge was close to as good as this pair of baskets allows. The pair is the problem.</p>
+<p>Value-weighting by the filing's own dollar amounts changes nothing material: correlation 0.76 and 27.6% removed before July.</p>
+<h2>4. Why 0.70 is the worst number to have</h2>
+<p>A correlation of 0.70 between your long book and your short book is an uncomfortable place to sit.</p>
+<p>It is high enough that both sides fall together when the theme unwinds. In July the correlation rose to 0.95, and the two baskets became close to the same asset in the month it mattered.</p>
+<p>It is also too low for the short to do much work. Half of the long book's variance is not explained by the short book at all, and that half is the half you keep, permanently, no matter how the hedge is sized.</p>
+<p>So the book carried about three quarters of the volatility of simply being long the high-beta leg. That is a property of the instruments chosen, not of the risk management applied to them.</p>
+<h2>5. What that does to four times gross</h2>
+<p>Four times gross with roughly flat net means about two dollars long against two dollars short. On legs that retain three quarters of their outright risk, that book carries roughly <strong>1.5 times the volatility of being outright long the high-beta leg, unlevered</strong>.</p>
+<p>That is the number worth carrying away. Not that the leverage was reckless by convention, and not that the hedge was badly built, but that a structure presented as four times gross and near-flat net behaved like something closer to one and a half times long a single crowded factor.</p>
+<h2>6. The cheap check</h2>
+<p>The check that surfaces this is a regression of the long book on the short book, run on public prices, before the position is sized.</p>
+<p>If the correlation is low, the short leg cannot remove much risk and you should know the ceiling. If the correlation is very high, you have a real hedge but you should ask what alpha is left after it. The awkward middle, somewhere around 0.7, is where a book looks hedged on the exposure report and is not hedged in the returns.</p>
+<p>A standing rule in my own checker, borrowed from a portfolio manager who has run this kind of book, has said since 26 July that funds fail from portfolio construction and unmanaged factor exposure rather than from a shortage of ideas, and that every result should be decomposed into intended idiosyncratic edge against unintended factor drift.</p>
+<p>The Bank of England flagged the ingredients in its July Financial Stability Report, published before the event: prime brokerage balances up around 40% in a year, and hedge fund equity positions increasingly concentrated in semiconductors. It framed the risk as leverage and concentration, which is Tae Kim's framing. Mine is narrower and sits underneath it.</p>
+<h2>7. What I do not know, and what would overturn this</h2>
+<p><strong>The disclosed short book is partial, and this is the caveat that matters most.</strong> A 13F captures long positions and options, not short stock. If the undisclosed portion was large and genuinely uncorrelated with the long leg, the real book was better hedged than the disclosed one, my correlations overstate the problem, and the weight goes back onto leverage where Tae Kim put it. I cannot rule that out.</p>
+<p><strong>They held puts, not linear shorts.</strong> A put's exposure changes with the underlying and with time. The correlation in section 3 is a statement about how two baskets co-move and does not depend on that. The volatility comparison in sections 3 through 5 treats a dollar of put notional as a dollar of linear short, which is an approximation, and it runs against the fund: a put's effective short exposure rises as the underlying falls, so the real hedge probably worked better in July than my linear proxy shows.</p>
+<p><strong>The filing was already stale.</strong> A 5.6% position in Nebius carries a May event date and a near-20% position in a micro-cap carries a June one. Neither is in the March filing.</p>
+<p><strong>I have not verified the fund's size, leverage or returns.</strong> Those come from press reporting and vary by source. Sections 3 and 4 do not depend on them. Section 5 does depend on the reported four times gross.</p>
+<h2>8. The transferable part</h2>
+<p>Gross exposure is a fact. Net exposure is a model, and the model assumes the two sides respond to different things.</p>
+<p>Regress your long book on your short book. The correlation tells you the most any hedge between them can remove, and if that ceiling is low, no amount of careful sizing will raise it. You are choosing the wrong instrument, and the fix is a different short, not a better-sized one.</p>
+<p>I run this check on my own paper book nightly, and it currently flags two desks carrying more than half the book's return between them, which is disclosed on the Trading Floor page. Publishing that is the point. A risk report that never shows anything is not being read.</p>
+<hr />
+<p><strong>Sources.</strong> Situational Awareness Partners LP Form 13F-HR, filed 2026-05-18 for the period ended 2026-03-31, and Schedules 13G for Nebius Group and SharonAI Holdings, all via SEC EDGAR. Daily adjusted closes from public market data. Bank of England Financial Stability Report, July 2026. Tae Kim, "The Big Lesson from the Implosion of Leopold Aschenbrenner's $20 Billion Situational Awareness Hedge Fund," 30 July 2026.</p>
+<p><strong>Method.</strong> Equal-weight and filing-value-weight daily-return baskets of the disclosed long names and of the names underlying the disclosed puts. Correlations and betas by ordinary least squares on daily returns. Volatility is the standard deviation of daily returns annualised at 252 days. The hedging ceiling is the standard minimum-variance result: a hedged book cannot fall below the unhedged volatility times the square root of one minus the squared correlation.</p>
+<p><em>Educational research only. Not investment advice. This note is about a portfolio structure. It makes no claim about any individual's conduct or ability.</em></p>
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</main></body></html>
