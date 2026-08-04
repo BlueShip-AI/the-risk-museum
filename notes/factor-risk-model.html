@@ -1,0 +1,213 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building a Factor Risk Model From Scratch &middot; Working Paper No. 24</title>
+<meta name="description" content="A cross-sectional multi-factor equity risk model built from public data, in the architecture of a commercial risk model: 436 names, 2020-2026, factor returns, a covariance matrix, and a portfolio risk decomposition — with the honest result that 2 of 16 factors clear significance.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/factor-risk-model.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:16px/1.55 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif; font-variant-numeric:lining-nums; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+.plain { font-size:1.02rem; line-height:1.45; text-align:center; margin:0 auto 1.4rem;
+  padding:.7rem 1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; max-width:600px; }
+
+.tearmark { position:absolute; top:0; right:0; z-index:60; display:block;
+  padding:.5rem .9rem .55rem; background:var(--card);
+  border-left:1px solid var(--line); border-bottom:1px solid var(--line);
+  border-bottom-left-radius:12px; text-decoration:none; line-height:1.3;
+  box-shadow:0 2px 10px rgba(0,0,0,.07) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font-size:.57rem; font-weight:600; color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.84rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:1024px) {
+  body { padding-top:3.7rem }
+  .tearmark { padding:.4rem .7rem .45rem }
+  .tearmark i { font-size:.78rem } }
+@media print { .tearmark { display:none } }
+</style></head><body><main>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+</nav>
+
+<div class="hdr">
+<h1>Building a Factor Risk Model From Scratch</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 24 &middot; 5 August 2026</div>
+</div>
+
+<p class="plain"><b>In one line:</b> I built a cross-sectional multi-factor equity risk model &mdash; the same architecture a commercial risk model uses, not a reproduction of one &mdash; and of 16 factors tested on 436 names since 2020, only two clear significance.</p>
+
+<p class="abstract"><span class="lab">Abstract.</span> A factor risk model
+decomposes a stock&rsquo;s return into a small number of common drivers plus a
+residual, and every large risk desk buys one from a vendor whose factor
+definitions and estimation weights are proprietary. I built the same class of
+model from public daily price data instead: five style factors and an
+industry factor per sector, a weighted cross-sectional regression run at every
+date to extract factor returns, a factor covariance matrix, a specific-risk
+estimate, and a portfolio-level risk decomposition. Run on 436 US names from
+2020 to 2026, two of sixteen factors clear a Newey-West t-stat of 2 on the
+period &mdash; Size and the Energy industry factor &mdash; and a diversified
+100-name equal-weighted book turns out to be 98% factor risk once specific
+risk is allowed to diversify away, which is the actual point of building one
+of these.</p>
+<div class="keywords"><b>Keywords:</b> factor risk model, cross-sectional
+regression, factor covariance, specific risk, portfolio risk decomposition,
+Newey-West.</div>
+
+<h2>1. Why this, and what it is not</h2>
+<p>A factor risk model decomposes a stock&rsquo;s return into a small number of
+common drivers &mdash; size, momentum, industry, and so on &mdash; plus
+whatever is left over, which is the only part that counts as genuine stock
+selection. Every large risk desk buys one of these off the shelf, and the
+vendors (MSCI Barra, Qontigo/Axioma) do not publish their factor definitions
+or estimation weights. That is proprietary, and I have not reproduced it.</p>
+<p>What I built instead is the same <i>class</i> of model, from public daily
+price data, so the mechanics are fully inspectable: five style factors, an
+industry factor per GICS-style sector bucket, a cross-sectional regression run
+at every date to extract factor returns, a factor covariance matrix, a
+specific-risk estimate, and a portfolio-level risk decomposition. It is
+smaller and cruder than a vendor model on purpose &mdash; the point was to
+build the thing, not to fake the polish.</p>
+
+<h2>2. The method, briefly</h2>
+<p><b>Exposures.</b> Each stock gets a cross-sectionally z-scored score on five
+factors, each date, using only information available through that date: Size
+(log price level, a scale proxy &mdash; the panel has no shares-outstanding
+field, a declared limitation), Beta (252-day rolling beta to SPY), Momentum
+(12-1 month, skipping the most recent month), Value (a 252-day mean-reversion
+proxy, not a true book-to-price), and Volatility (60-day realized). Each name
+also gets one industry dummy, from a sector map that assigns each stock to the
+sector ETF it correlates with most, rather than a scraped label.</p>
+<p><b>Estimation.</b> At each date, I run a weighted cross-sectional regression
+of next-day returns on that day&rsquo;s exposures &mdash; market-cap-weighted,
+ridge-stabilized. This is the vendor model&rsquo;s actual estimation step: the
+regression coefficients <i>are</i> the factor returns for that day. Run across
+many dates, you get a factor return time series &mdash; a different object
+from a Fama-French portfolio-sort factor, since it comes from every
+name&rsquo;s exposure simultaneously rather than a long-short quintile
+spread.</p>
+<p><b>Risk.</b> The covariance of those factor returns is the factor
+covariance matrix. Specific risk is approximated from each name&rsquo;s
+residual variance after removing the average factor effect. Portfolio risk
+decomposes as &sigma;<sub>p</sub>&sup2; = x<sub>p</sub>&prime;Fx<sub>p</sub> +
+w&prime;&Delta;w &mdash; factor variance plus specific variance, where
+x<sub>p</sub> is the portfolio&rsquo;s net factor exposure and &Delta; is the
+diagonal of specific variances. This is the equation every risk desk actually
+runs.</p>
+
+<h2>3. What came out &mdash; 2020 to 2026, 436 names, 331 sampled dates</h2>
+<p>Newey-West t-stats on each factor&rsquo;s return series, over the full
+sample:</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table 1.</b> Factor returns and significance, 2020&ndash;2026.</div>
+<table>
+<tr><th>Factor</th><th>Ann. return</th><th>Ann. vol</th><th>NW t-stat</th></tr>
+<tr><td>Size</td><td>0.94%</td><td>0.95%</td><td><b>2.64</b></td></tr>
+<tr><td>Energy (industry)</td><td>9.60%</td><td>12.53%</td><td><b>2.25</b></td></tr>
+<tr><td>Utilities (industry)</td><td>7.74%</td><td>12.28%</td><td>1.62</td></tr>
+<tr><td>Consumer Staples (industry)</td><td>5.83%</td><td>9.80%</td><td>1.55</td></tr>
+<tr><td>Financials (industry)</td><td>6.22%</td><td>10.69%</td><td>1.66</td></tr>
+<tr><td>Beta</td><td>1.84%</td><td>3.98%</td><td>1.14</td></tr>
+<tr><td>Momentum</td><td>-1.48%</td><td>6.53%</td><td>-0.65</td></tr>
+<tr><td>Value (proxy)</td><td>-0.30%</td><td>7.59%</td><td>-0.11</td></tr>
+<tr><td>Volatility</td><td>0.24%</td><td>2.37%</td><td>0.26</td></tr>
+</table>
+</div>
+
+<p>Of sixteen factors tested, <b>two</b> clear a t-stat of 2 on this period:
+Size and the Energy industry factor. Everything else &mdash; including
+Momentum, Value, and Beta, the factors most people assume are reliably priced
+&mdash; sits inside noise on this sample. That is the same discipline the rest
+of this site runs on, applied to a new instrument: most things that look like
+a factor are not one, and a model is only useful if it tells you that as
+readily as it tells you the opposite.</p>
+
+<h2>4. The portfolio decomposition, and the actual lesson in it</h2>
+<p>Running the decomposition on an equal-weighted 100-name book as of 29 July
+2026: <b>factor risk is 98.3% of total portfolio variance.</b> Specific risk
+&mdash; the idiosyncratic bet in each individual name &mdash; is almost
+entirely diversified away at 100 names; what is left is nearly pure exposure
+to Financials, Health Care, Beta, and Technology.</p>
+<p>That is not a bug in a small model. It is the actual pitch of a factor risk
+model, working as intended: once a book is diversified, the manager&rsquo;s
+P&amp;L is not coming from stock-picking skill in the way it feels like it is
+&mdash; it is coming from factor exposure the manager may or may not have
+chosen on purpose. Telling a portfolio manager that is the uncomfortable,
+useful conversation this entire model exists to have.</p>
+
+<div class="note">This is a demonstration of the architecture, not a
+production risk model. The specific-risk estimate is a shortcut, not a
+per-name regression residual. The covariance matrix uses a simple sample
+estimator &mdash; no exponential weighting, no eigenfactor adjustment for
+small-eigenvalue bias, both of which a vendor model applies and which I would
+want before trusting this at real capital. The Value factor is a return-based
+proxy, not fundamental book-to-price. The universe is survivorship-biased, as
+it is everywhere on this site. None of that is hidden; it is the difference
+between a working paper and a vendor product, and closing that gap is exactly
+the kind of work I want to be doing.</div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Code: pipeline/factor_risk_model.py.
+No live capital is deployed anywhere on this site.</footer>
+</main></body></html>
