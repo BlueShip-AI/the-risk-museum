@@ -179,8 +179,8 @@ Alpha158 as one family of 158 signals (316 with both signs).</div>
 <table>
 <tr><th>Bar</th><th>Threshold</th><th>Clearing</th><th>Outcome</th></tr>
 <tr><td>Naive significance</td><td><i>t</i> &ge; 2.5</td><td>29 of 158</td><td>none promoted</td></tr>
-<tr><td>Deflated promotion (Bonferroni/Taleb)</td><td><i>t</i> &ge; 4.11</td><td>0 of 158</td><td>none promoted</td></tr>
-<tr><td>Deflated + stressed (gross halved, costs doubled)</td><td>&mdash;</td><td>0 of 158</td><td>none promoted</td></tr>
+<tr><td>Deflated promotion (Bonferroni/Taleb)</td><td><i>t</i> &ge; 4.11</td><td>1 of 158 (IMAX20, t = 4.46)</td><td>none promoted</td></tr>
+<tr><td>Deflated + stressed (gross halved, costs doubled)</td><td>&mdash;</td><td>1 of 158 (IMAX20, t = 4.46)</td><td>none promoted</td></tr>
 </table>
 </div>
 
@@ -377,7 +377,7 @@ unchanged.</dd>
       "binds_this_verdict": false
     },
     "verdict": {
-      "outcome": "no promotion, 0 of 158; 29 clear the naive t >= 2.50 bar",
+      "outcome": "no promotion, 1 of 158 (IMAX20, t = 4.46); 29 clear the naive t >= 2.50 bar",
       "binding_gate": "is_oos_degradation",
       "binding_gate_scope": "strongest member only; per-member rejection reasons were not recorded by the runner",
       "binding_gate_detail": "IMAX20 cleared the deflated significance bar (t = 4.46 >= 4.11) and the margin-of-safety rerun (stressed t = 3.68 >= 2.50). It was stopped by 55% in-sample to out-of-sample Sharpe degradation (1.14 -> 0.52) against a 30% limit. The null is produced by decay, not by multiplicity."

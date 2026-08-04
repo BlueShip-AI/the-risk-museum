@@ -94,7 +94,7 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <h1>Who Has To Trade Tomorrow</h1>
 <div class="byline">V. Dimopoulos</div>
 <div class="affil">BlueShip Research</div>
-<div class="meta">Working Paper No. 22 &middot; 3 August 2026 &middot; 183 tested, 2 survived</div>
+<div class="meta">Working Paper No. 22 &middot; 3 August 2026 &middot; 184 tested, 2 survived, as of 3 August 2026</div>
 </div>
 
 <figure class="grave">
@@ -110,7 +110,7 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <text x="0" y="12" class="gl" style="font-weight:bold">Ideas judged, by lane</text>
 <text x="470" y="12" class="gl" style="font-weight:bold">survived</text>
 
-<text x="0" y="40" class="gl">WorldQuant BRAIN</text><rect x="150" y="30" width="292" height="13" class="gbar"/><text x="448" y="40" class="gn">113</text><text x="512" y="40" class="gn">0</text>
+<text x="0" y="40" class="gl">WorldQuant BRAIN</text><rect x="150" y="30" width="292" height="13" class="gbar"/><text x="448" y="40" class="gn">114</text><text x="512" y="40" class="gn">0</text>
 <text x="0" y="64" class="gl">Qlib Alpha158</text><rect x="150" y="54" width="408" height="13" class="gbar"/><text x="566" y="64" class="gn">158</text><text x="512" y="64" class="gn">0</text>
 <text x="0" y="88" class="gl">Sector and industry grid</text><rect x="150" y="78" width="31" height="13" class="gbar"/><text x="189" y="88" class="gn">12</text><text x="512" y="88" class="gn">0</text>
 <text x="0" y="112" class="gl">CFTC positioning</text><rect x="150" y="102" width="10" height="13" class="gbar"/><text x="168" y="112" class="gn">4</text><text x="512" y="112" class="gn">0</text>
@@ -121,15 +121,15 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <text x="0" y="176" class="gl">Dealer gamma classifier</text><rect x="150" y="166" width="4" height="13" class="gsurv"/><text x="162" y="176" class="gn">1</text><text x="512" y="176" class="gn" style="fill:var(--accent);font-weight:bold">1</text>
 <text x="0" y="200" class="gl">Bubble screen</text><rect x="150" y="190" width="4" height="13" class="gsurv"/><text x="162" y="200" class="gn">1</text><text x="512" y="200" class="gn" style="fill:var(--accent);font-weight:bold">1</text>
 
-<text x="0" y="226" class="gcap">Bars are ideas tested. The two at the bottom are the whole vault.</text>
+<text x="0" y="226" class="gcap">Bars are ideas tested. The Alpha158 bar counts 158 alphas inside one family ticket; the others count tickets, so they do not sum to 184.</text>
 </svg>
 </figure>
 
-<p class="plain"><b>In one line:</b> I have put 183 trading ideas through the same gates and two came out alive. The 181 that died include three entire published factor libraries, and the survivors share one thing the casualties do not: somebody is forced to trade against them on a known schedule.</p>
+<p class="plain"><b>In one line:</b> I have put 184 trading ideas through the same gates and two came out alive. The 181 that died include three entire published factor libraries, and the survivors share one thing the casualties do not: somebody is forced to trade against them on a known schedule.</p>
 
 <h2>1. The count</h2>
-<p>Three hundred and three ideas filed. One hundred and eighty-three actually tested. Two survived.</p>
-<p>The gap between 303 and 183 is not a rounding error and I will not hide it. One hundred and seventeen tickets errored before they produced a verdict, almost all of them blocked on data I could not obtain for free, and three are still queued. A ticket that never ran tested nothing, so it earns no place in the denominator and buys no multiplicity. The honest pass rate is two of 183, or 1.1%.</p>
+<p>Three hundred and sixteen ideas filed. One hundred and eighty-four actually tested. Two survived.</p>
+<p>The gap between 316 and 184 is not a rounding error and I will not hide it. One hundred and twenty-eight tickets errored before they produced a verdict, almost all of them blocked on data I could not obtain for free, and four are still queued. A ticket that never ran tested nothing, so it earns no place in the denominator and buys no multiplicity. The honest pass rate is two of 184, or 1.1%.</p>
 <p>That number is the point of this paper, but not in the way it first reads. A 1.1% pass rate is not a claim about how hard I work. It is a claim about how much of what is publicly described as an edge does not survive being charged for the number of times someone looked.</p>
 <h2>2. Three libraries, no survivors</h2>
 <p>The deaths are not evenly distributed. They cluster, and the clusters are informative.</p>
@@ -144,7 +144,7 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <tbody>
 <tr>
 <td>WorldQuant BRAIN candidates</td>
-<td>113</td>
+<td>114</td>
 <td><strong>0</strong></td>
 </tr>
 <tr>
@@ -169,7 +169,7 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 </tr>
 </tbody>
 </table></div>
-<p>The Alpha158 result is the cleanest of these and the one I would point a skeptic at first. Microsoft publishes a library of 158 technical alphas. I ran the whole thing as a single family, which means the significance bar rises with the number of attempts rather than staying at the level appropriate for one. Twenty-nine of the 158 clear a naive t of 2.5. Zero clear the deflated bar of 4.1, and zero survive the cost stress on top of it. What the library actually contains, once decomposed, is short-horizon reversal and a volatility risk premium wearing 158 different costumes. The gross edge is real. Doubling the costs takes all of it.</p>
+<p>The Alpha158 result is the cleanest of these and the one I would point a skeptic at first. Microsoft publishes a library of 158 technical alphas. I ran the whole thing as a single family, which means the significance bar rises with the number of attempts rather than staying at the level appropriate for one. Twenty-nine of the 158 clear a naive t of 2.5. One clears the deflated bar: a days-since-20-day-high signal at t = 4.46, which also survives the cost stress at 3.68. It is then stopped by a 55% collapse in Sharpe from in-sample to out-of-sample against a 30% limit. Zero are promoted, but the gate that ends it is decay, not multiplicity, and that distinction matters: the deflator is not doing all the work here. What the library actually contains, once decomposed, is short-horizon reversal and a volatility risk premium wearing 158 different costumes. The gross edge is real. Doubling the costs takes all of it.</p>
 <p>That is the general shape. These lanes do not fail because the ideas are stupid. They fail because they are all measuring the same two or three things from price, everyone has them, and the honest bar for the best of many correlated tries is much higher than the bar for one.</p>
 <h2>3. The two that lived</h2>
 <p><strong>A dealer gamma classifier.</strong> Options dealers who are long gamma hedge against the move and compress the day's range. Dealers who are short gamma chase it and expand the range. The signal reads where dealer positioning sits and predicts the next day's range, not its direction.</p>
@@ -183,6 +183,27 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <p>A speculator with a large net long position in S&amp;P futures is not forced to do anything. He has an opinion. He may hold it for a year. Commitments of Traders is an opinion poll with a lag, and an opinion poll is not a mechanism.</p>
 <p>The bubble screen sits between the two and survives on the weaker version of the same logic: a crowd that has doubled its money in two years is not mechanically forced to sell, but the position is fragile in a way a quiet position is not, and the unwind when it comes is not optional.</p>
 <p>So the operative question is not what the crowd thinks. It is <strong>who has to trade tomorrow whether they want to or not</strong>.</p>
+<h2>4b. Why the price lanes were empty, and who said so first</h2>
+<p>Hayek's answer to this predates the engine by eighty years. If a price is the
+mechanism by which dispersed private knowledge gets aggregated, then a signal
+derived from price is trying to extract information the price already ate. The
+129 price-derived candidates that died were not badly built. They were late by
+construction.</p>
+<p>That reframes what the two survivors are. Neither is information. A dealer's
+hedge is not a view about anything, and a crowd that has doubled its money is
+not in possession of a fact. Both are PLUMBING: the mechanical consequence of
+positions somebody already holds. Hayek's argument says the informational lane
+is efficiently picked over, which leaves the physical one, and the physical one
+is what survived my gates.</p>
+<p>I should also name the methodological choice this engine has made silently,
+because a careful reader will find it. Every ticket here must declare a
+mechanism before it can be filed. Friedman argued the opposite: that the
+realism of assumptions is irrelevant and only predictive accuracy matters, so a
+model that works needs no story. He has the better of that argument when you
+run one test. He has the worse of it when you run 184, because with that many
+looks a required mechanism is not decoration, it is a prior that constrains the
+search space before the multiplicity tax is levied. I take Friedman's side on
+what to believe and reject it on what to test.</p>
 <h2>5. What this predicts</h2>
 <p>A rule that only explains the past is decoration. This one makes forward claims, and they are the reason to write it down.</p>
 <p>It predicts that mechanisms with a compelled counterparty and a visible schedule will keep clearing the bar at a higher rate than anything derived from price alone: dealer hedging, index reconstitution, tax-driven selling, redemption-driven liquidation, margin. It predicts that sentiment and survey data will keep failing, because holding an opinion imposes no deadline. And it predicts that adding a 159th technical alpha to a library of 158 does nothing, because the family bar rises faster than the new candidate's evidence.</p>
@@ -193,7 +214,7 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <p>The lanes were not chosen at random. I tested BRAIN and Alpha158 because they were available, not because they were representative of price factors in general, and a different sample of libraries could give a different rate.</p>
 <p>And the survivors have not been re-tested on data that did not exist when they passed. That is the test that matters most and it is scheduled, not done.</p>
 <hr />
-<p><strong>Method.</strong> All counts read from the engine's hypothesis store on 3 August 2026 via the read-only query layer. Judged means a ticket reached a verdict of passed, rejected or decayed; errored and queued tickets are excluded from every rate. Gates are a Newey-West t against a Bonferroni-deflated family bar, a ten thousand draw block bootstrap, an in-sample to out-of-sample degradation limit, and a margin-of-safety rerun with the gross halved and the costs doubled. Every statistic is computed by deterministic code and none by a language model.</p>
+<p><strong>Method.</strong> All counts read from the engine's hypothesis store on 3 August 2026 via the read-only query layer. Judged means a ticket reached a verdict of passed, rejected or decayed; errored and queued tickets are excluded from every rate. The swarm-lane gate stack is a Newey-West t against a Bonferroni-deflated family bar, a ten thousand draw block bootstrap, an in-sample to out-of-sample degradation limit, and a margin-of-safety rerun with the gross halved and the costs doubled. Research-lane studies run a subset and say so in their own papers: the 13F crowding and disclosure-text studies were judged on a deflated Newey-West t with no bootstrap, no out-of-sample split and no cost model. Claiming the full stack applied to all 184 would be false. Every statistic is computed by deterministic code and none by a language model.</p>
 <p><em>Educational research only. Not investment advice.</em></p>
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Method and sources for this paper are
