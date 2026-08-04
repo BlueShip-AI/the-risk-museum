@@ -1,0 +1,195 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Daily Bars Cannot See &middot; Working Paper No. 24</title>
+<meta name="description" content="A CFM microstructure paper says short-term trend died because the market makers changed business models. I transferred the test to daily US equities in a week: the predicted contrast replicated at t=3.21 and died at a stressed 1.64. Also a precise statement of what daily bars cannot test.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/hedge-27-percent.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:16px/1.55 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif; font-variant-numeric:lining-nums; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+.plain { font-size:1.02rem; line-height:1.45; text-align:center; margin:0 auto 1.4rem;
+  padding:.7rem 1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; max-width:600px; }
+
+.tearmark { position:absolute; top:0; right:0; z-index:60; display:block;
+  padding:.5rem .9rem .55rem; background:var(--card);
+  border-left:1px solid var(--line); border-bottom:1px solid var(--line);
+  border-bottom-left-radius:12px; text-decoration:none; line-height:1.3;
+  box-shadow:0 2px 10px rgba(0,0,0,.07) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font-size:.57rem; font-weight:600; color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.84rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:1024px) {
+  body { padding-top:3.7rem }
+  .tearmark { padding:.4rem .7rem .45rem }
+  .tearmark i { font-size:.78rem } }
+@media print { .tearmark { display:none } }
+.grave { margin:1.6rem 0 1.2rem; padding:0; }
+.grave svg { width:100%; height:auto; display:block }
+</style></head><body><main>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+</nav>
+
+<div class="hdr">
+<h1>What Daily Bars Cannot See</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 24 &middot; 3 August 2026 &middot; a microstructure transfer, and a boundary</div>
+</div>
+
+<figure class="grave">
+<svg viewBox="0 0 640 168" role="img" xmlns="http://www.w3.org/2000/svg"
+ aria-label="The contrast cleared the deflated bar at 3.21 and fell to 1.64 under the margin-of-safety rerun, below the 2.50 base bar.">
+<style>.bl{fill:var(--muted);font:11px Charter,Georgia,serif}
+.bn{fill:var(--muted);font:10px ui-monospace,Menlo,monospace}
+.bc{fill:var(--muted);font:italic 11px Charter,Georgia,serif}</style>
+<line x1="60" y1="118" x2="600" y2="118" stroke="var(--line)" stroke-width="1"/>
+<line x1="60" y1="26" x2="60" y2="118" stroke="var(--line)" stroke-width="1"/>
+<line x1="60" y1="54" x2="600" y2="54" stroke="var(--accent)" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="606" y="57" class="bn" style="fill:var(--accent)">2.96 deflated bar</text>
+<line x1="60" y1="70" x2="600" y2="70" stroke="var(--muted)" stroke-width="1" stroke-dasharray="2 4"/>
+<text x="606" y="73" class="bn">2.50 base</text>
+<rect x="130" y="36" width="86" height="82" fill="var(--blue)" opacity=".75"/>
+<text x="140" y="30" class="bn">t = 3.21</text>
+<text x="126" y="134" class="bl">raw</text>
+<rect x="300" y="90" width="86" height="28" fill="var(--accent)" opacity=".8"/>
+<text x="310" y="84" class="bn">t = 1.64</text>
+<text x="286" y="134" class="bl">gross halved, costs doubled</text>
+<text x="60" y="158" class="bc">The contrast the paper predicts, before and after the margin-of-safety rerun. Rejected.</text>
+</svg></figure>
+
+<p class="plain"><b>In one line:</b> A CFM paper argues short-term trend died because the market makers on the other side changed business models, and that volatility-normalised tick size decides which markets kept the effect. I transferred the test to daily US equities within a week. The predicted contrast replicated in direction at a t of 3.21 and died at a stressed 1.64. This note is also a precise statement of where my data stops.</p>
+
+<h2>1. Why a daily-bar shop is reading a microstructure paper</h2>
+<p>In July 2026, Kurth, Eisler, Rej and Bouchaud of CFM presented "Is Trend Still Your Friend? A Microstructural Account of the Demise of Short-Term Trend-Following." The argument is unusually clean and it is not the one the industry tells itself.</p>
+<p>Fast trend following, one of the most durable anomalies on record, went flat around 2009. The obvious explanation is crowding: too much capital arbitraged it away. The paper rejects that on the evidence. CTA assets under management peaked in 2012, three years <em>after</em> the break. Square-root impact implies a Sharpe drag near 0.1, far too small. And the decay shows up even with zero-cost execution.</p>
+<p>What they propose instead is a change of counterparty. Bank-affiliated market makers who warehoused inventory over hours and days were replaced by HFT market makers running intraday flat-inventory mandates, and that business model is structurally unwilling to absorb persistent directional CTA flow. The discriminant they find is <strong>tick size normalised by volatility</strong>: trend survived in large-tick markets with dense order books and died in small-tick markets with sparse ones.</p>
+<p>This matters to me for a reason that has nothing to do with trend. It is a worked example of a <strong>macro-horizon signal being killed by a microstructural change</strong>, and my engine tests macro-horizon signals on daily bars. If that mechanism generalises, the thing that kills my results may live in a resolution I cannot observe.</p>
+<p>So I tested whether it transfers.</p>
+<h2>2. The transfer, and the caveat I declared before running it</h2>
+<p>US large caps all tick at a penny, so tick size does not vary. But <strong>tick-to-dollar-volatility does</strong>, and enormously: a low-priced, low-volatility name has a coarse price grid relative to its daily move, and an expensive volatile name has a fine one. That ratio is the paper's discriminant expressed in a variable my data contains.</p>
+<p>Ranking the panel monthly by that ratio produces two tiers that pass the sanity check. The high-ratio tier is cheap and calmer, median annualised volatility 29.3%: names like PCG, HBAN, PFE, KEY. The low-ratio tier is expensive and livelier, median volatility 35.5%: NVR, AZO, MU, FICO. The ratio spans about 34x from the 5th to the 95th percentile, so there is real dispersion to condition on.</p>
+<p>I wrote the fatal caveat into the ticket <strong>before</strong> running anything, because a caveat added afterwards is an excuse: <em>the paper's mechanism is intraday futures microstructure and this is a daily-bar equity transfer, so a clean failure is an expected and publishable outcome.</em></p>
+<p>Four looks were declared in advance: continuation and reversal, each in the high and low tiers. Four looks set the family bar at 2.96.</p>
+<h2>3. What happened</h2>
+<p>All four declared looks failed, and not narrowly. The best of them reached a t of 0.10.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Declared look</th>
+<th>NW t</th>
+<th>Stressed t</th>
+<th>Bar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Continuation, high ratio</td>
+<td>−3.40</td>
+<td>−4.86</td>
+<td>2.96</td>
+</tr>
+<tr>
+<td>Continuation, low ratio</td>
+<td>−5.72</td>
+<td>−5.95</td>
+<td>2.96</td>
+</tr>
+<tr>
+<td>Reversal, high ratio</td>
+<td>−1.33</td>
+<td>−6.95</td>
+<td>2.96</td>
+</tr>
+<tr>
+<td>Reversal, low ratio</td>
+<td>0.10</td>
+<td>−6.39</td>
+<td>2.96</td>
+</tr>
+</tbody>
+</table></div>
+<p>But the four looks are not the paper's actual prediction. The prediction is a <strong>contrast</strong>: continuation should be relatively stronger in the dense-grid tier than the sparse one. That is a difference portfolio, and it is a contrast of looks already declared rather than a fifth look, so it is charged nothing extra.</p>
+<p>The contrast produced <strong>+6.14% a year, Sharpe 0.66, Newey-West t of 3.21</strong>. That clears the deflated bar of 2.96, in the direction the paper predicts.</p>
+<p>Then the margin-of-safety rerun took it apart. Halve the gross, double the costs, and the t falls to <strong>1.64</strong> against the base bar of 2.50. In-sample to out-of-sample Sharpe degradation is <strong>80%</strong>, from 0.89 to 0.18, which is the textbook overfitting signature. Turnover runs about 100x a year, so the cost sensitivity is not a rounding error, it is the whole result.</p>
+<p><strong>Rejected.</strong> Marginal is rejected, and a result that only exists at zero cost is a description of a data set rather than a strategy.</p>
+<h2>4. What I take from a rejection</h2>
+<p>The direction replicated. That is worth saying plainly, because it is the interesting part: a microstructure finding from intraday futures showed up with the right sign in daily equity data, from a paper published days earlier, on a variable that had never been in my engine.</p>
+<p>What did not survive is the tradeable version, and the reason is mundane. Conditioning a daily book on a monthly-rebalanced tier produces a hundred turns a year, and at a hundred turns a year the cost model eats a 6% gross edge before it reaches anybody.</p>
+<p>So the honest reading is not that the paper is wrong. The honest reading is that <strong>its mechanism lives at a horizon where my costs are fatal and my data is blind</strong>, which is exactly what the caveat said before I ran it.</p>
+<h2>5. The boundary, stated precisely</h2>
+<p>This is the part I would rather write down than be asked.</p>
+<p><strong>What I can test on daily bars:</strong> cross-sectional signals rebalanced daily or slower; conditioning variables constructed from price, volume, filings, and options open interest; realistic cost sensitivity through a stressed rerun; whether an effect concentrates in a handful of names or a single regime.</p>
+<p><strong>What I cannot test, and do not pretend to:</strong> order book dynamics, queue position, adverse selection at the tick, the actual shape of impact within a day, or anything that requires knowing what happened between the close and the open. My cost model is a basis-point assumption on turnover with a doubling stress, which is a discipline rather than an execution model. A real slippage model needs tick data and a venue map, and I have neither.</p>
+<p><strong>What this rejection tells me about that boundary:</strong> it is not decorative. The one microstructure-derived result I could get to the deflated bar died on turnover, which is precisely the term a daily-bar cost assumption estimates worst. The signals most likely to be mispriced by my stack are the ones whose edge lives closest to the trading day, and those are the ones I should trust least when they pass.</p>
+<h2>6. What would change my mind</h2>
+<p>Intraday data would settle it. With trade and quote data I would test the mechanism directly rather than through a daily proxy: measure whether the high-ratio names actually show denser books and more mechanical liquidity provision, and whether the continuation contrast survives when the holding period is chosen to match the mechanism rather than the rebalance calendar.</p>
+<p>The cheaper falsification, and the one I would run first: if the contrast is real and only turnover kills it, then slowing the tier rebalance from monthly to quarterly should preserve most of the signal and cut most of the cost. If it does not, the result was never there.</p>
+<p>That test is not run. I am naming it rather than doing it, and this note is worth less than it would be if I had.</p>
+<hr />
+<p><strong>Method.</strong> Panel of current US large caps, daily adjusted closes. Ratio defined monthly as tick over the product of price and trailing 63-day return volatility, ranked cross-sectionally and split at the median. Books are equal-weight decile long-short within tier, one-day lagged, monthly rebalanced through the engine's standard backtester. Statistics by Newey-West with the family bar deflated for four declared looks; the stressed series halves gross and doubles costs per the house construction. The universe is survivorship-biased, so every raw figure is an upper bound. Source paper: Kurth, Eisler, Rej and Bouchaud, CFM, July 2026.</p>
+<p><em>Educational research only. Not investment advice.</em></p>
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</main></body></html>
