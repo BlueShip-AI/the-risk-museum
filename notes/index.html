@@ -17,6 +17,20 @@ main { max-width:720px; margin:0 auto }
 h1 { font-size:1.9rem; margin-bottom:.4rem }
 .tag { letter-spacing:.22em; text-transform:uppercase; font-size:.75rem;
   color:var(--muted); margin:.5rem 0 1.6rem }
+.glance { margin-bottom:2.4rem }
+.glance-hdr { display:flex; align-items:baseline; justify-content:space-between;
+  margin-bottom:.75rem }
+.glance-hdr h2 { font-size:1.05rem; font-weight:bold }
+.glance-count { color:var(--muted); font-size:.78rem }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(122px,1fr));
+  gap:.5rem }
+.mtile { background:var(--card); border:1px solid var(--line); border-radius:8px;
+  padding:.6rem .65rem; text-decoration:none; color:var(--fg); display:flex;
+  flex-direction:column; gap:.3rem; min-height:84px }
+.mtile:hover { border-color:var(--blue) }
+.mtile-n { font-size:.66rem; color:var(--muted); letter-spacing:.04em }
+.mtile-t { font-size:.79rem; line-height:1.22; font-weight:600; flex:1 }
+.mtile-s { font-size:.72rem; color:var(--accent); font-weight:bold }
 .note-card { background:var(--card); border:1px solid var(--line);
   border-radius:10px; padding:1.1rem 1.3rem; margin:0 0 1rem;
   display:flex; gap:1.1rem; align-items:flex-start;
@@ -89,6 +103,41 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <h1>Research Notes</h1>
 <p class="tag">short essays from <a href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener">Vasilios Dimopoulos</a></p>
 <p style="color:var(--muted);font-size:.95rem;line-height:1.55;margin:0 0 1.8rem">Each note is a case study in what I tested, retired, and learned, written to be read cold by a practitioner, with every number traceable to the same gated code that runs the rest of the museum.</p>
+
+<div class="glance">
+<div class="glance-hdr"><h2>At a Glance</h2><span class="glance-count">29 papers, newest first</span></div>
+<div class="tile-grid">
+<a class="mtile" href="signal-you-can-get.html"><span class="mtile-n">WP 27</span><span class="mtile-t">The Signal You Can Get</span><span class="mtile-s">87% static</span></a>
+<a class="mtile" href="beaten-by-four-parameters.html"><span class="mtile-n">WP 26</span><span class="mtile-t">Beaten by Four Parameters</span><span class="mtile-s">21 of 21</span></a>
+<a class="mtile" href="factor-risk-model.html"><span class="mtile-n">WP 24</span><span class="mtile-t">Factor Risk Model, Built</span><span class="mtile-s">2 of 16 factors</span></a>
+<a class="mtile" href="what-daily-bars-cannot-see.html"><span class="mtile-n">WP 25</span><span class="mtile-t">What Daily Bars Can&rsquo;t See</span><span class="mtile-s">t 3.21&rarr;1.64</span></a>
+<a class="mtile" href="turbine-appears-once.html"><span class="mtile-n">WP 23</span><span class="mtile-t">The Turbine Appears Once</span><span class="mtile-s">13 / 3 / 7</span></a>
+<a class="mtile" href="who-has-to-trade.html"><span class="mtile-n">WP 22</span><span class="mtile-t">Who Has to Trade Tomorrow</span><span class="mtile-s">184 &rarr; 2</span></a>
+<a class="mtile" href="hedge-instrument.html"><span class="mtile-n">WP 21</span><span class="mtile-t">Nothing Could Have Hedged It</span><span class="mtile-s">29% ceiling</span></a>
+<a class="mtile" href="ninety-minutes.html"><span class="mtile-n">RN 20</span><span class="mtile-t">Ninety Minutes, No Number</span><span class="mtile-s">14 forecasts</span></a>
+<a class="mtile" href="reactor-queue.html"><span class="mtile-n">WP 19</span><span class="mtile-t">Nobody Bought a Reactor</span><span class="mtile-s">14.7GW / 50MW</span></a>
+<a class="mtile" href="caravan-and-cluster.html"><span class="mtile-n">WP 18</span><span class="mtile-t">The Caravan and the Cluster</span><span class="mtile-s">1340&rarr;2026</span></a>
+<a class="mtile" href="where-the-edge-was.html"><span class="mtile-n">WP 17</span><span class="mtile-t">Where the Edge Was</span><span class="mtile-s">42.2% yes</span></a>
+<a class="mtile" href="prediction-market-calibration.html"><span class="mtile-n">WP 16</span><span class="mtile-t">Priced Wrong on Purpose</span><span class="mtile-s">17% vs 88%</span></a>
+<a class="mtile" href="lazy-prices-survivorship.html"><span class="mtile-n">WP 15</span><span class="mtile-t">Lazy Prices, Survivorship</span><span class="mtile-s">sign flips</span></a>
+<a class="mtile" href="uncorrelated-book.html"><span class="mtile-n">WP 14</span><span class="mtile-t">The Uncorrelated Book</span><span class="mtile-s">18.0%&rarr;7.7%</span></a>
+<a class="mtile" href="factor-zoo-honest-bar.html"><span class="mtile-n">WP 13</span><span class="mtile-t">The Factor Zoo, Honest Bar</span><span class="mtile-s">158 &rarr; 0</span></a>
+<a class="mtile" href="short-side-crowding.html"><span class="mtile-n">WP 12</span><span class="mtile-t">Measuring the Short Side</span><span class="mtile-s">0 of 4 signals</span></a>
+<a class="mtile" href="risk-teardown.html"><span class="mtile-n">RN 11</span><span class="mtile-t">Reading a Book: Teardown</span><span class="mtile-s">+0.56 hidden beta</span></a>
+<a class="mtile" href="var-backtesting.html"><span class="mtile-n">RN 10</span><span class="mtile-t">The Light Was Green</span><span class="mtile-s">VaR failed anyway</span></a>
+<a class="mtile" href="the-ai-cdo.html"><span class="mtile-n">RN 9</span><span class="mtile-t">The AI-CDO Is Being Built</span><span class="mtile-s">4 of 4 echoes</span></a>
+<a class="mtile" href="what-the-swarm-knows.html"><span class="mtile-n">RN 8</span><span class="mtile-t">What the Swarm Doesn&rsquo;t Know</span><span class="mtile-s">blind spots mapped</span></a>
+<a class="mtile" href="edge-was-never-the-hard-part.html"><span class="mtile-n">RN 7</span><span class="mtile-t">The Edge Was Never Hard</span><span class="mtile-s">28% went broke</span></a>
+<a class="mtile" href="measuring-the-crowd.html"><span class="mtile-n">RN 6</span><span class="mtile-t">Measuring the Crowd</span><span class="mtile-s">t=4.1, no edge</span></a>
+<a class="mtile" href="620-probabilities.html"><span class="mtile-n">RN 5</span><span class="mtile-t">620 Probabilities</span><span class="mtile-s">top 6%</span></a>
+<a class="mtile" href="reading-a-pm-book.html"><span class="mtile-n">RN 4</span><span class="mtile-t">How to Read a PM&rsquo;s Book</span><span class="mtile-s">6-layer dissection</span></a>
+<a class="mtile" href="chain-program-v3.html"><span class="mtile-n">RN 3</span><span class="mtile-t">The Gates Took My Model</span><span class="mtile-s">v1 &rarr; v3</span></a>
+<a class="mtile" href="earnings-revisions-view.html"><span class="mtile-n">VIEW</span><span class="mtile-t">Estimate-Revision Momentum</span><span class="mtile-s">a view, not a backtest</span></a>
+<a class="mtile" href="propulsion-room.html"><span class="mtile-n">ENGINE</span><span class="mtile-t">The Propulsion Room</span><span class="mtile-s">flight mechanics</span></a>
+<a class="mtile" href="neural-pricing-v1.html"><span class="mtile-n">RN 2</span><span class="mtile-t">A Neural Net Lost to 1993</span><span class="mtile-s">more capacity, less edge</span></a>
+<a class="mtile" href="dimopoulos-chain-v1.html"><span class="mtile-n">RN 1</span><span class="mtile-t">Named a Model After Myself</span><span class="mtile-s">1993 model beat it</span></a>
+</div>
+</div>
 
 <a class="note-card" href="signal-you-can-get.html">
 <svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
