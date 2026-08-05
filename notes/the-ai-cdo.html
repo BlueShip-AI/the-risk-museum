@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The AI-CDO — BlueShip Research Working Paper No. 9</title>
+<title>The AI-CDO &middot; BlueShip Research Working Paper No. 9</title>
 <meta name="description" content="A stylized 200,000-draw Monte Carlo of a three-tranche AI-infrastructure credit pool: the equity tranche loses 68% of value on average and the senior 1%, intact in 93% of paths. The governing variable is realized revenue as a fraction of promised AI economics; the senior claim bleeds only below roughly 60%.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/the-ai-cdo.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -89,7 +89,7 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 </nav>
 
 <div class="hdr">
-<h1>The AI-CDO: Securitization Risk in AI-Infrastructure Credit<br>
+<h1>The AI-CDO: Securitization Risk in Credit for AI Infrastructure<br>
 and the Revenue Variable That Governs Its Tail</h1>
 <div class="byline">V. Dimopoulos</div>
 <div class="affil">BlueShip Research</div>
@@ -100,15 +100,15 @@ and the Revenue Variable That Governs Its Tail</h1>
 slices. The safe slice breaks only if revenue falls 40 percent short.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> The financing of
-artificial-intelligence infrastructure is reassembling the machinery of
-structured credit: data-center developers, &ldquo;neocloud&rdquo; compute
-providers, and chip-collateralized lenders linked by circular financing that
+infrastructure for artificial intelligence is reassembling the machinery of
+structured credit: developers of data centers, &ldquo;neocloud&rdquo; compute
+providers, and lenders collateralized by chips, linked by circular financing that
 the Bank for International Settlements flagged in its 2026 Annual Economic
 Report. I argue that the four defects behind the 2008 crisis (corrupt
 ratings, hidden correlation, inadequate tail capital, and misaligned
 incentives) are each observable in this complex today, with technology
 obsolescence adding a hazard mortgages never carried. A stylized Monte Carlo of a
-three-tranche pool (equity 15%, mezzanine 25%, senior 60%) over 200,000 draws
+pool sliced into three tranches (equity 15%, mezzanine 25%, senior 60%) over 200,000 draws
 shows the equity tranche losing 68% of its value on average, the mezzanine 28%,
 and the senior 1% while remaining intact in 93% of paths. The asymmetry makes
 the originator&rsquo;s cash-out structural and isolates a single governing
@@ -124,17 +124,17 @@ tranched claims on the pool is a durable financing technology. What failed in
 2008 was a set of four specific, nameable defects that traveled inside a
 securitization; once named, they are observable wherever the same machine
 reassembles. It is reassembling now around the financing of artificial
-intelligence. This note is an inventory of those four defects in the AI-credit
+intelligence. This note is an inventory of those four defects in the AI credit
 complex and a stylized simulation of how losses move through it. It describes
 the present structure and does not forecast the timing of any outcome.</p>
 
-<h2>2. The AI-infrastructure financing complex</h2>
+<h2>2. The financing complex for AI infrastructure</h2>
 <p>The AI buildout requires an extraordinary amount of capital, and the most
 profitable companies in the world have begun borrowing to fund it because
 internal cash flow no longer keeps pace. A financing complex has formed around
-that demand: data-center developers borrowing against future rents;
-&ldquo;neocloud&rdquo; providers borrowing against multi-year compute contracts;
-and lenders increasingly willing to take graphics chips themselves as
+that demand: developers of data centers borrowing against future rents;
+&ldquo;neocloud&rdquo; providers borrowing against compute contracts that span
+multiple years; and lenders increasingly willing to take graphics chips themselves as
 collateral. The Bank for International Settlements, which warned about mortgage
 risk years before 2008, devoted part of its 2026 Annual Economic Report to the
 sector. Its language is deliberately careful: the sector shows &ldquo;circular
@@ -147,7 +147,7 @@ claim on that debt as a safe asset. Money runs in a circle, and each turn is
 booked as growth.</p>
 <p>Scale makes the loop dangerous rather than merely clever. Widely reported
 estimates put this year&rsquo;s hyperscaler AI capital spending near
-three-quarters of a trillion dollars and the multi-year buildout in the
+three-quarters of a trillion dollars and the buildout over multiple years in the
 trillions. The money entering from outside the circle, what end users and
 enterprises actually pay for the output, is smaller by roughly an order of
 magnitude. The structure therefore rests on a single bet: that the small
@@ -166,16 +166,16 @@ default said little about the next. The assumption held in calm and dissolved
 in stress. When house prices fell, they fell everywhere at once, and pools
 believed to be diversified proved to be a single bet.</li>
 <li><b>The tail capital was inadequate.</b> Buffers were sized for the normal
-distribution the models drew, not for the fat-tailed distribution the market
-realizes.</li>
+distribution the models drew, not for the distribution with fat tails that the
+market realizes.</li>
 <li><b>The incentives were misaligned.</b> Under originate-to-distribute,
 whoever wrote a loan sold it onward and retained none of the risk, so the
 reward for volume swamped the reward for care.</li>
 </ol>
 
-<h2>4. The four failures in AI-credit form</h2>
+<h2>4. The four failures in the form of AI credit</h2>
 <h3>4.1 Ratings</h3>
-<p>Debt backed by data-center rents and depreciating chips is new enough that
+<p>Debt backed by rents from data centers and by depreciating chips is new enough that
 its rating apparatus is young. The 2008 lesson is not that ratings are useless
 but that a rating is worth only the independence and the model behind it, and a
 young market is precisely where an under-modeled, conveniently generous grade
@@ -192,41 +192,41 @@ curve, and its collateral value can fall for reasons unrelated to the
 borrower&rsquo;s health and entirely to do with a better chip shipping.</p>
 <h3>4.3 Tail placement</h3>
 <p>The tail increasingly lands on insurance balance sheets. Private credit,
-including the infrastructure paper discussed here, is sourced for the long-dated
-liabilities of annuity books precisely because it yields more than public bonds
-of the same stated grade. That excess yield is payment for illiquidity and tail
+including the infrastructure paper discussed here, is sourced for annuity books
+whose liabilities are long dated, precisely because it yields more than public
+bonds of the same stated grade. That excess yield is payment for illiquidity and tail
 risk. The question a risk seat must answer before the paper is bought is whether
-the buffer behind those liabilities is sized for the fat-tailed world or the
+the buffer behind those liabilities is sized for the world with fat tails or the
 modeled one.</p>
 <h3>4.4 Incentives</h3>
 <p>Originate-to-distribute is a structure, not an era; it returns wherever the
 writer of the risk can sell it onward. The honest tell is skin in the game:
-whether the party that structures the pool retains a real, loss-absorbing piece
-of it.</p>
+whether the party that structures the pool retains a real piece of it that
+absorbs loss.</p>
 
 <h2>5. What the buyers say, on the record</h2>
 <p>The argument above is built from published aggregate data. In Spring 2026
-Stanford ran a course on the economics of this build-out
+Stanford ran a course on the economics of this buildout
 (MS&amp;E&nbsp;435), and the guests were the people doing the spending rather
 than the people underwriting it. Their numbers are worth recording precisely
 because none of them is a bear, and each has an interest in the scale sounding
 either large or manageable. I attribute rather than endorse.</p>
-<p>OpenAI&rsquo;s compute lead put the all-in cost of a gigawatt of AI capacity
+<p>OpenAI&rsquo;s compute lead put the cost of a gigawatt of AI capacity, all in,
 at <b>$70 billion</b>, and a gigawatt at <b>roughly half a million GPUs</b>.
 Against his own stated targets, that arithmetic is the story: OpenAI describes
 an aspirational <b>30 gigawatts</b> by the end of the decade, and he estimates
 US hyperscalers collectively plan <b>about 100 gigawatts</b>, which he says
-would consume a double-digit percentage of US grid capacity. He also states that
+would consume a percentage of US grid capacity in the double digits. He also states that
 compute and revenue have each tripled year over year for three years, a claim
 that is unaudited and made by the person paid to make it true.</p>
 <p>Three details matter more to a credit analyst than the headline totals.
 First, he names <b>ASML as the single chokepoint of the entire supply chain</b>.
-That is the hidden-correlation problem stated by the buyer: nominally
-independent AI-infrastructure credits share one upstream node that no tranche
-structure diversifies across. Second, he describes a <b>three-year chip design
-cycle</b> and hardware that throttles delivered performance, alongside an
-admission that general-purpose GPU compute is already inadequate for the target
-workload. Laid against operators depreciating that hardware over four to six
+That is the problem of hidden correlation stated by the buyer: nominally
+independent credits in AI infrastructure share one upstream node that no tranche
+structure diversifies across. Second, he describes a <b>chip design cycle of
+three years</b> and hardware that throttles delivered performance, alongside an
+admission that GPU compute built for general purposes is already inadequate for
+the target workload. Laid against operators depreciating that hardware over four to six
 years, that is an impairment case assembled from friendly testimony. Third, a
 founder on the same course priced <b>Nvidia&rsquo;s margin at roughly 75%</b>
 and put the insourcing indifference point at custom silicon
@@ -234,12 +234,12 @@ and put the insourcing indifference point at custom silicon
 revenue and the borrowers&rsquo; credit are revealed as one risk written twice,
 because the supplier&rsquo;s customers and the credit&rsquo;s borrowers are the
 same handful of firms.</p>
-<p>The depreciation point deserves its own sentence. A four-to-six-year
-write-off on silicon co-designed for one model architecture is not a wear
+<p>The depreciation point deserves its own sentence. A write-off over four to six
+years on silicon co-designed for one model architecture is not a wear
 estimate. It is an unhedged position on one side of an unsettled scientific
 question about whether that architecture persists, taken by the party whose
 reported earnings improve if the bet wins. That is mark-to-model risk in the
-2008 sense, relocated from a ratings model to a fixed-asset schedule.</p>
+2008 sense, relocated from a ratings model to a schedule of fixed assets.</p>
 <p>What is absent is as informative as what is present. Across roughly three
 hours with senior operators, <b>debt is never discussed</b>. There is no
 financing structure, no lease, no special-purpose vehicle, no covenant. The
@@ -247,14 +247,14 @@ people building the demand side are not thinking about the liability side at
 all, which is precisely the condition under which a financing complex assembles
 itself without anyone treating it as their problem.</p>
 
-<h2>6. A stylized loss-waterfall simulation</h2>
+<h2>6. A stylized simulation of the loss waterfall</h2>
 <h3>6.1 Design</h3>
 <p>The useful question is not whether the complex is fragile but where losses
-land when they arrive. I model the AI-infrastructure debt as a single
+land when they arrive. I model the debt behind AI infrastructure as a single
 securitized pool sliced into three claims that absorb losses from the bottom up.
-The <b>equity</b> tranche (15% of the pool) is the neocloud, lab, and
-circular-financing paper and takes the first loss. The <b>mezzanine</b> (25%)
-is the GPU- and equipment-backed debt. The <b>senior</b> (60%) is secured by the
+The <b>equity</b> tranche (15% of the pool) is the paper of the neoclouds, the
+labs, and the circular financing, and takes the first loss. The <b>mezzanine</b> (25%)
+is the debt backed by GPUs and equipment. The <b>senior</b> (60%) is secured by the
 assets that survive a technology cycle: land, buildings, and power contracts.
 Every tranche depends on one variable, <b>R</b>, the fraction of the promised
 AI economics that arrives as revenue. I let R range from a bear case (half of
@@ -312,21 +312,21 @@ in three revenue scenarios (good, bad, ugly).</div>
 <h3>6.2 Results</h3>
 <p>The columns of Figure 1 read left to right as revenue deteriorates; red marks
 loss filling each stack from the bottom. In the <b>good</b> state (revenue
-near-promised, the 25th-percentile draw) equity holders take a haircut and every
+near what was promised, the draw at the 25th percentile) equity holders take a haircut and every
 senior claim is untouched. In the <b>bad</b> state (the median draw, revenue
 merely disappoints) the equity is wiped out entirely, and its holder matters.
-Increasingly it is yield-seeking buyers sold the tranche as &ldquo;diversified
-AI exposure.&rdquo; In the <b>ugly</b> state (the 95th-percentile draw, revenue
-collapsing toward half) equity and the GPU-backed mezzanine are both destroyed
+Increasingly it is buyers seeking yield, sold the tranche as &ldquo;diversified
+AI exposure.&rdquo; In the <b>ugly</b> state (the draw at the 95th percentile, revenue
+collapsing toward half) equity and the mezzanine backed by GPUs are both destroyed
 and the senior claim finally bleeds, because obsolescence leaves chip collateral
-little recovery and circular financing unwinds faster than a single-name
-default.</p>
+little recovery and circular financing unwinds faster than the default of a
+single name.</p>
 <p>Across all 200,000 paths the asymmetry is stark: the equity tranche loses
 <b>68%</b> of its value on average and is all but wiped in half of them, the
 mezzanine loses <b>28%</b>, and the senior loses <b>1%</b> and stays fully
 intact <b>93%</b> of the time. That gap makes the originator&rsquo;s cash-out
-structural. Origination fees are earned whatever happens; the senior,
-real-asset-backed claim that survives almost everything is retained; and the
+structural. Origination fees are earned whatever happens; the senior claim,
+backed by real assets and surviving almost everything, is retained; and the
 equity and mezzanine, the tranches that carry the technology risk, are sold to
 insurers and pensions reaching for yield. The 2008 question is whether the
 sellers kept a real slice of the loss for themselves.</p>
@@ -362,8 +362,8 @@ underlying asset could never service anything. The saving grace of the AI boom
 is revenue: enterprise adoption, inference demand actually invoiced,
 applications that are renewed. That is the flow that fills the waterfall from
 the top and services the stack on the way down. It is the number to watch rather
-than the capital-expenditure headlines. Another hundred billion dollars of
-announced data-center spending measures the size of the promise; the payment has
+than the headlines about capital expenditure. Another hundred billion dollars of
+announced spending on data centers measures the size of the promise; the payment has
 not yet arrived.</p>
 
 <h2>9. Scope and discipline</h2>
@@ -371,7 +371,7 @@ not yet arrived.</p>
 fail; on a decade&rsquo;s horizon it may pay off, as the internet did. Timing is
 a forecast, and forecasts belong in the Forecast Wing under resolution criteria.
 The exercise here is narrower: to show that each of the four defects that broke
-in 2008 is observable in the AI-credit complex today, to run the stack forward
+in 2008 is observable in the AI credit complex today, to run the stack forward
 for the shape of the outcomes, and to name the single variable that decides
 between them. 2008 was not a failure to predict the future but a failure to
 describe the present, to state, while the music played, that the diversification
@@ -383,7 +383,7 @@ this story: Long-Term Capital Management, levered against a correlation that hel
 until it did not, and the mortgage machine that called a concentrated bet a
 diversified one. Those are plaques because they are over. This structure is
 still being assembled, and the only useful response to a structure still being
-assembled is to name its load-bearing assumptions before they are tested. The
+assembled is to name the assumptions that bear its load before they are tested. The
 failure of 2008 was never a failure of arithmetic; it was a failure of nerve,
 the refusal to write down what was already visible.</div>
 

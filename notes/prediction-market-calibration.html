@@ -98,107 +98,81 @@ Failure of Two Pre-Registered Hypotheses in Prediction Markets</h1>
 <p class="plain"><b>In one line:</b> Contracts priced near 35 cents pay out 17% of the time, and two of my three predictions were wrong.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> I test three
-pre-registered claims about prediction-market pricing on 250,858 resolved
-Kalshi markets spanning 59,748 distinct events. The claims were written and
-committed before the dataset finished downloading. Two of the three are
-falsified. Prices are not calibrated: the reliability component of a
-0.0927 Brier score is 0.0193, and the reliability curve departs
-sharply from the diagonal. The favourite-longshot bias is confirmed and is
-economically large, with contracts trading near 0.35 resolving YES 17.0% of the
-time and contracts near 0.65 resolving 87.8%. My third claim, that one-sided
-order flow marks crowd error, is falsified in SIGN: one-sided books are better
-calibrated than balanced ones, not worse. The bias survives restriction to one
-market per event and holds across every contract-duration bucket. I do not
-promote it, because the dataset carries no order book and a gap measured on
-traded prices is not an edge until the spread is shown not to consume it.</p>
+pre-registered claims about pricing in prediction markets on 250,858 resolved
+Kalshi markets spanning 59,748 distinct events. Two are falsified. Prices are
+not calibrated. The favourite-longshot bias is confirmed and is economically
+large. My third claim, that order flow concentrated on one side marks crowd
+error, is falsified in SIGN. I do not promote the bias, because the dataset carries no
+order book.</p>
 <div class="keywords"><b>Keywords:</b> prediction markets, calibration,
 favourite-longshot bias, Brier decomposition, pre-registration, order flow.</div>
 
 <h2>1. Why this venue</h2>
-<p>Every equity study in this collection reaches the same verdict. Signals
-derived from price in large-capitalisation US equities are picked over, and
-nothing in the published factor zoo survives an honest bar. Prediction markets
-are a different population. They resolve to a known truth, which makes
-calibration directly measurable rather than inferred, and they are traded by a
-different set of participants. I have a graded record in them, having finished
-in the top 6% of Jump Trading's Probability Cup over 620 forecasts at a mean
-Brier score of 0.231 against a 0.25 coin baseline. That record is what makes the
-question interesting to me and is also why the pre-registration matters.</p>
+<p>Prediction markets resolve to a known truth, which makes calibration directly
+measurable rather than inferred. I have a graded record in them, top 6% of Jump
+Trading's Probability Cup over 620 forecasts at a mean Brier score of 0.231
+against a 0.25 coin baseline.</p>
 
 <h2>2. Data and method</h2>
-<p>The source is a public dataset of Kalshi and Polymarket market and trade
-records. I use Kalshi only, and recorded that deviation before running anything:
-Kalshi trade rows carry price, taker side and size as first-class fields and
-market rows carry the resolution, whereas Polymarket trades are raw blockchain
-events requiring decode, which would inject avoidable error into a calibration
-measurement. For each resolved market I take the volume-weighted average price
-over the final 24 hours of trading, a fixed window so that fast-resolving and
-slow-resolving contracts are treated alike, and require at least five trades in
-that window. The base rate of YES resolution is 0.381.</p>
+<p>The source is a public dataset of Kalshi and Polymarket records. I use
+Kalshi only, a deviation recorded before running anything. Kalshi trade rows
+carry price, taker side and size as fields of their own and market rows carry
+the resolution, whereas Polymarket trades need blockchain decode. For each
+resolved market I take the average price over the final 24 hours of trading,
+weighted by volume, and require at least five trades in that window. The base rate
+of YES resolution is 0.381.</p>
 
 <h2>3. Results</h2>
 <h3>3.1 Calibration, and the size of the miss</h3>
 <p>The Murphy decomposition gives Brier 0.0927 = reliability 0.0193
-&minus; resolution 0.1617 + uncertainty 0.2358. The
-resolution term is large, meaning prices do separate winners from losers, but
-the reliability term is not near zero and the direction of the miss is
-systematic rather than noisy.</p>
+&minus; resolution 0.1617 + uncertainty 0.2358. Prices separate winners from
+losers. The reliability term is not near zero, and the miss is systematic
+rather than noisy.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Realised outcome frequency by price bucket.
-Error is mean price minus realised frequency, so positive means the market
-priced the contract too high.</div>
+Error is mean price minus realised frequency.</div>
 <table><tr><th>Price band</th><th>n</th><th>Mean price</th><th>Realised</th><th>Error</th></tr>
 <tr><td>0.0-0.1</td><td>48,237</td><td>0.049</td><td>0.005</td><td>+0.044</td></tr><tr><td>0.1-0.2</td><td>37,974</td><td>0.148</td><td>0.024</td><td>+0.124</td></tr><tr><td>0.2-0.3</td><td>29,894</td><td>0.248</td><td>0.077</td><td>+0.171</td></tr><tr><td>0.3-0.4</td><td>23,821</td><td>0.348</td><td>0.170</td><td>+0.178</td></tr><tr><td>0.4-0.5</td><td>20,510</td><td>0.449</td><td>0.347</td><td>+0.103</td></tr><tr><td>0.5-0.6</td><td>19,243</td><td>0.549</td><td>0.684</td><td>-0.135</td></tr><tr><td>0.6-0.7</td><td>18,009</td><td>0.650</td><td>0.877</td><td>-0.228</td></tr><tr><td>0.7-0.8</td><td>17,163</td><td>0.750</td><td>0.952</td><td>-0.202</td></tr><tr><td>0.8-0.9</td><td>17,397</td><td>0.851</td><td>0.980</td><td>-0.130</td></tr><tr><td>0.9-1.0</td><td>18,610</td><td>0.948</td><td>0.995</td><td>-0.048</td></tr></table></div>
 
 <h3>3.2 The favourite-longshot bias</h3>
-<p>The pattern in Table 1 is the classical one and it is steep. Contracts
-trading between 0.30 and 0.40 resolve YES 17.0% of the time, so a buyer pays
-roughly twice what the contract is worth. At the other end, contracts trading
-between 0.60 and 0.70 resolve 87.8% of the time. Longshots are dear and
-favourites are cheap, monotonically across the book.</p>
+<p>Contracts trading between 0.30 and 0.40 resolve YES 17.0% of the time, so a
+buyer pays roughly twice what the contract is worth. Contracts trading between
+0.60 and 0.70 resolve 87.8% of the time. Longshots are dear and favourites are
+cheap, monotonically across the book.</p>
 
 <h3>3.3 Crowding, falsified in sign</h3>
-<p>I predicted that markets with heavily one-sided taker flow would be worse
+<p>I predicted that markets with taker flow heavily on one side would be worse
 calibrated, on the reasoning that concentrated flow marks a crowd about to be
 wrong. The data say the opposite.</p>
 <div class="tblwrap">
-<div class="cap"><b>Table 2.</b> Calibration error by taker-flow imbalance
-tercile. Lower is better.</div>
+<div class="cap"><b>Table 2.</b> Calibration error by tercile of taker flow
+imbalance. Lower is better.</div>
 <table><tr><th>Flow</th><th>n</th><th>Mean absolute error</th><th>Brier</th></tr>
 <tr><td>balanced</td><td>83,620</td><td>0.2754</td><td>0.1052</td></tr><tr><td>middle</td><td>83,619</td><td>0.2593</td><td>0.0971</td></tr><tr><td>one-sided</td><td>83,619</td><td>0.1992</td><td>0.0758</td></tr></table></div>
-<p>One-sided books are the best calibrated of the three groups. The natural
-reading is that concentrated flow usually marks an outcome that has become
-obvious, not a crowd in error. My hypothesis had the sign backwards, and
-recording it in advance is what makes saying so cheap.</p>
+<p>The books with flow on one side are the best calibrated of the three groups. Concentrated
+flow usually marks an outcome that has become obvious, not a crowd in error. My
+hypothesis had the sign backwards.</p>
 
 <h2>4. Robustness</h2>
-<p>Two objections could explain the bias away, and neither does. First,
-correlated contracts: a single event often carries many strikes, so treating
-markets as independent would overstate the sample. Restricting to one market per
-event, 59,748 independent observations, leaves the bias essentially
-unchanged at +0.140 in the 0.30 to 0.40 band and &minus;0.214 in the 0.60 to
-0.70 band. Second, intraday churn: Kalshi lists many short-duration contracts
-that might behave differently. Splitting by contract duration, the longshot-half
-error runs +0.104 to +0.124 and the favourite-half error &minus;0.138 to
-&minus;0.162 across contracts lasting under six hours, six to forty-eight hours,
-and beyond two days. The effect is not an artifact of either.</p>
+<p>Correlated contracts and intraday churn could explain the bias away, and
+neither does. Restricting to one market per event, 59,748 independent
+observations, leaves the bias essentially unchanged at +0.140 in the 0.30 to
+0.40 band and &minus;0.214 in the 0.60 to 0.70 band. Splitting by contract
+duration, the error in the longshot half runs +0.104 to +0.124 and the error in
+the favourite half &minus;0.138 to &minus;0.162 across every bucket from under six hours to
+beyond two days.</p>
 
 <h2>5. Why this is not promoted</h2>
-<p>A twenty-point gap invites the conclusion that this is money. It is not, on
-this evidence, and the reason was written into the pre-registration before any
-number existed: a calibration gap measured on traded prices is a measurement,
-not an edge. Execution happens against a quoted book, and this dataset contains
-no order book. If a market showing a mid of 0.65 quotes 0.60 bid against 0.72
-ask, the gap is consumed before a position exists. I attempted to close this
-with a commercial top-of-book history and found the provider holds no data for
-any market in this sample, so the question remains open rather than answered.
-A finding this large on a regulated exchange with professional participants
-should raise suspicion, not confidence, until that check is made.</p>
+<p>A calibration gap measured on traded prices is a measurement, not an edge.
+Execution happens against a quoted book, and this dataset contains no order
+book. I attempted to close this with a commercial history of quotes at the top
+of the book and found
+the provider holds no data for any market in this sample. A finding this large
+on a regulated exchange with professional participants should raise suspicion,
+not confidence, until that check is made.</p>
 
-<div class="note">Two of three pre-registered claims failed, and one failed in
-the direction opposite to my reasoning. That is the return on writing the
-predictions down first. A study that confirms everything its author expected is
+<div class="note">A study that confirms everything its author expected is
 usually measuring the author.</div>
 
 <div class="refs">
@@ -215,6 +189,6 @@ Markets. <i>Journal of Economic Perspectives</i>, 2(2), 161&ndash;174.</li>
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational research
 only; not investment advice. Pre-registration committed before the data finished
-downloading. Kalshi resolved markets only; no order-book data, so no tradability
-claim is made.</footer>
+downloading. Kalshi resolved markets only; no data on the order book, so no
+tradability claim is made.</footer>
 </main></body></html>

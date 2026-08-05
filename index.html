@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vasilios Dimopoulos | The Risk Museum, Risk &amp; Quantitative Research</title>
-<meta name="description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 315 filed, 168 retired and on public view. The permanent collection is the ones that didn't survive.">
+<meta name="description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 316 filed, 168 retired and on public view. The permanent collection is the ones that didn't survive.">
 <link rel="canonical" href="https://theriskmuseum.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="The Risk Museum — Home of Risk Masterpieces">
-<meta property="og:description" content="315+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
+<meta property="og:title" content="The Risk Museum &middot; Home of Risk Masterpieces">
+<meta property="og:description" content="316+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
 <meta property="og:url" content="https://theriskmuseum.com/">
 <meta property="og:site_name" content="The Risk Museum">
 <meta name="twitter:card" content="summary">
@@ -208,16 +208,16 @@ limits, regime audits, and six-factor decomposition. The work runs nightly on an
 research pipeline I call the swarm. The permanent
 collection: the ones that didn&rsquo;t survive.</p>
 <div class="stats">
-  <div><b>315</b><span>ideas filed</span></div>
+  <div><b>316</b><span>ideas filed</span></div>
   <div><b>168</b><span>retired, on view</span></div>
   <div><b>2</b><span>in the vault (survivors)</span></div>
   <div><b>$920,276 over 22 years</b><span>$100k in an S&amp;P index fund, same window.
     The bar every strategy must beat</span></div>
 </div>
-<p class="sub" style="font-size:.85rem">Of 315 ideas filed,
+<p class="sub" style="font-size:.85rem">Of 316 ideas filed,
 184 carry a final verdict. 168 are retired and shown
 below, 2 held in the vault, and 14 still inside the
-3-day publication lag. Of the rest, 3 are queued for
+3-day publication lag. Of the rest, 4 are queued for
 testing and 128 could not run at all. These are machine-written
 candidates that call for paid data this free stack does not have. Counting those
 as &ldquo;in testing&rdquo; would flatter the number, so they are shown
@@ -262,7 +262,7 @@ own name, retired by my own gates.</span></li>
 <li><a href="notes/">All research notes &rarr;</a></li>
 </ul>
 </div>
-<details class='ledger' id='ledger'><summary class='ledger-h'>Museum ledger, the last 10 updates <span class='hint'>(click to expand)</span></summary><div class='acq'><span class='acq-d'>2026-07-26</span> Working Paper No. 16, and the first study run in a market that is not equities: &quot;Priced Wrong on Purpose.&quot; I pre-registered three claims about prediction-market pricing BEFORE the 33.5 GiB dataset finished downloading, then tested them on 250,858 resolved Kalshi markets across 59,748 distinct events. Two of the three failed. Prices are not calibrated, the favourite-longshot bias is confirmed and steep (contracts at 0.30-0.40 resolve YES 17% of the time; contracts at 0.60-0.70 resolve 88%), and my crowding hypothesis was falsified IN SIGN, since one-sided books turn out better calibrated than balanced ones, not worse. The bias survives one-market-per-event and every duration bucket. NOT promoted: there is no order book in the data, so a twenty-point gap on traded prices stays a measurement until the spread is shown not to eat it</div><div class='acq'><span class='acq-d'>2026-07-26</span> A paid data vendor, tested and rejected before paying. The one open question from Working Paper 16 is whether the spread consumes the calibration gap, which needs historical top-of-book. I took the free tier of a commercial prediction-market API and found it returns zero snapshots for every market in the sample and for a currently-live market too, so its history does not reach the period studied. The question stays open, honestly, and it cost nothing to learn</div><div class='acq'><span class='acq-d'>2026-07-26</span> A bug in my own factor decomposition, found and fixed. decompose() subtracted the risk-free rate from the backtester&#x27;s DOLLAR-NEUTRAL long/short return, which already nets its own funding, injecting a spurious -1.76%/yr drift into every alpha estimate. Demonstrated on a pure-noise spread with TRUE alpha of zero: the reported t was -2.24 (spuriously significant) and is -1.16 once fixed. In the sector-exclusion study the same fix removed nine false positives out of eleven. Blast radius checked before claiming impact: ZERO hypotheses had been rejected at the factor stage, so no verdict ever changed, and the bias made the gate stricter rather than looser</div><div class='acq'><span class='acq-d'>2026-07-26</span> Sector-exclusion tilts, tested: excluding a sector is a factor bet, not a free lunch. Across eleven exclusions the active return moves under 1%/yr in every case, factor R-squared reaches 0.61 for staples and 0.59 for financials, and after FF5+Mom only two carry residual alpha, both NEGATIVE (ex-technology -0.59%/yr t=-2.50, ex-consumer-discretionary -0.36%/yr t=-2.66). Leaving those sectors out cost real money beyond the factor exposure. Tested, shelved</div><div class='acq'><span class='acq-d'>2026-07-26</span> New engine primitive: Fama-MacBeth cross-sectional panel regression. The pipeline could validate one signal at a time but could not ask which characteristics are priced holding the others constant. First run (5,170 dates, 348 names/day, gross of costs): momentum is NOT priced against controls (t=1.22), while short-term reversal is the strongest characteristic (t=3.29) with a size effect (t=-2.86) and a volatility premium (t=2.78). That independently reproduces the 158-alpha verdict by a different method, since reversal is exactly what doubled costs destroy</div><div class='acq'><span class='acq-d'>2026-07-26</span> Does talking about AI predict returns? No. I scored all 14,155 harvested EDGAR filings for AI vocabulary: the language exploded 76-fold (0.01 to 0.76 terms per 10,000 words, 2015-2026) and carries no information (Fama-MacBeth t=1.80 against controls), while a long-high/short-low book LOSES money and fails every gate. Declared limit: term counting cannot separate deploying AI from disclosing AI as a threat in risk factors</div><div class='acq'><span class='acq-d'>2026-07-26</span> Research note #9 gains a primary-source section. Three Stanford MS&amp;E 435 lectures (Spring 2026) put the people doing the spending on the record, and I pulled the transcripts directly: OpenAI&#x27;s compute lead prices a gigawatt at $70 billion and half a million GPUs, against an aspirational 30 GW target and ~100 GW of US hyperscaler plans. He names ASML as the single chokepoint of the whole supply chain, which is the hidden-correlation problem stated by the buyer, and describes a three-year chip design cycle against a four-to-six-year depreciation schedule. Across three hours of senior operators, debt is never mentioned once. Attributed, not endorsed</div><div class='acq'><span class='acq-d'>2026-07-26</span> Working Paper No. 15, the overnight capstone: &quot;Lazy Prices Meets Survivorship.&quot; I harvested 14,155 EDGAR 10-Q/10-K filings for 406 names and tested the disclosure-text anomaly (rewrite your filing, underperform; Cohen-Malloy-Nguyen 2020). It does not replicate: the year-over-year text-change measure is specification-fragile and, cleaned, turns significant but OPPOSITE-signed (|t|=2.55), below the bar. The cause is survivorship — a current-constituents panel deletes the informative short leg, the firms that rewrote their disclosure on the way to trouble. A published edge, disqualified by the data I have. The vault holds at two, no manufactured win</div><div class='acq'><span class='acq-d'>2026-07-26</span> Market concentration, tested as a regime — the narrow-market question with numbers. The top-10 share of universe dollar volume runs 18-50% (43% now), and equal-weight lags cap-weight by -3.3%/yr when the market is top-heavy versus -0.75%/yr when it is broad, the Mag-7 dynamic made explicit. But a regime-timed equal-weight/cap-weight tilt fails the gates (t=-0.68). Like gold: a real regime, not a tradable signal. Tested, shelved</div><div class='acq'><span class='acq-d'>2026-07-26</span> Gold, tested as a conditional diversifier — the hedge-fund macro question, answered with numbers. Over 21 years gold returned 11.7%/yr (Sharpe 0.64), and MORE in the positive stock-bond-correlation regime (19.3% vs 9.8%), the &quot;bonds stopped hedging&quot; world of 2023 on. But its actual vol-reduction for a 60/40 book is roughly regime-invariant (~0.4-0.6%, slightly better when bonds DO hedge), and a regime-timed gold overlay fails the gates (t=-1.04). Gold is a real diversifier, not a tradable regime signal. Tested, shelved</div></details>
+<details class='ledger' id='ledger'><summary class='ledger-h'>Museum ledger, the last 10 updates <span class='hint'>(click to expand)</span></summary><div class='acq'><span class='acq-d'>2026-07-26</span> Working Paper No. 16, and the first study run in a market that is not equities: &quot;Priced Wrong on Purpose.&quot; I pre-registered three claims about prediction-market pricing BEFORE the 33.5 GiB dataset finished downloading, then tested them on 250,858 resolved Kalshi markets across 59,748 distinct events. Two of the three failed. Prices are not calibrated, the favourite-longshot bias is confirmed and steep (contracts at 0.30-0.40 resolve YES 17% of the time; contracts at 0.60-0.70 resolve 88%), and my crowding hypothesis was falsified IN SIGN, since one-sided books turn out better calibrated than balanced ones, not worse. The bias survives one-market-per-event and every duration bucket. NOT promoted: there is no order book in the data, so a twenty-point gap on traded prices stays a measurement until the spread is shown not to eat it</div><div class='acq'><span class='acq-d'>2026-07-26</span> A paid data vendor, tested and rejected before paying. The one open question from Working Paper 16 is whether the spread consumes the calibration gap, which needs historical top-of-book. I took the free tier of a commercial prediction-market API and found it returns zero snapshots for every market in the sample and for a currently-live market too, so its history does not reach the period studied. The question stays open, honestly, and it cost nothing to learn</div><div class='acq'><span class='acq-d'>2026-07-26</span> A bug in my own factor decomposition, found and fixed. decompose() subtracted the risk-free rate from the backtester&#x27;s DOLLAR-NEUTRAL long/short return, which already nets its own funding, injecting a spurious -1.76%/yr drift into every alpha estimate. Demonstrated on a pure-noise spread with TRUE alpha of zero: the reported t was -2.24 (spuriously significant) and is -1.16 once fixed. In the sector-exclusion study the same fix removed nine false positives out of eleven. Blast radius checked before claiming impact: ZERO hypotheses had been rejected at the factor stage, so no verdict ever changed, and the bias made the gate stricter rather than looser</div><div class='acq'><span class='acq-d'>2026-07-26</span> Sector-exclusion tilts, tested: excluding a sector is a factor bet, not a free lunch. Across eleven exclusions the active return moves under 1%/yr in every case, factor R-squared reaches 0.61 for staples and 0.59 for financials, and after FF5+Mom only two carry residual alpha, both NEGATIVE (ex-technology -0.59%/yr t=-2.50, ex-consumer-discretionary -0.36%/yr t=-2.66). Leaving those sectors out cost real money beyond the factor exposure. Tested, shelved</div><div class='acq'><span class='acq-d'>2026-07-26</span> New engine primitive: Fama-MacBeth cross-sectional panel regression. The pipeline could validate one signal at a time but could not ask which characteristics are priced holding the others constant. First run (5,170 dates, 348 names/day, gross of costs): momentum is NOT priced against controls (t=1.22), while short-term reversal is the strongest characteristic (t=3.29) with a size effect (t=-2.86) and a volatility premium (t=2.78). That independently reproduces the 158-alpha verdict by a different method, since reversal is exactly what doubled costs destroy</div><div class='acq'><span class='acq-d'>2026-07-26</span> Does talking about AI predict returns? No. I scored all 14,155 harvested EDGAR filings for AI vocabulary: the language exploded 76-fold (0.01 to 0.76 terms per 10,000 words, 2015-2026) and carries no information (Fama-MacBeth t=1.80 against controls), while a long-high/short-low book LOSES money and fails every gate. Declared limit: term counting cannot separate deploying AI from disclosing AI as a threat in risk factors</div><div class='acq'><span class='acq-d'>2026-07-26</span> Research note #9 gains a primary-source section. Three Stanford MS&amp;E 435 lectures (Spring 2026) put the people doing the spending on the record, and I pulled the transcripts directly: OpenAI&#x27;s compute lead prices a gigawatt at $70 billion and half a million GPUs, against an aspirational 30 GW target and ~100 GW of US hyperscaler plans. He names ASML as the single chokepoint of the whole supply chain, which is the hidden-correlation problem stated by the buyer, and describes a three-year chip design cycle against a four-to-six-year depreciation schedule. Across three hours of senior operators, debt is never mentioned once. Attributed, not endorsed</div><div class='acq'><span class='acq-d'>2026-07-26</span> Working Paper No. 15, the overnight capstone: &quot;Lazy Prices Meets Survivorship.&quot; I harvested 14,155 EDGAR 10-Q/10-K filings for 406 names and tested the disclosure-text anomaly (rewrite your filing, underperform; Cohen-Malloy-Nguyen 2020). It does not replicate: the year-over-year text-change measure is specification-fragile and, cleaned, turns significant but OPPOSITE-signed (|t|=2.55), below the bar. The cause is survivorship, a current-constituents panel deletes the informative short leg, the firms that rewrote their disclosure on the way to trouble. A published edge, disqualified by the data I have. The vault holds at two, no manufactured win</div><div class='acq'><span class='acq-d'>2026-07-26</span> Market concentration, tested as a regime, the narrow-market question with numbers. The top-10 share of universe dollar volume runs 18-50% (43% now), and equal-weight lags cap-weight by -3.3%/yr when the market is top-heavy versus -0.75%/yr when it is broad, the Mag-7 dynamic made explicit. But a regime-timed equal-weight/cap-weight tilt fails the gates (t=-0.68). Like gold: a real regime, not a tradable signal. Tested, shelved</div><div class='acq'><span class='acq-d'>2026-07-26</span> Gold, tested as a conditional diversifier, the hedge-fund macro question, answered with numbers. Over 21 years gold returned 11.7%/yr (Sharpe 0.64), and MORE in the positive stock-bond-correlation regime (19.3% vs 9.8%), the &quot;bonds stopped hedging&quot; world of 2023 on. But its actual vol-reduction for a 60/40 book is roughly regime-invariant (~0.4-0.6%, slightly better when bonds DO hedge), and a regime-timed gold overlay fails the gates (t=-1.04). Gold is a real diversifier, not a tradable regime signal. Tested, shelved</div></details>
 
     <h2 class="sect" id="tulip-wing">Stocks that double in two years go on
     to crash more often. These just did.</h2>
@@ -298,7 +298,7 @@ newest first</p>
 it. The strategies that reached a full backtest are totalled first, the
 way a desk reads its book. What $100k put into each would have
 become.</p>
-<p class='sect-sub' style='margin-top:1.4rem'>The backtested wall &middot; $100k in, sorted best to worst</p><div class='blotter-wrap'><table class='blotter'><thead><tr><th>Strategy</th><th class='bl-style'>Style</th><th>Sharpe</th><th>Max&nbsp;DD</th><th>Yrs</th><th>$100k&nbsp;&rarr;</th><th>Net&nbsp;P&amp;L</th><th>Return</th></tr></thead><tbody><tr class='bench'><td><div class='bl-name'>S&amp;P 500 index fund</div><div class='bl-why'>Buy and hold, the bar every strategy must clear</div><div class='bl-date'>same 22-year window</div></td><td class='bl-style'>index</td><td>&mdash;</td><td>&mdash;</td><td>22</td><td>$920,276</td><td class='pos'>+$820,276</td><td class='pos'>+820%</td></tr><tr><td><div class='bl-name'>Illiquid stocks earn a premium</div><div class='bl-why'>IS/OOS degradation 53% &gt; 30% (IS 1.47 -&gt; OOS 0.69) — overfitting signature</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Liquidity</td><td>1.19</td><td class='neg'>−9%</td><td>21</td><td>$311,748</td><td class='pos'>+$211,748</td><td class='pos'>+212%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal, retested on the ~500-n…</div><div class='bl-why'>Newey-West t=0.95 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.168 &gt; 0.05</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Reversal</td><td>0.19</td><td class='neg'>−17%</td><td>21</td><td>$128,773</td><td class='pos'>+$28,773</td><td class='pos'>+29%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal predicts returns</div><div class='bl-why'>Newey-West t=0.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.286 &gt; 0.05; IS/OOS degradation 71% &gt; 30% (IS 0.17 -&gt; OOS 0.05)…</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Reversal</td><td>0.12</td><td class='neg'>−19%</td><td>21</td><td>$116,411</td><td class='pos'>+$16,411</td><td class='pos'>+16%</td></tr><tr><td><div class='bl-name'>12-1 month cross-sectional momentum predicts returns</div><div class='bl-why'>Newey-West t=0.09 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.420 &gt; 0.05; in-sample Sharpe -0.02 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>0.02</td><td class='neg'>−42%</td><td>20</td><td>$93,380</td><td class='neg'>−$6,620</td><td class='neg'>−7%</td></tr><tr><td><div class='bl-name'>Negative return skewness predicts higher returns</div><div class='bl-why'>Newey-West t=-0.87 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.829 &gt; 0.05; in-sample Sharpe -0.09 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Skewness</td><td>−0.17</td><td class='neg'>−19%</td><td>21</td><td>$84,789</td><td class='neg'>−$15,211</td><td class='neg'>−15%</td></tr><tr><td><div class='bl-name'>Unusually high recent volume predicts higher returns</div><div class='bl-why'>Newey-West t=-2.31 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.987 &gt; 0.05; in-sample Sharpe -0.67 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Volume</td><td>−0.49</td><td class='neg'>−43%</td><td>21</td><td>$64,849</td><td class='neg'>−$35,151</td><td class='neg'>−35%</td></tr><tr><td><div class='bl-name'>12-1 momentum, retested on the ~500-name S&amp;P univer…</div><div class='bl-why'>Newey-West t=-0.98 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.798 &gt; 0.05; in-sample Sharpe -0.29 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.21</td><td class='neg'>−51%</td><td>20</td><td>$61,519</td><td class='neg'>−$38,481</td><td class='neg'>−38%</td></tr><tr><td><div class='bl-name'>Stocks with high trend consistency</div><div class='bl-why'>Newey-West t=-1.77 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.948 &gt; 0.05; in-sample Sharpe -0.34 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.38</td><td class='neg'>−53%</td><td>21</td><td>$53,648</td><td class='neg'>−$46,352</td><td class='neg'>−46%</td></tr><tr><td><div class='bl-name'>Proximity to 52-week high predicts returns</div><div class='bl-why'>Newey-West t=-2.22 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.988 &gt; 0.05; in-sample Sharpe -0.50 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.48</td><td class='neg'>−76%</td><td>20</td><td>$28,633</td><td class='neg'>−$71,367</td><td class='neg'>−71%</td></tr><tr><td><div class='bl-name'>Low lottery demand</div><div class='bl-why'>Newey-West t=-3.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.65 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Lottery</td><td>−0.70</td><td class='neg'>−77%</td><td>21</td><td>$23,572</td><td class='neg'>−$76,428</td><td class='neg'>−76%</td></tr><tr><td><div class='bl-name'>Low idiosyncratic volatility predicts higher returns</div><div class='bl-why'>Newey-West t=-3.89 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.74 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Low-risk</td><td>−0.80</td><td class='neg'>−77%</td><td>21</td><td>$22,966</td><td class='neg'>−$77,034</td><td class='neg'>−77%</td></tr></tbody></table></div><p class='blotter-foot'>Not one retired strategy cleared the index, which is why they hang here and not in the vault. Sharpe is an upper bound on a survivorship-biased universe; every figure is a hypothetical backtest net of assumed costs, not a live result. Every strategy here is cross-sectional across US large-caps, long the factor, short its opposite, so it touches every sector by construction; the Style column is the factor family, not a GICS sector.</p>
+<p class='sect-sub' style='margin-top:1.4rem'>The backtested wall &middot; $100k in, sorted best to worst</p><div class='blotter-wrap'><table class='blotter'><thead><tr><th>Strategy</th><th class='bl-style'>Style</th><th>Sharpe</th><th>Max&nbsp;DD</th><th>Yrs</th><th>$100k&nbsp;&rarr;</th><th>Net&nbsp;P&amp;L</th><th>Return</th></tr></thead><tbody><tr class='bench'><td><div class='bl-name'>S&amp;P 500 index fund</div><div class='bl-why'>Buy and hold, the bar every strategy must clear</div><div class='bl-date'>same 22-year window</div></td><td class='bl-style'>index</td><td>n/a</td><td>n/a</td><td>22</td><td>$920,276</td><td class='pos'>+$820,276</td><td class='pos'>+820%</td></tr><tr><td><div class='bl-name'>Illiquid stocks earn a premium</div><div class='bl-why'>IS/OOS degradation 53% &gt; 30% (IS 1.47 -&gt; OOS 0.69), overfitting signature</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Liquidity</td><td>1.19</td><td class='neg'>−9%</td><td>21</td><td>$311,748</td><td class='pos'>+$211,748</td><td class='pos'>+212%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal, retested on the ~500-n…</div><div class='bl-why'>Newey-West t=0.95 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.168 &gt; 0.05</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Reversal</td><td>0.19</td><td class='neg'>−17%</td><td>21</td><td>$128,773</td><td class='pos'>+$28,773</td><td class='pos'>+29%</td></tr><tr><td><div class='bl-name'>1-month short-term reversal predicts returns</div><div class='bl-why'>Newey-West t=0.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.286 &gt; 0.05; IS/OOS degradation 71% &gt; 30% (IS 0.17 -&gt; OOS 0.05)…</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Reversal</td><td>0.12</td><td class='neg'>−19%</td><td>21</td><td>$116,411</td><td class='pos'>+$16,411</td><td class='pos'>+16%</td></tr><tr><td><div class='bl-name'>12-1 month cross-sectional momentum predicts returns</div><div class='bl-why'>Newey-West t=0.09 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.420 &gt; 0.05; in-sample Sharpe -0.02 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>0.02</td><td class='neg'>−42%</td><td>20</td><td>$93,380</td><td class='neg'>−$6,620</td><td class='neg'>−7%</td></tr><tr><td><div class='bl-name'>Negative return skewness predicts higher returns</div><div class='bl-why'>Newey-West t=-0.87 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.829 &gt; 0.05; in-sample Sharpe -0.09 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Skewness</td><td>−0.17</td><td class='neg'>−19%</td><td>21</td><td>$84,789</td><td class='neg'>−$15,211</td><td class='neg'>−15%</td></tr><tr><td><div class='bl-name'>Unusually high recent volume predicts higher returns</div><div class='bl-why'>Newey-West t=-2.31 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.987 &gt; 0.05; in-sample Sharpe -0.67 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Volume</td><td>−0.49</td><td class='neg'>−43%</td><td>21</td><td>$64,849</td><td class='neg'>−$35,151</td><td class='neg'>−35%</td></tr><tr><td><div class='bl-name'>12-1 momentum, retested on the ~500-name S&amp;P univer…</div><div class='bl-why'>Newey-West t=-0.98 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.798 &gt; 0.05; in-sample Sharpe -0.29 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.21</td><td class='neg'>−51%</td><td>20</td><td>$61,519</td><td class='neg'>−$38,481</td><td class='neg'>−38%</td></tr><tr><td><div class='bl-name'>Stocks with high trend consistency</div><div class='bl-why'>Newey-West t=-1.77 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.948 &gt; 0.05; in-sample Sharpe -0.34 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.38</td><td class='neg'>−53%</td><td>21</td><td>$53,648</td><td class='neg'>−$46,352</td><td class='neg'>−46%</td></tr><tr><td><div class='bl-name'>Proximity to 52-week high predicts returns</div><div class='bl-why'>Newey-West t=-2.22 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.988 &gt; 0.05; in-sample Sharpe -0.50 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Momentum</td><td>−0.48</td><td class='neg'>−76%</td><td>20</td><td>$28,633</td><td class='neg'>−$71,367</td><td class='neg'>−71%</td></tr><tr><td><div class='bl-name'>Low lottery demand</div><div class='bl-why'>Newey-West t=-3.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.65 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Lottery</td><td>−0.70</td><td class='neg'>−77%</td><td>21</td><td>$23,572</td><td class='neg'>−$76,428</td><td class='neg'>−76%</td></tr><tr><td><div class='bl-name'>Low idiosyncratic volatility predicts higher returns</div><div class='bl-why'>Newey-West t=-3.89 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=1.000 &gt; 0.05; in-sample Sharpe -0.74 &lt;= 0</div><div class='bl-date'>tested 2026-07-07 &middot; retired at validation</div></td><td class='bl-style'>Low-risk</td><td>−0.80</td><td class='neg'>−77%</td><td>21</td><td>$22,966</td><td class='neg'>−$77,034</td><td class='neg'>−77%</td></tr></tbody></table></div><p class='blotter-foot'>Not one retired strategy cleared the index, which is why they hang here and not in the vault. Sharpe is an upper bound on a survivorship-biased universe; every figure is a hypothetical backtest net of assumed costs, not a live result. Every strategy here is cross-sectional across US large-caps, long the factor, short its opposite, so it touches every sector by construction; the Style column is the factor family, not a GICS sector.</p>
 <details class="note"><summary style="cursor:pointer;color:var(--blue)">How to read the collection, including what &ldquo;BRAIN candidate&rdquo; and the retirement codes mean</summary>
 <p style="margin:.6rem 0 0"><b>BRAIN candidates</b> are machine-written alpha
 formulas (in WorldQuant BRAIN syntax) that the swarm screens on four fast
@@ -441,15 +441,15 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
     <article class="stone">
       <div class="rip">Tested 2026-07-28</div>
       <h3>Tests whether the market&#x27;s price of fear and the bond term premium predict WHEN the classic factor strategies pay, instead of assuming they always pay the same.</h3>
-      <div class='tech'>Time-varying price of risk (Adrian-Crump-Moench JFE 2015 lineage): lagged price-of-risk states (VIX level, ACM term premium, term spread) forecast the FF factor premia time-series — factor timing via priced states, not constant lambdas</div>
+      <div class='tech'>Time-varying price of risk (Adrian-Crump-Moench JFE 2015 lineage): lagged price-of-risk states (VIX level, ACM term premium, term spread) forecast the FF factor premia time-series, factor timing via priced states, not constant lambdas</div>
       <div class="cause">Retired at <b>4</b>:
-        Newey-West t=-0.14 &lt; 2.50 (base 2.5, family n=1); bootstrap P(Sharpe&lt;=0)=0.5682 &gt; 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=-0.07 &lt; 2.5 — edge has no buffer; IS/OOS degradation …</div>
+        Newey-West t=-0.14 &lt; 2.50 (base 2.5, family n=1); bootstrap P(Sharpe&lt;=0)=0.5682 &gt; 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=-0.07 &lt; 2.5, edge has no buffer; IS/OOS degradation …</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-28</div>
       <h3>Tests whether American fear prices the whole world&#x27;s stock markets, and whether emerging markets load on it harder than developed ones.</h3>
-      <div class='tech'>Global price of risk (Adrian-Stackman-Vogt IMF ER 2019): the US-VIX-based price of risk forecasts international equity returns (EFA/EEM) with heterogeneous loadings — US fear is a global state variable</div>
+      <div class='tech'>Global price of risk (Adrian-Stackman-Vogt IMF ER 2019): the US-VIX-based price of risk forecasts international equity returns (EFA/EEM) with heterogeneous loadings, US fear is a global state variable</div>
       <div class="cause">Retired at <b>4</b>:
         No leg clears the gates (family_n=3, deflated bar t&gt;=2.87). EFA leg is dead (NW t=0.11). EEM leg: NW t=2.19 &lt; 2.87, stressed t=1.09, IS/OOS degradation 37%. The heterogeneity leg (EEM-EFA, the paper&#x27;s core claim) clears …</div>
       
@@ -467,7 +467,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>A weather cycle with a 75-year public index and a mechanical pass-through story (crops, cooling demand, hydro shortfalls). Kin to the retired sunshine study but a different animal: seasonal-scale supply shocks, not daily mood. CIBC&#x27;s own rule of thumb - normal El Nino adds ~5% to commodity inflation - is the claim I make testable in equities.</h3>
       <div class='tech'>El Nino regimes (NOAA ONI index) predict relative returns of commodity-sensitive equity sectors: energy and staples names outperform the panel during El Nino phases as food and fuel inflation passes through</div>
       <div class="cause">Retired at <b>4</b>:
-        Newey-West t=0.24 &lt; 2.50 (base 2.5, family n=1); bootstrap P(Sharpe&lt;=0)=0.7298 &gt; 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=0.12 &lt; 2.5 — edge has no buffer; IS/OOS degradation …</div>
+        Newey-West t=0.24 &lt; 2.50 (base 2.5, family n=1); bootstrap P(Sharpe&lt;=0)=0.7298 &gt; 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=0.12 &lt; 2.5, edge has no buffer; IS/OOS degradation …</div>
       
     </article>
     <article class="stone">
@@ -475,7 +475,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>A global affordability map (UN Habitat via Visual Capitalist) shows the US at 4.5x income - 7th most affordable of 181 - while China sits at 34.6x. The testable US question: does a stretched domestic affordability ratio predict homebuilder underperformance? Intuitive, probably weak - a tested rejection is the likely honest outcome, and that is museum content.</h3>
       <div class='tech'>Housing affordability ceiling: when the US home-price-to-income ratio is stretched (top tercile), US homebuilder stocks (DHI/LEN/PHM/NVR) subsequently underperform the panel over the next 1-2 quarters as affordability caps demand</div>
       <div class="cause">Retired at <b>4</b>:
-        Newey-West t=0.67 &lt; 2.50 (base 2.5, family n=1); bootstrap P(Sharpe&lt;=0)=0.1873 &gt; 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=0.33 &lt; 2.5 — edge has no buffer; IS/OOS degradation …</div>
+        Newey-West t=0.67 &lt; 2.50 (base 2.5, family n=1); bootstrap P(Sharpe&lt;=0)=0.1873 &gt; 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=0.33 &lt; 2.5, edge has no buffer; IS/OOS degradation …</div>
       
     </article>
     <article class="stone">
@@ -483,7 +483,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Table 8.1 row 3: income funds forced to sell on a dividend cut may push price below fair value, creating a reversal. Testable event study; needs a dividend-action date harvest.</h3>
       <div class='tech'>Dividend-cut forced-selling overshoot (Manual of Ideas Table 8.1, &#x27;dividend cancellation&#x27;): stocks cutting/suspending dividends overshoot to the downside on yield-seeker forced selling, then partially reverse over the next 1-3 months</div>
       <div class="cause">Retired at <b>4</b>:
-        reversal (tradeable) leg fails the gates: margin-of-safety rerun (gross halved, costs doubled) t=1.85 &lt; 2.5 — edge has no buffer</div>
+        reversal (tradeable) leg fails the gates: margin-of-safety rerun (gross halved, costs doubled) t=1.85 &lt; 2.5, edge has no buffer</div>
       
     </article>
     <article class="stone">
@@ -513,7 +513,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
     <article class="stone">
       <div class="rip">Tested 2026-07-26</div>
       <h3>Tests whether trading crowding into a few giant stocks foretells weaker stock-picking signals and lagging small stocks.</h3>
-      <div class='tech'>Concentration regime (top-10 share of dollar volume, rolling) conditions the EW-vs-CW spread and cross-sectional signal ICs — rising concentration predicts EW underperformance and IC compression (DESCO Concentration Game 2026)</div>
+      <div class='tech'>Concentration regime (top-10 share of dollar volume, rolling) conditions the EW-vs-CW spread and cross-sectional signal ICs, rising concentration predicts EW underperformance and IC compression (DESCO Concentration Game 2026)</div>
       <div class="cause">Retired at <b>pipeline</b>:
         Answered under the concentration_lab study: EW lags CW -3.3%/yr when the market is top-heavy vs -0.75% when broad, but the regime-timed EW/CW tilt fails (t=-0.68). Duplicate; see the concentration tombstone.</div>
       
@@ -521,7 +521,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
     <article class="stone">
       <div class="rip">Tested 2026-07-26</div>
       <h3>Tests whether gold&#x27;s value in a stock-bond portfolio depends on whether stocks and bonds move together or apart.</h3>
-      <div class='tech'>Gold conditional diversification: stock-bond correlation regime (rolling SPY/TLT) conditions gold allocation value — 60/40 vs 60/35/5+GLD by SB-corr sign (DESCO Worth Its Weight)</div>
+      <div class='tech'>Gold conditional diversification: stock-bond correlation regime (rolling SPY/TLT) conditions gold allocation value, 60/40 vs 60/35/5+GLD by SB-corr sign (DESCO Worth Its Weight)</div>
       <div class="cause">Retired at <b>pipeline</b>:
         Answered under the gold_lab study: gold is a real conditional diversifier (19.3%/yr in positive stock-bond-correlation regimes vs 9.8%) but the regime-timed overlay fails the gates (t=-1.04). Duplicate; see the gold …</div>
       
@@ -571,7 +571,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>market concentration / breadth regime (topical macro)</h3>
       <div class='tech'>Regime-timed equal-weight/cap-weight tilt: lean to equal-weight when market concentration is falling, cap-weight when rising</div>
       <div class="cause">Retired at <b>pipeline</b>:
-        Concentration is a real descriptive regime — EW lags CW -3.3%/yr when top-heavy vs -0.75%/yr when broad — but the regime-timed EW/CW tilt earns -1.28%/yr at NW t=-0.68 (bar 2.5), fails. A real regime, not a tradable …</div>
+        Concentration is a real descriptive regime, EW lags CW -3.3%/yr when top-heavy vs -0.75%/yr when broad, but the regime-timed EW/CW tilt earns -1.28%/yr at NW t=-0.68 (bar 2.5), fails. A real regime, not a tradable …</div>
       
     </article>
     <article class="stone">
@@ -587,7 +587,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>FINRA short-volume positioning (free, orthogonal)</h3>
       <div class='tech'>Short-side crowding (FINRA daily short-volume ratio) predicts large-cap cross-sectional returns, and flags stress underperformance</div>
       <div class="cause">Retired at <b>pipeline</b>:
-        Free FINRA short-volume panel (2006 days x 406 names, 2017-12-29..2026-07-24). Family of 4 cross-sectional SVR signals all fail the deflated bar t&gt;=2.96 (best |t|=2.24). Conditional risk measure is loud — most-shorted …</div>
+        Free FINRA short-volume panel (2006 days x 406 names, 2017-12-29..2026-07-24). Family of 4 cross-sectional SVR signals all fail the deflated bar t&gt;=2.96 (best |t|=2.24). Conditional risk measure is loud, most-shorted …</div>
       
     </article>
     <article class="stone">
@@ -595,7 +595,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Altucher calendar/flow family (non-price market-timing)</h3>
       <div class='tech'>End-of-quarter window-dressing effect (Altucher #12): returns around quarter turns, equal-weight universe</div>
       <div class="cause">Retired at <b>pipeline</b>:
-        Quarter-end spread +5.87 bps/day, gross +0.89%/yr, NW t=0.83 — not significant against the deflated 3.03 bar. Tested and shelved.</div>
+        Quarter-end spread +5.87 bps/day, gross +0.89%/yr, NW t=0.83, not significant against the deflated 3.03 bar. Tested and shelved.</div>
       
     </article>
     <article class="stone">
@@ -619,7 +619,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Altucher calendar/flow family (non-price market-timing)</h3>
       <div class='tech'>Pre-holiday effect (Altucher / Ariel 1990): last trading day before a market holiday, equal-weight universe</div>
       <div class="cause">Retired at <b>pipeline</b>:
-        Pre-holiday days average +14.82 bps vs the rest, a real magnitude — but only ~3% of days: gross +1.33%/yr at NW t=2.11, below even the naive 2.5 bar and well under the family-deflated 3.03. Underpowered, tested and …</div>
+        Pre-holiday days average +14.82 bps vs the rest, a real magnitude, but only ~3% of days: gross +1.33%/yr at NW t=2.11, below even the naive 2.5 bar and well under the family-deflated 3.03. Underpowered, tested and …</div>
       
     </article>
     <article class="stone">
@@ -833,7 +833,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
     <article class="stone">
       <div class="rip">Tested 2026-07-24</div>
       <h3>The oldest &#x27;free lunch&#x27; in indexing - buy the stock entering the S&amp;P before the trackers must - reportedly shrank to nothing (Greenwood-Sammon). Yet the largest platforms&#x27; index-rebal teams are cited as top earners. Either the effect is dead and the desks earn something subtler, or the death is exaggerated. A verdict either way is museum-grade.</h3>
-      <div class='tech'>The index effect is dead, officially: S&amp;P 500 additions no longer earn announcement-to-inclusion abnormal returns (Greenwood-Sammon), yet index-rebalancing desks reportedly print — test where the residual edge migrated</div>
+      <div class='tech'>The index effect is dead, officially: S&amp;P 500 additions no longer earn announcement-to-inclusion abnormal returns (Greenwood-Sammon), yet index-rebalancing desks reportedly print, test where the residual edge migrated</div>
       <div class="cause">Retired at <b>validation</b>:
         index effect confirmed dead in the panel era: post-effective CARs are statistical zero in all three eras (2005-14: -97bps t=-0.8; 2015-19: +1bp t=0.0; 2020+: -35bps t=-0.2); the only above-Bonferroni window (+170bps …</div>
       
@@ -841,9 +841,9 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
     <article class="stone">
       <div class="rip">Tested 2026-07-23</div>
       <h3>Bets that stocks owned by the same many hedge funds get hit hardest when those funds all rush the exit at once.</h3>
-      <div class='tech'>Crowded-exit risk: stocks with high hedge-fund ownership overlap (13F-derived, point-in-time by filing date) underperform specifically during vol-spike windows — the pod-liquidation cascade priced as a conditional factor (Young&amp;Calculated pod-contagion mechanism; Patterson/DESCO lenses as priors)</div>
+      <div class='tech'>Crowded-exit risk: stocks with high hedge-fund ownership overlap (13F-derived, point-in-time by filing date) underperform specifically during vol-spike windows, the pod-liquidation cascade priced as a conditional factor (Young&amp;Calculated pod-contagion mechanism; Patterson/DESCO lenses as priors)</div>
       <div class="cause">Retired at <b>validation</b>:
-        comovement diff +0.009 (t=4.09), stress spread -142bps (t=-3.90, n=14) — neither claim clears the deflated stressed bar</div>
+        comovement diff +0.009 (t=4.09), stress spread -142bps (t=-3.90, n=14), neither claim clears the deflated stressed bar</div>
       
     </article>
     <article class="stone">
@@ -851,7 +851,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Cliff Asness&#x27;s argument (via Busca podcast): weighting by inverse volatility is the benchmark no optimizer reliably beats. Equal-weight 7Twelve just died; this asks whether risk-weighting, not asset count, was the missing ingredient.</h3>
       <div class='tech'>Asness equal-risk benchmark: inverse-volatility weighting of the 7Twelve 12-ETF sleeve beats its equal-weight version and 60/40 SPY/AGG</div>
       <div class="cause">Retired at <b>validation</b>:
-        inverse-vol 7Twelve: -4.00%/yr vs equal-weight (t=-1.63), -6.59%/yr vs 60/40 (t=-3.58) — risk-weighting was not the missing ingredient either</div>
+        inverse-vol 7Twelve: -4.00%/yr vs equal-weight (t=-1.63), -6.59%/yr vs 60/40 (t=-3.58), risk-weighting was not the missing ingredient either</div>
       
     </article>
     <article class="stone">
@@ -883,7 +883,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Watches Americans falling behind on credit cards and bets the lenders&#x27; stocks feel it after the data drops.</h3>
       <div class='tech'>Consumer-credit deterioration predicts consumer-finance equity underperformance: rising card delinquency rates (FRED DRCCLACBS, release-date aligned) lead relative returns of consumer lenders vs market (KKR JD stress-scenario translation)</div>
       <div class="cause">Retired at <b>validation</b>:
-        rising-vs-falling delinquency: -1.2pct/qtr relative, t=-0.51 on 87 quarters — declared-underpowered test, honest inconclusive</div>
+        rising-vs-falling delinquency: -1.2pct/qtr relative, t=-0.51 on 87 quarters, declared-underpowered test, honest inconclusive</div>
       
     </article>
     <article class="stone">
@@ -891,15 +891,15 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Splits money equally across twelve funds in seven asset classes, betting that true breadth lives across asset classes, not across more stocks.</h3>
       <div class='tech'>7Twelve multi-asset equal-weight (Israelsen 2010) beats 60/40 and SPY on geometric growth and drawdown via cross-asset-class breadth</div>
       <div class="cause">Retired at <b>validation</b>:
-        7Twelve vs 60/40: CAGR diff -2.51%/yr, t=-1.82 — cross-asset equal weight did not beat the boring benchmark on this sample</div>
+        7Twelve vs 60/40: CAGR diff -2.51%/yr, t=-1.82, cross-asset equal weight did not beat the boring benchmark on this sample</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-21</div>
-      <h3>Tests the famous claim that traders buy more on sunny mornings in New York — mood as a market force.</h3>
-      <div class='tech'>Sunshine effect replication (Hirshleifer-Shumway JF 2003): morning cloud cover in New York predicts daily index returns — the classic behavioral claim, retested 2005-2026 under modern gates</div>
+      <h3>Tests the famous claim that traders buy more on sunny mornings in New York, mood as a market force.</h3>
+      <div class='tech'>Sunshine effect replication (Hirshleifer-Shumway JF 2003): morning cloud cover in New York predicts daily index returns, the classic behavioral claim, retested 2005-2026 under modern gates</div>
       <div class="cause">Retired at <b>validation</b>:
-        gloom-day effect -1.2bps/day, t=-0.34 (PRCP&gt;0 (precipitation day)) — the famous mood effect does not clear modern gates on 2005-2026 data</div>
+        gloom-day effect -1.2bps/day, t=-0.34 (PRCP&gt;0 (precipitation day)), the famous mood effect does not clear modern gates on 2005-2026 data</div>
       
     </article>
     <article class="stone">
@@ -1144,16 +1144,16 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
-      <h3>Tests whether scary markets pay stock holders extra while bond prices have already flown to safety — fear as a priced premium, not just a mood.</h3>
-      <div class='tech'>Flight-to-safety nonlinearity (Adrian-Crump-Vogt JF 2019): 1m forward stock returns RISE with lagged VIX while Treasury returns FALL — replication on SPY/TLT 2012-2026 with post-publication subsample</div>
+      <h3>Tests whether scary markets pay stock holders extra while bond prices have already flown to safety, fear as a priced premium, not just a mood.</h3>
+      <div class='tech'>Flight-to-safety nonlinearity (Adrian-Crump-Vogt JF 2019): 1m forward stock returns RISE with lagged VIX while Treasury returns FALL, replication on SPY/TLT 2012-2026 with post-publication subsample</div>
       <div class="cause">Retired at <b>validation</b>:
-        Directionally replicates ACV in AND out of sample — monotone SPY rise, TLT mirror — but t=2.25 sits under the 2.5 bar with overlapping-window inference, and far under the 5.0 stressed promotion bar. Verdict: the paper&#x27;s …</div>
+        Directionally replicates ACV in AND out of sample, monotone SPY rise, TLT mirror, but t=2.25 sits under the 2.5 bar with overlapping-window inference, and far under the 5.0 stressed promotion bar. Verdict: the paper&#x27;s …</div>
       
     </article>
     <article class="stone">
       <div class="rip">Tested 2026-07-13</div>
       <h3>Holds more stock when markets are calm and less when they are stormy, betting risk isn&#x27;t paid extra in high-vol months.</h3>
-      <div class='tech'>Vol-managed SPY (Moreira-Muir 2017): scale exposure by inverse realized variance, cap 2x — higher Sharpe than buy-and-hold</div>
+      <div class='tech'>Vol-managed SPY (Moreira-Muir 2017): scale exposure by inverse realized variance, cap 2x, higher Sharpe than buy-and-hold</div>
       <div class="cause">Retired at <b>validation</b>:
         gate t=1.55; promotion needs t&gt;=5.0 (2.5 base + margin-of-safety)</div>
       
@@ -1179,7 +1179,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Adds a small trend-following sleeve to a stock portfolio, betting the hedge cheapens crashes enough to speed up long-run compounding.</h3>
       <div class='tech'>A 10-20% time-series-momentum sleeve improves the GEOMETRIC growth and max drawdown of an equity book vs equity-only (crisis-alpha portfolio construction; Moskowitz-Ooi-Pedersen lineage). Distinct from the rejected standalone walk-forward TSMOM family: this claims drag reduction at the PORTFOLIO level, not timing alpha</div>
       <div class="cause">Retired at <b>validation</b>:
-        80/20 trend sleeve: CAGR diff -0.06%/yr, t=-0.10 vs bar 2.74 + stressed 2.5 — did not clear</div>
+        80/20 trend sleeve: CAGR diff -0.06%/yr, t=-0.10 vs bar 2.74 + stressed 2.5, did not clear</div>
       
     </article>
     <article class="stone">
@@ -1187,7 +1187,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Holds the index as individual stocks and systematically sells losers to bank tax losses, swapping into similar names to keep tracking the index.</h3>
       <div class='tech'>Tax-loss harvesting adds ~1%/yr after-tax alpha in early years on a direct-indexed S&amp;P portfolio, decaying as embedded gains age (Chaudhuri-Burnham-Lo 2020 replication; the Parametric mechanism)</div>
       <div class="cause">Retired at <b>validation</b>:
-        full-liquidation tax alpha -1.75%/yr, t=-2.34: the pre-tax bleed of sell-the-losers swaps (~180bps/yr) dwarfs the tax credits (~6bps/yr on a no-contribution book). Two honest caveats: (1) survivorship interaction — on a …</div>
+        full-liquidation tax alpha -1.75%/yr, t=-2.34: the pre-tax bleed of sell-the-losers swaps (~180bps/yr) dwarfs the tax credits (~6bps/yr on a no-contribution book). Two honest caveats: (1) survivorship interaction, on a …</div>
       
     </article>
     <article class="stone">
@@ -1235,7 +1235,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Tests whether option-dealer positioning and market state improve five-day forecasts of how far the S&amp;P 500 will swing.</h3>
       <div class='tech'>Dimopoulos Chain v3: shrunk state corrections (GEX x RV cells + term structure + arrival) on a log HAR+VIX+GJR backbone improve 5-day range forecasts (pre-registered spec)</div>
       <div class="cause">Retired at <b>validation</b>:
-        FAIL — buried, name and all</div>
+        FAIL, buried, name and all</div>
       
     </article>
     <article class="stone">
@@ -1243,7 +1243,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Tests whether dealer hedging plus recent choppiness predicts tomorrow&#x27;s trading range beyond the market&#x27;s fear gauge.</h3>
       <div class='tech'>Dimopoulos Chain v1: GEX x RV state chain adds next-day range information beyond VIX (OOS, monthly-refit)</div>
       <div class="cause">Retired at <b>validation</b>:
-        margin-of-safety rerun (edge halved vs VIX baseline, original noise) t=2.17 &lt; 2.5 — edge has no buffer; gate tightened 2026-07-12 (Graham overlay), prior pass was under the old regime</div>
+        margin-of-safety rerun (edge halved vs VIX baseline, original noise) t=2.17 &lt; 2.5, edge has no buffer; gate tightened 2026-07-12 (Graham overlay), prior pass was under the old regime</div>
       
     </article>
     <article class="stone">
@@ -1411,7 +1411,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Tests whether dealer-hedging and choppiness states improve on a full battery of standard volatility forecasters.</h3>
       <div class='tech'>Dimopoulos Chain v1.1: GEX x RV states add next-day range info beyond the combined HAR+VIX+GARCH baseline (OOS, monthly-refit)</div>
       <div class="cause">Retired at <b>beyond-full-baseline-oos</b>:
-        Passed vs HAR+VIX+plain-GARCH (t_full=2.83) but failed the stricter GJR-augmented baseline (t_full=1.02) in the same-day rerun; duplicate-claim guard prevented overwrite. Demoted 2026-07-10 — the strictest run is the …</div>
+        Passed vs HAR+VIX+plain-GARCH (t_full=2.83) but failed the stricter GJR-augmented baseline (t_full=1.02) in the same-day rerun; duplicate-claim guard prevented overwrite. Demoted 2026-07-10, the strictest run is the …</div>
       
     </article>
     <article class="stone">
@@ -1571,7 +1571,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Buys hard-to-trade large stocks whose prices swing on light trading, betting investors earn extra for the hassle.</h3>
       <div class='tech'>Illiquid stocks earn a premium (Amihud 2002)</div>
       <div class="cause">Retired at <b>validation</b>:
-        IS/OOS degradation 53% &gt; 30% (IS 1.47 -&gt; OOS 0.69) — overfitting signature</div>
+        IS/OOS degradation 53% &gt; 30% (IS 1.47 -&gt; OOS 0.69), overfitting signature</div>
       <div class='metrics'><span>Sharpe 1.188</span><span>max DD -9%</span><span class='tenk'>$100k &rarr; $311,748 over 21y</span></div>
     </article>
     <article class="stone">
@@ -1625,7 +1625,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
     <article class="stone">
       <div class="rip">Tested 2026-07-07</div>
       <h3>Buys stocks whose gains come on heavy trading over three months, betting trends confirmed by volume keep going.</h3>
-      <div class='tech'>Stocks with high trend consistency (share of up days) exhibit continuation — continuous information momentum (Da, Gurun, Warachka 2014 &#x27;frog in the pan&#x27;)</div>
+      <div class='tech'>Stocks with high trend consistency (share of up days) exhibit continuation, continuous information momentum (Da, Gurun, Warachka 2014 &#x27;frog in the pan&#x27;)</div>
       <div class="cause">Retired at <b>validation</b>:
         Newey-West t=-1.77 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.948 &gt; 0.05; in-sample Sharpe -0.34 &lt;= 0</div>
       <div class='metrics'><span>Sharpe -0.382</span><span>max DD -53%</span><span class='tenk'>$100k &rarr; $53,648 over 21y</span></div>
@@ -1643,7 +1643,7 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
       <h3>Buys last month&#x27;s losers and sells its winners, betting crowds overreact and prices snap back.</h3>
       <div class='tech'>1-month short-term reversal predicts returns (Jegadeesh 1990)</div>
       <div class="cause">Retired at <b>validation</b>:
-        Newey-West t=0.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.286 &gt; 0.05; IS/OOS degradation 71% &gt; 30% (IS 0.17 -&gt; OOS 0.05) — overfitting signature</div>
+        Newey-West t=0.58 &lt; 2.5; bootstrap P(Sharpe&lt;=0)=0.286 &gt; 0.05; IS/OOS degradation 71% &gt; 30% (IS 0.17 -&gt; OOS 0.05), overfitting signature</div>
       <div class='metrics'><span>Sharpe 0.125</span><span>max DD -19%</span><span class='tenk'>$100k &rarr; $116,411 over 21y</span></div>
     </article>
     <article class="stone">
@@ -1662,14 +1662,14 @@ subset &middot; <b>CONCENTRATED_WEIGHT</b>: the bet piles into too few names
 Verdicts publish on a 3-day lag; strategies that pass all six are
 <i>not</i> published. They go to the vault. Rejection here means the claim
 failed <i>as I specified and tested it</i>, net of assumed costs, on large-cap
-US equities &mdash; not that the original paper is wrong in every setting.</div>
+US equities, not that the original paper is wrong in every setting.</div>
 <div class="note">Open collection: every exhibit is downloadable as
 machine-readable data at <a href="collection.json"
 style="color:inherit">collection.json</a>. Study it, remix it, prove me
 wrong. (After the Rijksmuseum&rsquo;s Rijksstudio.)</div>
 <p class="sub" style="font-size:.8rem"><a href="membership.html"
 style="color:inherit">Membership</a> opens with the first exhibits.</p>
-<footer>Educational research publication only. Nothing on this page is investment advice, a recommendation, or an offer to buy or sell any security. All results are hypothetical backtests net of assumed transaction costs, computed on a survivorship-biased universe of current S&P 500 constituents — a bias that flatters most strategies; real-world results would differ and would generally be worse. Hypothetical performance has inherent limitations and past performance does not indicate future results. Statistics are derived measures; no raw market data is republished. Data sources: Yahoo Finance (derived statistics), Ken French Data Library, SEC EDGAR. Consult a licensed financial professional before making investment decisions.</footer>
+<footer>Educational research publication only. Nothing on this page is investment advice, a recommendation, or an offer to buy or sell any security. All results are hypothetical backtests net of assumed transaction costs, computed on a survivorship-biased universe of current S&P 500 constituents, a bias that flatters most strategies; real-world results would differ and would generally be worse. Hypothetical performance has inherent limitations and past performance does not indicate future results. Statistics are derived measures; no raw market data is republished. Data sources: Yahoo Finance (derived statistics), Ken French Data Library, SEC EDGAR. Consult a licensed financial professional before making investment decisions.</footer>
 <script>(function(){var f=function(){if(location.hash==='#ledger')
 {var d=document.getElementById('ledger');if(d)d.open=true}};
 f();addEventListener('hashchange',f)})()</script>

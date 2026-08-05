@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reading a PM's Book — BlueShip Research Note No. 4</title>
+<title>Reading a PM's Book &middot; BlueShip Research Note No. 4</title>
 <meta name="description" content="A risk-seat method for dissecting a portfolio into intended and unintended exposures across six layers, decomposed by risk contribution, paired with a pre-committed drawdown protocol that fixes diagnosis, escalation ladder, and de-grossing order in advance.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/reading-a-pm-book.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -133,32 +133,34 @@ dissection proceeds in six layers, cheapest explanation first.</p>
 <h3>2.1 The six layers</h3>
 <ol>
 <li><b>Market.</b> Net and gross beta. The oldest stowaway is a
-&ldquo;hedged&rdquo; book whose longs are high-beta and shorts low-beta, net
+&ldquo;hedged&rdquo; book whose longs have high beta and shorts low beta, net
 long the market while its net dollar exposure reads zero.</li>
-<li><b>Styles.</b> Size, value, momentum, quality, low-volatility, short-term
-reversal. The book&rsquo;s returns are regressed on the factor set and the
+<li><b>Styles.</b> Size, value, momentum, quality, low volatility, reversal over
+the short term. The book&rsquo;s returns are regressed on the factor set and the
 loadings checked against what the manager believes he runs.</li>
-<li><b>Industry and sector.</b> Concentrations, and the peer-relative view. A
+<li><b>Industry and sector.</b> Concentrations, and the view relative to peers. A
 &ldquo;diversified&rdquo; book of one sector&rsquo;s suppliers is a single bet
 expressed through many names.</li>
 <li><b>Macro sensitivities.</b> Rates, oil, the dollar, whatever the
 book&rsquo;s names transmit. Duration is not only a bond concept.</li>
-<li><b>Crowding and liquidity.</b> Ownership overlap with other funds;
-days-to-liquidate at a reasonable participation rate. The position that cannot
-be exited determines the worst week.</li>
+<li><b>Crowding and liquidity.</b> Ownership overlap with other funds; the days
+it takes to liquidate at a reasonable participation rate. The position that
+cannot be exited determines the worst week.</li>
 <li><b>The residual idiosyncratic share.</b> After the preceding layers, what
 fraction of the book&rsquo;s risk is genuinely idiosyncratic. A stock picker
-whose variance is mostly factor is a closet factor fund at stock-picker fees.
+whose variance is mostly factor is a closet factor fund charging fees for stock
+picking.
 The decomposition is run rolling rather than quarterly, because weights drift
-and books wander into factor bets that no one chose. Passivity is not
-factor-neutrality.</li>
+and books wander into factor bets that no one chose. Passivity does not make a
+book neutral to factors.</li>
 </ol>
 
 <h3>2.2 Two adjustments</h3>
 <p>Two adjustments come from this system&rsquo;s own workshop. The first is the
 blame counter: dollar weights misstate where risk lives, so the book is
 decomposed by risk contribution, whose pieces sum exactly and whose ranking
-rarely matches the position sheet. The second follows from random-matrix work:
+rarely matches the position sheet. The second follows from work on random
+matrices:
 even the residuals can conceal a common factor in a concentrated regime, so
 idiosyncratic is treated as a label to verify rather than a property to
 assume.</p>
@@ -173,7 +175,7 @@ idiosyncratic? A few names or the whole book? Inside the risk budget or
 breaching it? Is the manager losing on his thesis, or on exposures he did not
 know he held? The two have opposite remedies, and acting before answering
 treats both wrongly.</li>
-<li><b>Run the pre-committed ladder.</b> Early-warning indicator &rarr; the
+<li><b>Run the pre-committed ladder.</b> Indicator of early warning &rarr; the
 manager adjusts; first threshold &rarr; escalation; second threshold &rarr;
 mandatory de-risking. Mechanical de-grossing at drawdown levels is the exercise
 of nerve set in advance, not its failure. Triggers set at promotion are never
@@ -181,8 +183,8 @@ renegotiated mid-drawdown; this system applies the same rule to its own
 strategies.</li>
 <li><b>Cut in the right order.</b> The de-grossing sequence is fixed in advance
 (Table 1): gross exposure is reduced first, unintended factor exposures next,
-concentrated and illiquid positions early, and the highest-conviction
-idiosyncratic names last.</li>
+concentrated and illiquid positions early, and the idiosyncratic names of
+highest conviction last.</li>
 <li><b>Separate loss from error.</b> Good process loses money on bad days; that
 is what risk means. The review asks whether the process was followed, not
 whether the outcome was pleasant. Repeated breaches, however, are structure
@@ -199,13 +201,13 @@ defense of a person.</li>
 <tr><th>Priority</th><th>Instrument cut</th><th>Rationale</th></tr>
 <tr><td>First</td><td>Gross exposure</td><td>Lowers the dose while preserving the manager&rsquo;s relative bets.</td></tr>
 <tr><td>Second</td><td>Unintended factor exposures</td><td>Hedge or trim the stowaways; they were never the thesis.</td></tr>
-<tr><td>Early</td><td>Concentrated and illiquid positions</td><td>The exit that cannot be made later must be right-sized while it still can be.</td></tr>
-<tr><td>Last</td><td>Highest-conviction idiosyncratic names</td><td>They are the reason the manager holds a seat.</td></tr>
+<tr><td>Early</td><td>Concentrated and illiquid positions</td><td>The exit that cannot be made later must be sized correctly while it still can be.</td></tr>
+<tr><td>Last</td><td>Idiosyncratic names of highest conviction</td><td>They are the reason the manager holds a seat.</td></tr>
 </table>
 </div>
 
-<div class="note">This system runs both disciplines on itself:
-risk-contribution blame counters and liquidity slices on every backtest, and
+<div class="note">This system runs both disciplines on itself: blame counters by
+risk contribution and liquidity slices on every backtest, and
 pre-committed retirement triggers on everything promoted. It retired the
 founder&rsquo;s namesake model under those triggers. A protocol whose author
 exempts himself from it is a brochure.</div>

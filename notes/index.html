@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research Notes — The Risk Museum</title>
-<meta name="description" content="Research Notes by Vasilios Dimopoulos — short essays on what I tested, retired, and learned on my own research floor, each written to be read cold by a practitioner with every number traceable to the code that produced it.">
+<title>Research Notes &middot; The Risk Museum</title>
+<meta name="description" content="Research Notes by Vasilios Dimopoulos, short essays on what I tested, retired, and learned on my own research floor, each written to be read cold by a practitioner with every number traceable to the code that produced it.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -67,10 +67,25 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <a href="../forecasts.html">Forecast Wing</a>
 <a href="../reading-room.html">Library</a>
 </nav>
-<p style="color:var(--muted);font-size:.82rem;line-height:1.5;margin:0 0 1.4rem">The Risk Museum: I test trading-strategy ideas the way a quant desk would, on an engine I built, and I publish the ones that fail my gates. <a href="../">New here? Start at the entrance &rarr;</a></p>
+<p style="color:var(--muted);font-size:.82rem;line-height:1.5;margin:0 0 1.4rem">The Risk Museum: I test ideas for trading strategies the way a quant desk would, on an engine I built, and I publish the ones that fail my gates. <a href="../">New here? Start at the entrance &rarr;</a></p>
 <h1>Research Notes</h1>
 <p class="tag">short essays from <a href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener">Vasilios Dimopoulos</a></p>
 <p style="color:var(--muted);font-size:.95rem;line-height:1.55;margin:0 0 1.8rem">Each note is a case study in what I tested, retired, and learned, written to be read cold by a practitioner, with every number traceable to the same gated code that runs the rest of the museum.</p>
+
+<a class="note-card" href="beaten-by-four-parameters.html">
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<line x1="6" y1="46" x2="58" y2="46" stroke="var(--line)" stroke-width="2"/>
+<rect x="14" y="40" width="14" height="6" fill="var(--blue)"/>
+<rect x="36" y="12" width="14" height="34" fill="var(--accent)"/>
+<text x="13" y="56" font-size="7" fill="var(--muted)" font-family="Georgia,serif">4</text>
+<text x="34" y="56" font-size="7" fill="var(--muted)" font-family="Georgia,serif">24.7M</text>
+</svg>
+<div class="note-body"><h2>Beaten by Four Parameters</h2>
+<p>V. Dimopoulos &middot; Working Paper No. 26 &middot; Aug 4, 2026 &middot;
+A foundation model with 32.3 thousand GitHub stars, pretrained on 12 billion
+candlesticks, against a regression from 2009 with four parameters. The regression
+won on 21 tickers of 21, with a pooled QLIKE of 0.148 against 0.591. The test
+was pre-registered with a locked decision rule two weeks before it ran.</p></div></a>
 
 <a class="note-card" href="factor-risk-model.html">
 <svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -81,10 +96,9 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 </svg>
 <div class="note-body"><h2>Building a Factor Risk Model From Scratch</h2>
 <p>V. Dimopoulos &middot; Working Paper No. 24 &middot; Aug 5, 2026 &middot;
-a cross-sectional multi-factor risk model built from public data, in the
+a cross-sectional risk model of many factors built from public data, in the
 architecture of a commercial risk model, not a reproduction of one. 436 names,
-2020&ndash;2026: 2 of 16 factors clear significance, and a diversified 100-name
-book turns out to be 98% factor risk once specific risk is allowed to
+2020&ndash;2026: 2 of 16 factors clear significance, and a diversified book of 100 names turns out to be 98% factor risk once specific risk is allowed to
 diversify away.</p></div></a>
 
 <a class="note-card" href="what-daily-bars-cannot-see.html">
@@ -98,8 +112,8 @@ diversify away.</p></div></a>
 </svg>
 <div class="note-body"><h2>What Daily Bars Cannot See</h2>
 <p>V. Dimopoulos &middot; Working Paper No. 25 &middot; Aug 3, 2026 &middot;
-CFM argues short-term trend died because the market makers on the other side
-changed business models, with volatility-normalised tick size deciding which
+CFM argues trend over short horizons died because the market makers on the other side
+changed business models, with tick size, normalised by volatility, deciding which
 markets kept it. I transferred the test to daily US equities within a week.
 The predicted contrast replicated at a t of 3.21 and died at a stressed 1.64
 on 100x turnover. Includes a precise statement of what my data cannot
@@ -131,7 +145,7 @@ once in 165 pages.</p></div></a>
 </svg>
 <div class="note-body"><h2>Who Has To Trade Tomorrow</h2>
 <p>V. Dimopoulos &middot; Working Paper No. 22 &middot; Aug 3, 2026 &middot;
-183 ideas through the same gates, two survivors. The casualties include three
+184 ideas through the same gates, two survivors. The casualties include three
 entire published factor libraries: 158 of Microsoft&rsquo;s technical alphas
 tested as one family, 113 WorldQuant candidates, and every neural forecaster I
 built. What the two survivors share is a compelled counterparty. Positioning
@@ -184,8 +198,7 @@ public.</p></div></a>
 I audited every hyperscaler nuclear deal against primary sources. Roughly
 14.7 GW announced, 50 MW of new build under construction, about a third of
 the megawatts already existed before the deals were signed, and the fuel
-for the advanced half mostly cannot yet be made in America. With a
-twelve-entry falsifiable prediction ledger, every entry with a binding
+for the advanced half mostly cannot yet be made in America. With a falsifiable prediction ledger of twelve entries, every entry with a binding
 resolution criterion, probabilities to follow when I price them.</p></div></a>
 
 <a class="note-card" href="caravan-and-cluster.html">
@@ -238,9 +251,8 @@ baseline.</p></div></a>
 </svg>
 <div class="note-body"><h2>Lazy Prices Meets Survivorship</h2>
 <p>V. Dimopoulos &middot; Working Paper No. 15 &middot; Jul 26, 2026 &middot;
-14,155 EDGAR filings mined for the disclosure-text anomaly (when a firm rewrites
-its footnotes, it underperforms): it does not replicate in a survivor-only
-sample. It inverts (|t|=2.55, wrong sign) and falls below the bar because
+14,155 EDGAR filings mined for the anomaly in disclosure text (when a firm rewrites
+its footnotes, it underperforms): it does not replicate in a sample of survivors only. It inverts (|t|=2.55, wrong sign) and falls below the bar because
 survivorship deletes the informative short leg. A published edge, disqualified by
 the data I have.</p></div></a>
 
@@ -265,11 +277,9 @@ predictions were falsified, one of them in sign.</p></div></a>
 <line x1="6" y1="54" x2="58" y2="54" stroke="var(--muted)" stroke-width="2"/>
 </svg>
 <div class="note-body"><h2>Measuring the Short Side: crowding as risk, not signal</h2>
-<p>V. Dimopoulos &middot; Working Paper No. 12 &middot; Jul 26, 2026 &middot; a
-fresh FINRA daily short-volume panel (2,006 days, 406 names) through the gates:
-zero of four cross-sectional signals pass, but the most-shorted names diverge
-+220 bps in the nine worst months (t=5.34). This is a survivorship-biased
-squeeze risk, not an edge.</p></div></a>
+<p>V. Dimopoulos &middot; Working Paper No. 12 &middot; Jul 26, 2026 &middot; a fresh FINRA panel of daily short volume (2,006 days, 406 names) through the gates:
+zero of four cross-sectional signals pass, but the most heavily shorted names diverge
++220 bps in the nine worst months (t=5.34). This is a squeeze risk, survivorship biased, not an edge.</p></div></a>
 
 <a class="note-card" href="factor-zoo-honest-bar.html">
 <svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -284,8 +294,7 @@ squeeze risk, not an edge.</p></div></a>
 <div class="note-body"><h2>The Factor Zoo Meets an Honest Bar</h2>
 <p>V. Dimopoulos &middot; Working Paper No. 13 &middot; Jul 26, 2026 &middot; all
 158 of Qlib&rsquo;s Alpha158 technical alphas as one family: 29 look significant,
-zero survive the deflated (t&ge;4.11) and cost-stressed bar. The zoo is
-short-term reversal in disguise.</p></div></a>
+zero survive the deflated (t&ge;4.11) and cost stressed bar. The zoo is reversal over a few days in disguise.</p></div></a>
 
 <a class="note-card" href="uncorrelated-book.html">
 <svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -295,10 +304,9 @@ short-term reversal in disguise.</p></div></a>
 </svg>
 <div class="note-body"><h2>The Uncorrelated Book</h2>
 <p>V. Dimopoulos &middot; Working Paper No. 14 &middot; Jul 26, 2026 &middot; what
-diversification actually buys a multi-manager platform: ten desks whose 18.0%
+diversification actually buys a platform running many managers: ten desks whose 18.0%
 average standalone volatility collapses to a 7.7% book (a 2.35&times;
-diversification ratio), with betting-against-beta &minus;0.66 to beta as the
-built-in hedge.</p></div></a>
+diversification ratio), with betting-against-beta &minus;0.66 to beta as the hedge built in.</p></div></a>
 
 <a class="note-card" href="earnings-revisions-view.html">
 <svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -333,10 +341,7 @@ intended, one name driving 41% of the variance, then VaR, stress, and the fixes.
 <circle cx="32" cy="44" r="4.5" fill="var(--muted)" opacity=".3"/>
 </svg>
 <div class="note-body"><h2>The Light Was Green</h2>
-<p>V. Dimopoulos &middot; Research note #10 &middot; Jul 25, 2026 &middot; three
-standard 1-day VaR models on 21 years of the S&amp;P, all under-covered
-the tail (Kupiec fail), yet Basel&rsquo;s traffic light glowed green. A
-model-validation case study.</p></div></a>
+<p>V. Dimopoulos &middot; Research note #10 &middot; Jul 25, 2026 &middot; three standard VaR models at one day on 21 years of the S&amp;P, all undercovered the tail (Kupiec fail), yet Basel&rsquo;s traffic light glowed green. A case study in model validation.</p></div></a>
 
 <a class="note-card" href="the-ai-cdo.html">
 <svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -351,7 +356,7 @@ model-validation case study.</p></div></a>
 <div class="note-body"><h2>The AI-CDO Is Already Being Built</h2>
 <p>V. Dimopoulos &middot; Research note #9 &middot; Jul 24, 2026 &middot;
 structured finance reassembles around AI infrastructure, the four
-failures of 2008, each observable in the AI-credit complex today.</p></div></a>
+failures of 2008, each observable in the AI credit complex today.</p></div></a>
 
 <a class="note-card" href="what-the-swarm-knows.html">
 <svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -373,7 +378,7 @@ cannot cover, mapped and published on purpose.</p></div></a>
 </svg>
 <div class="note-body"><h2>The Edge Was Never the Hard Part</h2>
 <p>V. Dimopoulos &middot; Research note #7 &middot; Jul 23, 2026 &middot;
-61 finance-trained players, a coin guaranteed to win, 28% went broke.
+61 players trained in finance, a coin guaranteed to win, 28% went broke.
 Kelly, volatility drag, and how the museum sizes.</p></div></a>
 
 <a class="note-card" href="measuring-the-crowd.html">
@@ -399,7 +404,7 @@ risk measure, not an edge.</p></div></a>
 </svg>
 <div class="note-body"><h2>620 Probabilities</h2>
 <p>V. Dimopoulos &middot; Research note #5 &middot; Jul 20, 2026 &middot; top 6% in Jump
-Trading&rsquo;s Brier-scored World Cup Probability Cup, with no
+Trading&rsquo;s World Cup Probability Cup, scored by Brier, with no
 hero calls, and the calibration flaws published on purpose.</p></div></a>
 
 <a class="note-card" href="reading-a-pm-book.html">
@@ -425,8 +430,7 @@ when a PM is losing money.</p></div></a>
 </svg>
 <div class="note-body"><h2>&ldquo;I tightened my own gates. The gates took my model
 first.&rdquo;</h2>
-<p>V. Dimopoulos &middot; Research note #3 &middot; Jul 16, 2026 &middot; the Dimopoulos Chain (a dealer-positioning
-strategy), v1&rarr;v3, a case study in iterating a research
+<p>V. Dimopoulos &middot; Research note #3 &middot; Jul 16, 2026 &middot; the Dimopoulos Chain (a strategy built on dealer positioning), v1&rarr;v3, a case study in iterating a research
 process.</p></div></a>
 
 <a class="note-card" href="propulsion-room.html">
@@ -466,7 +470,6 @@ information.</p></div></a>
 positioning tested against a ladder of simple econometric baselines it had to
 beat.</p></div></a>
 
-<footer>Essays by V. Dimopoulos, curator of The Risk Museum; machine-authored
-pieces carry the &ldquo;BlueShip Research Engine&rdquo; byline. BlueShip-AI
+<footer>Essays by V. Dimopoulos, curator of The Risk Museum; pieces written by machine carry the &ldquo;BlueShip Research Engine&rdquo; byline. BlueShip-AI
 Research &middot; educational research only, not investment advice.</footer>
 </main></body></html>

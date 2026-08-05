@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Measuring the Short Side — BlueShip Research Working Paper No. 12</title>
-<meta name="description" content="Daily FINRA consolidated short-volume gives four cross-sectional tests, none clearing a deflated promotion bar (t between -2.24 and 0.18). In stress, the most-shorted quintile outperforms by 220 bps/month (t=5.34) — a short-squeeze signature, upward-biased by survivorship. Short-side crowding is a risk measure, not a signal.">
+<title>Measuring the Short Side &middot; BlueShip Research Working Paper No. 12</title>
+<meta name="description" content="Daily FINRA consolidated short-volume gives four cross-sectional tests, none clearing a deflated promotion bar (t between -2.24 and 0.18). In stress, the most-shorted quintile outperforms by 220 bps/month (t=5.34), a short-squeeze signature, upward-biased by survivorship. Short-side crowding is a risk measure, not a signal.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/short-side-crowding.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -99,90 +99,93 @@ Crowding as a Risk Measure, Not a Tradable Signal</h1>
 <p class="plain"><b>In one line:</b> I tested four ways to trade public short selling data. None worked. It measures risk, not profit.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> I test whether daily
-consolidated short-volume, published without charge by FINRA under Regulation
-SHO, carries cross-sectional information for US large-cap equities. On a panel
-of 2,006 trading days and 406 names (2018&ndash;2026), I define a short-volume
+consolidated short volume, published without charge by FINRA under Regulation
+SHO, carries cross-sectional information for US large caps. On a panel
+of 2,006 trading days and 406 names (2018&ndash;2026), I define a short volume
 ratio (SVR) as short volume divided by total volume and, following the
-informed-short-seller literature (Boehmer, Huszar and Jordan, 2010), fix the
-direction a priori: long low-SVR, short high-SVR. Four smoothed transforms are
-declared in advance and judged against a deflation-adjusted promotion bar of
-Newey&ndash;West <i>t</i>&nbsp;&ge;&nbsp;2.96. Zero of the four clear it; the
-statistics range from &minus;2.24 to 0.18. In the nine worst equal-weight
-market months, however, the most-shorted quintile <i>outperforms</i> the
-least-shorted by 220 basis points per month (<i>t</i>&nbsp;=&nbsp;5.34), the
-signature of crowded shorts covering under stress. Because the universe is
-current index constituents (heavily-shorted names that survived their
-squeezes rather than those that collapsed and delisted), that estimate is
-upward-biased. I classify short-side crowding as a risk measure, not a signal.</p>
+literature on informed short sellers (Boehmer, Huszar and Jordan, 2010), fix the
+direction a priori: long where SVR is low, short where it is high. Four smoothed
+transforms are declared in advance and judged against a promotion bar adjusted
+for deflation at Newey&ndash;West <i>t</i>&nbsp;&ge;&nbsp;2.96. Zero of the four
+clear it; the statistics range from &minus;2.24 to 0.18. In the nine worst
+months for an equally weighted market, however, the quintile shorted most
+heavily <i>outperforms</i> the one shorted least by 220 basis points per month
+(<i>t</i>&nbsp;=&nbsp;5.34), the signature of crowded shorts covering under
+stress. Because the universe is current index constituents (heavily shorted
+names that survived their squeezes rather than those that collapsed and
+delisted), that estimate is biased upward. I classify crowding on the short
+side as a risk measure, not a signal.</p>
 <div class="keywords"><b>Keywords:</b> short volume, Regulation SHO, FINRA,
-short-side crowding, short squeeze, multiple testing, survivorship bias.</div>
+crowding on the short side, short squeeze, multiple testing, survivorship bias.</div>
 
 <h2>1. Introduction</h2>
 <p>Short sellers are, on average, informed. Heavily shorted stocks subsequently
-underperform (Boehmer, Huszar and Jordan, 2010), and daily short-sale flow
-predicts returns at short horizons (Diether, Lee and Werner, 2009). Those
+underperform (Boehmer, Huszar and Jordan, 2010), and the daily flow of short
+sales predicts returns at short horizons (Diether, Lee and Werner, 2009). Those
 results rest on monthly short interest or on proprietary order flow. FINRA
-publishes a free daily alternative, consolidated short-volume from the
+publishes a free daily alternative, consolidated short volume from the
 Regulation SHO tapes. This paper asks the narrow question whether
-that public, high-frequency proxy reproduces the same predictability in
-large-caps, or whether it merely reprices what is already crowded. The study is
+that public proxy, measured daily, reproduces the same predictability in
+large caps, or whether it merely reprices what is already crowded. The study is
 pre-registered: one measure, a family of four transforms fixed in advance, the
 trade direction fixed a priori, and the promotion bar set before any return was
 computed.</p>
 
 <h2>2. Data</h2>
-<p>The panel is FINRA daily consolidated short-volume (Regulation SHO), covering
-2,006 trading days and 406 large-cap names from 2018 through 2026. Consolidated
+<p>The panel is FINRA daily consolidated short volume (Regulation SHO), covering
+2,006 trading days and 406 large caps from 2018 through 2026. Consolidated
 (CDN) tape coverage begins in 2018; this is a stated limit that confines the
-sample to the post-2018 window and excludes every earlier stress episode, so the
+sample to the window from 2018 onward and excludes every earlier stress episode, so the
 regime evidence below rests entirely on the drawdowns within this window. For
-each name and day the short-volume ratio SVR is short volume divided by total
+each name and day the short volume ratio SVR is short volume divided by total
 reported volume, smoothed before use.</p>
 
 <h2>3. Results</h2>
 <h3>3.1 Cross-sectional tests</h3>
 <p>Four transforms of SVR were declared in advance: the smoothed level over
-21 and 63 trading days, the 21-day change, and a sector-neutral level. Each is
-sorted in the a-priori direction and evaluated against a deflated promotion bar
-of Newey&ndash;West <i>t</i>&nbsp;&ge;&nbsp;2.96, the hurdle appropriate to a
-family of four. None clears it. The largest magnitude, the 21-day change at
-<i>t</i>&nbsp;=&nbsp;&minus;2.24, still falls short of the bar; the two level
-tests are indistinguishable from zero. Short-volume crowding does not forecast
-the cross-section of large-cap returns in this window.</p>
+21 and 63 trading days, the change over 21 days, and a level made neutral within sector.
+Each is sorted in the direction fixed a priori and evaluated against a deflated
+promotion bar of Newey&ndash;West <i>t</i>&nbsp;&ge;&nbsp;2.96, the hurdle
+appropriate to a family of four. None clears it. The largest magnitude, the
+change over 21 days at <i>t</i>&nbsp;=&nbsp;&minus;2.24, still falls short of
+the bar; the two level tests are indistinguishable from zero. Crowding in short
+volume does not forecast the cross-section of returns among large caps in this
+window.</p>
 
 <div class="tblwrap">
-<div class="cap"><b>Table 1.</b> Cross-sectional tests of the short-volume
+<div class="cap"><b>Table 1.</b> Cross-sectional tests of the short volume
 ratio. Deflated promotion bar: Newey&ndash;West <i>t</i>&nbsp;&ge;&nbsp;2.96
 (family of four).</div>
 <table>
 <tr><th>Transform</th><th>NW <i>t</i></th><th>Outcome</th></tr>
-<tr><td>SVR level, 21-day</td><td>&minus;0.06</td><td>fail</td></tr>
-<tr><td>SVR level, 63-day</td><td>0.18</td><td>fail</td></tr>
-<tr><td>SVR change, 21-day</td><td>&minus;2.24</td><td>fail</td></tr>
-<tr><td>SVR level, sector-neutral</td><td>&minus;0.06</td><td>fail</td></tr>
+<tr><td>SVR level, 21 days</td><td>&minus;0.06</td><td>fail</td></tr>
+<tr><td>SVR level, 63 days</td><td>0.18</td><td>fail</td></tr>
+<tr><td>SVR change, 21 days</td><td>&minus;2.24</td><td>fail</td></tr>
+<tr><td>SVR level, neutral within sector</td><td>&minus;0.06</td><td>fail</td></tr>
 </table>
 </div>
 
 <h3>3.2 Behaviour in stress</h3>
 <p>The signal is silent on average but not in the tails. In the nine worst
-equal-weight market months of the sample, the most-shorted quintile outperforms
-the least-shorted by 220 basis points per month, with a Newey&ndash;West
-<i>t</i>-statistic of 5.34. The sign is the opposite of a tradable short. The
-crowded-short leg gains precisely when the market falls, the mechanical
+months of the sample for an equally weighted market, the quintile shorted most
+heavily outperforms the one shorted least by 220 basis points per month, with a
+Newey&ndash;West <i>t</i>-statistic of 5.34. The sign is the opposite of a
+tradable short. The leg of crowded shorts gains precisely when the market
+falls, the mechanical
 signature of forced covering as short positions are unwound under stress.</p>
 
 <div class="tblwrap">
-<div class="cap"><b>Table 2.</b> Most-shorted minus least-shorted quintile
-return, nine worst equal-weight market months.</div>
+<div class="cap"><b>Table 2.</b> Quintile return, shorted most heavily minus
+shorted least, nine worst months for an equally weighted market.</div>
 <table>
 <tr><th>State</th><th>Months</th><th>Spread</th><th>NW <i>t</i></th><th>Outcome</th></tr>
-<tr><td>Worst equal-weight market months</td><td>9</td><td>+220 bps/mo</td><td>5.34</td><td>held, not promoted</td></tr>
+<tr><td>Worst months for an equally weighted market</td><td>9</td><td>+220 bps/mo</td><td>5.34</td><td>held, not promoted</td></tr>
 </table>
 </div>
 
 <h2>4. Promotion test and discussion</h2>
 <p>Only one statistic in the study clears the bar, and it points the wrong way
-for a signal. The crowded-short leg rises in stress rather than falling. That is
+for a signal. The leg of crowded shorts rises in stress rather than falling. That is
 a property of the state, not an edge a desk can harvest, and it is contaminated
 by survivorship in a way set out in Section 5. The finding is therefore held,
 not promoted. It mirrors the museum&rsquo;s 13F crowding study, where an effect
@@ -192,7 +195,7 @@ trading desk learns nothing it can act on.</p>
 
 <h2>5. Limitations</h2>
 <p>The binding limitation is survivorship. The universe is current index
-constituents, so it retains only the heavily-shorted names that <i>survived</i>
+constituents, so it retains only the heavily shorted names that <i>survived</i>
 their squeezes; the names that collapsed under short pressure and delisted are
 absent by construction. The +220 bps stress estimate is measured on the
 survivors of exactly the event it describes and is therefore an upper bound, not
@@ -220,6 +223,6 @@ Strategies and Return Predictability. <i>Review of Financial Studies</i>,
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Data: FINRA daily consolidated
-short-volume (Regulation SHO). Hypothetical results on a survivorship-biased
-universe of current index constituents; reported statistics are upper bounds.</footer>
+short volume (Regulation SHO). Hypothetical results on a universe of current
+index constituents biased by survivorship; reported statistics are upper bounds.</footer>
 </main></body></html>

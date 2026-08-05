@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Building a Factor Risk Model From Scratch &middot; Working Paper No. 24</title>
-<meta name="description" content="A cross-sectional multi-factor equity risk model built from public data, in the architecture of a commercial risk model: 436 names, 2020-2026, factor returns, a covariance matrix, and a portfolio risk decomposition — with the honest result that 2 of 16 factors clear significance.">
+<meta name="description" content="A cross-sectional multi-factor equity risk model built from public data, in the architecture of a commercial risk model: 436 names, 2020-2026, factor returns, a covariance matrix, and a portfolio risk decomposition, with the honest result that 2 of 16 factors clear significance.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/factor-risk-model.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -95,67 +95,50 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <div class="meta">Working Paper No. 24 &middot; 5 August 2026</div>
 </div>
 
-<p class="plain"><b>In one line:</b> I built a cross-sectional multi-factor equity risk model &mdash; the same architecture a commercial risk model uses, not a reproduction of one &mdash; and of 16 factors tested on 436 names since 2020, only two clear significance.</p>
+<p class="plain"><b>In one line:</b> I built a cross-sectional equity risk model with many factors, the same architecture a commercial risk model uses rather than a reproduction of one. Of 16 factors tested on 436 names since 2020, only two clear significance.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> A factor risk model
-decomposes a stock&rsquo;s return into a small number of common drivers plus a
-residual, and every large risk desk buys one from a vendor whose factor
-definitions and estimation weights are proprietary. I built the same class of
-model from public daily price data instead: five style factors and an
-industry factor per sector, a weighted cross-sectional regression run at every
-date to extract factor returns, a factor covariance matrix, a specific-risk
-estimate, and a portfolio-level risk decomposition. Run on 436 US names from
-2020 to 2026, two of sixteen factors clear a Newey-West t-stat of 2 on the
-period &mdash; Size and the Energy industry factor &mdash; and a diversified
-100-name equal-weighted book turns out to be 98% factor risk once specific
-risk is allowed to diversify away, which is the actual point of building one
-of these.</p>
+decomposes a stock&rsquo;s return into common drivers plus a residual. Every
+large risk desk buys one from a vendor whose factor definitions and
+estimation weights are proprietary. I built the same class of model from public daily price data,
+down to the factor covariance matrix and the portfolio risk decomposition. Run
+on 436 US names from 2020 to 2026, two of sixteen factors clear a Newey-West
+t-stat of 2, Size and the Energy industry factor, and a diversified, equally
+weighted book of 100 names turns out to be 98% factor risk.</p>
 <div class="keywords"><b>Keywords:</b> factor risk model, cross-sectional
 regression, factor covariance, specific risk, portfolio risk decomposition,
 Newey-West.</div>
 
 <h2>1. Why this, and what it is not</h2>
-<p>A factor risk model decomposes a stock&rsquo;s return into a small number of
-common drivers &mdash; size, momentum, industry, and so on &mdash; plus
-whatever is left over, which is the only part that counts as genuine stock
-selection. Every large risk desk buys one of these off the shelf, and the
-vendors (MSCI Barra, Qontigo/Axioma) do not publish their factor definitions
-or estimation weights. That is proprietary, and I have not reproduced it.</p>
-<p>What I built instead is the same <i>class</i> of model, from public daily
-price data, so the mechanics are fully inspectable: five style factors, an
-industry factor per GICS-style sector bucket, a cross-sectional regression run
-at every date to extract factor returns, a factor covariance matrix, a
-specific-risk estimate, and a portfolio-level risk decomposition. It is
-smaller and cruder than a vendor model on purpose &mdash; the point was to
-build the thing, not to fake the polish.</p>
+<p>The residual left after the common drivers is the only part that counts as
+genuine stock selection. The vendors (MSCI Barra, Qontigo/Axioma) do not
+publish their factor definitions or estimation weights. I have not
+reproduced that. What I
+built is the same <i>class</i> of model, smaller and cruder on purpose, with
+every mechanic inspectable.</p>
 
 <h2>2. The method, briefly</h2>
-<p><b>Exposures.</b> Each stock gets a cross-sectionally z-scored score on five
-factors, each date, using only information available through that date: Size
-(log price level, a scale proxy &mdash; the panel has no shares-outstanding
-field, a declared limitation), Beta (252-day rolling beta to SPY), Momentum
-(12-1 month, skipping the most recent month), Value (a 252-day mean-reversion
-proxy, not a true book-to-price), and Volatility (60-day realized). Each name
-also gets one industry dummy, from a sector map that assigns each stock to the
-sector ETF it correlates with most, rather than a scraped label.</p>
-<p><b>Estimation.</b> At each date, I run a weighted cross-sectional regression
-of next-day returns on that day&rsquo;s exposures &mdash; market-cap-weighted,
-ridge-stabilized. This is the vendor model&rsquo;s actual estimation step: the
-regression coefficients <i>are</i> the factor returns for that day. Run across
-many dates, you get a factor return time series &mdash; a different object
-from a Fama-French portfolio-sort factor, since it comes from every
-name&rsquo;s exposure simultaneously rather than a long-short quintile
-spread.</p>
+<p><b>Exposures.</b> Each stock gets a score on five factors, z-scored across
+the cross section, each date, using only information available through that date: Size
+(log price level, a scale proxy, since the panel has no field for shares
+outstanding, a declared limitation), Beta (rolling beta to SPY over 252 days),
+Momentum (12-1 month), Value (a proxy for mean reversion over 252 days, not a
+true book-to-price), and Volatility (realized over 60 days). Each name also gets one
+industry dummy from a sector map built by correlation to sector ETFs.</p>
+<p><b>Estimation.</b> At each date I run a cross-sectional regression of the
+next day&rsquo;s returns on that day&rsquo;s exposures, weighted by market cap
+and stabilized by ridge. That is the vendor model&rsquo;s actual estimation
+step. The
+coefficients <i>are</i> the factor returns for that day, so the series comes
+from every name&rsquo;s exposure rather than a long-short quintile spread.</p>
 <p><b>Risk.</b> The covariance of those factor returns is the factor
 covariance matrix. Specific risk is approximated from each name&rsquo;s
 residual variance after removing the average factor effect. Portfolio risk
 decomposes as &sigma;<sub>p</sub>&sup2; = x<sub>p</sub>&prime;Fx<sub>p</sub> +
-w&prime;&Delta;w &mdash; factor variance plus specific variance, where
-x<sub>p</sub> is the portfolio&rsquo;s net factor exposure and &Delta; is the
-diagonal of specific variances. This is the equation every risk desk actually
-runs.</p>
+w&prime;&Delta;w, factor variance plus specific variance. This is the equation
+every risk desk actually runs.</p>
 
-<h2>3. What came out &mdash; 2020 to 2026, 436 names, 331 sampled dates</h2>
+<h2>3. What came out, 2020 to 2026, 436 names, 331 sampled dates</h2>
 <p>Newey-West t-stats on each factor&rsquo;s return series, over the full
 sample:</p>
 
@@ -176,36 +159,30 @@ sample:</p>
 </div>
 
 <p>Of sixteen factors tested, <b>two</b> clear a t-stat of 2 on this period:
-Size and the Energy industry factor. Everything else &mdash; including
-Momentum, Value, and Beta, the factors most people assume are reliably priced
-&mdash; sits inside noise on this sample. That is the same discipline the rest
-of this site runs on, applied to a new instrument: most things that look like
-a factor are not one, and a model is only useful if it tells you that as
-readily as it tells you the opposite.</p>
+Size and the Energy industry factor. Everything else sits inside noise on this
+sample, including Momentum, Value and Beta, the factors most people assume are
+reliably priced. A model is only useful if it tells you that as readily as it
+tells you the opposite.</p>
 
-<h2>4. The portfolio decomposition, and the actual lesson in it</h2>
-<p>Running the decomposition on an equal-weighted 100-name book as of 29 July
-2026: <b>factor risk is 98.3% of total portfolio variance.</b> Specific risk
-&mdash; the idiosyncratic bet in each individual name &mdash; is almost
-entirely diversified away at 100 names; what is left is nearly pure exposure
-to Financials, Health Care, Beta, and Technology.</p>
-<p>That is not a bug in a small model. It is the actual pitch of a factor risk
-model, working as intended: once a book is diversified, the manager&rsquo;s
-P&amp;L is not coming from stock-picking skill in the way it feels like it is
-&mdash; it is coming from factor exposure the manager may or may not have
-chosen on purpose. Telling a portfolio manager that is the uncomfortable,
-useful conversation this entire model exists to have.</p>
+<h2>4. The portfolio decomposition</h2>
+<p>Running the decomposition on an equally weighted book of 100 names as of 29 July
+2026, <b>factor risk is 98.3% of total portfolio variance.</b> The
+idiosyncratic bet in each name is almost entirely diversified away at 100
+names. What is left is nearly pure exposure to Financials, Health Care, Beta,
+and Technology.</p>
+<p>That is not a bug in a small model. It is the pitch of a factor risk model
+working as intended.
+Once a book is diversified, the manager&rsquo;s P&amp;L comes from factor
+exposure he may or may not have chosen on purpose. That is the conversation
+this model exists to have.</p>
 
 <div class="note">This is a demonstration of the architecture, not a
-production risk model. The specific-risk estimate is a shortcut, not a
-per-name regression residual. The covariance matrix uses a simple sample
-estimator &mdash; no exponential weighting, no eigenfactor adjustment for
-small-eigenvalue bias, both of which a vendor model applies and which I would
-want before trusting this at real capital. The Value factor is a return-based
-proxy, not fundamental book-to-price. The universe is survivorship-biased, as
-it is everywhere on this site. None of that is hidden; it is the difference
-between a working paper and a vendor product, and closing that gap is exactly
-the kind of work I want to be doing.</div>
+production risk model. The estimate of specific risk is a shortcut rather than
+a regression residual taken name by name. The covariance matrix uses a simple sample
+estimator, with no exponential weighting and no eigenfactor adjustment for
+bias in small eigenvalues, both of which a vendor model applies and which I
+would want before trusting this at real capital. The Value factor is a proxy
+built from returns, not fundamental book-to-price. The universe is survivorship biased.</div>
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Code: pipeline/factor_risk_model.py.

@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Edge Was Never the Hard Part — BlueShip Research Working Paper No. 7</title>
+<title>The Edge Was Never the Hard Part &middot; BlueShip Research Working Paper No. 7</title>
 <meta name="description" content="Sixty-one finance-trained subjects received a coin guaranteed to win; twenty-eight percent went broke. Bet sizing, the Kelly criterion, volatility drag, and why the museum sizes off the stressed edge estimate.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/edge-was-never-the-hard-part.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -96,25 +96,26 @@ Criterion, and Survival on a Favorable Coin</h1>
 <div class="meta">Working Paper No. 7 &middot; 23 July 2026</div>
 </div>
 
-<p class="plain"><b>In one line:</b> 61 finance-trained people got a coin rigged
-in their favor. 28 percent still went broke by betting too much.</p>
+<p class="plain"><b>In one line:</b> 61 people trained in finance got a coin
+rigged in their favor. 28 percent still went broke by betting too much.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> I revisit a controlled
-experiment in which sixty-one finance-trained subjects received a coin biased
+experiment in which sixty-one subjects trained in finance received a coin biased
 to land heads 60% of the time, thirty minutes, and a $25 stake, with winnings
 capped at $250. Despite a disclosed and guaranteed edge, 28% went bankrupt,
 about a third finished below their starting stake, and only one in five reached
 the cap; the average payout was $91. The failures trace to bet sizing rather
-than to the edge. For a 60/40 coin the growth-optimal Kelly fraction is 20%;
-long-run growth is single-peaked in bet size, asymmetric about the peak, and
-crosses zero near 39%, so a constant 40% stake on a favorable coin compounds
+than to the edge. For a 60/40 coin the Kelly fraction that is optimal for
+growth is 20%; growth in the long run has a single peak in bet size, is
+asymmetric about that peak, and crosses zero near 39%, so a constant 40% stake
+on a favorable coin compounds
 negatively. Three sizing rules follow: size from the stressed edge estimate,
 hold the gates fixed, and treat survival as the objective.</p>
 <div class="keywords"><b>Keywords:</b> Kelly criterion, bet sizing, volatility
 drag, growth optimality, risk of ruin, position sizing.</div>
 
 <h2>1. Introduction</h2>
-<p>In 2016, sixty-one finance-trained subjects were each given a coin that
+<p>In 2016, sixty-one subjects trained in finance were each given a coin that
 lands heads 60% of the time, thirty minutes, and twenty-five dollars, under a
 single instruction: bet on flips and keep the proceeds, capped at $250. The
 game is constructed to favor the player.</p>
@@ -124,22 +125,23 @@ $91. The subjects were handed the edge explicitly, with the win probability
 disclosed; the one variable left in their control was how much to bet, and it
 was bet size that ruined them (Haghani and Dewey, 2016).</p>
 
-<h2>2. The growth-optimal bet fraction</h2>
+<h2>2. The bet fraction that is optimal for growth</h2>
 <h3>2.1 The Kelly fraction</h3>
 <p>The relevant result dates to 1956, when Kelly framed a gambler with an edge
-as a communication channel carrying signal. For an even-money bet, the
-growth-optimal fraction of the bankroll equals twice the win probability minus
-one. For a 60/40 coin that fraction is 20%. Long-run growth as a function of
-bet size traces a single-peaked curve: zero at a zero stake, a maximum near 20%
+as a communication channel carrying signal. For a bet at even money, the
+fraction of the bankroll that is optimal for growth equals twice the win
+probability minus one. For a 60/40 coin that fraction is 20%. Growth in the
+long run, as a function of bet size, traces a curve with a single peak: zero at
+a zero stake, a maximum near 20%
 (about 2% compounded per flip), and a second zero near 39%. A constant 40%
-stake on the same guaranteed-winning coin produces negative growth of roughly a
-quarter percent per flip. The edge is unchanged; only the size is wrong.</p>
+stake on the same coin, still guaranteed to win, produces negative growth of
+roughly a quarter percent per flip. The edge is unchanged; only the size is wrong.</p>
 
 <div class="tblwrap">
-<div class="cap"><b>Table 1.</b> Long-run growth per flip by constant bet
-fraction on a 60/40 coin.</div>
+<div class="cap"><b>Table 1.</b> Growth per flip in the long run, by constant
+bet fraction on a 60/40 coin.</div>
 <table>
-<tr><th>Bet fraction</th><th>Long-run growth per flip</th></tr>
+<tr><th>Bet fraction</th><th>Growth per flip in the long run</th></tr>
 <tr><td>0%</td><td>0</td></tr>
 <tr><td>10% (half-Kelly)</td><td>&asymp; &frac34; of maximum</td></tr>
 <tr><td>20% (Kelly)</td><td>&asymp; +2% (maximum)</td></tr>
@@ -169,8 +171,8 @@ the <em>stressed</em> estimate, gross return halved and costs doubled. The raw
 backtest never enters. A margin of safety on the input is worth more than
 precision in the formula.</li>
 <li><b>The asymmetry is why the gates never loosen.</b> A false survivor
-promoted by a loose gate does more than waste capital; it invites Kelly-scaled
-bets on an edge of zero, which the curve identifies as negative growth.</li>
+promoted by a loose gate does more than waste capital; it invites bets sized by Kelly
+on an edge of zero, which the curve identifies as negative growth.</li>
 <li><b>Survival is the strategy.</b> Returns compound multiplicatively, and a
 single zero anywhere in the chain collapses the product. The drawdown rules and
 pre-committed ladders exist because there is no recovery from zero, whatever

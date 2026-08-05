@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Dimopoulos Chain — BlueShip Research Working Paper No. 1</title>
+<title>The Dimopoulos Chain &middot; BlueShip Research Working Paper No. 1</title>
 <meta name="description" content="A nine-state Markov model over options-dealer gamma and realized volatility adds forecasting information beyond the VIX (t=4.34) and GARCH(1,1) (t=3.19) but nothing beyond asymmetric GJR-GARCH (t=1.02). Verdict: PARTIAL.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/dimopoulos-chain-v1.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -98,10 +98,10 @@ Incremental Forecasting of Realized Volatility Beyond Asymmetric GARCH</h1>
 <p class="plain"><b>In one line:</b> I built a model to predict market swings and named it after myself. A 1993 model already beat it.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> I construct the
-Dimopoulos Chain, a nine-state Markov model over the interaction of
-options-dealer gamma terciles and realized-volatility terciles, and test
-whether its state-conditional distributions carry information for
-one-day-ahead volatility beyond established econometric benchmarks. Out of
+Dimopoulos Chain, a Markov model over nine states formed by crossing gamma
+terciles among options dealers with terciles of realized volatility, and test
+whether its distributions, conditioned on state, carry information about
+volatility one day ahead beyond established econometric benchmarks. Out of
 sample (2019&ndash;2026, 1,794 days, refit monthly with no look-ahead), the
 chain&rsquo;s states add significant information beyond the VIX
 (Newey&ndash;West <i>t</i>&nbsp;=&nbsp;4.34) and beyond GARCH(1,1)
@@ -109,31 +109,33 @@ chain&rsquo;s states add significant information beyond the VIX
 <i>t</i>&nbsp;=&nbsp;2.03, short of the promotion gate, and vanishes once the
 asymmetric GJR-GARCH model of Glosten, Jagannathan and Runkle (1993) enters the
 baseline (<i>t</i>&nbsp;=&nbsp;1.02). I read the leverage effect GJR captures
-as a reduced form of the dealer-hedging mechanism the chain measures directly,
+as a reduced form of the dealer hedging that the chain measures directly,
 and record a verdict of PARTIAL. The name is not earned at the strictest bar.
 Two results survive independently of the ranking. Every econometric forecast in
 the stack beats the market&rsquo;s implied forecast by a wide margin, and the
-state map isolates one of nine states in which the implied-minus-realized
-variance premium turns negative.</p>
-<div class="keywords"><b>Keywords:</b> volatility forecasting, options-dealer
+state map isolates one of nine states in which the premium of implied
+variance over realized turns negative.</p>
+<div class="keywords"><b>Keywords:</b> volatility forecasting, options dealer
 gamma, Markov regime states, GJR-GARCH, variance risk premium,
 Newey&ndash;West inference.</div>
 
 <h2>1. Introduction</h2>
 <p>Black-Scholes prices every option with a single constant volatility; markets
 do not behave that way. Volatility arrives in regimes, and one structural
-driver of those regimes is options-dealer positioning. When dealers are long
+driver of those regimes is the positioning of options dealers. When dealers are long
 gamma their hedging pins the market; when they are short gamma the same hedging
 amplifies every move. The BlueShip pipeline had already validated this
-positioning signal, which predicts next-day trading range beyond the VIX at
+positioning signal, which predicts the trading range one day ahead beyond the
+VIX at
 <i>t</i>&nbsp;=&nbsp;7.4. This paper asks whether the signal, promoted to a
 forecasting model, adds information beyond the standard econometric volatility
 benchmarks, and therefore whether it earns a name.</p>
 
 <h2>2. Model and data</h2>
 <p>The Dimopoulos Chain is a Markov chain over nine market states, formed as the
-interaction of a dealer-gamma tercile and a realized-volatility tercile; its
-state-conditional distributions forecast next-day volatility. The house rule is
+interaction of a tercile of dealer gamma and a tercile of realized volatility;
+its distributions, conditioned on state, forecast volatility one day ahead. The
+house rule is
 that a name is earned by surviving the gates, as a Sharpe ratio would be; a
 model that does not survive is retained as an exhibit under its own name. The
 evaluation is out of sample, 2019&ndash;2026, 1,794 days, with all forecasts
@@ -142,7 +144,7 @@ refit monthly and no look-ahead. The promotion gate is a Newey&ndash;West
 baseline.</p>
 
 <h2>3. Results</h2>
-<h3>3.1 The incremental-information ladder</h3>
+<h3>3.1 The ladder of incremental information</h3>
 <p>Each row of Table 1 tests whether the chain&rsquo;s states add information
 beyond a progressively stricter baseline. The states clear the gate over the
 VIX and over GARCH(1,1). Their increment over the HAR benchmark falls to
@@ -151,14 +153,14 @@ VIX and GJR-GARCH it is insignificant at <i>t</i>&nbsp;=&nbsp;1.02.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Incremental information of the chain&rsquo;s
-states over each baseline, one-day-ahead volatility, out of sample
+states over each baseline, volatility one day ahead, out of sample
 (2019&ndash;2026, 1,794 days). Promotion gate: Newey&ndash;West
 <i>t</i>&nbsp;&ge;&nbsp;2.5.</div>
 <table>
 <tr><th>Chain states add information beyond&hellip;</th><th>NW <i>t</i></th><th>Outcome</th></tr>
 <tr><td>VIX (implied forecast)</td><td>4.34</td><td>PASS</td></tr>
 <tr><td>GARCH(1,1)</td><td>3.19</td><td>PASS</td></tr>
-<tr><td>HAR (realized-vol workhorse)</td><td>2.03</td><td>below gate</td></tr>
+<tr><td>HAR (workhorse for realized vol)</td><td>2.03</td><td>below gate</td></tr>
 <tr><td>HAR + VIX + GJR-GARCH combined</td><td>1.02</td><td>FAIL</td></tr>
 </table>
 </div>
@@ -170,7 +172,7 @@ chain&rsquo;s states add nothing significant. The likely reason is that the
 leverage effect GJR captures, in which down moves raise volatility more than up
 moves, is a reduced form of the dealer mechanism itself. A fall in the market
 induces put buying, which pushes dealers short gamma, which amplifies
-volatility. A 33-year-old econometric model was already pricing the shadow of
+volatility. An econometric model 33 years old was already pricing the shadow of
 the structure the chain measures directly.</p>
 
 <h2>4. Findings that survive</h2>
@@ -182,16 +184,16 @@ The gap between the two is the variance risk premium, and the timing of that gap
 is the live research program.</p>
 <h3>4.2 The state map</h3>
 <p>The state map locates the danger precisely. Measured by state,
-implied-minus-realized variance is positive in eight of nine states, with hit
+implied variance minus realized is positive in eight of nine states, with hit
 rates up to 90% where dealers are pinned, and negative in exactly one, where
 dealers are exposed and volatility is already high. That single state of nine is
-where short-volatility strategies fail, and it is identifiable a day in
+where strategies that are short volatility fail, and it is identifiable a day in
 advance.</p>
 
 <div class="note">Postscript, and the point of the exhibit. Three further
 versions followed, and the pipeline retired every one. Version&nbsp;1.1 cleared
-a HAR&nbsp;+&nbsp;VIX&nbsp;+&nbsp;plain-GARCH baseline
-(<i>t</i>&nbsp;=&nbsp;2.83) but not the stricter GJR-augmented one
+a baseline of HAR&nbsp;+&nbsp;VIX&nbsp;+&nbsp;plain GARCH
+(<i>t</i>&nbsp;=&nbsp;2.83) but not the stricter one augmented with GJR
 (<i>t</i>&nbsp;=&nbsp;1.02). Version&nbsp;1.5 replaced the linear emissions with
 a neural network; it forecast worse, not better (<i>t</i>&nbsp;=&nbsp;&minus;4.37).
 Version&nbsp;3 conditioned shrunk state corrections on the term structure and

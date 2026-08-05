@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lazy Prices Meets Survivorship — BlueShip Research Working Paper No. 15</title>
+<title>Lazy Prices Meets Survivorship &middot; BlueShip Research Working Paper No. 15</title>
 <meta name="description" content="I test the Lazy-Prices disclosure-text anomaly on 14,155 EDGAR filings for 406 current large-cap constituents. It does not replicate: the year-over-year text-change measure is methodology-sensitive and, when significant, inverts (the biggest changers slightly outperform, |t|=2.55), below the promotion bar. The likely cause is survivorship, which deletes the informative short leg.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/lazy-prices-survivorship.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -97,61 +97,61 @@ Anomaly Inverts in a Survivor-Only Sample</h1>
 <p class="abstract"><span class="lab">Abstract.</span> Cohen, Malloy and Nguyen
 (2020) show that firms which change the language of their periodic filings
 subsequently underperform. Disclosure inertia is good news. I test the
-effect on 14,155 EDGAR 10-Q and 10-K filings for 406 current large-cap index
-constituents, measuring text change as one minus the year-over-year cosine
-similarity of a filing to the same period a year earlier. The effect does not
-replicate. The measure is highly specification-sensitive: a naive
-quarter-over-quarter version is a precise zero (<i>t</i>&nbsp;=&nbsp;0.13), while
-a seasonally-controlled, stopword-cleaned version is significant but
+effect on 14,155 EDGAR 10-Q and 10-K filings for 406 large caps currently in the
+index, measuring text change as one minus the cosine similarity of a filing to
+the same period a year earlier. The effect does not
+replicate. The measure is highly sensitive to specification: a naive version
+compared quarter over quarter is a precise zero (<i>t</i>&nbsp;=&nbsp;0.13), while
+a version controlled for season and cleaned of stopwords is significant but
 <i>opposite</i> in sign. The firms that changed the most slightly
-outperformed (a low-minus-high spread of &minus;1.97% over the next quarter,
+outperformed (the spread of low minus high change was &minus;1.97% over the next quarter,
 Newey&ndash;West <i>t</i>&nbsp;=&nbsp;&minus;2.55), and even that is well below
 the museum&rsquo;s stressed promotion bar. I argue the inversion is a
-survivorship artifact. A current-constituents panel deletes the informative
+survivorship artifact. A panel of current constituents deletes the informative
 short leg (the firms that rewrote their disclosure on the way to trouble),
 leaving only the changers that survived. The anomaly cannot be cleanly
-tested without survivorship-free data. No signal is promoted.</p>
+tested without data free of survivorship bias. No signal is promoted.</p>
 <div class="keywords"><b>Keywords:</b> disclosure text, filing similarity,
 Lazy Prices, survivorship bias, forensic accounting, multiple testing.</div>
 
 <h2>1. The anomaly, and why it should be orthogonal</h2>
-<p>Most published equity signals are functions of price. The Lazy-Prices effect
+<p>Most published equity signals are functions of price. The Lazy Prices effect
 is not one of them. It reads the <i>language</i> of a filing. When a firm
 reproduces last year&rsquo;s disclosure nearly verbatim, nothing material has
 changed and the
 stock does well; when it rewrites, something is being managed, and the stock
 underperforms. The mechanism is forensic rather than statistical, in the
 tradition of reading the narrative for what the numbers omit (Mayew,
-Sethuraman and Venkatachalam, 2015). An orthogonal, lightly-crowded signal of
-this kind is exactly what a price-exhausted research program should want to
-test.</p>
+Sethuraman and Venkatachalam, 2015). A signal of this kind, orthogonal and
+lightly crowded, is exactly what a research program that has exhausted price
+signals should want to test.</p>
 
 <h2>2. Data and method</h2>
 <p>I harvest every 10-Q and 10-K primary document filed since 2015 by the 406
 names in my universe with EDGAR coverage (14,155 filings in all) and reduce
-each to a stripped-text word vector, discarding inline-XBRL scaffolding and
-high-frequency stopwords that every filing shares. Following
+each to a word vector of stripped text, discarding inline XBRL scaffolding and
+the frequent stopwords that every filing shares. Following
 Cohen, Malloy and Nguyen, text change is measured <i>year over year, same
 period</i>: a 10-Q is compared to the same fiscal quarter a year earlier and a
 10-K to the prior year&rsquo;s 10-K, so that ordinary seasonal differences in
-disclosure are not counted as change. Each filing&rsquo;s market-adjusted return
-is measured over the 63 trading days beginning the day after the filing.
+disclosure are not counted as change. Each filing&rsquo;s return, adjusted for the
+market, is measured over the 63 trading days beginning the day after the filing.
 Everything is point-in-time; the universe is current constituents, so it is
-survivorship-biased by construction.</p>
+survivorship biased by construction.</p>
 
 <h2>3. Results: fragile, and the wrong way round</h2>
 <p>The measure does not survive its own robustness. Compared quarter over
-quarter, the low-minus-high-change spread is an exact zero
+quarter, the spread of low minus high change is an exact zero
 (<i>t</i>&nbsp;=&nbsp;0.13). Compared year over year and cleaned of boilerplate,
-the same spread becomes significant and reverses. The least-changed filings
-underperform and the most-changed slightly outperform. That is the opposite of
+the same spread becomes significant and reverses. The filings that changed least
+underperform and those that changed most slightly outperform. That is the opposite of
 the published effect, and a signal whose sign depends on the specification is
 not a signal one trades.</p>
 
 <div class="tblwrap">
-<div class="cap"><b>Table 1.</b> Market-adjusted 63-day forward return by
-year-over-year disclosure text-change quintile (Q1 = least changed, Q5 = most
-changed); 9,644 filings with forward returns.</div>
+<div class="cap"><b>Table 1.</b> Forward return over 63 days, market adjusted, by
+quintile of disclosure text change from a year earlier (Q1 = least changed,
+Q5 = most changed); 9,644 filings with forward returns.</div>
 <table>
 <tr><th>Change quintile</th><th>Fwd. return</th></tr>
 <tr><td>Q1 (least changed)</td><td>&minus;0.89%</td></tr>
@@ -165,24 +165,26 @@ changed); 9,644 filings with forward returns.</div>
 
 <h2>4. The mechanism: survivorship deletes the short leg</h2>
 <p>The inversion has a clean explanation. Lazy Prices is, in large part, a
-short-side result. The money is in avoiding, or shorting, the firms that rewrite
+result on the short side. The money is in avoiding, or shorting, the firms that rewrite
 their disclosure because trouble is coming. Those are precisely the firms that
 underperform, are removed from the index, and in many cases delist. A panel of
 <i>current</i> constituents has already deleted them. What remains among the
 heavy changers are the survivors: firms that rewrote their filings while
 growing, restructuring successfully, or acquiring, and lived to stay in the
 index. Conditioning on survival keeps the benign changers and discards the
-malign ones, which is enough to flip the sign of a short-heavy anomaly. The
+malign ones, which is enough to flip the sign of an anomaly that lives on the
+short side. The
 result in Table 1 is therefore most likely a measurement of who survived, not of
 what disclosure change predicts.</p>
 
 <h2>5. Verdict</h2>
 <p>Nothing is promoted. The strongest specification reaches
-<i>t</i>&nbsp;=&nbsp;&minus;2.55, far short of the stressed, multiplicity-
-deflated bar this museum requires (near a raw <i>t</i> of 5), in the wrong
+<i>t</i>&nbsp;=&nbsp;&minus;2.55, far short of the bar this museum requires after
+stress and deflation for multiplicity (near a raw <i>t</i> of 5), in the wrong
 direction, and with a mechanism that points at survivorship rather than
 information. The honest conclusion is not that Lazy Prices is false (the
-original result stands on a survivorship-free universe I do not have), but
+original result stands on a universe without survivorship bias, which I do not
+have), but
 that it cannot be tested here. Reading the language of filings remains a
 promising orthogonal lane; testing it properly requires point-in-time
 constituents and delisting returns, the data this program has repeatedly
@@ -209,7 +211,7 @@ Disclosure and the Firm&rsquo;s Ability to Continue as a Going Concern.
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational research
 only; not investment advice. Data: SEC EDGAR (10-Q / 10-K full text); Yahoo
-Finance (derived returns). Hypothetical results on a survivorship-biased
-universe; reported statistics are upper bounds and the central finding is that
+Finance (derived returns). Hypothetical results on a universe that is
+survivorship biased; reported statistics are upper bounds and the central finding is that
 this bias is disqualifying for the test.</footer>
 </main></body></html>

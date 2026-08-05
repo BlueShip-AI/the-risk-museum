@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Factor Zoo Meets an Honest Bar — BlueShip Research Working Paper No. 13</title>
+<title>The Factor Zoo Meets an Honest Bar &middot; BlueShip Research Working Paper No. 13</title>
 <meta name="description" content="All 158 of Qlib's Alpha158 technical alphas, run as one family on ~21 years of US large caps. 29 clear a naive t>=2.5; zero survive a multiplicity-deflated (t>=4.11), cost-stressed bar. The zoo is short-term reversal and a volatility risk premium in disguise.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/factor-zoo-honest-bar.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -116,20 +116,22 @@ Cost-Stressed Promotion Test</h1>
 
 <p class="abstract"><span class="lab">Abstract.</span> I run all 158
 technical alphas of Microsoft Qlib&rsquo;s Alpha158 library as a single test
-family on roughly 21 years of US large-cap equities, through the museum&rsquo;s
+family on roughly 21 years of US large caps, through the museum&rsquo;s
 fixed gates. Admitting both sign choices yields a family of 316 hypotheses.
 Twenty-nine of the 158 clear a naive significance bar of <i>t</i>&nbsp;&ge;&nbsp;2.5.
-None survives a multiplicity-deflated promotion bar of <i>t</i>&nbsp;&ge;&nbsp;4.11
-once a margin-of-safety re-audit halves gross return and doubles costs. The
-strongest survivors are uniformly short-term reversal and overbought signals
-whose measured gross edge the doubled-cost stress removes; the volatility
-features collapse hardest under that stress. I read the published
-technical-factor zoo as short-term reversal and a volatility risk premium in
-disguise, and record zero promotions. The universe holds only current S&amp;P
+None survives a promotion bar deflated for multiplicity, <i>t</i>&nbsp;&ge;&nbsp;4.11,
+once a re-audit for margin of safety halves gross return and doubles costs. The
+strongest survivors are uniformly signals of reversal over short horizons and of
+overbought levels whose measured gross edge the stress of doubled costs
+removes; the volatility
+features collapse hardest under that stress. I read the published zoo of
+technical factors as reversal over short horizons and a volatility risk premium
+in disguise, and record zero promotions. The universe holds only current S&amp;P
 constituents, so it flatters even these figures, which are therefore upper
 bounds.</p>
 <div class="keywords"><b>Keywords:</b> factor zoo, multiple testing, Alpha158,
-short-term reversal, volatility risk premium, transaction costs, survivorship
+reversal over short horizons, volatility risk premium, transaction costs,
+survivorship
 bias.</div>
 
 <h2>1. Introduction</h2>
@@ -137,16 +139,17 @@ bias.</div>
 the count is itself the problem. Harvey, Liu, and Zhu (2016) argue that the
 sheer number of tests demands a significance bar well above the conventional
 <i>t</i> of 2, and Harvey and Liu (2019) catalog the resulting zoo. This paper
-takes that argument as an operating rule rather than a commentary. I adopt an
-off-the-shelf technical-factor library, run every one of its signals as one
+takes that argument as an operating rule rather than a commentary. I adopt a
+library of technical factors taken off the shelf, run every one of its signals
+as one
 declared family, and ask a single question: does anything clear an honest bar
 that is deflated for multiplicity and re-audited under stress? The answer, on
 this universe, is nothing.</p>
 
 <h2>2. Data and method</h2>
 <p>The signals are the 158 technical alphas of Microsoft Qlib&rsquo;s Alpha158
-feature set, computed on roughly 21 years of US large-cap prices. The universe
-is current S&amp;P constituents and is therefore survivorship-biased. Only names
+feature set, computed on roughly 21 years of prices for US large caps. The
+universe is current S&amp;P constituents and is therefore survivorship biased. Only names
 that survived to the present are counted, which lifts the apparent edge of any
 signal that rewards persistence. Because a signal and its negation are distinct
 hypotheses, the family is scored at size 316, both sign choices of all 158
@@ -155,20 +158,21 @@ result is read.</p>
 <p>Three bars are applied in sequence. The first is a naive significance
 threshold of <i>t</i>&nbsp;&ge;&nbsp;2.5. The second is a deflated promotion
 threshold of <i>t</i>&nbsp;&ge;&nbsp;4.11, set in the Bonferroni and Taleb
-spirit for a family of this size. The third is a margin-of-safety re-audit in
+spirit for a family of this size. The third is a re-audit for margin of safety in
 which gross return is halved and transaction costs are doubled, so that a claim
 must remain significant after its economics are deliberately worsened.</p>
 
 <h2>3. Results</h2>
 <p>Twenty-nine of the 158 alphas clear the naive <i>t</i>&nbsp;&ge;&nbsp;2.5
 bar. Zero clear the deflated and stressed bar. No sign choice, and no member of
-the 316-hypothesis family, is promoted.</p>
-<p>The signals that come closest are, without exception, short-term reversal and
-overbought measures. The strongest is a days-since-20-day-high signal (IMAX20),
+the family of 316 hypotheses, is promoted.</p>
+<p>The signals that come closest are, without exception, measures of reversal
+over short horizons and of overbought levels. The strongest counts days since
+the high over 20 days (IMAX20),
 with a Newey&ndash;West <i>t</i> of 4.46 that falls to a stressed <i>t</i> of
 3.68 once gross is halved and costs are doubled; the same pattern holds for the
-short-term reversal and range signals near the top of the list (RSV20, RANK20,
-MIN5). These are real gross effects, but they trade quickly, and doubling the
+signals of reversal over short horizons and of range near the top of the list
+(RSV20, RANK20, MIN5). These are real gross effects, but they trade quickly, and doubling the
 cost assumption vaporizes them. The volatility features collapse hardest under
 the same stress, consistent with their edge being compensation for bearing risk
 rather than a mispricing.</p>
@@ -189,15 +193,15 @@ Alpha158 as one family of 158 signals (316 with both signs).</div>
 behaviour under the cost stress.</div>
 <table>
 <tr><th>Signal</th><th>NW <i>t</i></th><th>Stressed <i>t</i></th><th>Outcome</th></tr>
-<tr><td>IMAX20 (days since 20-day high)</td><td>4.46</td><td>3.68</td><td>not promoted</td></tr>
+<tr><td>IMAX20 (days since the high over 20 days)</td><td>4.46</td><td>3.68</td><td>not promoted</td></tr>
 </table>
 </div>
 
 <h2>4. Discussion</h2>
 <p>Read together, the survivors describe the zoo rather than escape it. The
-technical alphas that carry any measured edge on this universe are short-term
-reversal and a volatility risk premium in disguise: fast, overbought-and-revert
-signals whose profit lives inside the transaction costs, and volatility
+technical alphas that carry any measured edge on this universe are reversal over
+short horizons and a volatility risk premium in disguise: fast signals that revert from overbought levels, whose profit lives
+inside the transaction costs, and volatility
 exposures that pay for risk. None of it clears a bar that is honestly deflated
 for the size of the search and then re-audited under doubled costs. The result
 is a null, and it is reported as one. Nothing here is a tradable claim; the
@@ -205,11 +209,12 @@ figures are tombstones and risk observations, not a signal.</p>
 
 <h2>5. Limitations</h2>
 <p>Two, both of which cut in the same direction. First, the universe is current
-S&amp;P constituents and so survivorship-biased; the naive counts and the
+S&amp;P constituents and so survivorship biased; the naive counts and the
 survivor <i>t</i>-statistics are inflated by that bias, and are best read as
 upper bounds. A universe that included the delisted names would not raise these
-numbers. Second, the study covers one technical-factor library, not the whole
-zoo; it demonstrates that a widely used off-the-shelf set fails an honest bar,
+numbers. Second, the study covers one library of technical factors, not the whole
+zoo; it demonstrates that a widely used set taken off the shelf fails an honest
+bar,
 not that every published factor does. Both limitations make the conclusion more
 conservative, not less. The honest bar is already unmet on figures that flatter
 the signals.</p>
@@ -241,15 +246,15 @@ Qlib&rsquo;s data layer and backtester were not used.</dd>
 <dt>Data veins</dt>
 <dd>Adjusted OHLCV and dollar volume (Yahoo), roughly 425 current S&amp;P
 constituents, 2005 to July 2026, one trading day of information lag. Ken French
-FF5 plus momentum stood behind the residual-alpha stage, which no member
+FF5 plus momentum stood behind the stage for residual alpha, which no member
 reached. Both veins are free; neither is snapshotted.</dd>
 
 <dt>Gate regime</dt>
 <dd>G2, in force 12 to 25 July 2026: deflated significance, deflated bootstrap,
-a 30% limit on in-sample to out-of-sample degradation, and the margin-of-safety
-rerun. The verdict was rendered 25 July 2026. Two engine changes dated 26 July,
-a small-sample guard and a fix to the factor-stage risk-free treatment, postdate
-this verdict and neither moves it.</dd>
+a 30% limit on in-sample to out-of-sample degradation, and the rerun for margin
+of safety. The verdict was rendered 25 July 2026. Two engine changes dated 26
+July, a guard for small samples and a fix to the risk-free treatment at the
+factor stage, postdate this verdict and neither moves it.</dd>
 
 <dt>Family</dt>
 <dd>316, declared before testing as 158 features by two sign choices, giving a
@@ -259,10 +264,10 @@ in the hypothesis record.</dd>
 
 <dt>Binding gate</dt>
 <dd>Out-of-sample decay, not multiplicity. The strongest member, IMAX20,
-cleared the deflated bar at <i>t</i>&nbsp;=&nbsp;4.46 and cleared the
-margin-of-safety rerun at a stressed <i>t</i>&nbsp;=&nbsp;3.68 against a base
+cleared the deflated bar at <i>t</i>&nbsp;=&nbsp;4.46 and cleared the rerun for
+margin of safety at a stressed <i>t</i>&nbsp;=&nbsp;3.68 against a base
 bar of 2.50. What stopped it was a 55% Sharpe degradation from in-sample to
-out-of-sample against a 30% limit. Per-member rejection reasons were not
+out-of-sample against a 30% limit. Rejection reasons for each member were not
 recorded by the runner, so this identification covers the strongest member
 only.</dd>
 
@@ -271,7 +276,7 @@ only.</dd>
 <li>a walk-forward re-audit shows that the 55% degradation is an artifact of the
 single fixed 70/30 split, which would carry IMAX20 to the factor stage and make
 the headline one of 158 rather than zero;</li>
-<li>point-in-time constituents replace this current-membership universe and the
+<li>point-in-time constituents replace this universe of current members and the
 naive count rises above 29 instead of falling, contradicting Section 5;</li>
 <li>the reimplemented definitions are shown to diverge materially from
 Qlib&rsquo;s published Alpha158 definitions, in which case the family tested is
@@ -398,6 +403,6 @@ unchanged.</dd>
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Signals: Microsoft Qlib Alpha158.
-Hypothetical results on a survivorship-biased universe of current S&amp;P
-constituents; reported statistics are upper bounds.</footer>
+Hypothetical results on a universe of current S&amp;P constituents, which is
+survivorship biased; reported statistics are upper bounds.</footer>
 </main></body></html>

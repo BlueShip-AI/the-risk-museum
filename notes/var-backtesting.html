@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Light Was Green — BlueShip Research Working Paper No. 10</title>
+<title>The Light Was Green &middot; BlueShip Research Working Paper No. 10</title>
 <meta name="description" content="Three standard one-day VaR models backtested on twenty years of the S&amp;P 500 ETF. All three under-cover the tail; the Gaussian fails worst; and the model that survives the crises is not the one the Basel traffic light rewards.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/var-backtesting.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -89,8 +89,8 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 </nav>
 
 <div class="hdr">
-<h1>The Light Was Green: Out-of-Sample Backtesting of Three<br>
-One-Day Value-at-Risk Models on Twenty Years of the S&amp;P&nbsp;500</h1>
+<h1>The Light Was Green: Out-of-Sample Backtesting of Three Value-at-Risk<br>
+Models at a Horizon of One Day on Twenty Years of the S&amp;P&nbsp;500</h1>
 <div class="byline">V. Dimopoulos</div>
 <div class="affil">BlueShip Research</div>
 <div class="meta">Working Paper No. 10 &middot; 25 July 2026</div>
@@ -99,15 +99,15 @@ One-Day Value-at-Risk Models on Twenty Years of the S&amp;P&nbsp;500</h1>
 <p class="plain"><b>In one line:</b> I tested three standard risk models over twenty years. All understated crash losses. The official safety check still says green.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> I backtest three
-standard one-day Value-at-Risk models (Historical Simulation, a Gaussian
-parametric model, and the RiskMetrics EWMA) on 4,922 out-of-sample forecasts
-for the S&amp;P&nbsp;500 ETF (SPY), December 2006 to July 2026. All three
+standard Value-at-Risk models at a horizon of one day (Historical Simulation,
+a Gaussian parametric model, and the RiskMetrics EWMA) on 4,922 out-of-sample
+forecasts for the S&amp;P&nbsp;500 ETF (SPY), December 2006 to July 2026. All three
 under-cover the 1% and 5% tails and reject Kupiec&rsquo;s
-unconditional-coverage test at both confidence levels; the Gaussian is worst,
+test of unconditional coverage at both confidence levels; the Gaussian is worst,
 realizing a 2.95% exception rate against a 1% budget (145 breaches where 49.2
-were expected). Christoffersen&rsquo;s conditional-coverage test rejects all
+were expected). Christoffersen&rsquo;s test of conditional coverage rejects all
 three. The breaches cluster rather than scatter. Restricting to crisis
-windows reverses the full-sample ranking. EWMA, whose variance reacts within
+windows reverses the ranking from the full sample. EWMA, whose variance reacts within
 days, took 6 breaches in the 2008 window against 28 for the Gaussian and 20
 for Historical Simulation. Because the Basel traffic light reads only the
 trailing 250 days, all three currently show green. The models&rsquo; honest
@@ -120,33 +120,33 @@ light, tail risk.</div>
 <p>Value-at-Risk states a promise with a number attached: on 99 days out of
 100, tomorrow&rsquo;s loss will not exceed a stated threshold. A risk number
 is worth exactly what its backtest certifies, so any VaR must be graded
-before it is trusted. This paper backtests three standard one-day models on
-SPY, the S&amp;P&nbsp;500 ETF, using twenty years of daily returns and grading
-them strictly out of sample. Every VaR quoted for a day is estimated only
+before it is trusted. This paper backtests three standard models, each
+forecasting one day ahead, on SPY, the S&amp;P&nbsp;500 ETF, using twenty
+years of daily returns and grading them strictly out of sample. Every VaR quoted for a day is estimated only
 from returns before that day, then checked against a realized return the
 model never observed.</p>
 
 <h2>2. Data and method</h2>
 <p>Each model estimates the 1% and 5% tail of the next day&rsquo;s return and
-is re-estimated daily on a rolling 500-day window (approximately two years).
+is re-estimated daily on a rolling window of 500 days (approximately two years).
 <b>Historical Simulation</b> reads the empirical quantile directly off the
 window. The <b>Gaussian</b> model assumes normality and uses the
 window&rsquo;s mean and standard deviation. <b>EWMA</b> follows the
-RiskMetrics specification, a zero-mean normal whose variance decays at
+RiskMetrics specification, a normal with mean zero whose variance decays at
 &lambda;&nbsp;=&nbsp;0.94 and therefore discounts old calm quickly. All three
-are graded on an identical evaluation sample of <b>4,922</b> one-day
-forecasts from December 2006 to July 2026, so the comparison is like for
+are graded on an identical evaluation sample of <b>4,922</b> forecasts, one
+day each, from December 2006 to July 2026, so the comparison is like for
 like. An exception is a day whose realized loss breached the VaR. Coverage is
 assessed by Kupiec&rsquo;s unconditional test (is the exception rate
-correct?) and Christoffersen&rsquo;s conditional-coverage test (is the rate
+correct?) and Christoffersen&rsquo;s test of conditional coverage (is the rate
 correct, and are the exceptions independent or do they cluster?).
 Deterministic code computes every figure reported below.</p>
 
 <h2>3. Results</h2>
-<h3>3.1 Full-sample coverage</h3>
+<h3>3.1 Coverage over the full sample</h3>
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Coverage tests over the full evaluation
-sample of 4,922 one-day forecasts.</div>
+sample of 4,922 forecasts, one day each.</div>
 <table>
 <tr><th>Method</th><th>Conf.</th><th>Expected</th><th>Observed</th><th>Rate</th><th>Kupiec p</th><th>Christoffersen p</th><th>Basel (last 250)</th></tr>
 <tr><td>Historical Sim</td><td>99%</td><td>49.2</td><td>86</td><td>1.75%</td><td>0.0000</td><td>0.0000</td><td>green</td></tr>
@@ -158,22 +158,22 @@ sample of 4,922 one-day forecasts.</div>
 </table>
 <div class="cap" style="margin:.45rem 0 0">Kupiec and Christoffersen
 p-values below 0.05 reject the model. A reported <i>p</i> of 0.0000 is the
-code&rsquo;s four-decimal printout of a value too small to display, not an
+code&rsquo;s printout to four decimals of a value too small to display, not an
 exact zero. The Basel traffic light is defined only for the 99% test.</div>
 </div>
-<p>All three models reject Kupiec&rsquo;s unconditional-coverage test at both
+<p>All three models reject Kupiec&rsquo;s test of unconditional coverage at both
 99% and 95%. Every one under-covers the tail. The Gaussian is worst. It
 budgeted for 49 breaches at 99% and realized 145, a 2.95% exception rate
 against a promised 1%, roughly three times the losses it claimed to insure
 against. Historical Simulation is the least severe on the full sample at
 1.75%, and EWMA lies between at 2.42%. Christoffersen&rsquo;s
-conditional-coverage test is rejected for all three, so the breaches are not
+test of conditional coverage is rejected for all three, so the breaches are not
 evenly scattered but arrive in clusters. A VaR that fails in bursts is worse
 than one that fails at random, because the bursts coincide with the
 conditions the measure exists to cover.</p>
 
-<h3>3.2 Crisis-window coverage</h3>
-<p>The full-sample rate conceals where the misses occur. Restricting the 99%
+<h3>3.2 Coverage inside the crisis windows</h3>
+<p>The rate over the full sample conceals where the misses occur. Restricting the 99%
 breaches to two crisis windows sharpens the picture.</p>
 <div class="tblwrap">
 <div class="cap"><b>Table 2.</b> 99% exceptions within two crisis
@@ -193,13 +193,13 @@ windows.</div>
 window is slow to register that conditions have changed, and a 99% number
 built on the prior year&rsquo;s calm is fiction once the calm breaks. EWMA,
 whose variance reacts within days, took 6. The 2020 COVID crash is the harder
-case. Even EWMA took 6 against 0.6 expected, because no one-day model
-anticipates an overnight gap, while the window methods took 10 and 12. The
-model with the best full-sample rate, Historical Simulation, is not the model
+case. Even EWMA took 6 against 0.6 expected, because no model forecasting one
+day ahead anticipates an overnight gap, while the window methods took 10 and 12. The
+model with the best rate over the full sample, Historical Simulation, is not the model
 to hold in a crisis.</p>
 
 <h2>4. The regulatory blind spot</h2>
-<p>The regulatory reading diverges from the twenty-year record.
+<p>The regulatory reading diverges from the record over twenty years.
 Basel&rsquo;s traffic light examines only the most recent 250 days. That
 window is currently quiet, so all three models show green, a clean bill of
 health from the test a supervisor reads first. Over twenty years the same
@@ -209,7 +209,8 @@ the last twelve months; it says nothing about the model. Only a backtest
 spanning the crises reveals what a position actually carries.</p>
 
 <h2>5. Discussion</h2>
-<p>No one-day VaR examined here covered its tail. All three reject Kupiec at
+<p>None of the VaR models examined here, each measured over one day, covered
+its tail. All three reject Kupiec at
 99% and 95%, and the Gaussian fails worst. EWMA holds up best through the
 crisis windows, and it is not the model the traffic light currently rewards.
 None of these results would earn a promotion under the pipeline&rsquo;s
@@ -219,7 +220,7 @@ standards; they are retained as a documented, honest failure.</p>
 <p>Three, stated plainly. <i>One instrument.</i> The study covers SPY alone,
 a single deeply liquid index with continuous history, which is the easy case
 for VaR. A book of individual names, some since delisted, is strictly harder
-and its VaR would look worse; the wider price panel is survivorship-biased,
+and its VaR would look worse; the wider price panel is survivorship biased,
 and this study avoids that only by testing the index itself. <i>The normal
 tail.</i> Both parametric models assume a bell curve, which understates fat
 tails even when the volatility estimate is correct. This accounts for most of
@@ -254,7 +255,7 @@ Measurement Models. <i>Journal of Derivatives</i>, 3(2), 73&ndash;84.</li>
 research only; not investment advice. Data: daily SPY adjusted closes from
 the project price panel; log returns, December 2006 &ndash; July 2026.
 Coverage tests follow Kupiec (1995) and Christoffersen (1998); chi-square
-tail probabilities from SciPy; traffic-light zones follow the Basel
-Committee&rsquo;s backtesting framework for the 99% one-day measure. Every
+tail probabilities from SciPy; the zones of the traffic light follow the Basel
+Committee&rsquo;s backtesting framework for the 99% measure over one day. Every
 statistic is computed by <code>pipeline/var_backtest.py</code>.</footer>
 </main></body></html>

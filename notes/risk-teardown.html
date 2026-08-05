@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reading a Book — BlueShip Research Working Paper No. 11</title>
+<title>Reading a Book &middot; BlueShip Research Working Paper No. 11</title>
 <meta name="description" content="A risk teardown of one hypothetical long/short book: realized market beta 0.56 on +30% net, NVDA 41.4% of variance, 61.3% of variance from six factors, residual alpha +8.1% (t=3.75). Every statistic computed by deterministic Python.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/risk-teardown.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -89,8 +89,8 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 </nav>
 
 <div class="hdr">
-<h1>Reading a Book: Factor, Concentration, and Tail-Risk<br>
-Decomposition of a Hypothetical Long/Short Equity Portfolio</h1>
+<h1>Reading a Book: A Decomposition of Factor, Concentration,<br>
+and Tail Risk in a Hypothetical Long/Short Equity Portfolio</h1>
 <div class="byline">V. Dimopoulos</div>
 <div class="affil">BlueShip Research</div>
 <div class="meta">Working Paper No. 11 &middot; 25 July 2026</div>
@@ -99,20 +99,20 @@ Decomposition of a Hypothetical Long/Short Equity Portfolio</h1>
 <p class="plain"><b>In one line:</b> A fund that looked diversified was really a market bet, with one stock driving 41% of its risk.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> I decompose the risk of
-a single hypothetical long/short equity book (ten US large-cap names, six long
+a single hypothetical long/short equity book (ten large caps in the US, six long
 and four short, gross 100%, net +30%) to separate a portfolio&rsquo;s dollar
 description from its risk description. Regressed on the Fama&ndash;French five
 factors plus momentum with Newey&ndash;West errors over 5,384 trading days
 (2005&ndash;2026), the book carries a realized market beta of 0.56 on +30% net
-dollars, roughly 1.9&times; its net-implied direction, and an Investment (CMA)
+dollars, roughly 1.9&times; the direction those dollars imply, and an Investment (CMA)
 beta of &minus;0.50. The six factors explain 61.3% of daily variance, leaving
 38.7% idiosyncratic, and residual alpha is +8.1% annualized
 (<i>t</i>&nbsp;=&nbsp;3.75) in sample. By risk rather than dollars the book is
-concentrated: NVDA is 16.0% of gross but 41.4% of variance. One-day 99%
-historical value-at-risk is 2.67% (expected shortfall 3.29%). A portfolio that
+concentrated: NVDA is 16.0% of gross but 41.4% of variance. Historical 99%
+value-at-risk over one day is 2.67% (expected shortfall 3.29%). A portfolio that
 reads as diversified stock selection is in fact directional, concentrated, and
-factor-driven; on a survivorship-biased universe every in-sample figure is an
-upper bound.</p>
+driven by factors; on a universe biased by survivorship every in-sample figure is
+an upper bound.</p>
 <div class="keywords"><b>Keywords:</b> risk decomposition, factor exposure,
 portfolio concentration, value-at-risk, expected shortfall, long/short equity.</div>
 
@@ -123,15 +123,15 @@ runs that decomposition end to end on a single portfolio, following the sequence
 a platform risk desk applies when a new manager&rsquo;s positions arrive: take
 the book, decompose its risk, return the findings. The portfolio is hypothetical
 and illustrative, constructed to be taken apart rather than traded, and is not a
-real position or a recommendation. It is a constant-weight, daily-rebalanced
-construction held over the full price history on a universe of current large-cap
-survivors, so it carries hindsight of which names survived. Every in-sample
+real position or a recommendation. Its weights are constant and rebalanced
+daily over the full price history on a universe of large caps that are
+survivors today, so it carries hindsight of which names survived. Every in-sample
 figure, the residual alpha above all, is an upper bound rather than a forecast.</p>
 
 <h2>2. The portfolio</h2>
-<p>The book holds ten US large-cap names, six long and four short. Weights are
+<p>The book holds ten large caps in the US, six long and four short. Weights are
 fractions of NAV set by hand for the example; long dollars concentrate in
-mega-cap growth, short dollars in defensives.</p>
+growth among the mega caps, short dollars in defensives.</p>
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> The portfolio: ten positions by side and weight.</div>
 <table>
@@ -151,13 +151,13 @@ mega-cap growth, short dollars in defensives.</p>
 </div>
 
 <h2>3. Factor decomposition</h2>
-<p>The constant-weight book&rsquo;s daily return is regressed on the
+<p>The book&rsquo;s daily return, at constant weights, is regressed on the
 Fama&ndash;French five factors plus Carhart momentum, with Newey&ndash;West
 standard errors, over 5,384 days from 2005-01-04 to 2026-05-29. The intercept is
 the residual alpha; the slopes report the exposures the book carries whether or
 not they were intended.</p>
 <div class="tblwrap">
-<div class="cap"><b>Table 2.</b> Factor exposures (Fama&ndash;French five-factor plus momentum).</div>
+<div class="cap"><b>Table 2.</b> Factor exposures (the Fama&ndash;French five factors plus momentum).</div>
 <table>
 <tr><th>Exposure</th><th>Book beta</th></tr>
 <tr><td>Market (Mkt-RF)</td><td>+0.56</td></tr>
@@ -173,23 +173,23 @@ not they were intended.</p>
 <p>The six factors explain 61.3% of the book&rsquo;s daily variance, leaving
 38.7% idiosyncratic. Annualized residual alpha is +8.1% with a
 <i>t</i>-statistic of 3.75, positive and significant in sample. On a
-survivorship-biased universe it is a ceiling, not a track record.</p>
+universe biased by survivorship it is a ceiling, not a track record.</p>
 
 <h3>3.2 Unintended exposures</h3>
 <ul>
 <li><b>Market (Mkt-RF) beta +0.56.</b> Net dollar exposure is only +30%, yet the
-realized market beta is 0.56; the shorts are low-beta defensives, so netting
+realized market beta is 0.56; the shorts are defensives with low beta, so netting
 dollars did not net out direction. In beta terms the book is about 1.9&times;
-more market-directional than its net book implies. <b>Unintended.</b></li>
-<li><b>Investment (CMA) beta &minus;0.50.</b> A tilt toward aggressive,
-high-reinvestment growth (long mega-cap tech) funded by short conservative
+more directional to the market than its net book implies. <b>Unintended.</b></li>
+<li><b>Investment (CMA) beta &minus;0.50.</b> A tilt toward aggressive growth with heavy
+reinvestment (long tech among the mega caps) funded by short conservative
 payers. A style bet, not stock selection. <b>Unintended.</b></li>
 <li><b>Value (HML) beta &minus;0.17.</b> Net short value, long growth. A style
 bet, not stock selection. <b>Unintended.</b></li>
 <li><b>Profitability (RMW) beta &minus;0.13.</b> Mildly short quality; the shorts
 are the profitable defensives. A style bet, not stock selection. <b>Unintended.</b></li>
-<li><b>Size (SMB) beta &minus;0.03.</b> Negligible; both sleeves are large-cap,
-so the book is correctly size-neutral. <b>Intended (clean).</b></li>
+<li><b>Size (SMB) beta &minus;0.03.</b> Negligible; both sleeves are large caps,
+so the book is correctly size neutral. <b>Intended (clean).</b></li>
 </ul>
 
 <h2>4. Concentration and sizing</h2>
@@ -199,7 +199,7 @@ so the book is correctly size-neutral. <b>Intended (clean).</b></li>
 <table>
 <tr><th>Metric</th><th>Value</th></tr>
 <tr><td>Largest position</td><td>NVDA at 16.0% of gross</td></tr>
-<tr><td>Herfindahl (HHI, gross-normalized)</td><td>0.11</td></tr>
+<tr><td>Herfindahl (HHI, normalized by gross)</td><td>0.11</td></tr>
 <tr><td>Effective number of bets (1/HHI)</td><td>9.3</td></tr>
 <tr><td>Annualized book volatility</td><td>15.6%</td></tr>
 <tr><td>Largest risk contributor</td><td>NVDA at 41.4% of variance</td></tr>
@@ -226,14 +226,14 @@ covariance of the positions:</p>
 </div>
 
 <h2>5. Value-at-risk and expected shortfall</h2>
-<p>One-day historical simulation on the book&rsquo;s 5,422 daily returns,
+<p>Historical simulation over one day on the book&rsquo;s 5,422 daily returns,
 expressed as a percent of capital (gross 100%). Value-at-risk is the loss
 exceeded on all but 1% (or 5%) of days; expected shortfall is the mean loss on
 the days that breach it.</p>
 <div class="tblwrap">
-<div class="cap"><b>Table 5.</b> One-day historical value-at-risk and expected shortfall.</div>
+<div class="cap"><b>Table 5.</b> Historical value-at-risk and expected shortfall over one day.</div>
 <table>
-<tr><th>Confidence</th><th>1-day VaR</th><th>1-day Expected Shortfall</th></tr>
+<tr><th>Confidence</th><th>VaR over 1 day</th><th>Expected Shortfall over 1 day</th></tr>
 <tr><td>99%</td><td>2.67%</td><td>3.29%</td></tr>
 <tr><td>95%</td><td>1.57%</td><td>2.24%</td></tr>
 </table>
@@ -241,8 +241,8 @@ the days that breach it.</p>
 
 <h2>6. Historical stress</h2>
 <p>These are realized returns, not model losses: the book&rsquo;s actual return
-over historical windows, computed by compounding its constant-weight daily
-returns across each range.</p>
+over historical windows, computed by compounding its daily returns at constant
+weights across each range.</p>
 <div class="tblwrap">
 <div class="cap"><b>Table 6.</b> Historical stress windows.</div>
 <table>
@@ -254,7 +254,7 @@ returns across each range.</p>
 </table>
 </div>
 <p>The COVID window is the instructive one: the book gave back only
-&minus;4.8% peak-to-trough because its low-beta shorts fell alongside its longs,
+&minus;4.8% peak-to-trough because its shorts, which have low beta, fell alongside its longs,
 while the &minus;19.0% Global Financial Crisis draw shows the same hidden market
 beta biting once the shorts stopped hedging.</p>
 
@@ -263,18 +263,18 @@ beta biting once the shorts stopped hedging.</p>
 <ol>
 <li><b>Hidden market beta.</b> The book runs a 0.56 market beta on +30% net
 dollars, roughly 1.9&times; more directional than the net book suggests, because
-every short is a low-beta defensive. <i>Fix:</i> size to a beta target rather
-than a dollar target, substituting higher-beta shorts or overlaying an index
+every short is a defensive with low beta. <i>Fix:</i> size to a beta target rather
+than a dollar target, substituting shorts with higher beta or overlaying an index
 short until realized beta matches the intended net.</li>
 <li><b>Risk concentrated in one name.</b> NVDA is 16.0% of gross dollars but
 41.4% of portfolio variance; the book is diversified by dollars and concentrated
-by risk (9.3 effective bets by dollars, far fewer by risk). <i>Fix:</i> cap
-single-name risk contribution, not only single-name weight, trimming NVDA or
+by risk (9.3 effective bets by dollars, far fewer by risk). <i>Fix:</i> cap the
+risk contribution of a single name, not only its weight, trimming NVDA or
 adding an offsetting position.</li>
-<li><b>A style bet in a stock-picker&rsquo;s coat.</b> Only 38.7% of daily
+<li><b>A style bet in the coat of a stock picker.</b> Only 38.7% of daily
 variance is idiosyncratic; 61.3% is the six factors, led by an Investment (CMA)
-beta of &minus;0.50, a large long-growth / short-conservative tilt. <i>Fix:</i>
-neutralize the CMA/growth tilt if the thesis is single-name selection, or own it
+beta of &minus;0.50, a large tilt, long growth and short conservative. <i>Fix:</i>
+neutralize the CMA/growth tilt if the thesis is selection of single names, or own it
 deliberately as the strategy and budget risk to it.</li>
 </ol>
 
@@ -300,7 +300,7 @@ Heteroskedasticity and Autocorrelation Consistent Covariance Matrix.
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational research
 only; not investment advice. The book is hypothetical and illustrative, not a
 real position and not a recommendation. Data: adjusted daily closes for the
-project&rsquo;s survivorship-biased large-cap universe; Kenneth R. French Data
+project&rsquo;s universe of large caps, biased by survivorship; Kenneth R. French Data
 Library (FF5 plus momentum). Every statistic is computed by deterministic Python
-(pipeline/export_riskdesk.py); none is hand-derived.</footer>
+(pipeline/export_riskdesk.py); none is derived by hand.</footer>
 </main></body></html>

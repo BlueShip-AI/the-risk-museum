@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Dimopoulos Chain — BlueShip Research Working Paper No. 3</title>
+<title>The Dimopoulos Chain &middot; BlueShip Research Working Paper No. 3</title>
 <meta name="description" content="A dealer-positioning volatility signal beats implied volatility (t=7.4) but adds no value over a HAR-GJR-implied ensemble. Three model versions and two promotion-gate changes retire the founder's namesake model.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/chain-program-v3.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -89,8 +89,8 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 </nav>
 
 <div class="hdr">
-<h1>The Dimopoulos Chain: Retiring a Dealer-Positioning Volatility<br>
-Model Under Backward-Biting Promotion Gates</h1>
+<h1>The Dimopoulos Chain: Retiring a Volatility Model Built on Dealer<br>
+Positioning, Under Promotion Gates That Bite Backwards</h1>
 <div class="byline">V. Dimopoulos</div>
 <div class="affil">BlueShip Research</div>
 <div class="meta">Working Paper No. 3 &middot; 16 July 2026</div>
@@ -99,15 +99,15 @@ Model Under Backward-Biting Promotion Gates</h1>
 <p class="plain"><b>In one line:</b> The signal was real, but three versions of my model never beat simpler standard methods, so I retired it.</p>
 
 <p class="abstract"><span class="lab">Abstract.</span> This paper documents
-three revisions of a volatility-forecasting model built on options
-dealer-positioning states, and the promotion gates that retired the first. The
-underlying signal is real: dealer gamma exposure predicts the next-day trading
-range beyond implied volatility (<i>t</i>&nbsp;=&nbsp;7.4 in the standing
+three revisions of a model that forecasts volatility from states of options
+dealer positioning, and the promotion gates that retired the first. The
+underlying signal is real: dealer gamma exposure predicts the trading range of
+the next day beyond implied volatility (<i>t</i>&nbsp;=&nbsp;7.4 in the standing
 classifier, which clears a stressed re-audit at 3.68). As a forecasting
-architecture, however, the state chain adds no value over a competent
-persistence, leverage, and implied-volatility ensemble. Version&nbsp;1 beat
+architecture, however, the state chain adds no value over a competent ensemble
+of persistence, leverage, and implied volatility. Version&nbsp;1 beat
 implied volatility (<i>t</i>&nbsp;=&nbsp;4.34) but lost to HAR and failed a
-newly tightened margin-of-safety gate (stressed <i>t</i>&nbsp;=&nbsp;2.17); a
+newly tightened gate for margin of safety (stressed <i>t</i>&nbsp;=&nbsp;2.17); a
 neural variant was buried (<i>t</i>&nbsp;=&nbsp;&minus;4.37); a pre-registered
 residual corrector did not improve a log HAR+VIX+GJR backbone
 (<i>t</i>&nbsp;=&nbsp;&minus;1.07). The central result is the retirement of the
@@ -117,38 +117,38 @@ options dealer gamma, promotion gates, multiple testing, pre-registration,
 model retirement.</div>
 
 <h2>1. Introduction</h2>
-<p>This paper documents three versions of one volatility-forecasting model, two
-promotion-gate changes, and one retirement: the complete iteration loop of the
+<p>This paper documents three versions of one model for forecasting volatility,
+two changes to the promotion gates, and one retirement: the complete iteration loop of the
 research program. Two principles organize the account. A signal that beats
 implied volatility does not automatically beat a competent econometric
 ensemble. And a research process that cannot retire its founder&rsquo;s
 favorite model is not a process. The model under study, the Dimopoulos Chain,
-maps nine options dealer-positioning by realized-volatility states onto the
-next-day trading range; Table&nbsp;1 summarizes its three revisions and their
-outcomes.</p>
+maps nine states, options dealer positioning crossed with realized volatility,
+onto the trading range of the next day; Table&nbsp;1 summarizes its three
+revisions and their outcomes.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Three versions of the Dimopoulos Chain and
 their outcomes.</div>
 <table>
 <tr><th>Version</th><th>Claim</th><th>Statistic</th><th>Outcome</th></tr>
-<tr><td>v1 (state chain)</td><td>Nine dealer-positioning &times; realized-vol
-states forecast the next-day range</td><td><i>t</i>&nbsp;=&nbsp;4.34 vs implied
+<tr><td>v1 (state chain)</td><td>Nine states of dealer positioning &times;
+realized vol forecast the range of the next day</td><td><i>t</i>&nbsp;=&nbsp;4.34 vs implied
 vol; lost to HAR</td><td>Retired after gate tightening (stressed
 <i>t</i>&nbsp;=&nbsp;2.17)</td></tr>
 <tr><td>v1.5 (neural emissions)</td><td>An MLP on the same states beats the
-linear ladder</td><td><i>t</i>&nbsp;=&nbsp;&minus;4.37 (walk-forward, 3-seed
-ensemble)</td><td>Buried; capacity is not information at daily
+linear ladder</td><td><i>t</i>&nbsp;=&nbsp;&minus;4.37 (walk-forward, an
+ensemble of 3 seeds)</td><td>Buried; capacity is not information at daily
 frequency</td></tr>
 <tr><td>v3 (residual corrector, pre-registered)</td><td>Shrunk state
-corrections improve a log HAR+VIX+GJR backbone at the 5-day horizon</td>
+corrections improve a log HAR+VIX+GJR backbone at a horizon of 5 days</td>
 <td><i>t</i>&nbsp;=&nbsp;&minus;1.07</td><td>Buried, name and all</td></tr>
 </table>
 </div>
 
 <h2>2. The Version 1 signal and its architectural error</h2>
 <p>The underlying signal is real. Options dealer gamma exposure predicts the
-next-day trading range beyond implied volatility (<i>t</i>&nbsp;=&nbsp;7.4 in
+trading range of the next day beyond implied volatility (<i>t</i>&nbsp;=&nbsp;7.4 in
 the standing classifier, retained in the vault, clearing the stressed re-audit
 at 3.68). Version&nbsp;1&rsquo;s error was architectural. It entered its nine
 states as OLS dummies alongside the baselines, level shifts that cannot repair
@@ -161,44 +161,45 @@ equity anomalies that die under a Fama-French plus momentum decomposition. A
 claim must beat the incumbent factor model, not the naive benchmark.</p>
 
 <h2>3. Promotion criteria that bite backwards</h2>
-<p>Mid-program, two promotion criteria were added, proposed by the research
-critic and approved by the human owner; thresholds are never machine-changed.</p>
-<h3>3.1 Multiple-testing deflator</h3>
-<p>Significance bars are Bonferroni-adjusted by the hypothesis family&rsquo;s
-attempt count, tracked in the state store. A survivor from a family of thirty
-siblings is judged as one draw of thirty. This converts the multiple-comparisons
-critique from a reviewer&rsquo;s eyeball into arithmetic that runs on every
+<p>Midway through the program, two promotion criteria were added, proposed by the research
+critic and approved by the human owner; thresholds are never changed by machine.</p>
+<h3>3.1 The deflator for multiple testing</h3>
+<p>Significance bars carry a Bonferroni adjustment set by the hypothesis
+family&rsquo;s attempt count, tracked in the state store. A survivor from a family of thirty
+siblings is judged as one draw of thirty. This converts the critique of multiple
+comparisons from a reviewer&rsquo;s eyeball into arithmetic that runs on every
 cycle.</p>
-<h3>3.2 Margin-of-safety rerun</h3>
+<h3>3.2 The rerun for margin of safety</h3>
 <p>Before promotion, every survivor is re-tested with its edge halved against
 the original HAC noise and its costs doubled. The mechanics matter. Naively
 halving the whole return series leaves the <i>t</i>-statistic unchanged, since
-<i>t</i> is scale-free; the stressed test must halve the mean against the
+<i>t</i> does not change with scale; the stressed test must halve the mean against the
 unstressed standard error, or it tests nothing. A synthetic sanity check caught
 this before shipping, and the lesson was filed.</p>
 <p>Gates that apply only to future ideas are decorative, so the vault was
-re-audited. The GEX classifier survived (3.68). The tulip-mania screen survived at <i>z</i>&nbsp;=&nbsp;5.3 on name-month counts. I have since corrected that unit, because one mania is counted many times. On the honest per-episode count the screen clears its own 1.25 bar at 1.28, having measured 1.18 on a different data pull, so it sits on top of its threshold rather than above it. The Dimopoulos Chain v1, the founder&rsquo;s
+re-audited. The GEX classifier survived (3.68). The screen for tulip mania survived at <i>z</i>&nbsp;=&nbsp;5.3 on counts taken by name and month. I have since corrected that unit, because one mania is counted many times. On the honest count, one per episode, the screen clears its own 1.25 bar at 1.28, having measured 1.18 on a different data pull, so it sits on top of its threshold rather than above it. The Dimopoulos Chain v1, the founder&rsquo;s
 namesake model, came up at 2.17 and was retired. No exception was requested.</p>
 
 <h2>4. Version 3: a pre-registered residual corrector</h2>
 <p>Version&nbsp;3 inverted the architecture. It absorbed the strictest baseline,
-a log-space HAR plus implied plus GJR model refit monthly by expanding OLS, as
+a HAR plus implied plus GJR model in log space, refit monthly by expanding OLS, as
 the backbone, and left the states the only remaining job: correcting the
 backbone&rsquo;s residuals. Corrections were shrunk toward zero
 (<i>k</i>&nbsp;=&nbsp;60, James-Stein flavor) across three conditionings, the
-nine GEX&times;RV cells, the VIX term-structure sign, and a state-arrival flag.
-The target moved from next-day to 5-day range, since version&nbsp;1.5 had shown
+nine GEX&times;RV cells, the sign of the VIX term structure, and a flag for state
+arrival.
+The target moved from the range of the next day to the range over 5 days, since version&nbsp;1.5 had shown
 that daily noise drowns the signal, with leakage guards for the overlapping
 targets: training truncated at the refit boundary minus the horizon, HAC lags
 &ge;&nbsp;10, and Duan smearing applied symmetrically to both models.</p>
 <p>The specification was committed to version control before the run. Under a
 family deflator this is more than hygiene. Every sibling variant raises the
-family&rsquo;s own bar, so the gate makes single-shot pre-registration the
+family&rsquo;s own bar, so the gate makes a single pre-registered shot the
 mathematically optimal research strategy. The incentive design does the
 disciplining.</p>
 <p>The corrections did not improve the backbone (MAE 34.1 vs 33.7 bps;
-kill-test <i>t</i>&nbsp;=&nbsp;&minus;1.07). The per-state decomposition shows
-the information is not uniformly zero: one high-gamma state gained 3.5 bps while
+<i>t</i>&nbsp;=&nbsp;&minus;1.07 on the kill test). The decomposition state by
+state shows the information is not uniformly zero: one state with high gamma gained 3.5 bps while
 a stressed state lost 4.5. A result found by inspecting the decomposition after
 the gate has failed is a hypothesis for a future mechanism, not a specification
 to refit, and it is logged as an open question.</p>
@@ -206,15 +207,15 @@ to refit, and it is logged as an open question.</p>
 <h2>5. Discussion: what stands after three versions</h2>
 <p>Dealer positioning carries real information relative to implied volatility
 alone, and that classifier remains in the vault. It does not add forecast value
-over a competent persistence, leverage, and implied-volatility ensemble at daily
-or weekly horizons under promotion criteria that require the edge to survive at
+over a competent ensemble of persistence, leverage, and implied volatility at
+daily or weekly horizons under promotion criteria that require the edge to survive at
 half strength. A version&nbsp;4 is warranted only if it brings a mechanism the
-ensemble structurally cannot carry. Event-conditioned transition rows (FOMC,
+ensemble structurally cannot carry. Transition rows conditioned on events (FOMC,
 CPI) are the standing candidate; such a model would face a bar near 3.1, because
 the deflator counts prior attempts against it.</p>
 
 <div class="note">Every result above is reproducible from the program records:
-the baseline ladder, the neural post-mortem, the gate-tightening memo, the
+the baseline ladder, the neural post-mortem, the memo on tightening the gates, the
 pre-registration committed before results and verifiable by git timestamp, and
 the burial. The museum publishes the process because most research shops publish
 only the survivors.</div>
