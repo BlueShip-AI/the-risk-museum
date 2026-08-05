@@ -1,0 +1,206 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Signal You Can Get Is Not the Signal You Want &middot; Working Paper No. 25</title>
+<meta name="description" content="I went hunting for data that is not derived from price, moves slowly, and nobody trades. The public perceived cost of capital panel is all three. 87% of its variance is a static ranking of firms, 89% is a firm constant plus a market-wide year effect, and the median firm path correlates 0.83 with everyone else. A fitted value cannot carry information its inputs do not have.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/signal-you-can-get.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#faf9f7; --fg:#141414; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg);
+  font:16px/1.55 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif; font-variant-numeric:lining-nums; padding:2rem 1rem 4rem; }
+main { max-width:680px; margin:0 auto }
+.hdr { text-align:center; border-bottom:1px solid var(--line);
+  padding-bottom:1.1rem; margin-bottom:1.5rem }
+h1 { font-size:1.5rem; line-height:1.28; letter-spacing:.01em;
+  margin:.2rem 0 .6rem; font-weight:bold }
+.byline { font-size:.95rem; margin-bottom:.1rem }
+.affil { color:var(--muted); font-size:.85rem; font-style:italic }
+.meta { color:var(--muted); font-size:.8rem; margin-top:.4rem }
+.abstract { font-size:.92rem; margin:0 auto 1rem; padding:0 1.1rem;
+  text-align:justify; hyphens:auto }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em;
+  font-weight:bold }
+.keywords { font-size:.82rem; color:var(--muted); padding:0 1.1rem;
+  margin-bottom:1.8rem }
+h2 { font-size:1.02rem; margin:1.7rem 0 .5rem; font-weight:bold }
+h3 { font-size:.95rem; margin:1.1rem 0 .4rem; font-weight:bold;
+  font-style:italic }
+p { margin-bottom:.75rem; text-align:justify; hyphens:auto }
+ol, ul { padding-left:1.4rem; margin-bottom:.75rem }
+a { color:var(--blue) }
+.tblwrap { overflow-x:auto; margin:1.2rem 0 }
+.cap { font-size:.82rem; color:var(--muted); margin-bottom:.45rem }
+table { border-collapse:collapse; font-size:.86rem; width:100% }
+th, td { border:1px solid var(--line); padding:.4rem .65rem; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { background:var(--card); font-weight:bold }
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1rem;
+  margin:1.6rem 0; color:var(--muted); font-size:.88rem; font-style:italic }
+.refs { margin-top:2rem; font-size:.82rem }
+.refs h2 { font-size:.95rem }
+.refs ol { padding-left:1.4rem } .refs li { margin-bottom:.4rem; line-height:1.4 }
+footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.75rem; text-align:justify }
+.tabs { display:flex; gap:.25rem; margin:0 0 1.8rem; border-bottom:1px solid
+  var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent) }
+.tabs::-webkit-scrollbar { display:none }
+.tabs a { padding:.55rem .95rem; white-space:nowrap; color:var(--muted);
+  text-decoration:none; border:1px solid transparent;
+  border-radius:9px 9px 0 0; font-size:.92rem }
+.tabs a:hover { color:var(--fg) }
+.tabs a.on { color:var(--fg); background:var(--card);
+  border-color:var(--line); border-bottom-color:var(--card);
+  margin-bottom:-1px }
+.plain { font-size:1.02rem; line-height:1.45; text-align:center; margin:0 auto 1.4rem;
+  padding:.7rem 1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; max-width:600px; }
+
+.tearmark { position:absolute; top:0; right:0; z-index:60; display:block;
+  padding:.5rem .9rem .55rem; background:var(--card);
+  border-left:1px solid var(--line); border-bottom:1px solid var(--line);
+  border-bottom-left-radius:12px; text-decoration:none; line-height:1.3;
+  box-shadow:0 2px 10px rgba(0,0,0,.07) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font-size:.57rem; font-weight:600; color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.84rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:1024px) {
+  body { padding-top:3.7rem }
+  .tearmark { padding:.4rem .7rem .45rem }
+  .tearmark i { font-size:.78rem } }
+@media print { .tearmark { display:none } }
+.grave { margin:1.6rem 0 1.2rem; padding:0; }
+.grave svg { width:100%; height:auto; display:block }
+</style><!-- social:start -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Risk Museum">
+<meta property="og:title" content="The Signal You Can Get Is Not the Signal You Want &middot; Working Paper No. 25">
+<meta property="og:description" content="I went hunting for data that is not derived from price, moves slowly, and nobody trades. The public perceived cost of capital panel is all three. 87% of its variance is a static ranking of firms, 89% is a firm constant plus a market-wide year effect, and the median firm path correlates 0.83 with everyone else. A fitted value cannot carry information its inputs do not have.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/signal-you-can-get.html">
+<meta property="og:image" content="https://theriskmuseum.com/cards/note-signal-you-can-get.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://theriskmuseum.com/cards/note-signal-you-can-get.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Signal You Can Get Is Not the Signal You Want &middot; Working Paper No. 25">
+<meta name="twitter:description" content="I went hunting for data that is not derived from price, moves slowly, and nobody trades. The public perceived cost of capital panel is all three. 87% of its variance is a static ranking of firms, 89% is a firm constant plus a market-wide year effect, and the median firm path correlates 0.83 with everyone else. A fitted value cannot carry information its inputs do not have.">
+<!-- social:end -->
+</head><body><main>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<!-- brand:start -->
+<a href="../" aria-label="BlueShip Research, home" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;margin:0 0 1rem"><img src="../logo.svg" alt="" width="26" height="26" style="display:block"><span style="font:600 .78rem/1 Charter,Georgia,serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">BlueShip Research</span></a>
+<!-- brand:end -->
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+</nav>
+
+<div class="hdr">
+<h1>The Signal You Can Get Is Not the Signal You Want</h1>
+<div class="byline">V. Dimopoulos</div>
+<div class="affil">BlueShip Research</div>
+<div class="meta">Working Paper No. 27 &middot; 5 August 2026 &middot; a clean lane, and a new way to be empty</div>
+</div>
+
+<figure class="grave">
+<svg viewBox="0 0 640 168" role="img" xmlns="http://www.w3.org/2000/svg"
+ aria-label="Variance of the published cost of capital panel: 87.1 percent is between firms, 1.9 percent is a common year effect, and only 11.0 percent is firm-specific variation over time.">
+<style>.bl{fill:var(--muted);font:11px Charter,Georgia,serif}
+.bn{fill:var(--muted);font:10px ui-monospace,Menlo,monospace}
+.bc{fill:var(--muted);font:italic 11px Charter,Georgia,serif}</style>
+<rect x="60" y="40" width="470.3" height="40" fill="var(--muted)" opacity=".45"/>
+<rect x="530.3" y="40" width="10.3" height="40" fill="var(--blue)" opacity=".6"/>
+<rect x="540.6" y="40" width="59.4" height="40" fill="var(--accent)" opacity=".85"/>
+<text x="60" y="32" class="bn">87.1% between firms, a near-static ranking</text>
+<text x="600" y="100" class="bn" text-anchor="end">11.0% firm-specific, over time</text>
+<text x="530" y="118" class="bn" text-anchor="end">1.9% common year</text>
+<line x1="540.6" y1="82" x2="560" y2="96" stroke="var(--line)" stroke-width="1"/>
+<line x1="535" y1="82" x2="520" y2="110" stroke="var(--line)" stroke-width="1"/>
+<text x="60" y="150" class="bc">Where the variance of the published panel lives. Of the 11% that is firm-specific and moves,</text>
+<text x="60" y="164" class="bc">the median firm still tracks the market-wide path at 0.83.</text>
+</svg></figure>
+
+<p class="plain"><b>In one line:</b> I went looking for data that is not derived from price, moves slowly, and nobody trades. I found it, downloaded it, and measured it: 87% of its variance is a near-static ranking of firms, 89% is a firm constant plus a market-wide year effect, and the median firm's own path correlates 0.83 with everyone else's. The lane was empty for a reason I had not seen before.</p>
+<h2>1. Why I went looking here</h2>
+<p>Working Paper No. 22 ended with an instruction to myself. The price lanes are picked over, 129 price-derived candidates died in this engine, and the two survivors were plumbing rather than information. The instruction was to hunt data that is not derived from price, turns over slowly, and is orthogonal to what everyone already runs.</p>
+<p>Perceived cost of capital is close to a perfect specification of that. Managers state an internal hurdle rate on earnings calls. Gormsen and Huber collect those statements and publish a firm-level panel at costofcapital.org, free, with no registration. It is not a price. It updates quarterly at most. I could find no commercial vendor selling anything like it, and no paper testing it as a cross-sectional return predictor.</p>
+<p>So I filed a ticket and downloaded the file before writing anything about it.</p>
+<h2>2. What the file is</h2>
+<p>The live file holds 264,922 rows covering 9,573 firms, quarterly from 2002 to 2021, across fourteen country codes. Mean stated cost of capital is 8.72%, mean hurdle rate is 11.36%, and the average gap between them is 2.64 percentage points. That gap is the authors' own headline finding across their research program, and it reproduces exactly in the published file.</p>
+<p>Two columns carry the values. They are named <code>predicted_costcap</code> and <code>predicted_hurdle</code>, and the naming is not incidental. Per the authors' own documentation, the published values are not the collected statements. They are a Lasso fit of the collected statements onto the 153 firm characteristics of Jensen, Kelly and Pedersen, projected onto the full Compustat universe, with time variation added separately through within-firm year effects. The documented in-sample fit is 33% for cost of capital and 16% for hurdle rates.</p>
+<p>That is the whole story in one sentence, and I want to be careful about who established it. <strong>The authors say it. I did not measure it.</strong> Confirming spanning directly requires the Jensen-Kelly-Pedersen panel, which this study did not fetch.</p>
+<p>What I did measure is what the resulting panel contains.</p>
+<h2>3. What is inside it</h2>
+<p>Three deterministic measurements, all from the raw file.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Cost of capital</th>
+<th>Hurdle rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Share of variance that is between firms, not over time</td>
+<td><strong>0.871</strong></td>
+<td>0.825</td>
+</tr>
+<tr>
+<td>R-squared of a firm-plus-year fixed effects fit</td>
+<td><strong>0.890</strong></td>
+<td>0.788</td>
+</tr>
+<tr>
+<td>Residual standard deviation after those fixed effects</td>
+<td>0.47pp</td>
+<td>0.80pp</td>
+</tr>
+<tr>
+<td>Raw standard deviation</td>
+<td>1.41pp</td>
+<td>1.74pp</td>
+</tr>
+</tbody>
+</table></div>
+<p>Read the first row first. <strong>Eighty-seven percent of the variance is cross-sectional.</strong> The panel is close to a static ranking. Whatever it says about one firm relative to another in 2002, it is still saying in 2021.</p>
+<p>Read the second row next. Fit a constant per firm and a constant per year, and <strong>89% of the total variance is gone.</strong> A two-way fixed effects model is not a model of anything firm-specific. It says each firm sits at its own level and the whole market drifts together.</p>
+<p>What survives is the residual: firm-specific variation that moves over time. Its standard deviation is 0.47 percentage points against a raw 1.41. Roughly a tenth of the variance.</p>
+<p>Then I asked whether even that tenth is firm-specific. For the 4,601 US firms with at least twelve quarters of data, I took each firm's own path with its mean removed and correlated it against the market-wide path.</p>
+<p><strong>The median correlation is 0.826.</strong> Seventeen percent of firms sit above 0.95. So when a firm's measured cost of capital moves in this data, it is mostly moving because everyone's is moving.</p>
+<h2>4. What that means for anyone trying to trade it</h2>
+<p>The tradable part is spanned by things everyone already has. The authors report the Lasso selects eleven variables, led by CAPM beta, a Europe indicator, debt to market, firm age and market equity. A cross-sectional signal built on this panel is a particular linear combination of beta, leverage, age and size, arriving with a slower update schedule than the originals.</p>
+<p>The part that is not spanned is a market-wide discount rate move, which is not a cross-sectional signal at all.</p>
+<p>This is not a criticism of the research. The authors built the panel to study corporate investment, and for that purpose a characteristic-projected estimate covering the full Compustat universe is exactly right. The error would be mine, if I took a fitted value and treated it as a measurement.</p>
+<p><strong>And that is the finding I did not expect.</strong> Working Paper No. 22 said the price lanes are empty because everyone is mining them. This lane is empty for a different reason. The data is genuinely uncrowded, genuinely not derived from price, and genuinely slow. It fails anyway, because the version that scales to a tradable universe is a model output that inherits its own predictors, while the version that is an actual measurement is small.</p>
+<p>A new failure mode belongs in the collection: <strong>check whether your uncrowded dataset is a measurement or a fitted value, before you check anything else.</strong> A fitted value cannot carry information its inputs do not have. Nothing downstream fixes that, and no gate in my stack was going to catch it, because by the time a signal reaches my gates the question has already been decided.</p>
+<h2>5. What this paper does not establish</h2>
+<p><strong>I did not measure spanning.</strong> The claim that the panel is a linear combination of Jensen-Kelly-Pedersen characteristics comes from the authors' documentation, not from a regression I ran. It is a documented construction, and I am reporting it as such.</p>
+<p><strong>I did not test a signal.</strong> No backtest was run, no returns were computed, and no Sharpe ratio appears in this paper. The variance structure was decisive enough that building a signal would have been spending compute to confirm arithmetic.</p>
+<p><strong>I did not evaluate the underlying method.</strong> There is a July 2026 paper by Gormsen, Huber and Jensen on a market-based cost of capital derived from machine-learned cash flow forecasts and the present value identity. It is a separate object from the panel measured here, I have not read it, and nothing above bears on whether it works. It is worth noting that it excludes financial firms, so it says nothing about insurers either.</p>
+<p><strong>The panel ends in 2021.</strong> It cannot support a current-quarter view of anything.</p>
+<p><strong>The hand-collected measure is a different object.</strong> The underlying statements collected from calls are a real measurement rather than a fit, and on the published account they run to a few thousand firm-quarter observations. That is orthogonal data. It is also thin, and this paper says nothing about what it would do at that size.</p>
+<h2>6. What would change the verdict</h2>
+<p>Regress the published panel on the Jensen-Kelly-Pedersen characteristics directly and report the R-squared. If it comes back near one, spanning moves from documented to measured and this paper gets stronger. If it comes back materially below one, I am wrong about how completely the fitted value inherits its inputs, and the residual deserves a real test.</p>
+<p>Obtain the hand-collected observations rather than the projection, and the orthogonality question becomes answerable on data that is a measurement. At a few thousand observations the multiplicity bar would be brutal, which is the honest reason to expect little.</p>
+<hr>
+<p><b>Method.</b> The file was downloaded in one unauthenticated request from costofcapital.org and analysed locally. All statistics are computed by deterministic Python in <code>pipeline/coc_panel_audit.py</code>, with output in <code>state/cache/coc_panel_audit.json</code>. The two-way fixed effects R-squared is solved by alternating projections rather than by constructing a dummy matrix. Firm paths are measured only for firms with at least twelve quarters. Every count and mean reported in section 2 was reproduced from the raw rows rather than taken from any summary. The data carries no stated licence and its publisher reserves all rights, so no row of it is reproduced here and none appears in any published artifact of this site. Filed as ticket <code>a19e5b49e93b2a27</code>.</p>
+<p><em>Educational research only. Not investment advice.</em></p>
+<p><em>Educational research only. Not investment advice.</em></p>
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</main><script defer src="../read-aloud.js"></script>
+</body></html>
