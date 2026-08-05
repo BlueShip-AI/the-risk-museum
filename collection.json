@@ -321,7 +321,7 @@
   {
    "claim": "The Alpha158 excavation: Microsoft Qlib's 158 public technical alphas, run as ONE family through the museum's gates - how many famous library alphas survive honest deflation?",
    "stage": "pipeline",
-   "reason": "Alpha158 family (158 alphas): 29 clear naive t>=2.5, 0 survive the deflated bar t>=4.1 (family=316, both signs) + margin-of-safety stress. The zoo is short-term reversal + vol risk-premium in disguise; real gross edge, killed by doubled costs. Tested and shelved as one family.",
+   "reason": "Alpha158 family (158 alphas): 29 clear naive t>=2.5, 0 are promoted. The strongest member, IMAX20, DOES clear the deflated bar (t=4.46 >= 4.11) and the margin-of-safety rerun (stressed t=3.68 >= 2.50); it is stopped by 55% in-sample to out-of-sample Sharpe degradation (1.14 -> 0.52) against a 30% limit. The null is produced by decay, not by multiplicity. The zoo is short-term reversal + vol risk-premium in disguise. Tested and shelved as one family. [Corrected 2026-08-04: the original reason read '0 survive the deflated bar t>=4.1', which conflated the deflated significance gate with the overall verdict and contradicted Working Paper No. 13. Original text retained in this note.]",
    "status": "rejected",
    "about": "A public library of 158 alphas that half the industry has mined is the perfect multiplicity teaching exhibit: with the family honestly declared at n=158, the deflator does to a famous alpha library what it did to my own founder's model. Museum series material.",
    "tested": "2026-07-25"
