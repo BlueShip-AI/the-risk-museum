@@ -122,8 +122,10 @@ day ahead. A small multilayer perceptron (~2,000 parameters), forecasting the
 range one day ahead from a fixed information set plus state components on
 dealer positioning, is evaluated over the same out-of-sample window of 1,794
 days and the same gates as its competitors. It loses significantly: the mean
-absolute error of the best network is 58.9 basis points, against 41.2 for a linear HAR&nbsp;+&nbsp;VIX&nbsp;+&nbsp;GJR
-ladder and 41.6 for GJR-GARCH, a model of four parameters from Glosten,
+absolute error of the best network is 58.9 basis points, against 41.2 for a
+linear heterogeneous autoregressive (HAR)&nbsp;+&nbsp;Cboe Volatility Index
+(VIX)&nbsp;+&nbsp;GJR ladder and 41.6 for GJR-GARCH, a model of four parameters
+from Glosten,
 Jagannathan, and Runkle (1993), with a Newey&ndash;West <i>t</i> of &minus;4.37
 on the error differential over roughly 3,500 daily observations. The identical
 architecture family, applied instead to approximating the Heston (1993)

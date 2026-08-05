@@ -115,9 +115,10 @@ Anomaly Inverts in a Survivor-Only Sample</h1>
 <p class="abstract"><span class="lab">Abstract.</span> Cohen, Malloy and Nguyen
 (2020) show that firms which change the language of their periodic filings
 subsequently underperform. Disclosure inertia is good news. I test the
-effect on 14,155 EDGAR 10-Q and 10-K filings for 406 large caps currently in the
-index, measuring text change as one minus the cosine similarity of a filing to
-the same period a year earlier. The effect does not
+effect on 14,155 quarterly and annual reports (10-Q and 10-K filings) drawn from
+the SEC&rsquo;s Electronic Data Gathering, Analysis and Retrieval system (EDGAR)
+for 406 large caps currently in the index, measuring text change as one minus
+the cosine similarity of a filing to the same period a year earlier. The effect does not
 replicate. The measure is highly sensitive to specification: a naive version
 compared quarter over quarter is a precise zero (<i>t</i>&nbsp;=&nbsp;0.13), while
 a version controlled for season and cleaned of stopwords is significant but
@@ -147,8 +148,9 @@ signals should want to test.</p>
 <h2>2. Data and method</h2>
 <p>I harvest every 10-Q and 10-K primary document filed since 2015 by the 406
 names in my universe with EDGAR coverage (14,155 filings in all) and reduce
-each to a word vector of stripped text, discarding inline XBRL scaffolding and
-the frequent stopwords that every filing shares. Following
+each to a word vector of stripped text, discarding inline eXtensible Business
+Reporting Language (XBRL) scaffolding and the frequent stopwords that every
+filing shares. Following
 Cohen, Malloy and Nguyen, text change is measured <i>year over year, same
 period</i>: a 10-Q is compared to the same fiscal quarter a year earlier and a
 10-K to the prior year&rsquo;s 10-K, so that ordinary seasonal differences in

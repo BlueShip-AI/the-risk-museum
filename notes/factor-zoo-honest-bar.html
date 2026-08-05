@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Factor Zoo Meets an Honest Bar &middot; BlueShip Research Working Paper No. 13</title>
-<meta name="description" content="All 158 of Qlib's Alpha158 technical alphas, run as one family on ~21 years of US large caps. 29 clear a naive t>=2.5; zero survive a multiplicity-deflated (t>=4.11), cost-stressed bar. The zoo is short-term reversal and a volatility risk premium in disguise.">
+<meta name="description" content="All 158 of Qlib's Alpha158 technical alphas, run as one family on ~21 years of US large caps. 29 clear a naive t>=2.5 and zero are promoted. One, IMAX20, clears the deflated bar at t=4.46 and is stopped by out-of-sample decay, not by multiplicity. The zoo is short-term reversal and a volatility risk premium in disguise.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/factor-zoo-honest-bar.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -98,7 +98,7 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="The Factor Zoo Meets an Honest Bar &middot; BlueShip Research Working Paper No. 13">
-<meta property="og:description" content="All 158 of Qlib's Alpha158 technical alphas, run as one family on ~21 years of US large caps. 29 clear a naive t>=2.5; zero survive a multiplicity-deflated (t>=4.11), cost-stressed bar. The zoo is short-term reversal and a volatility risk premium in disguise.">
+<meta property="og:description" content="All 158 of Qlib's Alpha158 technical alphas, run as one family on ~21 years of US large caps. 29 clear a naive t>=2.5 and zero are promoted. One, IMAX20, clears the deflated bar at t=4.46 and is stopped by out-of-sample decay, not by multiplicity. The zoo is short-term reversal and a volatility risk premium in disguise.">
 <meta property="og:url" content="https://theriskmuseum.com/notes/factor-zoo-honest-bar.html">
 <meta property="og:image" content="https://theriskmuseum.com/cards/note-factor-zoo-honest-bar.png">
 <meta property="og:image:width" content="1200">
@@ -106,7 +106,7 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <meta name="twitter:image" content="https://theriskmuseum.com/cards/note-factor-zoo-honest-bar.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Factor Zoo Meets an Honest Bar &middot; BlueShip Research Working Paper No. 13">
-<meta name="twitter:description" content="All 158 of Qlib's Alpha158 technical alphas, run as one family on ~21 years of US large caps. 29 clear a naive t>=2.5; zero survive a multiplicity-deflated (t>=4.11), cost-stressed bar. The zoo is short-term reversal and a volatility risk premium in disguise.">
+<meta name="twitter:description" content="All 158 of Qlib's Alpha158 technical alphas, run as one family on ~21 years of US large caps. 29 clear a naive t>=2.5 and zero are promoted. One, IMAX20, clears the deflated bar at t=4.46 and is stopped by out-of-sample decay, not by multiplicity. The zoo is short-term reversal and a volatility risk premium in disguise.">
 <!-- social:end -->
 </head><body><main>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
@@ -187,7 +187,7 @@ the family of 316 hypotheses, is promoted.</p>
 <p>The signals that come closest are, without exception, measures of reversal
 over short horizons and of overbought levels. The strongest counts days since
 the high over 20 days (IMAX20),
-with a Newey&ndash;West <i>t</i> of 4.46 that falls to a stressed <i>t</i> of
+with a Newey&ndash;West (NW) <i>t</i> of 4.46 that falls to a stressed <i>t</i> of
 3.68 once gross is halved and costs are doubled; the same pattern holds for the
 signals of reversal over short horizons and of range near the top of the list
 (RSV20, RANK20, MIN5). These are real gross effects, but they trade quickly, and doubling the
@@ -266,8 +266,9 @@ Qlib&rsquo;s data layer and backtester were not used.</dd>
 
 <dt>Data veins</dt>
 <dd>Adjusted OHLCV and dollar volume (Yahoo), roughly 425 current S&amp;P
-constituents, 2005 to July 2026, one trading day of information lag. Ken French
-FF5 plus momentum stood behind the stage for residual alpha, which no member
+constituents, 2005 to July 2026, one trading day of information lag. Ken
+French&rsquo;s Fama-French five-factor model (FF5) plus momentum stood behind
+the stage for residual alpha, which no member
 reached. Both veins are free; neither is snapshotted.</dd>
 
 <dt>Gate regime</dt>

@@ -122,7 +122,7 @@ and four short, gross 100%, net +30%) to separate a portfolio&rsquo;s dollar
 description from its risk description. Regressed on the Fama&ndash;French five
 factors plus momentum with Newey&ndash;West errors over 5,384 trading days
 (2005&ndash;2026), the book carries a realized market beta of 0.56 on +30% net
-dollars, roughly 1.9&times; the direction those dollars imply, and an Investment (CMA)
+dollars, roughly 1.9&times; the direction those dollars imply, and an Investment (conservative minus aggressive, CMA)
 beta of &minus;0.50. The six factors explain 61.3% of daily variance, leaving
 38.7% idiosyncratic, and residual alpha is +8.1% annualized
 (<i>t</i>&nbsp;=&nbsp;3.75) in sample. By risk rather than dollars the book is
@@ -148,7 +148,7 @@ figure, the residual alpha above all, is an upper bound rather than a forecast.<
 
 <h2>2. The portfolio</h2>
 <p>The book holds ten large caps in the US, six long and four short. Weights are
-fractions of NAV set by hand for the example; long dollars concentrate in
+fractions of net asset value (NAV) set by hand for the example; long dollars concentrate in
 growth among the mega caps, short dollars in defensives.</p>
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> The portfolio: ten positions by side and weight.</div>
@@ -202,11 +202,11 @@ more directional to the market than its net book implies. <b>Unintended.</b></li
 <li><b>Investment (CMA) beta &minus;0.50.</b> A tilt toward aggressive growth with heavy
 reinvestment (long tech among the mega caps) funded by short conservative
 payers. A style bet, not stock selection. <b>Unintended.</b></li>
-<li><b>Value (HML) beta &minus;0.17.</b> Net short value, long growth. A style
+<li><b>Value (high minus low, HML) beta &minus;0.17.</b> Net short value, long growth. A style
 bet, not stock selection. <b>Unintended.</b></li>
-<li><b>Profitability (RMW) beta &minus;0.13.</b> Mildly short quality; the shorts
+<li><b>Profitability (robust minus weak, RMW) beta &minus;0.13.</b> Mildly short quality; the shorts
 are the profitable defensives. A style bet, not stock selection. <b>Unintended.</b></li>
-<li><b>Size (SMB) beta &minus;0.03.</b> Negligible; both sleeves are large caps,
+<li><b>Size (small minus big, SMB) beta &minus;0.03.</b> Negligible; both sleeves are large caps,
 so the book is correctly size neutral. <b>Intended (clean).</b></li>
 </ul>
 
@@ -319,7 +319,7 @@ Heteroskedasticity and Autocorrelation Consistent Covariance Matrix.
 only; not investment advice. The book is hypothetical and illustrative, not a
 real position and not a recommendation. Data: adjusted daily closes for the
 project&rsquo;s universe of large caps, biased by survivorship; Kenneth R. French Data
-Library (FF5 plus momentum). Every statistic is computed by deterministic Python
+Library (the Fama-French five-factor model, FF5, plus momentum). Every statistic is computed by deterministic Python
 (pipeline/export_riskdesk.py); none is derived by hand.</footer>
 </main><script defer src="../read-aloud.js"></script>
 </body></html>

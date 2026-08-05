@@ -124,8 +124,9 @@ the next day beyond implied volatility (<i>t</i>&nbsp;=&nbsp;7.4 in the standing
 classifier, which clears a stressed re-audit at 3.68). As a forecasting
 architecture, however, the state chain adds no value over a competent ensemble
 of persistence, leverage, and implied volatility. Version&nbsp;1 beat
-implied volatility (<i>t</i>&nbsp;=&nbsp;4.34) but lost to HAR and failed a
-newly tightened gate for margin of safety (stressed <i>t</i>&nbsp;=&nbsp;2.17); a
+implied volatility (<i>t</i>&nbsp;=&nbsp;4.34) but lost to a heterogeneous
+autoregressive (HAR) model and failed a newly tightened gate for margin of
+safety (stressed <i>t</i>&nbsp;=&nbsp;2.17); a
 neural variant was buried (<i>t</i>&nbsp;=&nbsp;&minus;4.37); a pre-registered
 residual corrector did not improve a log HAR+VIX+GJR backbone
 (<i>t</i>&nbsp;=&nbsp;&minus;1.07). The central result is the retirement of the
@@ -172,7 +173,8 @@ at 3.68). Version&nbsp;1&rsquo;s error was architectural. It entered its nine
 states as OLS dummies alongside the baselines, level shifts that cannot repair
 where a baseline errs. It also fought the wrong opponent. In volatility space
 the incumbent factor structure is persistence (HAR), leverage asymmetry
-(GJR-GARCH), and the market&rsquo;s own forecast (implied volatility). Beating a
+(GJR-GARCH, the Glosten, Jagannathan and Runkle variant of GARCH), and the
+market&rsquo;s own forecast (implied volatility). Beating a
 naive benchmark while losing to HAR indicates that the new information was
 mostly old information under a new state label, the verdict already applied to
 equity anomalies that die under a Fama-French plus momentum decomposition. A
@@ -189,13 +191,14 @@ comparisons from a reviewer&rsquo;s eyeball into arithmetic that runs on every
 cycle.</p>
 <h3>3.2 The rerun for margin of safety</h3>
 <p>Before promotion, every survivor is re-tested with its edge halved against
-the original HAC noise and its costs doubled. The mechanics matter. Naively
+the original heteroskedasticity and autocorrelation consistent (HAC) noise and
+its costs doubled. The mechanics matter. Naively
 halving the whole return series leaves the <i>t</i>-statistic unchanged, since
 <i>t</i> does not change with scale; the stressed test must halve the mean against the
 unstressed standard error, or it tests nothing. A synthetic sanity check caught
 this before shipping, and the lesson was filed.</p>
 <p>Gates that apply only to future ideas are decorative, so the vault was
-re-audited. The GEX classifier survived (3.68). The screen for tulip mania survived at <i>z</i>&nbsp;=&nbsp;5.3 on counts taken by name and month. I have since corrected that unit, because one mania is counted many times. On the honest count, one per episode, the screen clears its own 1.25 bar at 1.28, having measured 1.18 on a different data pull, so it sits on top of its threshold rather than above it. The Dimopoulos Chain v1, the founder&rsquo;s
+re-audited. The gamma exposure (GEX) classifier survived (3.68). The screen for tulip mania survived at <i>z</i>&nbsp;=&nbsp;5.3 on counts taken by name and month. I have since corrected that unit, because one mania is counted many times. On the honest count, one per episode, the screen clears its own 1.25 bar at 1.28, having measured 1.18 on a different data pull, so it sits on top of its threshold rather than above it. The Dimopoulos Chain v1, the founder&rsquo;s
 namesake model, came up at 2.17 and was retired. No exception was requested.</p>
 
 <h2>4. Version 3: a pre-registered residual corrector</h2>
@@ -204,8 +207,8 @@ a HAR plus implied plus GJR model in log space, refit monthly by expanding OLS, 
 the backbone, and left the states the only remaining job: correcting the
 backbone&rsquo;s residuals. Corrections were shrunk toward zero
 (<i>k</i>&nbsp;=&nbsp;60, James-Stein flavor) across three conditionings, the
-nine GEX&times;RV cells, the sign of the VIX term structure, and a flag for state
-arrival.
+nine GEX&times;RV cells, the sign of the Cboe Volatility Index (VIX) term
+structure, and a flag for state arrival.
 The target moved from the range of the next day to the range over 5 days, since version&nbsp;1.5 had shown
 that daily noise drowns the signal, with leakage guards for the overlapping
 targets: training truncated at the refit boundary minus the horizon, HAC lags
@@ -215,7 +218,7 @@ family deflator this is more than hygiene. Every sibling variant raises the
 family&rsquo;s own bar, so the gate makes a single pre-registered shot the
 mathematically optimal research strategy. The incentive design does the
 disciplining.</p>
-<p>The corrections did not improve the backbone (MAE 34.1 vs 33.7 bps;
+<p>The corrections did not improve the backbone (mean absolute error (MAE) 34.1 vs 33.7 bps;
 <i>t</i>&nbsp;=&nbsp;&minus;1.07 on the kill test). The decomposition state by
 state shows the information is not uniformly zero: one state with high gamma gained 3.5 bps while
 a stressed state lost 4.5. A result found by inspecting the decomposition after
