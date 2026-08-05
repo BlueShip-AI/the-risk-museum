@@ -68,9 +68,33 @@
       if (el.closest(SKIP_INSIDE)) continue;
       var txt = textOf(el);
       if (txt.length < 2) continue;
-      out.push({ el: el, text: txt });
+      out.push({ el: el, text: txt, tag: el.tagName.toLowerCase(), cls: el.className || '' });
+    }
+
+    // "V. Dimopoulos" then "BlueShip Research" as two flat statements sounds
+    // like a form being read out. One clause sounds like a person.
+    for (var m = 0; m < out.length - 1; m++) {
+      if (/byline/.test(out[m].cls) && /affil/.test(out[m + 1].cls)) {
+        out[m].text = 'by ' + out[m].text + ', ' + out[m + 1].text + '.';
+        out.splice(m + 1, 1);
+        break;
+      }
     }
     return out;
+  }
+
+  // A heading with no full stop is read on a flat, unresolved pitch. Giving it
+  // terminal punctuation lets the voice land, and naming the section tells a
+  // listener where they are, which the eye gets for free from the layout.
+  function prep(b) {
+    var s = b.text;
+    if (b.tag === 'h2' || b.tag === 'h3') {
+      s = s.replace(/^(\d+[a-z]?)\.\s*/i, function (_m, n) { return 'Section ' + n + '. '; });
+      if (!/[.!?:]$/.test(s)) s += '.';
+    } else if (b.tag === 'h1' && !/[.!?]$/.test(s)) {
+      s += '.';
+    }
+    return s;
   }
 
   /* ---------- making the text speakable ---------- */
@@ -141,25 +165,57 @@
 
   /* ---------- voice ---------- */
 
+  // A British woman, wherever one exists. Names differ per platform and most
+  // of these will be absent on any given machine, so this is a preference
+  // order rather than a requirement, with a heuristic behind it.
+  var PREFERRED = [
+    // macOS and iOS, best first. Serena and Kate are the good ones, but they
+    // are optional downloads, so most Macs will fall through to the rest.
+    'Serena', 'Kate', 'Stephanie', 'Martha',
+    // Chrome on any OS
+    'Google UK English Female',
+    // Windows and Edge, natural voices first
+    'Libby', 'Sonia', 'Maisie', 'Hazel', 'Susan',
+    // newer macOS system voices, female presenting
+    'Shelley', 'Sandy', 'Flo',
+    // Scottish rather than English, but often the only one present
+    'Fiona'
+  ];
+
+  // Used only to filter the fallback. Better to hand back a male British
+  // voice than no British voice, but not before trying the rest.
+  var MALE = /daniel|arthur|oliver|ryan|thomas|george|grandpa|rocko|reed|eddy|alex|fred|gordon|george/i;
+
   var voice = null;
+
   function pickVoice() {
     var vs = speechSynthesis.getVoices() || [];
     if (!vs.length) return null;
-    var en = vs.filter(function (v) { return /^en(-|_|$)/i.test(v.lang); });
-    var pool = en.length ? en : vs;
-    var preferred = ['Samantha', 'Daniel', 'Karen', 'Serena',
-                     'Google UK English Female', 'Google US English', 'Alex'];
-    for (var i = 0; i < preferred.length; i++) {
-      for (var j = 0; j < pool.length; j++) {
-        if (pool[j].name === preferred[i]) return pool[j];
+
+    var gb = vs.filter(function (v) { return /en[-_]GB/i.test(v.lang); });
+
+    // 1. a named favourite, British first, then anywhere.
+    for (var i = 0; i < PREFERRED.length; i++) {
+      var want = PREFERRED[i].toLowerCase();
+      for (var j = 0; j < gb.length; j++) {
+        if (gb[j].name.toLowerCase().indexOf(want) !== -1) return gb[j];
+      }
+      for (var k = 0; k < vs.length; k++) {
+        if (vs[k].name.toLowerCase().indexOf(want) !== -1) return vs[k];
       }
     }
-    for (var k = 0; k < pool.length; k++) if (pool[k].localService) return pool[k];
-    return pool[0];
+    // 2. any British voice that is not obviously a man.
+    for (var m = 0; m < gb.length; m++) if (!MALE.test(gb[m].name)) return gb[m];
+    // 3. any British voice at all.
+    if (gb.length) return gb[0];
+    // 4. any English voice, local for latency.
+    var en = vs.filter(function (v) { return /^en/i.test(v.lang); });
+    for (var n = 0; n < en.length; n++) if (en[n].localService) return en[n];
+    return en[0] || vs[0];
   }
-  pickVoice();
-  speechSynthesis.onvoiceschanged = function () { voice = pickVoice(); };
+
   voice = pickVoice();
+  speechSynthesis.onvoiceschanged = function () { voice = pickVoice(); };
 
   /* ---------- UI ---------- */
 
@@ -212,7 +268,10 @@
 
   /* ---------- playback ---------- */
 
-  var blocks = [], queue = [], idx = 0, playing = false, paused = false, marked = null;
+  var blocks = [], queue = [], idx = 0, playing = false, paused = false,
+      marked = null, timer = null;
+
+  function clearGap() { if (timer) { clearTimeout(timer); timer = null; } }
 
   function build() {
     blocks = collect();
@@ -222,9 +281,11 @@
         queue.push({ text: blocks[i].text, el: blocks[i].el, block: i, visual: true });
         continue;
       }
-      var chunks = split(speakable(blocks[i].text));
+      var chunks = split(speakable(prep(blocks[i])));
       for (var j = 0; j < chunks.length; j++) {
-        if (chunks[j]) queue.push({ text: chunks[j], el: blocks[i].el, block: i });
+        if (chunks[j]) {
+          queue.push({ text: chunks[j], el: blocks[i].el, block: i, tag: blocks[i].tag });
+        }
       }
     }
   }
@@ -263,6 +324,7 @@
   function stopKeepalive() { if (keepalive) { clearInterval(keepalive); keepalive = null; } }
 
   function speakFrom(i) {
+    clearGap();
     speechSynthesis.cancel();
     idx = i;
     playing = true; paused = false;
@@ -282,7 +344,22 @@
     u.rate = rate;
     u.pitch = 1;
     if (voice) { u.voice = voice; u.lang = voice.lang; }
-    u.onend = function () { if (playing && !paused) { idx++; next(); } };
+    u.onend = function () {
+      if (!playing || paused) return;
+      var cur = queue[idx], nxt = queue[idx + 1];
+      idx++;
+      // Silence is what makes speech sound composed rather than recited. A
+      // beat between paragraphs, a longer one before a heading, and a moment
+      // after a chart cue so the listener can actually go and look at it.
+      var gap = 0;
+      if (nxt && cur && nxt.block !== cur.block) {
+        if (nxt.tag === 'h1' || nxt.tag === 'h2' || nxt.tag === 'h3') gap = 620;
+        else if (cur.visual) gap = 520;
+        else gap = 260;
+      }
+      if (gap) { timer = setTimeout(function () { timer = null; next(); }, gap); }
+      else next();
+    };
     u.onerror = function (e) {
       if (e && (e.error === 'canceled' || e.error === 'interrupted')) return;
       if (playing && !paused) { idx++; next(); }
@@ -292,6 +369,7 @@
 
   function stop() {
     playing = false; paused = false; idx = 0;
+    clearGap();
     stopKeepalive();
     speechSynthesis.cancel();
     bMain.textContent = 'Play audio'; bMain.dataset.on = '0';
@@ -310,6 +388,7 @@
     } else {
       paused = true;
       bMain.textContent = 'Resume';
+      clearGap();
       stopKeepalive();
       speechSynthesis.pause();
     }
