@@ -132,7 +132,7 @@ footer { margin-top:2.4rem; padding-top:1rem; border-top:1px solid var(--line);
 <text x="60" y="158" class="bc">Pooled QLIKE loss on variance over five days. Lower is better. HAR won on 21 tickers of 21.</text>
 </svg></figure>
 
-<p class="plain"><b>In one line:</b> I ran a 24.7 million parameter foundation model, pretrained on 12 billion candlesticks, against a four parameter regression from 2009. The regression won on 21 tickers out of 21. Pooled quasi-likelihood (QLIKE) 0.148 against 0.591, Diebold-Mariano (DM) t = -12.4.</p>
+<p class="plain"><b>Takeaway.</b> I ran a 24.7 million parameter foundation model, pretrained on 12 billion candlesticks, against a four parameter regression from 2009. The regression won on 21 tickers out of 21. Pooled quasi-likelihood (QLIKE) 0.148 against 0.591, Diebold-Mariano (DM) t = -12.4.</p>
 <h2>1. The test</h2>
 <p>Kronos is a transformer for financial time series, decoder only, published at AAAI 2026, with 32.3 thousand GitHub stars. Its one credible published edge is realized volatility, where the paper reports an R-squared of 0.249.</p>
 <p>I pre-registered a falsification on 21 July 2026, before running anything. Kronos-small run zero shot against a log heterogeneous autoregressive (log-HAR) regression on Parkinson range volatility, the Corsi 2009 specification. Twenty US large caps plus SPY. Realized volatility five days ahead. The decision rule was locked in the same document: Kronos wins only if pooled QLIKE improves with pooled DM p below 0.05 and a positive median improvement per ticker. Any other outcome rejects it. 4,809 forecasts.</p>
