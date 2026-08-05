@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="BlueShip Research">
+<title>BlueShip Research</title>
+<style>
+.hull{fill:#012169}.bloom{fill:#c8102e}
+@media (prefers-color-scheme:dark){.hull{fill:#7aa7cc}.bloom{fill:#e0554f}}
+</style>
+<path class="hull" d="M20 74 H80 Q50 89 20 74 Z"/>
+<path d="M24 82 Q37 88 50 88 Q63 88 76 82" class="hull" fill="none"
+      stroke="currentColor" stroke-width="0" opacity=".4"/>
+<rect class="hull" x="48.5" y="26" width="3" height="48"/>
+<g transform="translate(50,46) scale(.68) translate(-50,-33)">
+<path class="bloom" d="M30 32 C30 21 33 13 37 9 C39 17 41 22 44 26 C45 17 47 9 50 5
+         C53 9 55 17 56 26 C59 22 61 17 63 9 C67 13 70 21 70 32
+         C70 47 62 57 50 61 C38 57 30 47 30 32 Z"/></g>
+</svg>

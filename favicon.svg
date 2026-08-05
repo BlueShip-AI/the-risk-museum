@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-<path d="M16 14 L16 28" stroke="#4a6b4a" stroke-width="2" fill="none"/>
-<path d="M16 20 Q11 19 10 15" stroke="#4a6b4a" stroke-width="1.6" fill="none"/>
-<path d="M10 8 q0-3 3-3 q1.5 0 3 2 q1.5-2 3-2 q3 0 3 3 q0 5-6 8 q-6-3-6-8z" fill="#2a5d8b"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<style>
+.hull{fill:#012169}.bloom{fill:#c8102e}
+@media (prefers-color-scheme:dark){.hull{fill:#7aa7cc}.bloom{fill:#e0554f}}
+</style>
+<path class="hull" d="M18 74 H82 Q50 90 18 74 Z"/>
+<rect class="hull" x="47.8" y="24" width="4.4" height="50"/>
+<g transform="translate(50,44) scale(.80) translate(-50,-33)">
+<path class="bloom" d="M30 32 C30 21 33 13 37 9 C39 17 41 22 44 26 C45 17 47 9 50 5
+         C53 9 55 17 56 26 C59 22 61 17 63 9 C67 13 70 21 70 32
+         C70 47 62 57 50 61 C38 57 30 47 30 32 Z"/></g>
 </svg>

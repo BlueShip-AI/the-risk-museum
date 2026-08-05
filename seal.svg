@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="BlueShip Research, The Risk Museum">
+<title>BlueShip Research &#183; The Risk Museum</title>
+<style>
+.disc{fill:#012169}.bloom{fill:#c8102e}
+@media (prefers-color-scheme:dark){.disc{fill:#1d3f7a}.bloom{fill:#e0554f}}
+</style>
+<defs>
+<path id="ringTop" d="M60,60 m-46,0 a46,46 0 1,1 92,0" fill="none"/>
+<path id="ringFoot" d="M60,60 m-44,0 a44,44 0 1,0 88,0" fill="none"/>
+</defs>
+<circle class="disc" cx="60" cy="60" r="58"/>
+<circle cx="60" cy="60" r="52" fill="none" stroke="#f2efe8" stroke-width="1.2" opacity=".8"/>
+<circle cx="60" cy="60" r="38" fill="#f2efe8"/>
+<text font-family="Charter,Georgia,serif" font-size="9.6" letter-spacing="1.9" fill="#f2efe8">
+<textPath href="#ringTop" startOffset="50%" text-anchor="middle">BLUESHIP RESEARCH</textPath></text>
+<text font-family="Charter,Georgia,serif" font-size="8.2" letter-spacing="2.2" fill="#f2efe8">
+<textPath href="#ringFoot" startOffset="50%" text-anchor="middle">&#9733; MMXXVI &#9733;</textPath></text>
+<path class="disc" d="M40 78 H80 Q60 89 40 78 Z"/>
+<rect class="disc" x="58.7" y="40" width="2.6" height="38"/>
+<g transform="translate(60,56) scale(.52) translate(-50,-33)">
+<path d="M30 32 C30 21 33 13 37 9 C39 17 41 22 44 26 C45 17 47 9 50 5
+         C53 9 55 17 56 26 C59 22 61 17 63 9 C67 13 70 21 70 32
+         C70 47 62 57 50 61 C38 57 30 47 30 32 Z" class="bloom"/></g>
+</svg>
