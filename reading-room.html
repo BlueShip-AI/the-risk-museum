@@ -30,6 +30,20 @@ h1 { font-size:2rem }
 .lens b { color:var(--blue) }
 p.intro { margin-bottom:1.6rem }
 a { color:var(--blue) }
+.heroband { background:#0f1c33; color:#f2efe8; padding:3.4rem 1.5rem 2.9rem;
+  border-bottom:1px solid var(--line); margin:0 }
+@media (prefers-color-scheme: dark) { .heroband { background:#0c1626 } }
+.heroband-in { max-width:880px; margin:0 auto }
+.hb-eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.2em; text-transform:uppercase; color:#e0bc6a; margin-bottom:1.4rem }
+.hb-title { font:300 clamp(30px,4.6vw,44px)/1.18 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.02em; color:#f2efe8; max-width:21em; margin:0 0 1.4rem }
+.hb-lede { font:italic 19px/1.55 Charter,Georgia,serif; color:#c9cfda;
+  max-width:44em; margin:0 0 1.8rem }
+.hb-lede a { color:#9fc0e8 }
+.hb-who { font:400 14px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#8fa0bb }
+.hb-who b { color:#f2efe8; font-weight:500 }
+.hb-who a { color:#9fc0e8 }
 .tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
   var(--line); overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
@@ -61,8 +75,27 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   .tearmark { padding:.4rem .7rem .45rem }
   .tearmark i { font-size:.78rem } }
 @media print { .tearmark { display:none } }
-</style>
-<!-- social:start -->
+
+/* chrome:start */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem }
+.brand-lockup img { display:block }
+.topbar nav.tabs { display:flex; gap:1.4rem; margin:0 0 0 auto;
+  border-bottom:0; -webkit-mask-image:none; mask-image:none;
+  overflow-x:auto; scrollbar-width:none }
+.topbar nav.tabs::-webkit-scrollbar { display:none }
+.topbar nav.tabs a { font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; margin:0;
+  border:0; border-radius:0; background:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+.topbar nav.tabs a.on { color:var(--fg); background:none;
+  border-bottom:2px solid var(--gold,#b8860b) }
+.topbar nav.tabs a:hover { color:var(--fg) }
+/* chrome:end */
+</style><!-- social:start -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="The Reading Room &middot; Books a Quant Recommends | The Risk Museum">
@@ -78,6 +111,7 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <!-- social:end -->
 </head><body><main>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<div class="topbar">
 <!-- brand:start -->
 <a href="./" aria-label="BlueShip Research, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">BlueShip Research</span></a>
 <!-- brand:end -->
@@ -88,15 +122,19 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <a href="forecasts.html">Forecast Wing</a>
 <a class="on" href="reading-room.html">Library</a>
 </nav>
-<p class="rooms" style="margin:-1.5rem 0 1.4rem;font-size:.82rem;color:var(--muted)">Two rooms in the Library: <b style="color:var(--fg)">Reading Room</b> &middot; <a href="masterpieces.html" style="color:var(--blue)">Case Studies</a></p>
-<p style="color:var(--muted);font-size:.82rem;line-height:1.5;margin:0 0 1.4rem">The Risk Museum: I test ideas for trading strategies the way a quant desk would, on an engine I built, and I publish the ones that fail my gates. <a href="./">New here? Start at the entrance &rarr;</a></p>
-<h1>The Reading Room</h1>
-<p class="tag">Curated by Vasilios Dimopoulos, building the museum&rsquo;s quant pipeline</p>
-<p class="intro">A reading list, annotated. For the core titles below, each note
+</div>
+<div class="heroband"><div class="heroband-in">
+<div class="hb-eyebrow">The Risk Museum &middot; Library</div>
+<h1 class="hb-title">The Reading Room</h1>
+<p class="hb-lede">A reading list, annotated. For the core titles below, each note
 gives the book&rsquo;s central idea (<i>Thesis</i>) and how it&rsquo;s wired
 into the museum&rsquo;s research pipeline (<i>In the museum</i>); the rest carry
 a one-line take. New here? The museum tests trading strategies and publishes the
 ones that failed its gates. See <a href="./">Tested Strategies</a>.</p>
+<div class="hb-who">Curated by <b>Vasilios Dimopoulos</b>, building the museum&rsquo;s quant pipeline &nbsp;&middot;&nbsp; BlueShip Research</div>
+</div></div>
+<p class="rooms" style="margin:1.4rem 0 1.4rem;font-size:.82rem;color:var(--muted)">Two rooms in the Library: <b style="color:var(--fg)">Reading Room</b> &middot; <a href="masterpieces.html" style="color:var(--blue)">Case Studies</a></p>
+<p style="color:var(--muted);font-size:.82rem;line-height:1.5;margin:0 0 1.4rem">The Risk Museum: I test ideas for trading strategies the way a quant desk would, on an engine I built, and I publish the ones that fail my gates. <a href="./">New here? Start at the entrance &rarr;</a></p>
 <div class="book"><h2>The Manual of Ideas by John Mihaljevic</h2><p>Thesis: alpha ideas come from <i>systematic sourcing categories</i>, not inspiration: deep value/net-nets, sum-of-parts, special situations, superinvestor (13F) following, owner-operator &quot;jockey&quot; stocks, equity stubs, small/neglected caps. Table 8.1 (p.218), the 17 sources of mispricing, is captured as a standing completeness critic, mapped row-by-row to engine coverage.</p><p class="lens"><b>In the museum:</b> future ticket families for the idea pipeline: 13F-cloning event study (EDGAR 13F plumbing already exists), special-situations via 8-K item codes (spin-offs, mergers), owner-operator screens. Reinforces a recurring museum finding: the edge lives in neglected small caps, not the S&amp;P.</p><p class="buy"><a href="https://www.amazon.com/dp/1118083652?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/300823-M.jpg"><h2>Against the Gods by Peter Bernstein</h2><p>Thesis: the mastery of risk built the modern world, but every generation confuses <i>measured</i> risk with <i>actual</i> uncertainty; regression to the mean is the most underrated force in markets; hubris about quantification precedes every disaster.</p><p class="lens"><b>In the museum:</b> the critic&#x27;s humility clause. My Newey-West/bootstrap machinery measures the measurable; regime breaks are Knightian and no t-stat covers them. Mean reversion is the null hypothesis any trend claim must beat.</p><p class="buy"><a href="https://www.amazon.com/dp/0471121045?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/12184714-M.jpg"><h2>Analytics at Work by Davenport, Harris &amp; Morison</h2><p>Thesis: analytics pay off via DELTA, meaning accessible <b>D</b>ata, <b>E</b>nterprise (not silo) scope, <b>L</b>eadership, focused <b>T</b>argets, real <b>A</b>nalysts. Firms fail by analyzing everything instead of the few decisions that matter.</p><p class="lens"><b>In the museum:</b> BlueShip ops discipline. Pick targets where edge is <i>plausible</i> (uncrowded fields, unread layers) rather than testing everything; one shared state store (enterprise, no silos); the nightly loop is the &quot;industrialized analytics&quot; endpoint the book describes.</p><p class="buy"><a href="https://www.amazon.com/dp/1422177696?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>

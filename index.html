@@ -159,7 +159,31 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   .tearmark { padding:.4rem .7rem .45rem }
   .tearmark i { font-size:.78rem } }
 @media print { .tearmark { display:none } }
-</style><!-- social:start -->
+
+
+
+
+/* chrome:start */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem }
+.brand-lockup img { display:block }
+.topbar nav.tabs { display:flex; gap:1.4rem; margin:0 0 0 auto;
+  border-bottom:0; -webkit-mask-image:none; mask-image:none;
+  overflow-x:auto; scrollbar-width:none }
+.topbar nav.tabs::-webkit-scrollbar { display:none }
+.topbar nav.tabs a { font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; margin:0;
+  border:0; border-radius:0; background:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+.topbar nav.tabs a.on { color:var(--fg); background:none;
+  border-bottom:2px solid var(--gold,#b8860b) }
+.topbar nav.tabs a:hover { color:var(--fg) }
+/* chrome:end */
+</style>
+<!-- social:start -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="Vasilios Dimopoulos | The Risk Museum, Risk &amp; Quantitative Research">
@@ -174,6 +198,7 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <meta name="twitter:description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 332 filed, 181 retired and on public view. The permanent collection is the ones that didn't survive.">
 <!-- social:end -->
 </head><body>
+<div class="topbar">
 <!-- brand:start -->
 <a href="./" aria-label="BlueShip Research, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">BlueShip Research</span></a>
 <!-- brand:end -->
@@ -184,6 +209,7 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <a href="forecasts.html">Forecast Wing</a>
 <a href="reading-room.html">Library</a>
 </nav>
+</div>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
 <div class="heroband"><div class="heroband-in">
 <div class="hb-eyebrow">The Risk Museum &middot; BlueShip Research</div>

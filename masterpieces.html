@@ -29,6 +29,19 @@ p.intro { margin-bottom:1.8rem }
 .note { border-left:3px solid var(--accent); padding:.2rem 0 .2rem 1rem;
   margin:2rem 0; color:var(--muted); font-size:.92rem }
 a { color:var(--blue) }
+.heroband { background:#0f1c33; color:#f2efe8; padding:3.4rem 1.5rem 2.9rem;
+  border-bottom:1px solid var(--line); margin:0 }
+@media (prefers-color-scheme: dark) { .heroband { background:#0c1626 } }
+.heroband-in { max-width:880px; margin:0 auto }
+.hb-eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.2em; text-transform:uppercase; color:#e0bc6a; margin-bottom:1.4rem }
+.hb-title { font:300 clamp(30px,4.6vw,44px)/1.18 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.02em; color:#f2efe8; max-width:21em; margin:0 0 1.4rem }
+.hb-lede { font:italic 19px/1.55 Charter,Georgia,serif; color:#c9cfda;
+  max-width:44em; margin:0 0 1.8rem }
+.hb-who { font:400 14px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#8fa0bb }
+.hb-who b { color:#f2efe8; font-weight:500 }
+.hb-who a { color:#9fc0e8 }
 footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   color:var(--muted); font-size:.78rem }
 .tabs { display:flex; gap:.25rem; margin:0 0 1.6rem; border-bottom:1px solid
@@ -60,6 +73,29 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   .tearmark { padding:.4rem .7rem .45rem }
   .tearmark i { font-size:.78rem } }
 @media print { .tearmark { display:none } }
+
+
+
+
+/* chrome:start */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem }
+.brand-lockup img { display:block }
+.topbar nav.tabs { display:flex; gap:1.4rem; margin:0 0 0 auto;
+  border-bottom:0; -webkit-mask-image:none; mask-image:none;
+  overflow-x:auto; scrollbar-width:none }
+.topbar nav.tabs::-webkit-scrollbar { display:none }
+.topbar nav.tabs a { font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; margin:0;
+  border:0; border-radius:0; background:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+.topbar nav.tabs a.on { color:var(--fg); background:none;
+  border-bottom:2px solid var(--gold,#b8860b) }
+.topbar nav.tabs a:hover { color:var(--fg) }
+/* chrome:end */
 </style>
 <!-- social:start -->
 <meta property="og:type" content="website">
@@ -77,6 +113,7 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <!-- social:end -->
 </head><body><main>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<div class="topbar">
 <!-- brand:start -->
 <a href="./" aria-label="BlueShip Research, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">BlueShip Research</span></a>
 <!-- brand:end -->
@@ -87,18 +124,22 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <a href="forecasts.html">Forecast Wing</a>
 <a class="on" href="reading-room.html">Library</a>
 </nav>
-<p class="rooms" style="margin:-1.5rem 0 1.4rem;font-size:.82rem;color:var(--muted)">Two rooms in the Library: <a href="reading-room.html" style="color:var(--blue)">Reading Room</a> &middot; <b style="color:var(--fg)">Case Studies</b></p>
-<p style="color:var(--muted);font-size:.82rem;line-height:1.5;margin:0 0 1.4rem">The Risk Museum: I test trading-strategy ideas the way a quant desk would, on an engine I built, and I publish the ones that fail my gates. <a href="./">New here? Start at the entrance &rarr;</a></p>
-<h1>Case Studies</h1>
-<p class="tag">Famous trades and blowups, read the way a risk desk reads them</p>
-
-<p class="intro">History is this museum&rsquo;s second dataset (the first is
+</div>
+<div class="heroband"><div class="heroband-in">
+<div class="hb-eyebrow">The Risk Museum &middot; Library &middot; Case Studies</div>
+<h1 class="hb-title">Case Studies</h1>
+<p class="hb-lede">Famous trades and blowups, read the way a risk desk reads
+them. History is this museum&rsquo;s second dataset (the first is
 my own tested-and-retired strategies): the trades that made fortunes, and
 the blowups that made modern risk practice. Each plaque below is dissected
 for the <em>transferable mechanism</em>, not the story, and usually ends
 with the rule the pipeline enforces because the episode happened.
 None of this is advice; every setup here is famous precisely because
 it was rare.</p>
+<div class="hb-who"><b>Vasilios Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
+</div></div>
+<p class="rooms" style="margin:1.4rem 0 1.4rem;font-size:.82rem;color:var(--muted)">Two rooms in the Library: <a href="reading-room.html" style="color:var(--blue)">Reading Room</a> &middot; <b style="color:var(--fg)">Case Studies</b></p>
+<p style="color:var(--muted);font-size:.82rem;line-height:1.5;margin:0 0 1.4rem">The Risk Museum: I test trading-strategy ideas the way a quant desk would, on an engine I built, and I publish the ones that fail my gates. <a href="./">New here? Start at the entrance &rarr;</a></p>
 
 <h1 style="font-size:1.35rem;margin:2rem 0 .2rem">I. The Asymmetry Gallery</h1>
 <p class="tag">bounded loss, unbounded gain, a counterparty who must act</p>
