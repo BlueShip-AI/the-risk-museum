@@ -253,8 +253,10 @@
     '<span class="ra-note" aria-live="polite">Read by your browser. ' +
     'Charts and tables are announced, not read.</span>';
 
-  var nav = main.querySelector('nav.tabs');
-  if (nav && nav.nextSibling) main.insertBefore(bar, nav.nextSibling);
+  // Anchor only on a DIRECT child of main; a nav nested inside a wrapper
+  // (the topbar) is not a valid insertBefore reference and would throw.
+  var anchor = main.querySelector(':scope > nav.tabs, :scope > .topbar');
+  if (anchor) main.insertBefore(bar, anchor.nextSibling);
   else main.insertBefore(bar, main.firstChild);
 
   var bMain = bar.querySelector('.ra-main'),
