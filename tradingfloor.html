@@ -235,24 +235,32 @@ h2.sec { font-size:1.15rem; margin:2rem 0 .3rem }
 
 /* chrome:start */
 .topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
-  display:flex; align-items:center; gap:2rem }
+  display:flex; align-items:center; gap:1.2rem }
 .brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
   letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
-  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem }
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
 .brand-lockup img { display:block }
-.topbar nav.tabs { display:flex; gap:1.4rem; margin:0 0 0 auto;
-  border-bottom:0; -webkit-mask-image:none; mask-image:none;
-  overflow-x:auto; scrollbar-width:none }
+.topbar nav.tabs { display:flex; gap:1.1rem; margin:0 0 0 auto;
+  flex:1 1 auto; min-width:0; justify-content:flex-end;
+  border-bottom:0; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
 .topbar nav.tabs::-webkit-scrollbar { display:none }
-.topbar nav.tabs a { font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+.topbar nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
   color:var(--muted); text-decoration:none; padding:.4rem 0; margin:0;
-  border:0; border-radius:0; background:none;
+  border:0; border-radius:0; background:none; flex:none;
   border-bottom:2px solid transparent; white-space:nowrap }
 .topbar nav.tabs a.on { color:var(--fg); background:none;
   border-bottom:2px solid var(--gold,#b8860b) }
 .topbar nav.tabs a:hover { color:var(--fg) }
+@media (max-width:899px) {
+  .topbar nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) {
+  .topbar nav.tabs { -webkit-mask-image:none; mask-image:none } }
 /* chrome:end */
-</style><!-- social:start -->
+</style>
+<!-- social:start -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="The Trading Floor &middot; A Risk-Budgeted Paper Book | The Risk Museum">
@@ -270,7 +278,7 @@ h2.sec { font-size:1.15rem; margin:2rem 0 .3rem }
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
 <div class="topbar">
 <!-- brand:start -->
-<a href="./" aria-label="BlueShip Research, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">BlueShip Research</span></a>
+<a href="./" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
 <!-- brand:end -->
 <nav class="tabs">
 <a href="./">Tested Strategies</a>

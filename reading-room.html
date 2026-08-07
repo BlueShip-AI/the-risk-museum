@@ -75,27 +75,34 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   .tearmark { padding:.4rem .7rem .45rem }
   .tearmark i { font-size:.78rem } }
 @media print { .tearmark { display:none } }
-
 /* chrome:start */
 .topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
-  display:flex; align-items:center; gap:2rem }
+  display:flex; align-items:center; gap:1.2rem }
 .brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
   letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
-  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem }
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
 .brand-lockup img { display:block }
-.topbar nav.tabs { display:flex; gap:1.4rem; margin:0 0 0 auto;
-  border-bottom:0; -webkit-mask-image:none; mask-image:none;
-  overflow-x:auto; scrollbar-width:none }
+.topbar nav.tabs { display:flex; gap:1.1rem; margin:0 0 0 auto;
+  flex:1 1 auto; min-width:0; justify-content:flex-end;
+  border-bottom:0; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
 .topbar nav.tabs::-webkit-scrollbar { display:none }
-.topbar nav.tabs a { font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+.topbar nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
   color:var(--muted); text-decoration:none; padding:.4rem 0; margin:0;
-  border:0; border-radius:0; background:none;
+  border:0; border-radius:0; background:none; flex:none;
   border-bottom:2px solid transparent; white-space:nowrap }
 .topbar nav.tabs a.on { color:var(--fg); background:none;
   border-bottom:2px solid var(--gold,#b8860b) }
 .topbar nav.tabs a:hover { color:var(--fg) }
+@media (max-width:899px) {
+  .topbar nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) {
+  .topbar nav.tabs { -webkit-mask-image:none; mask-image:none } }
 /* chrome:end */
-</style><!-- social:start -->
+</style>
+<!-- social:start -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="The Reading Room &middot; Books a Quant Recommends | The Risk Museum">
@@ -113,7 +120,7 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
 <div class="topbar">
 <!-- brand:start -->
-<a href="./" aria-label="BlueShip Research, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">BlueShip Research</span></a>
+<a href="./" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
 <!-- brand:end -->
 <nav class="tabs">
 <a href="./">Tested Strategies</a>
@@ -171,7 +178,7 @@ ones that failed its gates. See <a href="./">Tested Strategies</a>.</p>
 <div class="book"><h2>Thinking Better: The Art of the Shortcut by Marcus du Sautoy</h2><p>Thesis: the history of mathematics is the history of refusing donkey work. Gauss pairing 1+100, 2+99 to sum a series in seconds is the template: the scarce human contribution is the invariant that makes enumeration unnecessary, and machines, which do not mind the dumb way, make that contribution MORE valuable, not less.</p><p class="lens"><b>In the museum:</b> the house fan-out rule (ask for the Gauss pairing before any brute-force sweep) and pipeline/preflight.py, whose identity checks are Gauss pairings, one exact reconciliation replacing endless re-verification. Pairs with the token-economy directive: minimize tokens by structure, never by rigor.</p><p class="buy"><a href="https://www.amazon.com/s?k=Thinking+Better%3A+The+Art+of+the+Shortcut+Marcus+du+Sautoy&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><h2>Advances in Financial Machine Learning by Marcos López de Prado</h2><p>Thesis: most published backtests are false discoveries manufactured by repeated testing, and machine learning in finance fails when it copies tech-industry practice instead of respecting overlapping labels, thin effective samples, and multiple testing. The constructive program: purged and embargoed cross-validation, triple-barrier labels, meta-labeling (ML sizes and vetoes, never originates), and the Deflated Sharpe Ratio that charges a discovery for every trial behind it.</p><p class="lens"><b>In the museum:</b> the engine&#x27;s family deflator is the blunter sibling of the Deflated Sharpe Ratio, now cross-cited (docs/lopez_de_prado_lenses.md); the critic&#x27;s new purge-and-embargo rule for any cross-validated study; and the meta-labeling frame for any future ML overlay on a vault survivor: size and veto only, direction untouched, which is the Chan lens made concrete.</p><p class="buy"><a href="https://www.amazon.com/s?k=Advances+in+Financial+Machine+Learning+Marcos+L%C3%B3pez+de+Prado&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><h2>Rough Volatility by Bayer, Friz, Fukasawa, Gatheral, Jacquier &amp; Rosenbaum (eds.)</h2><p>Thesis: log-volatility moves more roughly than the standard models allow, closer to a fractional Brownian motion with a Hurst parameter near 0.1 than to the 0.5 a semimartingale implies. That single measurement carries two consequences the book then develops: a forecasting one, because roughness implies its own predictor, and a pricing one, because it reshapes the smile without needing jumps. A separate strand derives both power-law market impact and roughness from no-arbitrage, which puts impact and volatility on the same footing.</p><p class="lens"><b>In the museum:</b> nowhere yet, and saying so is the entry. Estimating the Hurst parameter honestly wants intraday realized variance, and this engine has daily bars; Working Paper No. 25 already drew that boundary and I am not going to cross it by pretending a Parkinson range can stand in. The measurement is also contested, with Rogers, and Cont and Das, arguing the observed roughness is partly an artifact of microstructure noise rather than a property of volatility. Seven of the ten chapters are options pricing and hedging, and this engine has no options surface and no live trading path by design. It earns a shelf place as the standard reference, not a wiring. It graduates the day a rough-volatility forecaster enters Working Paper No. 26&#x27;s race as a third competitor against HAR, with the Hurst estimate taken from daily data and that fragility declared before the run rather than after it.</p><p class="buy"><a href="https://www.amazon.com/s?k=Rough+Volatility+Bayer%2C+Friz%2C+Fukasawa%2C+Gatheral%2C+Jacquier+%26+Rosenbaum+%28eds.%29&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
-<h1 style="font-size:1.3rem;margin:2rem 0 .2rem">Also on the shelf</h1><p class="tag">recommended, with the curator&rsquo;s note</p>
+<h2 style="font-size:1.3rem;margin:2rem 0 .2rem">Also on the shelf</h2><p class="tag">recommended, with the curator&rsquo;s note</p>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/13067275-M.jpg"><h2>The Index Revolution by Charles D. Ellis</h2><p class="lens">The prior for every hypothesis entering the pipeline is index-minus-costs. Ellis&#x27;s paradox of skill is why the gates exist and why they never loosen.</p><p class="buy"><a href="https://www.amazon.com/dp/1119313082?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/8331823-M.jpg"><h2>Why I Left Goldman Sachs by Greg Smith</h2><p class="lens">When the desk&#x27;s revenue shifts from agency to principal the client becomes the product. Read sell-side research and structured-flow color as adversarial marketing, not information.</p><p class="buy"><a href="https://www.amazon.com/dp/1455527483?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/7897548-M.jpg"><h2>Confidence Men by Ron Suskind</h2><p class="lens">Treasury never executed the ordered Citigroup wind-down and nobody noticed for months, the definitive case that a decision without an execution audit trail is just an opinion.</p><p class="buy"><a href="https://www.amazon.com/dp/0061429252?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
