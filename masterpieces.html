@@ -33,7 +33,7 @@ a { color:var(--blue) }
   border-bottom:1px solid var(--line); margin:0 ;
   width:100vw; margin-left:calc(50% - 50vw) }
 @media (prefers-color-scheme: dark) { .heroband { background:#0c1626 } }
-.heroband-in { max-width:880px; margin:0 auto }
+.heroband-in { max-width:912px; margin:0 auto }
 .hb-eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
   letter-spacing:.2em; text-transform:uppercase; color:#e0bc6a; margin-bottom:1.4rem }
 .hb-title { font:300 clamp(30px,4.6vw,44px)/1.18 'Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -95,6 +95,13 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   .topbar nav.tabs { justify-content:flex-start } }
 @media (min-width:900px) {
   .topbar nav.tabs { -webkit-mask-image:none; mask-image:none } }
+/* one geometry, owned here: 960 outer, 24 gutter, 912 text column */
+main { max-width:960px !important; margin:0 auto !important;
+  padding-left:1.5rem !important; padding-right:1.5rem !important }
+.heroband-in, .hero-in { max-width:912px !important; margin:0 auto !important }
+main footer, footer { max-width:912px }
+/* a topbar nested inside main already inherits main's gutter */
+main .topbar { padding-left:0 !important; padding-right:0 !important }
 /* chrome:end */
 </style>
 <!-- social:start -->
