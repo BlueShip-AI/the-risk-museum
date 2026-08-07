@@ -1,11 +1,115 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-08-05",
- "works_tested": 322,
+ "exported": "2026-08-07",
+ "works_tested": 332,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "S&P 500 futures large-speculator net positioning (CFTC COT), lagged to its public release date, conditions forward returns of the equity panel: positioning extremes precede weaker or more volatile forward returns than neutral positioning",
+   "stage": "stage4_validate",
+   "reason": "Not significant, and the return half of the claim points the WRONG WAY. L1_net_length_extreme NW t=-1.24; L2_1y_zscore NW t=-0.76; L3_wow_change NW t=-0.20 \u2014 all against a deflated bar of 2.87 (base 2.5, family n=3 from declared_looks=3). Bootstrap P(Sharpe<=0) is 0.58-0.89 against a 0.0167 bar and every margin-of-safety t is negative. Direction: the ticket predicted extremes precede WEAKER panel returns; in 3/3 looks extreme-positioning weeks earned MORE than neutral weeks (e.g. L1 26.6%/yr vs 13.1%/yr annualised), which is why the tested long-neutral/short-extreme series has a negative mean. The reverse is not claimed as an edge either: |t| never exceeds 1.24, so this is a null, not a sign flip to trade. The only part of the claim with support is the volatility half \u2014 extreme weeks run 12-21% higher panel volatility (Levene p<=0.0016, see metrics.vol_conditioning) \u2014 and a volatility regime is not a return edge and is not promotable here. Result is robust to both construction choices (naive as_of+3d alignment and fixed-0.6 weighting): no variant reaches |t|=1.3.",
+   "status": "rejected",
+   "about": "Asks whether how crowded the futures crowd is tells you anything about what equities do next.",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(implied_volatility_call_20, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(anl4_cfo_mean) - zscore(anl4_cfi_number))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(common_stock_buyback_payments, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(fnd6_dltp, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(snt_buzz, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, HIGH_TURNOVER, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(anl4_af_cfps_value, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(fnd6_acqintan / ts_mean(fnd6_acqintan, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(implied_volatility_mean_720, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(implied_volatility_mean_skew_30, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(equipment_maximum_useful_life / ts_mean(equipment_maximum_useful_life, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(rel_ret_all, 5))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, HIGH_TURNOVER, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(implied_volatility_mean_30) - zscore(business_acquisition_payments_net))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-03"
+  },
   {
    "claim": "BRAIN candidate: -rank(ts_zscore(rel_ret_part, 250))",
    "stage": "brain-checks",
