@@ -76,53 +76,8 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   .tearmark { padding:.4rem .7rem .45rem }
   .tearmark i { font-size:.78rem } }
 @media print { .tearmark { display:none } }
-/* chrome:start */
-.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
-  display:flex; align-items:center; gap:1.2rem }
-.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
-  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
-  white-space:nowrap; flex:none }
-.brand-lockup img { display:block }
-.topbar nav.tabs { display:flex; gap:1.1rem; margin:0 0 0 auto;
-  flex:1 1 auto; min-width:0; justify-content:flex-end;
-  border-bottom:0; overflow-x:auto; scrollbar-width:none;
-  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
-  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
-.topbar nav.tabs::-webkit-scrollbar { display:none }
-.topbar nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  color:var(--muted); text-decoration:none; padding:.4rem 0; margin:0;
-  border:0; border-radius:0; background:none; flex:none;
-  border-bottom:2px solid transparent; white-space:nowrap }
-.topbar nav.tabs a.on { color:var(--fg); background:none;
-  border-bottom:2px solid var(--gold,#b8860b) }
-.topbar nav.tabs a:hover { color:var(--fg) }
-@media (max-width:899px) {
-  .topbar nav.tabs { justify-content:flex-start } }
-@media (min-width:900px) {
-  .topbar nav.tabs { -webkit-mask-image:none; mask-image:none } }
-/* chrome:end */
-</style>
-<!-- social:start -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="The Risk Museum">
-<meta property="og:title" content="The Reading Room &middot; Books a Quant Recommends | The Risk Museum">
-<meta property="og:description" content="The Risk Museum's Reading Room: 90+ books Vasilios Dimopoulos recommends on markets, risk and strategy, each distilled into an operational lens or a one-line curator's note, with covers and purchase links.">
-<meta property="og:url" content="https://theriskmuseum.com/reading-room.html">
-<meta property="og:image" content="https://theriskmuseum.com/cards/reading-room.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://theriskmuseum.com/cards/reading-room.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Reading Room &middot; Books a Quant Recommends | The Risk Museum">
-<meta name="twitter:description" content="The Risk Museum's Reading Room: 90+ books Vasilios Dimopoulos recommends on markets, risk and strategy, each distilled into an operational lens or a one-line curator's note, with covers and purchase links.">
-<!-- social:end -->
-</head><body><main>
+</style></head><body><main>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
-<div class="topbar">
-<!-- brand:start -->
-<a href="./" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
-<!-- brand:end -->
 <nav class="tabs">
 <a href="./">Tested Strategies</a>
 <a href="notes/">Research Notes</a>
@@ -130,7 +85,6 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <a href="forecasts.html">Forecast Wing</a>
 <a class="on" href="reading-room.html">Library</a>
 </nav>
-</div>
 <div class="heroband"><div class="heroband-in">
 <p class="hb-lede">A reading list, annotated. For the core titles below, each note
 gives the book&rsquo;s central idea (<i>Thesis</i>) and how it&rsquo;s wired
@@ -304,5 +258,4 @@ ones that failed its gates. See <a href="./">Tested Strategies</a>.</p>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/1176845-M.jpg"><h2>Introduction to Econometrics by James H. Stock &amp; Mark W. Watson</h2><p class="lens">The applied standard, and the reason every t-statistic on this site is HAC-corrected; its chapters on heteroskedasticity and autocorrelation are the working manual for the estimator the gates depend on.</p><p class="buy"><a href="https://www.amazon.com/dp/1537632965?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><h2>Introductory Econometrics: A Modern Approach by Jeffrey M. Wooldridge</h2><p class="lens">States the assumptions plainly enough that you can tell when they fail, which is the only reason to own an econometrics text; the omitted-variable-bias treatment is the formal name for what this museum calls the alpha costume.</p><p class="buy"><a href="https://www.amazon.com/s?k=Introductory+Econometrics%3A+A+Modern+Approach+Jeffrey+M.+Wooldridge&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/8250685-M.jpg"><h2>Mostly Harmless Econometrics by Joshua D. Angrist &amp; Jörn-Steffen Pischke</h2><p class="lens">Identification before estimation, and the discipline of asking what would have to be randomly assigned for a claim to be causal; a permanent check on a pipeline that can only ever measure association.</p><p class="buy"><a href="https://www.amazon.com/dp/0691120358?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
-<div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/14609-M.jpg"><h2>Econometric Analysis by William H. Greene</h2><p class="lens">The reference you open when an estimator misbehaves rather than the one you read through, kept for the panel and limited-dependent chapters the crowding studies lean on.</p><p class="buy"><a href="https://www.amazon.com/dp/0130132977?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div><footer>As an Amazon Associate, the museum earns from qualifying purchases. Book links carry an affiliate tag. &middot; Covers via Open Library. &middot; BlueShip-AI Research &middot; The Risk Museum &middot; educational research only, not investment advice.</footer></main><script defer src="read-aloud.js"></script>
-</body></html>
+<div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/14609-M.jpg"><h2>Econometric Analysis by William H. Greene</h2><p class="lens">The reference you open when an estimator misbehaves rather than the one you read through, kept for the panel and limited-dependent chapters the crowding studies lean on.</p><p class="buy"><a href="https://www.amazon.com/dp/0130132977?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div><footer>As an Amazon Associate, the museum earns from qualifying purchases. Book links carry an affiliate tag. &middot; Covers via Open Library. &middot; BlueShip-AI Research &middot; The Risk Museum &middot; educational research only, not investment advice.</footer></main></body></html>
