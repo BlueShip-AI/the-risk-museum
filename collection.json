@@ -1,11 +1,19 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-08-07",
- "works_tested": 340,
+ "exported": "2026-08-08",
+ "works_tested": 352,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_afv4_median_eps, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-05"
+  },
   {
    "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(adj_net_income_avg, 500), std=4))",
    "stage": "brain-checks",
