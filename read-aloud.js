@@ -255,7 +255,11 @@
 
   // Anchor only on a DIRECT child of main; a nav nested inside a wrapper
   // (the topbar) is not a valid insertBefore reference and would throw.
-  var anchor = main.querySelector(':scope > nav.tabs, :scope > .topbar');
+  // The bar sits below the dark band everywhere: when the band is inside
+  // main it wins over the topbar; when it is outside main (the notes),
+  // main.firstChild already lands below it.
+  var anchor = main.querySelector(':scope > .heroband, :scope > .hero') ||
+               main.querySelector(':scope > nav.tabs, :scope > .topbar');
   if (anchor) main.insertBefore(bar, anchor.nextSibling);
   else main.insertBefore(bar, main.firstChild);
 

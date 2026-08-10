@@ -3,12 +3,7 @@
 <title>Vasilios Dimopoulos | The Risk Museum, Risk &amp; Quantitative Research</title>
 <meta name="description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 376 filed, 194 retired and on public view. The permanent collection is the ones that didn't survive.">
 <link rel="canonical" href="https://theriskmuseum.com/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Risk Museum &middot; Home of Risk Masterpieces">
-<meta property="og:description" content="376+ trading strategies tested like a quant desk tests them. Every verdict public. New exhibits nightly.">
-<meta property="og:url" content="https://theriskmuseum.com/">
 <meta property="og:site_name" content="The Risk Museum">
-<meta name="twitter:card" content="summary">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"The Risk Museum","alternateName":"BlueShip-AI Research","url":"https://theriskmuseum.com/","description":"Published trading strategies tested with institutional rigor by an autonomous AI research pipeline; the permanent collection is the ones that didn't survive.","sameAs":["https://github.com/BlueShip-AI","https://x.com/VasiliDmop","https://www.linkedin.com/in/vasiliosdimopoulos/"],"founder":{"@type":"Person","name":"Vasilios Dimopoulos","sameAs":["https://x.com/VasiliDmop","https://www.linkedin.com/in/vasiliosdimopoulos/"]}}</script>
 <style>
@@ -156,7 +151,59 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   .tearmark { padding:.4rem .7rem .45rem }
   .tearmark i { font-size:.78rem } }
 @media print { .tearmark { display:none } }
-</style></head><body>
+/* chrome:start */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:1.2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
+.brand-lockup img { display:block }
+.topbar nav.tabs { display:flex; gap:1.1rem; margin:0 0 0 auto;
+  flex:1 1 auto; min-width:0; justify-content:flex-end;
+  border-bottom:0; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
+.topbar nav.tabs::-webkit-scrollbar { display:none }
+.topbar nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; margin:0;
+  border:0; border-radius:0; background:none; flex:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+.topbar nav.tabs a.on { color:var(--fg); background:none;
+  border-bottom:2px solid var(--gold,#b8860b) }
+.topbar nav.tabs a:hover { color:var(--fg) }
+@media (max-width:899px) {
+  .topbar nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) {
+  .topbar nav.tabs { -webkit-mask-image:none; mask-image:none } }
+/* one geometry, owned here: 960 outer, 24 gutter, 912 text column */
+main { max-width:960px !important; margin:0 auto !important;
+  padding-left:1.5rem !important; padding-right:1.5rem !important }
+.heroband-in, .hero-in { max-width:912px !important; margin:0 auto !important }
+main footer, footer { max-width:912px }
+/* a topbar nested inside main already inherits main's gutter */
+main .topbar { padding-left:0 !important; padding-right:0 !important }
+/* chrome:end */
+</style>
+<!-- social:start -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Risk Museum">
+<meta property="og:title" content="Vasilios Dimopoulos | The Risk Museum, Risk &amp; Quantitative Research">
+<meta property="og:description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 376 filed, 194 retired and on public view. The permanent collection is the ones that didn't survive.">
+<meta property="og:url" content="https://theriskmuseum.com/">
+<meta property="og:image" content="https://theriskmuseum.com/cards/index.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://theriskmuseum.com/cards/index.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vasilios Dimopoulos | The Risk Museum, Risk &amp; Quantitative Research">
+<meta name="twitter:description" content="The Risk Museum, by Vasilios Dimopoulos. I file trading hypotheses, test them against institutional gates over ~22 years of data with realistic costs and out-of-sample limits, and publish the ones that fail. 376 filed, 194 retired and on public view. The permanent collection is the ones that didn't survive.">
+<!-- social:end -->
+</head><body>
+<div class="topbar">
+<!-- brand:start -->
+<a href="./" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<!-- brand:end -->
 <nav class="tabs">
 <a class="on" href="./">Tested Strategies</a>
 <a href="notes/">Research Notes</a>
@@ -164,6 +211,7 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
 <a href="forecasts.html">Forecast Wing</a>
 <a href="reading-room.html">Library</a>
 </nav>
+</div>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
 <div class="heroband"><div class="heroband-in">
 <h1 class="hb-title">I test trading ideas the way a quant desk would, and I publish the ones that fail.</h1>
@@ -859,4 +907,5 @@ style="color:inherit">Membership</a> opens with the first exhibits.</p>
 <script>(function(){var f=function(){if(location.hash==='#ledger')
 {var d=document.getElementById('ledger');if(d)d.open=true}};
 f();addEventListener('hashchange',f)})()</script>
-</main></body></html>
+</main><script defer src="read-aloud.js?v=0ff38a186c"></script>
+</body></html>
