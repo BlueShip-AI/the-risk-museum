@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reading a Book &middot; BlueShip Research Working Paper No. 11</title>
-<meta name="description" content="A risk teardown of one hypothetical long/short book: realized market beta 0.56 on +30% net, NVDA 41.4% of variance, 61.3% of variance from six factors, residual alpha +8.1% (t=3.75). Every statistic computed by deterministic Python.">
+<meta name="description" content="A risk teardown of one hypothetical long/short book: realized market beta 0.56 on +30% net, NVDA 41.3% of variance, 61.4% of variance from six factors, residual alpha +9.7% (t=4.49). Every statistic computed by deterministic Python.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/risk-teardown.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -211,7 +211,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="Reading a Book &middot; BlueShip Research Working Paper No. 11">
-<meta property="og:description" content="A risk teardown of one hypothetical long/short book: realized market beta 0.56 on +30% net, NVDA 41.4% of variance, 61.3% of variance from six factors, residual alpha +8.1% (t=3.75). Every statistic computed by deterministic Python.">
+<meta property="og:description" content="A risk teardown of one hypothetical long/short book: realized market beta 0.56 on +30% net, NVDA 41.3% of variance, 61.4% of variance from six factors, residual alpha +9.7% (t=4.49). Every statistic computed by deterministic Python.">
 <meta property="og:url" content="https://theriskmuseum.com/notes/risk-teardown.html">
 <meta property="og:image" content="https://theriskmuseum.com/cards/note-risk-teardown.png">
 <meta property="og:image:width" content="1200">
@@ -219,7 +219,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta name="twitter:image" content="https://theriskmuseum.com/cards/note-risk-teardown.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Reading a Book &middot; BlueShip Research Working Paper No. 11">
-<meta name="twitter:description" content="A risk teardown of one hypothetical long/short book: realized market beta 0.56 on +30% net, NVDA 41.4% of variance, 61.3% of variance from six factors, residual alpha +8.1% (t=3.75). Every statistic computed by deterministic Python.">
+<meta name="twitter:description" content="A risk teardown of one hypothetical long/short book: realized market beta 0.56 on +30% net, NVDA 41.3% of variance, 61.4% of variance from six factors, residual alpha +9.7% (t=4.49). Every statistic computed by deterministic Python.">
 <!-- social:end -->
 </head><body>
 <!-- share:start -->
@@ -252,13 +252,13 @@ and Tail Risk in a Hypothetical Long/Short Equity Portfolio</h1>
 a single hypothetical long/short equity book (ten large caps in the US, six long
 and four short, gross 100%, net +30%) to separate a portfolio&rsquo;s dollar
 description from its risk description. Regressed on the Fama&ndash;French five
-factors plus momentum with Newey&ndash;West errors over 5,384 trading days
+factors plus momentum with Newey&ndash;West errors over 5,405 trading days
 (2005&ndash;2026), the book carries a realized market beta of 0.56 on +30% net
 dollars, roughly 1.9&times; the direction those dollars imply, and an Investment (conservative minus aggressive, CMA)
-beta of &minus;0.50. The six factors explain 61.3% of daily variance, leaving
-38.7% idiosyncratic, and residual alpha is +8.1% annualized
-(<i>t</i>&nbsp;=&nbsp;3.75) in sample. By risk rather than dollars the book is
-concentrated: NVDA is 16.0% of gross but 41.4% of variance. Historical 99%
+beta of &minus;0.50. The six factors explain 61.4% of daily variance, leaving
+38.6% idiosyncratic, and residual alpha is +9.7% annualized
+(<i>t</i>&nbsp;=&nbsp;4.49) in sample. By risk rather than dollars the book is
+concentrated: NVDA is 16.0% of gross but 41.3% of variance. Historical 99%
 value-at-risk over one day is 2.67% (expected shortfall 3.29%). A portfolio that
 reads as diversified stock selection is in fact directional, concentrated, and
 driven by factors; on a universe biased by survivorship every in-sample figure is
@@ -303,7 +303,7 @@ growth among the mega caps, short dollars in defensives.</p>
 <h2>3. Factor decomposition</h2>
 <p>The book&rsquo;s daily return, at constant weights, is regressed on the
 Fama&ndash;French five factors plus Carhart momentum, with Newey&ndash;West
-standard errors, over 5,384 days from 2005-01-04 to 2026-05-29. The intercept is
+standard errors, over 5,405 days from 2005-01-04 to 2026-06-30. The intercept is
 the residual alpha; the slopes report the exposures the book carries whether or
 not they were intended.</p>
 <div class="tblwrap">
@@ -320,9 +320,9 @@ not they were intended.</p>
 </div>
 
 <h3>3.1 Fit and residual alpha</h3>
-<p>The six factors explain 61.3% of the book&rsquo;s daily variance, leaving
-38.7% idiosyncratic. Annualized residual alpha is +8.1% with a
-<i>t</i>-statistic of 3.75, positive and significant in sample. On a
+<p>The six factors explain 61.4% of the book&rsquo;s daily variance, leaving
+38.6% idiosyncratic. Annualized residual alpha is +9.7% with a
+<i>t</i>-statistic of 4.49, positive and significant in sample. On a
 universe biased by survivorship it is a ceiling, not a track record.</p>
 
 <h3>3.2 Unintended exposures</h3>
@@ -352,31 +352,31 @@ so the book is correctly size neutral. <b>Intended (clean).</b></li>
 <tr><td>Herfindahl (HHI, normalized by gross)</td><td>0.11</td></tr>
 <tr><td>Effective number of bets (1/HHI)</td><td>9.3</td></tr>
 <tr><td>Annualized book volatility</td><td>15.6%</td></tr>
-<tr><td>Largest risk contributor</td><td>NVDA at 41.4% of variance</td></tr>
+<tr><td>Largest risk contributor</td><td>NVDA at 41.3% of variance</td></tr>
 </table>
 </div>
-<p>Dollar weights imply 9.3 effective bets, but one name, NVDA, supplies 41.4%
+<p>Dollar weights imply 9.3 effective bets, but one name, NVDA, supplies 41.3%
 of the variance. Marginal risk contribution by name, from the annualized
 covariance of the positions:</p>
 <div class="tblwrap">
 <div class="cap"><b>Table 4.</b> Dollar weight versus risk contribution, by name.</div>
 <table>
 <tr><th>Name</th><th>Dollar weight (% gross)</th><th>Share of risk</th></tr>
-<tr><td>NVDA</td><td>16.0%</td><td>41.4%</td></tr>
-<tr><td>AAPL</td><td>13.0%</td><td>18.7%</td></tr>
-<tr><td>MSFT</td><td>12.0%</td><td>14.5%</td></tr>
+<tr><td>NVDA</td><td>16.0%</td><td>41.3%</td></tr>
+<tr><td>AAPL</td><td>13.0%</td><td>18.6%</td></tr>
+<tr><td>MSFT</td><td>12.0%</td><td>14.6%</td></tr>
 <tr><td>AMZN</td><td>8.0%</td><td>13.0%</td></tr>
 <tr><td>GOOGL</td><td>9.0%</td><td>12.0%</td></tr>
-<tr><td>JPM</td><td>7.0%</td><td>7.8%</td></tr>
+<tr><td>JPM</td><td>7.0%</td><td>7.7%</td></tr>
 <tr><td>DUK</td><td>8.0%</td><td>&minus;0.7%</td></tr>
 <tr><td>KO</td><td>9.0%</td><td>&minus;1.6%</td></tr>
 <tr><td>PG</td><td>9.0%</td><td>&minus;1.7%</td></tr>
-<tr><td>XOM</td><td>9.0%</td><td>&minus;3.3%</td></tr>
+<tr><td>XOM</td><td>9.0%</td><td>&minus;3.2%</td></tr>
 </table>
 </div>
 
 <h2>5. Value-at-risk and expected shortfall</h2>
-<p>Historical simulation over one day on the book&rsquo;s 5,422 daily returns,
+<p>Historical simulation over one day on the book&rsquo;s 5,433 daily returns,
 expressed as a percent of capital (gross 100%). Value-at-risk is the loss
 exceeded on all but 1% (or 5%) of days; expected shortfall is the mean loss on
 the days that breach it.</p>
@@ -417,12 +417,12 @@ every short is a defensive with low beta. <i>Fix:</i> size to a beta target rath
 than a dollar target, substituting shorts with higher beta or overlaying an index
 short until realized beta matches the intended net.</li>
 <li><b>Risk concentrated in one name.</b> NVDA is 16.0% of gross dollars but
-41.4% of portfolio variance; the book is diversified by dollars and concentrated
+41.3% of portfolio variance; the book is diversified by dollars and concentrated
 by risk (9.3 effective bets by dollars, far fewer by risk). <i>Fix:</i> cap the
 risk contribution of a single name, not only its weight, trimming NVDA or
 adding an offsetting position.</li>
-<li><b>A style bet in the coat of a stock picker.</b> Only 38.7% of daily
-variance is idiosyncratic; 61.3% is the six factors, led by an Investment (CMA)
+<li><b>A style bet in the coat of a stock picker.</b> Only 38.6% of daily
+variance is idiosyncratic; 61.4% is the six factors, led by an Investment (CMA)
 beta of &minus;0.50, a large tilt, long growth and short conservative. <i>Fix:</i>
 neutralize the CMA/growth tilt if the thesis is selection of single names, or own it
 deliberately as the strategy and budget risk to it.</li>
@@ -430,8 +430,8 @@ deliberately as the strategy and budget risk to it.</li>
 
 <div class="note">The teardown is the product. A book&rsquo;s net exposure is
 easy to quote; the work is showing that +30% net dollars carry a 0.56 market
-beta, that 16.0% of gross is 41.4% of the risk, and that a book billed as stock
-selection is 61.3% factor by variance. The same discipline the pipeline runs
+beta, that 16.0% of gross is 41.3% of the risk, and that a book billed as stock
+selection is 61.4% factor by variance. The same discipline the pipeline runs
 nightly on its own strategies, here applied to a portfolio on the page.</div>
 
 <div class="refs">
