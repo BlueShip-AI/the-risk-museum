@@ -1,0 +1,280 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Ninety-Second Quant &middot; Working Paper No. 29</title>
+<meta name="description" content="In 2026 the time from a trading idea in plain English to a live retail deployment fell to about ninety seconds. What does free deployment ship? The museum's receipts: real but microscopic edges that cannot pay their costs, found at industrial scale by users never shown a deflated number. Account-level evidence says where the flow goes: 97% trade with no edge, and their losses fund the 3% who persist.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/ninety-second-quant.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* The canonical paper stylesheet. One source, injected inline into every note
+   by pipeline/restyle_notes.py so pages stay self-contained. Edit HERE and
+   re-run that script; editing a note's own style block is a losing move.
+
+   The format follows an institutional research-article convention: a dark
+   hero band carrying an eyebrow, a large light grotesque headline and a serif
+   lede, then a left-aligned serif text column. Fonts are system faces only.
+   Identity stays the museum's: Charter body, the crest, navy, the red accent
+   where things die, and gold reserved for the vault. */
+
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b;
+  --hero:#0f1c33; --heroink:#f2efe8; --herosub:#c9cfda; --heromut:#8fa0bb;
+  --gold:#b8860b; --goldhero:#e0bc6a; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc;
+    --hero:#0c1626; --gold:#e0bc6a; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg); position:relative;
+  font:18px/1.72 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif;
+  font-variant-numeric:lining-nums; padding:0 0 4.5rem; }
+
+/* topbar: brand left, tabs right */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
+.brand-lockup img { display:block }
+nav.tabs { display:flex; gap:1.1rem; margin-left:auto; flex:1 1 auto;
+  min-width:0; justify-content:flex-end; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
+nav.tabs::-webkit-scrollbar { display:none }
+@media (max-width:899px) { nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) { nav.tabs { -webkit-mask-image:none; mask-image:none } }
+nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; flex:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+nav.tabs a.on { color:var(--fg); border-bottom-color:var(--gold) }
+nav.tabs a:hover { color:var(--fg) }
+@media (max-width:820px) {
+  nav.tabs { gap:.9rem; overflow-x:auto; scrollbar-width:none }
+  nav.tabs::-webkit-scrollbar { display:none } }
+
+/* the get-in-touch mark, floated over the hero's top right */
+.tearmark { position:absolute; top:4.4rem; right:1.2rem; z-index:60;
+  display:block; padding:.45rem .8rem .5rem; background:var(--card);
+  border:1px solid var(--line); border-radius:8px; text-decoration:none;
+  line-height:1.3; box-shadow:0 2px 10px rgba(0,0,0,.18) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.8rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:820px) { .tearmark { display:none } }
+@media print { .tearmark { display:none } }
+
+/* hero band */
+.hero { background:var(--hero); color:var(--heroink);
+  padding:3.6rem 1.5rem 3rem; border-bottom:1px solid var(--line) }
+.hero-in { max-width:912px; margin:0 auto }
+.eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--goldhero);
+  margin-bottom:1.5rem }
+.hero h1 { font:300 clamp(32px,5vw,46px)/1.16 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.02em; color:var(--heroink); max-width:17em; margin:0 0 1.5rem }
+.hero .lede { font:italic 20px/1.55 Charter,Georgia,serif; color:var(--herosub);
+  max-width:42em; margin:0 0 1.9rem }
+.hero .who { font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--heromut) }
+.hero .who b { color:var(--heroink); font-weight:500 }
+
+/* article column */
+main { max-width:960px; margin:0 auto; padding:0 1.5rem }
+article, .article-body { max-width:912px; margin-top:2.6rem }
+p { margin-bottom:1.25rem; text-align:left }
+h2 { font:500 22px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.01em; margin:2.7rem 0 .9rem }
+h3 { font:600 16.5px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:1.8rem 0 .6rem }
+a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:2px }
+strong { font-weight:600 }
+code { font:.85em ui-monospace,Menlo,monospace; background:var(--card);
+  border:1px solid var(--line); border-radius:4px; padding:.05em .35em }
+ol, ul { padding-left:1.3rem; margin-bottom:1.25rem }
+blockquote { border-left:3px solid var(--line); padding-left:1.1rem;
+  color:var(--muted); margin:1.5rem 0 }
+
+/* legacy academic pieces some papers carry */
+.abstract { font-size:16px; line-height:1.65; margin:0 0 1.1rem;
+  text-align:left; hyphens:none }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em; font-weight:bold }
+.keywords { font-size:14px; color:var(--muted); margin-bottom:1.8rem }
+.plain { font-size:18px; line-height:1.55; margin:0 0 1.5rem;
+  padding:.8rem 1.1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; text-align:left }
+
+/* tables: horizontal rules only */
+.tblwrap { overflow-x:auto; margin:2rem 0 }
+.cap { font:13px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); margin-bottom:.5rem }
+table { border-collapse:collapse; width:100%;
+  font:15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif }
+th, td { border:0; border-bottom:1px solid var(--line);
+  padding:.6rem .9rem .6rem 0; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { font-weight:600; font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted);
+  border-bottom:2px solid var(--fg) }
+
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1.1rem;
+  margin:1.8rem 0; color:var(--muted); font-size:15.5px; font-style:italic }
+.grave { margin:2.4rem 0 }
+.grave svg { width:100%; height:auto; display:block }
+hr { border:0; border-top:1px solid var(--line); margin:3rem 0 }
+
+.refs { margin-top:2.6rem; font-size:14.5px }
+.refs h2 { font-size:15px }
+.refs ol { padding-left:1.3rem }
+.refs li { margin-bottom:.45rem; line-height:1.5 }
+
+/* provenance block, bs-prov/1.0 */
+.prov { margin:2.6rem 0 0; border:1px solid var(--line); border-radius:6px;
+  background:var(--card); padding:1rem 1.2rem; font-size:14px;
+  line-height:1.55; color:var(--muted) }
+.prov h2 { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.1em; text-transform:uppercase; margin:0 0 .7rem;
+  color:var(--fg) }
+.prov dl { display:grid; grid-template-columns:8.5rem 1fr; gap:.32rem .9rem;
+  margin:0 }
+.prov dt { color:var(--fg); font-weight:600 }
+.prov dd { margin:0; text-align:left }
+.prov code { font-size:.94em }
+.prov ul { margin:0; padding-left:1.05rem }
+@media (max-width:520px) {
+  .prov dl { grid-template-columns:1fr; gap:.1rem }
+  .prov dd { margin-bottom:.5rem } }
+
+footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
+  border-top:1px solid var(--line); color:var(--muted);
+  font:13px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:left }
+
+
+/* ---- listing page: cards and the At a Glance category grid ---- */
+.note-card { background:var(--card); border:1px solid var(--line);
+  border-radius:10px; padding:1.2rem 1.4rem; margin:0 0 1rem;
+  display:flex; gap:1.2rem; align-items:flex-start;
+  text-decoration:none; color:var(--fg) }
+.tile { flex:none; width:64px; height:64px; margin-top:.15rem }
+.note-body { min-width:0 }
+.note-card:hover { border-color:var(--gold) }
+.note-card h2 { font:500 17px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:0; margin:0 0 .4rem; color:var(--fg) }
+.note-card p { font:15px/1.55 Charter,Georgia,serif; color:var(--muted); margin:0 }
+.listing { max-width:912px; margin-top:2.4rem }
+
+.glance { margin-bottom:2.4rem }
+.glance-hdr { display:flex; align-items:baseline; justify-content:space-between;
+  margin-bottom:.75rem }
+.glance-hdr h2 { font-size:1.05rem; font-weight:bold }
+.glance-count { color:var(--muted); font-size:.78rem }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(122px,1fr));
+  gap:.5rem }
+.mtile { background:var(--card); border:1px solid var(--line); border-radius:8px;
+  padding:.6rem .65rem; text-decoration:none; color:var(--fg); display:flex;
+  flex-direction:column; gap:.3rem; min-height:84px }
+.mtile:hover { border-color:var(--blue) }
+.mtile-icon { width:26px; height:26px; flex:none; opacity:.85 }
+.mtile-meta { font-size:.62rem; color:var(--muted); letter-spacing:.03em;
+  text-transform:uppercase }
+.mtile-t { font-size:.79rem; line-height:1.22; font-weight:600; flex:1 }
+.mtile-s { font-size:.72rem; color:var(--accent); font-weight:bold }
+.mtile.hide { display:none }
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem }
+.chip { font:inherit; font-size:.78rem; color:var(--muted); background:var(--bg);
+  border:1px solid var(--line); border-radius:999px; padding:.32rem .75rem;
+  cursor:pointer }
+.chip span { color:var(--muted); opacity:.8 }
+.chip:hover { border-color:var(--blue); color:var(--fg) }
+.chip.on { background:var(--card); border-color:var(--accent); color:var(--fg);
+  font-weight:600 }
+.chip.on span { color:var(--accent) }
+/* share:start */
+.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
+  padding:.45rem .8rem .55rem; background:var(--card,#fff);
+  border:1px solid var(--line,#e3e0da); border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
+.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
+.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
+  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
+  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
+  text-decoration:none }
+.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
+@media (max-width:820px) { .sharebox { display:none } }
+@media print { .sharebox { display:none } }
+/* share:end */</style>
+<!-- social:start -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Risk Museum">
+<meta property="og:title" content="The Ninety-Second Quant &middot; Working Paper No. 29">
+<meta property="og:description" content="In 2026 the time from a trading idea in plain English to a live retail deployment fell to about ninety seconds. What does free deployment ship? The museum's receipts: real but microscopic edges that cannot pay their costs, found at industrial scale by users never shown a deflated number. Account-level evidence says where the flow goes: 97% trade with no edge, and their losses fund the 3% who persist.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/ninety-second-quant.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Ninety-Second Quant &middot; Working Paper No. 29">
+<meta name="twitter:description" content="In 2026 the time from a trading idea in plain English to a live retail deployment fell to about ninety seconds. What does free deployment ship? The museum's receipts: real but microscopic edges that cannot pay their costs, found at industrial scale by users never shown a deflated number. Account-level evidence says where the flow goes: 97% trade with no edge, and their losses fund the 3% who persist.">
+<!-- social:end -->
+</head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fninety-second-quant.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=The%20Ninety-Second%20Quant%20-%20Working%20Paper%20No.%2029&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/ninety-second-quant.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
+<div class="topbar">
+<!-- brand:start -->
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<!-- brand:end -->
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+</nav>
+</div>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<div class="hero"><div class="hero-in">
+<div class="eyebrow">Working Paper No. 29 &middot; 13 August 2026 &middot; what happens when deployment is free</div>
+<h1>The Ninety-Second Quant</h1>
+<p class="lede">The time from a trading idea in plain English to a live deployment on a retail brokerage is now about ninety seconds, in front of tens of millions of accounts. This paper asks what free deployment ships, who funds whom once it does, and names the one measurement that would settle it. Nobody has run that measurement. The data sits inside three or four companies.</p>
+<div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
+</div></div>
+<main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> In 2026 the time from a trading idea in plain English to a live deployment on a retail brokerage fell to about ninety seconds, and the tools doing it sit in front of tens of millions of accounts. This paper asks what free deployment actually ships. The museum's own receipts answer for the strategy class these platforms generate: real but microscopic information that cannot pay its costs, discovered at industrial scale by users who are never shown a multiplicity-corrected number. New account-level evidence from prediction markets shows where the resulting flow goes: 97% of participants trade with no measurable edge, and their losses fund the 3% who persist. The wave does not democratize alpha. It industrializes the noise that pays for it, and it makes the herd itself a tradable and attackable object. The one measurement that would settle the causal chain has not been run by anyone, and this paper says exactly what it is.</p>
+
+<h2>1. Deployment went free</h2>
+<p>The pieces assembled quietly and then all at once. Composer generates a backtested strategy from a plain-English prompt in under a minute and reported over $200 million in daily trading volume and more than 3,000 community-built strategies last October; SoFi bought it in June 2026 and put it in front of 14.7 million members, deployable within seconds. Robinhood shipped agentic trading in May 2026: a customer&rsquo;s own large language model agent, connected through an official machine interface, trading a ring-fenced account. QuantConnect, with a community it counts at over half a million, ships an agentic developer that writes the strategy code itself. A venture-backed startup that launched in July pitches the full loop, idea to live brokerage deployment, in about ninety seconds. Its own footer says it is not a broker, a dealer, or an adviser.</p>
+<p>None of this is illegal, most of it is well built, and every piece is honest about what it does. The question is what happens when the slowest step in retail quantitative trading, writing and wiring the code, stops being a step at all.</p>
+
+<h2>2. What free deployment ships</h2>
+<p>This museum is an unusually clean laboratory for that question, because it runs the same loop with one difference: gates. The engine has filed 402 hypotheses and kept 2. The rest died against a bar that rises with every look at the same idea, is stressed at doubled costs and halved returns, and never meets a strategy that was allowed to skip the queue.</p>
+<p>The pairs trading family, closed here in August, is the worked example, because it is the exact strategy class the new platforms generate on request. A popular retail replication of the classic distance rules reported an 8% annual return with honest inclusions, and its own robustness check showed its best portfolio collapsing from over 7% to under 2% when execution waits a single day. This engine ran the family five ways at its standard one-day lag: the information is real, with an information coefficient a formal test confirms, and it is an order of magnitude too small to matter. At pair level the book&rsquo;s convergence earned roughly 0.3% a year gross against 0.7% in costs. Not a negative edge. An edge that cannot pay its own tolls, findable in ninety seconds, deployable in ninety-one.</p>
+<p>That is what the deployment pipelines ship, at scale, to users who see a raw backtest and never a deflated one. The published version of this decay is old news in academia: McLean and Pontiff showed strategy returns fall 26% out of sample and 58% after publication, and the crowding that follows publication is most of the difference. A deployment button compresses that lifecycle from years to weeks.</p>
+
+<h2>3. Who funds whom</h2>
+<p>The sharpest new evidence on where such flow ends up comes from prediction markets, where the account ledger is public. Gomez-Cram, Guo, Jensen and Kung ran a skill test over the universe of Polymarket accounts and found that 3% of accounts have persistent, statistically real skill; the other 97% trade with no measurable edge, and their aggregate losses are precisely what funds the skilled minority. Luck does not persist: most accounts that look brilliant in one period flip to losses in the next. Accuracy is real, and it is the wisdom of a paid few, not of the crowd.</p>
+<p>Map the agent wave onto that structure and the picture is uncomfortable. The ninety-second pipeline arms the 97% first, because speed without a selection discipline is still noise, just faster. The skilled minority&rsquo;s actual playbook, reacting first to public information, enforcing the law of one price, betting against behavioral bias, is largely automatable, which means agents will eventually reinforce both sides. But the asymmetry is stark: one side needs discipline that the platforms do not ship, and the other side only needs volume, which the platforms manufacture. Grossman and Stiglitz said markets pay the informed out of the pockets of the uninformed. The agent wave is a subsidy increase.</p>
+
+<h2>4. The herd becomes a mechanism</h2>
+<p>Correlated deployment does more than transfer wealth. Agents built on the same handful of foundation models, prompted with the same vocabulary, reading the same signals, produce correlated books, and simulation studies already find large language model agents exhibit less strategy variance than human traders. The Bank of England warned in 2025 that positions driven by common models and data create procyclical, fire-sale dynamics. Security researchers at a major artificial intelligence lab now catalogue &ldquo;systemic traps&rdquo;: fabricated signals designed to synchronize homogeneous agents into congestion and cascade, which turns the herd from an accident into an attack surface. A crafted headline that triggers a synchronized sell-off is no longer a thought experiment; it is a published threat category.</p>
+<p>There is a number that measures all of this, and it deserves to be better known: the branching ratio of market activity, the fraction of events caused by other events rather than by news, estimable with self-exciting point process models. Prior microstructure work reports it rising toward criticality over the algorithmic era. Whether the retail agent wave pushes it further is a measurable question, and to my knowledge nobody has measured it on this wave.</p>
+
+<h2>5. The gap in the record</h2>
+<p>The regulators are watching a different movie. United States investor alerts on artificial intelligence trading are almost entirely fraud-framed: fake bots, fake returns, fake platforms. The industry regulator&rsquo;s 2026 oversight report carries a generative-artificial-intelligence section about firms&rsquo; internal use, governance and hallucination risk, and says nothing about retail customers wiring autonomous agents to brokerage accounts, five months before a major retail broker shipped exactly that. Crowding, correlated deployment, and signal decay from legitimate mass tools appear nowhere. The academic side asserts the causal chain, consumer platforms to correlated deployments to accelerated decay, and has not measured it, because the platforms&rsquo; deployment counts are private and the public proxies are new.</p>
+<p>That is the open contribution, stated plainly so someone can take it: match platform-declared strategy counts and deployment dates against the subsequent out-of-sample decay of the signal classes they deploy, the way McLean and Pontiff matched publication dates. The data now exists inside three or four companies.</p>
+
+<h2>6. What this does not establish</h2>
+<p>No causal measurement is presented here; the paper&rsquo;s point is that none exists yet, and the receipts above are the surrounding evidence, not the proof. The museum&rsquo;s own numbers are one engine, one universe, daily bars. The herding results on language model agents are simulations, not field data. The branching-ratio rise is the literature&rsquo;s estimate on earlier eras, not this engine&rsquo;s measurement of this wave. And the obvious reflexive fact, stated rather than dodged: this museum is itself an artificial intelligence research pipeline. The difference between a ninety-second quant and this shop was never the machinery. It is the bar the machinery must clear, the multiplicity it must confess, and the mortality table it must publish. Those take longer than ninety seconds, which is the whole point.</p>
+
+<div class="prov"><h2>Provenance, bs-prov/1.0</h2><dl>
+<dt>Method</dt><dd>No new statistics were computed for this paper. Museum figures are recorded store verdicts: 402 filed, 2 survivors; the five-look pairs family of 11 August 2026, information coefficient and cost figures as adjudicated and critic-verified.</dd>
+<dt>Sources</dt><dd>Composer volume and strategy counts (company release, October 2025); SoFi acquisition and relaunch (SoFi investor relations, June 2026); Robinhood agentic trading (TechCrunch, May 2026); QuantConnect community count (company site, company-claimed); the ninety-second launch claim (trade press, July 2026; platform deliberately not linked); McLean and Pontiff, Journal of Finance 2016; Gomez-Cram, Guo, Jensen and Kung, working paper, June 2026; Bank of England, Financial Stability in Focus, April 2025; FINRA 2026 Regulatory Oversight Report, December 2025; Franklin, Tomasev, Jacobs, Leibo and Osindero, AI Agent Traps, 2026; Filimonov and Sornette on endogeneity, with the Bacry, Mastromatteo and Muzy survey.</dd>
+<dt>Related</dt><dd>Working Paper No. 13 (the deflated bar), No. 22 (who has to trade), No. 25 (what daily bars cannot see), No. 28 (the constraint audit), and the pairs family verdicts of 11 August 2026.</dd>
+</dl></div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
+</body></html>
