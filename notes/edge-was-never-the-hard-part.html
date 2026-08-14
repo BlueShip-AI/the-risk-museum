@@ -260,7 +260,7 @@ growth is 20%; growth in the long run has a single peak in bet size, is
 asymmetric about that peak, and crosses zero near 39%, so a constant 40% stake
 on a favorable coin compounds
 negatively. Three sizing rules follow: size from the stressed edge estimate,
-hold the gates fixed, and treat survival as the objective.</p>
+hold the statistical hurdles fixed, and treat survival as the objective.</p>
 <div class="keywords"><b>Keywords:</b> Kelly criterion, bet sizing, volatility
 drag, growth optimality, risk of ruin, position sizing.</div>
 
@@ -312,21 +312,25 @@ mechanism by which a series with a positive average return converts $100k into
 $93k.</p>
 
 <h2>3. Sizing doctrine</h2>
-<p>Three house rules descend from the shape of the curve.</p>
+<p>Three rules for the automated research pipeline behind this site descend
+from the shape of the curve.</p>
 <ol>
 <li><b>Kelly is highly sensitive to the edge estimate.</b> Overstating the edge
 moves the chosen stake past the peak onto the downslope. The sizing doctrine
 therefore begins one step earlier: the edge entering any sizing calculation is
 the <em>stressed</em> estimate, gross return halved and costs doubled. The raw
-backtest never enters. A margin of safety on the input is worth more than
+backtest, the strategy&rsquo;s simulated result on historical data, never
+enters. A margin of safety on the input is worth more than
 precision in the formula.</li>
-<li><b>The asymmetry is why the gates never loosen.</b> A false survivor
-promoted by a loose gate does more than waste capital; it invites bets sized by Kelly
+<li><b>The asymmetry is why the pipeline&rsquo;s statistical hurdles never
+loosen.</b> A strategy with no real edge that a loosened hurdle wrongly
+promotes does more than waste capital; it invites bets sized by Kelly
 on an edge of zero, which the curve identifies as negative growth.</li>
 <li><b>Survival is the strategy.</b> Returns compound multiplicatively, and a
-single zero anywhere in the chain collapses the product. The drawdown rules and
-pre-committed ladders exist because there is no recovery from zero, whatever
-edge remains.</li>
+single zero anywhere in the chain collapses the product. The drawdown rules,
+limits on losses from a peak, and the pre-committed ladders, schedules fixed in
+advance for cutting position size as losses mount, exist because there is no
+recovery from zero, whatever edge remains.</li>
 </ol>
 
 <h2>4. Provenance</h2>

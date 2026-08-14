@@ -254,14 +254,15 @@ baseline of 0.25 for a coin flip is withdrawn in favour of 0.2466, the score of 
 forecaster who answers the realized base rate of 44.2% every time, which puts
 the edge at 0.0157 a question rather than the two cents quoted here. The reading
 of the finish through Grinold&rsquo;s &radic;breadth term is withdrawn, the
-competition board being additive in forecasts submitted. And the edge is not
+competition leaderboard being additive in forecasts submitted. And the edge is not
 statistically significant once the forecasts are treated as correlated within
 fixtures. The calibration table itself stands, and No.&nbsp;17 decomposes it
 into resolution of 0.020 against reliability of 0.006.</div>
 
 <p class="abstract"><span class="lab">Abstract.</span> I report the performance
 of a systematic forecasting agent entered in Jump Trading&rsquo;s Probability
-Cup, a competition on the 2026 World Cup graded by the Brier score. Across 620
+Cup, a competition on the 2026 World Cup graded by the Brier score, the squared
+error between a stated probability and the realized outcome. Across 620
 settled forecasts the agent&rsquo;s mean Brier score was 0.2309, against 0.25,
 the baseline for flipping a coin. That edge of roughly two cents a question
 compounded to a finish in the top 6% with no single call of high conviction.
@@ -284,24 +285,27 @@ five shots on target, and every forecast is scored by the Brier score, the
 squared error between the stated probability and the realized outcome (Brier,
 1950). The rule admits no narrative and awards no partial credit for a plausible
 story. This study entered an automated agent for that reason: the aim was to
-have the pipeline&rsquo;s research habits graded by a scoreboard that cannot be
-argued with. The final standing was the top 6% of entrants, reached with no
+have the research habits of the automated research pipeline behind this site
+graded by a scoreboard that cannot be argued with. The final standing was the top 6% of entrants, reached with no
 call of high conviction.</p>
 
 <h2>2. A Proper Scoring Rule and Compounded Breadth</h2>
 <p>Always answering 50% yields a Brier score of 0.25, the baseline for a coin
 flip. Across 620 settled forecasts the agent&rsquo;s mean Brier score was 0.2309,
-an edge over the coin of roughly two cents a question. A proper scoring rule
-compounds that edge the way a return stream compounds: a small, genuine edge
+an edge over the coin of roughly two cents a question. A proper scoring rule,
+one under which the best expected score comes only from stating one&rsquo;s true
+belief, compounds that edge the way a return stream compounds: a small, genuine edge
 taken 620 independent times separates a forecaster from a field that is largely
 either guessing, at 0.25, or confident and wrong, above it.</p>
 <p>This is the mechanism of Grinold&rsquo;s fundamental law of active
-management, information ratio (IR) = information coefficient (IC) &times;
-&radic;breadth (Grinold, 1989): the skill realized
-in the information ratio scales with the number of independent, honest attempts,
-not with the conviction attached to any one. The same law governs the
-collection&rsquo;s equity pipeline and its Medallion case study; the Probability
-Cup supplies an out-of-sample instance in a separate arena.</p>
+management, information ratio (IR, skill delivered per unit of risk) =
+information coefficient (IC, the correlation between forecasts and outcomes)
+&times; &radic;breadth (the number of independent attempts) (Grinold, 1989):
+the skill realized in the information ratio scales with the number of
+independent, honest attempts, not with the conviction attached to any one. The
+same law governs this site&rsquo;s equity pipeline and its Medallion case study;
+the Probability Cup supplies an out-of-sample instance, a test on questions the
+system never saw, in a separate arena.</p>
 
 <h2>3. Calibration</h2>
 <h3>3.1 The calibration table</h3>
@@ -328,23 +332,26 @@ realized frequency, forecast count, and verdict.</div>
 <h3>3.2 Two opposite errors</h3>
 <p>The two failing bands are opposite errors. In the middle band the agent knew
 more than it stated: when it reported near 51%, outcomes realized near 60%.
-Hedging toward the coin is not prudence but a tax, and 40% of all forecasts fell
-in the 40&ndash;60 band. In the tail the reverse held: on the nine occasions the
+Hedging toward the coin is not prudence but a tax, since a forecast shaded
+toward 50% scores worse on average than the true belief, and 40% of all
+forecasts fell in the 40&ndash;60 band. In the tail the reverse held: on the nine occasions the
 agent was nearly certain, it was right barely half the time. Certainty was rare
-and still overpriced, the same error about tail risk documented in the
-collection&rsquo;s LTCM case study.</p>
+and still overstated, the same error about tail risk documented in this
+site&rsquo;s LTCM case study.</p>
 
 <h2>4. Transfer to Equity Research</h2>
 <ol>
 <li><b>Breadth beats heroics.</b> A finish in the top 6% came with no memorable
-single prediction. The pipeline rests on the same premise: every strategy the engine has tested, with
+single prediction. The pipeline rests on the same premise: every strategy it has tested, with
 promotion decided by accumulated honest attempts rather than by any one
 backtest.</li>
 <li><b>Use a scoreboard that cannot be charmed.</b> The Brier score is a proper
 scoring rule; its maximum is reached only by reporting one&rsquo;s true belief.
-The promotion gates in the equity work, Newey-West t-statistics, reruns with a
-margin of safety, and deflators for multiple testing, are the attempt to
-build the same property into research.</li>
+The statistical hurdles that decide promotion in the equity work, Newey-West
+t-statistics (the t-statistic being the standard measure of whether a result is
+distinguishable from luck), reruns with a margin of safety, and deflators for
+multiple testing (which raise the required evidence with each additional
+attempt), are the attempt to build the same property into research.</li>
 <li><b>The market is the prior.</b> The agent&rsquo;s edge came from disciplined
 base rates updated with public information, not from out-thinking the field from
 scratch. Prediction markets are being quantified by large firms for this reason:
@@ -356,7 +363,7 @@ forecasts in the middle band and tempers those near certainty. A forecast log th
 cannot be audited is a highlight reel.</li>
 </ol>
 
-<div class="note">This study is retained because the collection&rsquo;s argument
+<div class="note">This study is retained because this site&rsquo;s argument
 is that tested breadth under an incorruptible scoreboard beats brilliance under
 a flattering one. The Probability Cup tested that argument in an external arena,
 against a live field, under a referee run by a firm that forecasts for a living,

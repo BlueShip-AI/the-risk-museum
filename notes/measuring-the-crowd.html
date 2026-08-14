@@ -249,15 +249,20 @@ Underperformance in 13F-Inferred Hedge-Fund Crowding</h1>
 
 
 <p class="abstract"><span class="lab">Abstract.</span> I test whether
-stocks jointly held by 13F filers (Form 13F is the SEC form on which large
+stocks jointly held by 13F filers (Form 13F is the Securities and Exchange
+Commission (SEC) form on which large
 managers disclose US equity holdings each quarter) that behave like hedge funds
 exhibit excess co-movement and elevated underperformance in market stress, using
 53 quarters of Form 13F data (2013&ndash;2026). Both effects are present and statistically significant:
 residual pairwise correlation among co-held stocks is elevated relative to
-matched controls (Newey&ndash;West <i>t</i>&nbsp;=&nbsp;4.09), and the
-most crowded quintile underperforms the least crowded by 142 basis points per
-month in the worst decile of market months (<i>t</i>&nbsp;=&nbsp;3.90). Neither
-effect clears a promotion hurdle built with a margin of safety and calibrated
+matched controls (Newey&ndash;West <i>t</i>&nbsp;=&nbsp;4.09; the
+<i>t</i>-statistic is the standard measure of whether a result is
+distinguishable from luck), and the most crowded quintile (stocks split into
+five equal buckets by crowding) underperforms the least crowded by 142 basis
+points per month, a basis point being one hundredth of one percent, in the
+worst tenth, or decile, of market months (<i>t</i>&nbsp;=&nbsp;3.90). Neither
+effect clears the promotion hurdle (the bar a result must pass on this site
+before it is treated as tradable), built with a margin of safety and calibrated
 near a raw <i>t</i> of 5. I therefore classify crowding as a risk measure rather than a
 tradable signal, and treat the non-promotion as the paper&rsquo;s central
 result.</p>
@@ -272,8 +277,10 @@ fund&rsquo;s deleveraging into every co-holder&rsquo;s drawdown
 ex ante in institutional holdings, and whether the resulting signal is strong
 enough to trade. The study was pre-registered before any filing was retrieved:
 one crowding measure, two claims, a filter for hedge funds fixed in advance, and
-the family of tests declared at <i>n</i>&nbsp;=&nbsp;2 so that the correction
-for multiple testing was specified before results existed.</p>
+the full set of tests declared at <i>n</i>&nbsp;=&nbsp;2 so that the correction
+for multiple testing was specified before results existed. Testing two
+variants of one idea means two chances to get lucky, so the required evidence
+rises with each additional test.</p>
 
 <h2>2. Data</h2>
 <p>The Securities and Exchange Commission publishes every institutional
@@ -282,8 +289,9 @@ holdings report (Form 13F) as a structured data set. I take 53 quarters
 1,216 that behave like hedge funds: fewer than 250 positions and turnover of
 names above 25% a quarter, both thresholds fixed in advance. A
 stock&rsquo;s <i>crowding</i> in a given quarter is the number of such funds
-holding it, applied only after the filing deadline of 45 days to preserve a
-point-in-time information set.</p>
+holding it, applied only after the filing deadline of 45 days so that the measure uses
+only information actually available at the time (a point-in-time
+information set).</p>
 
 <h2>3. Results</h2>
 <h3>3.1 Excess co-movement</h3>
@@ -302,7 +310,8 @@ a heavy one in stress, consistent with the deleveraging channel documented in
 2007.</p>
 
 <h2>4. Promotion test and discussion</h2>
-<p>Both effects are statistically significant; neither is promoted. The
+<p>Both effects are statistically significant; neither is promoted to a
+tradable signal. The
 promotion rule requires a claim to survive a re-audit with a margin of safety
 (gross return halved, costs doubled) at approximately a raw
 <i>t</i>-statistic of 5, a threshold in the spirit of the corrections for
@@ -333,8 +342,9 @@ short positions nor swaps; an exposure of the Archegos type is invisible by
 construction. The crowding that can be measured here is a floor, not a
 ceiling.</p>
 
-<div class="note">This study is retained precisely because most desks would
-have shipped these two <i>t</i>-statistics as product. Significant but not
+<div class="note">This study is retained on this site precisely because most
+desks would have shipped these two <i>t</i>-statistics as a live trading
+product. Significant but not
 promoted is a distinct category, and maintaining it is what keeps the signals
 that <i>do</i> pass worth believing.</div>
 

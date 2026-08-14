@@ -249,11 +249,14 @@ Failure of Two Pre-Registered Hypotheses in Prediction Markets</h1>
 
 
 <p class="abstract"><span class="lab">Abstract.</span> I test three
-pre-registered claims about pricing in prediction markets on 250,858 resolved
+pre-registered claims (predictions committed in writing before seeing the data)
+about pricing in prediction markets on 250,858 resolved
 Kalshi markets spanning 59,748 distinct events. Two are falsified. Prices are
-not calibrated. The favourite-longshot bias is confirmed and is economically
+not calibrated: a contract's price does not match how often it pays out. The
+favourite-longshot bias is confirmed and is economically
 large. My third claim, that order flow concentrated on one side marks crowd
-error, is falsified in SIGN. I do not promote the bias, because the dataset carries no
+error, is falsified in SIGN, meaning the true effect runs in the opposite
+direction. I do not promote the bias to a tradable strategy, because the dataset carries no
 order book.</p>
 <div class="keywords"><b>Keywords:</b> prediction markets, calibration,
 favourite-longshot bias, Brier decomposition, pre-registration, order flow.</div>
@@ -262,12 +265,14 @@ favourite-longshot bias, Brier decomposition, pre-registration, order flow.</div
 <p>Prediction markets resolve to a known truth, which makes calibration directly
 measurable rather than inferred. I have a graded record in them, top 6% of Jump
 Trading's Probability Cup over 620 forecasts at a mean Brier score of 0.231
-against a 0.25 coin baseline.</p>
+against a 0.25 coin baseline (the Brier score is the mean squared error of a
+probability forecast; lower is better, and a coin-flip forecast scores 0.25).</p>
 
 <h2>2. Data and method</h2>
 <p>The source is a public dataset of Kalshi and Polymarket records. I use
 Kalshi only, a deviation recorded before running anything. Kalshi trade rows
-carry price, taker side and size as fields of their own and market rows carry
+carry price, taker side (which of buyer or seller initiated the trade) and
+size as fields of their own and market rows carry
 the resolution, whereas Polymarket trades need blockchain decode. For each
 resolved market I take the average price over the final 24 hours of trading,
 weighted by volume, and require at least five trades in that window. The base rate
@@ -275,9 +280,11 @@ of YES resolution is 0.381.</p>
 
 <h2>3. Results</h2>
 <h3>3.1 Calibration, and the size of the miss</h3>
-<p>The Murphy decomposition gives Brier 0.0927 = reliability 0.0193
+<p>The Murphy decomposition, a standard split of the Brier score into
+interpretable parts, gives Brier 0.0927 = reliability 0.0193
 &minus; resolution 0.1617 + uncertainty 0.2358. Prices separate winners from
-losers. The reliability term is not near zero, and the miss is systematic
+losers. The reliability term, which would be zero if prices were perfectly
+calibrated, is not near zero, and the miss is systematic
 rather than noisy.</p>
 
 <div class="tblwrap">
@@ -290,18 +297,18 @@ Error is mean price minus realised frequency.</div>
 <p>Contracts trading between 0.30 and 0.40 resolve YES 17.0% of the time, so a
 buyer pays roughly twice what the contract is worth. Contracts trading between
 0.60 and 0.70 resolve 87.8% of the time. Longshots are dear and favourites are
-cheap, monotonically across the book.</p>
+cheap, monotonically across the whole price range.</p>
 
 <h3>3.3 Crowding, falsified in sign</h3>
 <p>I predicted that markets with taker flow heavily on one side would be worse
 calibrated, on the reasoning that concentrated flow marks a crowd about to be
 wrong. The data say the opposite.</p>
 <div class="tblwrap">
-<div class="cap"><b>Table 2.</b> Calibration error by tercile of taker flow
-imbalance. Lower is better.</div>
+<div class="cap"><b>Table 2.</b> Calibration error by tercile (three equal
+buckets) of taker flow imbalance. Lower is better.</div>
 <table><tr><th>Flow</th><th>n</th><th>Mean absolute error</th><th>Brier</th></tr>
 <tr><td>balanced</td><td>83,620</td><td>0.2754</td><td>0.1052</td></tr><tr><td>middle</td><td>83,619</td><td>0.2593</td><td>0.0971</td></tr><tr><td>one-sided</td><td>83,619</td><td>0.1992</td><td>0.0758</td></tr></table></div>
-<p>The books with flow on one side are the best calibrated of the three groups. Concentrated
+<p>The markets with flow on one side are the best calibrated of the three groups. Concentrated
 flow usually marks an outcome that has become obvious, not a crowd in error. My
 hypothesis had the sign backwards.</p>
 
@@ -314,11 +321,12 @@ duration, the error in the longshot half runs +0.104 to +0.124 and the error in
 the favourite half &minus;0.138 to &minus;0.162 across every bucket from under six hours to
 beyond two days.</p>
 
-<h2>5. Why this is not promoted</h2>
+<h2>5. Why this is not promoted to a tradable strategy</h2>
 <p>A calibration gap measured on traded prices is a measurement, not an edge.
-Execution happens against a quoted book, and this dataset contains no order
+Execution happens against a quoted book, the standing bids and offers a real
+trade fills against, and this dataset contains no order
 book. I attempted to close this with a commercial history of quotes at the top
-of the book and found
+of the book (the best bid and best offer) and found
 the provider holds no data for any market in this sample. A finding this large
 on a regulated exchange with professional participants should raise suspicion,
 not confidence, until that check is made.</p>

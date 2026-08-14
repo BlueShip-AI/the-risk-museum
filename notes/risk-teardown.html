@@ -249,15 +249,21 @@ and Tail Risk in a Hypothetical Long/Short Equity Portfolio</h1>
 
 
 <p class="abstract"><span class="lab">Abstract.</span> I decompose the risk of
-a single hypothetical long/short equity book (ten large caps in the US, six long
-and four short, gross 100%, net +30%) to separate a portfolio&rsquo;s dollar
+a single hypothetical long/short equity book, that is, a portfolio (ten large caps in the US, six long
+and four short; gross 100%, net +30%, where gross sums the sizes of all positions
+regardless of side and net is longs minus shorts, both as a share of capital) to
+separate a portfolio&rsquo;s dollar
 description from its risk description. Regressed on the Fama&ndash;French five
-factors plus momentum with Newey&ndash;West errors over 5,405 trading days
+factors plus momentum with Newey&ndash;West errors (a standard correction for
+correlated daily data) over 5,405 trading days
 (2005&ndash;2026), the book carries a realized market beta of 0.56 on +30% net
 dollars, roughly 1.9&times; the direction those dollars imply, and an Investment (conservative minus aggressive, CMA)
 beta of &minus;0.50. The six factors explain 61.4% of daily variance, leaving
-38.6% idiosyncratic, and residual alpha is +9.7% annualized
-(<i>t</i>&nbsp;=&nbsp;4.49) in sample. By risk rather than dollars the book is
+38.6% idiosyncratic (specific to the individual stocks), and residual alpha, the
+return the factors leave unexplained, is +9.7% annualized
+(<i>t</i>&nbsp;=&nbsp;4.49, the standard measure of whether a result is
+distinguishable from luck) in sample, that is, measured on the same data the
+model was fitted to. By risk rather than dollars the book is
 concentrated: NVDA is 16.0% of gross but 41.3% of variance. Historical 99%
 value-at-risk over one day is 2.67% (expected shortfall 3.29%). A portfolio that
 reads as diversified stock selection is in fact directional, concentrated, and
@@ -268,9 +274,9 @@ portfolio concentration, value-at-risk, expected shortfall, long/short equity.</
 
 <h2>1. Introduction</h2>
 <p>A portfolio is a set of claims. The manager asserts that returns originate in
-his ideas; the risk function establishes what the book actually owns. This note
+his ideas; the risk team establishes what the book actually owns. This note
 runs that decomposition end to end on a single portfolio, following the sequence
-a platform risk desk applies when a new manager&rsquo;s positions arrive: take
+a risk desk at a multi-manager fund applies when a new manager&rsquo;s positions arrive: take
 the book, decompose its risk, return the findings. The portfolio is hypothetical
 and illustrative, constructed to be taken apart rather than traded, and is not a
 real position or a recommendation. Its weights are constant and rebalanced
@@ -304,8 +310,9 @@ growth among the mega caps, short dollars in defensives.</p>
 <p>The book&rsquo;s daily return, at constant weights, is regressed on the
 Fama&ndash;French five factors plus Carhart momentum, with Newey&ndash;West
 standard errors, over 5,405 days from 2005-01-04 to 2026-06-30. The intercept is
-the residual alpha; the slopes report the exposures the book carries whether or
-not they were intended.</p>
+the residual alpha, the return the factors cannot explain; the slopes, the betas,
+measure how strongly the book moves with each factor, and they report the
+exposures the book carries whether or not they were intended.</p>
 <div class="tblwrap">
 <div class="cap"><b>Table 2.</b> Factor exposures (the Fama&ndash;French five factors plus momentum).</div>
 <table>
@@ -327,7 +334,7 @@ universe biased by survivorship it is a ceiling, not a track record.</p>
 
 <h3>3.2 Unintended exposures</h3>
 <ul>
-<li><b>Market (Mkt-RF) beta +0.56.</b> Net dollar exposure is only +30%, yet the
+<li><b>Market (Mkt-RF, the market return minus the risk-free rate) beta +0.56.</b> Net dollar exposure is only +30%, yet the
 realized market beta is 0.56; the shorts are defensives with low beta, so netting
 dollars did not net out direction. In beta terms the book is about 1.9&times;
 more directional to the market than its net book implies. <b>Unintended.</b></li>
@@ -338,8 +345,8 @@ payers. A style bet, not stock selection. <b>Unintended.</b></li>
 bet, not stock selection. <b>Unintended.</b></li>
 <li><b>Profitability (robust minus weak, RMW) beta &minus;0.13.</b> Mildly short quality; the shorts
 are the profitable defensives. A style bet, not stock selection. <b>Unintended.</b></li>
-<li><b>Size (small minus big, SMB) beta &minus;0.03.</b> Negligible; both sleeves are large caps,
-so the book is correctly size neutral. <b>Intended (clean).</b></li>
+<li><b>Size (small minus big, SMB) beta &minus;0.03.</b> Negligible; both sides of the
+book, long and short, are large caps, so the book is correctly size neutral. <b>Intended (clean).</b></li>
 </ul>
 
 <h2>4. Concentration and sizing</h2>
@@ -405,7 +412,7 @@ weights across each range.</p>
 </div>
 <p>The COVID window is the instructive one: the book gave back only
 &minus;4.8% peak-to-trough because its shorts, which have low beta, fell alongside its longs,
-while the &minus;19.0% Global Financial Crisis draw shows the same hidden market
+while the &minus;19.0% Global Financial Crisis loss shows the same hidden market
 beta biting once the shorts stopped hedging.</p>
 
 <h2>7. Findings and recommendations</h2>
@@ -431,7 +438,7 @@ deliberately as the strategy and budget risk to it.</li>
 <div class="note">The teardown is the product. A book&rsquo;s net exposure is
 easy to quote; the work is showing that +30% net dollars carry a 0.56 market
 beta, that 16.0% of gross is 41.3% of the risk, and that a book billed as stock
-selection is 61.4% factor by variance. The same discipline the pipeline runs
+selection is 61.4% factor by variance. The same discipline the automated research pipeline behind this site runs
 nightly on its own strategies, here applied to a portfolio on the page.</div>
 
 <div class="refs">

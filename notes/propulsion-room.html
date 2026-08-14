@@ -253,16 +253,21 @@ made money before costs, and most lost to index funds.</p>
 return is decomposed into four forces by analogy with powered flight: thrust
 (gross edge before costs), drag (the friction of trading), gravity (the
 volatility drag of compounding), and steering (the cost of each rebalance).
-Using backtest telemetry from 11 strategies with complete cost accounting,
+Using backtest telemetry (results of simulating the strategies on
+historical data) from 11 strategies with complete cost accounting,
 about a third produced positive gross thrust. Among those, the median cost
 drag was 42% of gross thrust, and the median breakeven cost, or stall speed,
-was about 12 bps per unit of turnover, against a model assumption of 5 bps and
+was about 12 bps (basis points, hundredths of a percentage point) per unit of
+turnover, against a model assumption of 5 bps and
 realistic institutional costs of 10 to 20 bps. Median annual turnover was
-approximately 10&times;, reaching 19&times; at the extreme. One strategy earned
+approximately 10&times; (the portfolio trades its full value about ten times a
+year), reaching 19&times; at the extreme. One strategy earned
 a positive average return yet compounded to a loss, turning $100k into $93k
-over twenty years, because its variance load exceeded its arithmetic lift. The
+over twenty years, because its volatility drag, half its variance, exceeded its
+arithmetic average return. The
 governing conclusion is that gross edge net of drag and volatility drag must
-exceed a passive benchmark, at realistic friction and out of sample, before an
+exceed a passive benchmark, at realistic friction and out of sample (that is,
+on data the model never saw), before an
 active strategy is worth flying.</p>
 <div class="keywords"><b>Keywords:</b> transaction costs, portfolio turnover,
 volatility drag, net return, backtesting, passive benchmark.</div>
@@ -273,8 +278,9 @@ admits the same decomposition. Thrust is the gross edge before costs; drag is
 the friction of trading; gravity is the volatility drag of compounding; and
 steering is the cost of each course change. The decomposition matters because a
 positive gross edge is neither necessary nor sufficient for a positive net
-result, and drag ends more strategies than weak signals do. This note maps the
-pipeline&rsquo;s backtest telemetry onto the four forces and measures each.
+result, and drag ends more strategies than weak signals do. This note maps backtest telemetry
+from the automated research pipeline behind this site onto the four forces and
+measures each.
 Table 1 states the correspondence.</p>
 
 <div class="tblwrap">
@@ -316,11 +322,12 @@ stage 4 of the pipeline.</p>
 <h3>2.3 Volatility drag</h3>
 <p>Volatility drag is the gravity of compounding: geometric growth is
 approximately the arithmetic return minus half the variance. One strategy in
-the sample had a positive average return yet compounded to a loss, because its
-variance load exceeded its arithmetic lift; a positive average turned $100k
+the sample had a positive average return yet compounded to a loss, because half its
+variance exceeded its arithmetic return; a positive average turned $100k
 into $93k over twenty years. Leverage scales thrust and volatility drag
 together, which is the mechanism behind structural failures under load such as
-LTCM, documented separately in the Case Studies.</p>
+Long-Term Capital Management (LTCM), documented separately in the Case Studies
+section of this site.</p>
 
 <h2>3. Benchmark and discussion</h2>
 <p>A passive index fund is the limiting case: its own thrust near zero,

@@ -257,8 +257,8 @@ the Bank for International Settlements flagged in its 2026 Annual Economic
 Report. I argue that the four defects behind the 2008 crisis (corrupt
 ratings, hidden correlation, inadequate tail capital, and misaligned
 incentives) are each observable in this complex today, with technology
-obsolescence adding a hazard mortgages never carried. A stylized Monte Carlo of a
-pool sliced into three tranches (equity 15%, mezzanine 25%, senior 60%) over 200,000 draws
+obsolescence adding a hazard mortgages never carried. A stylized Monte Carlo
+simulation of a pool sliced into three tranches (equity 15%, mezzanine 25%, senior 60%) over 200,000 draws
 shows the equity tranche losing 68% of its value on average, the mezzanine 28%,
 and the senior 1% while remaining intact in 93% of paths. The asymmetry makes
 the originator&rsquo;s cash-out structural and isolates a single governing
@@ -270,7 +270,8 @@ AI infrastructure, tranching, tail risk, private credit, Monte Carlo.</div>
 
 <h2>1. Introduction</h2>
 <p>Securitization did not cause the 2008 crisis. Pooling loans and selling
-tranched claims on the pool is a durable financing technology. What failed in
+tranched claims on the pool (a collateralized debt obligation, the
+&ldquo;CDO&rdquo; of the title) is a durable financing technology. What failed in
 2008 was a set of four specific, nameable defects that traveled inside a
 securitization; once named, they are observable wherever the same machine
 reassembles. It is reassembling now around the financing of artificial
@@ -342,10 +343,10 @@ curve, and its collateral value can fall for reasons unrelated to the
 borrower&rsquo;s health and entirely to do with a better chip shipping.</p>
 <h3>4.3 Tail placement</h3>
 <p>The tail increasingly lands on insurance balance sheets. Private credit,
-including the infrastructure paper discussed here, is sourced for annuity books
-whose liabilities are long dated, precisely because it yields more than public
+including the infrastructure debt discussed here, is sourced for insurers&rsquo;
+annuity portfolios whose liabilities are long dated, precisely because it yields more than public
 bonds of the same stated grade. That excess yield is payment for illiquidity and tail
-risk. The question a risk seat must answer before the paper is bought is whether
+risk. The question a risk manager must answer before the debt is bought is whether
 the buffer behind those liabilities is sized for the world with fat tails or the
 modeled one.</p>
 <h3>4.4 Incentives</h3>
@@ -362,8 +363,8 @@ than the people underwriting it. Their numbers are worth recording precisely
 because none of them is a bear, and each has an interest in the scale sounding
 either large or manageable. I attribute rather than endorse.</p>
 <p>OpenAI&rsquo;s compute lead put the cost of a gigawatt of AI capacity, all in,
-at <b>$70 billion</b>, and a gigawatt at <b>roughly half a million GPUs</b>.
-Against his own stated targets, that arithmetic is the story: OpenAI describes
+at <b>$70 billion</b>, and a gigawatt at <b>roughly half a million GPUs</b>
+(graphics processing units). Against his own stated targets, that arithmetic is the story: OpenAI describes
 an aspirational <b>30 gigawatts</b> by the end of the decade, and he estimates
 US hyperscalers collectively plan <b>about 100 gigawatts</b>, which he says
 would consume a percentage of US grid capacity in the double digits. He also states that
@@ -389,7 +390,8 @@ years on silicon co-designed for one model architecture is not a wear
 estimate. It is an unhedged position on one side of an unsettled scientific
 question about whether that architecture persists, taken by the party whose
 reported earnings improve if the bet wins. That is mark-to-model risk in the
-2008 sense, relocated from a ratings model to a schedule of fixed assets.</p>
+2008 sense (a value set by the holder&rsquo;s own model rather than by a market
+price), relocated from a ratings model to a schedule of fixed assets.</p>
 <p>What is absent is as informative as what is present. Across roughly three
 hours with senior operators, <b>debt is never discussed</b>. There is no
 financing structure, no lease, no special-purpose vehicle, no covenant. The
@@ -402,7 +404,7 @@ itself without anyone treating it as their problem.</p>
 <p>The useful question is not whether the complex is fragile but where losses
 land when they arrive. I model the debt behind AI infrastructure as a single
 securitized pool sliced into three claims that absorb losses from the bottom up.
-The <b>equity</b> tranche (15% of the pool) is the paper of the neoclouds, the
+The <b>equity</b> tranche (15% of the pool) is the debt of the neoclouds, the
 labs, and the circular financing, and takes the first loss. The <b>mezzanine</b> (25%)
 is the debt backed by GPUs and equipment. The <b>senior</b> (60%) is secured by the
 assets that survive a technology cycle: land, buildings, and power contracts.
@@ -519,7 +521,8 @@ not yet arrived.</p>
 <h2>9. Scope and discipline</h2>
 <p>This note does not call a top, name a date, or claim the AI buildout will
 fail; on a decade&rsquo;s horizon it may pay off, as the internet did. Timing is
-a forecast, and forecasts belong in the Forecast Wing under resolution criteria.
+a forecast, and forecasts belong in this site&rsquo;s Forecast Wing under
+resolution criteria.
 The exercise here is narrower: to show that each of the four defects that broke
 in 2008 is observable in the AI credit complex today, to run the stack forward
 for the shape of the outcomes, and to name the single variable that decides
@@ -528,7 +531,7 @@ describe the present, to state, while the music played, that the diversification
 was fake, the rating was bought, and the safe tranche was only ever as safe as
 the revenue beneath it.</p>
 
-<div class="note">The museum&rsquo;s Blowup Wing hangs the finished versions of
+<div class="note">This site&rsquo;s Blowup Wing hangs the finished versions of
 this story: Long-Term Capital Management, levered against a correlation that held
 until it did not, and the mortgage machine that called a concentrated bet a
 diversified one. Those are plaques because they are over. This structure is

@@ -250,11 +250,16 @@ Cost-Stressed Promotion Test</h1>
 
 
 <p class="abstract"><span class="lab">Abstract.</span> I run all 158
-technical alphas of Microsoft Qlib&rsquo;s Alpha158 library as a single test
-family on roughly 21 years of US large caps, through the museum&rsquo;s
-fixed gates. Admitting both sign choices yields a family of 316 hypotheses.
-Twenty-nine of the 158 clear a naive significance bar of <i>t</i>&nbsp;&ge;&nbsp;2.5.
-None survives a promotion bar deflated for multiplicity, <i>t</i>&nbsp;&ge;&nbsp;4.11,
+technical alphas of Microsoft Qlib&rsquo;s Alpha158 library as a single declared
+family of tests on roughly 21 years of US large caps, through the fixed
+statistical hurdles of the automated research pipeline behind this site.
+Admitting both sign choices yields a family of 316 hypotheses; a family here
+is a batch of related tests counted together, and each added test is another
+chance to get lucky, so the required evidence rises with the count.
+Twenty-nine of the 158 clear a naive significance bar of <i>t</i>&nbsp;&ge;&nbsp;2.5,
+the <i>t</i>-statistic being the standard measure of whether a result is
+distinguishable from luck.
+None survives a promotion bar deflated for that multiplicity, <i>t</i>&nbsp;&ge;&nbsp;4.11,
 once a re-audit for margin of safety halves gross return and doubles costs. The
 strongest survivors are uniformly signals of reversal over short horizons and of
 overbought levels whose measured gross edge the stress of doubled costs
@@ -293,7 +298,8 @@ result is read.</p>
 <p>Three bars are applied in sequence. The first is a naive significance
 threshold of <i>t</i>&nbsp;&ge;&nbsp;2.5. The second is a deflated promotion
 threshold of <i>t</i>&nbsp;&ge;&nbsp;4.11, set in the Bonferroni and Taleb
-spirit for a family of this size. The third is a re-audit for margin of safety in
+spirit for a family of this size; Bonferroni&rsquo;s correction divides the allowed
+false-positive rate by the number of tests run, so more tests demand stronger evidence. The third is a re-audit for margin of safety in
 which gross return is halved and transaction costs are doubled, so that a claim
 must remain significant after its economics are deliberately worsened.</p>
 
@@ -304,11 +310,12 @@ the family of 316 hypotheses, is promoted.</p>
 <p>The signals that come closest are, without exception, measures of reversal
 over short horizons and of overbought levels. The strongest counts days since
 the high over 20 days (IMAX20),
-with a Newey&ndash;West (NW) <i>t</i> of 4.46 that falls to a stressed <i>t</i> of
-3.68 once gross is halved and costs are doubled; the same pattern holds for the
+with a Newey&ndash;West (NW) <i>t</i> of 4.46, a <i>t</i>-statistic adjusted so
+that autocorrelated returns do not overstate significance, that falls to a stressed <i>t</i> of
+3.68 once gross return is halved and costs are doubled; the same pattern holds for the
 signals of reversal over short horizons and of range near the top of the list
 (RSV20, RANK20, MIN5). These are real gross effects, but they trade quickly, and doubling the
-cost assumption vaporizes them. The volatility features collapse hardest under
+cost assumption erases them. The volatility features collapse hardest under
 the same stress, consistent with their edge being compensation for bearing risk
 rather than a mispricing.</p>
 
@@ -340,7 +347,7 @@ inside the transaction costs, and volatility
 exposures that pay for risk. None of it clears a bar that is honestly deflated
 for the size of the search and then re-audited under doubled costs. The result
 is a null, and it is reported as one. Nothing here is a tradable claim; the
-figures are tombstones and risk observations, not a signal.</p>
+figures are records of dead ideas and risk observations, not a signal.</p>
 
 <h2>5. Limitations</h2>
 <p>Two, both of which cut in the same direction. First, the universe is current
@@ -354,7 +361,7 @@ not that every published factor does. Both limitations make the conclusion more
 conservative, not less. The honest bar is already unmet on figures that flatter
 the signals.</p>
 
-<div class="note">This tombstone is retained because Alpha158 is exactly the
+<div class="note">This record of a failed test is retained because Alpha158 is exactly the
 sort of library a desk mines for product, and twenty-nine names cross the bar a
 casual test would use. Recording that none of them survives multiplicity and
 cost is what keeps the few signals that do pass worth believing.</div>
@@ -373,47 +380,54 @@ Expected Returns. <i>Review of Financial Studies</i>, 29(1), 5&ndash;68.</li>
 <h2>Provenance</h2>
 <dl>
 <dt>Asserts about</dt>
-<dd>The Alpha158 excavation: a single ticket covering all 158 alphas as one
+<dd>The Alpha158 excavation: a single registered hypothesis covering all 158 alphas as one
 declared family, judged on 25 July 2026 and rejected. Its record in the
-hypothesis store is <code>d57232a184d38ec1</code>. That identifier is the one
-to quote if you want to audit this paper against the engine, because it is
-what the store answers to. The 158 features were reimplemented in this
-system&rsquo;s own point-in-time registry from Qlib&rsquo;s public definitions.
+pipeline&rsquo;s database of every idea tested here is <code>d57232a184d38ec1</code>. That identifier is the one
+to quote if you want to audit this paper against the pipeline, because it is
+what that database answers to. The 158 features were reimplemented in this
+system&rsquo;s own point-in-time registry, in which each feature value uses only
+information available on its date, from Qlib&rsquo;s public definitions.
 Qlib&rsquo;s data layer and backtester were not used.</dd>
 
-<dt>Data veins</dt>
-<dd>Adjusted OHLCV and dollar volume (Yahoo), roughly 425 current S&amp;P
+<dt>Data sources</dt>
+<dd>Adjusted open, high, low and close prices with volume (OHLCV) and dollar volume (Yahoo), roughly 425 current S&amp;P
 constituents, 2005 to July 2026, one trading day of information lag. Ken
-French&rsquo;s Fama-French five-factor model (FF5) plus momentum stood behind
-the stage for residual alpha, which no member
-reached. Both veins are free; neither is snapshotted.</dd>
+French&rsquo;s Fama-French five-factor model (FF5) plus momentum was in place
+for the pipeline&rsquo;s later residual-alpha stage, the check of return left
+over after controlling for known factors, which no member
+reached. Both sources are free; neither is snapshotted.</dd>
 
-<dt>Gate regime</dt>
-<dd>G2, in force 12 to 25 July 2026: deflated significance, deflated bootstrap,
-a 30% limit on in-sample to out-of-sample degradation, and the rerun for margin
-of safety. The verdict was rendered 25 July 2026. Two engine changes dated 26
+<dt>Statistical hurdles</dt>
+<dd>Regime G2, in force 12 to 25 July 2026: deflated significance, a deflated
+bootstrap resampling check,
+a 30% limit on degradation from in-sample to out-of-sample, that is, from the
+data the tests were fit on to data they never saw, and the rerun for margin
+of safety. The verdict was rendered 25 July 2026. Two pipeline code changes dated 26
 July, a guard for small samples and a fix to the risk-free treatment at the
-factor stage, postdate this verdict and neither moves it.</dd>
+pipeline&rsquo;s factor-model stage, postdate this verdict and neither moves it.</dd>
 
 <dt>Family</dt>
 <dd>316, declared before testing as 158 features by two sign choices, giving a
-deflated bar of <i>t</i>&nbsp;&ge;&nbsp;4.11. The store records a family as a
+deflated bar of <i>t</i>&nbsp;&ge;&nbsp;4.11. The database of tested ideas records a family as a
 count, not as a membership; the 158 names survive only in the run artifact, not
 in the hypothesis record.</dd>
 
-<dt>Binding gate</dt>
+<dt>Binding hurdle</dt>
 <dd>Out-of-sample decay, not multiplicity. The strongest member, IMAX20,
 cleared the deflated bar at <i>t</i>&nbsp;=&nbsp;4.46 and cleared the rerun for
 margin of safety at a stressed <i>t</i>&nbsp;=&nbsp;3.68 against a base
-bar of 2.50. What stopped it was a 55% Sharpe degradation from in-sample to
+bar of 2.50. What stopped it was a 55% degradation in Sharpe ratio, return
+per unit of risk, from in-sample to
 out-of-sample against a 30% limit. Rejection reasons for each member were not
-recorded by the runner, so this identification covers the strongest member
+recorded by the pipeline&rsquo;s run script, so this identification covers the strongest member
 only.</dd>
 
 <dt>Retracts if</dt>
 <dd><ul>
-<li>a walk-forward re-audit shows that the 55% degradation is an artifact of the
-single fixed 70/30 split, which would carry IMAX20 to the factor stage and make
+<li>a walk-forward re-audit, retesting on a series of rolling windows rather
+than one split, shows that the 55% degradation is an artifact of the
+single fixed 70/30 split of the data into fit and evaluation periods, which
+would carry IMAX20 to the factor-model stage and make
 the headline one of 158 rather than zero;</li>
 <li>point-in-time constituents replace this universe of current members and the
 naive count rises above 29 instead of falling, contradicting Section 5;</li>
@@ -427,7 +441,7 @@ correction.</dd>
 
 <dt>Reproducibility</dt>
 <dd>Not pinned. Prices are refetched nightly and the universe is resolved from
-the current index list, so neither is frozen at publication, and the runner
+the current index list, so neither is frozen at publication, and the run script
 recorded no data window. A re-run on 27 July 2026 returned
 <i>t</i>&nbsp;=&nbsp;4.25 and a stressed <i>t</i>&nbsp;=&nbsp;3.56 for IMAX20
 against the 4.46 and 3.68 reported above. The verdict and the binding gate were

@@ -249,12 +249,14 @@ Buys a Platform of Many Managers</h1>
 
 
 <p class="abstract"><span class="lab">Abstract.</span> I decompose the risk
-of the museum&rsquo;s Trading Floor, a disclosed paper book constructed as a
+of this site&rsquo;s Trading Floor, a disclosed paper book (simulated, not run
+with real money) constructed as a
 platform of many managers, into standalone desk risk and the risk that survives
 their combination. Ten desks (three systematic: equity beta,
 low-volatility/betting against beta (BAB), and trend/time-series momentum
 (TSMOM); and seven long/short inside sectors) are combined by risk
-parity on inverse volatility to a 10% annualized volatility target. The
+parity on inverse volatility (riskier desks get proportionally smaller
+weights) to a 10% annualized volatility target. The
 weighted average of standalone desk volatility is 20.9%, while the combined,
 unlevered book realizes 7.7%. That is a diversification ratio of 2.72x and a
 reduction in risk of roughly 63% from diversification alone. Average pairwise
@@ -272,14 +274,14 @@ budgeting.</div>
 from the imperfect correlation among many of them. The fundamental law of
 active management makes the mechanism explicit: value added rises with the
 breadth of independent bets, not with the conviction behind one of them
-(Grinold and Kahn, 2000). This note measures what that breadth is worth on the
-museum&rsquo;s Trading Floor, a disclosed paper book assembled as ten desks and
+(Grinold and Kahn, 2000). This note measures what that breadth is worth on this
+site&rsquo;s Trading Floor, a disclosed paper book assembled as ten desks and
 combined into one portfolio. The object of study is the gap between the risk
 each desk carries alone and the risk the combined book actually realizes, and
 the correlation structure that produces the gap.</p>
 
 <h2>2. Construction of the book</h2>
-<p>The book comprises ten desks: three systematic sleeves (equity beta, a
+<p>The book comprises ten desks: three systematic sub-strategies (equity beta, a
 desk running low volatility/betting against beta, and a desk running
 trend/time-series momentum) and seven long/short desks run inside sectors.
 Desks are combined by risk
@@ -313,7 +315,7 @@ diversification alone, before any leverage is applied to reach the target.</p>
 
 <h3>3.2 Correlation structure</h3>
 <p>Average pairwise absolute correlation across the ten desks is 0.29, low
-enough that the sleeves offset rather than reinforce one another. Two features
+enough that the sub-strategies offset rather than reinforce one another. Two features
 carry most of the benefit. The desk running low volatility/BAB is &minus;0.66
 correlated to equity beta, a hedge built into the book that fires precisely when
 beta hurts. The trend/TSMOM desk is +0.60 to beta, adding directional exposure in
@@ -333,8 +335,8 @@ the allocator treats them as a single risk budget.</p>
 </div>
 
 <h2>4. Discussion</h2>
-<p>The reading is straightforward. Uncorrelated sleeves, not a single large
-bet, are the platform&rsquo;s engine, and the 2.72x ratio is a direct measure
+<p>The reading is straightforward. Uncorrelated sub-strategies, not a single large
+bet, are what make the platform work, and the 2.72x ratio is a direct measure
 of what that diversification buys. The negative correlation to equity beta of
 the desk running low volatility, and the modest average pairwise correlation,
 are what let ten desks of 20.9% standalone volatility combine to 7.7%. Grouping
@@ -345,7 +347,8 @@ about how much the book earns.</p>
 
 <h2>5. Limitations</h2>
 <p>The book trades a universe of current S&amp;P constituents, which is
-survivorship biased, so any return or Sharpe ratio behind the combined book is an
+survivorship biased (the universe contains only companies that survived to the
+present), so any return or Sharpe ratio (return per unit of risk) behind the combined book is an
 upper bound and is not the subject of this note. The measured object is risk:
 standalone volatilities, the combined volatility, the diversification ratio,
 and the correlation structure. Correlations are historical and vary with regime,
@@ -353,10 +356,12 @@ and the &minus;0.66 hedge and the sector cluster can both migrate in stress;
 the budgeting of the sector desks as one group is a guard against exactly that
 migration rather than a promise it will not occur.</p>
 
-<div class="note">This is a tombstone of construction, not of alpha. It is kept
-because the discipline it records (uncorrelated sleeves, a correlated cluster
+<div class="note">This is a record of construction, not of alpha (excess
+return). It is kept
+because the discipline it records (uncorrelated sub-strategies, a correlated cluster
 budgeted as one, an honest survivorship caveat) is what separates a
-diversified book from a levered concentration wearing its name.</div>
+diversified book from a levered, concentrated book that merely calls itself
+diversified.</div>
 
 <div class="refs">
 <h2>References</h2>

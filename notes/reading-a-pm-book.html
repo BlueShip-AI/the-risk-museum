@@ -249,9 +249,9 @@ Drawdown Protocol for Discretionary Risk Oversight</h1>
 
 
 <p class="abstract"><span class="lab">Abstract.</span> A portfolio is a set of
-claims: the manager attributes its returns to idiosyncratic judgment, while the
+claims: the manager attributes its returns to idiosyncratic judgment (stock-specific insight), while the
 risk seat must establish what the book actually owns. I describe two
-disciplines, both run nightly by this system on its own strategies. The first is
+disciplines, both run nightly by the automated research pipeline behind this site on its own strategies. The first is
 an exposure dissection separating intended positioning from unintended exposure
 across six ordered layers (market, styles, industry and sector, macro
 sensitivities, crowding and liquidity, and the residual idiosyncratic share),
@@ -259,7 +259,7 @@ decomposed by risk contribution rather than dollar weight and audited for
 factors concealed inside the residual. The second is a pre-committed drawdown
 protocol that fixes diagnosis, escalation ladder, and de-grossing order before
 the loss, so that a failing book is governed by rules set on a calm day. Both
-disciplines are applied to the system itself, which retired its founder&rsquo;s
+disciplines are applied to the pipeline itself, which retired its founder&rsquo;s
 namesake model under its own triggers.</p>
 <div class="keywords"><b>Keywords:</b> risk decomposition, factor exposure,
 intended versus unintended risk, risk contribution, drawdown protocol,
@@ -269,8 +269,8 @@ de-grossing, liquidity.</div>
 <p>A portfolio is a set of claims. The manager claims the returns come from his
 ideas; the risk seat&rsquo;s task is to establish what the book actually owns.
 These notes distill fifteen years of practice on the risk side of that
-conversation. They cover two disciplines, both practiced nightly by this
-system on its own strategies: a dissection of intended versus unintended
+conversation. They cover two disciplines, both practiced nightly by my
+pipeline on its own strategies: a dissection of intended versus unintended
 exposure, and a protocol for the days on which the manager is losing money.</p>
 
 <h2>2. Exposure dissection: intended versus unintended</h2>
@@ -282,19 +282,19 @@ dissection proceeds in six layers, cheapest explanation first.</p>
 
 <h3>2.1 The six layers</h3>
 <ol>
-<li><b>Market.</b> Net and gross beta. The oldest stowaway is a
+<li><b>Market.</b> Net and gross beta (beta measures the book&rsquo;s sensitivity to the overall market). The oldest stowaway is a
 &ldquo;hedged&rdquo; book whose longs have high beta and shorts low beta, net
 long the market while its net dollar exposure reads zero.</li>
 <li><b>Styles.</b> Size, value, momentum, quality, low volatility, reversal over
 the short term. The book&rsquo;s returns are regressed on the factor set and the
-loadings checked against what the manager believes he runs.</li>
+loadings (the estimated sensitivity to each style) checked against what the manager believes he runs.</li>
 <li><b>Industry and sector.</b> Concentrations, and the view relative to peers. A
 &ldquo;diversified&rdquo; book of one sector&rsquo;s suppliers is a single bet
 expressed through many names.</li>
 <li><b>Macro sensitivities.</b> Rates, oil, the dollar, whatever the
-book&rsquo;s names transmit. Duration is not only a bond concept.</li>
+book&rsquo;s names transmit. Duration (sensitivity to interest rates) is not only a bond concept.</li>
 <li><b>Crowding and liquidity.</b> Ownership overlap with other funds; the days
-it takes to liquidate at a reasonable participation rate. The position that
+it takes to liquidate at a reasonable participation rate (a modest share of each day&rsquo;s trading volume). The position that
 cannot be exited determines the worst week.</li>
 <li><b>The residual idiosyncratic share.</b> After the preceding layers, what
 fraction of the book&rsquo;s risk is genuinely idiosyncratic. A stock picker
@@ -306,7 +306,7 @@ book neutral to factors.</li>
 </ol>
 
 <h3>2.2 Two adjustments</h3>
-<p>Two adjustments come from this system&rsquo;s own workshop. The first is the
+<p>Two adjustments come from my pipeline&rsquo;s own workshop. The first is the
 blame counter: dollar weights misstate where risk lives, so the book is
 decomposed by risk contribution, whose pieces sum exactly and whose ranking
 rarely matches the position sheet. The second follows from work on random
@@ -327,9 +327,9 @@ know he held? The two have opposite remedies, and acting before answering
 treats both wrongly.</li>
 <li><b>Run the pre-committed ladder.</b> Indicator of early warning &rarr; the
 manager adjusts; first threshold &rarr; escalation; second threshold &rarr;
-mandatory de-risking. Mechanical de-grossing at drawdown levels is the exercise
+mandatory de-risking. Mechanical de-grossing (cutting the size of the whole book, longs and shorts alike) at drawdown levels is the exercise
 of nerve set in advance, not its failure. Triggers set at promotion are never
-renegotiated mid-drawdown; this system applies the same rule to its own
+renegotiated mid-drawdown; my pipeline applies the same rule to its own
 strategies.</li>
 <li><b>Cut in the right order.</b> The de-grossing sequence is fixed in advance
 (Table 1): gross exposure is reduced first, unintended factor exposures next,
@@ -339,7 +339,7 @@ highest conviction last.</li>
 is what risk means. The review asks whether the process was followed, not
 whether the outcome was pleasant. Repeated breaches, however, are structure
 rather than weather, and structure escalates.</li>
-<li><b>Talk to the PM.</b> Thesis intact, or broken by new information? The risk
+<li><b>Talk to the PM (the portfolio manager).</b> Thesis intact, or broken by new information? The risk
 seat&rsquo;s deepest task is keeping a skilled manager solvent long enough for
 the skill to compound, and distinguishing the defense of a position from the
 defense of a person.</li>
@@ -356,8 +356,8 @@ defense of a person.</li>
 </table>
 </div>
 
-<div class="note">This system runs both disciplines on itself: blame counters by
-risk contribution and liquidity slices on every backtest, and
+<div class="note">My pipeline runs both disciplines on itself: blame counters by
+risk contribution and liquidity breakdowns on every backtest, and
 pre-committed retirement triggers on everything promoted. It retired the
 founder&rsquo;s namesake model under those triggers. A protocol whose author
 exempts himself from it is a brochure.</div>

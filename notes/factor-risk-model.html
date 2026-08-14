@@ -241,7 +241,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="hero"><div class="hero-in">
 <div class="eyebrow">Working Paper No. 24 &middot; 5 August 2026</div>
 <h1>Building a Factor Risk Model From Scratch</h1>
-<p class="lede">I built a cross-sectional equity risk model with many factors, the same architecture a commercial risk model uses rather than a reproduction of one. Of 16 factors tested on 436 names since 2020, only two clear significance.</p>
+<p class="lede">I built a cross-sectional equity risk model with many factors, the same architecture a commercial risk model uses rather than a reproduction of one. Of 16 factors tested on 436 stocks since 2020, only two clear significance.</p>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
@@ -252,9 +252,11 @@ decomposes a stock&rsquo;s return into common drivers plus a residual. Every
 large risk desk buys one from a vendor whose factor definitions and
 estimation weights are proprietary. I built the same class of model from public daily price data,
 down to the factor covariance matrix and the portfolio risk decomposition. Run
-on 436 US names from 2020 to 2026, two of sixteen factors clear a Newey-West
-t-stat of 2, Size and the Energy industry factor, and a diversified, equally
-weighted book of 100 names turns out to be 98% factor risk.</p>
+on 436 US names (stocks) from 2020 to 2026, two of sixteen factors clear a Newey-West
+t-stat of 2 (a t-statistic is the standard measure of whether a result is
+distinguishable from luck; the Newey-West version adjusts it for correlated
+errors), Size and the Energy industry factor, and a diversified, equally
+weighted book (portfolio) of 100 names turns out to be 98% factor risk.</p>
 <div class="keywords"><b>Keywords:</b> factor risk model, cross-sectional
 regression, factor covariance, specific risk, portfolio risk decomposition,
 Newey-West.</div>
@@ -268,21 +270,30 @@ built is the same <i>class</i> of model, smaller and cruder on purpose, with
 every mechanic inspectable.</p>
 
 <h2>2. The method, briefly</h2>
-<p><b>Exposures.</b> Each stock gets a score on five factors, z-scored across
-the cross section, each date, using only information available through that date: Size
+<p><b>Exposures.</b> Each stock gets a score on five factors, z-scored
+(rescaled to mean zero and unit spread) across
+the cross section of stocks, each date, using only information available through that date: Size
 (log price level, a scale proxy, since the panel has no field for shares
-outstanding, a declared limitation), Beta (rolling beta to SPY over 252 days),
-Momentum (12-1 month), Value (a proxy for mean reversion over 252 days, not a
-true book-to-price), and Volatility (realized over 60 days). Each name also gets one
-industry dummy from a sector map built by correlation to sector ETFs.</p>
-<p><b>Estimation.</b> At each date I run a cross-sectional regression of the
+outstanding, a declared limitation), Beta (how much the stock moves with the
+market: rolling beta to SPY, an S&amp;P 500 exchange-traded fund, over 252 days),
+Momentum (12-1 month, the return over the past 12 months excluding the most
+recent 1 month), Value (a proxy for mean reversion over 252 days, not a
+true book-to-price ratio, book value divided by price), and Volatility (realized over 60 days). Each name also gets one
+industry dummy (a 0/1 indicator for its sector) from a sector map built by correlation to sector ETFs.</p>
+<p><b>Estimation.</b> At each date I run a cross-sectional regression (one
+regression across all names at that date) of the
 next day&rsquo;s returns on that day&rsquo;s exposures, weighted by market cap
-and stabilized by ridge. That is the vendor model&rsquo;s actual estimation
+and stabilized by ridge, a regression penalty that damps unstable
+coefficients. That is the vendor model&rsquo;s actual estimation
 step. The
 coefficients <i>are</i> the factor returns for that day, so the series comes
-from every name&rsquo;s exposure rather than a long-short quintile spread.</p>
-<p><b>Risk.</b> The covariance of those factor returns is the factor
-covariance matrix. Specific risk is approximated from each name&rsquo;s
+from every name&rsquo;s exposure rather than a long-short quintile spread
+(buying the fifth of names ranked highest on the signal and shorting the
+lowest fifth).</p>
+<p><b>Risk.</b> The covariance of those factor returns (how they move
+together) is the factor
+covariance matrix. Specific risk, the part of each stock&rsquo;s risk not
+explained by the shared factors, is approximated from each name&rsquo;s
 residual variance after removing the average factor effect. Portfolio risk
 decomposes as &sigma;<sub>p</sub>&sup2; = x<sub>p</sub>&prime;Fx<sub>p</sub> +
 w&prime;&Delta;w, factor variance plus specific variance. This is the equation
@@ -317,7 +328,7 @@ tells you the opposite.</p>
 <h2>4. The portfolio decomposition</h2>
 <p>Running the decomposition on an equally weighted book of 100 names as of 29 July
 2026, <b>factor risk is 98.3% of total portfolio variance.</b> The
-idiosyncratic bet in each name is almost entirely diversified away at 100
+idiosyncratic (stock-specific) bet in each name is almost entirely diversified away at 100
 names. What is left is nearly pure exposure to Financials, Health Care, Beta,
 and Technology.</p>
 <p>That is not a bug in a small model. It is the pitch of a factor risk model
@@ -332,7 +343,8 @@ a regression residual taken name by name. The covariance matrix uses a simple sa
 estimator, with no exponential weighting and no eigenfactor adjustment for
 bias in small eigenvalues, both of which a vendor model applies and which I
 would want before trusting this at real capital. The Value factor is a proxy
-built from returns, not fundamental book-to-price. The universe is survivorship biased.</div>
+built from returns, not fundamental book-to-price. The universe is survivorship biased (it contains only names that survived to
+the end of the sample).</div>
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Code: pipeline/factor_risk_model.py.

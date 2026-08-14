@@ -250,10 +250,13 @@ Positioning, Under Promotion Gates That Bite Backwards</h1>
 
 <p class="abstract"><span class="lab">Abstract.</span> This paper documents
 three revisions of a model that forecasts volatility from states of options
-dealer positioning, and the promotion gates that retired the first. The
+dealer positioning, and the promotion gates (the automated pass/fail
+statistical tests a model must clear before adoption) that retired the first. The
 underlying signal is real: dealer gamma exposure predicts the trading range of
 the next day beyond implied volatility (<i>t</i>&nbsp;=&nbsp;7.4 in the standing
-classifier, which clears a stressed re-audit at 3.68). As a forecasting
+classifier, which clears a stressed re-audit, with its edge halved and costs
+doubled, at 3.68; the <i>t</i>-statistic is the standard measure of whether a
+result is distinguishable from luck). As a forecasting
 architecture, however, the state chain adds no value over a competent ensemble
 of persistence, leverage, and implied volatility. Version&nbsp;1 beat
 implied volatility (<i>t</i>&nbsp;=&nbsp;4.34) but lost to a heterogeneous
@@ -300,12 +303,13 @@ corrections improve a log HAR+VIX+GJR backbone at a horizon of 5 days</td>
 <h2>2. The Version 1 signal and its architectural error</h2>
 <p>The underlying signal is real. Options dealer gamma exposure predicts the
 trading range of the next day beyond implied volatility (<i>t</i>&nbsp;=&nbsp;7.4 in
-the standing classifier, retained in the vault, clearing the stressed re-audit
-at 3.68). Version&nbsp;1&rsquo;s error was architectural. It entered its nine
-states as OLS dummies alongside the baselines, level shifts that cannot repair
+the standing classifier, retained in the vault, this site&rsquo;s collection of
+surviving signals, clearing the stressed re-audit at 3.68). Version&nbsp;1&rsquo;s error was architectural. It entered its nine
+states as ordinary least squares (OLS) dummy variables alongside the baselines, level shifts that cannot repair
 where a baseline errs. It also fought the wrong opponent. In volatility space
 the incumbent factor structure is persistence (HAR), leverage asymmetry
-(GJR-GARCH, the Glosten, Jagannathan and Runkle variant of GARCH), and the
+(GJR-GARCH, the Glosten, Jagannathan and Runkle variant of GARCH, generalized
+autoregressive conditional heteroskedasticity), and the
 market&rsquo;s own forecast (implied volatility). Beating a
 naive benchmark while losing to HAR indicates that the new information was
 mostly old information under a new state label, the verdict already applied to
@@ -313,14 +317,19 @@ equity anomalies that die under a Fama-French plus momentum decomposition. A
 claim must beat the incumbent factor model, not the naive benchmark.</p>
 
 <h2>3. Promotion criteria that bite backwards</h2>
-<p>Midway through the program, two promotion criteria were added, proposed by the research
-critic and approved by the human owner; thresholds are never changed by machine.</p>
+<p>Midway through the program, two promotion criteria were added, proposed by the
+independent reviewer of the automated research pipeline behind this site (a
+second automated agent whose only job is to attack results before publication)
+and approved by the human owner; thresholds are never changed by machine.</p>
 <h3>3.1 The deflator for multiple testing</h3>
-<p>Significance bars carry a Bonferroni adjustment set by the hypothesis
-family&rsquo;s attempt count, tracked in the state store. A survivor from a family of thirty
-siblings is judged as one draw of thirty. This converts the critique of multiple
-comparisons from a reviewer&rsquo;s eyeball into arithmetic that runs on every
-cycle.</p>
+<p>Significance bars carry a Bonferroni adjustment (the required significance
+level is divided by the number of attempts) set by the number of times variants
+of the same idea have been tried, tracked in the database of every idea tested
+here. Testing several variants of one idea means several chances to get lucky,
+so the required evidence rises with each attempt: a survivor whose idea has
+been tried thirty ways is judged as one draw of thirty. This converts the
+critique of multiple comparisons from a reviewer&rsquo;s eyeball into
+arithmetic that runs on every research cycle.</p>
 <h3>3.2 The rerun for margin of safety</h3>
 <p>Before promotion, every survivor is re-tested with its edge halved against
 the original heteroskedasticity and autocorrelation consistent (HAC) noise and
@@ -330,7 +339,7 @@ halving the whole return series leaves the <i>t</i>-statistic unchanged, since
 unstressed standard error, or it tests nothing. A synthetic sanity check caught
 this before shipping, and the lesson was filed.</p>
 <p>Gates that apply only to future ideas are decorative, so the vault was
-re-audited. The gamma exposure (GEX) classifier survived (3.68). The screen for tulip mania survived at <i>z</i>&nbsp;=&nbsp;5.3 on counts taken by name and month. I have since corrected that unit, because one mania is counted many times. On the honest count, one per episode, the screen clears its own 1.25 bar at 1.28, having measured 1.18 on a different data pull, so it sits on top of its threshold rather than above it. The Dimopoulos Chain v1, the founder&rsquo;s
+re-audited. The gamma exposure (GEX) classifier survived (3.68). The screen for tulip mania survived at <i>z</i>&nbsp;=&nbsp;5.3 (a <i>z</i>-score reads like a <i>t</i>-statistic) on counts taken by name and month. I have since corrected that unit, because one mania is counted many times. On the honest count, one per episode, the screen clears its own 1.25 bar at 1.28, having measured 1.18 on a different data pull, so it sits on top of its threshold rather than above it. The Dimopoulos Chain v1, the founder&rsquo;s
 namesake model, came up at 2.17 and was retired. No exception was requested.</p>
 
 <h2>4. Version 3: a pre-registered residual corrector</h2>
@@ -339,19 +348,22 @@ a HAR plus implied plus GJR model in log space, refit monthly by expanding OLS, 
 the backbone, and left the states the only remaining job: correcting the
 backbone&rsquo;s residuals. Corrections were shrunk toward zero
 (<i>k</i>&nbsp;=&nbsp;60, James-Stein flavor) across three conditionings, the
-nine GEX&times;RV cells, the sign of the Cboe Volatility Index (VIX) term
+nine GEX&times;RV cells, gamma exposure crossed with realized volatility (RV),
+the sign of the Cboe Volatility Index (VIX) term
 structure, and a flag for state arrival.
 The target moved from the range of the next day to the range over 5 days, since version&nbsp;1.5 had shown
 that daily noise drowns the signal, with leakage guards for the overlapping
 targets: training truncated at the refit boundary minus the horizon, HAC lags
 &ge;&nbsp;10, and Duan smearing applied symmetrically to both models.</p>
-<p>The specification was committed to version control before the run. Under a
-family deflator this is more than hygiene. Every sibling variant raises the
-family&rsquo;s own bar, so the gate makes a single pre-registered shot the
+<p>The specification was committed to version control before the run. Under
+the multiple-testing deflator this is more than hygiene. Every additional
+variant of the same idea raises the evidence bar for the whole group, so the
+gate makes a single pre-registered shot the
 mathematically optimal research strategy. The incentive design does the
 disciplining.</p>
-<p>The corrections did not improve the backbone (mean absolute error (MAE) 34.1 vs 33.7 bps;
-<i>t</i>&nbsp;=&nbsp;&minus;1.07 on the kill test). The decomposition state by
+<p>The corrections did not improve the backbone (mean absolute error (MAE) 34.1 vs 33.7 bps, where one basis point (bp) is a
+hundredth of a percentage point; <i>t</i>&nbsp;=&nbsp;&minus;1.07 on the
+decisive pass/fail test). The decomposition state by
 state shows the information is not uniformly zero: one state with high gamma gained 3.5 bps while
 a stressed state lost 4.5. A result found by inspecting the decomposition after
 the gate has failed is a hypothesis for a future mechanism, not a specification
@@ -363,15 +375,15 @@ alone, and that classifier remains in the vault. It does not add forecast value
 over a competent ensemble of persistence, leverage, and implied volatility at
 daily or weekly horizons under promotion criteria that require the edge to survive at
 half strength. A version&nbsp;4 is warranted only if it brings a mechanism the
-ensemble structurally cannot carry. Transition rows conditioned on events (FOMC,
-CPI) are the standing candidate; such a model would face a bar near 3.1, because
+ensemble structurally cannot carry. Transition rows conditioned on events (Federal Open Market Committee (FOMC)
+meetings, Consumer Price Index (CPI) releases) are the standing candidate; such a model would face a bar near 3.1, because
 the deflator counts prior attempts against it.</p>
 
 <div class="note">Every result above is reproducible from the program records:
 the baseline ladder, the neural post-mortem, the memo on tightening the gates, the
 pre-registration committed before results and verifiable by git timestamp, and
-the burial. The museum publishes the process because most research shops publish
-only the survivors.</div>
+the burial record. This site publishes the process because most research shops
+publish only the survivors.</div>
 
 <div class="refs">
 <h2>References</h2>

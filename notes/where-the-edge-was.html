@@ -250,7 +250,9 @@ of 620 Brier-Scored World Cup Forecasts</h1>
 
 <p class="abstract"><span class="lab">Abstract.</span> I decompose by category
 the 620 settled forecasts of Working Paper No. 5, entered in a competition on
-the 2026 World Cup and scored by Brier score. The platform&rsquo;s scale puts
+the 2026 World Cup and scored by Brier score, the squared error between each
+stated probability and the outcome, where lower is better. The
+platform&rsquo;s scale puts
 Match Outcome at &minus;6.1 on 179 forecasts and Goals and Scoring at
 &minus;15.9 on 145, on undocumented units, so nothing is claimed beyond the
 ordering and the sign. Rescored against the best constant forecast in each
@@ -264,11 +266,13 @@ decomposition, base rates, prediction markets.</div>
 <p>Working Paper No. 5 reported 620 settled forecasts entered in Jump
 Trading&rsquo;s Probability Cup, scored by squared error against the outcome
 (Brier, 1950). The mean Brier score was 0.2309. Against 0.2466 for a forecaster
-who answers the realized base rate of 44.2% every time, the edge is 0.0157 a
+who answers the realized base rate of 44.2% (the share of questions that
+resolved yes) every time, the edge is 0.0157 a
 question, and the constant 50% forecast at 0.25 that No. 5 quoted is withdrawn
 as a benchmark. It is the only number here checked against a second source,
 reconciling with the published calibration table to within 0.001. It is also not
-significant. Independent draws would give a <i>t</i>-statistic near 2.2, but
+significant. Independent draws would give a <i>t</i>-statistic (the standard
+measure of whether a result is distinguishable from luck) near 2.2, but
 fifteen to twenty markets a fixture were priced from one view of the same match,
 and at a correlation of 0.10 within a fixture the statistic falls to about
 1.4.</p>
@@ -353,8 +357,9 @@ finish invited it, and the reading is retired here. The contrarian win rate was
 48%, below half, on a denominator the platform does not disclose and at a
 distance from half that no plausible subset size makes significant. Nothing in
 the record makes departure the source of the edge, and nothing makes it
-calibration, which the published table decomposes into resolution 0.020 against
-reliability 0.006.</p>
+calibration, which the published table decomposes into resolution 0.020 (the
+part of the score earned by telling outcomes apart) against reliability 0.006
+(the penalty for probabilities that drift from observed frequencies).</p>
 
 <h2>4. Limitations</h2>
 <p>This is one tournament, one crowd and one settlement, and the forecasts are
@@ -368,8 +373,8 @@ chosen by the account, so the mix is itself an output of the process. What can
 be read from this decomposition is where the account scored, not where an edge
 exists.</p>
 
-<div class="note">This study is retained because it withdraws a claim the
-collection published, and then withdraws one of its own. A collection that only
+<div class="note">This study is retained because it withdraws a claim this
+site published, and then withdraws one of its own. A collection that only
 ever <i>adds</i> papers is not keeping a ledger.</div>
 
 <div class="refs">
