@@ -2,10 +2,42 @@
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
  "exported": "2026-08-14",
- "works_tested": 411,
+ "works_tested": 419,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(snt_value) - zscore(credit_facility_outstanding_amount), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(domestic_ebit_value, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-11"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(deferred_tax_liability_property_plant_equipment, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-11"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(implied_volatility_put_10, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-11"
+  },
   {
    "claim": "BRAIN candidate: group_rank(implied_volatility_mean_60 / ts_mean(implied_volatility_mean_60, 120), industry)",
    "stage": "brain-checks",
