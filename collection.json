@@ -1,11 +1,122 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-08-14",
- "works_tested": 419,
+ "exported": "2026-08-15",
+ "works_tested": 429,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(current_state_local_tax_expense_amount, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-12"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(parkinson_volatility_60) - zscore(pv13_revere_level), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-12"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(common_stock_issuance_proceeds_2, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-12"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(scl12_buzz, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-12"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(finite_intangibles_gross_value, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-12"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(parkinson_volatility_10, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-12"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(parkinson_volatility_30, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-12"
+  },
+  {
+   "claim": "Slow-spread pair-level selection: among the 200 closest formation pairs, trading only those whose spread AR(1) half-life is 10 to 60 days preserves net-of-lag convergence profit. Same book construction as the headline pair-level test, fixed anchor so slow divergences are no longer absorbed by refresh re-basing.",
+   "stage": "validation",
+   "reason": "Newey-West t=-0.86 < 3.03 (base 2.5, family n=5); bootstrap P(Sharpe<=0)=0.8183 > 0.01 (base 0.05, family n=5); margin-of-safety rerun (gross halved, costs doubled) t=-1.62 < 2.5 \u2014 edge has no buffer; in-sample Sharpe -0.34 <= 0",
+   "status": "rejected",
+   "about": "The uncontaminated version of the slow-spread look. Judged after the headline variant, n=5 at judge time.",
+   "tested": "2026-08-11"
+  },
+  {
+   "claim": "Pair-level GGR pairs trading, run faithfully on large-cap survivors: top 20 mutual min-SSD pairs, 252d formation with fixed anchor, 126d trading, open at 2 formation sigma, close on zero-cross, one-day execution lag, overlapping monthly-start books, committed-capital returns net of engine costs. The claim under test is GGR's: convergence of close twins earns an uncorrelated net return.",
+   "stage": "validation",
+   "reason": "Newey-West t=-0.56 < 3.03 (base 2.5, family n=5); bootstrap P(Sharpe<=0)=0.7414 > 0.01 (base 0.05, family n=5); margin-of-safety rerun (gross halved, costs doubled) t=-1.78 < 2.5 \u2014 edge has no buffer; in-sample Sharpe -0.18 <= 0",
+   "status": "rejected",
+   "about": "The critic-prescribed fair test after three cross-sectional conversions died. Survivorship inflates convergence for pairs specifically, so any pass is an upper bound. Judged at the family-deflated bar, n=4 at judge time.",
+   "tested": "2026-08-11"
+  },
+  {
+   "claim": "Market-residual pairs: matching twins on beta-hedged price paths (formation-window betas to the equal-weight market) removes fake twins whose divergence is a beta gap rather than a relative-value dislocation, and the residual divergence signal beats raw distance divergence.",
+   "stage": "validation",
+   "reason": "Newey-West t=0.42 < 2.87 (base 2.5, family n=3); bootstrap P(Sharpe<=0)=0.3825 > 0.01667 (base 0.05, family n=3); margin-of-safety rerun (gross halved, costs doubled) t=-1.24 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 213% > 30% (IS 0.26 -> OOS -0.29) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "Vidyamurthy common trends, one factor deep. Tests whether purifying the spread rescues the signal or whether the information is simply not there.",
+   "tested": "2026-08-11",
+   "sharpe": 0.087,
+   "dd": -0.1462,
+   "tenk": "$105,832",
+   "tenk_val": 105832,
+   "years": "20"
+  },
+  {
+   "claim": "Slow-spread pairs: restricting the divergence signal to pairs whose formation spread mean-reverts with a half-life of 10 to 60 trading days preserves net-of-lag performance that fast spreads lose to execution delay. The mechanism is latency selection: a spread converging over weeks cannot be destroyed by a one-day-late fill.",
+   "stage": "validation",
+   "reason": "Newey-West t=0.47 < 2.74 (base 2.5, family n=2); bootstrap P(Sharpe<=0)=0.3692 > 0.025 (base 0.05, family n=2); margin-of-safety rerun (gross halved, costs doubled) t=-0.65 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 223% > 30% (IS 0.29 -> OOS -0.35) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "The genuinely new look in the family: the one-day-delay result inverted into a selection filter. If this fails too, the daily-bar pairs lane closes with receipts.",
+   "tested": "2026-08-11",
+   "sharpe": 0.104,
+   "dd": -0.2549,
+   "tenk": "$109,181",
+   "tenk_val": 109181,
+   "years": "20"
+  },
+  {
+   "claim": "Distance-pairs divergence as a cross-sectional signal: stocks trading below their formation twin outperform stocks above it (GGR 2006 rules, min-SSD twin over 252d, monthly refresh). Family control ticket: GGR's own one-day-waiting check and a 2026 full-market replication (top-5 CAGR 7.3% to 1.8% when execution waits a day) predict this dies at our built-in 1-day lag.",
+   "stage": "validation",
+   "reason": "Newey-West t=0.22 < 2.50 (base 2.5, family n=1); bootstrap P(Sharpe<=0)=0.4616 > 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=-1.23 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 277% > 30% (IS 0.28 -> OOS -0.49) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "Baseline and control for the family, on large-cap survivors. Survivorship bias inflates convergence for pairs specifically, both twins survived by construction, so any pass here is an upper bound and must say so.",
+   "tested": "2026-08-11",
+   "sharpe": 0.047,
+   "dd": -0.1931,
+   "tenk": "$102,208",
+   "tenk_val": 102208,
+   "years": "20"
+  },
   {
    "claim": "BRAIN candidate: group_rank(zscore(snt_value) - zscore(credit_facility_outstanding_amount), subindustry)",
    "stage": "brain-checks",
