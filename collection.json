@@ -1,11 +1,35 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-08-15",
- "works_tested": 429,
+ "exported": "2026-08-16",
+ "works_tested": 438,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(common_stock_issuance_proceeds_2, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-13"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(fnd6_aqs) - zscore(rel_num_cust))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-13"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(business_acquisition_payments_net / ts_mean(business_acquisition_payments_net, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-13"
+  },
   {
    "claim": "BRAIN candidate: -rank(ts_zscore(current_state_local_tax_expense_amount, 250))",
    "stage": "brain-checks",
