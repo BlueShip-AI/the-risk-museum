@@ -1,0 +1,330 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Permissioned Abundance &middot; Working Paper No. 33</title>
+<meta name="description" content="By 2030 intelligence is abundant and cheap; the scarce factor is permission: the energized megawatt, the licensed chip, the approved supply chain, the chartered settlement rail. The framework behind the museum's fourteen pre-registered macro forecasts: where permission binds, who keeps the rent, and the four prints that would kill the thesis.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/permissioned-abundance.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* The canonical paper stylesheet. One source, injected inline into every note
+   by pipeline/restyle_notes.py so pages stay self-contained. Edit HERE and
+   re-run that script; editing a note's own style block is a losing move.
+
+   The format follows an institutional research-article convention: a dark
+   hero band carrying an eyebrow, a large light grotesque headline and a serif
+   lede, then a left-aligned serif text column. Fonts are system faces only.
+   Identity stays the museum's: Charter body, the crest, navy, the red accent
+   where things die, and gold reserved for the vault. */
+
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b;
+  --hero:#0f1c33; --heroink:#f2efe8; --herosub:#c9cfda; --heromut:#8fa0bb;
+  --gold:#b8860b; --goldhero:#e0bc6a; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc;
+    --hero:#0c1626; --gold:#e0bc6a; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg); position:relative;
+  font:18px/1.72 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif;
+  font-variant-numeric:lining-nums; padding:0 0 4.5rem; }
+
+/* topbar: brand left, tabs right */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
+.brand-lockup img { display:block }
+nav.tabs { display:flex; gap:1.1rem; margin-left:auto; flex:1 1 auto;
+  min-width:0; justify-content:flex-end; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
+nav.tabs::-webkit-scrollbar { display:none }
+@media (max-width:899px) { nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) { nav.tabs { -webkit-mask-image:none; mask-image:none } }
+nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; flex:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+nav.tabs a.on { color:var(--fg); border-bottom-color:var(--gold) }
+nav.tabs a:hover { color:var(--fg) }
+@media (max-width:820px) {
+  nav.tabs { gap:.9rem; overflow-x:auto; scrollbar-width:none }
+  nav.tabs::-webkit-scrollbar { display:none } }
+
+/* the get-in-touch mark, floated over the hero's top right */
+.tearmark { position:absolute; top:4.4rem; right:1.2rem; z-index:60;
+  display:block; padding:.45rem .8rem .5rem; background:var(--card);
+  border:1px solid var(--line); border-radius:8px; text-decoration:none;
+  line-height:1.3; box-shadow:0 2px 10px rgba(0,0,0,.18) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.8rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:820px) { .tearmark { display:none } }
+@media print { .tearmark { display:none } }
+
+/* hero band */
+.hero { background:var(--hero); color:var(--heroink);
+  padding:3.6rem 1.5rem 3rem; border-bottom:1px solid var(--line) }
+.hero-in { max-width:912px; margin:0 auto }
+.eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--goldhero);
+  margin-bottom:1.5rem }
+.hero h1 { font:300 clamp(32px,5vw,46px)/1.16 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.02em; color:var(--heroink); max-width:17em; margin:0 0 1.5rem }
+.hero .lede { font:italic 20px/1.55 Charter,Georgia,serif; color:var(--herosub);
+  max-width:42em; margin:0 0 1.9rem }
+.hero .who { font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--heromut) }
+.hero .who b { color:var(--heroink); font-weight:500 }
+
+/* article column */
+main { max-width:960px; margin:0 auto; padding:0 1.5rem }
+article, .article-body { max-width:912px; margin-top:2.6rem }
+p { margin-bottom:1.25rem; text-align:left }
+h2 { font:500 22px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.01em; margin:2.7rem 0 .9rem }
+h3 { font:600 16.5px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:1.8rem 0 .6rem }
+a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:2px }
+strong { font-weight:600 }
+code { font:.85em ui-monospace,Menlo,monospace; background:var(--card);
+  border:1px solid var(--line); border-radius:4px; padding:.05em .35em }
+ol, ul { padding-left:1.3rem; margin-bottom:1.25rem }
+blockquote { border-left:3px solid var(--line); padding-left:1.1rem;
+  color:var(--muted); margin:1.5rem 0 }
+
+/* legacy academic pieces some papers carry */
+.abstract { font-size:16px; line-height:1.65; margin:0 0 1.1rem;
+  text-align:left; hyphens:none }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em; font-weight:bold }
+.keywords { font-size:14px; color:var(--muted); margin-bottom:1.8rem }
+.plain { font-size:18px; line-height:1.55; margin:0 0 1.5rem;
+  padding:.8rem 1.1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; text-align:left }
+
+/* tables: horizontal rules only */
+.tblwrap { overflow-x:auto; margin:2rem 0 }
+.cap { font:13px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); margin-bottom:.5rem }
+table { border-collapse:collapse; width:100%;
+  font:15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif }
+th, td { border:0; border-bottom:1px solid var(--line);
+  padding:.6rem .9rem .6rem 0; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { font-weight:600; font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted);
+  border-bottom:2px solid var(--fg) }
+
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1.1rem;
+  margin:1.8rem 0; color:var(--muted); font-size:15.5px; font-style:italic }
+.grave { margin:2.4rem 0 }
+.grave svg { width:100%; height:auto; display:block }
+hr { border:0; border-top:1px solid var(--line); margin:3rem 0 }
+
+.refs { margin-top:2.6rem; font-size:14.5px }
+.refs h2 { font-size:15px }
+.refs ol { padding-left:1.3rem }
+.refs li { margin-bottom:.45rem; line-height:1.5 }
+
+/* provenance block, bs-prov/1.0 */
+.prov { margin:2.6rem 0 0; border:1px solid var(--line); border-radius:6px;
+  background:var(--card); padding:1rem 1.2rem; font-size:14px;
+  line-height:1.55; color:var(--muted) }
+.prov h2 { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.1em; text-transform:uppercase; margin:0 0 .7rem;
+  color:var(--fg) }
+.prov dl { display:grid; grid-template-columns:8.5rem 1fr; gap:.32rem .9rem;
+  margin:0 }
+.prov dt { color:var(--fg); font-weight:600 }
+.prov dd { margin:0; text-align:left }
+.prov code { font-size:.94em }
+.prov ul { margin:0; padding-left:1.05rem }
+@media (max-width:520px) {
+  .prov dl { grid-template-columns:1fr; gap:.1rem }
+  .prov dd { margin-bottom:.5rem } }
+
+footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
+  border-top:1px solid var(--line); color:var(--muted);
+  font:13px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:left }
+
+
+/* ---- listing page: cards and the At a Glance category grid ---- */
+.note-card { background:var(--card); border:1px solid var(--line);
+  border-radius:10px; padding:1.2rem 1.4rem; margin:0 0 1rem;
+  display:flex; gap:1.2rem; align-items:flex-start;
+  text-decoration:none; color:var(--fg) }
+.tile { flex:none; width:64px; height:64px; margin-top:.15rem }
+.note-body { min-width:0 }
+.note-card:hover { border-color:var(--gold) }
+.note-card h2 { font:500 17px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:0; margin:0 0 .4rem; color:var(--fg) }
+.note-card p { font:15px/1.55 Charter,Georgia,serif; color:var(--muted); margin:0 }
+.listing { max-width:912px; margin-top:2.4rem }
+
+/* ---- listing page, featured tier: top 5 thesis ---- */
+.top5 { max-width:912px; margin-top:2.4rem }
+.sect-h { font:600 .8rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 .55rem }
+.sect-note { font:15px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 1.1rem }
+.top-card { display:block; background:var(--card); border:1px solid var(--line);
+  border-left:3px solid var(--blue); border-radius:10px;
+  padding:1.15rem 1.35rem; margin:0 0 .9rem; text-decoration:none;
+  color:var(--fg) }
+.top-card:hover { border-color:var(--blue) }
+.top-card .tc-meta { font:600 .68rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--blue);
+  display:block; margin-bottom:.45rem }
+.top-card h2 { font:500 19px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:0 0 .4rem; color:var(--fg) }
+.top-card p { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 .6rem }
+.top-card .tc-stat { font:13px/1.5 Charter,Georgia,serif; color:var(--fg);
+  border-top:1px solid var(--line); padding-top:.55rem; display:block }
+
+.glance { margin-bottom:2.4rem }
+.glance-hdr { display:flex; align-items:baseline; justify-content:space-between;
+  margin-bottom:.75rem }
+.glance-hdr h2 { font-size:1.05rem; font-weight:bold }
+.glance-count { color:var(--muted); font-size:.78rem }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(122px,1fr));
+  gap:.5rem }
+.mtile { background:var(--card); border:1px solid var(--line); border-radius:8px;
+  padding:.6rem .65rem; text-decoration:none; color:var(--fg); display:flex;
+  flex-direction:column; gap:.3rem; min-height:84px }
+.mtile:hover { border-color:var(--blue) }
+.mtile-icon { width:26px; height:26px; flex:none; opacity:.85 }
+.mtile-meta { font-size:.62rem; color:var(--muted); letter-spacing:.03em;
+  text-transform:uppercase }
+.mtile-t { font-size:.79rem; line-height:1.22; font-weight:600; flex:1 }
+.mtile-s { font-size:.72rem; color:var(--accent); font-weight:bold }
+.mtile.hide { display:none }
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem }
+.chip { font:inherit; font-size:.78rem; color:var(--muted); background:var(--bg);
+  border:1px solid var(--line); border-radius:999px; padding:.32rem .75rem;
+  cursor:pointer }
+.chip span { color:var(--muted); opacity:.8 }
+.chip:hover { border-color:var(--blue); color:var(--fg) }
+.chip.on { background:var(--card); border-color:var(--accent); color:var(--fg);
+  font-weight:600 }
+.chip.on span { color:var(--accent) }
+/* share:start */
+.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
+  padding:.45rem .8rem .55rem; background:var(--card,#fff);
+  border:1px solid var(--line,#e3e0da); border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
+.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
+.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
+  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
+  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
+  text-decoration:none }
+.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
+@media (max-width:820px) { .sharebox { display:none } }
+@media print { .sharebox { display:none } }
+/* share:end */</style>
+<!-- social:start -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Risk Museum">
+<meta property="og:title" content="Permissioned Abundance &middot; Working Paper No. 33">
+<meta property="og:description" content="By 2030 intelligence is abundant and cheap; the scarce factor is permission: the energized megawatt, the licensed chip, the approved supply chain, the chartered settlement rail. The framework behind the museum's fourteen pre-registered macro forecasts: where permission binds, who keeps the rent, and the four prints that would kill the thesis.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/permissioned-abundance.html">
+<meta property="og:image" content="https://theriskmuseum.com/cards/note-permissioned-abundance.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://theriskmuseum.com/cards/note-permissioned-abundance.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Permissioned Abundance &middot; Working Paper No. 33">
+<meta name="twitter:description" content="By 2030 intelligence is abundant and cheap; the scarce factor is permission: the energized megawatt, the licensed chip, the approved supply chain, the chartered settlement rail. The framework behind the museum's fourteen pre-registered macro forecasts: where permission binds, who keeps the rent, and the four prints that would kill the thesis.">
+<!-- social:end -->
+</head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fpermissioned-abundance.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=Permissioned%20Abundance%20-%20Working%20Paper%20No.%2033&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/permissioned-abundance.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
+<div class="topbar">
+<!-- brand:start -->
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<!-- brand:end -->
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+</nav>
+</div>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<div class="hero"><div class="hero-in">
+<div class="eyebrow">Working Paper No. 33 &middot; 16 August 2026 &middot; the framework behind the forecast wing, frozen 30 July 2026</div>
+<h1>Permissioned Abundance</h1>
+<p class="lede">Intelligence gets cheap; permission gets scarce. The macro framework behind the museum&rsquo;s fourteen pre-registered forecasts: who may bid, who can deliver, who keeps the rent, and the four prints that would kill the thesis.</p>
+<div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
+</div></div>
+<main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> AI is making intelligence abundant while raising the value of durable access to four things: firm power, licensed compute, trusted data, and chartered settlement. I call that equilibrium Permissioned Abundance. The consensus, including Bridgewater&rsquo;s published account of accelerating resource grabs, stops at naming the grab; this paper prices where it binds, who captures the rent, and where I part from the house view. Five mechanisms carry the argument: permanent tariffs as a balance-sheet tax that credit pays at the refinancing date; markets where the buyer&rsquo;s identity outranks the size of the bid; a power buildout constrained by the calendar rather than the capex; a world that de-dollarizes its reserves while dollarizing its machines; and a software market whose 82% survival pricing hides the death of seat-based economics. The view is priced as one portfolio of fourteen yes-or-no forecasts with committed probabilities, frozen on 30 July 2026 and scored live on this site&rsquo;s <a href="../forecasts.html">Forecast Wing</a> as each resolves. Four pre-committed prints would kill the thesis; two of the four would end it.</p>
+
+<h2>1. The thesis</h2>
+<p>The consensus assumes that de-dollarization, digitization and AI all point toward a less state-mediated economy. I expect the opposite. Intelligence is getting cheap exactly as promised: frontier token prices fell roughly 280-fold in two years on the Stanford AI Index count. But economically consequential agency still requires permission at the points where code meets physical infrastructure and sovereign balance sheets. An agent can act; it still needs an energized machine, an eligible chip, an approved supply chain, and an authorized settlement rail. Markets underprice the duration, allocation, and balance-sheet incidence of those access rights, and therefore misprice who captures the resulting cash flows.</p>
+<p>The sharpest case is software. Market pricing implies roughly 82% ten-year survival for public software companies. Survival is the wrong question: a company can outlive its pricing power. I price the preservation of seat-based application <i>economics</i> through 2030 nearer 30%, while the cap-weighted index, whose largest firms own the disruption, deserves more generosity than a blended number gives.</p>
+<p>The hierarchy has a bottom, and it is the subject Global Citizen works on: Africa holds 60% of the world&rsquo;s best solar resource and 2% of its investment, and the World Cup halftime show Global Citizen produced in July 2026, where Shakira sang, funds a $100 million education push. With power, those classrooms reach what AI has made cheap. Without it, abundance stays somewhere else.</p>
+<p>The <a href="../forecasts.html">Forecast Wing</a> prices this view as one portfolio of fourteen forecasts, pre-registered, revised only on dated evidence, scored live as they resolve. I do not get to call it a claim until it carries a number.</p>
+
+<h2>2. Tariff walls are a balance-sheet tax, and credit pays it at maturity</h2>
+<p>The tariff wall now rests on durable statute (<a href="../forecasts.html#sec301-survives-2027">F1</a>: duties still standing on 40 or more of 60 economies at end-2027, 70%). Its sharpest transmission, and the one macro lenses tend to under-price, runs through corporate credit. Temporary tariffs hit the income statement. Permanent tariffs colonize the balance sheet, forcing duplicate suppliers, buffer inventory and domestic tooling. Asset turns fall, capital intensity rises, and the same revenue requires more debt. The collected rate matters more than the headline (<a href="../forecasts.html#collected-duty-wedge-2027">F2</a>: collected duties exceed 9% of import value, 34%). The most damaging scenario is not another spike. It is a collected rate near 9% that stays there.</p>
+<p>The loss lands one or two tiers below the brand, at thin-margin suppliers and leveraged specialty chains. The credit event arrives at the refinancing date, when spreads widen and the risk-free rate refuses to help. High-yield aggregates look calm; the risk is migration, a B-minus borrower crossing into a refinancing yield it cannot afford. Public credit prices the loss; private credit warehouses it. The tariff does not have to bankrupt the borrower at customs. It only has to make the next maturity non-refinanceable. The AI buildout supplies the precedent: Cyxtera, a top-three US colocation operator, filed Chapter 11 in June 2023 when floating-rate interest roughly doubled against $1.4 billion of non-cancelable leases and a $1.2 billion maturity wall. Demand never failed; the balance sheet did.</p>
+<p>The warehouse itself is changing ownership. Since 2015, banks&rsquo; share of US corporate lending has fallen from 48% to 29%, while alternative managers pair origination engines with long-duration insurance liabilities. Apollo-Athene and KKR-Global Atlantic are the clearest models. Banks keep deposits, payments and financing lines to private-credit vehicles; insurer-backed managers hold the long-duration assets. This keeps capital available as banks retreat, so capital stays a chronic rather than acute constraint. But it also moves price discovery into balance sheets where amendments, PIK (interest paid in kind, added to principal instead of cash) and discretionary marks defer recognition, and the BIS finds the buildout&rsquo;s circular financing makes a bust likelier. Banks own the rails; alternative managers increasingly own the risk warehouse.</p>
+<p><i>Portfolio expression, from the frozen submission:</i> long senior secured adaptation finance and higher-quality chokepoint credits; short B/CCC import-dependent borrowers with weak pass-through, rising revolver usage and 2027-28 maturities. Among the warehouses, long originator-insurers whose asset-liability spread survives realistic credit losses and is not already fully capitalized; avoid platforms leaning on PIK income, optimistic marks, concentrated origination or fragile insurance funding.</p>
+
+<h2>3. Permissioned markets: the border, the factory gate, the substation</h2>
+<p>Price survives but becomes subordinate. What emerges is a permissioned market. The line is crossed when the buyer&rsquo;s identity matters more than the size of the bid. Throughout, permission means a legally or contractually durable priority right of access to a constrained input, at a known service standard or price, for a defined period. A signed interconnection agreement qualifies; an announced data-center project does not.</p>
+<p>Advanced compute has already crossed it at the border: case-by-case licensing for Chinese buyers, preferential access for allied sovereign funds (<a href="../forecasts.html#nvda-china-dc-2b">F4</a>: Nvidia&rsquo;s China data-center revenue, 34%; both capitals now hold a veto over the same trade). Washington writes the guest list; Nvidia still sends the invoice. Rare-earth magnets are crossing it at the factory gate, where the state secures the plant itself with convertible preferred, warrants, a ten-year price floor and guaranteed offtake (<a href="../forecasts.html#china-ree-magnet-exports-2027">F3</a>: magnet flows recover to their pre-war average, 21%). Power crosses next at the substation: who gets firm service, who must bring generation and who pays for the upgrade are political decisions written into approved tariffs and, since FERC&rsquo;s 2026 large-load directive, the rulebook itself. Brussels is building the same checkpoint at the model layer, where Commission enforcement powers over general-purpose AI switch on in August 2026 (<a href="../forecasts.html#eu-gpai-enforcement-2027">F14</a>: a first meaningful enforcement action against a named provider by end-2027, 48%). Regulatory mercantilism rather than tariff mercantilism, permission priced in fines instead of duties.</p>
+<p>Political risk governs willingness; economic and financial risk govern ability (Erb, Harvey and Viskanta, 1996). Permissioned Abundance is the industrial version: the state decides who may bid, physical capacity decides who can deliver, and price clears what remains. A license without capacity is a stranded permit; capacity without permission is a stranded asset.</p>
+<p>This is why the state rarely needs ownership. Private institutions capture the rent; the state franchises the right to earn it, making queue position a conditional property right.</p>
+<p><i>Portfolio expression, from the frozen submission:</i> long strategic producers with state-backed offtake, licenses, price floors or guaranteed cost recovery; short buyers and assemblers dependent on politically neutral cross-border access.</p>
+
+<h2>4. The binding constraint is the calendar, not the capex</h2>
+<p>Imagine 2028. A hyperscaler and a US defense program want the same firm megawatts. No highest-bidder auction settles it. The utility, grid operator and state commission decide through queues, tariffs and reliability rules; the Pentagon wins only if Washington formally elevates the project. The decision is political before it is commercial.</p>
+<p>The constraint is the calendar, not the capex. A firm, deliverable megawatt at a specific node by a contracted date needs equipment, permits, interconnection studies, transmission, transformers and substations to clear in sequence. Money can bid for a place in line. There is no armband that skips it, the way there is at Disney.</p>
+<p>GE Vernova&rsquo;s turbine slots were sold through 2028 in December 2025 and through 2030 by its April 2026 8-K. The backlog gained two years in four months. Berkeley Lab&rsquo;s &ldquo;Queued Up&rdquo; puts the median interconnection request-to-operation timeline near five years, up from under two at the start of the century. A data center is one project under one management team; its power crosses a utility, a grid operator, suppliers, regulators and several jurisdictions, and no single check compresses all those clocks.</p>
+<p>Electrical systems absorb 40 to 45% of a data-center construction budget, the building shell 10 to 15%. What gets financed is a power claim wearing a shell. Nuclear proves it from the other side. Thirteen announced AI-nuclear deals total about ten gigawatts, nearly every delivery date reads 2030-something, and roughly half of one percent of that capacity is under construction. The largest project moving is Palisades, a restart of existing machinery, relicensed in July 2025 and still without a firm reconnect date. When even resurrection runs late, announced megawatts are positions in a queue, not electrons on a wire. PJM shut its standard interconnection queue in 2022 under the backlog and reopened it only in 2026; even a finished reactor waits on the wires.</p>
+<p>My doubt is not on the spend side. Equipment and software lines put roughly 0.8 to 1.0 percentage points into measured 2026 growth (<a href="../forecasts.html#bea-ai-capex-gdp-contrib-2026">F5</a>: 66%), and hyperscaler capex has never printed a down year since 2015 (<a href="../forecasts.html#hyperscaler-capex-2027-plus20">F6</a>: 62%). The BIS models this buildout as a winner-take-most contest and puts the over-investment at roughly 1.5 times the efficient level, up to three times where demand is inelastic (Rungcharoenkitkul, 2026). A race that over-commits by design keeps spending; its bust deepens with its boom. The more certain the money, the harder it collides with the queue.</p>
+<p>Power breaks first not as a blackout but as a denial of optionality. The auction says the system is tight (<a href="../forecasts.html#pjm-fourth-cap">F7</a>: a fourth consecutive PJM capacity-auction cap-clear, 72%). Delayed energization says growth has actually been rationed.</p>
+<p><i>Portfolio expression, from the frozen submission:</i> long contracted generation, transmission and grid-equipment backlogs where large-load upgrade costs are ring-fenced; short or avoid merchant compute and data-center projects whose economics assume uncontracted energization. One market test prices the thesis, utilities over software: XLU out-earning IGV by five points across 2027-29 (<a href="../forecasts.html#xlu-igv-permission-rent-2029">F8</a>: 40%), held below the coin because the likeliest political response to real scarcity hands the rent to ratepayers, not shareholders.</p>
+
+<h2>5. De-dollarized reserves, dollarized machines</h2>
+<p>The refinancing arithmetic of Section 2 is set in the Treasury market, where reserve share and transaction intensity can move in opposite directions. Central banks have net-bought over 750 tonnes of gold for four straight years. Yet the absolute level of foreign Treasury holdings rises (<a href="../forecasts.html#tic-foreign-ust-10t">F9</a>: $10 trillion, 60%), and programmable rails dollarize machine commerce. A programmable-dollar bank, conditionally chartered in May 2026, is private code entering the sovereign monetary perimeter through a federal charter. The state does not have to own the bank. It only has to hold the charter that lets it exist.</p>
+<p>Digital dollarization is not fiscal absolution. Stablecoin reserves principally back bills and short collateral, not the long bonds that absorb persistent fiscal issuance. The dollar network can deepen while long-duration Treasury risk reprices. The world de-dollarizes its reserves while dollarizing its machines.</p>
+<p><a href="../forecasts.html#acm-term-premium-100bp">F10</a> prices that distinction at 55%, on the ACM series, the New York Fed&rsquo;s standard daily estimate of the Treasury term premium. I fade the repricing consensus&rsquo;s confidence, not its direction. Fiscal supply and the growing competition for capital, which Bridgewater&rsquo;s January 2026 paper flags as not yet priced, make a five-day ACM crossing above 1.00% slightly more likely than not.</p>
+<p><i>Portfolio expression, from the frozen submission:</i> prefer bills and chartered dollar rails to long nominal duration, but size the bond underweight modestly.</p>
+
+<h2>6. Where I part from the consensus: 82% survival hides a one-in-four tail</h2>
+<p>Greg Jensen put the number on Bridgewater&rsquo;s Q2 2026 call: at the peak, software stocks were priced as though 100% would still exist in ten years, and the market now prices about 82% making it through the next decade. That is a survival test, and I do not dispute it. Mine is a different test. A vendor can outlive its pricing power and still count as a survivor, so I ask whether the <i>economics</i> survive, not the <i>company</i>. The share of seat-priced horizontal applications still holding today&rsquo;s economics through 2030 is nearer 30%.</p>
+<p>My largest disagreement with the house is not whether software survives, but where mortality concentrates. The cap-weighted index holds the hyperscalers, security firms, databases and platforms that own the disruption. Among seat-priced horizontal applications, whose value is tied to human headcount, net revenue retention (the revenue kept plus expansion from existing customers) already sits between 96 and 105%, against an all-software median down from 123 in early 2022. Three gates must clear by 2030: still independently listed, net revenue retention 100% or better, gross margin 70% or better. Multiplying the marginals gives a 22% floor, and correlating them lifts joint preservation to roughly a quarter to a third. <a href="../forecasts.html#seat-saas-economics-2030">F13</a> freezes a named 12-company seat-priced cohort at submission and prices four or fewer clearing all three gates at 58%.</p>
+<p>The mechanism is not mass cancellation. First customers stop adding seats. Then agents bypass the interface. Then incumbents burn compute defending accounts whose headcount-based meter AI is destroying. Revenue growth and margins deteriorate together, visible in net retention in 2027, then in consolidation in 2028. And the replacement revenue is worse revenue: classic software earned eighty to ninety percent gross margins because the next user cost nothing to serve; AI-delivered features are estimated at zero to thirty percent, because inference is a cost of goods sold, not a rounding error.</p>
+<p>The index may survive while the median application company does not (<a href="../forecasts.html#software-disruption-igv-lag-2029">F12</a>: IGV trails SPY by 25 points, 30%; <a href="../forecasts.html#btos-ai-adoption-25pct-2028">F11</a>: adoption in the Census Bureau&rsquo;s business survey crosses 25%, 48%). Apollo&rsquo;s mid-year outlook flags software for high leverage and thin coverage, so a pricing-model problem becomes a refinancing problem, the same channel Section 2 prices for tariffed borrowers. AI does not kill software first. It kills the assumption that every additional worker produces another high-margin seat.</p>
+<p><i>Portfolio expression, from the frozen submission:</i> long the platforms, data owners and security layers that internalize compute and distribution. Short an equal-weight basket of seat-priced horizontal applications, not cap-weighted IGV.</p>
+<p>The losers are where the next political force forms. Domestically, the boom&rsquo;s growth is capex-heavy and household-light. The house&rsquo;s own comparison: $1.5 billion of data center supports roughly a hundred jobs, a similar-sized battery plant sixteen hundred. Ratepayers finance substations through politically approved tariffs, and entry-level rungs dissolve in the labor data. The backlash is a tracker now, not a forecast: one 2026 quarter blocked as many project dollars as all of 2025, electricity bills won two governorships in November, and planned capacity concentrates in Virginia, Texas and Louisiana, so the buildout&rsquo;s map is the backlash&rsquo;s map. Globally, the hierarchy&rsquo;s bottom is countries that cannot get licensed compute and food-importing economies hiking into shocks the Fed looks through.</p>
+
+<h2>7. What would kill this</h2>
+<p>The strongest counter is that scarcity catalyzes its own cure. Four prints each kill a different leg, and <i>any one</i> should be read against me. Large-load connection times below two years kill the power leg. Infrastructure costs cleanly ring-fenced without political backlash kill the political-limit leg. The seat-priced SaaS tail holding net retention above roughly 110% with stable gross margins kills the software leg. The ACM premium staying below 1.00% despite heavy issuance kills the monetary leg. Two of the four would end the thesis, not merely wound it. I would close the relative-value book rather than explain away the prints.</p>
+<p>Own duration of access as a relative-value book. Long durable permissions, short permission-dependence, not mechanically long the politically favored. The book is sector-neutral long-short, ranked on permission (contracted access, Section 3) times ability over price, with gross allocated by forecast confidence: power and access 30%, tariff-credit 25%, compute and minerals 20%, software 15%, dollar and rates 10%. KKR&rsquo;s mid-2026 expected-return work ranks private infrastructure above US public equity for the next five years, permission over beta.</p>
+<p>My final takeaway is simple. Intelligence gets cheap and permission gets scarce. Own the permission; fund it with the dependence. The 2030 system is not clean abundance, clean de-dollarization or clean state capitalism. It is private innovation operating inside politically designed infrastructure. Intelligence is abundant. Dollar settlement is programmable. But the right to connect the two remains chartered.</p>
+
+<div class="prov"><h2>Provenance, bs-prov/1.0</h2><dl>
+<dt>Method</dt><dd>Framework and fourteen yes-or-no forecasts pre-registered: priced 21 July 2026, every revision dated and logged in the open, slate frozen at submission to an external forecasting contest on 30 July 2026. Each forecast carries binding resolution criteria, a base-rate band set before pricing, and a declared conviction tier; the Brier score is reported as each resolves, 2026 through 2030. The text above is the frozen submission essay, unchanged except for removed chart references, absolute dates, linked forecast references, and four added glosses.</dd>
+<dt>Sources</dt><dd>Yale Budget Lab and Penn Wharton Budget Model (tariff rates); Berkeley Lab &ldquo;Queued Up&rdquo;; GE Vernova filings; FERC 2026 large-load directive; BIS (Rungcharoenkitkul, 2026); Stanford AI Index; BEA NIPA; TIC; the New York Fed&rsquo;s ACM term premium; Bridgewater&rsquo;s published AI-capex paper (January 2026) and Q2 2026 remarks; Apollo mid-year outlook (June 2026); KKR mid-2026 expected returns; Erb, Harvey and Viskanta (1996).</dd>
+<dt>Honesty</dt><dd>This is a thesis with committed probabilities, not a tested trading strategy; none of the fourteen forecasts has resolved. The fourteen carry the precision of roughly six to seven independent bets, a dependency structure declared on the wing, not estimated from outcomes. The falsification map in Section 7 was committed in advance, and two of its four prints end the thesis.</dd>
+<dt>Related</dt><dd>The <a href="../forecasts.html">Forecast Wing</a> (the live scored ledger); Research Note No. 5 (620 Probabilities, the calibration record behind the method); Working Paper No. 9 (the AI-CDO); Working Paper No. 31 (where high-yield credit risk went).</dd>
+</dl></div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
+</body></html>

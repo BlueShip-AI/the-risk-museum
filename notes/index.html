@@ -165,6 +165,28 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 .note-card p { font:15px/1.55 Charter,Georgia,serif; color:var(--muted); margin:0 }
 .listing { max-width:912px; margin-top:2.4rem }
 
+/* ---- listing page, featured tier: top 5 thesis ---- */
+.top5 { max-width:912px; margin-top:2.4rem }
+.sect-h { font:600 .8rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 .55rem }
+.sect-note { font:15px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 1.1rem }
+.top-card { display:block; background:var(--card); border:1px solid var(--line);
+  border-left:3px solid var(--blue); border-radius:10px;
+  padding:1.15rem 1.35rem; margin:0 0 .9rem; text-decoration:none;
+  color:var(--fg) }
+.top-card:hover { border-color:var(--blue) }
+.top-card .tc-meta { font:600 .68rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--blue);
+  display:block; margin-bottom:.45rem }
+.top-card h2 { font:500 19px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:0 0 .4rem; color:var(--fg) }
+.top-card p { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 .6rem }
+.top-card .tc-stat { font:13px/1.5 Charter,Georgia,serif; color:var(--fg);
+  border-top:1px solid var(--line); padding-top:.55rem; display:block }
+
 .glance { margin-bottom:2.4rem }
 .glance-hdr { display:flex; align-items:baseline; justify-content:space-between;
   margin-bottom:.75rem }
@@ -245,19 +267,55 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 </div></div>
 <main>
 <p style="color:var(--muted);font-size:.82rem;line-height:1.5;margin:1.4rem 0 0">The Risk Museum: an autonomous AI pipeline tests ideas for trading strategies the way a quant desk would, and publishes the ones that fail its tests. <a href="../">New here? Start at the entrance &rarr;</a></p>
+<div class="top5">
+<h2 class="sect-h">Top 5 Thesis</h2>
+<p class="sect-note">Start here. The five deepest, strongest pieces on this shelf: the macro framework, the engine&rsquo;s full account, and the three deepest single results. Everything below them is additional depth.</p>
+<a class="top-card" href="permissioned-abundance.html">
+<span class="tc-meta">Working Paper No. 33 &middot; the macro framework &middot; Aug 16, 2026</span>
+<h2>Permissioned Abundance</h2>
+<p>By 2030 intelligence is abundant and cheap; the scarce factor is permission: the energized megawatt, the licensed chip, the approved supply chain, the chartered settlement rail. Five mechanisms carry the argument, from tariffs as a balance-sheet tax that credit pays at the refinancing date, to a software market whose 82% survival pricing hides the death of seat-based economics. Priced as one relative-value book of fourteen pre-registered forecasts, frozen 30 July 2026 and scored live as each resolves.</p>
+<span class="tc-stat">14 forecasts with committed probabilities &middot; four pre-committed prints would kill it, two of the four would end it</span></a>
+<a class="top-card" href="who-has-to-trade.html">
+<span class="tc-meta">Working Paper No. 22 &middot; the engine, end to end</span>
+<h2>Who Has To Trade Tomorrow</h2>
+<p>184 trading ideas from the academic literature and industry practice, pushed through one gated pipeline whose significance bar rises with every attempt. Two survived, and both are mechanisms where a counterparty is compelled to trade on a visible schedule. This is the engine&rsquo;s full account: what died, why each idea died, and what the 1.1% that lived have in common.</p>
+<span class="tc-stat">184 ideas judged &middot; 2 survivors &middot; Alpha158: 158 published alphas to 0 under the gates</span></a>
+<a class="top-card" href="the-ai-cdo.html">
+<span class="tc-meta">Working Paper No. 9 &middot; structured credit</span>
+<h2>The AI-CDO</h2>
+<p>A three-tranche securitization of AI-infrastructure debt, built and simulated: 200,000 Monte Carlo paths through data-center developers, neoclouds, and chip-collateralized lending, with the four named defects of 2008 mapped onto today&rsquo;s complex. The senior claim, the asset offered to insurers, stays intact in 93% of paths and is impaired only when realized revenue falls below roughly 60% of promised AI economics.</p>
+<span class="tc-stat">200,000 paths &middot; average value loss: equity 68%, mezzanine 28%, senior 1%</span></a>
+<a class="top-card" href="beaten-by-four-parameters.html">
+<span class="tc-meta">Working Paper No. 26 &middot; model risk</span>
+<h2>Beaten by Four Parameters</h2>
+<p>A locked, pre-registered falsification: a 24.7-million-parameter financial foundation model against a 4-parameter benchmark from 2009, forecasting realized volatility, with every forecast origin strictly after the model&rsquo;s release date so no training-window excuse survives. The benchmark wins on all 21 tickers, 19 of them significantly. This is the challenger-model discipline of model validation, run in public.</p>
+<span class="tc-stat">4,809 out-of-sample forecasts &middot; the 2009 benchmark wins 21 of 21 &middot; Diebold-Mariano t = -12.4</span></a>
+<a class="top-card" href="junk-left-the-index.html">
+<span class="tc-meta">Working Paper No. 31 &middot; credit</span>
+<h2>The Junk Didn&rsquo;t Leave. It Left the Index.</h2>
+<p>The high-yield index really is higher quality, a record 57 to 58% BB. But the spread that pays for credit risk sits at its 3rd percentile since 1996, the CCC tier is repricing violently at its 97th, and the riskiest borrowers moved to leveraged loans and a $2.1 trillion private credit market where no daily spread prints. Every figure re-derived from FRED and ICE index data, in direct dialogue with KKR&rsquo;s own August 2026 high-yield piece.</p>
+<span class="tc-stat">BB spread 160bp, 3rd percentile &middot; CCC 1,024bp, 97th &middot; private credit $158bn to $2.1tn since 2010</span></a>
+</div>
 <div class="listing">
 <div class="glance">
-<div class="glance-hdr"><h2>At a Glance</h2><span class="glance-count">34 papers, newest first</span></div>
+<div class="glance-hdr"><h2>At a Glance</h2><span class="glance-count">35 papers, newest first</span></div>
 <div class="chips">
-<button class="chip on" data-filter="all">All <span>(34)</span></button>
+<button class="chip on" data-filter="all">All <span>(35)</span></button>
 <button class="chip" data-filter="risk">Risk & Portfolio <span>(8)</span></button>
 <button class="chip" data-filter="crowding">Crowding & Positioning <span>(5)</span></button>
 <button class="chip" data-filter="forecast">Forecasting & Calibration <span>(5)</span></button>
 <button class="chip" data-filter="testing">Signal Testing <span>(8)</span></button>
-<button class="chip" data-filter="ai">AI & Macro <span>(3)</span></button>
+<button class="chip" data-filter="ai">AI & Macro <span>(4)</span></button>
 <button class="chip" data-filter="process">Process & Method <span>(5)</span></button>
 </div>
 <div class="tile-grid">
+<a class="mtile" href="permissioned-abundance.html" data-cat="ai"><svg class="mtile-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<line x1="8" y1="20" x2="56" y2="20" stroke="var(--muted)" stroke-width="2"/>
+<line x1="8" y1="44" x2="56" y2="44" stroke="var(--muted)" stroke-width="2"/>
+<line x1="8" y1="32" x2="56" y2="32" stroke="var(--blue)" stroke-width="2"/>
+<line x1="36" y1="10" x2="36" y2="54" stroke="var(--accent)" stroke-width="2.5"/>
+<rect x="29" y="25" width="14" height="14" rx="2" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+</svg><span class="mtile-meta">WP 33 &middot; AI &amp; MACRO</span><span class="mtile-t">Permissioned Abundance</span><span class="mtile-s">the macro framework</span></a>
 <a class="mtile" href="tail-wags-at-the-close.html" data-cat="crowding"><svg class="mtile-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <path d="M10 40 Q22 20 34 34 Q44 46 54 30" stroke="var(--muted)" stroke-width="2"/>
 <line x1="46" y1="12" x2="46" y2="52" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3 3"/>
@@ -485,6 +543,25 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 </svg><span class="mtile-meta">RN 1 &middot; PROCESS</span><span class="mtile-t">Named a Model After Myself</span><span class="mtile-s">1993 model beat it</span></a>
 </div>
 </div>
+<h2 class="sect-h" style="margin-top:2.2rem">Additional Working Papers</h2>
+<p class="sect-note">The complete shelf for additional depth, newest first, all 35 papers; the five featured above are shelved here too, in sequence. Every claim traces to code and data.</p>
+<a class="note-card" href="permissioned-abundance.html">
+<svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<line x1="8" y1="20" x2="56" y2="20" stroke="var(--muted)" stroke-width="2"/>
+<line x1="8" y1="44" x2="56" y2="44" stroke="var(--muted)" stroke-width="2"/>
+<line x1="8" y1="32" x2="56" y2="32" stroke="var(--blue)" stroke-width="2"/>
+<line x1="36" y1="10" x2="36" y2="52" stroke="var(--accent)" stroke-width="2.5"/>
+<rect x="29" y="25" width="14" height="14" rx="2" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="6" y="60" font-size="7" fill="var(--muted)" font-family="Georgia,serif">14 forecasts</text>
+</svg>
+<div class="note-body"><h2>Permissioned Abundance</h2>
+<p>V. Dimopoulos &middot; Working Paper No. 33 &middot; Aug 16, 2026 &middot;
+Intelligence gets cheap; permission gets scarce. The framework behind the
+fourteen pre-registered macro forecasts: tariffs as a balance-sheet tax,
+markets where the buyer&rsquo;s identity outranks the bid, a buildout bound
+by the calendar rather than the capex, de-dollarized reserves atop
+dollarized machines, and the seat-priced software tail. Frozen 30 July
+2026; scored live as each forecast resolves.</p></div></a>
 <a class="note-card" href="tail-wags-at-the-close.html">
 <svg class="tile" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <path d="M10 40 Q22 20 34 34 Q44 46 54 30" stroke="var(--muted)" stroke-width="2"/>
