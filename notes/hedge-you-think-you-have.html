@@ -1,0 +1,330 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hedge You Think You Have &middot; Working Paper No. 34</title>
+<meta name="description" content="Duration measured from prices instead of fact sheets: nine bond funds, 4,649 days. It works on Treasuries, explaining 94% of daily moves. It explains 1% of high yield. Convexity could not be measured at all: not one of nine estimates is distinguishable from zero, and the test for mortgage extension is too weak to settle anything, its smallest detectable effect being larger than the effect itself.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/hedge-you-think-you-have.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* The canonical paper stylesheet. One source, injected inline into every note
+   by pipeline/restyle_notes.py so pages stay self-contained. Edit HERE and
+   re-run that script; editing a note's own style block is a losing move.
+
+   The format follows an institutional research-article convention: a dark
+   hero band carrying an eyebrow, a large light grotesque headline and a serif
+   lede, then a left-aligned serif text column. Fonts are system faces only.
+   Identity stays the museum's: Charter body, the crest, navy, the red accent
+   where things die, and gold reserved for the vault. */
+
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b;
+  --hero:#0f1c33; --heroink:#f2efe8; --herosub:#c9cfda; --heromut:#8fa0bb;
+  --gold:#b8860b; --goldhero:#e0bc6a; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc;
+    --hero:#0c1626; --gold:#e0bc6a; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg); position:relative;
+  font:18px/1.72 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif;
+  font-variant-numeric:lining-nums; padding:0 0 4.5rem; }
+
+/* topbar: brand left, tabs right */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
+.brand-lockup img { display:block }
+nav.tabs { display:flex; gap:1.1rem; margin-left:auto; flex:1 1 auto;
+  min-width:0; justify-content:flex-end; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
+nav.tabs::-webkit-scrollbar { display:none }
+@media (max-width:899px) { nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) { nav.tabs { -webkit-mask-image:none; mask-image:none } }
+nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; flex:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+nav.tabs a.on { color:var(--fg); border-bottom-color:var(--gold) }
+nav.tabs a:hover { color:var(--fg) }
+@media (max-width:820px) {
+  nav.tabs { gap:.9rem; overflow-x:auto; scrollbar-width:none }
+  nav.tabs::-webkit-scrollbar { display:none } }
+
+/* the get-in-touch mark, floated over the hero's top right */
+.tearmark { position:absolute; top:4.4rem; right:1.2rem; z-index:60;
+  display:block; padding:.45rem .8rem .5rem; background:var(--card);
+  border:1px solid var(--line); border-radius:8px; text-decoration:none;
+  line-height:1.3; box-shadow:0 2px 10px rgba(0,0,0,.18) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.8rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:820px) { .tearmark { display:none } }
+@media print { .tearmark { display:none } }
+
+/* hero band */
+.hero { background:var(--hero); color:var(--heroink);
+  padding:3.6rem 1.5rem 3rem; border-bottom:1px solid var(--line) }
+.hero-in { max-width:912px; margin:0 auto }
+.eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--goldhero);
+  margin-bottom:1.5rem }
+.hero h1 { font:300 clamp(32px,5vw,46px)/1.16 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.02em; color:var(--heroink); max-width:17em; margin:0 0 1.5rem }
+.hero .lede { font:italic 20px/1.55 Charter,Georgia,serif; color:var(--herosub);
+  max-width:42em; margin:0 0 1.9rem }
+.hero .who { font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--heromut) }
+.hero .who b { color:var(--heroink); font-weight:500 }
+
+/* article column */
+main { max-width:960px; margin:0 auto; padding:0 1.5rem }
+article, .article-body { max-width:912px; margin-top:2.6rem }
+p { margin-bottom:1.25rem; text-align:left }
+h2 { font:500 22px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.01em; margin:2.7rem 0 .9rem }
+h3 { font:600 16.5px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:1.8rem 0 .6rem }
+a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:2px }
+strong { font-weight:600 }
+code { font:.85em ui-monospace,Menlo,monospace; background:var(--card);
+  border:1px solid var(--line); border-radius:4px; padding:.05em .35em }
+ol, ul { padding-left:1.3rem; margin-bottom:1.25rem }
+blockquote { border-left:3px solid var(--line); padding-left:1.1rem;
+  color:var(--muted); margin:1.5rem 0 }
+
+/* legacy academic pieces some papers carry */
+.abstract { font-size:16px; line-height:1.65; margin:0 0 1.1rem;
+  text-align:left; hyphens:none }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em; font-weight:bold }
+.keywords { font-size:14px; color:var(--muted); margin-bottom:1.8rem }
+.plain { font-size:18px; line-height:1.55; margin:0 0 1.5rem;
+  padding:.8rem 1.1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; text-align:left }
+
+/* tables: horizontal rules only */
+.tblwrap { overflow-x:auto; margin:2rem 0 }
+.cap { font:13px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); margin-bottom:.5rem }
+table { border-collapse:collapse; width:100%;
+  font:15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif }
+th, td { border:0; border-bottom:1px solid var(--line);
+  padding:.6rem .9rem .6rem 0; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { font-weight:600; font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted);
+  border-bottom:2px solid var(--fg) }
+
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1.1rem;
+  margin:1.8rem 0; color:var(--muted); font-size:15.5px; font-style:italic }
+.grave { margin:2.4rem 0 }
+.grave svg { width:100%; height:auto; display:block }
+hr { border:0; border-top:1px solid var(--line); margin:3rem 0 }
+
+.refs { margin-top:2.6rem; font-size:14.5px }
+.refs h2 { font-size:15px }
+.refs ol { padding-left:1.3rem }
+.refs li { margin-bottom:.45rem; line-height:1.5 }
+
+/* provenance block, bs-prov/1.0 */
+.prov { margin:2.6rem 0 0; border:1px solid var(--line); border-radius:6px;
+  background:var(--card); padding:1rem 1.2rem; font-size:14px;
+  line-height:1.55; color:var(--muted) }
+.prov h2 { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.1em; text-transform:uppercase; margin:0 0 .7rem;
+  color:var(--fg) }
+.prov dl { display:grid; grid-template-columns:8.5rem 1fr; gap:.32rem .9rem;
+  margin:0 }
+.prov dt { color:var(--fg); font-weight:600 }
+.prov dd { margin:0; text-align:left }
+.prov code { font-size:.94em }
+.prov ul { margin:0; padding-left:1.05rem }
+@media (max-width:520px) {
+  .prov dl { grid-template-columns:1fr; gap:.1rem }
+  .prov dd { margin-bottom:.5rem } }
+
+footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
+  border-top:1px solid var(--line); color:var(--muted);
+  font:13px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:left }
+
+
+/* ---- listing page: cards and the filterable category grid ---- */
+.note-card { background:var(--card); border:1px solid var(--line);
+  border-radius:10px; padding:1.2rem 1.4rem; margin:0 0 1rem;
+  display:flex; gap:1.2rem; align-items:flex-start;
+  text-decoration:none; color:var(--fg) }
+.tile { flex:none; width:64px; height:64px; margin-top:.15rem }
+.note-body { min-width:0 }
+.note-card:hover { border-color:var(--gold) }
+.note-card h2 { font:500 17px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:0; margin:0 0 .4rem; color:var(--fg) }
+.note-card p { font:15px/1.55 Charter,Georgia,serif; color:var(--muted); margin:0 }
+.listing { max-width:912px; margin-top:2.4rem }
+
+/* ---- listing page, featured tier: top 5 thesis ---- */
+.top5 { max-width:912px; margin-top:2.4rem }
+.sect-h { font:600 .8rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 .55rem }
+.sect-note { font:15px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 1.1rem }
+.top-card { display:block; background:var(--card); border:1px solid var(--line);
+  border-left:3px solid var(--blue); border-radius:10px;
+  padding:1.15rem 1.35rem; margin:0 0 .9rem; text-decoration:none;
+  color:var(--fg) }
+.top-card:hover { border-color:var(--blue) }
+.top-card .tc-meta { font:600 .68rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--blue);
+  display:block; margin-bottom:.45rem }
+.top-card h2 { font:500 19px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:0 0 .4rem; color:var(--fg) }
+.top-card p { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 .6rem }
+.top-card .tc-stat { font:13px/1.5 Charter,Georgia,serif; color:var(--fg);
+  border-top:1px solid var(--line); padding-top:.55rem; display:block }
+
+.glance { margin-bottom:2.4rem }
+.glance-hdr { display:flex; align-items:baseline; justify-content:space-between;
+  margin-bottom:.75rem }
+.glance-hdr h2 { font-size:1.05rem; font-weight:bold }
+.glance-count { color:var(--muted); font-size:.78rem }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(122px,1fr));
+  gap:.5rem }
+.mtile { background:var(--card); border:1px solid var(--line); border-radius:8px;
+  padding:.6rem .65rem; text-decoration:none; color:var(--fg); display:flex;
+  flex-direction:column; gap:.3rem; min-height:84px }
+.mtile:hover { border-color:var(--blue) }
+.mtile-icon { width:26px; height:26px; flex:none; opacity:.85 }
+.mtile-meta { font-size:.62rem; color:var(--muted); letter-spacing:.03em;
+  text-transform:uppercase }
+.mtile-t { font-size:.79rem; line-height:1.22; font-weight:600; flex:1 }
+.mtile-s { font-size:.72rem; color:var(--accent); font-weight:bold }
+.mtile.hide { display:none }
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem }
+.chip { font:inherit; font-size:.78rem; color:var(--muted); background:var(--bg);
+  border:1px solid var(--line); border-radius:999px; padding:.32rem .75rem;
+  cursor:pointer }
+.chip span { color:var(--muted); opacity:.8 }
+.chip:hover { border-color:var(--blue); color:var(--fg) }
+.chip.on { background:var(--card); border-color:var(--accent); color:var(--fg);
+  font-weight:600 }
+.chip.on span { color:var(--accent) }
+/* share:start */
+.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
+  padding:.45rem .8rem .55rem; background:var(--card,#fff);
+  border:1px solid var(--line,#e3e0da); border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
+.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
+.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
+  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
+  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
+  text-decoration:none }
+.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
+@media (max-width:820px) { .sharebox { display:none } }
+@media print { .sharebox { display:none } }
+/* share:end */</style>
+<!-- social:start -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Risk Museum">
+<meta property="og:title" content="The Hedge You Think You Have &middot; Working Paper No. 34">
+<meta property="og:description" content="Duration measured from prices instead of fact sheets: nine bond funds, 4,649 days. It works on Treasuries, explaining 94% of daily moves. It explains 1% of high yield. Convexity could not be measured at all: not one of nine estimates is distinguishable from zero, and the test for mortgage extension is too weak to settle anything, its smallest detectable effect being larger than the effect itself.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/hedge-you-think-you-have.html">
+<meta property="og:image" content="https://theriskmuseum.com/cards/note-hedge-you-think-you-have.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://theriskmuseum.com/cards/note-hedge-you-think-you-have.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Hedge You Think You Have &middot; Working Paper No. 34">
+<meta name="twitter:description" content="Duration measured from prices instead of fact sheets: nine bond funds, 4,649 days. It works on Treasuries, explaining 94% of daily moves. It explains 1% of high yield. Convexity could not be measured at all: not one of nine estimates is distinguishable from zero, and the test for mortgage extension is too weak to settle anything, its smallest detectable effect being larger than the effect itself.">
+<!-- social:end -->
+</head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fhedge-you-think-you-have.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=The%20Hedge%20You%20Think%20You%20Have%20-%20Working%20Paper%20No.%2034&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/hedge-you-think-you-have.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
+<div class="topbar">
+<!-- brand:start -->
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<!-- brand:end -->
+<nav class="tabs">
+<a href="../">Tested Strategies</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+</nav>
+</div>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<div class="hero"><div class="hero-in">
+<div class="eyebrow">Working Paper No. 34 &middot; 16 August 2026 &middot; one measurement that works, one that does not</div>
+<h1>The Hedge You Think You Have</h1>
+<p class="lede">Duration is the one number that says what a bond portfolio loses when rates rise, and the number insurers use to match assets against promises. Measured from eighteen years of prices, it is trustworthy for Treasuries, unreliable for credit, and its famous companion, convexity, could not be measured at all.</p>
+<div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
+</div></div>
+<main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> Duration tells an investor how much a bond portfolio loses when interest rates rise, and it is the number an insurance company uses to match long-dated promises against the assets meant to pay them. I measured it from prices rather than reading it off a fact sheet: nine bond funds over 4,649 trading days from January 2008 to August 2026, daily returns regressed on daily changes in Treasury yields. Three results. First, the measurement works on government bonds, explaining 84 to 94% of daily variation, and a regression told nothing about what the funds hold still places each one on the correct part of the yield curve. Second, it degrades as credit is added: rate moves explain 28.7% of an investment grade corporate fund and 1.1% of a high yield fund, and the credit funds&rsquo; equity exposure hides their rate exposure rather than adding to it, so holding the stock market constant raises measured duration by about a year for investment grade and flips high yield from negative to positive. Third, and this is the part I expected to go the other way, convexity could not be measured at all. Not one of nine direct estimates is distinguishable from zero. The indirect test, whether a portfolio lengthens as rates rise, is too weak to settle anything either: the smallest effect it could reliably detect in the mortgage fund is nearly a year of duration, which is larger than the effect being looked for. Duration survives this paper. Convexity is simply beyond what daily fund prices can resolve.</p>
+
+<h2>1. What duration is supposed to do</h2>
+<p>Duration answers one question: if interest rates rise by one percentage point, roughly what percentage of its value does this bond portfolio lose? A duration of seven means seven percent. It is the closest thing fixed income has to a single risk number, and it does real work. An insurance company sells promises that come due decades from now, buys assets to fund them, and sets the two durations near each other so a rate move damages both sides by similar amounts. That matching is the whole trade. If the assets&rsquo; duration is not what the fact sheet says, the match is not what the balance sheet says.</p>
+<p>Every duration on a fact sheet is computed, not observed. It comes from the bond&rsquo;s scheduled cashflows discounted along a curve, which is exact arithmetic under an assumption: that the cashflows are what the contract says, and the only thing changing is the discount rate. This paper does the opposite. It never opens a fact sheet. It asks what each fund&rsquo;s price actually did on the days Treasury yields moved, over eighteen years, and calls that the duration.</p>
+
+<h2>2. The measurement works, on government bonds</h2>
+<p>Nine funds, one method. Each fund&rsquo;s daily total return in percent is regressed on the daily change in Treasury yields in percentage points, with standard errors that allow for the day-to-day correlation of returns. The negative of the slope is the measured duration.</p>
+<p>On the Treasury ladder it works well. The one to three year fund prints 1.68 years, the three to seven prints 4.19, the seven to ten prints 7.36, and the twenty year and longer prints 16.72, each against the maturity most relevant to it. Those figures sit within about four months of 1.8, 4.5, 7.5 and 16.5 years, which are estimates I declared for each band before fitting rather than arithmetic the bands force, and the t-statistics run from 85 to 156. They are also stable: rerun from any start year between 2008 and 2013 and the seven to ten year fund moves only between 7.36 and 7.62.</p>
+<p>The stronger evidence is a regression that is told nothing at all. Run each fund against all four maturities at once and ask which one carries its largest exposure. The short fund answers two years, the intermediate five, the seven to ten fund ten, and the long fund thirty, at 13.9 years of its 16.6 total. Four for four, unaided. That is the honest version of the calibration claim, and I separate it deliberately from the headline column, which is measured against a maturity I chose for each fund from its mandate, and so is not innocent of knowing what the fund holds.</p>
+
+<div class="tblwrap"><div class="cap">Nine bond funds, 4,649 trading days, January 2008 to August 2026. Duration is measured against the maturity most relevant to each fund. &ldquo;Rates explain&rdquo; is the share of daily variation the rate move accounts for. &ldquo;Extension&rdquo; is duration on days the key rate rose minus duration on all other days; the last column repeats that measurement while holding the stock market constant. Only one raw extension figure reaches significance at 5% (high yield, t = 1.99); in the equity-controlled column none does, the largest being 1.1.</div>
+<table>
+<thead><tr><th>Fund</th><th>Duration (years)</th><th>Rates explain</th><th>Extension</th><th>Extension, equities held constant</th></tr></thead>
+<tbody>
+<tr><td>Treasury 1 to 3 year</td><td>1.68</td><td>83.6%</td><td>&minus;0.01</td><td>0.00</td></tr>
+<tr><td>Treasury 3 to 7 year</td><td>4.19</td><td>93.7%</td><td>&minus;0.07</td><td>&minus;0.04</td></tr>
+<tr><td>Treasury 7 to 10 year</td><td>7.36</td><td>93.7%</td><td>&minus;0.03</td><td>+0.09</td></tr>
+<tr><td>Treasury 20 year and longer</td><td>16.72</td><td>91.2%</td><td>&minus;0.29</td><td>+0.04</td></tr>
+<tr><td>Treasury inflation protected</td><td>4.95</td><td>52.7%</td><td>+0.66</td><td>+0.33</td></tr>
+<tr><td>Agency mortgage backed</td><td>3.63</td><td>52.1%</td><td>+0.55</td><td>+0.36</td></tr>
+<tr><td>US aggregate</td><td>4.32</td><td>51.7%</td><td>+0.13</td><td>+0.27</td></tr>
+<tr><td>Investment grade corporate</td><td>5.17</td><td>28.7%</td><td>+1.05</td><td>+0.40</td></tr>
+<tr><td>High yield corporate</td><td>&minus;1.23</td><td>1.1%</td><td>+2.25</td><td>+0.32</td></tr>
+</tbody>
+</table></div>
+
+<h2>3. It degrades as credit is added</h2>
+<p>The rate model explains 93.7% of the daily variation in the seven to ten year Treasury fund, 28.7% of the investment grade corporate fund, and 1.1% of the high yield fund. Those last two hold bonds with coupons and maturities, and a cashflow model would hand them a duration of several years each. The market disagrees, and it disagrees for a reason worth naming.</p>
+<p>Yields tend to rise when the economy is strengthening, and a strengthening economy narrows the extra yield demanded of risky borrowers. The spread tightening offsets the rate loss. Add the stock market&rsquo;s return to the regression and the investment grade fund&rsquo;s rate duration rises from 5.17 to 6.23 years, while the high yield fund&rsquo;s goes from minus 1.23 to plus 1.17 with an equity exposure of 0.397 at a t-statistic of 17, and the share of variation explained rises from 1.1% to 48.2%. Roughly a year of the investment grade fund&rsquo;s apparent duration, and all of high yield&rsquo;s, was being cancelled by something that is not a rate exposure at all.</p>
+<p>The high yield number is worse than unstable; it is not really a fact about the fund. Measured from 2008 it is minus 1.23 years. Measured from 2013 it is plus 0.97. Split at the start of 2022 it runs minus 3.26 before and plus 3.58 after. The sign is set by whether the 2008 flight to quality is in the sample. Anyone hedging a liability with high yield on the strength of a single published duration is relying on a number that changes sign with the window.</p>
+
+<h2>4. What I could not measure</h2>
+<p>The plan was to measure convexity too: the second-order effect that makes a bond&rsquo;s price curve rather than fall in a straight line, and the reason mortgage portfolios get longer exactly when rates rise. Two attempts, both honest failures, and the failures are more useful than the numbers would have been.</p>
+<p>The direct attempt adds a squared yield change to the regression. Correctly scaled, it produces a convexity estimate for every fund, and not one of the nine is statistically distinguishable from zero: the largest t-statistic in the entire set is 1.41, against the 1.96 a five percent test requires. I am deliberately not quoting the point estimates, because reading their signs would be reading signs off noise, and one of them is negative for a portfolio that theory says must be positively convex. The quadratic term is simply not identified at daily frequency, where the typical yield move is a few basis points and the second-order effect is a rounding error against the noise. An earlier version of this lab reported these numbers without their t-statistics, which would have dressed nine coin flips as findings.</p>
+<p>The indirect attempt is the one a practitioner would trust: measure duration twice, once on days the key rate rose and once on days it fell. A portfolio that gets longer as rates rise is one whose hedge shrinks as its losses grow. The mortgage fund shows plus 0.55 years and high yield plus 2.25, against roughly zero for the Treasury ladder, which looks exactly like the textbook picture.</p>
+<p>It is not a clean picture either. Rising-rate days are risk-on days: the daily correlation between the ten year yield change and the stock market is plus 0.28 over this sample, so any fund with equity exposure will appear to lengthen on rate-up days whether or not it holds a single embedded option. Holding the stock market constant removes 86% of high yield&rsquo;s gap, 62% of investment grade&rsquo;s and 35% of the mortgage fund&rsquo;s, and after that control none of the nine is statistically distinguishable from zero.</p><p>But absence of evidence is not evidence of absence, and the honest reading is that this test is simply too weak. The mortgage fund&rsquo;s equity-controlled gap is 0.36 years with a 95% interval running from minus 0.29 to plus 1.00, and the smallest effect the test could reliably detect is 0.87 years. Real agency mortgage extension is comfortably inside that interval, and so is zero. The same is true of every other fund, and worse for credit: investment grade would need an effect of 2.3 years before this data could see it. A tempting control does not rescue it either. The inflation-protected Treasury fund holds government paper with no prepayment option and prints a larger raw gap than the mortgage fund does, 0.66 against 0.55, which looks like a falsification until the difference is tested: it carries a t-statistic of 0.19, so the ordering is noise. That fund is also measured against a nominal yield while it prices off a real one, which makes it a poor control regardless.</p>
+<p>So the honest finding is a null of the weak kind, and it is worth stating precisely. Agency mortgages certainly do have negative convexity; the mechanism is not in question, since homeowners refinance when rates fall and stop when rates rise. What this paper establishes is narrower and still useful: daily fund prices cannot demonstrate it. The direct estimate is unidentified, the indirect one is confounded by the stock market and too imprecise to settle even after that confound is removed. Anyone reporting a convexity number derived this way is reporting an artefact of their specification.</p>
+
+<h2>5. The number that did move</h2>
+<p>One regime result survives all of this, because it is large and it does not depend on the equity channel. Splitting the sample at the start of 2022, the mortgage fund&rsquo;s measured duration goes from 2.38 years to 6.59, the aggregate bond fund from 3.62 to 5.98, and the investment grade fund from 4.12 to 7.66. The Treasury funds barely move: the seven to ten year fund from 7.25 to 7.64, the long fund from 16.56 to 17.19. A book sized on the pre-2022 mortgage number carried nearly three times the rate exposure it believed it had by the time rates finished rising.</p>
+<p>With one disclosure, since the split date was a choice. Sweeping all 49 monthly split dates from 2020 to 2024, the mortgage fund&rsquo;s ratio ranges from 1.93 to 2.77, and the date declared in advance for this study happens to be the most favourable of the 49. The direction is robust at every candidate date; the superlative is not. The honest sentence is that mortgage duration roughly doubled to nearly tripled, depending on where the line is drawn.</p>
+
+<h2>6. What this does not establish</h2>
+<p>No option-adjusted spread is computed anywhere here. That measurement, which strips out the value of the borrower&rsquo;s option to get at the compensation actually paid for credit risk, requires security-level cashflows and an option model, and neither is free daily data. It is named as a boundary rather than blurred into the results.</p>
+<p>The Treasury yield fix is struck before the equity market closes, so part of each day&rsquo;s response lands in the next day&rsquo;s return. Adding a lead and a lag raises every duration, mildly for Treasuries (the seven to ten year fund from 7.36 to 7.45) and materially for credit (investment grade from 5.17 to 5.70, and high yield from minus 1.23 to minus 0.66, which halves the headline figure section 3 is built on). Every duration printed here is a lower bound, and the credit ones are the loosest. The four maturities move together closely enough that individual key-rate durations are fragile, with variance inflation factors up to 29.6 and several negative loadings that no long-only portfolio can truly have; only the largest loading per fund is used as evidence above. These are fund market prices, so they carry the premium or discount to holdings value, largest in stressed credit. A measured duration is a regression slope over a sample, not a property of any bond. The yields are constant-maturity par yields, not a zero curve. And the nine funds all existed in 2007 and still exist, which is a survivor set, though a mild one for index vehicles this large.</p>
+<p>What survives is a ranking and a warning. The further a portfolio sits from government bonds, the less its duration describes its behaviour, the more that behaviour changes with the regime, and the more of its risk is carried by something the duration number never mentions. And the second-order refinement everyone quotes cannot be recovered from daily prices at all, which is worth knowing before someone reports it to three decimal places.</p>
+
+<div class="prov"><h2>Provenance, bs-prov/1.0</h2><dl>
+<dt>Method</dt><dd>Nine bond funds, daily total returns in percent regressed on daily changes in Treasury constant-maturity yields in percentage points, 2 January 2008 to 13 August 2026, 4,649 trading days in the window (each fund regresses on 4,643 to 4,648 of them, depending on missing prices), Newey-West standard errors throughout. The two calendars are intersected before either is differenced, so a return and its yield change always span the same session gap. Key rate durations from a joint regression on the two, five, ten and thirty year changes. The rising-versus-falling duration gap comes from a single interaction regression, so the gap itself carries a standard error, and is repeated with the equity market fully interacted. Convexity is 200 times the quadratic coefficient; the lab proves that scale on every run against simulated zero-coupon bonds of known duration and convexity, and refuses to run if it fails. Regime split at 1 January 2022, declared in advance and then swept across all 49 monthly candidates from 2020 to 2024.</dd>
+<dt>Sources</dt><dd>Yields from the Federal Reserve&rsquo;s public database, series DGS2, DGS5, DGS10 and DGS30. Fund prices adjusted for distributions, fetched by pipeline/fetch_bond_etfs.py. Every statistic is computed by deterministic code in pipeline/rates_duration_lab.py and recorded in state/rates_duration.json; none is estimated by a language model.</dd>
+<dt>Corrections</dt><dd>An adversarial review of the first version of this lab, run before publication, found six defects, all fixed here: convexity was scaled by two rather than two hundred; curvature estimates were reported without the t-statistics that show them to be indistinguishable from zero; the rising-versus-falling gap was computed from two separate regressions and so had no standard error of its own; that gap was presented as a convexity test without controlling for the equity channel that produces most of it; the regime split used a different maturity from the headline durations; and bond-market holidays matched two-session yield moves to one-session returns. The paper&rsquo;s central claim reversed as a result: convexity is reported here as not measurable rather than as measured.</dd>
+<dt>Honesty</dt><dd>No option-adjusted spread. Durations are mild lower bounds because the yield fix precedes the equity close. Key-rate durations are collinear, so only the largest loading per fund is used as evidence. Fund market prices carry premium and discount to holdings value. The nine funds are survivors. The declared 2022 split is the most favourable of 49 candidates for the mortgage result, and the sweep range is reported above.</dd>
+<dt>Related</dt><dd>Working Paper No. 31 (where high-yield credit risk went), No. 9 (the AI-CDO, tranched credit), No. 10 (backtesting three value-at-risk models), and No. 26 (a pre-registered falsification of a volatility model).</dd>
+</dl></div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
+</body></html>
