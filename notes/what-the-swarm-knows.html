@@ -213,6 +213,32 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 .chip.on { background:var(--card); border-color:var(--accent); color:var(--fg);
   font-weight:600 }
 .chip.on span { color:var(--accent) }
+
+/* ---- listing page: associative trails (Bush memex; export_trails.py) ---- */
+.trails { max-width:912px; margin-top:2.4rem }
+.trail { border:1px solid var(--line); border-radius:10px; background:var(--card);
+  margin:0 0 .6rem; padding:.85rem 1.1rem }
+.trail summary { cursor:pointer; list-style:none; display:flex;
+  align-items:baseline; gap:.7rem; color:var(--fg) }
+.trail summary::-webkit-details-marker { display:none }
+.trail summary::before { content:"\203A"; color:var(--blue); font-weight:bold;
+  display:inline-block; transition:transform .15s ease }
+.trail[open] summary::before { transform:rotate(90deg) }
+.trail summary b { font:500 16px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-n { margin-left:auto; font-size:.72rem; color:var(--muted);
+  letter-spacing:.06em; text-transform:uppercase; white-space:nowrap }
+.trail-premise { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:.7rem 0 1rem; padding-left:1.1rem }
+.trail-stop { display:flex; gap:.8rem; padding:.55rem 0 .55rem 1.1rem;
+  border-top:1px solid var(--line) }
+.trail-num { flex:none; width:1.4rem; height:1.4rem; border-radius:99px;
+  border:1px solid var(--line); color:var(--muted); text-align:center;
+  font:600 .72rem/1.35rem 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-stop a { font:500 15px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-lab { font-size:.68rem; color:var(--muted); letter-spacing:.1em;
+  text-transform:uppercase; margin-left:.5rem }
+.trail-why { font:14.5px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:.3rem 0 0 }
 /* share:start */
 .sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
   padding:.45rem .8rem .55rem; background:var(--card,#fff);

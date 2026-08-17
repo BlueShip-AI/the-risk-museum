@@ -213,6 +213,32 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 .chip.on { background:var(--card); border-color:var(--accent); color:var(--fg);
   font-weight:600 }
 .chip.on span { color:var(--accent) }
+
+/* ---- listing page: associative trails (Bush memex; export_trails.py) ---- */
+.trails { max-width:912px; margin-top:2.4rem }
+.trail { border:1px solid var(--line); border-radius:10px; background:var(--card);
+  margin:0 0 .6rem; padding:.85rem 1.1rem }
+.trail summary { cursor:pointer; list-style:none; display:flex;
+  align-items:baseline; gap:.7rem; color:var(--fg) }
+.trail summary::-webkit-details-marker { display:none }
+.trail summary::before { content:"\203A"; color:var(--blue); font-weight:bold;
+  display:inline-block; transition:transform .15s ease }
+.trail[open] summary::before { transform:rotate(90deg) }
+.trail summary b { font:500 16px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-n { margin-left:auto; font-size:.72rem; color:var(--muted);
+  letter-spacing:.06em; text-transform:uppercase; white-space:nowrap }
+.trail-premise { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:.7rem 0 1rem; padding-left:1.1rem }
+.trail-stop { display:flex; gap:.8rem; padding:.55rem 0 .55rem 1.1rem;
+  border-top:1px solid var(--line) }
+.trail-num { flex:none; width:1.4rem; height:1.4rem; border-radius:99px;
+  border:1px solid var(--line); color:var(--muted); text-align:center;
+  font:600 .72rem/1.35rem 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-stop a { font:500 15px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-lab { font-size:.68rem; color:var(--muted); letter-spacing:.1em;
+  text-transform:uppercase; margin-left:.5rem }
+.trail-why { font:14.5px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:.3rem 0 0 }
 /* share:start */
 .sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
   padding:.45rem .8rem .55rem; background:var(--card,#fff);
@@ -295,6 +321,49 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <p>The high-yield index really is higher quality, a record 57 to 58% BB. But the index spread that pays for credit risk sits at its 9th percentile of the last three years, the BB tier at its 3rd, the CCC tier at its 97th, and the riskiest borrowers moved to leveraged loans and a $2.1 trillion private credit market where no daily spread prints. The four headline rows are re-derived from FRED data; the long-run anchors are attributed to their sources, in direct dialogue with KKR&rsquo;s own August 2026 high-yield piece.</p>
 <span class="tc-stat">BB spread 160bp, 3rd percentile of three years &middot; CCC 1,024bp, 97th &middot; private credit $158bn to $2.1tn since 2010</span></a>
 </div>
+<!-- trails:start -->
+<div class="trails">
+<h2 class="sect-h">Trails</h2>
+<p class="sect-note">Paths through the shelf rather than a list of it. Each trail follows one question across several papers, and every stop says why it leads to the next. Borrowed from Vannevar Bush, who argued in 1945 that the trail a researcher takes is the part worth keeping.</p>
+<details class="trail">
+<summary><b>Somebody has to trade tomorrow</b><span class="trail-n">4 stops</span></summary>
+<p class="trail-premise">The engine's central finding, followed from the claim to its limit. Nearly everything I test dies; what survives is a counterparty under an obligation.</p>
+<div class="trail-stop"><span class="trail-num">1</span><div><a href="who-has-to-trade.html">Who Has to Trade Tomorrow</a><span class="trail-lab">WP 22</span><p class="trail-why">184 ideas judged, two alive, and both share one property: someone is compelled to trade on a visible schedule. Start here, because it is the claim everything else tests.</p></div></div>
+<div class="trail-stop"><span class="trail-num">2</span><div><a href="tail-wags-at-the-close.html">The Tail Wags at the Close</a><span class="trail-lab">WP 32</span><p class="trail-why">The cleanest compelled flow there is: leveraged funds must rebalance at every close, in a size arithmetic dictates. Two tests, both rejected, and the rejection is the interesting part.</p></div></div>
+<div class="trail-stop"><span class="trail-num">3</span><div><a href="cost-is-the-whole-result.html">Cost Is the Whole Result</a><span class="trail-lab">WP 25</span><p class="trail-why">Why it was rejected. The flow is real and the edge is real, and both live inside the cost of trading them, at a frequency daily prices cannot reach.</p></div></div>
+<div class="trail-stop"><span class="trail-num">4</span><div><a href="ninety-second-quant.html">The Ninety-Second Quant</a><span class="trail-lab">WP 29</span><p class="trail-why">Where the obligation is heading next. When an idea reaches millions of accounts in ninety seconds, the crowd itself becomes the counterparty that has to trade.</p></div></div>
+</details>
+<details class="trail">
+<summary><b>The number is not what it says</b><span class="trail-n">4 stops</span></summary>
+<p class="trail-premise">Four papers that each break a statistic people quote without checking. Read in order, they escalate from a test that passes a bad model to a quantity that cannot be measured at all.</p>
+<div class="trail-stop"><span class="trail-num">1</span><div><a href="var-backtesting.html">The Light Was Green</a><span class="trail-lab">RN 10</span><p class="trail-why">Three value-at-risk models, 4,922 out-of-sample days, all three fail their coverage tests while the regulatory traffic light still reads green. A passing test is not a working model.</p></div></div>
+<div class="trail-stop"><span class="trail-num">2</span><div><a href="signal-you-can-get.html">The Signal You Can Get</a><span class="trail-lab">WP 27</span><p class="trail-why">One level deeper: the dataset itself may be a model output wearing a measurement's clothes. A fitted value cannot carry information its inputs never had.</p></div></div>
+<div class="trail-stop"><span class="trail-num">3</span><div><a href="beaten-by-four-parameters.html">Beaten by Four Parameters</a><span class="trail-lab">WP 26</span><p class="trail-why">So how do you test honestly? Lock the decision rule before the first run. A 24.7-million-parameter model then loses to a four-parameter regression on 21 tickers out of 21.</p></div></div>
+<div class="trail-stop"><span class="trail-num">4</span><div><a href="hedge-you-think-you-have.html">The Hedge You Think You Have</a><span class="trail-lab">WP 34</span><p class="trail-why">The end of the road: duration measures cleanly on Treasuries and degrades on credit, and convexity turns out not to be measurable from daily prices at all. Two review rounds reversed this paper's conclusion twice before it published.</p></div></div>
+</details>
+<details class="trail">
+<summary><b>What the sample quietly deleted</b><span class="trail-n">3 stops</span></summary>
+<p class="trail-premise">Survivorship is taught as a footnote. These three show it changing signs, changing benchmarks, and changing what a strategy appears to earn.</p>
+<div class="trail-stop"><span class="trail-num">1</span><div><a href="lazy-prices-survivorship.html">Lazy Prices, Survivorship</a><span class="trail-lab">WP 15</span><p class="trail-why">A published anomaly inverts its sign in a survivor-only sample, because the firms that carried the information are the ones that failed and got deleted.</p></div></div>
+<div class="trail-stop"><span class="trail-num">2</span><div><a href="junk-left-the-index.html">A Safer Index Is Not a Safer Market</a><span class="trail-lab">WP 31</span><p class="trail-why">The same deletion, one level up. A high yield index whose weakest borrowers migrate to private credit stops measuring the asset class and starts measuring what stayed.</p></div></div>
+<div class="trail-stop"><span class="trail-num">3</span><div><a href="what-remains-of-pairs-trading.html">What Remains of Pairs Trading</a><span class="trail-lab">WP 30</span><p class="trail-why">And what it costs you in practice: five tests of the trade that seeded modern quant, where the surviving profit turns out to be a liquidity fee earned in the names hardest to trade.</p></div></div>
+</details>
+<details class="trail">
+<summary><b>Crowding is a risk measure, not a signal</b><span class="trail-n">3 stops</span></summary>
+<p class="trail-premise">Three attempts to trade crowding, and the honest reclassification that came out of them. This is the shape of a negative result that still earns its place.</p>
+<div class="trail-stop"><span class="trail-num">1</span><div><a href="measuring-the-crowd.html">Measuring the Crowd</a><span class="trail-lab">RN 6</span><p class="trail-why">Crowded positions do move together more than they should, and they do underperform in bad months. Neither result clears the bar to become a signal.</p></div></div>
+<div class="trail-stop"><span class="trail-num">2</span><div><a href="short-side-crowding.html">Measuring the Short Side</a><span class="trail-lab">WP 12</span><p class="trail-why">The same question asked of short interest. Four declared attempts, four failures, and one stress-state result that survives as a warning rather than a trade.</p></div></div>
+<div class="trail-stop"><span class="trail-num">3</span><div><a href="uncorrelated-book.html">The Uncorrelated Book</a><span class="trail-lab">WP 14</span><p class="trail-why">So what does crowding actually cost a portfolio? What imperfect correlation buys, and what it stops buying at exactly the wrong moment.</p></div></div>
+</details>
+<details class="trail">
+<summary><b>Following the AI money to whoever holds the loss</b><span class="trail-n">3 stops</span></summary>
+<p class="trail-premise">Not a trading trail. A credit trail: who financed the buildout, what the collateral really is, and where the losses land if the revenue disappoints.</p>
+<div class="trail-stop"><span class="trail-num">1</span><div><a href="the-ai-cdo.html">The AI-CDO Is Being Built</a><span class="trail-lab">RN 9</span><p class="trail-why">Build the security and simulate it: a three-tranche securitization of AI-infrastructure debt, 200,000 paths, with 2008's four named defects mapped onto today's complex.</p></div></div>
+<div class="trail-stop"><span class="trail-num">2</span><div><a href="reactor-queue.html">Nobody Bought a Reactor</a><span class="trail-lab">WP 19</span><p class="trail-why">Then check the collateral against the physical world. Announced gigawatts are positions in a queue, and the queue does not care how the deal was financed.</p></div></div>
+<div class="trail-stop"><span class="trail-num">3</span><div><a href="permissioned-abundance.html">Permissioned Abundance</a><span class="trail-lab">WP 33</span><p class="trail-why">The whole view, priced. Fourteen pre-registered forecasts on what stays scarce when intelligence gets cheap, with four prints named in advance that would kill the thesis.</p></div></div>
+</details>
+</div>
+<!-- trails:end -->
 <div class="listing">
 <div class="glance">
 <div class="glance-hdr"><h2>The rest of my working papers</h2><span class="glance-count">36 in all, newest first</span></div>
