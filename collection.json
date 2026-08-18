@@ -1,11 +1,35 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-08-17",
- "works_tested": 448,
+ "exported": "2026-08-18",
+ "works_tested": 456,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(pv13_revere_country, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-15"
+  },
+  {
+   "claim": "Levered ETF rebalancing pressure with REAL fund assets: scaling the forced-flow signal by SEC-reported net assets (N-PORT filings, quarterly anchors interpolated intra-quarter by fund NAV returns) instead of the v1 volume proxy isolates the Morgan Stanley QDS variable the first look never tested. Same trade rule as v1, unchanged: top-quintile pressure days, fade the sign, one day lag, engine costs. Judged at the family n=2 bar.",
+   "stage": "validation",
+   "reason": "Newey-West t=0.89 < 2.74 (base 2.5, family n=2); bootstrap P(Sharpe<=0)=0.1933 > 0.025 (base 0.05, family n=2); margin-of-safety rerun (gross halved, costs doubled) t=-1.28 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 143% > 30% (IS 0.57 -> OOS -0.25) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "Data: N-PORT net assets are public quarterly from late 2019, so the sample starts there, which also bypasses the v1 cache defect of zero-volume SOXS and TECS days before 2019. Intra-quarter assets scaled by fund NAV return, ignoring flows within the quarter, a declared approximation. v1 died of cost-death on a real gross effect with the proxy shown to be a volatility filter; this look isolates the assets variable.",
+   "tested": "2026-08-14"
+  },
+  {
+   "claim": "Levered ETF rebalancing pressure predicts next-day reversal in the underlying indexes. The mechanism is forced flow: funds holding L-times exposure must trade (L squared minus L) times AUM times the day's return at the close, same direction as the move, regardless of price. MS QDS: over $200bn AUM, $100bn sold June 5 to July 29 2026, ~$30bn bought on July 30 alone, 2 to 4% of US equity volume on peak days. Predictable, mechanical, and concentrated at the close: the passing lane's shape exactly.",
+   "stage": "validation",
+   "reason": "Newey-West t=-0.03 < 2.50 (base 2.5, family n=1); bootstrap P(Sharpe<=0)=0.5333 > 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=-3.14 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 701% > 30% (IS 0.01 -> OOS -0.03) \u2014 overfitting signature [Critic addendum, 14 Aug 2026: cost-death, not no-effect. Gross +7.5%/yr (diagnostic t=2.02, IS/OOS stable) against 7.53%/yr of trading costs; breakeven one-way cost 4.96bps vs 5.0bps charged. The AUM-proxy filter added nothing beyond a plain big-move filter, so the MS QDS AUM variable remains untested; a second look must change the variable, not the costume.]",
+   "status": "rejected",
+   "about": "Needs a levered_etf_lab runner: fetch ~12 major levered/inverse ETF price and volume series via the existing Yahoo path (TQQQ SQQQ SOXL SOXS UPRO SPXU SSO SDS QLD QID TECL TECS), construct signed pressure per underlier as (L squared minus L) times AUM-proxy times daily return, test next-day reversal event-study style with the engine standard stats. v1 AUM proxy is fund dollar volume, declared as a proxy; historical AUM acquisition is the upgrade path. Index-level, few assets, so research-lane not cross-sectional. Untested family, first look.",
+   "tested": "2026-08-14"
+  },
   {
    "claim": "BRAIN candidate: -group_rank(ts_zscore(snt_buzz_bfl, 20), subindustry)",
    "stage": "brain-checks",
