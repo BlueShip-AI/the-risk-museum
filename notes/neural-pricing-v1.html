@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Neural Pricing &middot; BlueShip Research Working Paper No. 2</title>
-<meta name="description" content="A ~2,000-parameter neural network forecasting next-day volatility range loses significantly to a four-parameter 1993 GJR-GARCH model (Newey-West t = -4.37) on ~3,500 daily observations; the same architecture family passes every gate approximating the Heston pricing map from 9,000 dense implied-vol surfaces. Data density, not model capacity, governs the outcome.">
+<meta name="description" content="A ~2,000-parameter neural network forecasting next-day volatility range loses significantly to a four-parameter 1993 GJR-GARCH model (Newey-West t = -4.37) on 1,794 out-of-sample daily observations; the same architecture family passes every gate approximating the Heston pricing map from 9,000 dense implied-vol surfaces. Data density, not model capacity, governs the outcome.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/neural-pricing-v1.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -259,7 +259,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="Neural Pricing &middot; BlueShip Research Working Paper No. 2">
-<meta property="og:description" content="A ~2,000-parameter neural network forecasting next-day volatility range loses significantly to a four-parameter 1993 GJR-GARCH model (Newey-West t = -4.37) on ~3,500 daily observations; the same architecture family passes every gate approximating the Heston pricing map from 9,000 dense implied-vol surfaces. Data density, not model capacity, governs the outcome.">
+<meta property="og:description" content="A ~2,000-parameter neural network forecasting next-day volatility range loses significantly to a four-parameter 1993 GJR-GARCH model (Newey-West t = -4.37) on 1,794 out-of-sample daily observations; the same architecture family passes every gate approximating the Heston pricing map from 9,000 dense implied-vol surfaces. Data density, not model capacity, governs the outcome.">
 <meta property="og:url" content="https://theriskmuseum.com/notes/neural-pricing-v1.html">
 <meta property="og:image" content="https://theriskmuseum.com/cards/note-neural-pricing-v1.png">
 <meta property="og:image:width" content="1200">
@@ -267,7 +267,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta name="twitter:image" content="https://theriskmuseum.com/cards/note-neural-pricing-v1.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Neural Pricing &middot; BlueShip Research Working Paper No. 2">
-<meta name="twitter:description" content="A ~2,000-parameter neural network forecasting next-day volatility range loses significantly to a four-parameter 1993 GJR-GARCH model (Newey-West t = -4.37) on ~3,500 daily observations; the same architecture family passes every gate approximating the Heston pricing map from 9,000 dense implied-vol surfaces. Data density, not model capacity, governs the outcome.">
+<meta name="twitter:description" content="A ~2,000-parameter neural network forecasting next-day volatility range loses significantly to a four-parameter 1993 GJR-GARCH model (Newey-West t = -4.37) on 1,794 out-of-sample daily observations; the same architecture family passes every gate approximating the Heston pricing map from 9,000 dense implied-vol surfaces. Data density, not model capacity, governs the outcome.">
 <!-- social:end -->
 </head><body>
 <!-- share:start -->
@@ -312,7 +312,7 @@ autoregressive conditional heteroskedasticity model of four parameters from
 Glosten,
 Jagannathan, and Runkle (1993), with a Newey&ndash;West <i>t</i> of &minus;4.37
 (a <i>t</i>-statistic, the standard measure of whether a result is
-distinguishable from luck) on the error differential over roughly 3,500 daily
+distinguishable from luck) on the error differential over all 1,794 out-of-sample daily
 observations. The identical
 architecture family, applied instead to approximating the Heston (1993)
 pricing map from 9,000 self-generated surfaces of implied volatility, clears
@@ -349,7 +349,7 @@ every other forecaster.</p>
 win, and lost significantly: the Newey&ndash;West <i>t</i>-statistic (adjusted
 for serial correlation in the daily errors) on the error differential is
 &minus;4.37. A model of roughly 2,000 parameters was
-beaten by one of four, on approximately 3,500 daily observations. The state
+beaten by one of four, on 1,794 out-of-sample daily observations. The state
 inputs helped the network (58.9 against 63.4 basis points), consistent with
 prior measurements of dealer positioning, but no adjustment rescued the
 architecture at this data scale. Volatility measured daily yields about 250
