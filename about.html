@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About &middot; The Risk Museum</title>
-<meta name="description" content="Vasilios Dimopoulos built The Risk Museum: a six-stage research engine that tests trading ideas against a multiplicity-deflated, cost-stressed bar, and publishes the ones that fail. Who built it, why, and what it is not.">
+<meta name="description" content="Vasilios Dimopoulos: why I publish the failures, how I work, the evidence behind each claim, and what I am looking for. Enterprise and strategic risk at large banks, moving into the quant fund space.">
 <link rel="canonical" href="https://theriskmuseum.com/about.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -244,7 +244,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="About &middot; The Risk Museum">
-<meta property="og:description" content="Vasilios Dimopoulos built The Risk Museum: a six-stage research engine that tests trading ideas against a multiplicity-deflated, cost-stressed bar, and publishes the ones that fail. Who built it, why, and what it is not.">
+<meta property="og:description" content="Vasilios Dimopoulos: why I publish the failures, how I work, the evidence behind each claim, and what I am looking for. Enterprise and strategic risk at large banks, moving into the quant fund space.">
 <meta property="og:url" content="https://theriskmuseum.com/about.html">
 <meta property="og:image" content="https://theriskmuseum.com/cards/about.png">
 <meta property="og:image:width" content="1200">
@@ -252,7 +252,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta name="twitter:image" content="https://theriskmuseum.com/cards/about.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About &middot; The Risk Museum">
-<meta name="twitter:description" content="Vasilios Dimopoulos built The Risk Museum: a six-stage research engine that tests trading ideas against a multiplicity-deflated, cost-stressed bar, and publishes the ones that fail. Who built it, why, and what it is not.">
+<meta name="twitter:description" content="Vasilios Dimopoulos: why I publish the failures, how I work, the evidence behind each claim, and what I am looking for. Enterprise and strategic risk at large banks, moving into the quant fund space.">
 <!-- social:end -->
 </head><body>
 <div class="topbar">
@@ -266,14 +266,13 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <a href="forecasts.html">Forecast Wing</a>
 <a href="reading-room.html">Library</a>
 <a class="on" href="about.html">About</a>
-<a href="cv.html">CV</a>
 </nav>
 </div>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
 <div class="hero"><div class="hero-in">
-<div class="eyebrow">About &middot; who built this and why</div>
+<div class="eyebrow">About &middot; who built this, and how I work</div>
 <h1>Why I publish the failures</h1>
-<p class="lede">Almost every quantitative result you will ever be shown is one that worked. That selection is the reason so little of it survives contact with a live book. This page is about the choice that follows from taking that seriously: publish the failures, with their reasons and their numbers, and let the record be judged on what it rejected.</p>
+<p class="lede">Hey there, thanks for finding my site. I am Vasilios Dimopoulos, I am in New York, and I have spent my career so far in enterprise and strategic risk at big banks. I built this to find out whether I could run a research process to the standard a desk would actually demand, and then publish what came out of it whether or not it made me look good.</p>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
@@ -282,31 +281,69 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <p>Risk management taught me one habit above all others: decide what would change your mind before you look at the answer. That is easy to claim in an interview and hard to prove, because quantitative work is usually shown only when it worked.</p>
 <p>So I inverted it. Here the failures get published, with their reasons and their numbers. Two ideas out of hundreds have survived the gates, and the gates never move to fit a result.</p>
 
-<h2>What each tab is</h2>
+<h2>How I work</h2>
+<p>A few habits, most of them learned the hard way.</p>
+<p>I fix the thresholds in code before a test runs. That is an easy thing to
+claim and a hard thing to prove, which is most of the reason this site exists
+at all.</p>
+<p>The language models here read papers, write feature code and argue with
+results. They never compute anything. Every statistic comes out of plain
+deterministic Python, because a number that merely sounds right is worse than
+no number.</p>
+<p>Every extra look at the same data raises the bar for the next one, and that
+applies to me as much as to anyone. When I realised one of my own tests was
+underpowered, I ran it again properly and paid the higher bar, rather than
+quietly dropping the weak version and keeping the easier one.</p>
+<p>My worst mistakes here have not been statistical. One was a filing panel
+that looked complete and was quietly cut short, in a way that happened to
+track the exact thing I was testing. Another was a study whose numbers moved
+on their own, because one input was still reading a cache that refreshed
+overnight. Neither showed up in any summary statistic. So I now assume the
+data is wrong until I have gone and checked.</p>
+<p>And the universe here is survivors, names that lived long enough to be in
+today's index file. The companies that actually blew up are missing from it.
+I would rather say that on every result than leave it in a footnote.</p>
+
+<h2>Where to look if you want to poke at it</h2>
+<p>Everything is meant to be checkable, so start wherever you are most
+sceptical.</p>
 <ul>
-<li><b><a href="notes/">Research Notes</a>.</b> <span data-count="notes">37</span> working papers, with five marked as the ones to read first.</li>
-<li><b><a href="./">Tested Strategies</a>.</b> The collection: <span data-count="retired">262</span> retired strategies, each with the reason it died.</li>
-<li><b><a href="tradingfloor.html">Trading Floor</a>.</b> What a book of many strategies really buys you, and why ten desks behave like three.</li>
-<li><b><a href="forecasts.html">Forecast Wing</a>.</b> <span data-count="forecasts">14</span> macro forecasts priced in advance and scored in public as they resolve.</li>
-<li><b><a href="reading-room.html">Library</a>.</b> <span data-count="books">165</span> books, and what I actually took from each one.</li>
-<li><b>CV.</b> Background, how I work, and the evidence behind each claim. <a href="cv.html">Read it</a>.</p>
-<p><b>About.</b> This page.</li>
+<li><b><a href="./">Tested Strategies</a></b> is the main thing: the collection
+of <span data-count="retired">262</span> retired strategies, each with the
+reason it died. It includes 158 Qlib alphas, 32 sector books and a family of
+calendar effects, none of which survived an honest bar.</li>
+<li><b><a href="notes/">Research Notes</a></b> is where the reasoning lives,
+<span data-count="notes">37</span> working papers, with five marked as the ones
+to read first.</li>
+<li><b><a href="tradingfloor.html">Trading Floor</a></b> is about portfolio
+construction rather than signals, and why ten desks tend to behave like
+three.</li>
+<li><b><a href="forecasts.html">Forecast Wing</a></b> is me on the record in
+advance: <span data-count="forecasts">14</span> macro forecasts with the
+probability and the resolution criteria fixed before the outcome is known.</li>
+<li><b><a href="reading-room.html">Library</a></b> is
+<span data-count="books">165</span> books and what I actually took from each
+one.</li>
 </ul>
-<p>Every number here traces to the code that produced it, and corrections stay visible on the paper rather than being quietly folded in.</p>
+<p>Every number traces back to the code that produced it, and corrections stay
+visible on the paper rather than being quietly folded in.</p>
+
+<h2>Background, and where I am going</h2>
+<p>Enterprise and strategic risk at large banks, in New York. The full history
+with roles and dates is on
+<a href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener">LinkedIn</a>,
+kept in one place so it stays current.</p>
+<p>I am moving into the quant fund space. I am not pitching for a research seat
+as such; what is here is the way I work, shown rather than described, and I am
+happy to keep contributing to research while I can. If you would like to reach
+out and discuss any topic or thesis on this site, please do. If you have
+thoughts on something written here, good or bad, I would rather hear them than
+not. Message me on
+<a href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener">LinkedIn</a>
+and I would be happy to connect.</p>
 
 <h2>What this is not</h2>
 <p>Not a track record. No capital is at risk here, and a backtest cannot supply what a live book does. Not investment advice, and nothing here is a recommendation to buy or sell. The stock universe is survivorship-biased, so every raw performance figure is an upper bound.</p>
 
-<h2>Where I am going</h2>
-<p>I am looking for a quantitative research or investment risk seat where this way of working is the point rather than an eccentricity. The longer answer, with what I would bring and how to check it, is on the <a href="cv.html">CV page</a>. If you have any thoughts, good or bad, on something written on this site, please send them my way. Message me on <a href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener">LinkedIn</a> and I would be happy to connect.</p>
-
-<div class="prov"><h2>Contact</h2><dl>
-<dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener">linkedin.com/in/vasiliosdimopoulos</a></dd>
-<dt>Email</dt><dd><a href="mailto:dimopoulos.vasilios@gmail.com">dimopoulos.vasilios@gmail.com</a></dd>
-<dt>The engine</dt><dd>Six stages, run nightly and unattended. Hypotheses, features, backtest, validation (Newey-West with a multiplicity-deflated bar, a block bootstrap, an out-of-sample decay limit, and a stressed rerun), regimes, and factor attribution. Every statistic is computed by deterministic code.</dd>
-</dl></div>
-
-<footer>BlueShip Research &middot; The Risk Museum &middot; educational
-research only; not investment advice.</footer>
 </div></main><script defer src="read-aloud.js?v=0ff38a186c"></script>
 </body></html>
