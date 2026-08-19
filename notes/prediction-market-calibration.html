@@ -326,6 +326,8 @@ the resolution, whereas Polymarket trades need blockchain decode. For each
 resolved market I take the average price over the final 24 hours of trading,
 weighted by volume, and require at least five trades in that window. The base rate
 of YES resolution is 0.381.</p>
+<p><b>Correction, 19 August 2026: this is a deviation from the pre-registration, and it is not innocuous.</b> The prereg fixed the measurement as a &ldquo;price snapshot taken at a FIXED horizon before resolution, not at the last trade, so that markets resolving quickly are not treated differently from slow ones.&rdquo; What the loader actually takes is a volume-weighted average over the 24 hours ending at close, which is an average over a window rather than a point at a horizon, and it ends at the close rather than before it. The comment in the code asserts it is &ldquo;per the prereg&rdquo;; it is not.</p>
+<p>The consequence is measurable and large. Of the 250,858 markets in this sample, <b>170,282, or 67.9%, have their entire trading history inside that 24-hour window</b>. For more than two thirds of the sample the &ldquo;final 24 hours&rdquo; is the whole life of the market, so fast and slow markets are being measured on different objects, which is the precise failure the pre-registration was written to prevent. Every figure in section 3 is therefore a property of a 24-hour volume-weighted average and not of the price at any fixed horizon. The snapshot the prereg specified has not been rerun here; until it is, the size of the miss reported below should be read as conditional on the measurement, not as a property of prediction-market prices.</p>
 
 <h2>3. Results</h2>
 <h3>3.1 Calibration, and the size of the miss</h3>
