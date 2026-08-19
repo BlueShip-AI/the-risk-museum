@@ -68,88 +68,15 @@ footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   .tearmark { padding:.4rem .7rem .45rem }
   .tearmark i { font-size:.78rem } }
 @media print { .tearmark { display:none } }
-/* chrome:start */
-.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
-  display:flex; align-items:center; gap:1.2rem }
-.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
-  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
-  white-space:nowrap; flex:none }
-.brand-lockup img { display:block }
-.topbar nav.tabs { display:flex; gap:1.1rem; margin:0 0 0 auto;
-  flex:1 1 auto; min-width:0; justify-content:flex-end;
-  border-bottom:0; overflow-x:auto; scrollbar-width:none;
-  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
-  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
-.topbar nav.tabs::-webkit-scrollbar { display:none }
-.topbar nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  color:var(--muted); text-decoration:none; padding:.4rem 0; margin:0;
-  border:0; border-radius:0; background:none; flex:none;
-  border-bottom:2px solid transparent; white-space:nowrap }
-.topbar nav.tabs a.on { color:var(--fg); background:none;
-  border-bottom:2px solid var(--gold,#b8860b) }
-.topbar nav.tabs a:hover { color:var(--fg) }
-@media (max-width:899px) {
-  .topbar nav.tabs { justify-content:flex-start } }
-@media (min-width:900px) {
-  .topbar nav.tabs { -webkit-mask-image:none; mask-image:none } }
-/* one geometry, owned here: 960 outer, 24 gutter, 912 text column */
-main { max-width:960px !important; margin:0 auto !important;
-  padding-left:1.5rem !important; padding-right:1.5rem !important }
-.heroband-in, .hero-in { max-width:912px !important; margin:0 auto !important }
-main footer, footer { max-width:912px }
-/* a topbar nested inside main already inherits main's gutter */
-main .topbar { padding-left:0 !important; padding-right:0 !important }
-/* chrome:end */
-/* share:start */
-.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
-  padding:.45rem .8rem .55rem; background:var(--card,#fff);
-  border:1px solid var(--line,#e3e0da); border-radius:8px;
-  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
-.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
-  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
-.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
-  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
-  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
-  text-decoration:none }
-.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
-@media (max-width:820px) { .sharebox { display:none } }
-@media print { .sharebox { display:none } }
-/* share:end */</style>
-<!-- social:start -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="The Risk Museum">
-<meta property="og:title" content="The Reading Room &middot; Books a Quant Recommends | The Risk Museum">
-<meta property="og:description" content="The Risk Museum's Reading Room: 90+ books Vasilios Dimopoulos recommends on markets, risk and strategy, each distilled into an operational lens or a one-line note from me, with covers and purchase links.">
-<meta property="og:url" content="https://theriskmuseum.com/reading-room.html">
-<meta property="og:image" content="https://theriskmuseum.com/cards/reading-room.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://theriskmuseum.com/cards/reading-room.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Reading Room &middot; Books a Quant Recommends | The Risk Museum">
-<meta name="twitter:description" content="The Risk Museum's Reading Room: 90+ books Vasilios Dimopoulos recommends on markets, risk and strategy, each distilled into an operational lens or a one-line note from me, with covers and purchase links.">
-<!-- social:end -->
-</head><body>
-<!-- share:start -->
-<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Freading-room.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=The%20Reading%20Room%20-%20Books%20a%20Quant%20Recommends%20%7C%20The%20Risk%20Museum&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/reading-room.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
-<!-- share:end -->
-<main>
+</style></head><body><main>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
-<div class="topbar">
-<!-- brand:start -->
-<a href="./" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
-<!-- brand:end -->
 <nav class="tabs">
-<a href="notes/">Research Notes</a>
 <a href="./">Tested Strategies</a>
+<a href="notes/">Research Notes</a>
 <a href="tradingfloor.html">Trading Floor</a>
 <a href="forecasts.html">Forecast Wing</a>
 <a class="on" href="reading-room.html">Library</a>
-<a href="about.html">About</a>
 </nav>
-</div>
 <div class="heroband"><div class="heroband-in">
 <p class="hb-lede">A reading list, annotated. For the core titles below, each note
 gives the book&rsquo;s central idea (<i>Thesis</i>) and how it&rsquo;s wired
@@ -196,7 +123,7 @@ a one-line take.</p>
 <div class="book"><h2>Advances in Financial Machine Learning by Marcos López de Prado</h2><p>Thesis: most published backtests are false discoveries manufactured by repeated testing, and machine learning in finance fails when it copies tech-industry practice instead of respecting overlapping labels, thin effective samples, and multiple testing. The constructive program: purged and embargoed cross-validation, triple-barrier labels, meta-labeling (ML sizes and vetoes, never originates), and the Deflated Sharpe Ratio that charges a discovery for every trial behind it.</p><p class="lens"><b>In the museum:</b> the engine&#x27;s family deflator is the blunter sibling of the Deflated Sharpe Ratio, now cross-cited (docs/lopez_de_prado_lenses.md); the critic&#x27;s new purge-and-embargo rule for any cross-validated study; and the meta-labeling frame for any future ML overlay on a vault survivor: size and veto only, direction untouched, which is the Chan lens made concrete.</p><p class="buy"><a href="https://www.amazon.com/s?k=Advances+in+Financial+Machine+Learning+Marcos+L%C3%B3pez+de+Prado&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><h2>Rough Volatility by Bayer, Friz, Fukasawa, Gatheral, Jacquier &amp; Rosenbaum (eds.)</h2><p>Thesis: log-volatility moves more roughly than the standard models allow, closer to a fractional Brownian motion with a Hurst parameter near 0.1 than to the 0.5 a semimartingale implies. That single measurement carries two consequences the book then develops: a forecasting one, because roughness implies its own predictor, and a pricing one, because it reshapes the smile without needing jumps. A separate strand derives both power-law market impact and roughness from no-arbitrage, which puts impact and volatility on the same footing.</p><p class="lens"><b>In the museum:</b> nowhere yet, and saying so is the entry. Estimating the Hurst parameter honestly wants intraday realized variance, and this engine has daily bars; Working Paper No. 25 already drew that boundary and I am not going to cross it by pretending a Parkinson range can stand in. The measurement is also contested, with Rogers, and Cont and Das, arguing the observed roughness is partly an artifact of microstructure noise rather than a property of volatility. Seven of the ten chapters are options pricing and hedging, and this engine has no options surface and no live trading path by design. It earns a shelf place as the standard reference, not a wiring. It graduates the day a rough-volatility forecaster enters Working Paper No. 26&#x27;s race as a third competitor against HAR, with the Hurst estimate taken from daily data and that fragility declared before the run rather than after it. A 2026 research report sharpens the caveat from underneath: Smaoui, supervised by Rama Cont, shows that even the Takagi function, a toy fractal with quadratic variation exactly one along dyadic partitions, loses that tidiness along ternary partitions, where the report cannot determine whether its quadratic sums converge at all. Realised variance is partition-dependent at the level of the defining object, so a Hurst estimate inherits the sampling grid it was measured on.</p><p class="buy"><a href="https://www.amazon.com/s?k=Rough+Volatility+Bayer%2C+Friz%2C+Fukasawa%2C+Gatheral%2C+Jacquier+%26+Rosenbaum+%28eds.%29&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><h2>Pairs Trading: Quantitative Methods and Analysis by Ganapathy Vidyamurthy</h2><p>Thesis: a pair is a manufactured mean-reverting asset. Part One builds the toolkit (time series, APT factor models, a scalar Kalman filter); Part Two assembles it: two stocks whose factor-exposure vectors are proportional share a common trend that cancels in the spread, so the observed spread splits into a nonstationary common part that must vanish and a stationary specific part that is the only thing you can actually trade. Selection is the absolute correlation of common-factor returns, tradability is judged by zero-crossing frequency with bootstrapped errors rather than formal cointegration tests, and band placement is a profit-per-unit-time problem. Part Three applies the same spread logic to merger arbitrage: deal spread, market-implied merger probability, spread inversion.</p><p class="lens"><b>In the museum:</b> the engine now, as five judged looks in the pairs_divergence family, all rejected (reports/cycle_2026-08-11.md). Three cross-sectional conversions found real but microscopic ordering information (baseline IC t=2.52, implied IR ceiling 0.22, P&amp;L living in the illiquid third), and the faithful pair-level lab (pipeline/pairs_lab.py) measured the headline GGR book at -0.37% a year net on large-cap survivors, with the half-life- conditioned slow variant at -0.57%. Both directions lose, so the surviving convergence information is the gap between them and it is smaller than the toll. That closes Part Two on daily large-cap bars, in agreement with Do and Faff (2010, 2012) and Zhu (2024), and by a route the literature had not run: the half-life-conditioned delay test was a documented gap. Part Three is the live remainder: deal-spread mechanics are forced-flow, not price-factor, territory, and wait on an 8-K/DEFM14A data vein the cache does not yet hold. Full operational lenses in docs/pairs_trading_lenses.md.</p><p class="buy"><a href="https://www.amazon.com/s?k=Pairs+Trading%3A+Quantitative+Methods+and+Analysis+Ganapathy+Vidyamurthy&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
-<div class="book"><h2>The Goal / Theory of Constraints by Eliyahu M. Goldratt</h2><p>A physicist&#x27;s factory novel (1984), and the shortest useful theory in the operations canon: a system has exactly one binding constraint at a time, throughput is set there and nowhere else, and effort spent improving any other step is inventory piling up in front of the bridge. Goldratt&#x27;s own one-word summary is focus. The five focusing steps (identify, exploit, subordinate, elevate, repeat) are the procedure; the field test is that a bottleneck has work queued in front of it while a non-bottleneck has idle time. The famous applications run from Bezos&#x27;s executive book club to Sheila Taormina auditing her own swim training into an Olympic gold. What it earns here: Working Paper No. 28 ran the audit on this engine&#x27;s own store and found the constraint is orthogonal data supply, not the statistical gates, which have idle time in industrial quantities. The subordinate step is the one most research shops invert, because polishing the test stage feels like rigor while the queue sits in front of the data door. Lives in: docs/goldratt_toc_lenses.md (the critic&#x27;s constraint checks), the alt-data roadmap&#x27;s elevation order, and WP28&#x27;s method.</p><p class="buy"><a href="https://www.amazon.com/s?k=The+Goal+%2F+Theory+of+Constraints+Eliyahu+M.+Goldratt&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
+<div class="book"><h2>The Goal / Theory of Constraints by Eliyahu M. Goldratt</h2><p>A physicist&#x27;s factory novel (1984), and the shortest useful theory in the operations canon: a system has exactly one binding constraint at a time, throughput is set there and nowhere else, and effort spent improving any other step is inventory piling up in front of the bridge. Goldratt&#x27;s own one-word summary is focus. The five focusing steps (identify, exploit, subordinate, elevate, repeat) are the procedure; the field test is that a bottleneck has work queued in front of it while a non-bottleneck has idle time. The famous applications run from Bezos&#x27;s executive book club to Sheila Taormina auditing her own swim training into an Olympic gold. What it earns here: Working Paper No. 28 ran the audit on this engine&#x27;s own store and found the constraint is orthogonal data supply, not the statistical gates, which have idle time in industrial quantities. The subordinate step is the one most research shops invert, because polishing the test stage feels like rigor while the queue sits in front of the data door. Lives in: docs/goldratt_toc_lenses.md (the critic&#x27;s constraint checks), the alt-data roadmap&#x27;s elevation order, and WP28&#x27;s method. ### The theory of quantitative trading by Andrea Berdondini (read 2026-08-17) Operational lens: the hypothesis is the sum of every attempt made, not the one that survived, so complexity can only be known if the whole search is known. Two rules adopted into the critic from it (docs/berdondini_lenses.md): count independent BETS rather than observations whenever holdings overlap, and treat &quot;the model is simple&quot; as no defence unless the simple form was taken off the shelf instead of searched for. Leaves one open threshold question for the owner: the deflator counts attempts inside a DECLARED family, and his argument makes no room for the declaration. ### Vannevar Bush: network analyzer, differential analyzer, memex (read 2026-08-17) Operational lenses in docs/bush_lenses.md. The one that changed a build: the memex&#x27;s idea is the associative TRAIL, not storage, which shipped the same day as docs/trails.json and pipeline/export_trails.py. The one that reframes the engine: Bush&#x27;s Type 2 versus Type 3 distinction, model the system&#x27;s components or the equation&#x27;s terms, and know which you built. Plus the correction worth knowing before repeating the story anywhere public, that Bush did not build the network analyzer (Spencer and Hazen&#x27;s 1924 SB thesis did, GE and MIT built the 1929 machine, and Westinghouse built one independently the same year).</p><p class="buy"><a href="https://www.amazon.com/s?k=The+Goal+%2F+Theory+of+Constraints+Eliyahu+M.+Goldratt&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <h2 style="font-size:1.3rem;margin:2rem 0 .2rem">Also on the shelf</h2><p class="tag">recommended, with my note</p>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/13067275-M.jpg"><h2>The Index Revolution by Charles D. Ellis</h2><p class="lens">The prior for every hypothesis entering the pipeline is index-minus-costs. Ellis&#x27;s paradox of skill is why the gates exist and why they never loosen.</p><p class="buy"><a href="https://www.amazon.com/dp/1119313082?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/8331823-M.jpg"><h2>Why I Left Goldman Sachs by Greg Smith</h2><p class="lens">When the desk&#x27;s revenue shifts from agency to principal the client becomes the product. Read sell-side research and structured-flow color as adversarial marketing, not information.</p><p class="buy"><a href="https://www.amazon.com/dp/1455527483?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
@@ -324,5 +251,4 @@ a one-line take.</p>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/1176845-M.jpg"><h2>Introduction to Econometrics by James H. Stock &amp; Mark W. Watson</h2><p class="lens">The applied standard, and the reason every t-statistic on this site is HAC-corrected; its chapters on heteroskedasticity and autocorrelation are the working manual for the estimator the gates depend on.</p><p class="buy"><a href="https://www.amazon.com/dp/1537632965?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><h2>Introductory Econometrics: A Modern Approach by Jeffrey M. Wooldridge</h2><p class="lens">States the assumptions plainly enough that you can tell when they fail, which is the only reason to own an econometrics text; the omitted-variable-bias treatment is the formal name for what this museum calls the alpha costume.</p><p class="buy"><a href="https://www.amazon.com/s?k=Introductory+Econometrics%3A+A+Modern+Approach+Jeffrey+M.+Wooldridge&tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
 <div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/8250685-M.jpg"><h2>Mostly Harmless Econometrics by Joshua D. Angrist &amp; Jörn-Steffen Pischke</h2><p class="lens">Identification before estimation, and the discipline of asking what would have to be randomly assigned for a claim to be causal; a permanent check on a pipeline that can only ever measure association.</p><p class="buy"><a href="https://www.amazon.com/dp/0691120358?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div>
-<div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/14609-M.jpg"><h2>Econometric Analysis by William H. Greene</h2><p class="lens">The reference you open when an estimator misbehaves rather than the one you read through, kept for the panel and limited-dependent chapters the crowding studies lean on.</p><p class="buy"><a href="https://www.amazon.com/dp/0130132977?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div><footer>As an Amazon Associate, the museum earns from qualifying purchases. Book links carry an affiliate tag. &middot; Covers via Open Library. &middot; BlueShip-AI Research &middot; The Risk Museum &middot; educational research only, not investment advice.</footer></main><script defer src="read-aloud.js?v=0ff38a186c"></script>
-</body></html>
+<div class="book"><img class="cover" loading="lazy" alt="" src="https://covers.openlibrary.org/b/id/14609-M.jpg"><h2>Econometric Analysis by William H. Greene</h2><p class="lens">The reference you open when an estimator misbehaves rather than the one you read through, kept for the panel and limited-dependent chapters the crowding studies lean on.</p><p class="buy"><a href="https://www.amazon.com/dp/0130132977?tag=theriskmuseum-20" target="_blank" rel="nofollow sponsored noopener">Get the book &rarr;</a></p></div><footer>As an Amazon Associate, the museum earns from qualifying purchases. Book links carry an affiliate tag. &middot; Covers via Open Library. &middot; BlueShip-AI Research &middot; The Risk Museum &middot; educational research only, not investment advice.</footer></main></body></html>

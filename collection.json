@@ -1,11 +1,59 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-08-18",
- "works_tested": 456,
+ "exported": "2026-08-19",
+ "works_tested": 465,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(anl4_bvps_median, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-16"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(common_stock_buyback_payments, fair_value_derivative_liabilities, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-16"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(equipment_maximum_useful_life) - zscore(fnd6_fatc))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-16"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(anl4_afv4_dts_spe, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-16"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(implied_volatility_mean_skew_20) - zscore(fnd6_dd2))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-08-16"
+  },
+  {
+   "claim": "Acquirers drift after signing definitive merger agreements: 8-K filings under Item 1.01 whose body contains a definitive merger agreement, timestamped by SEC acceptance datetime, are followed by measurable abnormal returns in the acquirer over the next 20 trading days versus the market. First look of the deal-events family, the one mechanism lane the store has never tested, using the freshly opened 8-K body vein.",
+   "stage": "validation",
+   "reason": "Newey-West t=-3.07 < 2.50 (base 2.5, family n=1); bootstrap P(Sharpe<=0)=0.9992 > 0.05 (base 0.05, family n=1); margin-of-safety rerun (gross halved, costs doubled) t=-3.16 < 2.5 \u2014 edge has no buffer; in-sample Sharpe -0.40 <= 0; critic addendum (2026-08-15): what died here is a concentrated, event-type-contaminated book, not a clean measurement of acquirer drift \u2014 970 events under v1 filters (688 survive v2 fresh-signing filters), top-heavy concurrency, lifecycle recurrences allowed by the 30d dedup; fix ET cutoff, entry timing, dedup, and add concentration exhibits before this family reopens",
+   "status": "rejected",
+   "about": "Event set: Item 1.01 8-Ks whose body matches agreement-and-plan-of-merger, deterministic keyword filter, no model judgment. Point-in-time entry at the first close after acceptance datetime. One declared window, 20 trading days, long acquirer hedged short SPY, engine costs. Honesty: this is the ACQUIRER side only; the classic deal-spread trade needs target prices and targets delist, so the target-side study is declared blocked on the delisted-price vein, second in the constraint audit elevation order. Survivor panel biases the acquirer sample toward firms that stayed large, stated.",
+   "tested": "2026-08-15"
+  },
   {
    "claim": "BRAIN candidate: group_rank(ts_delta(pv13_revere_country, 10), subindustry)",
    "stage": "brain-checks",
