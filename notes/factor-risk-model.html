@@ -290,7 +290,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="hero"><div class="hero-in">
 <div class="eyebrow">Working Paper No. 24 &middot; 5 August 2026</div>
 <h1>Building a Factor Risk Model From Scratch</h1>
-<p class="lede">I built a cross-sectional equity risk model with many factors, the same architecture a commercial risk model uses rather than a reproduction of one. Of 16 factors tested on 436 stocks since 2020, only two clear significance.</p>
+<p class="lede">I built a cross-sectional equity risk model with many factors, the same architecture a commercial risk model uses rather than a reproduction of one. Of 16 factors tested on 436 stocks since 2020, two clear a naive t of 2 and none clears a bar deflated for having tested sixteen.</p>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
@@ -301,11 +301,15 @@ decomposes a stock&rsquo;s return into common drivers plus a residual. Every
 large risk desk buys one from a vendor whose factor definitions and
 estimation weights are proprietary. I built the same class of model from public daily price data,
 down to the factor covariance matrix and the portfolio risk decomposition. Run
-on 436 US names (stocks) from 2020 to 2026, two of sixteen factors clear a Newey-West
+on 436 US names (stocks) from 2020 to 2026, two of sixteen factors clear a <i>naive</i> Newey-West
 t-stat of 2 (a t-statistic is the standard measure of whether a result is
 distinguishable from luck; the Newey-West version adjusts it for correlated
-errors), Size and the Energy industry factor, and a diversified, equally
-weighted book (portfolio) of 100 names turns out to be 98% factor risk.</p>
+errors), Size at 2.64 and the Energy industry factor at 2.25. Sixteen factors
+were tested as one family, and each added test is another chance to get lucky,
+so the evidence required of any one of them rises with the count. This site's
+own pipeline bar of t = 2.5 deflates to <b>t = 3.36</b> at sixteen tests, and on
+that bar nothing clears. A diversified, equally weighted book (portfolio) of 100
+names turns out to be 98% factor risk.</p>
 <div class="keywords"><b>Keywords:</b> factor risk model, cross-sectional
 regression, factor covariance, specific risk, portfolio risk decomposition,
 Newey-West.</div>
@@ -368,11 +372,19 @@ sample:</p>
 </table>
 </div>
 
-<p>Of sixteen factors tested, <b>two</b> clear a t-stat of 2 on this period:
-Size and the Energy industry factor. Everything else sits inside noise on this
-sample, including Momentum, Value and Beta, the factors most people assume are
-reliably priced. A model is only useful if it tells you that as readily as it
-tells you the opposite.</p>
+<p>Of sixteen factors tested, two clear a <i>naive</i> t-stat of 2 on this period,
+Size at <b>2.64</b> and the Energy industry factor at <b>2.25</b>. That is the
+wrong bar, and this paper used it. Sixteen factors were tested as a single
+family, and the count is itself evidence against any one of them (Harvey, Liu
+and Zhu, 2016). Deflating this pipeline's own t = 2.5 hurdle for a family of
+sixteen puts the bar at <b>t = 3.36</b>. A plain Bonferroni bar at 5% two-sided
+puts it at <b>2.96</b>. Holm and Benjamini-Hochberg at 5% reject nothing at all:
+both stop at Size, whose two-sided p of 0.0083 misses the first-step allowance
+of 0.0031. On every one of those corrections <b>zero of the sixteen clears</b>.
+Size is the closest miss. Everything else sits inside noise on this sample,
+including Momentum, Value and Beta, the factors most people assume are reliably
+priced. A model is only useful if it tells you that as readily as it tells you
+the opposite, and that applies to the model's own factors before anything else.</p>
 
 <h2>4. The portfolio decomposition</h2>
 <p>Running the decomposition on an equally weighted book of 100 names as of 29 July
@@ -395,6 +407,7 @@ would want before trusting this at real capital. The Value factor is a proxy
 built from returns, not fundamental book-to-price. The universe is survivorship biased (it contains only names that survived to
 the end of the sample).</div>
 
+<p><strong>Correction, 19 August 2026.</strong> As first published this paper adjudicated its sixteen factors against an unadjusted t of 2 and reported that two cleared. That is the bar this site exists to argue against, and applying it to my own factor model while applying a deflated bar to everything else was the least defensible thing on this page. Corrected above: the naive count of two stands as a naive count, and under the pipeline's own deflation for a family of sixteen (t = 3.36), plain Bonferroni (2.96), Holm or Benjamini-Hochberg, zero factors clear. No number changed; the bar did, and the conclusion with it.</p>
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Code: pipeline/factor_risk_model.py.
 No live capital is deployed anywhere on this site.</footer>
