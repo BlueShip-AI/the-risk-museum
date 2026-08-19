@@ -1,0 +1,341 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Permissioned Balance Sheet &middot; Working Paper No. 35</title>
+<meta name="description" content="A table circulating about private equity ownership of insurers is wrong in most of its particulars. Of 104 claims checked against filings, 27 are contradicted. The corrected table, and what the official numbers actually say.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/junk-left-the-index.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* The canonical paper stylesheet. One source, injected inline into every note
+   by pipeline/restyle_notes.py so pages stay self-contained. Edit HERE and
+   re-run that script; editing a note's own style block is a losing move.
+
+   The format follows an institutional research-article convention: a dark
+   hero band carrying an eyebrow, a large light grotesque headline and a serif
+   lede, then a left-aligned serif text column. Fonts are system faces only.
+   Identity stays the museum's: Charter body, the crest, navy, the red accent
+   where things die, and gold reserved for the vault. */
+
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b;
+  --hero:#0f1c33; --heroink:#f2efe8; --herosub:#c9cfda; --heromut:#8fa0bb;
+  --gold:#b8860b; --goldhero:#e0bc6a; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc;
+    --hero:#0c1626; --gold:#e0bc6a; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg); position:relative;
+  font:18px/1.72 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif;
+  font-variant-numeric:lining-nums; padding:0 0 4.5rem; }
+
+/* topbar: brand left, tabs right */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
+.brand-lockup img { display:block }
+nav.tabs { display:flex; gap:1.1rem; margin-left:auto; flex:1 1 auto;
+  min-width:0; justify-content:flex-end; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
+nav.tabs::-webkit-scrollbar { display:none }
+@media (max-width:899px) { nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) { nav.tabs { -webkit-mask-image:none; mask-image:none } }
+nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; flex:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+nav.tabs a.on { color:var(--fg); border-bottom-color:var(--gold) }
+nav.tabs a:hover { color:var(--fg) }
+@media (max-width:820px) {
+  nav.tabs { gap:.9rem; overflow-x:auto; scrollbar-width:none }
+  nav.tabs::-webkit-scrollbar { display:none } }
+
+/* the get-in-touch mark, floated over the hero's top right */
+.tearmark { position:absolute; top:4.4rem; right:1.2rem; z-index:60;
+  display:block; padding:.45rem .8rem .5rem; background:var(--card);
+  border:1px solid var(--line); border-radius:8px; text-decoration:none;
+  line-height:1.3; box-shadow:0 2px 10px rgba(0,0,0,.18) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.8rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:820px) { .tearmark { display:none } }
+@media print { .tearmark { display:none } }
+
+/* hero band */
+.hero { background:var(--hero); color:var(--heroink);
+  padding:3.6rem 1.5rem 3rem; border-bottom:1px solid var(--line) }
+.hero-in { max-width:912px; margin:0 auto }
+.eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--goldhero);
+  margin-bottom:1.5rem }
+.hero h1 { font:300 clamp(32px,5vw,46px)/1.16 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.02em; color:var(--heroink); max-width:17em; margin:0 0 1.5rem }
+.hero .lede { font:italic 20px/1.55 Charter,Georgia,serif; color:var(--herosub);
+  max-width:42em; margin:0 0 1.9rem }
+.hero .who { font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--heromut) }
+.hero .who b { color:var(--heroink); font-weight:500 }
+
+/* article column */
+main { max-width:960px; margin:0 auto; padding:0 1.5rem }
+article, .article-body { max-width:912px; margin-top:2.6rem }
+p { margin-bottom:1.25rem; text-align:left }
+h2 { font:500 22px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.01em; margin:2.7rem 0 .9rem }
+h3 { font:600 16.5px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:1.8rem 0 .6rem }
+a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:2px }
+strong { font-weight:600 }
+code { font:.85em ui-monospace,Menlo,monospace; background:var(--card);
+  border:1px solid var(--line); border-radius:4px; padding:.05em .35em }
+ol, ul { padding-left:1.3rem; margin-bottom:1.25rem }
+blockquote { border-left:3px solid var(--line); padding-left:1.1rem;
+  color:var(--muted); margin:1.5rem 0 }
+
+/* legacy academic pieces some papers carry */
+.abstract { font-size:16px; line-height:1.65; margin:0 0 1.1rem;
+  text-align:left; hyphens:none }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em; font-weight:bold }
+.keywords { font-size:14px; color:var(--muted); margin-bottom:1.8rem }
+.plain { font-size:18px; line-height:1.55; margin:0 0 1.5rem;
+  padding:.8rem 1.1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; text-align:left }
+
+/* tables: horizontal rules only */
+.tblwrap { overflow-x:auto; margin:2rem 0 }
+.cap { font:13px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); margin-bottom:.5rem }
+table { border-collapse:collapse; width:100%;
+  font:15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif }
+th, td { border:0; border-bottom:1px solid var(--line);
+  padding:.6rem .9rem .6rem 0; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { font-weight:600; font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted);
+  border-bottom:2px solid var(--fg) }
+
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1.1rem;
+  margin:1.8rem 0; color:var(--muted); font-size:15.5px; font-style:italic }
+.grave { margin:2.4rem 0 }
+.grave svg { width:100%; height:auto; display:block }
+hr { border:0; border-top:1px solid var(--line); margin:3rem 0 }
+
+.refs { margin-top:2.6rem; font-size:14.5px }
+.refs h2 { font-size:15px }
+.refs ol { padding-left:1.3rem }
+.refs li { margin-bottom:.45rem; line-height:1.5 }
+
+/* provenance block, bs-prov/1.0 */
+.prov { margin:2.6rem 0 0; border:1px solid var(--line); border-radius:6px;
+  background:var(--card); padding:1rem 1.2rem; font-size:14px;
+  line-height:1.55; color:var(--muted) }
+.prov h2 { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.1em; text-transform:uppercase; margin:0 0 .7rem;
+  color:var(--fg) }
+.prov dl { display:grid; grid-template-columns:8.5rem 1fr; gap:.32rem .9rem;
+  margin:0 }
+.prov dt { color:var(--fg); font-weight:600 }
+.prov dd { margin:0; text-align:left }
+.prov code { font-size:.94em }
+.prov ul { margin:0; padding-left:1.05rem }
+@media (max-width:520px) {
+  .prov dl { grid-template-columns:1fr; gap:.1rem }
+  .prov dd { margin-bottom:.5rem } }
+
+footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
+  border-top:1px solid var(--line); color:var(--muted);
+  font:13px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:left }
+
+
+/* ---- listing page: cards and the filterable category grid ---- */
+.note-card { background:var(--card); border:1px solid var(--line);
+  border-radius:10px; padding:1.2rem 1.4rem; margin:0 0 1rem;
+  display:flex; gap:1.2rem; align-items:flex-start;
+  text-decoration:none; color:var(--fg) }
+.tile { flex:none; width:64px; height:64px; margin-top:.15rem }
+.note-body { min-width:0 }
+.note-card:hover { border-color:var(--gold) }
+.note-card h2 { font:500 17px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:0; margin:0 0 .4rem; color:var(--fg) }
+.note-card p { font:15px/1.55 Charter,Georgia,serif; color:var(--muted); margin:0 }
+.listing { max-width:912px; margin-top:2.4rem }
+
+/* ---- listing page, featured tier: top 5 thesis ---- */
+.top5 { max-width:912px; margin-top:2.4rem }
+.sect-h { font:600 .8rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 .55rem }
+.sect-note { font:15px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 1.1rem }
+.top-card { display:block; background:var(--card); border:1px solid var(--line);
+  border-left:3px solid var(--blue); border-radius:10px;
+  padding:1.15rem 1.35rem; margin:0 0 .9rem; text-decoration:none;
+  color:var(--fg) }
+.top-card:hover { border-color:var(--blue) }
+.top-card .tc-meta { font:600 .68rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--blue);
+  display:block; margin-bottom:.45rem }
+.top-card h2 { font:500 19px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:0 0 .4rem; color:var(--fg) }
+.top-card p { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 .6rem }
+.top-card .tc-stat { font:13px/1.5 Charter,Georgia,serif; color:var(--fg);
+  border-top:1px solid var(--line); padding-top:.55rem; display:block }
+
+.glance { margin-bottom:2.4rem }
+.glance-hdr { display:flex; align-items:baseline; justify-content:space-between;
+  margin-bottom:.75rem }
+.glance-hdr h2 { font-size:1.05rem; font-weight:bold }
+.glance-count { color:var(--muted); font-size:.78rem }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(122px,1fr));
+  gap:.5rem }
+.mtile { background:var(--card); border:1px solid var(--line); border-radius:8px;
+  padding:.6rem .65rem; text-decoration:none; color:var(--fg); display:flex;
+  flex-direction:column; gap:.3rem; min-height:84px }
+.mtile:hover { border-color:var(--blue) }
+.mtile-icon { width:26px; height:26px; flex:none; opacity:.85 }
+.mtile-meta { font-size:.62rem; color:var(--muted); letter-spacing:.03em;
+  text-transform:uppercase }
+.mtile-t { font-size:.79rem; line-height:1.22; font-weight:600; flex:1 }
+.mtile-s { font-size:.72rem; color:var(--accent); font-weight:bold }
+.mtile.hide { display:none }
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem }
+.chip { font:inherit; font-size:.78rem; color:var(--muted); background:var(--bg);
+  border:1px solid var(--line); border-radius:999px; padding:.32rem .75rem;
+  cursor:pointer }
+.chip span { color:var(--muted); opacity:.8 }
+.chip:hover { border-color:var(--blue); color:var(--fg) }
+.chip.on { background:var(--card); border-color:var(--accent); color:var(--fg);
+  font-weight:600 }
+.chip.on span { color:var(--accent) }
+
+/* ---- listing page: associative trails (Bush memex; export_trails.py) ---- */
+.trails { max-width:912px; margin-top:2.4rem }
+.trail { border:1px solid var(--line); border-radius:10px; background:var(--card);
+  margin:0 0 .6rem; padding:.85rem 1.1rem }
+.trail summary { cursor:pointer; list-style:none; display:flex;
+  align-items:baseline; gap:.7rem; color:var(--fg) }
+.trail summary::-webkit-details-marker { display:none }
+.trail summary::before { content:"\203A"; color:var(--blue); font-weight:bold;
+  display:inline-block; transition:transform .15s ease }
+.trail[open] summary::before { transform:rotate(90deg) }
+.trail summary b { font:500 16px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-n { margin-left:auto; font-size:.72rem; color:var(--muted);
+  letter-spacing:.06em; text-transform:uppercase; white-space:nowrap }
+.trail-premise { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:.7rem 0 1rem; padding-left:1.1rem }
+.trail-stop { display:flex; gap:.8rem; padding:.55rem 0 .55rem 1.1rem;
+  border-top:1px solid var(--line) }
+.trail-num { flex:none; width:1.4rem; height:1.4rem; border-radius:99px;
+  border:1px solid var(--line); color:var(--muted); text-align:center;
+  font:600 .72rem/1.35rem 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-stop a { font:500 15px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-lab { font-size:.68rem; color:var(--muted); letter-spacing:.1em;
+  text-transform:uppercase; margin-left:.5rem }
+.trail-why { font:14.5px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:.3rem 0 0 }
+</style>
+<!-- social:start -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Risk Museum">
+<meta property="og:title" content="The Permissioned Balance Sheet &middot; Working Paper No. 35">
+<meta property="og:description" content="A table circulating about private equity ownership of insurers is wrong in most of its particulars. Of 104 claims checked against filings, 27 are contradicted. The corrected table, and what the official numbers actually say.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/junk-left-the-index.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Permissioned Balance Sheet &middot; Working Paper No. 35">
+<meta name="twitter:description" content="A table circulating about private equity ownership of insurers is wrong in most of its particulars. Of 104 claims checked against filings, 27 are contradicted. The corrected table, and what the official numbers actually say.">
+<!-- social:end -->
+</head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fjunk-left-the-index.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=The%20Permissioned%20Balance%20Sheet%20-%20Working%20Paper%20No.%2035&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/junk-left-the-index.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
+<div class="topbar">
+<!-- brand:start -->
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<!-- brand:end -->
+<nav class="tabs">
+<a class="on" href="./">Research Notes</a>
+<a href="../">Tested Strategies</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+<a href="../about.html">About</a>
+<a href="../cv.html">CV</a>
+</nav>
+</div>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<div class="hero"><div class="hero-in">
+<div class="eyebrow">Working Paper No. 35 &middot; 19 August 2026 &middot; checking a table that is being passed around</div>
+<h1>The Permissioned Balance Sheet</h1>
+<p class="lede">Private equity firms really are buying life insurers, and policyholder assets really are moving into private credit. The table circulating about it is wrong in most of its particulars: of 104 claims checked against filings, 27 are contradicted and 5 cannot be verified at all. Here is the corrected version, and the three official numbers that carry the argument instead.</p>
+<div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
+</div></div>
+<main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> A table has been circulating that lists thirteen private equity and private credit firms alongside the insurance companies they own, with the implication that policyholder money is being routed into the owners&rsquo; own products. The underlying phenomenon is real, large, and worth understanding. The table is wrong in most of its particulars. Of 104 specific claims checked against SEC filings, statutory statements and NAIC reports, 46 are confirmed, 27 are contradicted, 26 are partly right and 5 cannot be verified from any public source. The corrected table is this note&rsquo;s central exhibit, and it tells a more interesting story than the original. The connection to earlier work is direct: Working Paper No. 31 found that credit risk did not leave the high-yield market so much as change address, migrating to private credit where no daily spread prints. This note is about who bought it.</p>
+
+<h2>1. What is actually true, and how big it is</h2>
+<p>Three official-sector numbers carry the argument, and none of them is the one in the circulating table.</p>
+<p><b>The NAIC counts 137 private-equity-owned US insurers at year-end 2024</b>, up from 90 in 2018 and 139 by June 2025. They held <b>$704.3 billion in cash and invested assets, which is 7.8 per cent of the roughly $9 trillion US insurance industry</b>. Around 96 per cent of that sits in life companies. The Financial Stability Oversight Council repeats these figures.</p>
+<p>The table&rsquo;s footnote claims roughly 25 per cent of US insurers are private-equity backed. On assets that overstates the phenomenon by about a factor of three. The honest version is still striking: a category that barely existed in 2010 now holds the better part of a trillion dollars of policyholder assets, and it has grown by half in six years.</p>
+<p><b>Researchers at the Chicago Fed put life insurer investments in private credit at $849 billion in 2024, more than double the 2014 figure.</b> This is the number that matters, because it measures the behaviour rather than the ownership label. An insurer does not need a private equity owner to hold private credit, and the regulatory concern is about what is on the balance sheet.</p>
+<p><b>The International Association of Insurance Supervisors judges the risk contained for now.</b> Its assessment is that limited exposure to alternative assets and asset-intensive reinsurance means the risk to global financial stability is currently relatively small, while flagging the rapid growth as something to monitor. That is a careful sentence and it should be quoted as written rather than compressed into either direction.</p>
+
+<h2>2. The corrected table</h2>
+<div class="tbl"><table>
+<tr><th>Firm and insurer</th><th>The circulating claim</th><th>What the filings say</th></tr>
+<tr><td><b>KKR / Global Atlantic</b></td><td>AUM grew $72bn to $158bn under KKR</td><td>$72bn is the figure at the July 2020 <b>announcement</b>, before KKR owned anything. KKR&rsquo;s own roll-forward records <b>$97.5bn at closing on 1 February 2021</b>. Growth under ownership is 62 per cent, not 119</td></tr>
+<tr><td><b>Apollo / Athene</b></td><td>~$274bn, roughly half of Apollo&rsquo;s AUM</td><td><b>41.8 per cent</b> ($392.2bn of $938.4bn at year-end 2025); about 40 per cent on mid-2026 figures</td></tr>
+<tr><td><b>Brookfield / American Equity</b></td><td>Acquired 2022</td><td>Completed <b>May 2024</b>, valuing the company at about <b>$4.3bn</b></td></tr>
+<tr><td><b>Blackstone / Allstate life unit</b></td><td>Minority stake</td><td>A <b>full acquisition</b> for $2.8bn cash, renamed Everlake Life</td></tr>
+<tr><td><b>Blackstone / insurance AUM</b></td><td>~$150bn as of 2021</td><td>Five years stale. About <b>$230bn</b> at Q4 2024 and roughly $271bn since</td></tr>
+<tr><td><b>Stone Point / Wilton Re</b></td><td>Owned</td><td><b>Not owned.</b> Canada Pension Plan Investment Board has held 100 per cent since 2014. Stone Point was the seller</td></tr>
+<tr><td><b>Eldridge / Security Benefit</b></td><td>~68 per cent of Eldridge AUM</td><td>The denominator is the asset-management holding company formed in December 2024 with about $74bn, not the wider Eldridge group</td></tr>
+<tr><td><b>TPG / Hickory Re</b></td><td>$500m plus $150m in TPG stock</td><td>The $500m went into <b>Jackson Financial</b> for about 6.5 per cent of its common equity. Hickory Re is Jackson&rsquo;s own wholly owned captive</td></tr>
+<tr><td><b>Footnote</b></td><td>~25 per cent of US insurers are PE-backed</td><td><b>7.8 per cent of industry assets</b>, across 137 insurers (NAIC, year-end 2024)</td></tr>
+</table></div>
+<p>Carlyle, Ares, Sixth Street, Warburg Pincus and Centerbridge are broadly as described, with dates and figures that hold up.</p>
+<p>One row is omitted from this note entirely. It described an ongoing federal matter involving named firms, and the description was wrong about the entity under investigation, wrong about the nature of the assets, and wrong about the scope. No charges have been filed against anyone named. Unadjudicated legal matters do not belong in a research note, and the fact that the table contained one, stated confidently and incorrectly, is itself a reason to check the rest.</p>
+
+<h2>3. What the popular critique gets wrong</h2>
+<p>The strongest version of the concern is a governance and measurement argument. The version that circulates is often a regulatory one, and it is mistaken on three specific points that are easy to check.</p>
+<p><b>Bermuda is not an unregulated jurisdiction.</b> Its commercial insurance regime holds full Solvency II equivalence from the European Commission and NAIC Qualified and Reciprocal Jurisdiction status, which removes the collateral requirement that once applied. Roughly <b>80 per cent of Bermuda reinsurance business is conducted on a collateralised basis</b>, largely through funds withheld and modified coinsurance, with the assets sitting on the ceding insurer&rsquo;s own balance sheet. There is a genuine transparency argument about offshore structures. There is no supportable claim that the assets are unsupervised.</p>
+<p><b>The Federal Reserve has not flagged this as systemic.</b> Its Financial Stability Report of May 2026 contains no occurrence of the words &ldquo;reinsurance&rdquo; or &ldquo;Bermuda&rdquo; in seventy-one pages. What it discusses in relation to insurers is leverage, illiquid assets and nontraditional liabilities in general terms.</p>
+<p><b>Regulators have not defined private equity ownership, deliberately.</b> On the NAIC&rsquo;s own list of regulatory considerations for private-equity-owned insurers, the item titled &ldquo;Definition of Private Equity&rdquo; is the one entry with no update in any reporting period. The FSOC states the position directly: supervisory focus is on investment behaviour rather than on who owns the company. That is the right call analytically, and it means &ldquo;PE-owned&rdquo; is not the variable a regulator is actually watching.</p>
+
+<h2>4. The mechanism, stated precisely</h2>
+<p>Strip out the rhetoric and the structure is straightforward, and it is disclosed. An asset manager acquires or partners with a life and annuity company. The insurer&rsquo;s liabilities are long dated and do not redeem like fund capital, so they function as permanent capital. The manager earns fees on assets it would otherwise have to raise, and its origination business gains a reliable buyer. The insurer, in exchange, gains access to origination it could not build itself and, in principle, a yield advantage over public credit at the same rating.</p>
+<p>The KKR transaction is the best-documented instance, because the filings are unusually clear. The 2021 purchase price was $4.74bn, of which KKR&rsquo;s own cash was $2.91bn; the remainder came from co-investors and rolling shareholders. For that, KKR consolidated a balance sheet carrying $99.5bn of investments against $100.4bn of policy liabilities. In January 2024 it acquired the remaining 36.7 per cent for about $2.6bn. Both tranches were priced at one times book value.</p>
+<p>Two measurement points follow, and they apply to every firm in the table.</p>
+<p><b>&ldquo;Assets under management&rdquo; is not a consistent unit here.</b> KKR&rsquo;s definition includes the asset value of the insurance companies themselves. That is a balance sheet, not third-party managed money, and comparing it to a traditional manager&rsquo;s AUM is a category error.</p>
+<p><b>Headline growth includes capital that is not the insurer&rsquo;s.</b> Of Global Atlantic&rsquo;s roughly $213bn of reported AUM at the end of 2025, <b>$58bn is third-party capital in sponsored sidecar vehicles</b> that did not exist at the baseline. On a like-for-like measure of invested assets the figure went from $144.3bn at the end of 2024 to $158.7bn a year later.</p>
+
+<h2>5. What would actually tell you something</h2>
+<p>The useful questions are about behaviour and disclosure, not ownership.</p>
+<p><b>What share of the portfolio is affiliate-originated, and is it disclosed?</b> The NAIC&rsquo;s work on affiliated-investment reporting is the most consequential regulatory development in this area, precisely because it addresses the variable that matters.</p>
+<p><b>Do the capital charges match the risk?</b> Risk-based capital treatment for private credit, asset-backed finance and structured tranches rests on a ratings process designed for corporate bonds. If the charge understates the risk, the capital efficiency is the return. The NAIC&rsquo;s work on CLO modelling is the live test of this.</p>
+<p><b>Does liability optionality meet asset illiquidity?</b> Annuities carry surrender features. An illiquidity premium earned against liabilities the holder can exercise is a different object from one earned against liabilities that cannot run.</p>
+<p><b>And the correlation nobody sees on a single balance sheet.</b> If a growing share of the industry holds similar private credit originated by a small number of managers, sector-level correlation is higher than any individual filing shows. That is the concern Working Paper No. 31 raised about the high-yield index, and it does not become smaller when the buyer is an insurer.</p>
+
+<h2>6. What this note does not claim</h2>
+<p>It does not claim that private-equity-owned insurers are less safe. The evidence for that would be comparative default, downgrade or impairment experience, and this note does not present it.</p>
+<p>It does not claim wrongdoing by any firm. The structure described is disclosed in public filings and operates under state and, where applicable, Bermudian supervision.</p>
+<p>It does not claim the phenomenon is systemic. The official bodies that would say so have declined to, and their language is quoted above rather than paraphrased.</p>
+<p>What it claims is narrower and, on the evidence, solid: the phenomenon is real and quantified at 7.8 per cent of industry assets and $849 billion of life insurer private credit; the popular account of it is unreliable in most of its specifics; and the questions worth asking are about affiliated-asset disclosure, capital charges and liability optionality rather than about who owns the shares.</p>
+
+<div class="prov"><dl>
+<dt>Method</dt><dd>Thirteen rows of a circulating table checked claim by claim against primary sources. 104 discrete claims; 46 confirmed, 27 contradicted, 26 partly confirmed, 5 unverifiable. Every correction in section 2 traces to a filing.</dd>
+<dt>Sources</dt><dd>SEC filings for KKR, Apollo, Blackstone, Brookfield, TPG and Jackson Financial; statutory annual statements; NAIC Capital Markets Bureau special report on private-equity-owned insurers; FSOC annual report; IAIS Global Insurance Market Report; Bermuda Monetary Authority; Federal Reserve Financial Stability Report, May 2026; Federal Reserve Bank of Chicago research on life insurer private credit.</dd>
+<dt>Honesty</dt><dd>One row of the original table is omitted rather than corrected, because it concerned an unadjudicated federal matter and no charges have been filed against anyone named. This note takes no position on it.</dd>
+<dt>Related</dt><dd>Working Paper No. 31 (a safer index is not a safer market), No. 9 (the AI-CDO).</dd>
+</dl></div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
+</body></html>
