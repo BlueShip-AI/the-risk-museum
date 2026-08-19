@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The AI-CDO &middot; BlueShip Research Working Paper No. 9</title>
-<meta name="description" content="A stylized 200,000-draw Monte Carlo of a three-tranche AI-infrastructure credit pool: the equity tranche loses 68% of value on average and the senior 1%, intact in 93% of paths. The governing variable is realized revenue as a fraction of promised AI economics; the senior claim bleeds only below roughly 60%.">
+<meta name="description" content="A stylized 200,000-draw Monte Carlo of a three-tranche AI-infrastructure credit pool: the equity tranche loses 78% of value on average and the senior 1.2%, intact in 90% of paths. The governing variable is realized revenue as a fraction of promised AI economics; the senior claim bleeds only below roughly 60%.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/the-ai-cdo.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -259,7 +259,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="The AI-CDO &middot; BlueShip Research Working Paper No. 9">
-<meta property="og:description" content="A stylized 200,000-draw Monte Carlo of a three-tranche AI-infrastructure credit pool: the equity tranche loses 68% of value on average and the senior 1%, intact in 93% of paths. The governing variable is realized revenue as a fraction of promised AI economics; the senior claim bleeds only below roughly 60%.">
+<meta property="og:description" content="A stylized 200,000-draw Monte Carlo of a three-tranche AI-infrastructure credit pool: the equity tranche loses 78% of value on average and the senior 1.2%, intact in 90% of paths. The governing variable is realized revenue as a fraction of promised AI economics; the senior claim bleeds only below roughly 60%.">
 <meta property="og:url" content="https://theriskmuseum.com/notes/the-ai-cdo.html">
 <meta property="og:image" content="https://theriskmuseum.com/cards/note-the-ai-cdo.png">
 <meta property="og:image:width" content="1200">
@@ -267,7 +267,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta name="twitter:image" content="https://theriskmuseum.com/cards/note-the-ai-cdo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The AI-CDO &middot; BlueShip Research Working Paper No. 9">
-<meta name="twitter:description" content="A stylized 200,000-draw Monte Carlo of a three-tranche AI-infrastructure credit pool: the equity tranche loses 68% of value on average and the senior 1%, intact in 93% of paths. The governing variable is realized revenue as a fraction of promised AI economics; the senior claim bleeds only below roughly 60%.">
+<meta name="twitter:description" content="A stylized 200,000-draw Monte Carlo of a three-tranche AI-infrastructure credit pool: the equity tranche loses 78% of value on average and the senior 1.2%, intact in 90% of paths. The governing variable is realized revenue as a fraction of promised AI economics; the senior claim bleeds only below roughly 60%.">
 <!-- social:end -->
 </head><body>
 <!-- share:start -->
@@ -308,8 +308,8 @@ ratings, hidden correlation, inadequate tail capital, and misaligned
 incentives) are each observable in this complex today, with technology
 obsolescence adding a hazard mortgages never carried. A stylized Monte Carlo
 simulation of a pool sliced into three tranches (equity 15%, mezzanine 25%, senior 60%) over 200,000 draws
-shows the equity tranche losing 68% of its value on average, the mezzanine 28%,
-and the senior 1% while remaining intact in 93% of paths. The asymmetry makes
+shows the equity tranche losing 78% of its value on average, the mezzanine 29%,
+and the senior 1.2% while remaining intact in 90% of paths. The asymmetry makes
 the originator&rsquo;s cash-out structural and isolates a single governing
 variable: realized revenue as a fraction of the promised AI economics. The
 senior claim bleeds only once revenue falls below roughly 60% of what was
@@ -519,13 +519,11 @@ merely disappoints) the equity loses 95 percent of its value, and its holder mat
 Increasingly it is buyers seeking yield, sold the tranche as &ldquo;diversified
 AI exposure.&rdquo; In the <b>ugly</b> state (the draw at the 95th percentile, revenue
 collapsing toward half) equity and the mezzanine backed by GPUs are both destroyed
-and the senior claim finally bleeds, because obsolescence leaves chip collateral
-little recovery and circular financing unwinds faster than the default of a
-single name.</p>
+and the senior claim finally bleeds. The mechanism is the circular-financing amplifier lifting pool loss through the senior attachment point at 40%, not obsolescence acting on the senior directly: the haircut impairs the GPU slice of the collateral, and the senior tranche sees it only insofar as it pushes total pool loss past that attachment. As first published this sentence said obsolescence left chip collateral little recovery, which was not true of the code that produced the number.</p>
 <p>Across all 200,000 paths the asymmetry is stark: the equity tranche loses
-<b>68%</b> of its value on average and is all but wiped in half of them, the
-mezzanine loses <b>28%</b>, and the senior loses <b>1%</b> and stays fully
-intact <b>93%</b> of the time. That gap makes the originator&rsquo;s cash-out
+<b>78%</b> of its value on average and is all but wiped in <b>61%</b> of them, the
+mezzanine loses <b>29%</b>, and the senior loses <b>1.2%</b> and stays fully
+intact <b>90%</b> of the time. That gap makes the originator&rsquo;s cash-out
 structural. Origination fees are earned whatever happens; the senior claim,
 backed by real assets and surviving almost everything, is retained; and the
 equity and mezzanine, the tranches that carry the technology risk, are sold to
@@ -556,7 +554,7 @@ collateral, not the label.</li>
 <p>The variable that separates this boom from 2008 is the one the simulation
 turns on. A house produces no cash flow and only ever costs; compute can produce
 cash flow if the applications built on it are paid for. The senior claim
-survives in 93% of the draws for a single reason: revenue must collapse below
+survives in 90% of the draws for a single reason: revenue must collapse below
 roughly 60% of what was promised before it bleeds, and sustained revenue at that
 level is a materially different world from the sub-prime one, where the
 underlying asset could never service anything. The saving grace of the AI boom
@@ -590,6 +588,29 @@ failure of 2008 was never a failure of arithmetic; it was a failure of nerve,
 the refusal to write down what was already visible.</div>
 
 <div class="refs">
+<h2>10. Correction, 19 August 2026</h2>
+<p><b>The probabilities on this page are not calibrated, and that belonged here from the start.</b>
+Every number is a direct function of an uncalibrated triangular(0.50, 0.85, 1.20) prior on R, the
+fraction of promised AI economics actually realized. Only the attachment map, equity 0 to 15,
+mezzanine 15 to 40, senior 40 to 100, is structural. Change the prior and every probability moves;
+the ordering of the tranches does not. That caveat sat in a private working file at publication
+rather than on the page.</p>
+<p><b>A defect in the waterfall was found and fixed, and two published headline numbers move.</b>
+The obsolescence haircut was being added to mezzanine loss <i>after</i> the waterfall rather than
+impairing the collateral before it. Two consequences, both wrong. Tranche losses no longer
+reconstructed to pool loss: 17.74% of loss allocated against a 16.50% pool, so 124 basis points
+were manufactured at the mezzanine level, with a maximum single-path gap of 7.38%. And the senior
+tranche was left structurally blind to obsolescence, the correlation of senior loss with the
+haircut being &minus;0.002, while section 6 told the reader that obsolescence was what made the
+senior bleed. The fix impairs the 25% GPU slice of the pool before the waterfall and carries the
+original 0.5 scaling unchanged, so it corrects the structure without also re-parameterizing the
+haircut. The waterfall now closes exactly.</p>
+<p>What moved: equity mean loss 68% to <b>78%</b>, equity wiped in 52% of paths to <b>61%</b>,
+mezzanine 28% to <b>29%</b>, senior mean loss 0.8% to <b>1.2%</b>, and P(senior intact) 92.9% to
+<b>90.1%</b>. Every conclusion holds in direction and the senior tranche is modestly worse than
+published. The causal sentence in section 6 now names the actual mechanism, which is the
+circular-financing amplifier lifting pool loss through the 40% attachment point.</p>
+
 <h2>References</h2>
 <ol>
 <li>Bank for International Settlements (2026). Annual Economic Report 2026.
