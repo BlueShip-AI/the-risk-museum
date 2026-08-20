@@ -320,10 +320,12 @@ true book-to-price ratio, book value divided by price), and Volatility (realized
 industry dummy (a 0/1 indicator for its sector) from a sector map built by correlation to sector ETFs.</p>
 <p><b>Estimation.</b> At each date I run a cross-sectional regression (one
 regression across all names at that date) of the
-next day&rsquo;s returns on that day&rsquo;s exposures, weighted by market cap
-and stabilized by ridge, a regression penalty that damps unstable
-coefficients. That is the vendor model&rsquo;s actual estimation
-step. The
+next day&rsquo;s returns on that day&rsquo;s exposures, weighted by the square
+root of the same price-level scale proxy used for Size, and stabilized by ridge,
+a regression penalty that damps unstable coefficients. The vendor step weights
+by the square root of true market cap. With no shares-outstanding field in the
+panel, the declared limitation above, this runs the same estimator on a proxy
+for its weighting variable rather than on the variable itself. The
 coefficients <i>are</i> the factor returns for that day, so the series comes
 from every name&rsquo;s exposure rather than a long-short quintile spread
 (buying the fifth of names ranked highest on the signal and shorting the
