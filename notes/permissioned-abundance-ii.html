@@ -1,0 +1,377 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Permissioned Abundance II: The Bifurcation &middot; Working Paper No. 36</title>
+<meta name="description" content="Since the fourteen forecasts froze on 30 July, the evidence has arrived in two tiers: everyday AI diffusing to cheap models and small firms, frontier inference concentrating where the balance sheets are. Diffusion at the floor, rent at the gate, receipts attached.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/junk-left-the-index.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* The canonical paper stylesheet. One source, injected inline into every note
+   by pipeline/restyle_notes.py so pages stay self-contained. Edit HERE and
+   re-run that script; editing a note's own style block is a losing move.
+
+   The format follows an institutional research-article convention: a dark
+   hero band carrying an eyebrow, a large light grotesque headline and a serif
+   lede, then a left-aligned serif text column. Fonts are system faces only.
+   Identity stays the museum's: Charter body, the crest, navy, the red accent
+   where things die, and gold reserved for the vault. */
+
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b;
+  --hero:#0f1c33; --heroink:#f2efe8; --herosub:#c9cfda; --heromut:#8fa0bb;
+  --gold:#b8860b; --goldhero:#e0bc6a; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc;
+    --hero:#0c1626; --gold:#e0bc6a; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg); position:relative;
+  font:18px/1.72 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif;
+  font-variant-numeric:lining-nums; padding:0 0 4.5rem; }
+
+/* topbar: brand left, tabs right */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
+.brand-lockup img { display:block }
+nav.tabs { display:flex; gap:1.1rem; margin-left:auto; flex:1 1 auto;
+  min-width:0; justify-content:flex-end; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
+nav.tabs::-webkit-scrollbar { display:none }
+@media (max-width:899px) { nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) { nav.tabs { -webkit-mask-image:none; mask-image:none } }
+nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; flex:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+nav.tabs a.on { color:var(--fg); border-bottom-color:var(--gold) }
+nav.tabs a:hover { color:var(--fg) }
+@media (max-width:820px) {
+  nav.tabs { gap:.9rem; overflow-x:auto; scrollbar-width:none }
+  nav.tabs::-webkit-scrollbar { display:none } }
+
+/* the get-in-touch mark, floated over the hero's top right */
+.tearmark { position:absolute; top:4.4rem; right:1.2rem; z-index:60;
+  display:block; padding:.45rem .8rem .5rem; background:var(--card);
+  border:1px solid var(--line); border-radius:8px; text-decoration:none;
+  line-height:1.3; box-shadow:0 2px 10px rgba(0,0,0,.18) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.8rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:820px) { .tearmark { display:none } }
+@media print { .tearmark { display:none } }
+
+/* hero band */
+.hero { background:var(--hero); color:var(--heroink);
+  padding:3.6rem 1.5rem 3rem; border-bottom:1px solid var(--line) }
+.hero-in { max-width:912px; margin:0 auto }
+.eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--goldhero);
+  margin-bottom:1.5rem }
+.hero h1 { font:300 clamp(32px,5vw,46px)/1.16 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.02em; color:var(--heroink); max-width:17em; margin:0 0 1.5rem }
+.hero .lede { font:italic 20px/1.55 Charter,Georgia,serif; color:var(--herosub);
+  max-width:42em; margin:0 0 1.9rem }
+.hero .who { font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--heromut) }
+.hero .who b { color:var(--heroink); font-weight:500 }
+
+/* article column */
+main { max-width:960px; margin:0 auto; padding:0 1.5rem }
+article, .article-body { max-width:912px; margin-top:2.6rem }
+p { margin-bottom:1.25rem; text-align:left }
+h2 { font:500 22px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.01em; margin:2.7rem 0 .9rem }
+h3 { font:600 16.5px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:1.8rem 0 .6rem }
+a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:2px }
+strong { font-weight:600 }
+code { font:.85em ui-monospace,Menlo,monospace; background:var(--card);
+  border:1px solid var(--line); border-radius:4px; padding:.05em .35em }
+ol, ul { padding-left:1.3rem; margin-bottom:1.25rem }
+blockquote { border-left:3px solid var(--line); padding-left:1.1rem;
+  color:var(--muted); margin:1.5rem 0 }
+
+/* legacy academic pieces some papers carry */
+.abstract { font-size:16px; line-height:1.65; margin:0 0 1.1rem;
+  text-align:left; hyphens:none }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em; font-weight:bold }
+.keywords { font-size:14px; color:var(--muted); margin-bottom:1.8rem }
+.plain { font-size:18px; line-height:1.55; margin:0 0 1.5rem;
+  padding:.8rem 1.1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; text-align:left }
+
+/* tables: horizontal rules only */
+.tblwrap { overflow-x:auto; margin:2rem 0 }
+.cap { font:13px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); margin-bottom:.5rem }
+table { border-collapse:collapse; width:100%;
+  font:15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif }
+th, td { border:0; border-bottom:1px solid var(--line);
+  padding:.6rem .9rem .6rem 0; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { font-weight:600; font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted);
+  border-bottom:2px solid var(--fg) }
+
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1.1rem;
+  margin:1.8rem 0; color:var(--muted); font-size:15.5px; font-style:italic }
+.grave { margin:2.4rem 0 }
+.grave svg { width:100%; height:auto; display:block }
+hr { border:0; border-top:1px solid var(--line); margin:3rem 0 }
+
+.refs { margin-top:2.6rem; font-size:14.5px }
+.refs h2 { font-size:15px }
+.refs ol { padding-left:1.3rem }
+.refs li { margin-bottom:.45rem; line-height:1.5 }
+
+/* provenance block, bs-prov/1.0 */
+.prov { margin:2.6rem 0 0; border:1px solid var(--line); border-radius:6px;
+  background:var(--card); padding:1rem 1.2rem; font-size:14px;
+  line-height:1.55; color:var(--muted) }
+.prov h2 { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.1em; text-transform:uppercase; margin:0 0 .7rem;
+  color:var(--fg) }
+.prov dl { display:grid; grid-template-columns:8.5rem 1fr; gap:.32rem .9rem;
+  margin:0 }
+.prov dt { color:var(--fg); font-weight:600 }
+.prov dd { margin:0; text-align:left }
+.prov code { font-size:.94em }
+.prov ul { margin:0; padding-left:1.05rem }
+@media (max-width:520px) {
+  .prov dl { grid-template-columns:1fr; gap:.1rem }
+  .prov dd { margin-bottom:.5rem } }
+
+footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
+  border-top:1px solid var(--line); color:var(--muted);
+  font:13px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:left }
+
+
+/* ---- listing page: cards and the filterable category grid ---- */
+.note-card { background:var(--card); border:1px solid var(--line);
+  border-radius:10px; padding:1.2rem 1.4rem; margin:0 0 1rem;
+  display:flex; gap:1.2rem; align-items:flex-start;
+  text-decoration:none; color:var(--fg) }
+.tile { flex:none; width:64px; height:64px; margin-top:.15rem }
+.note-body { min-width:0 }
+.note-card:hover { border-color:var(--gold) }
+.note-card h2 { font:500 17px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:0; margin:0 0 .4rem; color:var(--fg) }
+.note-card p { font:15px/1.55 Charter,Georgia,serif; color:var(--muted); margin:0 }
+.listing { max-width:912px; margin-top:2.4rem }
+
+/* ---- listing page, featured tier: top 5 thesis ---- */
+.top5 { max-width:912px; margin-top:2.4rem }
+.sect-h { font:600 .8rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 .55rem }
+.sect-note { font:15px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 1.1rem }
+.top-card { display:block; background:var(--card); border:1px solid var(--line);
+  border-left:3px solid var(--blue); border-radius:10px;
+  padding:1.15rem 1.35rem; margin:0 0 .9rem; text-decoration:none;
+  color:var(--fg) }
+.top-card:hover { border-color:var(--blue) }
+.top-card .tc-meta { font:600 .68rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--blue);
+  display:block; margin-bottom:.45rem }
+.top-card h2 { font:500 19px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:0 0 .4rem; color:var(--fg) }
+.top-card p { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 .6rem }
+.top-card .tc-stat { font:13px/1.5 Charter,Georgia,serif; color:var(--fg);
+  border-top:1px solid var(--line); padding-top:.55rem; display:block }
+
+.glance { margin-bottom:2.4rem }
+.glance-hdr { display:flex; align-items:baseline; justify-content:space-between;
+  margin-bottom:.75rem }
+.glance-hdr h2 { font-size:1.05rem; font-weight:bold }
+.glance-count { color:var(--muted); font-size:.78rem }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(122px,1fr));
+  gap:.5rem }
+.mtile { background:var(--card); border:1px solid var(--line); border-radius:8px;
+  padding:.6rem .65rem; text-decoration:none; color:var(--fg); display:flex;
+  flex-direction:column; gap:.3rem; min-height:84px }
+.mtile:hover { border-color:var(--blue) }
+.mtile-icon { width:26px; height:26px; flex:none; opacity:.85 }
+.mtile-meta { font-size:.62rem; color:var(--muted); letter-spacing:.03em;
+  text-transform:uppercase }
+.mtile-t { font-size:.79rem; line-height:1.22; font-weight:600; flex:1 }
+.mtile-s { font-size:.72rem; color:var(--accent); font-weight:bold }
+.mtile.hide { display:none }
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem }
+.chip { font:inherit; font-size:.78rem; color:var(--muted); background:var(--bg);
+  border:1px solid var(--line); border-radius:999px; padding:.32rem .75rem;
+  cursor:pointer }
+.chip span { color:var(--muted); opacity:.8 }
+.chip:hover { border-color:var(--blue); color:var(--fg) }
+.chip.on { background:var(--card); border-color:var(--accent); color:var(--fg);
+  font-weight:600 }
+.chip.on span { color:var(--accent) }
+
+/* ---- listing page: associative trails (Bush memex; export_trails.py) ---- */
+.trails { max-width:912px; margin-top:2.4rem }
+.trail { border:1px solid var(--line); border-radius:10px; background:var(--card);
+  margin:0 0 .6rem; padding:.85rem 1.1rem }
+.trail summary { cursor:pointer; list-style:none; display:flex;
+  align-items:baseline; gap:.7rem; color:var(--fg) }
+.trail summary::-webkit-details-marker { display:none }
+.trail summary::before { content:"\203A"; color:var(--blue); font-weight:bold;
+  display:inline-block; transition:transform .15s ease }
+.trail[open] summary::before { transform:rotate(90deg) }
+.trail summary b { font:500 16px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-n { margin-left:auto; font-size:.72rem; color:var(--muted);
+  letter-spacing:.06em; text-transform:uppercase; white-space:nowrap }
+.trail-premise { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:.7rem 0 1rem; padding-left:1.1rem }
+.trail-stop { display:flex; gap:.8rem; padding:.55rem 0 .55rem 1.1rem;
+  border-top:1px solid var(--line) }
+.trail-num { flex:none; width:1.4rem; height:1.4rem; border-radius:99px;
+  border:1px solid var(--line); color:var(--muted); text-align:center;
+  font:600 .72rem/1.35rem 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-stop a { font:500 15px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-lab { font-size:.68rem; color:var(--muted); letter-spacing:.1em;
+  text-transform:uppercase; margin-left:.5rem }
+.trail-why { font:14.5px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:.3rem 0 0 }
+/* share:start */
+.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
+  padding:.45rem .8rem .55rem; background:var(--card,#fff);
+  border:1px solid var(--line,#e3e0da); border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
+.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
+.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
+  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
+  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
+  text-decoration:none }
+.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
+@media (max-width:820px) { .sharebox { display:none } }
+@media print { .sharebox { display:none } }
+/* share:end */</style>
+<!-- social:start -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Risk Museum">
+<meta property="og:title" content="Permissioned Abundance II: The Bifurcation &middot; Working Paper No. 36">
+<meta property="og:description" content="Since the fourteen forecasts froze on 30 July, the evidence has arrived in two tiers: everyday AI diffusing to cheap models and small firms, frontier inference concentrating where the balance sheets are. Diffusion at the floor, rent at the gate, receipts attached.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/junk-left-the-index.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Permissioned Abundance II: The Bifurcation &middot; Working Paper No. 36">
+<meta name="twitter:description" content="Since the fourteen forecasts froze on 30 July, the evidence has arrived in two tiers: everyday AI diffusing to cheap models and small firms, frontier inference concentrating where the balance sheets are. Diffusion at the floor, rent at the gate, receipts attached.">
+<!-- social:end -->
+</head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fjunk-left-the-index.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=Permissioned%20Abundance%20II%3A%20The%20Bifurcation%20-%20Working%20Paper%20No.%2036&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/junk-left-the-index.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
+<div class="topbar">
+<!-- brand:start -->
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<!-- brand:end -->
+<nav class="tabs">
+<a class="on" href="./">Research Notes</a>
+<a href="../">Tested Strategies</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+<a href="../about.html">About</a>
+</nav>
+</div>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<div class="hero"><div class="hero-in">
+<div class="eyebrow">Working Paper No. 36 &middot; 21 August 2026 &middot; what the evidence has done since the freeze</div>
+<h1>Permissioned Abundance II: The Bifurcation</h1>
+<p class="lede">Working Paper No. 33 froze fourteen forecasts on 30 July and does not change. The month since has clarified how the thesis resolves: not one economy where either the rent holders win or the diffusion wins, but two tiers of the same economy. Everyday AI diffuses to cheap models and small firms while frontier inference concentrates where the balance sheets are, and the firms doing the substituting are the same firms expanding their frontier spend. This note lays out the receipts, and the risk case the thesis owed its readers.</p>
+<div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
+</div></div>
+<main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> Working Paper No. 33 said intelligence becomes abundant and the scarce factor is permission. The month since its forecasts froze has clarified how that resolves: as a bifurcation. Frontier inference concentrates among the few balance sheets that can absorb its compute cost, while everyday AI diffuses to cheap models and small firms. Diffusion at the floor, rent at the gate, one economy, two tiers. The rent claim applies to the frontier tier, the small-business boom to the everyday tier, and neither refutes the other. The strongest evidence is the join: in spend data across seventy thousand businesses, the firms substituting toward cheap routed models are the same firms still expanding their frontier spend. This note assembles the dated public receipts, names what they bear on in the frozen slate, and adds the symmetric risk the thesis owes its readers, using the one market where the price of a permission is literally printed. Nothing here touches the frozen probabilities.</p>
+
+<h2>1. The claim, sharpened</h2>
+<p>A month ago the honest statement of the thesis was a fork: either the permission holders keep the rent, in which case token prices stay high and the small-business story weakens, or inference prices keep collapsing, in which case the diffusion wins and the rent thins. The evidence since says the fork was a false choice. The economy is splitting into two tiers along exactly the line the thesis drew, and each side of the fork is happening, in its own tier, at the same time.</p>
+
+<h2>2. Exhibit A: the bifurcation, with receipts</h2>
+<p>Every row is a dated public observation. None is produced by this engine.</p>
+<div class="tbl"><table>
+<tr><th>Tier</th><th>Observation</th><th>Source, date</th></tr>
+<tr><td><b>Gate</b></td><td>Constraints on AI are &ldquo;physical in nature, centering on compute and power scarcity, rather than model ability&rdquo;</td><td>Citadel Securities Global Macro Strategy, 30 Apr 2026, dating the view to Feb 2026, before the WP33 freeze</td></tr>
+<tr><td><b>Gate</b></td><td>Frontier inference &ldquo;concentrated among a narrower set of firms with the balance sheets to absorb the compute cost&rdquo;; prices signal, substitute, ration</td><td>Citadel Securities, Tokenomics, 10 Jun 2026</td></tr>
+<tr><td><b>Gate</b></td><td>The settlement rail buys the model-access rail: Stripe agreement to acquire OpenRouter</td><td>Bloomberg, via Ramp Economics Lab, 18 Aug 2026</td></tr>
+<tr><td><b>Gate</b></td><td>Amortized cost of frontier training runs growing 2.4x per year since 2016; on trend the largest runs exceed $1 billion by 2027, leaving frontier development to the most well-funded organizations</td><td>Epoch AI (Cottier et al.), 3 Jun 2024</td></tr>
+<tr><td><b>Floor</b></td><td>New business applications up 24 per cent since the ChatGPT launch, with the formation impulse strongest in AI-exposed sectors</td><td>Citadel Securities, 4 Jul 2026, on Census BFS and Felten-Raj-Seamans exposure</td></tr>
+<tr><td><b>Floor</b></td><td>Median employees at seed raise fell from five to four in 2023Q1; founder leverage rising</td><td>Sequoia data via Citadel Securities, 4 Jul 2026</td></tr>
+<tr><td><b>Floor</b></td><td>Five of the month&rsquo;s top trending software vendors sell router or model-serving access to cheaper models</td><td>Ramp Economics Lab, card data across 70,000+ businesses, 18 Aug 2026</td></tr>
+<tr><td><b>Floor</b></td><td>Inference cost on GPT-3.5-class models down roughly 280x since late 2022; the price collapse at constant quality that makes the everyday tier possible</td><td>Stanford HAI, AI Index Report 2026</td></tr>
+<tr><td><b>The join</b></td><td>Router spend concentrates in fast-growing firms that are still increasing closed American model spend: substitution at the margin, expansion in total</td><td>Ramp Economics Lab, 18 Aug 2026</td></tr>
+<tr><td><b>The join</b></td><td>Falling token prices need not contradict rising infrastructure demand when demand is elastic</td><td>Citadel Securities, Tokenomics, 10 Jun 2026; Silicon Data LLM Expenditure Index</td></tr>
+<tr><td><b>The join</b></td><td>Firms adopting AI grow employment by roughly 10 per cent, entry level included</td><td>Ramp with Revelio Labs, 2026</td></tr>
+<tr><td><b>The join</b></td><td>AI-investing firms grow sales, employment and market value through product innovation, and the growth concentrates among larger firms with rising industry concentration: diffusion and concentration from the same technology, in the same dataset</td><td>Babina, Fedyk, He and Hodson, <i>Journal of Financial Economics</i> 151, Jan 2024</td></tr>
+</table></div>
+<p>The join rows carry the argument. Substitution toward cheap models and expansion of frontier spend are happening in the same firms at the same time, which is what a two-tier structure predicts and what a single-tier reading cannot accommodate. If the gate simply captured everything, the routers would not be booming. If diffusion simply thinned the rent, the same firms would not be raising their closed-model spend.</p>
+<p>One official series cuts at the floor story and is reported rather than hidden. The Census Bureau&rsquo;s Business Trends and Outlook Survey puts national AI use at 19.8 per cent of firms as of May 2026, but 37 per cent of firms with 250 or more employees against under 20 per cent of the smallest, so the adoption STOCK is graded by size. The floor tier is a flow story, visible in formation, in router adoption, and in the Federal Reserve staff reconciliation showing 18 per cent of firms but 78 per cent of the labor force at adopting firms. Diffusion is arriving through new entrants and large employers first, not evenly.</p>
+
+<h2>3. What this bears on in the frozen slate</h2>
+<p>Three of the fourteen frozen forecasts read directly on the bifurcation: whether the permission holder keeps the rent, whether scarcity pricing is structural, and whether the SaaS tail preserves its public-equity economics. The Silicon Data index and the monthly Ramp letters now serve as watch series for all three. They corroborate or challenge; they never substitute for the resolution criteria declared at the freeze.</p>
+
+<h2>4. Exhibit B: the same risk, taken on at every altitude</h2>
+<p>The bifurcation is not a private reading. Between February and August 2026 the risk was priced, separately and in different vocabularies, at every altitude of the system. From the top down:</p>
+<div class="tbl"><table>
+<tr><th>Who</th><th>What they said or did</th><th>Date</th></tr>
+<tr><td>Bank for International Settlements, Annual Economic Report</td><td>Five largest hyperscalers past $1tn of AI capex for 2025-26, outpacing earnings and free cash flow; &ldquo;circular financing&rdquo; named as a structure; off-balance-sheet data-center vehicles flagged; &ldquo;disappointment in returns could trigger a sudden pullback in financing and turn the capex boom into a protracted investment bust&rdquo;</td><td>28 Jun 2026</td></tr>
+<tr><td>IMF, Global Financial Stability Report</td><td>Hyperscalers expected to account for 70 per cent of a projected $3.4tn in AI capex by 2029; equity concentration above its 95th historical percentile in two of six major markets</td><td>14 Apr 2026</td></tr>
+<tr><td>OECD, Economic Outlook</td><td>Magnificent Seven capex outstripping earnings growth, projected $1.1tn in 2027; &ldquo;widespread circular financing arrangements... raise interconnectedness and contagion risks&rdquo;; US private data-center construction equalled office construction in Dec 2025</td><td>3 Jun 2026</td></tr>
+<tr><td>European Central Bank, Financial Stability Review</td><td>Up to 30 per cent of the $3tn the buildout needs could come from private credit; euro-area holdings of US equities quadrupled in a decade and increasingly concentrated in a few names</td><td>27 May 2026</td></tr>
+<tr><td>Federal Reserve, Financial Stability Report</td><td>Holds AI at arm&rsquo;s length: it enters via the market-contacts survey (&ldquo;increasingly funded by debt&rdquo;) while the Board&rsquo;s own assessment stays generic; cloud-sector investment-grade issuance near $100bn in Q1, &ldquo;met with strong investor demand&rdquo;</td><td>8 May 2026</td></tr>
+<tr><td>Financial Stability Board</td><td>Consultation codifying supply-chain concentration across &ldquo;cloud infrastructure, hardware, foundation models, data providers, and deployment platforms&rdquo; as a supervisory matter; final sound practices due Oct 2026</td><td>10 Jun 2026</td></tr>
+<tr><td>Congressional Budget Office</td><td>First explicit incorporation of generative AI into the federal baseline: about 10 basis points a year of productivity growth, a 1 per cent output level gain by 2036, set against a $1tn-plus private capex wave</td><td>11 Feb 2026</td></tr>
+<tr><td>Goldman Sachs Research</td><td>Global AI investment to exceed $1tn in 2026; roughly 1.5 per cent of US GDP against railroad and electrification peaks of 2 to 3 per cent</td><td>Aug 2026</td></tr>
+<tr><td>Sequoia (David Cahn)</td><td>The revenue-gap arithmetic escalating $200bn to $600bn to $1.5tn: 2026 capex implies a $1.5tn lifetime revenue requirement against ecosystem revenues an order of magnitude short</td><td>8 Jul 2026</td></tr>
+<tr><td>Apollo (Torsten Slok)</td><td>Ten companies near 40 per cent of the S&amp;P 500, potentially approaching 50 if the private labs list: &ldquo;not a diversified index anymore&rdquo;, so every passive saver holds the gate-tier bet</td><td>14 Mar 2026</td></tr>
+<tr><td>Acemoglu (NBER)</td><td>The standing academic counterweight: task-level evidence implies no more than 0.66 per cent total factor productivity gain over ten years</td><td>May 2024</td></tr>
+</table></div>
+<p>And from the ground up, where the permission layer is actually adjudicated:</p>
+<div class="tbl"><table>
+<tr><th>Where</th><th>What was decided</th><th>Date</th></tr>
+<tr><td>Texas (Gov. Abbott to PUCT and ERCOT)</td><td>Audit ordered of every data-center project in the interconnection queue before further approvals; the queue held over 474 GW, roughly five times the grid&rsquo;s all-time peak, about 90 per cent of it data centers</td><td>3 Aug 2026</td></tr>
+<tr><td>Texas (Senate Bill 6)</td><td>Loads of 75 MW or more must accept mandatory curtailment during firm load-shed and install remote shutoff as a condition of connection: a statutory kill switch on large compute</td><td>20 Jun 2025</td></tr>
+<tr><td>Ohio (PUCO, AEP case)</td><td>First-of-its-kind tariff: large data-center customers pay for at least 85 per cent of subscribed demand for up to 12 years regardless of use, pinning grid-expansion cost to the load that causes it</td><td>9 Jul 2025</td></tr>
+<tr><td>Georgia (Public Service Commission)</td><td>Any new load over 100 MW billable under special terms, contracts to 15 years with minimum billing, explicitly to stop stranded-asset risk shifting to ratepayers</td><td>23 Jan 2025</td></tr>
+<tr><td>Prince William County, Virginia</td><td>8-0 rejection of a 2,000-acre, 43 million sq ft data-center rezoning, the largest in county history, after six hours of public comment; an appeals court had already voided a prior 2,100-acre rezoning</td><td>8 Jul 2026</td></tr>
+<tr><td>Tucson, Arizona</td><td>7-0 rejection of a hyperscale campus over water use, one of the largest developments the city had ever considered</td><td>6 Aug 2025</td></tr>
+<tr><td>Coweta County, Georgia</td><td>Unanimous 180-day moratorium on data-center applications triggered by a $17bn campus; a restrictive ordinance followed, then approval 3-2 in December: the full permission arc in one county</td><td>6 May 2025</td></tr>
+<tr><td>Shelby County, Tennessee</td><td>Air permit granted for 15 gas turbines at a frontier compute site over community objections, now under appeal: the permission layer litigated at a county health department</td><td>2 Jul 2025</td></tr>
+<tr><td>Breckinridge Capital (municipal credit)</td><td>A muni shop pricing it bottom-up: utilities&rsquo; ability to raise user fees for AI-related energy and water projects &ldquo;may become more challenging in 2026&rdquo;</td><td>6 Jan 2026</td></tr>
+</table></div>
+<p>Read the two tables together and the thesis stops being abstract. The top table prices the gate&rsquo;s balance sheet; the bottom table IS the gate, opening in one county and closing in the next, attaching tariffs and kill switches as it goes. Two unanimous rejections, one moratorium that became a negotiated approval, one permit granted over objections and litigated, two tariffs that pin stranded-asset risk to the load, one statutory curtailment law, and one audit of a 474 GW queue. That is differentiated permission pricing, in public, at the county and state level, while the BIS and the IMF price the same structure from above.</p>
+
+<h2>5. Exhibit C: a permission has a printed price, and it is revocable</h2>
+<p>The thesis owes its readers the symmetric risk, and fixed income supplies the cleanest version, because there the price of a permission is literally printed. The United States municipal tax exemption is a charter: identical credit, and the wrapper alone changes the yield. The market price of that permission is observable every day in the relationship between tax-exempt and taxable yields, and the Build America Bonds era created same-issuer pairs that priced the wrapper directly.</p>
+<p>Municipal practitioners are currently raising the scenario that the exemption itself enters the federal fiscal debate, with the Build America Bonds structure as a blueprint for switching wrappers, taxable interest plus a direct federal subsidy, or a cap on the benefit for the highest earners. The scenario is theirs, not a forecast of this note, and the Treasury remarks circulating alongside it are relayed through commentary rather than verified transcripts, so they are not cited here as fact. What the scenario illustrates is general, and it belongs in the thesis: permission rents exist by grace of the chartering authority, and what a legislature grants a legislature can reprice. The same clause applies to every gate in Working Paper No. 33. Interconnection and siting rules change. Export regimes change. Charters are amended. A permission portfolio is long a policy regime, and its tail risk is the regime, not the cash flow.</p>
+
+<h2>6. What would falsify the bifurcation</h2>
+<p>Declared now, so the reading can die in public if it is wrong.</p>
+<ul>
+<li>Router and open-model spend starts crowding out closed-model spend within the same firms in the Ramp data. The join breaks from the floor side.</li>
+<li>Frontier token prices collapse toward everyday prices without the usage mix shifting. The gate fails to hold the rent, and the Silicon Data index falls on price rather than substitution.</li>
+<li>The formation impulse in AI-exposed sectors rolls over to trend while the gate tier keeps compounding. The bifurcation collapses into plain concentration, and the original single-tier rent reading was sufficient after all.</li>
+<li>A rail consolidation on the Stripe and OpenRouter pattern is blocked or unwound on competition grounds. That would show the permission layer answers to a still higher permission, which strengthens Exhibit C while weakening the stability of gate rents.</li>
+<li>The ground-up rows of Exhibit B normalize: rejection rates fall toward zero, special tariffs unwind, and interconnection queues clear without audits. Then the permission constraint was transitional and the thesis loses its binding site.</li>
+</ul>
+
+<div class="prov"><dl>
+<dt>Method</dt><dd>A reading of dated public evidence against a frozen thesis. This note contains no engine statistics, changes no frozen probability, and reproduces no chart from the cited letters. The muni discussion is conducted at the level of tax policy and wrappers only.</dd>
+<dt>Sources</dt><dd>Citadel Securities Global Macro Strategy letters (30 Apr, 10 Jun, 4 Jul 2026) and the Ramp Economics Lab letter (18 Aug 2026), captured in full. Exhibits A and B additionally: BIS Annual Economic Report 2026; IMF GFSR Apr 2026; OECD Economic Outlook Jun 2026; ECB FSR May 2026; Federal Reserve FSR May 2026 and FEDS Notes Apr 2026; FSB consultation Jun 2026; CBO Feb 2026; Census BTOS May 2026; EIA AEO 2026; Dallas Fed WP 2606; Stanford HAI AI Index 2026; Epoch AI; Babina, Fedyk, He and Hodson (JFE 2024); Acemoglu (NBER 2024); Goldman Sachs, Sequoia and Apollo commentary; and the state and county records named in the ground-up table. Every row was verified against its source with date and URL; the verification file is retained with this paper. Silicon Data index access remains unverified.</dd>
+<dt>Honesty</dt><dd>The bifurcation is a reading, not a result. Its falsification conditions are declared in section 5 and will be tracked. One widely circulated Treasury quotation was excluded because it could not be verified against a transcript.</dd>
+<dt>Related</dt><dd>Working Paper No. 33 (Permissioned Abundance, the frozen slate), No. 35 (the permissioned balance sheet), No. 9 (the AI-CDO).</dd>
+</dl></div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
+</body></html>
