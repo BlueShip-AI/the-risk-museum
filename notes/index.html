@@ -370,13 +370,13 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="glance-hdr"><h2>The rest of my working papers</h2><span class="glance-count">36 in all, newest first</span></div>
 <p class="sect-note">Everything else I have published is below, newest first. The five above appear again in date order. Pick a topic to filter, or scroll down for the full list with summaries.</p>
 <div class="chips">
-<button class="chip on" data-filter="all">All <span>(36)</span></button>
-<button class="chip" data-filter="risk">Risk & Portfolio <span>(9)</span></button>
+<button class="chip on" data-filter="all">All <span>(39)</span></button>
+<button class="chip" data-filter="risk">Risk & Portfolio <span>(10)</span></button>
 <button class="chip" data-filter="crowding">Crowding & Positioning <span>(5)</span></button>
 <button class="chip" data-filter="forecast">Forecasting & Calibration <span>(5)</span></button>
 <button class="chip" data-filter="testing">Signal Testing <span>(8)</span></button>
-<button class="chip" data-filter="ai">AI & Macro <span>(4)</span></button>
-<button class="chip" data-filter="process">Process & Method <span>(5)</span></button>
+<button class="chip" data-filter="ai">AI & Macro <span>(5)</span></button>
+<button class="chip" data-filter="process">Process & Method <span>(6)</span></button>
 </div>
 <div class="tile-grid">
 <a class="mtile" href="hedge-you-think-you-have.html" data-cat="risk"><svg class="mtile-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -397,7 +397,14 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <line x1="46" y1="12" x2="46" y2="52" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3 3"/>
 <circle cx="46" cy="38" r="3.5" fill="var(--accent)"/>
 </svg><span class="mtile-meta">WP 32 &middot; CROWDING</span><span class="mtile-t">The Tail Wags at the Close</span><span class="mtile-s">two tests, both rejected</span></a>
-<a class="mtile" href="permissioned-abundance-ii.html" data-cat="macro"><svg class="mtile-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<a class="mtile" href="sixty-hats.html" data-cat="process"><svg class="mtile-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<circle cx="32" cy="44" r="10" stroke="var(--accent)" stroke-width="2"/>
+<path d="M18 30h28" stroke="var(--muted)" stroke-width="2"/>
+<path d="M22 24h20" stroke="var(--muted)" stroke-width="2"/>
+<path d="M26 18h12" stroke="var(--muted)" stroke-width="2"/>
+<path d="M29 12h6" stroke="var(--accent)" stroke-width="2"/>
+</svg><span class="mtile-meta">WP 37 &middot; PROCESS</span><span class="mtile-t">Sixty Hats, One Head</span><span class="mtile-s">agent count is the wrong number</span></a>
+<a class="mtile" href="permissioned-abundance-ii.html" data-cat="ai"><svg class="mtile-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <line x1="8" y1="22" x2="56" y2="22" stroke="var(--accent)" stroke-width="2"/>
 <line x1="8" y1="42" x2="56" y2="42" stroke="var(--muted)" stroke-width="2"/>
 <path d="M20 42 20 30 28 30 28 42" stroke="var(--muted)" stroke-width="2"/>
@@ -1149,6 +1156,9 @@ Research &middot; educational research only, not investment advice.</footer>
   var chips = document.querySelectorAll('.chip');
   var tiles = document.querySelectorAll('.mtile');
   chips.forEach(function(chip){
+    var f0 = chip.getAttribute('data-filter'), n = 0;
+    tiles.forEach(function(t){ if (f0 === 'all' || t.getAttribute('data-cat') === f0) n++; });
+    var sp = chip.querySelector('span'); if (sp) sp.textContent = '(' + n + ')';
     chip.addEventListener('click', function(){
       chips.forEach(function(c){ c.classList.remove('on'); });
       chip.classList.add('on');
