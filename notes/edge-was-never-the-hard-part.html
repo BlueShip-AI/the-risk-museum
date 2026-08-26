@@ -296,45 +296,27 @@ rigged in their favor. 28 percent still went broke by betting too much.</p>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
+<h2>A guaranteed edge, and a third lost money</h2>
+<p>Haghani and Dewey gave subjects trained in finance a coin they were told was biased in their favour, a fixed stake, a clock and a cap. The win probability was disclosed. The one variable left in the players' hands was how much to stake per flip, and that variable ruined them.</p>
 
+<div class="tblwrap">
+<div class="cap"><b>The experiment, as recorded.</b> Haghani and Dewey (2016).</div>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Subjects, trained in finance</td><td>61</td></tr>
+<tr><td>Coin, probability of heads</td><td>60%</td></tr>
+<tr><td>Time allowed</td><td>Thirty minutes</td></tr>
+<tr><td>Starting stake</td><td>$25</td></tr>
+<tr><td>Cap on winnings</td><td>$250</td></tr>
+<tr><td>Went bankrupt</td><td>28%</td></tr>
+<tr><td>Finished below the starting stake</td><td>About a third</td></tr>
+<tr><td>Reached the cap</td><td>One in five</td></tr>
+<tr><td>Average payout</td><td>$91</td></tr>
+</table>
+</div>
 
-<p class="abstract"><span class="lab">Abstract.</span> I revisit a controlled
-experiment in which sixty-one subjects trained in finance received a coin biased
-to land heads 60% of the time, thirty minutes, and a $25 stake, with winnings
-capped at $250. Despite a disclosed and guaranteed edge, 28% went bankrupt,
-about a third finished below their starting stake, and only one in five reached
-the cap; the average payout was $91. The failures trace to bet sizing rather
-than to the edge. For a 60/40 coin the Kelly fraction that is optimal for
-growth is 20%; growth in the long run has a single peak in bet size, is
-asymmetric about that peak, and crosses zero near 39%, so a constant 40% stake
-on a favorable coin compounds
-negatively. Three sizing rules follow: size from the stressed edge estimate,
-hold the statistical hurdles fixed, and treat survival as the objective.</p>
-<div class="keywords"><b>Keywords:</b> Kelly criterion, bet sizing, volatility
-drag, growth optimality, risk of ruin, position sizing.</div>
-
-<h2>1. Introduction</h2>
-<p>In 2016, sixty-one subjects trained in finance were each given a coin that
-lands heads 60% of the time, thirty minutes, and twenty-five dollars, under a
-single instruction: bet on flips and keep the proceeds, capped at $250. The
-game is constructed to favor the player.</p>
-<p>Twenty-eight percent went completely broke. About a third finished below
-their starting stake. Only one in five reached the cap. The average payout was
-$91. The subjects were handed the edge explicitly, with the win probability
-disclosed; the one variable left in their control was how much to bet, and it
-was bet size that ruined them (Haghani and Dewey, 2016).</p>
-
-<h2>2. The bet fraction that is optimal for growth</h2>
-<h3>2.1 The Kelly fraction</h3>
-<p>The relevant result dates to 1956, when Kelly framed a gambler with an edge
-as a communication channel carrying signal. For a bet at even money, the
-fraction of the bankroll that is optimal for growth equals twice the win
-probability minus one. For a 60/40 coin that fraction is 20%. Growth in the
-long run, as a function of bet size, traces a curve with a single peak: zero at
-a zero stake, a maximum near 20%
-(about 2% compounded per flip), and a second zero near 39%. A constant 40%
-stake on the same coin, still guaranteed to win, produces negative growth of
-roughly a quarter percent per flip. The edge is unchanged; only the size is wrong.</p>
+<h2>The growth curve</h2>
+<p>Kelly (1956) treated a gambler with an edge as a channel carrying signal, and derived the stake that maximises the growth rate of a bankroll. At even money it is twice the win probability minus one. Growth against bet size is a curve with a single peak, zero at a zero stake and zero again further out, past which a coin still guaranteed to win compounds negatively. The edge is identical along that whole curve. Only the size changes.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Growth per flip in the long run, by constant
@@ -349,44 +331,28 @@ bet fraction on a 60/40 coin.</div>
 </table>
 </div>
 
-<h3>2.2 Asymmetry and volatility drag</h3>
-<p>The curve is asymmetric. Betting half-Kelly, 10% rather than 20%, retains
-roughly three-quarters of the maximum growth rate for about half the swings.
-Underbetting is inexpensive; overbetting is ruinous. The distinction between
-mean and median outcome is large. Over 300 flips at full Kelly on a $25 start,
-the average outcome exceeds $3&nbsp;million while the median is about $10,000.
-Only one path is realized, and it is the logarithm of wealth that compounds
-along it. The gap between mean and median is volatility drag, the same
-mechanism by which a series with a positive average return converts $100k into
-$93k.</p>
+<p>The curve is not symmetric about its peak. Halving the stake gives up little growth and buys roughly half the swings, so underbetting is cheap and overbetting is ruinous. The average is also the wrong thing to plan around. The mean sits far above the median, only one path is realised, and along it the logarithm of wealth compounds. That gap is volatility drag.</p>
 
-<h2>3. Sizing doctrine</h2>
-<p>Three rules for the automated research pipeline behind this site descend
-from the shape of the curve.</p>
-<ol>
-<li><b>Kelly is highly sensitive to the edge estimate.</b> Overstating the edge
-moves the chosen stake past the peak onto the downslope. The sizing doctrine
-therefore begins one step earlier: the edge entering any sizing calculation is
-the <em>stressed</em> estimate, gross return halved and costs doubled. The raw
-backtest, the strategy&rsquo;s simulated result on historical data, never
-enters. A margin of safety on the input is worth more than
-precision in the formula.</li>
-<li><b>The asymmetry is why the pipeline&rsquo;s statistical hurdles never
-loosen.</b> A strategy with no real edge that a loosened hurdle wrongly
-promotes does more than waste capital; it invites bets sized by Kelly
-on an edge of zero, which the curve identifies as negative growth.</li>
-<li><b>Survival is the strategy.</b> Returns compound multiplicatively, and a
-single zero anywhere in the chain collapses the product. The drawdown rules,
-limits on losses from a peak, and the pre-committed ladders, schedules fixed in
-advance for cutting position size as losses mount, exist because there is no
-recovery from zero, whatever edge remains.</li>
-</ol>
+<div class="tblwrap">
+<div class="cap"><b>Mean against median</b>, and the drag between them.</div>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Run at full Kelly from a $25 start</td><td>300 flips</td></tr>
+<tr><td>Average outcome</td><td>Exceeds $3 million</td></tr>
+<tr><td>Median outcome</td><td>About $10,000</td></tr>
+<tr><td>Drag, worked illustration</td><td>$100k becomes $93k</td></tr>
+</table>
+</div>
 
-<h2>4. Provenance</h2>
-<p>One of the experiment&rsquo;s authors was a founding partner of Long-Term
-Capital Management, the canonical sizing catastrophe. The cleanest
-demonstration of the sizing lesson was designed by someone who had lived its
-most expensive version.</p>
+<h2>Sizing doctrine</h2>
+<p>Three rules for the pipeline behind this site follow from that shape.</p>
+<ul>
+<li><b>Size off the stressed edge.</b> Kelly is acutely sensitive to the edge estimate, and overstating it moves the stake past the peak onto the downslope. Sizing here takes the stressed estimate, gross return halved and costs doubled. The raw backtest, the strategy's simulated result on historical data, never enters.</li>
+<li><b>The hurdles never loosen.</b> A strategy with no real edge that a loosened hurdle promotes invites a stake sized by Kelly on an edge of zero, which the curve prices as negative growth.</li>
+<li><b>Survival is the strategy.</b> Returns compound multiplicatively and one zero collapses the product. Drawdown limits and pre-committed ladders, size cuts fixed in advance, exist because nothing recovers from zero.</li>
+</ul>
+
+<p>One of the experiment's authors was a founding partner of Long-Term Capital Management, the canonical sizing catastrophe. The cleanest demonstration of the lesson was designed by a man who had lived its most expensive version.</p>
 
 <div class="note">A positive edge is a necessary condition; surviving the bet
 size is the sufficient one. The edge was never the hard part.</div>

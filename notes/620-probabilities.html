@@ -295,73 +295,40 @@ World Cup Forecasting Competition Scored by the Brier Score</h1>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-
-
-<div class="note"><b>Correction, 27 July 2026.</b> Three claims below are
-revised in <a href="where-the-edge-was.html">Working Paper No.&nbsp;17</a>. The
-baseline of 0.25 for a coin flip is withdrawn in favour of 0.2466, the score of a
-forecaster who answers the realized base rate of 44.2% every time, which puts
-the edge at 0.0157 a question rather than the two cents quoted here. The reading
-of the finish through Grinold&rsquo;s &radic;breadth term is withdrawn, the
-competition leaderboard being additive in forecasts submitted. And the edge is not
-statistically significant once the forecasts are treated as correlated within
-fixtures. The calibration table itself stands, and No.&nbsp;17 decomposes it
-into resolution of 0.020 against reliability of 0.006.</div>
-
-<p class="abstract"><span class="lab">Abstract.</span> I report the performance
-of a systematic forecasting agent entered in Jump Trading&rsquo;s Probability
-Cup, a competition on the 2026 World Cup graded by the Brier score, the squared
-error between a stated probability and the realized outcome. Across 620
-settled forecasts the agent&rsquo;s mean Brier score was 0.2309, against 0.25,
-the baseline for flipping a coin. That edge of roughly two cents a question
-compounded to a finish in the top 6% with no single call of high conviction.
-A calibration audit isolates
-two opposite errors: in the 45&ndash;55% band the agent was underconfident, with
-outcomes realizing 59.6% of the time, and in the 80&ndash;100% band it was
-overconfident, realizing 55.6% across nine forecasts. I interpret the result
-through Grinold&rsquo;s fundamental law: measured skill accrues through the
-number of honest, independent attempts rather than the magnitude of any single
-call.</p>
-<div class="keywords"><b>Keywords:</b> forecasting, calibration, Brier score,
-proper scoring rules, fundamental law of active management, prediction
-markets.</div>
-
-<h2>1. Introduction</h2>
+<h2>1. The competition</h2>
 <p>Jump Trading&rsquo;s Probability Cup is a public forecasting competition on
-the 2026 World Cup. Entrants submit probabilities on match questions, for
-example whether a match will produce 22 or more shots or whether Spain will put
-five shots on target, and every forecast is scored by the Brier score, the
-squared error between the stated probability and the realized outcome (Brier,
-1950). The rule admits no narrative and awards no partial credit for a plausible
-story. This study entered an automated agent for that reason: the aim was to
-have the research habits of the automated research pipeline behind this site
-graded by a scoreboard that cannot be argued with. The final standing was the top 6% of entrants, reached with no
-call of high conviction.</p>
+the 2026 World Cup. Entrants state probabilities on match questions, whether a
+match produces 22 or more shots, whether Spain puts five shots on target, and
+each is graded by the Brier score, the squared error between stated probability
+and realized outcome (Brier, 1950). The rule pays nothing for a plausible story.
+I entered an automated agent.</p>
 
-<h2>2. A Proper Scoring Rule and Compounded Breadth</h2>
-<p>Always answering 50% yields a Brier score of 0.25, the baseline for a coin
-flip. Across 620 settled forecasts the agent&rsquo;s mean Brier score was 0.2309,
-an edge over the coin of roughly two cents a question. A proper scoring rule,
-one under which the best expected score comes only from stating one&rsquo;s true
-belief, compounds that edge the way a return stream compounds: a small, genuine edge
-taken 620 independent times separates a forecaster from a field that is largely
-either guessing, at 0.25, or confident and wrong, above it.</p>
-<p>This is the mechanism of Grinold&rsquo;s fundamental law of active
-management, information ratio (IR, skill delivered per unit of risk) =
-information coefficient (IC, the correlation between forecasts and outcomes)
-&times; &radic;breadth (the number of independent attempts) (Grinold, 1989):
-the skill realized in the information ratio scales with the number of
-independent, honest attempts, not with the conviction attached to any one. The
-same law governs this site&rsquo;s equity pipeline and its Medallion case study;
-the Probability Cup supplies an out-of-sample instance, a test on questions the
-system never saw, in a separate arena.</p>
+<div class="tblwrap">
+<div class="cap"><b>Scorecard.</b> As scored by the organizer.</div>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Settled forecasts</td><td>620</td></tr>
+<tr><td>Mean Brier score</td><td>0.2309</td></tr>
+<tr><td>Score from always answering 50%</td><td>0.25</td></tr>
+<tr><td>Edge a question, as first reported</td><td>roughly two cents</td></tr>
+<tr><td>Edge a question, revised in No.&nbsp;17</td><td>0.0157</td></tr>
+<tr><td>Base-rate baseline, revised in No.&nbsp;17</td><td>0.2466 at a realized base rate of 44.2%</td></tr>
+<tr><td>Share of forecasts in the 40&ndash;60% band</td><td>40%</td></tr>
+<tr><td>Calls of high conviction</td><td>none</td></tr>
+<tr><td>Final standing</td><td>top 6%</td></tr>
+</table>
+</div>
 
-<h2>3. Calibration</h2>
-<h3>3.1 The calibration table</h3>
-<p>Calibration asks whether a stated probability matches its realized
-frequency: when the agent says 40%, does the event occur 40% of the time? The
-full table is reported below, including the two bands in which calibration
-failed.</p>
+<p>The edge a question was small; the finish was not. A small honest edge taken
+620 times separates a forecaster from a field that is largely either guessing or
+confident and wrong. Grinold&rsquo;s fundamental law states the same mechanism
+for portfolios, information ratio equals information coefficient times the
+square root of breadth (Grinold, 1989); this leaderboard is additive in
+forecasts submitted, not square root.</p>
+
+<h2>2. Calibration</h2>
+<p>Calibration asks whether events called at 40% happen 40% of the time. Table 1
+reports every band.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Calibration by band of stated probability:
@@ -378,45 +345,52 @@ realized frequency, forecast count, and verdict.</div>
 </table>
 </div>
 
-<h3>3.2 Two opposite errors</h3>
-<p>The two failing bands are opposite errors. In the middle band the agent knew
-more than it stated: when it reported near 51%, outcomes realized near 60%.
-Hedging toward the coin is not prudence but a tax, since a forecast shaded
-toward 50% scores worse on average than the true belief, and 40% of all
-forecasts fell in the 40&ndash;60 band. In the tail the reverse held: on the nine occasions the
-agent was nearly certain, it was right barely half the time. Certainty was rare
-and still overstated, the same error about tail risk documented in this
+<p>The two failures are opposite errors. In the middle band the agent knew more
+than it said, reporting near 51% while outcomes realized near 60%; hedging
+toward 50% is a tax rather than prudence, and that band held most of the book.
+In the tail the reverse held: on the nine occasions the agent was nearly certain
+it was right barely half the time, the error about tail risk documented in this
 site&rsquo;s LTCM case study.</p>
 
-<h2>4. Transfer to Equity Research</h2>
-<ol>
-<li><b>Breadth beats heroics.</b> A finish in the top 6% came with no memorable
-single prediction. The pipeline rests on the same premise: every strategy it has tested, with
-promotion decided by accumulated honest attempts rather than by any one
+<h2>3. What transfers</h2>
+<ul>
+<li><b>Breadth beats heroics.</b> The finish came with no memorable single call;
+the pipeline promotes on accumulated honest attempts, not on any one
 backtest.</li>
-<li><b>Use a scoreboard that cannot be charmed.</b> The Brier score is a proper
-scoring rule; its best expected value is reached only by reporting one&rsquo;s true belief.
-The statistical hurdles that decide promotion in the equity work, Newey-West
-t-statistics (the t-statistic being the standard measure of whether a result is
-distinguishable from luck), reruns with a margin of safety, and deflators for
-multiple testing (which raise the required evidence with each additional
-attempt), are the attempt to build the same property into research.</li>
-<li><b>The market is the prior.</b> The agent&rsquo;s edge came from disciplined
-base rates updated with public information, not from out-thinking the field from
-scratch. Prediction markets are being quantified by large firms for this reason:
-they are young markets, and young markets reward the early and the
-systematic.</li>
-<li><b>Publish misses alongside rank.</b> The two failing bands cost leaderboard
-places and are the most useful rows in the table: the next cycle sharpens the
-forecasts in the middle band and tempers those near certainty. A forecast log that
-cannot be audited is a highlight reel.</li>
-</ol>
+<li><b>Use a scoreboard that cannot be charmed.</b> The Brier score is proper:
+only the true belief maximises expected score. Newey-West t-statistics,
+margin-of-safety reruns and multiple-testing deflators build that property into
+the equity work.</li>
+<li><b>The market is the prior.</b> The edge came from disciplined base rates
+updated with public information, not from out-thinking the field.</li>
+<li><b>Publish the misses.</b> The two failing bands cost places and are the
+most useful rows in the table. A log that cannot be audited is a highlight
+reel.</li>
+</ul>
 
-<div class="note">This study is retained because this site&rsquo;s argument
-is that tested breadth under an incorruptible scoreboard beats brilliance under
-a flattering one. The Probability Cup tested that argument in an external arena,
-against a live field, under a referee run by a firm that forecasts for a living,
-and the argument held.</div>
+<h2>4. What this does not claim</h2>
+<p>Three claims in the first version of this note are withdrawn or restated in
+<a href="where-the-edge-was.html">Working Paper No.&nbsp;17</a>. The calibration
+table survives that review.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Standing record.</b> First claim against the current
+reading.</div>
+<table>
+<tr><th>Claim</th><th>What the record says</th></tr>
+<tr><td>Coin-flip baseline of 0.25</td><td>withdrawn for 0.2466, the score of answering the realized base rate of 44.2% every time</td></tr>
+<tr><td>Edge of two cents a question</td><td>restated at 0.0157 a question</td></tr>
+<tr><td>Finish read through Grinold&rsquo;s &radic;breadth term</td><td>withdrawn; the leaderboard is additive in forecasts submitted</td></tr>
+<tr><td>The edge is real</td><td>not statistically significant once forecasts are treated as correlated within fixtures</td></tr>
+<tr><td>Calibration table</td><td>stands; No.&nbsp;17 decomposes it into resolution of 0.020 against reliability of 0.006</td></tr>
+<tr><td>The 80&ndash;100% band</td><td>nine forecasts, too few to carry weight on their own</td></tr>
+</table>
+</div>
+
+<div class="note">Retained because this site&rsquo;s argument is that tested
+breadth under an incorruptible scoreboard beats brilliance under a flattering
+one. The Cup tested it against a live field, under a referee that forecasts for
+a living, and it held.</div>
 
 <div class="refs">
 <h2>References</h2>

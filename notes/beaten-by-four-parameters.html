@@ -311,14 +311,31 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <text x="60" y="158" class="bc">Pooled QLIKE loss on variance over five days. Lower is better. HAR won on 21 tickers of 21.</text>
 </svg></figure>
 
-
 <h2>1. The test</h2>
-<p>Kronos is a transformer for financial time series, decoder only, published at AAAI 2026 (the Association for the Advancement of Artificial Intelligence conference), with 32.3 thousand GitHub stars at the time of writing, 21 July 2026. Its one credible published edge is realized volatility (how much prices actually moved, measured after the fact), where the paper reports an R-squared (the share of variation the model explains) of 0.249.</p>
-<p>I pre-registered a falsification on 21 July 2026, before running anything. Kronos-small run zero shot, meaning with no additional training or tuning, against a log heterogeneous autoregressive (log-HAR) regression on Parkinson range volatility (volatility estimated from each day's high-low range), the Corsi 2009 specification. Twenty US large caps plus SPY, the S&amp;P 500 exchange-traded fund. Realized volatility five days ahead. The decision rule was locked in the same document: Kronos wins only if pooled QLIKE improves with pooled DM p below 0.05, the conventional bar for statistical significance, and a positive median improvement per ticker. Any other outcome rejects it. 4,809 forecasts.</p>
-<p>Forecast origins (the dates on which each forecast is made) run 1 August 2025 to 30 June 2026, the start the pre-registration locked, one calendar day before the model's arXiv posting of 2 August 2025; excluding the 21 forecasts from that overlapping day leaves the verdict unchanged, at a Diebold-Mariano t of -12.3. Its training window is undisclosed. Any earlier origin is potentially in-sample for Kronos (data it may have seen in training) and out-of-sample for HAR (data it never saw), which is not a test, it is a handicap in the wrong direction.</p>
+<p>Kronos is a decoder-only transformer for financial time series. Its one credible published edge is realized volatility. I pre-registered a falsification before running anything: Kronos-small zero shot against the log heterogeneous autoregressive regression of Corsi 2009 fitted on Parkinson range volatility. The decision rule was locked in the same document, and any outcome other than a clean sweep of its three conditions rejects the model.</p>
+<div class="tblwrap">
+<p class="cap">Table 1. The pre-registration, filed 21 July 2026, before the first run.</p>
+<table>
+<thead><tr><th>Item</th><th>As locked</th></tr></thead>
+<tbody>
+<tr><td>Challenger</td><td>Kronos-small, AAAI 2026, 32.3 thousand GitHub stars at 21 July 2026</td></tr>
+<tr><td>Pretraining corpus</td><td>12 billion candlesticks</td></tr>
+<tr><td>Edge its paper claims</td><td>Realized volatility, R-squared 0.249</td></tr>
+<tr><td>Incumbent</td><td>Log-HAR, Parkinson range volatility, Corsi 2009</td></tr>
+<tr><td>Universe</td><td>Twenty US large caps plus SPY, the S&amp;P 500 exchange-traded fund</td></tr>
+<tr><td>Target</td><td>Realized volatility five days ahead</td></tr>
+<tr><td>Forecast origins</td><td>1 August 2025 to 30 June 2026, eleven months</td></tr>
+<tr><td>Model's arXiv posting</td><td>2 August 2025</td></tr>
+<tr><td>Forecasts</td><td>4,809</td></tr>
+<tr><td>Sampled paths per origin</td><td>15</td></tr>
+<tr><td>Kronos wins only if</td><td>Pooled QLIKE improves, pooled DM p below 0.05, positive median improvement per ticker</td></tr>
+<tr><td>Drop the 21 forecasts from the one overlapping day</td><td>DM t = -12.3, verdict unchanged</td></tr>
+</tbody>
+</table>
+</div>
+<p>The start was locked one calendar day before the model's arXiv posting because its training window is undisclosed. Any earlier origin is potentially in-sample for Kronos and out-of-sample for HAR.</p>
 <h2>2. The method note that decides the answer</h2>
-<p>The repository's <code>predict()</code> averages its Monte Carlo paths (randomly simulated price paths) before returning them. Realized volatility computed on an averaged path is biased low, because averaging cancels the variation being measured.</p>
-<p>So I did not use it. I pulled the 15 sampled paths per origin, computed Parkinson volatility on each path's own generated highs and lows, and took the median. Random seeds pinned per ticker and origin. Anyone who calls <code>predict()</code> and measures volatility on the output is measuring the model's conditional mean, the average of its simulated paths rather than their variation, and will report a number that flatters neither side honestly.</p>
+<p>The repository's <code>predict()</code> averages its Monte Carlo paths before returning them. Realized volatility computed on an averaged path is biased low, because averaging cancels the variation being measured. I pulled the sampled paths for each origin, computed Parkinson volatility on each path's own generated highs and lows, and took the median, with random seeds pinned per ticker and origin.</p>
 <h2>3. What happened</h2>
 <div class="tblwrap"><table>
 <thead>
@@ -351,15 +368,24 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 </tr>
 </tbody>
 </table></div>
-<p>Pooled Diebold-Mariano t = <strong>-12.4</strong>. The foundation model's loss is roughly four times the regression's. Under the locked decision rule, the Kronos volatility hypothesis, registered as kronos-vol, is rejected and HAR survives.</p>
+<p>Pooled Diebold-Mariano t = <strong>-12.4</strong>, and the foundation model's loss is roughly four times the regression's. Under the locked decision rule the Kronos volatility hypothesis is rejected and HAR survives.</p>
 <h2>4. What it leaves behind</h2>
-<p>Pretraining breadth is not a substitute for a conditional mean aimed at the target. Volatility is persistent, HAR is three lagged averages of exactly that persistence, and it is fitted on the asset's own history. Kronos has to infer the same structure from a general representation of everything. Four numbers estimated on the right thing beat 24.7 million estimated on everything.</p>
-<p>The second rule is about evaluation rather than models. When a model's training window is undisclosed, the honest backtest starts the day after its release, and everything before that date is a claim about memory. That constraint is why this verdict needed eleven months of out-of-sample data to become available at all, and eleven months is short. I am publishing it with that caveat attached rather than waiting for a cleaner one.</p>
+<p>Pretraining breadth is not a substitute for a conditional mean aimed at the target. Volatility is persistent, HAR is three lagged averages of exactly that persistence, and it is fitted on the asset's own history. Kronos has to infer the same structure from a general representation of everything.</p>
+<p>When a training window is undisclosed, the honest backtest starts the day after release, and everything before that date is a claim about memory. That constraint is why this verdict took the better part of a year to become available, and that window is short. I publish it with the caveat attached rather than wait for a cleaner one.</p>
+
+<div class="tblwrap"><div class="cap">Reproduction settings, kept so the run can be repeated exactly.</div>
+<table>
+<thead><tr><th>Setting</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Kronos-small context window</td><td>400 daily bars</td></tr>
+<tr><td>Sampling temperature</td><td>1.0</td></tr>
+<tr><td>Top-p</td><td>0.9</td></tr>
+<tr><td>Benchmark refit start</td><td>2015, refit monthly</td></tr>
+</tbody>
+</table></div>
 <h2>5. Scope</h2>
-<p>Zero shot, daily bars, repository default sampling. I did not test intraday bars, which is where the model's pretraining is densest and where its paper does some of its evaluation, so this verdict covers realized volatility from daily bars and nothing wider.</p>
-<p>A variant with fine-tuning is a separate study with its own pre-registration and I am not running it. The 2025 and 2026 literature already reports that fine-tuning does not rescue foundation models for time series on equities, and re-running this one with tuned temperature, top-p or context length would be metric shopping, retrying settings until one produced a flattering number, against a decision rule I already locked.</p>
-<hr>
-<p><b>Method.</b> Full pre-registration at <code>docs/kronos_vol_prereg.md</code>, filed 2026-07-21 before the first run. Target is realized volatility over five days from Parkinson daily variance, annualized. HAR is a log-HAR fitted on an expanding window (all history available up to each forecast date), with daily, weekly and monthly averages, refit monthly from a 2015 start, with a smearing correction for the log transform (a standard bias adjustment when converting log-scale forecasts back to levels). QLIKE is computed on variance, not on volatility. Diebold-Mariano uses heteroskedasticity and autocorrelation consistent (HAC) lag 5. Kronos-small runs on the repository code after its April 2026 data-leakage fix, context 400 daily bars, horizon 5, temperature 1.0, top-p 0.9, 15 paths per origin. Every statistic is computed by deterministic Python. The universe is survivorship biased (it includes only stocks that survived to make today's list), which is symmetric across both models but still makes raw levels upper bounds.</p>
+<p>Zero shot, daily bars, repository default sampling. I did not test intraday bars, where the model's pretraining is densest, so this verdict covers realized volatility from daily bars and nothing wider. A fine-tuned variant is a separate study with its own pre-registration, and I am not running it. The 2025 and 2026 literature already reports that fine-tuning does not rescue foundation models for time series on equities, and re-running this one with tuned temperature, top-p or context length would be metric shopping against a decision rule I have already locked.</p>
+
 <p><em>Educational research only. Not investment advice.</em></p>
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Method and sources for this paper are

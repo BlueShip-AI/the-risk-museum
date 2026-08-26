@@ -294,24 +294,74 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-<p class="abstract"><span class="lab">Abstract.</span> Pairs trading, buy the laggard and short the leader when two stocks that usually move together drift apart, was born on a Morgan Stanley proprietary desk in the mid-1980s and became one of the most tested strategies in finance. I tested it five different ways on daily prices of large United States stocks, using an automated research pipeline whose results you can audit on this site. The verdict is precise. The strategy still works in the narrow sense that diverged stocks still converge, and that convergence earns roughly 0.3% a year before trading costs, against roughly 0.7% a year of trading costs. The strategy is not wrong. Its trading costs are roughly double what it earns. The one result I could not find anywhere in the published literature: restricting to slowly converging pairs, the natural fix when your execution is slow, earns approximately zero even before costs. Whatever life the idea has left is not in stock prices at all. It is in merger arbitrage, the last third of the pairs trading textbook, and testing that needs a new data source, not a better formula.</p>
-
 <h2>1. The shop that started it</h2>
-<p>In the mid-1980s Morgan Stanley ran a small quantitative group under Nunzio Tartaglia, trading a strategy the rest of the firm barely understood: find two stocks that move together, wait for them to drift apart, bet on the snap back. The group&rsquo;s alumni seeded modern quantitative finance, David Shaw among them, and the strategy escaped into academia, where Gatev, Goetzmann and Rouwenhorst published the definitive test in 2006, crediting the desk&rsquo;s practice as the strategy&rsquo;s origin. I spent years managing risk at the same firm, decades later and several floors away. That makes this the most personal test on this site: the trade that built the industry I am applying to, examined with the discipline that industry now demands.</p>
-<h2>2. Forty years of shrinking profits, in the published numbers</h2>
-<p>The published record is a staircase going down. Gatev, Goetzmann and Rouwenhorst measured 1.44% per month on the twenty closest pairs, falling to 0.895% per month if you simply wait one day before trading, a gap that already implies roughly 1.6% of round-trip trading friction. Do and Faff extended the sample and watched the profits shrink by era: 0.86% per month through 1988, 0.37% through 2002, 0.24% after that, and negative once realistic costs are charged, with the only after-cost survivor being carefully matched same-industry pairs earning around 0.3% per month. Engelberg, Gao and Jagannathan showed the profits fade within days of a divergence and live mostly in hard-to-trade, illiquid stocks. A 2024 study found that simply screening out illiquid names removes roughly 60% of the gross profit, and separate work finds that the tight statistical relationship the textbook assumes between paired stocks mostly does not exist. Every number above is from the published research. My contribution starts where that staircase ends.</p>
-<h2>3. Five tests, and a passing bar that rose each time</h2>
-<p>I tested the strategy five ways. This deserves one sentence of method, because it is the part most backtests get wrong. If you test five variants of the same idea, you have given yourself five chances to get lucky, so the evidence required to believe any of them must go up with each attempt. My pipeline enforces that automatically: the five tests were registered as variants of one idea, and the required t-statistic, the standard measure of whether a result is distinguishable from luck, climbed from 2.50 on the first test to 3.03 on the fifth. Most tools in this industry do the opposite. They let you try ten versions, show you the best one, and grade it as if it were the only one you ever tried.</p>
-<p>The first three tests treated pairs trading as a stock-ranking signal: rank every stock by how far it sits from its usual partner, buy the ones trading below, short the ones trading above. All three failed, but the post-mortem was informative. The ranking contains real information, confirmed by a formal test (t-statistic of 2.52, with returns lining up in order from best-ranked bucket to worst). It is simply far too weak to matter: even under generous assumptions its risk-adjusted return tops out near 0.2, where a strategy worth running scores closer to 1. And most of what little profit existed, 94 to 96% in two of the three tests, came from the least liquid third of the market, the stocks that are hardest and most expensive to actually trade.</p>
-<p>Then my pipeline&rsquo;s independent reviewer, a second automated agent whose only job is to attack results before they are published, earned its keep twice. First it ruled that ranking stocks is not the same thing as trading pairs, so I built a faithful replication of the original strategy: the twenty closest pairs, positions opened when a pair diverges by two standard deviations, closed when it converges, a one-day delay on every trade, 247 overlapping portfolios, 8,051 round trips, average holding period 54 days. Second, the reviewer caught a sign error that had the replication trading backwards, and every result was re-judged on the corrected run. The corrected numbers: the classic strategy loses 0.37% a year after costs, and the slow-pairs version loses 0.57%, nowhere near a passing bar of 3.03 and negative even before applying any statistical standard at all.</p>
-<h2>4. Not wrong, just more expensive to run than it earns</h2>
-<p>The framing matters, and the reviewer enforced it. Running the strategy in both directions brackets the truth: convergence between paired stocks still earns roughly 0.30% a year before costs on large United States stocks, against roughly 0.67% a year of conservative trading costs. The strategy is not wrong about the market. Diverged twins still converge. Trading it simply costs about twice what it earns, on the only stocks liquid enough for the strategy to matter at size. In smaller, harder-to-trade names the published research still finds gross profit, and my own results agree, which is the same finding in different clothes: the profit sits exactly where trading is most expensive, meaning it was always a fee for providing liquidity to people who needed to trade, not free information about prices.</p>
-<h2>5. The test nobody had run</h2>
-<p>The one genuinely new number is the slow-pairs test. The obvious rescue for a trader with slow execution is selection: if a one-day delay destroys fast-converging pairs, restrict to pairs that converge over weeks instead of days, which a delayed trader can still catch. The published literature documents the damage of delay but never tested this rescue. I tested it twice, once as a ranking signal and once in the faithful pair-by-pair replication, after the reviewer caught a subtle flaw in the first design that was quietly filtering out exactly the slow pairs it was meant to study. The answer: the slow pairs earn approximately zero even before costs. Slowness does not protect the edge, because the slow pairs carry no edge to protect. That closes the strategy&rsquo;s last honest escape route for anyone trading on daily prices.</p>
-<h2>6. What remains</h2>
-<p>Three things, honestly inventoried. First, the published literature&rsquo;s one survivor, carefully matched same-industry pairs earning around 0.3% per month after costs, is their claim, small, and untested here. Second, the illiquid pocket is real in both their data and mine, and it cannot absorb meaningful capital, which is exactly why it survives. Third, and largest: the pairs trading textbook&rsquo;s final chapters apply the same spread machinery to merger arbitrage, trading the gap between a target&rsquo;s price and the deal price, where the buying and selling is forced by the deal itself rather than discretionary. Testing that requires a database of merger announcements this pipeline does not yet have, which is a data acquisition problem, not a modeling one. The sixth test of pairs trading, whenever it comes, must bring a genuinely new mechanism. My reviewer put it plainly: more variations on the selection formula are not the missing ingredient.</p>
-<h2>7. What this does not establish</h2>
-<p>My test universe is today&rsquo;s large-cap survivors, which flatters this strategy specifically: a pair that diverged because one company was collapsing toward delisting never enters the sample, so the losses from divergences that never came back are undercounted. Every gross profit figure above is therefore an upper bound, which makes the rejections stronger, not weaker. One cost runs the other way and is not modelled: the 5 basis points per traded dollar is venue-blind and carries no legging cost, and a pairs order that fills the liquid leg and misses the other is, in the words of a market-design practitioner, being &ldquo;handed back&rdquo; with the hedge on and the position off; that would make the cost-death verdict stronger still (added 21 August 2026). The verdicts come from one pipeline, one universe, and daily prices; they say nothing about intraday versions of the trade run with serious execution infrastructure, which is a different business. The literature&rsquo;s surviving pockets are reported as their claims, not replicated here. And every dead variant is recorded in a database with its cause of death, so it never gets retested here by accident. That is the entire point of publishing failures.</p>
+<p>In the mid-1980s Morgan Stanley ran a small quantitative group under Nunzio Tartaglia: buy the laggard, short the leader, wait for the snap back. Its alumni seeded modern quantitative finance, David Shaw among them, and Gatev, Goetzmann and Rouwenhorst later published the definitive academic test. I managed risk at the same firm decades later. The published record since is a staircase going down, in their numbers, not mine.</p>
+
+<div class="tblwrap">
+<div class="cap">Table 1. Forty years of shrinking profits, as reported in the published literature.</div>
+<table>
+<thead><tr><th>Source</th><th>What the record says</th></tr></thead>
+<tbody>
+<tr><td>Gatev, Goetzmann and Rouwenhorst, Review of Financial Studies 2006</td><td>1.44% per month on the twenty closest pairs; 0.895% per month if you wait one day before trading, a gap implying roughly 1.6% of round-trip friction</td></tr>
+<tr><td>Do and Faff, by era</td><td>0.86% per month through 1988, 0.37% through 2002, 0.24% after that; negative once realistic costs are charged</td></tr>
+<tr><td>Do and Faff, the one after-cost survivor</td><td>Carefully matched same-industry pairs, around 0.3% per month</td></tr>
+<tr><td>Engelberg, Gao and Jagannathan</td><td>Profits fade within days of a divergence and live mostly in hard-to-trade, illiquid stocks</td></tr>
+<tr><td>Zhu 2024, not peer-reviewed</td><td>Screening out illiquid names removes roughly 60% of the gross profit</td></tr>
+<tr><td>Farago and Hjalmarsson, JFQA 2019</td><td>The tight statistical relationship the textbook assumes between paired stocks mostly does not exist</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>2. Five tests, a rising bar</h2>
+<p>Testing five variants of one idea gives five chances to get lucky, so the evidence required must rise with each attempt, and my pipeline raises the required t-statistic automatically. Most tools do the opposite: try ten versions, show the best, grade it as though it were the only one.</p>
+<p>The first three tests ranked stocks by distance from their usual partner. The ranking holds real information, is far too weak to trade, and what profit it held sat in the least liquid third of the market. My pipeline&rsquo;s reviewer, a second agent that attacks results before publication, then ruled that ranking stocks is not trading pairs, so I built a faithful replication of the original trade. It also caught a sign error that had the replication running backwards; every verdict below comes from the corrected run.</p>
+
+<div class="tblwrap">
+<div class="cap">Table 2. Five registered tests of one idea, judged on the corrected run. Large United States stocks, daily prices.</div>
+<table>
+<thead><tr><th>Measure</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Tests, registered as variants of one idea</td><td>Five</td></tr>
+<tr><td>Required t-statistic, first test to fifth</td><td>2.50 rising to 3.03</td></tr>
+<tr><td>Ranking signal, formal test</td><td>t-statistic of 2.52, returns in order from best-ranked bucket to worst</td></tr>
+<tr><td>Best risk-adjusted return of the ranking</td><td>Near 0.2, where a strategy worth running scores closer to 1</td></tr>
+<tr><td>Share of ranking profit from the least liquid third</td><td>94 to 96%, in two of the three tests</td></tr>
+<tr><td>Replication design</td><td>Twenty closest pairs, two-standard-deviation entry, convergence exit, one-day execution delay</td></tr>
+<tr><td>Replication scale</td><td>247 overlapping portfolios, 8,051 round trips, average holding period 54 days</td></tr>
+<tr><td>Convergence earns, before costs</td><td>Roughly 0.3% a year; 0.30% on the corrected run</td></tr>
+<tr><td>Conservative trading costs</td><td>Roughly 0.7% a year; 0.67% on the corrected run</td></tr>
+<tr><td>Cost charged</td><td>5 basis points per traded dollar, plus borrow</td></tr>
+<tr><td>Classic strategy, after costs</td><td>Loses 0.37% a year</td></tr>
+<tr><td>Slow-pairs version, after costs</td><td>Loses 0.57% a year</td></tr>
+<tr><td>Slow pairs, before costs</td><td>Approximately zero</td></tr>
+<tr><td>Passing bar on the fifth test</td><td>3.03, and both replication results are negative before any statistical standard applies</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>3. Not wrong, just too expensive</h2>
+<p>Diverged twins still converge, so the strategy is not wrong about the market. It simply costs about twice what it earns on the only stocks liquid enough to matter at size. In smaller names the published research still finds gross profit and so do I: the profit sits where trading is dearest, so it was always a fee for supplying liquidity, not information about prices.</p>
+
+<h2>4. What remains</h2>
+<p>The one new result is the slow-pairs test: if delay destroys fast-converging pairs, restrict to pairs that converge over weeks. The literature records the damage of delay but never tested that rescue. I tested it twice, and the slow pairs carry no edge to protect. What survives is the literature&rsquo;s own after-cost pocket, their claim and untested here; the illiquid pocket, too small to absorb capital; and merger arbitrage, the pairs trading textbook&rsquo;s last third, where trading is forced by the deal and needs a merger database, a data problem rather than a modelling one. A sixth test must bring a new mechanism, not another formula.</p>
+
+<h2>5. What this does not establish</h2>
+<p>The caveats below are stated in full; the largest of them make the rejection stronger, not weaker.</p>
+
+<div class="tblwrap">
+<div class="cap">Table 3. What this paper does not claim.</div>
+<table>
+<thead><tr><th>Caveat</th><th>Effect on the verdict</th></tr></thead>
+<tbody>
+<tr><td>Universe</td><td>Today&rsquo;s large-cap survivors, which flatters this strategy specifically: a pair that diverged because one company was collapsing towards delisting never enters the sample, so losses from divergences that never came back are undercounted. Every gross profit figure above is an upper bound, which makes the rejections stronger, not weaker</td></tr>
+<tr><td>Costs, the one that runs the other way</td><td>The 5 basis points per traded dollar is venue-blind and carries no legging cost; a pairs order that fills the liquid leg and misses the other is, in the words of a market-design practitioner, being &ldquo;handed back&rdquo; with the hedge on and the position off. Modelling it would make the cost-death verdict stronger still (added 21 August 2026)</td></tr>
+<tr><td>Scope</td><td>One pipeline, one universe, daily prices. Nothing here speaks to intraday versions of the trade run with serious execution infrastructure, which is a different business</td></tr>
+<tr><td>The literature&rsquo;s surviving pockets</td><td>Reported as their claims, not replicated here</td></tr>
+<tr><td>Dead variants</td><td>Each is recorded in a database with its cause of death, so none is retested here by accident. That is the entire point of publishing failures</td></tr>
+</tbody>
+</table>
+</div>
+
 <div class="prov"><h2>Provenance, bs-prov/1.0</h2><dl>
 <dt>Method</dt><dd>Five registered tests of one idea, judged 11 August 2026, with the required t-statistic rising from 2.50 to 3.03 as the test count grew. Pair-level replication: 252-day formation window, 126-day trading window, two-standard-deviation entry, convergence exit, one-day execution delay, 5 basis points per traded dollar plus borrow costs, capital counted as committed whether deployed or not; 247 overlapping portfolios, 8,051 round trips. The independent reviewer&rsquo;s two interventions (the design ruling, and the sign error caught before publication) are documented in the pipeline&rsquo;s cycle report.</dd>
 <dt>Sources</dt><dd>Gatev, Goetzmann and Rouwenhorst, Review of Financial Studies 2006; Do and Faff 2010 and 2012; Engelberg, Gao and Jagannathan; Zhu 2024 (not peer-reviewed); Farago and Hjalmarsson, JFQA 2019; Vidyamurthy, Pairs Trading: Quantitative Methods and Analysis, 2004. History per the 2006 paper&rsquo;s account and standard references.</dd>

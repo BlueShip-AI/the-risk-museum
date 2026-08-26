@@ -294,12 +294,25 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-<p class="abstract"><span class="lab">Abstract.</span> High yield&rsquo;s marketers are right that the index got safer: BB-rated bonds are now a record 57 to 58% of the US market, against 38% in 2000 and roughly that level through the pre-Lehman era, so the comparison is with the old normal rather than with one unusual year. They are wrong about what the shift is worth, and a researcher should be wary of the series that records it: an index whose weakest constituents migrate elsewhere does not measure the asset class, it measures what stayed. The spread investors are paid for credit risk sits near the floor of its history, the "attractive" 7% yield is mostly Treasury yield wearing a credit costume, and the riskiest tier of the index is not tight at all; it is repricing violently. Most importantly, a large part of the quality improvement is a change of address: the riskiest borrowers did not deleverage, they moved to leveraged loans and to private credit. Only the second of those is genuinely dark. The loan market prints a daily secondary mark, and the Morningstar LSTA US Leveraged Loan Index publishes a daily weighted average bid; that market is observable, it is simply not in the series being quoted here. Quality is up, compensation is near record lows, and the risk that left the index still exists. It just stopped being counted by the series people quote.</p>
+<p class="abstract"><span class="lab">Abstract.</span> The index really did get safer, partly by losing its worst borrowers to private credit, so its spread history is not a constant-quality series. Quality is up, compensation is near record lows, and the risk that left the index still exists.</p>
 
 <h2>1. The claim, verified</h2>
-<p>A recent KKR piece argues high yield has outgrown its junk-bond reputation: 57% BB in the US, 68% in Europe, duration near a 15-year low, call protection as a bonus. The composition numbers check out against independent index data, and the duration claim is conservative: at roughly 3.0 years against a long-run average near 4, it is arguably a record low, not a 15-year one. The facts are right. The conclusion does not follow.</p>
+<p>A recent KKR piece argues high yield has outgrown its junk-bond reputation: a record BB share, duration near a 15-year low, call protection as a bonus. The composition checks out against independent index data, and the duration claim is conservative. The facts are right. The conclusion does not follow.</p>
+<div class="tblwrap"><div class="cap">Composition, and where the risk went</div>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>BB share of the US index</td><td>57 to 58%, a record; KKR cites 57%</td></tr>
+<tr><td>BB share in 2000</td><td>38%, roughly the level held through the pre-Lehman era</td></tr>
+<tr><td>BB share of the European index (KKR)</td><td>68%</td></tr>
+<tr><td>Index duration</td><td>roughly 3.0 years against a long-run average near 4; arguably a record low, not the 15-year low claimed</td></tr>
+<tr><td>CCC share of the US index</td><td>down from a post-crisis peak near 30% to about 10%</td></tr>
+<tr><td>Private credit assets</td><td>roughly $158 billion (2010) to about $2.1 trillion (IMF)</td></tr>
+<tr><td>Public high yield market</td><td>about 11% smaller than its 2021 peak</td></tr>
+<tr><td>Ratings migration since 2021</td><td>rising stars exceed fallen angels; Ford back in investment grade</td></tr>
+</table></div>
+
 <h2>2. What the quality costs</h2>
-<p>Five numbers, pulled from the Federal Reserve&rsquo;s public database on 19 August 2026, data as of 18 August, percentiles computed over the freely available three-year window. The B row was missing from the version first published, which mattered: B is roughly a third of the index by weight and it is the series that decides whether the &ldquo;split market&rdquo; reading holds.</p>
+<p>Five FRED series, pulled 19 August 2026, data as of 18 August, percentiles over the freely available three-year window. The B row was missing from the version first published, and B is roughly a third of the index by weight.</p>
 <div class="tblwrap"><div class="cap">FRED data as of 18 August 2026; percentiles over the freely available three-year window</div>
 <table>
 <tr><th>Series</th><th>Level</th><th>Three-year percentile</th></tr>
@@ -309,13 +322,36 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <tr><td>B spread</td><td>2.94%</td><td>30th</td></tr>
 <tr><td>CCC spread</td><td>10.27%</td><td>98th</td></tr>
 </table></div>
-<p>The yield looks normal. The spread, the only part that pays you for credit risk, is near its floor: 7.09% of yield is 4.34% of Treasury plus 2.75% of credit. The three-year window understates this, and I should have said so at publication. A 1996 to 2025 history of the index spread was already cached on disk when this paper went out, and against it the current 2.75% sits at the <b>4th percentile</b>, not the 17th, with a long-run median of 4.56% and an all-time low of 2.41%. The short window is the conservative presentation, not the aggressive one. The correct reading is that the index spread is nearer its floor than the published table implied. Meanwhile CCC at 1,027 is at its 98th percentile. The high-quality 57% is priced for perfection; the remnant is repricing. What the index average conceals is not a two-sided split but a <b>monotone gradient by quality</b>: 11th percentile at BB, 30th at B, 98th at CCC. That is a cleaner and more demanding result than the two-extreme version first published here, because it holds at every rung rather than only at the ends.</p>
+<p>The yield looks normal only because most of it is Treasury yield wearing a credit costume. The spread, the only part that pays for credit risk, sits near its floor, and the three-year window understates how near.</p>
+<div class="tblwrap"><div class="cap">The price of the quality, on the longer record</div>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Yield decomposition</td><td>7.09% = 4.34% Treasury plus 2.75% credit; the marketed 7% yield is mostly Treasury</td></tr>
+<tr><td>Index spread, 1996 to 2025 window</td><td>2.75% at the 4th percentile, against the 17th on three years</td></tr>
+<tr><td>Long-run median index spread</td><td>4.56%</td></tr>
+<tr><td>All-time low index spread</td><td>2.41%</td></tr>
+<tr><td>CCC spread</td><td>1,027 basis points, 98th percentile</td></tr>
+<tr><td>Gradient by quality</td><td>11th percentile at BB, 30th at B, 98th at CCC</td></tr>
+</table></div>
+<p>The average conceals not a two-sided split but a monotone gradient by quality: the high-quality majority is priced for perfection while the remnant reprices violently. A gradient holding at every rung is more demanding than the two-extreme reading first published here.</p>
+
 <h2>3. Where the junk went</h2>
-<p>The CCC share of the US index fell from a post-crisis peak near 30% to about 10%. Over the same era, private credit grew from roughly $158 billion (2010) to about $2.1 trillion (IMF), and Federal Reserve and BIS research finds private credit borrowers are systematically smaller, more leveraged, and riskier than public-market issuers. Loan data shows the riskiest deals losing syndicated share to private lenders, and the public high yield market itself shrank about 11% from its 2021 peak. One asset manager titled the phenomenon exactly: addition by subtraction. Since 2021 the fallen-angel story has also run in reverse, with rising stars exceeding fallen angels and Ford back in investment grade, so today&rsquo;s record BB share is sustained by upgrades, BB-heavy issuance, and the quiet exit of the riskiest borrowers to markets without daily marks. The IMF and the Financial Stability Board have both warned about that destination&rsquo;s opacity.</p>
+<p>The riskiest borrowers did not deleverage. They changed address, to leveraged loans and to private credit. Only the second is genuinely dark: the loan market prints a daily secondary mark, and the Morningstar LSTA US Leveraged Loan Index publishes a daily weighted average bid. Federal Reserve and BIS research finds private credit borrowers smaller, more leveraged and riskier than public issuers. The IMF and the Financial Stability Board have warned about that opacity.</p>
+
 <h2>4. The strongest counterargument, answered</h2>
-<p>The sophisticated bull case says spreads per year of duration are only modestly rich: about 90 basis points per duration-year today against roughly 100 historically. The arithmetic is correct and partly circular, because duration is this short in part because bonds trade to their call dates at tight spreads; the adjustment uses the symptom to excuse the price. The call-protection benefit itself cannot be verified from public sources, since no index provider publishes the share of the market trading to call. And the analyst who actually tested whether the BB-heavy mix justifies today&rsquo;s tightness, Marty Fridson, is the named skeptic in this literature, not its cheerleader.</p>
+<p>The sophisticated bull case adjusts for duration and finds spreads only modestly rich. The arithmetic is correct and partly circular, because duration is this short partly because bonds trade to their call dates at tight spreads. The adjustment uses the symptom to excuse the price.</p>
+<div class="tblwrap"><div class="cap">The bull case, tested against the public record</div>
+<table>
+<tr><th>Claim</th><th>What the record says</th></tr>
+<tr><td>Spreads per year of duration are only modestly rich</td><td>about 90 basis points per duration-year today against roughly 100 historically</td></tr>
+<tr><td>Call protection is a bonus</td><td>not verifiable from public sources; no index provider publishes the share of the market trading to call</td></tr>
+<tr><td>The BB-heavy mix justifies today's tightness</td><td>Marty Fridson, the analyst who tested it, is the named sceptic in this literature, not its cheerleader</td></tr>
+<tr><td>The improvement is deleveraging</td><td>one asset manager titled the phenomenon exactly: addition by subtraction</td></tr>
+</table></div>
+
 <h2>5. What this does not establish</h2>
-<p>No source, this note included, cleanly separates genuine improvement from migration; both are real, and the 2020 fallen-angel wave genuinely upgraded the index. The percentile table uses the three-year window that is freely reproducible from FRED. The 1996 to 2025 anchors in section 2 are computed here from a cached daily history of the index spread, not taken from a published source. This is a measurement note about compensation, not a forecast, a recommendation, or a view on any fund or firm.</p>
+<p>No source, this note included, cleanly separates genuine improvement from migration; both are real, and the 2020 fallen-angel wave genuinely upgraded the index. The percentile table uses the three-year window freely reproducible from FRED. The 1996 to 2025 anchors are computed here from a cached daily history of the index spread, not taken from a published source. This is a measurement note about compensation, not a forecast, a recommendation, or a view on any fund or firm.</p>
+
 <div class="prov"><h2>Provenance, bs-prov/1.0</h2><dl>
 <dt>Method</dt><dd>Spreads and yields from FRED (ICE BofA series BAMLH0A0HYM2, BAMLH0A1HYBB, BAMLH0A2HYB, BAMLH0A3HYC, BAMLH0A0HYM2EY), pulled 19 August 2026 (data as of 18 August). Every percentile in the table is computed deterministically over that three-year window, 786 daily observations from 21 August 2023 to 18 August 2026, because FRED&rsquo;s own ICE window is three years. The 1996 to 2025 anchors in section 2, the 4th percentile, the 4.56% median and the 2.41% all-time low, are not cited published figures. They are computed here from a cached daily history of BAMLH0A0HYM2 at <code>state/cache/wayback_BAMLH0A0HYM2.csv</code>, 7,530 daily observations from 31 December 1996 to 3 November 2025.</dd>
 <dt>Sources</dt><dd>Morgan Stanley IM High Yield Market Monitor (ICE Indices data); VanEck and SSGA index tables; Polen Capital; IMF Global Financial Stability Report, April 2024; BIS Quarterly Review, March 2025 (Avalos, Doerr and Pinter); Federal Reserve FEDS Note, February 2024 (Cai and Haque); Chernenko, Erel and Prilmeier, Review of Financial Studies 2022; PitchBook LCD; Osterweis; Fridson. Prompted by KKR, High Yield&rsquo;s Second Act, August 2026.</dd>

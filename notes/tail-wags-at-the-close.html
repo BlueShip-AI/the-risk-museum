@@ -294,19 +294,67 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-<p class="abstract"><span class="lab">Abstract.</span> Morgan Stanley&rsquo;s derivatives desk published the numbers behind a growing worry: leveraged ETFs, now over $200 billion, must trade in the same direction as every day&rsquo;s move, and sold over $100 billion of equities in eight weeks this summer. The tail, people say, is wagging the dog. I tested whether a daily-bar trader can be paid for knowing this, twice, under a significance bar that rose with the second attempt. Both tests failed, informatively. The first found a real gross effect that trading costs consume to the basis point. The second, using real fund assets from SEC filings, found returns that live almost entirely inside one regime: 2020 supplied 113% of its lifetime profit. My own reviewer then showed both versions collapse to a naive bet against big moves, and caught two bugs in my work along the way. The mechanism is real and unrefuted. It plays out in the minutes around the close, where daily prices cannot reach, and Wall Street has begun paying billions to own the firms that manufacture such flows.</p>
-
 <h2>1. The dog and the tail</h2>
-<p>A fund promising L times a day&rsquo;s index move must rebalance at every close, buying after up days and selling after down days, in an amount equal to (L squared minus L) times its assets times the day&rsquo;s return. That is arithmetic, not strategy, and it holds for leveraged and inverse funds alike, so all of them trade the same direction at once. Morgan Stanley&rsquo;s quantitative desk put scale on it in August 2026: over $200 billion in these funds, over $100 billion of global equities sold from June 5 to July 29, nearly $30 billion bought on July 30 alone, and 2 to 4% of total US equity volume on peak days. Their conclusion: structural flows now matter as much as fundamentals. The question this paper can answer is narrower: can a trader holding daily prices harvest the reversal this flow should cause?</p>
-<h2>2. Two tests, one bar that rose</h2>
-<p>The first test scaled the pressure signal by a fund-volume proxy and faded it: 4,141 trading days, net minus 0.11% a year. The autopsy was the interesting part. Gross, the strategy earned 7.5% a year with stable out-of-sample performance; trading costs took 7.53%. The breakeven commission was 4.96 basis points against the 5 charged. Cost-death to the basis point, the third such verdict in this pipeline&rsquo;s records.</p>
-<p>The second test replaced the proxy with real assets, quarterly net-asset filings from the SEC for all thirteen funds, and paid a higher significance bar for being the second look at the same idea. It made money on paper, 6% a year, and failed anyway: a t-statistic of 0.89 against the required 2.74, and a sample split showing the edge exists only before late 2024. One year, 2020, contributed 113% of the strategy&rsquo;s lifetime profit, and the book&rsquo;s first active day was March 3, 2020, the week of the crash reversals. One regime, harvested once.</p>
+<p>A fund promising L times a day&rsquo;s index move must rebalance at every close, buying after up days and selling after down days. That is arithmetic, not strategy, and inverse funds obey it too, so all of them trade one way at once. The question here is whether a trader holding daily prices can be paid for the reversal that flow should cause.</p>
+
+<div class="tblwrap"><p class="cap">The flow, per Morgan Stanley QDS, August 2026.</p>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Leveraged and inverse ETF assets</td><td>over $200 billion</td></tr>
+<tr><td>Global equities sold, June 5 to July 29</td><td>over $100 billion</td></tr>
+<tr><td>Bought on July 30 alone</td><td>nearly $30 billion</td></tr>
+<tr><td>Share of US equity volume, peak days</td><td>2 to 4%</td></tr>
+<tr><td>Rebalance owed at each close</td><td>(L squared minus L) x assets x return</td></tr>
+<tr><td>Desk conclusion</td><td>structural flows now matter as much as fundamentals</td></tr>
+<tr><td>Mechanism, prior work</td><td>Cheng and Madhavan, 2009; Tuzun, Federal Reserve, 2013</td></tr>
+</table></div>
+
+<h2>2. Two tests, one rising bar</h2>
+<p>The first test faded a pressure signal scaled by a fund-volume proxy. Its gross effect was real and stable out of sample, and costs consumed it to the basis point, the third cost-death verdict in this pipeline&rsquo;s records. The second used fund assets filed at the SEC, at a higher bar for being a second look at one idea. It made money on paper and failed anyway, because almost all of that money came from one regime.</p>
+
+<div class="tblwrap"><p class="cap">Two registered tests, judged 14 August 2026.</p>
+<table>
+<tr><th>Measure</th><th>Test 1, volume proxy</th><th>Test 2, filed assets</th></tr>
+<tr><td>Sample</td><td>4,141 trading days</td><td>thirteen funds, quarterly SEC N-PORT filings, late 2019 to mid 2026</td></tr>
+<tr><td>Gross return</td><td>7.5% a year</td><td>6% a year</td></tr>
+<tr><td>Trading costs</td><td>7.53% a year</td><td>5 basis points assumed</td></tr>
+<tr><td>Net return</td><td>minus 0.11% a year</td><td>positive on paper</td></tr>
+<tr><td>Breakeven commission</td><td>4.96 basis points against the 5 charged</td><td>n/a</td></tr>
+<tr><td>t-statistic</td><td>n/a</td><td>0.89</td></tr>
+<tr><td>Bar to clear</td><td>2.50</td><td>2.74</td></tr>
+<tr><td>Concentration</td><td>n/a</td><td>2020 supplied 113% of lifetime profit; first active day March 3, 2020; no edge after late 2024</td></tr>
+<tr><td>Verdict</td><td>Rejected, cost death</td><td>Rejected, one regime</td></tr>
+<tr><td>Family status</td><td colspan="2">closed at daily frequency</td></tr>
+</table></div>
+
 <h2>3. What the reviewer caught</h2>
-<p>This pipeline runs an independent automated reviewer whose only job is to attack results, and it earned its keep three times here. It showed the first test&rsquo;s volume proxy was a volatility filter in disguise. It showed my "real assets" were partly a price series in costume, because scaling quarterly filings by fund prices discards the one thing, investor flows, that makes assets different from price. And it found that a filter using no fund data at all, just "the index moved a lot today," beat both versions on the same window. It also caught two errors of mine now on the permanent record: a wrong provenance label, and asset anchors applied before their filings were public. Since the pressure&rsquo;s direction always equals the day&rsquo;s move by construction, every daily-bar version of this idea is a bet against big moves behind some gate, and the reviewer&rsquo;s ruling closed the family at this data frequency.</p>
+<p>An independent automated reviewer attacks every result here, mine included. Pressure&rsquo;s direction equals the day&rsquo;s move by construction, so every daily-bar version of this idea is a bet against big moves behind some gate.</p>
+
+<div class="tblwrap"><p class="cap">The reviewer&rsquo;s findings.</p>
+<table>
+<tr><th>Claim</th><th>What the record says</th></tr>
+<tr><td>The volume proxy carried flow information</td><td>it was a volatility filter in disguise</td></tr>
+<tr><td>The second test used real assets</td><td>partly a price series in costume: scaling filings by fund prices discards investor flows, the one thing that separates assets from price</td></tr>
+<tr><td>Fund data is what pays</td><td>a filter using none of it, only that the index moved a lot that day, beat both versions on the same window</td></tr>
+<tr><td>The author&rsquo;s own work was clean</td><td>two errors now on the permanent record: a wrong provenance label, and asset anchors applied before their filings were public</td></tr>
+</table></div>
+
 <h2>4. What stands</h2>
-<p>Two honest rejections establish that daily closing prices cannot harvest this flow at realistic costs. They do not refute the mechanism: Morgan Stanley&rsquo;s flow numbers stand, and neither test ever observed an actual flow. The predicted capture window is the close auction and the following open, minutes this museum&rsquo;s daily data cannot see, a boundary this site mapped in an earlier paper. Meanwhile the market itself has voted on whether structural flow matters: Goldman Sachs just agreed to pay up to $2.3 billion for NEOS, a firm founded in 2022 running $30 billion of option-income ETFs, its second such acquisition in months. Mechanical flow is now a product category. The next testable version of this idea runs through options data and roll calendars, files under the same family, and pays the higher bar that a third look costs.</p>
+<p>Daily closing prices cannot harvest this flow at realistic costs, which does not refute the mechanism. Neither test ever observed an actual flow. The capture window is the close auction and the following open, minutes daily bars cannot see, a boundary an earlier paper here mapped. The market has meanwhile voted on what manufactured flow is worth. The next version runs on options data and roll calendars, at the bar a third look costs.</p>
+
+<div class="tblwrap"><p class="cap">Mechanical flow as a product, August 2026.</p>
+<table>
+<tr><th>Item</th><th>Record</th></tr>
+<tr><td>Buyer</td><td>Goldman Sachs</td></tr>
+<tr><td>Target</td><td>NEOS, founded 2022</td></tr>
+<tr><td>Price</td><td>up to $2.3 billion</td></tr>
+<tr><td>Assets acquired</td><td>$30 billion of option-income ETFs</td></tr>
+<tr><td>Sequence</td><td>its second such acquisition in months</td></tr>
+</table></div>
+
 <h2>5. What this does not establish</h2>
-<p>Nothing here measures the close auction itself, actual creations and redemptions, or intraday reversion; those need finer data than daily bars, and buying that data is a separate decision. The 5 basis point cost assumption is, if anything, generous to the strategy for trading into the very auction the flow crowds. And the two rejections say nothing about whether the flow moves prices, only that its echo in daily closes is too small and too era-bound to pay for the trading it requires.</p>
+<p>Nothing here measures the close auction, actual creations and redemptions, or intraday reversion; those need finer data than daily bars, and buying it is a separate decision. The cost assumption is generous, if anything, to a strategy trading into the very auction the flow crowds. The two rejections say nothing about whether the flow moves prices, only that its echo in daily closes is too small and too era-bound to pay for itself.</p>
+
 <div class="prov"><h2>Provenance, bs-prov/1.0</h2><dl>
 <dt>Method</dt><dd>Two registered tests of one declared idea, judged 14 August 2026 at family-deflated bars of 2.50 and 2.74. Verdicts, diagnostics, the cost-death arithmetic (gross 7.5% a year against 7.53% of costs, breakeven 4.96 basis points), the one-regime finding (2020 supplied 113% of lifetime profit), and both reviewer interventions are recorded in the pipeline&rsquo;s cycle report and hypothesis database, including two errors of the author&rsquo;s the reviewer caught.</dd>
 <dt>Sources</dt><dd>Fund assets from SEC N-PORT filings, thirteen funds, quarterly, late 2019 through mid 2026. Mechanism: Cheng and Madhavan, 2009; Tuzun, Federal Reserve, 2013. Flow figures: Morgan Stanley QDS, August 2026. Acquisition figures: Goldman Sachs press release and Bloomberg, August 2026.</dd>

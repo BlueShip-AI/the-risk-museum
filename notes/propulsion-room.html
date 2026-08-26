@@ -296,41 +296,18 @@ made money before costs, and most lost to index funds.</p>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-
-
-<p class="abstract"><span class="lab">Abstract.</span> A portfolio&rsquo;s net
-return is decomposed into four forces by analogy with powered flight: thrust
-(gross edge before costs), drag (the friction of trading), gravity (the
-volatility drag of compounding), and steering (the cost of each rebalance).
-Using backtest telemetry (results of simulating the strategies on
-historical data) from 11 strategies with complete cost accounting,
-about a third produced positive gross thrust. Among those, the median cost
-drag was 42% of gross thrust, and the median breakeven cost, or stall speed,
-was about 12 bps (basis points, hundredths of a percentage point) per unit of
-turnover, against a model assumption of 5 bps and
-realistic institutional costs of 10 to 20 bps. Median annual turnover was
-approximately 10&times; (the portfolio trades its full value about ten times a
-year), reaching 19&times; at the extreme. One strategy earned
-a positive average return yet compounded to a loss, turning $100k into $93k
-over twenty years, because its volatility drag, half its variance, exceeded its
-arithmetic average return. The
-governing conclusion is that gross edge net of drag and volatility drag must
-exceed a passive benchmark, at realistic friction and out of sample (that is,
-on data the model never saw), before an
-active strategy is worth flying.</p>
+<p class="abstract"><span class="lab">Abstract.</span> Net return is decomposed
+into four forces by analogy with powered flight: thrust, drag, gravity and
+steering. Table 1 defines them. Backtest telemetry from 11 strategies with
+complete cost accounting is mapped onto the four, and Table 2 reports the
+measurements.</p>
 <div class="keywords"><b>Keywords:</b> transaction costs, portfolio turnover,
 volatility drag, net return, backtesting, passive benchmark.</div>
 
-<h2>1. Introduction</h2>
-<p>Powered flight balances four forces, and a portfolio&rsquo;s net return
-admits the same decomposition. Thrust is the gross edge before costs; drag is
-the friction of trading; gravity is the volatility drag of compounding; and
-steering is the cost of each course change. The decomposition matters because a
-positive gross edge is neither necessary nor sufficient for a positive net
-result, and drag ends more strategies than weak signals do. This note maps backtest telemetry
-from the automated research pipeline behind this site onto the four forces and
-measures each.
-Table 1 states the correspondence.</p>
+<h2>1. The decomposition</h2>
+<p>Powered flight balances four forces, and net return admits the same
+accounting. A positive gross edge is neither necessary nor sufficient for a
+positive net result, and drag ends more strategies than weak signals do.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> The decomposition into four forces and where each
@@ -348,49 +325,61 @@ force is measured.</div>
 </div>
 
 <h2>2. Measured forces</h2>
-<h3>2.1 Cost drag</h3>
-<p>Of the strategies with full cost telemetry, about a third produced positive
-gross thrust. Among those, the median friction ratio, defined as cost drag as a
-share of gross thrust, was 42%. Nearly half of the gross edge was consumed by
-trading before any return reached the account. The median stall speed, the
-cost per unit of turnover at which net return reaches zero, was about 12 bps.
-The cost model assumes a generous 5 bps per unit of turnover; realistic
-institutional costs for less liquid names, counted all in, run 10 to 20 bps. A strategy
-whose breakeven is 12 bps is viable only under the model&rsquo;s cost
-assumption, not under realistic friction.</p>
+<p>Cost drag comes first. Only about a third of the sample produced positive
+gross thrust, and among those the friction ratio, cost drag as a share of gross
+thrust, took nearly half the edge before any return reached the account. Stall
+speed, the cost per unit of turnover at which net return falls to zero, sits
+above the model&rsquo;s generous assumption and inside the range of realistic
+institutional costs for less liquid names. Those strategies fly under the
+assumption, not under real friction.</p>
 
-<h3>2.2 Steering and turnover</h3>
-<p>Each course correction, or rebalance, pays the friction toll, so steering
-authority must be budgeted like fuel. The telemetry median is approximately
-10&times; annual turnover; the strategies with the highest turnover reach
-approximately 19&times;. The governing constraint is the signal half-life check: a strategy
-whose signal half-life is shorter than its rebalance period pays turnover to
-chase noise rather than to track a persistent edge. This check is a standard at
-stage 4 of the pipeline.</p>
+<p>Every rebalance pays the friction toll, so steering authority has to be
+budgeted like fuel. The binding constraint is the signal half-life check: a
+signal that decays faster than its rebalance period pays turnover to chase
+noise rather than a persistent edge, and that check is a standard at stage 4
+of the pipeline.</p>
 
-<h3>2.3 Volatility drag</h3>
-<p>Volatility drag is the gravity of compounding: geometric growth is
-approximately the arithmetic return minus half the variance. One strategy in
-the sample had a positive average return yet compounded to a loss, because half its
-variance exceeded its arithmetic return; a positive average turned $100k
-into $93k over twenty years. Leverage scales thrust and volatility drag
-together, which is the mechanism behind structural failures under load such as
+<p>Geometric growth is approximately the arithmetic return minus half the
+variance, so a positive average return can still compound to a loss, and one
+strategy in the sample did. Leverage scales thrust and volatility drag
+together, the mechanism behind structural failures under load such as
 Long-Term Capital Management (LTCM), documented separately in the Case Studies
 section of this site.</p>
 
-<h2>3. Benchmark and discussion</h2>
-<p>A passive index fund is the limiting case: its own thrust near zero,
-drag of bps in the single digits, turnover near zero, and a high ratio of return to cost,
-so compounding does the flying. Most active strategies carry large gross thrust
-but also large drag and turnover. The standing finding across this sample is
-that most of the active strategies tested did not exceed the passive benchmark
-once their own trading costs were charged. The bar for an active strategy is
-therefore explicit: gross thrust net of drag and volatility drag must exceed
-the passive benchmark, at realistic friction, measured out of sample.</p>
+<div class="tblwrap">
+<div class="cap"><b>Table 2.</b> Measured telemetry, medians across the 11
+strategies with complete cost accounting. One basis point (bps) is a hundredth
+of a percentage point.</div>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Strategies with complete cost accounting</td><td>11</td></tr>
+<tr><td>Share with positive gross thrust</td><td>about a third</td></tr>
+<tr><td>Median cost drag, share of gross thrust</td><td>42%</td></tr>
+<tr><td>Median stall speed, breakeven per unit turnover</td><td>about 12 bps</td></tr>
+<tr><td>Cost model assumption</td><td>5 bps per unit turnover</td></tr>
+<tr><td>Realistic institutional cost, less liquid names</td><td>10 to 20 bps</td></tr>
+<tr><td>Borrow charge in the cost model</td><td>25 bps/yr</td></tr>
+<tr><td>Median annual turnover</td><td>approximately 10&times;</td></tr>
+<tr><td>Highest turnover in the sample</td><td>approximately 19&times;</td></tr>
+<tr><td>Volatility drag</td><td>growth &asymp; return &minus; &sigma;&sup2;/2</td></tr>
+<tr><td>Positive average return, compounded</td><td>$100k to $93k over twenty years</td></tr>
+<tr><td>Passive benchmark profile</td><td>thrust near zero, drag single digits of bps, turnover near zero, high return to cost</td></tr>
+</table>
+</div>
+
+<h2>3. Verdict</h2>
+<p>A passive index fund is the limiting case, profiled in Table 2: compounding
+does the flying. Most active strategies here carried large gross thrust and
+equally large drag and turnover, and most did not beat that benchmark once
+their own trading costs were charged. The bar is explicit. Gross thrust net of
+drag and volatility drag must exceed the passive benchmark, at realistic
+friction and out of sample.</p>
 
 <div class="note">Complete cost accounting exists for the 11 strategies that
 reached the backtest stage. Studies in the research lane and external
 simulations measure different instruments and are excluded. The sample is small.</div>
+
+</div>
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Telemetry from the pipeline&rsquo;s

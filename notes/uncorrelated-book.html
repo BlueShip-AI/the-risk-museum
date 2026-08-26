@@ -295,60 +295,27 @@ Buys a Platform of Many Managers</h1>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> This note decomposes the
+risk of the Trading Floor, a disclosed paper book (simulated, not run with real
+money), into standalone desk risk and the risk that survives combining ten desks
+into one platform.</p>
 
+<h2>1. The book</h2>
+<p>Ten desks: three systematic sub-strategies (equity beta, low
+volatility/betting against beta (BAB), and trend/time-series momentum (TSMOM))
+and seven long/short desks run inside sectors. Risk parity on inverse volatility
+gives riskier desks proportionally smaller weights, and the whole is scaled to
+the volatility target in Table 1. The construction is disclosed and
+unlevered.</p>
 
-<p class="abstract"><span class="lab">Abstract.</span> I decompose the risk
-of this site&rsquo;s Trading Floor, a disclosed paper book (simulated, not run
-with real money) constructed as a
-platform of many managers, into standalone desk risk and the risk that survives
-their combination. Ten desks (three systematic: equity beta,
-low-volatility/betting against beta (BAB), and trend/time-series momentum
-(TSMOM); and seven long/short inside sectors) are combined by risk
-parity on inverse volatility (riskier desks get proportionally smaller
-weights) to a 10% annualized volatility target. The
-weighted average of standalone desk volatility is 20.9%, while the combined,
-unlevered book realizes 7.7%. That is a diversification ratio of 2.72x and a
-reduction in risk of roughly 63% from diversification alone. Average pairwise
-absolute correlation across the ten desks is 0.29, with a hedge built into the
-book (low-volatility/BAB at &minus;0.66 to equity beta) offsetting a cluster of
-sector desks aligned on momentum. The universe is current S&amp;P
-constituents, so the return behind the book is an upper bound; the exhibit is
-the risk discipline, not the raw return.</p>
-<div class="keywords"><b>Keywords:</b> diversification ratio, risk parity,
-platforms of many managers, portfolio construction, correlation structure, risk
-budgeting.</div>
-
-<h2>1. Introduction</h2>
-<p>A platform of many managers earns its structure not from any single desk but
-from the imperfect correlation among many of them. The fundamental law of
-active management makes the mechanism explicit: value added rises with the
-breadth of independent bets, not with the conviction behind one of them
-(Grinold and Kahn, 2000). This note measures what that breadth is worth on this
-site&rsquo;s Trading Floor, a disclosed paper book assembled as ten desks and
-combined into one portfolio. The object of study is the gap between the risk
-each desk carries alone and the risk the combined book actually realizes, and
-the correlation structure that produces the gap.</p>
-
-<h2>2. Construction of the book</h2>
-<p>The book comprises ten desks: three systematic sub-strategies (equity beta, a
-desk running low volatility/betting against beta, and a desk running
-trend/time-series momentum) and seven long/short desks run inside sectors.
-Desks are combined by risk
-parity on inverse volatility and the whole is scaled to a 10% annualized
-volatility target. Because the seven sector desks share a single momentum
-factor and therefore co-move, the allocator budgets them as one group rather
-than ten independent positions, so the cluster cannot swamp the book. The
-construction is deliberately disclosed and unlevered; the point of the exhibit
-is the arithmetic of combination, not a proprietary allocation.</p>
-
-<h2>3. Results</h2>
-<h3>3.1 Risk decomposition</h3>
-<p>Following Choueifaty and Coignard (2008), the diversification ratio is the
-weighted average of standalone desk volatilities divided by the volatility of
-the combined portfolio. The weighted average of standalone desk volatility is
-20.9%. Combined and unlevered, the book realizes 7.7%. The ratio is therefore
-2.72x, equivalent to a reduction in risk of roughly 63% attributable to
-diversification alone, before any leverage is applied to reach the target.</p>
+<h2>2. What diversification buys</h2>
+<p>A platform earns its structure from imperfect correlation among many desks,
+not from conviction in one. The fundamental law of active management is
+explicit: value added rises with the breadth of independent bets (Grinold and
+Kahn, 2000). The diversification ratio, the weighted average of standalone desk
+volatilities divided by the volatility of the combined portfolio (Choueifaty and
+Coignard, 2008), prices that breadth here, before any leverage is applied to
+reach the target.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Risk decomposition of the combined book.</div>
@@ -362,15 +329,15 @@ diversification alone, before any leverage is applied to reach the target.</p>
 </table>
 </div>
 
-<h3>3.2 Correlation structure</h3>
-<p>Average pairwise absolute correlation across the ten desks is 0.29, low
-enough that the sub-strategies offset rather than reinforce one another. Two features
-carry most of the benefit. The desk running low volatility/BAB is &minus;0.66
-correlated to equity beta, a hedge built into the book that fires precisely when
-beta hurts. The trend/TSMOM desk is +0.60 to beta, adding directional exposure in
-persistent regimes. The seven sector desks cluster at roughly +0.3 to +0.5
-among themselves because they share one momentum factor, which is the reason
-the allocator treats them as a single risk budget.</p>
+<h2>3. Correlation structure</h2>
+<p>Average pairwise absolute correlation is low enough that the desks offset one
+another rather than reinforce. The low-volatility/BAB desk is negatively
+correlated to equity beta, a hedge that fires precisely when beta hurts. The
+trend/TSMOM desk is positively correlated to beta, adding directional exposure
+in persistent regimes. The sector desks cluster because they share one momentum
+factor, so the allocator budgets them as a single group rather than ten
+independent positions. Left alone, a correlated cluster rebuilds the
+concentration that risk parity exists to remove.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 2.</b> Selected pairwise correlations among desks.</div>
@@ -383,34 +350,20 @@ the allocator treats them as a single risk budget.</p>
 </table>
 </div>
 
-<h2>4. Discussion</h2>
-<p>The reading is straightforward. Uncorrelated sub-strategies, not a single large
-bet, are what make the platform work, and the 2.72x ratio is a direct measure
-of what that diversification buys. The negative correlation to equity beta of
-the desk running low volatility, and the modest average pairwise correlation,
-are what let ten desks of 20.9% standalone volatility combine to 7.7%. Grouping
-the sector desks aligned on momentum into one budget prevents a correlated cluster
-from quietly rebuilding the concentration that risk parity is meant to remove.
-The exhibit demonstrates risk discipline in construction; it is not a claim
-about how much the book earns.</p>
-
-<h2>5. Limitations</h2>
-<p>The book trades a universe of current S&amp;P constituents, which is
-survivorship biased (the universe contains only companies that survived to the
-present), so any return or Sharpe ratio (return per unit of risk) behind the combined book is an
-upper bound and is not the subject of this note. The measured object is risk:
-standalone volatilities, the combined volatility, the diversification ratio,
-and the correlation structure. Correlations are historical and vary with regime,
-and the &minus;0.66 hedge and the sector cluster can both migrate in stress;
-the budgeting of the sector desks as one group is a guard against exactly that
-migration rather than a promise it will not occur.</p>
+<h2>4. Limitations</h2>
+<p>The universe is current S&amp;P constituents, which is survivorship biased
+(it contains only companies that survived to the present), so any return or
+Sharpe ratio (return per unit of risk) behind the book is an upper bound and is
+not the subject here. Correlations are historical and vary with regime. The
+hedge and the sector cluster can both migrate in stress, and budgeting the
+sector desks as one group guards against that migration rather than promising it
+will not occur.</p>
 
 <div class="note">This is a record of construction, not of alpha (excess
-return). It is kept
-because the discipline it records (uncorrelated sub-strategies, a correlated cluster
-budgeted as one, an honest survivorship caveat) is what separates a
-diversified book from a levered, concentrated book that merely calls itself
-diversified.</div>
+return). It is kept because the discipline it records (uncorrelated
+sub-strategies, a correlated cluster budgeted as one, an honest survivorship
+caveat) is what separates a diversified book from a levered, concentrated book
+that merely calls itself diversified.</div>
 
 <div class="refs">
 <h2>References</h2>

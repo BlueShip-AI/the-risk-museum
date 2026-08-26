@@ -295,55 +295,38 @@ Models at a Horizon of One Day on Twenty Years of the S&amp;P&nbsp;500</h1>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
+<h2>The test</h2>
+<p>Value-at-Risk makes a promise: on 99 days out of 100, tomorrow&rsquo;s loss
+will not exceed a stated threshold. The promise is worth what its backtest
+certifies. I graded three standard one-day models on SPY, the S&amp;P&nbsp;500
+exchange-traded fund, strictly out of sample.</p>
 
+<div class="tblwrap">
+<div class="cap"><b>Design.</b> Instrument, models, tests.</div>
+<table>
+<tr><th>Item</th><th>Value</th></tr>
+<tr><td>Instrument</td><td>SPY, the S&amp;P&nbsp;500 ETF</td></tr>
+<tr><td>Evaluation sample</td><td>December 2006 to July 2026</td></tr>
+<tr><td>Forecasts graded, one day each</td><td>4,922</td></tr>
+<tr><td>Rolling estimation window</td><td>500 days, about two years</td></tr>
+<tr><td>Tails estimated</td><td>1% and 5%</td></tr>
+<tr><td>Historical Simulation</td><td>empirical quantile of the window</td></tr>
+<tr><td>Gaussian</td><td>normal; window mean and standard deviation</td></tr>
+<tr><td>EWMA (RiskMetrics)</td><td>normal, mean zero; variance decays at &lambda;&nbsp;=&nbsp;0.94</td></tr>
+<tr><td>Coverage tests</td><td>Kupiec, unconditional; Christoffersen, conditional</td></tr>
+<tr><td>Basel traffic light</td><td>trailing 250 days; 99% measure only</td></tr>
+<tr><td>Gaussian at 99%, full sample</td><td>145 breaches against 49 budgeted, a 2.95% rate</td></tr>
+<tr><td>2008 GFC at 99%, 2.5 expected</td><td>Gaussian 28, Historical Simulation 20, EWMA 6</td></tr>
+<tr><td>2020 COVID at 99%, 0.6 expected</td><td>Gaussian 12, Historical Simulation 10, EWMA 6</td></tr>
+</table>
+</div>
 
-<p class="abstract"><span class="lab">Abstract.</span> I backtest three
-standard Value-at-Risk models at a horizon of one day (Historical Simulation,
-a Gaussian parametric model, and the RiskMetrics exponentially weighted
-moving average, EWMA) on 4,922 out-of-sample
-forecasts, each graded on data the model never saw, for SPY, the S&amp;P&nbsp;500 exchange-traded fund (ETF), December 2006 to July 2026. All three
-under-cover the 1% and 5% tails and reject Kupiec&rsquo;s
-test of unconditional coverage at both confidence levels; the Gaussian is worst,
-realizing a 2.95% exception rate against a 1% budget (145 breaches where 49.2
-were expected). Christoffersen&rsquo;s test of conditional coverage rejects all
-three. The breaches cluster rather than scatter. Restricting to crisis
-windows reverses the ranking from the full sample. EWMA, whose variance reacts within
-days, took 6 breaches in the 2008 window against 28 for the Gaussian and 20
-for Historical Simulation. Because the Basel traffic light reads only the
-trailing 250 days, all three currently show green. The models&rsquo; honest
-failure, rather than any single winner, is the result.</p>
-<div class="keywords"><b>Keywords:</b> Value-at-Risk, backtesting, Kupiec
-test, Christoffersen conditional coverage, RiskMetrics EWMA, Basel traffic
-light, tail risk.</div>
+<h2>Coverage over the full sample</h2>
+<p>All three models reject Kupiec&rsquo;s test of unconditional coverage at 99%
+and at 95%. Every one under-covers the tail, and the Gaussian is worst, taking
+roughly three times the breaches it budgeted for. Christoffersen&rsquo;s test of
+conditional coverage rejects all three, so breaches cluster rather than scatter.</p>
 
-<h2>1. Introduction</h2>
-<p>Value-at-Risk (VaR) states a promise with a number attached: on 99 days out of
-100, tomorrow&rsquo;s loss will not exceed a stated threshold. A risk number
-is worth exactly what its backtest certifies, so any VaR must be graded
-before it is trusted. This paper backtests three standard models, each
-forecasting one day ahead, on SPY, the S&amp;P&nbsp;500 ETF, using twenty
-years of daily returns and grading them strictly out of sample. Every VaR quoted for a day is estimated only
-from returns before that day, then checked against a realized return the
-model never observed.</p>
-
-<h2>2. Data and method</h2>
-<p>Each model estimates the 1% and 5% tail of the next day&rsquo;s return and
-is re-estimated daily on a rolling window of 500 days (approximately two years).
-<b>Historical Simulation</b> reads the empirical quantile (the cutoff that the worst 1% or 5% of the window&rsquo;s returns fell below) directly off the
-window. The <b>Gaussian</b> model assumes normality and uses the
-window&rsquo;s mean and standard deviation. <b>EWMA</b> follows the
-RiskMetrics specification, a normal with mean zero whose variance decays at
-&lambda;&nbsp;=&nbsp;0.94 and therefore discounts old calm quickly. All three
-are graded on an identical evaluation sample of <b>4,922</b> forecasts, one
-day each, from December 2006 to July 2026, so the comparison is like for
-like. An exception is a day whose realized loss breached the VaR. Coverage is
-assessed by Kupiec&rsquo;s unconditional test (is the exception rate
-correct?) and Christoffersen&rsquo;s test of conditional coverage (is the rate
-correct, and are the exceptions independent or do they cluster?).
-Deterministic code computes every figure reported below.</p>
-
-<h2>3. Results</h2>
-<h3>3.1 Coverage over the full sample</h3>
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Coverage tests over the full evaluation
 sample of 4,922 forecasts, one day each.</div>
@@ -357,24 +340,18 @@ sample of 4,922 forecasts, one day each.</div>
 <tr><td>EWMA (RiskMetrics)</td><td>95%</td><td>246.1</td><td>300</td><td>6.10%</td><td>0.0006</td><td>0.0027</td><td></td></tr>
 </table>
 <div class="cap" style="margin:.45rem 0 0">Kupiec and Christoffersen
-p-values below 0.05 reject the model (a p-value is the probability of results at least this extreme if the model were correct). A reported <i>p</i> of 0.0000 is the
+p-values below 0.05 reject the model. A reported <i>p</i> of 0.0000 is the
 code&rsquo;s printout to four decimals of a value too small to display, not an
 exact zero. The Basel traffic light is defined only for the 99% test.</div>
 </div>
-<p>All three models reject Kupiec&rsquo;s test of unconditional coverage at both
-99% and 95%. Every one under-covers the tail. The Gaussian is worst. It
-budgeted for 49 breaches at 99% and realized 145, a 2.95% exception rate
-against a promised 1%, roughly three times the losses it claimed to insure
-against. Historical Simulation is the least severe on the full sample at
-1.75%, and EWMA lies between at 2.42%. Christoffersen&rsquo;s
-test of conditional coverage is rejected for all three, so the breaches are not
-evenly scattered but arrive in clusters. A VaR that fails in bursts is worse
-than one that fails at random, because the bursts coincide with the
-conditions the measure exists to cover.</p>
 
-<h3>3.2 Coverage inside the crisis windows</h3>
-<p>The rate over the full sample conceals where the misses occur. Restricting the 99%
-breaches to two crisis windows sharpens the picture.</p>
+<h2>Inside the crises</h2>
+<p>Restricting the 99% breaches to two crisis windows reverses the ranking. A trailing window is slow
+to register that conditions have changed, and a 99% threshold built on the prior
+year&rsquo;s calm is fiction once the calm breaks. EWMA, whose variance reacts
+within days, is the exception. COVID is the harder case, since no model
+forecasting one day ahead anticipates an overnight gap.</p>
+
 <div class="tblwrap">
 <div class="cap"><b>Table 2.</b> 99% exceptions within two crisis
 windows (GFC: global financial crisis).</div>
@@ -388,53 +365,33 @@ windows (GFC: global financial crisis).</div>
 <tr><td>2020 COVID (Feb&ndash;Apr)</td><td>62</td><td>EWMA (RiskMetrics)</td><td>0.62</td><td>6</td></tr>
 </table>
 </div>
-<p>The ranking now reverses. In 2008 the Gaussian took 28 breaches against
-2.5 expected and Historical Simulation took 20, both because a trailing
-window is slow to register that conditions have changed, and a 99% number
-built on the prior year&rsquo;s calm is fiction once the calm breaks. EWMA,
-whose variance reacts within days, took 6. The 2020 COVID crash is the harder
-case. Even EWMA took 6 against 0.6 expected, because no model forecasting one
-day ahead anticipates an overnight gap, while the window methods took 10 and 12. The
-model with the best rate over the full sample, Historical Simulation, is not the model
-to hold in a crisis.</p>
 
-<h2>4. The regulatory blind spot</h2>
-<p>The regulatory reading diverges from the record over twenty years.
-Basel&rsquo;s traffic light, the backtest bank supervisors use to grade internal risk models, examines only the most recent 250 days. That
-window is currently quiet, so all three models show green, a clean bill of
-health from the test a supervisor reads first. Over twenty years the same
-three models under-cover their tails, and the 2008 column shows two of them
-coming apart precisely when coverage matters most. A green light describes
-the last twelve months; it says nothing about the model. Only a backtest
-spanning the crises reveals what a position actually carries.</p>
+<h2>The regulatory blind spot</h2>
+<p>Basel&rsquo;s traffic light reads only the most recent trading year. That
+window is quiet, so all three models currently show green. Over twenty years the same three under-cover
+their tails, and two of them come apart precisely when coverage matters most. A
+green light describes the last twelve months. It says nothing about the
+model.</p>
 
-<h2>5. Discussion</h2>
-<p>None of the VaR models examined here, each measured over one day, covered
-its tail. All three reject Kupiec at
-99% and 95%, and the Gaussian fails worst. EWMA holds up best through the
-crisis windows, and it is not the model the traffic light currently rewards.
-None of these results would pass the statistical hurdles of the automated
-research pipeline behind this site; they are retained as a documented, honest failure.</p>
+<h2>Verdict</h2>
+<p>None of the three covered its tail. EWMA holds up best through the crises,
+and it is not the model the traffic light rewards. None of these results would
+pass the statistical hurdles of the research pipeline behind this site. They are
+kept as a documented failure, because most Value-at-Risk figures in circulation
+are quoted and never backtested. A statistic that fails a visible test is more
+informative than one that passes a test nobody ran.</p>
 
-<h2>6. Limitations</h2>
-<p>Three, stated plainly. <i>One instrument.</i> The study covers SPY alone,
-a single deeply liquid index with continuous history, which is the easy case
-for VaR. A portfolio of individual stocks, some since delisted, is strictly harder
-and its VaR would look worse; the wider database of individual stock prices
-behind this site&rsquo;s tests is survivorship biased (it over-represents companies that survived),
-and this study avoids that only by testing the index itself. <i>The normal
-tail.</i> Both parametric models assume a bell curve, which understates fat
-tails even when the volatility estimate is correct. This accounts for most of
-the Gaussian and EWMA under-coverage and is a modelling choice rather than an
-artifact of this sample. <i>The window length.</i> Five hundred days is a
-choice; a shorter window reacts faster to a regime change but estimates the
-1% quantile from fewer tail points, and no single window length wins in both
-calm and crisis.</p>
-
-<div class="note">This study is retained because most Value-at-Risk figures
-in circulation are quoted but never backtested: a number on a risk report
-with no scorecard behind it. A statistic that fails a visible test is more
-informative than one that passes a test nobody ran.</div>
+<h2>Limitations</h2>
+<p>Three, stated plainly.</p>
+<div class="tblwrap">
+<div class="cap"><b>Limitations.</b> What this study does not establish.</div>
+<table>
+<tr><th>Limitation</th><th>What it means for the result</th></tr>
+<tr><td>One instrument</td><td>SPY alone, a single deeply liquid index with continuous history, is the easy case for VaR. A portfolio of individual stocks, some since delisted, is strictly harder and its VaR would look worse. The wider individual-stock database behind this site is survivorship biased, over-representing the companies that survived; testing the index itself avoids that.</td></tr>
+<tr><td>The normal tail</td><td>Both parametric models assume a bell curve, which understates fat tails even when the volatility estimate is correct. This accounts for most of the Gaussian and EWMA under-coverage, and is a modelling choice rather than an artefact of this sample.</td></tr>
+<tr><td>The window length</td><td>500 days is a choice. A shorter window reacts faster to a regime change but estimates the 1% quantile from fewer tail points, and no single window length wins in both calm and crisis.</td></tr>
+</table>
+</div>
 
 <div class="refs">
 <h2>References</h2>

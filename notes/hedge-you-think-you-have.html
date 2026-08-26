@@ -294,18 +294,37 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-<p class="abstract"><span class="lab">Abstract.</span> Duration tells an investor how much a bond portfolio loses when interest rates rise, and it is the number an insurance company uses to match long-dated promises against the assets meant to pay them. I measured it from prices rather than reading it off a fact sheet: nine bond funds over 4,649 trading days from January 2008 to August 2026, daily returns regressed on daily changes in Treasury yields. Three results. First, the measurement works on government bonds, explaining 82 to 94% of daily variation, and a regression told nothing about what the funds hold still places each one on the correct part of the yield curve. Second, it degrades as credit is added: rate moves explain 28.7% of an investment grade corporate fund and 1.1% of a high yield fund, and the credit funds&rsquo; equity exposure hides their rate exposure rather than adding to it, so holding the stock market constant raises measured duration by about a year for investment grade and flips high yield from negative to positive. Third, and this is the part I expected to go the other way, convexity could not be measured at all. Not one of nine direct estimates is distinguishable from zero. The indirect test, whether a portfolio lengthens as rates rise, is too weak to settle anything either: the smallest effect it could reliably detect in the mortgage fund is nearly a year of duration, which is larger than the effect being looked for. Duration survives this paper. Convexity is simply beyond what daily fund prices can resolve.</p>
-
 <h2>1. What duration is supposed to do</h2>
-<p>Duration answers one question: if interest rates rise by one percentage point, roughly what percentage of its value does this bond portfolio lose? A duration of seven means seven percent. It is the closest thing fixed income has to a single risk number, and it does real work. An insurance company sells promises that come due decades from now, buys assets to fund them, and sets the two durations near each other so a rate move damages both sides by similar amounts. That matching is the whole trade. If the assets&rsquo; duration is not what the fact sheet says, the match is not what the balance sheet says.</p>
-<p>Every duration on a fact sheet is computed, not observed. It comes from the bond&rsquo;s scheduled cashflows discounted along a curve, which is exact arithmetic under an assumption: that the cashflows are what the contract says, and the only thing changing is the discount rate. This paper does the opposite. It never opens a fact sheet. It asks what each fund&rsquo;s price actually did on the days Treasury yields moved, over eighteen years, and calls that the duration.</p>
+<p>An insurer matches the duration of its assets to that of promises due decades out, so a rate move damages both sides. If the assets&rsquo; duration is not what the fact sheet says, the match is not what the balance sheet says.</p>
+
+<div class="tblwrap"><div class="cap">The study.</div>
+<table>
+<thead><tr><th>Measure</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Funds</td><td>Nine</td></tr>
+<tr><td>Window</td><td>January 2008 to August 2026, eighteen years</td></tr>
+<tr><td>Trading days</td><td>4,649</td></tr>
+<tr><td>A duration of seven means</td><td>a loss of seven percent per one percentage point rise in rates</td></tr>
+<tr><td>Method</td><td>each fund&rsquo;s daily return regressed on the daily change in Treasury yields; minus the slope is the duration</td></tr>
+<tr><td>Source</td><td>daily prices, never a fact sheet</td></tr>
+</tbody>
+</table></div>
 
 <h2>2. The measurement works, on government bonds</h2>
-<p>Nine funds, one method. Each fund&rsquo;s daily total return in percent is regressed on the daily change in Treasury yields in percentage points, with standard errors that allow for the day-to-day correlation of returns. The negative of the slope is the measured duration.</p>
-<p>On the Treasury ladder it works well. The one to three year fund prints 1.68 years, the three to seven prints 4.19, the seven to ten prints 7.36, and the twenty year and longer prints 16.72, each against the maturity most relevant to it. Those figures sit within about four months of 1.8, 4.5, 7.5 and 16.5 years, which are estimates I declared for each band before fitting rather than arithmetic the bands force, and the t-statistics run from 85 to 156. They are also stable: rerun from any start year between 2008 and 2013 and the seven to ten year fund moves only between 7.36 and 7.62.</p>
-<p>The stronger evidence is a regression that is told nothing at all. Run each fund against all four maturities at once and ask which one carries its largest exposure. The short fund answers two years, the intermediate five, the seven to ten fund ten, and the long fund thirty, at 13.9 years of its 16.6 total. Four for four, unaided. That is the honest version of the calibration claim, and I separate it deliberately from the headline column, which is measured against a maturity I chose for each fund from its mandate, and so is not innocent of knowing what the fund holds.</p>
+<p>The headline column is less innocent, since I chose each fund&rsquo;s maturity from its mandate.</p>
 
-<div class="tblwrap"><div class="cap">Nine bond funds, 4,649 trading days, January 2008 to August 2026. Duration is measured against the maturity most relevant to each fund, and for the inflation-protected fund against the real yield it actually prices from. &ldquo;Rates explain&rdquo; is the share of daily variation the rate move accounts for. &ldquo;Extension&rdquo; is duration on days the key rate rose minus duration on all other days; the last column repeats that measurement while holding the stock market constant. Only one raw extension figure reaches significance at 5% (high yield, t = 1.99); in the equity-controlled column none does, the largest being 1.1.</div>
+<div class="tblwrap"><div class="cap">The Treasury ladder. &ldquo;Declared in advance&rdquo; is the estimate set before fitting; every measured value lands within four months, on t-statistics from 85 to 156, and rates explain 82 to 94% of daily variation. The last column comes from a joint regression on the two, five, ten and thirty year yield changes, told nothing about what each fund holds: four for four. Rerun from any start year between 2008 and 2013, the seven to ten year fund moves between 7.36 and 7.62.</div>
+<table>
+<thead><tr><th>Treasury fund</th><th>Measured duration (years)</th><th>Declared in advance</th><th>Largest exposure, blind joint fit</th></tr></thead>
+<tbody>
+<tr><td>1 to 3 year</td><td>1.68</td><td>1.8</td><td>2 year</td></tr>
+<tr><td>3 to 7 year</td><td>4.19</td><td>4.5</td><td>5 year</td></tr>
+<tr><td>7 to 10 year</td><td>7.36</td><td>7.5</td><td>10 year</td></tr>
+<tr><td>20 year and longer</td><td>16.72</td><td>16.5</td><td>30 year, at 13.9 of a 16.6 total</td></tr>
+</tbody>
+</table></div>
+
+<div class="tblwrap"><div class="cap">Only one raw extension figure reaches significance at 5% (high yield, t = 1.99); in the equity-controlled column none does, the largest being 1.1.</div>
 <table>
 <thead><tr><th>Fund</th><th>Duration (years)</th><th>Rates explain</th><th>Extension</th><th>Extension, equities held constant</th></tr></thead>
 <tbody>
@@ -322,25 +341,77 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 </table></div>
 
 <h2>3. It degrades as credit is added</h2>
-<p>The rate model explains 93.7% of the daily variation in the seven to ten year Treasury fund, 28.7% of the investment grade corporate fund, and 1.1% of the high yield fund. Those last two hold bonds with coupons and maturities, and a cashflow model would hand them a duration of several years each. The market disagrees, and it disagrees for a reason worth naming.</p>
-<p>Yields tend to rise when the economy is strengthening, and a strengthening economy narrows the extra yield demanded of risky borrowers. The spread tightening offsets the rate loss. Add the stock market&rsquo;s return to the regression and the investment grade fund&rsquo;s rate duration rises from 5.17 to 6.23 years, while the high yield fund&rsquo;s goes from minus 1.23 to plus 1.17 with an equity exposure of 0.397 at a t-statistic of 17, and the share of variation explained rises from 1.1% to 48.2%. Roughly a year of the investment grade fund&rsquo;s apparent duration, and all of high yield&rsquo;s, was being cancelled by something that is not a rate exposure at all.</p>
-<p>The high yield number is worse than unstable; it is not really a fact about the fund. Measured from 2008 it is minus 1.23 years. Measured from 2013 it is plus 0.97. Split at the start of 2022 it runs minus 3.26 before and plus 3.58 after. The sign is set by whether the 2008 flight to quality is in the sample. Anyone hedging a liability with high yield on the strength of a single published duration is relying on a number that changes sign with the window.</p>
+<p>Yields rise when the economy strengthens, and strength narrows the spread demanded of risky borrowers, so the spread gain offsets the rate loss. Anyone hedging a liability on a published high yield duration is relying on a number that changes sign with the window.</p>
+
+<div class="tblwrap"><div class="cap">Roughly a year of the investment grade fund&rsquo;s apparent duration, and all of high yield&rsquo;s, was cancelled by an exposure that is not a rate exposure.</div>
+<table>
+<thead><tr><th>Measure</th><th>Investment grade</th><th>High yield</th></tr></thead>
+<tbody>
+<tr><td>Duration, rates only (years)</td><td>5.17</td><td>&minus;1.23</td></tr>
+<tr><td>Duration, equities held constant</td><td>6.23</td><td>+1.17</td></tr>
+<tr><td>Rates explain, rates only</td><td>28.7%</td><td>1.1%</td></tr>
+<tr><td>Rates explain, with equities</td><td>not reported</td><td>48.2%</td></tr>
+<tr><td>Equity exposure</td><td>not reported</td><td>0.397 (t = 17)</td></tr>
+</tbody>
+</table></div>
+
+<div class="tblwrap"><div class="cap">High yield duration by sample window.</div>
+<table>
+<thead><tr><th>Window</th><th>Duration (years)</th></tr></thead>
+<tbody>
+<tr><td>From January 2008 (headline)</td><td>&minus;1.23</td></tr>
+<tr><td>From 2013</td><td>+0.97</td></tr>
+<tr><td>Before 2022</td><td>&minus;3.26</td></tr>
+<tr><td>From 2022</td><td>+3.58</td></tr>
+</tbody>
+</table></div>
 
 <h2>4. What I could not measure</h2>
-<p>The plan was to measure convexity too: the second-order effect that makes a bond&rsquo;s price curve rather than fall in a straight line, and the reason mortgage portfolios get longer exactly when rates rise. Two attempts, both honest failures, and the failures are more useful than the numbers would have been.</p>
-<p>The direct attempt adds a squared yield change to the regression. Correctly scaled, it produces a convexity estimate for every fund, and not one of the nine is statistically distinguishable from zero: the largest t-statistic in the entire set is 1.41, against the 1.96 a five percent test requires. I am deliberately not quoting the point estimates, because reading their signs would be reading signs off noise, and one of them is negative for a portfolio that theory says must be positively convex. The quadratic term is simply not identified at daily frequency, where the typical yield move is a few basis points and the second-order effect is a rounding error against the noise. An earlier version of this lab reported these numbers without their t-statistics, which would have dressed nine coin flips as findings.</p>
-<p>The indirect attempt is the one a practitioner would trust: measure duration twice, once on days the key rate rose and once on days it fell. A portfolio that gets longer as rates rise is one whose hedge shrinks as its losses grow. The mortgage fund shows plus 0.55 years and high yield plus 2.25, against roughly zero for the Treasury ladder, which looks exactly like the textbook picture.</p>
-<p>It is not a clean picture either. Rising-rate days are risk-on days: the daily correlation between the ten year yield change and the stock market is plus 0.28 over this sample, so any fund with equity exposure will appear to lengthen on rate-up days whether or not it holds a single embedded option. Holding the stock market constant removes 86% of high yield&rsquo;s gap, 62% of investment grade&rsquo;s and 35% of the mortgage fund&rsquo;s, and after that control none of the nine is statistically distinguishable from zero.</p><p>But absence of evidence is not evidence of absence, and the honest reading is that this test is simply too weak. The mortgage fund&rsquo;s equity-controlled gap is 0.36 years with a 95% interval running from minus 0.29 to plus 1.00, and the smallest effect the test could reliably detect is 0.87 years. Real agency mortgage extension is comfortably inside that interval, and so is zero. The same is true of every other fund, and worse for credit: investment grade would need an effect of 2.3 years before this data could see it. The obvious control is the inflation-protected Treasury fund, which holds government paper with no prepayment option and so should show no extension at all. Getting that control right took a correction to this paper. Measured against the nominal ten year, as the first published version had it, that fund printed a gap of 0.66, larger than the mortgage fund&rsquo;s own 0.55, which read as a falsification. But an inflation-protected bond prices off the real yield, not the nominal one, and measuring it against the wrong curve was my error. Against the Treasury&rsquo;s own real yield curve its gap falls to 0.12, its measured duration rises from 4.95 years to 6.78, and the share of its daily variation explained rises from 52.7% to 82.3%. So the control now behaves as theory says it should: no embedded option, no extension. The point estimates finally run the right way round, 0.12 for option-free government paper against 0.55 for mortgages. What they still do not do is prove it. The difference between those two carries a t-statistic of minus 0.54, so the ordering remains suggestive rather than established, and the mortgage fund&rsquo;s own gap is not significant either.</p>
-<p>So the honest finding is a null of the weak kind, and it is worth stating precisely. Agency mortgages certainly do have negative convexity; the mechanism is not in question, since homeowners refinance when rates fall and stop when rates rise. What this paper establishes is narrower and still useful: daily fund prices cannot demonstrate it. The direct estimate is unidentified. The indirect one points the right way once the specification is right, with an option-free control at 0.12 against mortgages at 0.55, but it is confounded by the stock market and still too imprecise to settle after that confound is removed, its confidence interval running from minus 0.29 to plus 1.00 years. Anyone reporting a convexity number derived this way is reporting an artefact of their specification.</p>
+<p>Convexity is why mortgage portfolios lengthen exactly when rates rise. Two attempts to measure it failed, and that failure is the finding: daily fund prices cannot show it.</p>
+
+<div class="tblwrap"><div class="cap">Two attempts at convexity.</div>
+<table>
+<thead><tr><th>Test</th><th>What the record says</th></tr></thead>
+<tbody>
+<tr><td>Direct: a squared yield change</td><td>Not one of the nine estimates is distinguishable from zero, the largest t-statistic in the set being 1.41 against the 1.96 a five percent test requires. The point estimates are not quoted, because reading their signs would be reading signs off noise, and one is negative for a portfolio theory says must be positively convex. An earlier version of this lab reported them without their t-statistics, which dressed nine coin flips as findings.</td></tr>
+<tr><td>Indirect: duration on rate-up days less rate-down days</td><td>Agency mortgage +0.55 years and high yield +2.25, against roughly zero for the Treasury ladder. That is the textbook picture.</td></tr>
+<tr><td>The confound</td><td>Rising-rate days are risk-on days: the daily correlation of the ten year yield change with the stock market is +0.28. Holding the stock market constant removes 86% of high yield&rsquo;s gap, 62% of investment grade&rsquo;s and 35% of the mortgage fund&rsquo;s, after which none of the nine is distinguishable from zero.</td></tr>
+<tr><td>The power</td><td>The mortgage fund&rsquo;s equity-controlled gap is 0.36 years, on a 95% interval running from &minus;0.29 to +1.00, and the smallest effect the test could reliably detect is 0.87 years. Real agency mortgage extension sits inside that interval, and so does zero. Investment grade would need an effect of 2.3 years before this data could see it.</td></tr>
+<tr><td>The option-free control</td><td>Measured against the nominal ten year, the inflation-protected fund printed a gap of 0.66, larger than the mortgage fund&rsquo;s own 0.55, which read as a falsification. That was the wrong curve for a bond whose coupons are indexed to inflation. Against the Treasury&rsquo;s own real yield curve its gap falls to 0.12, its duration rises from 4.95 to 6.78 years and its explained variation from 52.7% to 82.3%. The ordering now runs the right way round, 0.12 for option-free government paper against 0.55 for mortgages, but the difference carries a t-statistic of &minus;0.54, so it remains suggestive rather than established.</td></tr>
+<tr><td>The mechanism itself</td><td>Not in question. Homeowners refinance when rates fall and stop when rates rise, so agency mortgages certainly do have negative convexity. What fails here is the measurement, and absence of evidence is not evidence of absence.</td></tr>
+</tbody>
+</table></div>
 
 <h2>5. The number that did move</h2>
-<p>One regime result survives all of this, because it is large and it does not depend on the equity channel. Splitting the sample at the start of 2022, the mortgage fund&rsquo;s measured duration goes from 2.38 years to 6.59, the aggregate bond fund from 3.62 to 5.98, and the investment grade fund from 4.12 to 7.66. The Treasury funds barely move: the seven to ten year fund from 7.25 to 7.64, the long fund from 16.56 to 17.19. A book sized on the pre-2022 mortgage number carried nearly three times the rate exposure it believed it had by the time rates finished rising.</p>
-<p>With one disclosure, since the split date was a choice. Sweeping all 49 monthly split dates from 2020 to 2024, the mortgage fund&rsquo;s ratio ranges from 1.93 to 2.77, and the date declared in advance for this study happens to be the most favourable of the 49. The direction is robust at every candidate date; the superlative is not. The honest sentence is that mortgage duration roughly doubled to nearly tripled, depending on where the line is drawn.</p>
+<p>A mortgage book sized on the pre-2022 number carried nearly three times the rate exposure it believed it had by the time rates finished rising.</p>
+
+<div class="tblwrap"><div class="cap">Measured duration either side of 1 January 2022, a split date declared in advance. Sweeping all 49 monthly candidates from 2020 to 2024, the mortgage fund&rsquo;s ratio ranges from 1.93 to 2.77, and the declared date is the most favourable of the 49.</div>
+<table>
+<thead><tr><th>Fund</th><th>Before 2022</th><th>From 2022</th></tr></thead>
+<tbody>
+<tr><td>Agency mortgage backed</td><td>2.38</td><td>6.59</td></tr>
+<tr><td>US aggregate</td><td>3.62</td><td>5.98</td></tr>
+<tr><td>Investment grade corporate</td><td>4.12</td><td>7.66</td></tr>
+<tr><td>Treasury 7 to 10 year</td><td>7.25</td><td>7.64</td></tr>
+<tr><td>Treasury 20 year and longer</td><td>16.56</td><td>17.19</td></tr>
+</tbody>
+</table></div>
 
 <h2>6. What this does not establish</h2>
-<p>No option-adjusted spread is computed anywhere here. That measurement, which strips out the value of the borrower&rsquo;s option to get at the compensation actually paid for credit risk, requires security-level cashflows and an option model, and neither is free daily data. It is named as a boundary rather than blurred into the results.</p>
-<p>The Treasury yield fix is struck before the equity market closes, so part of each day&rsquo;s response lands in the next day&rsquo;s return. Adding a lead and a lag raises every duration, mildly for Treasuries (the seven to ten year fund from 7.36 to 7.45) and materially for credit (investment grade from 5.17 to 5.70, and high yield from minus 1.23 to minus 0.66, which halves the headline figure section 3 is built on). Every duration printed here is a lower bound, and the credit ones are the loosest. The four maturities move together closely enough that individual key-rate durations are fragile, with variance inflation factors up to 29.6 and several negative loadings that no long-only portfolio can truly have; only the largest loading per fund is used as evidence above. These are fund market prices, so they carry the premium or discount to holdings value, largest in stressed credit. A measured duration is a regression slope over a sample, not a property of any bond. The yields are constant-maturity par yields, not a zero curve. And the nine funds all existed in 2007 and still exist, which is a survivor set, though a mild one for index vehicles this large.</p>
-<p>What survives is a ranking and a warning. The further a portfolio sits from government bonds, the less its duration describes its behaviour, the more that behaviour changes with the regime, and the more of its risk is carried by something the duration number never mentions. And the second-order refinement everyone quotes cannot be recovered from daily prices at all, which is worth knowing before someone reports it to three decimal places.</p>
+<div class="tblwrap"><div class="cap">The boundaries.</div>
+<table>
+<thead><tr><th>Limit</th><th>What it costs</th></tr></thead>
+<tbody>
+<tr><td>No option-adjusted spread</td><td>Stripping out the value of the borrower&rsquo;s option, to reach the compensation actually paid for credit risk, requires security-level cashflows and an option model. Neither is free daily data. None is computed anywhere here.</td></tr>
+<tr><td>Timing</td><td>The Treasury yield fix is struck before the equity market closes, so part of each day&rsquo;s response lands in the next day&rsquo;s return. Adding a lead and a lag raises the seven to ten year fund from 7.36 to 7.45, investment grade from 5.17 to 5.70 and high yield from &minus;1.23 to &minus;0.66, which halves the headline figure section 3 is built on. Every duration printed here is a lower bound, and the credit ones are the loosest.</td></tr>
+<tr><td>Collinear maturities</td><td>The four maturities move together closely enough that individual key-rate durations are fragile, with variance inflation factors up to 29.6 and several negative loadings that no long-only portfolio can truly have. Only the largest loading per fund is used as evidence above.</td></tr>
+<tr><td>Fund prices, not holdings</td><td>These are market prices, so they carry the premium or discount to holdings value, largest in stressed credit. A measured duration is a regression slope over a sample, not a property of any bond.</td></tr>
+<tr><td>The curve</td><td>The yields are constant-maturity par yields, not a zero curve.</td></tr>
+<tr><td>Survivorship</td><td>The nine funds all existed in 2007 and still exist, which is a survivor set, though a mild one for index vehicles this large.</td></tr>
+</tbody>
+</table></div>
+
+<p>The further a portfolio sits from government bonds, the less its duration describes its behaviour, the more that behaviour shifts with the regime, and the more of its risk sits in something the duration number never mentions. The second-order refinement everyone quotes cannot be recovered from daily prices, which is worth knowing before someone reports it to three decimal places.</p>
 
 <div class="prov"><h2>Provenance, bs-prov/1.0</h2><dl>
 <dt>Method</dt><dd>Nine bond funds, daily total returns in percent regressed on daily changes in Treasury constant-maturity yields in percentage points, 2 January 2008 to 13 August 2026, 4,649 trading days in the window (each fund regresses on 4,643 to 4,648 of them, depending on missing prices), Newey-West standard errors throughout. The two calendars are intersected before either is differenced, so a return and its yield change always span the same session gap. Key rate durations from a joint regression on the two, five, ten and thirty year changes. The rising-versus-falling duration gap comes from a single interaction regression, so the gap itself carries a standard error, and is repeated with the equity market fully interacted. Convexity is 200 times the quadratic coefficient; the lab proves that scale on every run against simulated zero-coupon bonds of known duration and convexity, and refuses to run if it fails. Regime split at 1 January 2022, declared in advance and then swept across all 49 monthly candidates from 2020 to 2024.</dd>

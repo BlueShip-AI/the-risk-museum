@@ -296,74 +296,35 @@ Cost-Stressed Promotion Test</h1>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-
-
-<p class="abstract"><span class="lab">Abstract.</span> I run all 158
-technical alphas of Microsoft Qlib&rsquo;s Alpha158 library as a single declared
-family of tests on roughly 21 years of US large caps, through the fixed
-statistical hurdles of the automated research pipeline behind this site.
-Admitting both sign choices yields a family of 316 hypotheses; a family here
-is a batch of related tests counted together, and each added test is another
-chance to get lucky, so the required evidence rises with the count.
-Twenty-nine of the 158 clear a naive significance bar of <i>t</i>&nbsp;&ge;&nbsp;2.5,
-the <i>t</i>-statistic being the standard measure of whether a result is
-distinguishable from luck.
-None survives a promotion bar deflated for that multiplicity, <i>t</i>&nbsp;&ge;&nbsp;4.11,
-once a re-audit for margin of safety halves gross return and doubles costs. The
-strongest survivors are uniformly signals of reversal over short horizons and of
-overbought levels whose measured gross edge survives doubled costs (stressed t 2.8 to 3.7) and dies instead at the bar deflated for the size of the zoo; the volatility features collapse hardest under the cost stress. I read the published zoo of
-technical factors as reversal over short horizons and a volatility risk premium
-in disguise, and record zero promotions. The universe holds only current S&amp;P
-constituents, so it flatters even these figures, which are therefore upper
-bounds.</p>
-<div class="keywords"><b>Keywords:</b> factor zoo, multiple testing, Alpha158,
-reversal over short horizons, volatility risk premium, transaction costs,
-survivorship
-bias.</div>
+<p class="abstract"><span class="lab">Abstract.</span> Every technical alpha in
+Microsoft Qlib&rsquo;s Alpha158 library was run as one declared family, through this site&rsquo;s fixed statistical hurdles. Some clear a
+naive bar. None is promoted.</p>
 
 <h2>1. Introduction</h2>
-<p>The published cross-section of expected returns is crowded with factors, and
-the count is itself the problem. Harvey, Liu, and Zhu (2016) argue that the
-sheer number of tests demands a significance bar well above the conventional
-<i>t</i> of 2, and Harvey and Liu (2019) catalog the resulting zoo. This paper
-takes that argument as an operating rule rather than a commentary. I adopt a
-library of technical factors taken off the shelf, run every one of its signals
-as one
-declared family, and ask a single question: does anything clear an honest bar
-that is deflated for multiplicity and re-audited under stress? The answer, on
-this universe, is nothing.</p>
+<p>Harvey, Liu, and Zhu (2016) argue that the number of published tests demands
+a significance bar well above convention, and Harvey and Liu (2019) catalogue
+the resulting zoo. This paper treats that as an operating rule: a library is
+taken off the shelf, every signal declared as one family before testing,
+and the family judged whole.</p>
 
-<h2>2. Data and method</h2>
-<p>The signals are the 158 technical alphas of Microsoft Qlib&rsquo;s Alpha158
-feature set, computed on roughly 21 years of prices for US large caps. The
-universe is current S&amp;P constituents and is therefore survivorship biased. Only names
-that survived to the present are counted, which lifts the apparent edge of any
-signal that rewards persistence. Because a signal and its negation are distinct
-hypotheses, the family is scored at size 316, both sign choices of all 158
-features, and the multiplicity correction is set against that count before any
-result is read.</p>
-<p>Three bars are applied in sequence. The first is a naive significance
-threshold of <i>t</i>&nbsp;&ge;&nbsp;2.5. The second is a deflated promotion
-threshold of <i>t</i>&nbsp;&ge;&nbsp;4.11, set in the Bonferroni and Taleb
-spirit for a family of this size; Bonferroni&rsquo;s correction divides the allowed
-false-positive rate by the number of tests run, so more tests demand stronger evidence. The third is a re-audit for margin of safety in
-which gross return is halved and transaction costs are doubled, so that a claim
-must remain significant after its economics are deliberately worsened.</p>
+<h2>2. Method</h2>
+<p>A family is a batch of related tests counted together. Each added test is
+another chance to get lucky, so the required evidence rises with the count, and
+a signal and its negation count as two. Significance uses Newey-West
+<i>t</i>-statistics, so that autocorrelated returns do not overstate a result.
+Three bars follow: a naive threshold; a promotion bar deflated in the Bonferroni
+and Taleb spirit, dividing the allowed false-positive rate by the number of
+tests; and a margin-of-safety re-audit halving gross return and doubling
+costs.</p>
 
 <h2>3. Results</h2>
-<p>Twenty-nine of the 158 alphas clear the naive <i>t</i>&nbsp;&ge;&nbsp;2.5
-bar. Zero clear the deflated and stressed bar. No sign choice, and no member of
-the family of 316 hypotheses, is promoted.</p>
-<p>The signals that come closest are, without exception, measures of reversal
-over short horizons and of overbought levels. The strongest counts days since
-the high over 20 days (IMAX20),
-with a Newey&ndash;West (NW) <i>t</i> of 4.46, a <i>t</i>-statistic adjusted so
-that autocorrelated returns do not overstate significance, that falls to a stressed <i>t</i> of
-3.68 once gross return is halved and costs are doubled; the same pattern holds for the
-signals of reversal over short horizons and of range near the top of the list
-(RSV20, RANK20, MIN5). These are real gross effects, and they survive doubled costs (stressed t between 2.81 and 3.68, above the 2.5 base bar); what kills them is the deflated bar a 158-factor family must clear. The volatility features collapse hardest under
-the same stress, consistent with their edge being compensation for bearing risk
-rather than a mispricing.</p>
+<p>The closest signals are, without exception, measures of reversal
+over short horizons and of overbought levels: days since the high (IMAX20) is
+the strongest, then RSV20, RANK20 and MIN5. Their gross edge is real and
+survives the doubled costs by a clear margin (Table 3). What stops them is the
+deflated bar a family this size must clear. The volatility features collapse
+hardest under the same stress: compensation for bearing risk, not a
+mispricing.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Promotion outcome across the three bars,
@@ -385,32 +346,40 @@ behaviour under the cost stress.</div>
 </table>
 </div>
 
-<h2>4. Discussion</h2>
-<p>Read together, the survivors describe the zoo rather than escape it. The
-technical alphas that carry any measured edge on this universe are reversal over
-short horizons and a volatility risk premium in disguise: fast signals that revert from overbought levels, whose profit lives
-inside the transaction costs, and volatility
-exposures that pay for risk. None of it clears a bar that is honestly deflated
-for the size of the search and then re-audited under doubled costs. The result
-is a null, and it is reported as one. Nothing here is a tradable claim; the
-figures are records of dead ideas and risk observations, not a signal.</p>
+<div class="tblwrap">
+<div class="cap"><b>Table 3.</b> Test parameters, and the stressed
+<i>t</i>-statistics of the strongest signals once gross return is halved and
+transaction costs are doubled.</div>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Sample</td><td>roughly 21 years of US large caps</td></tr>
+<tr><td>Hypotheses declared before testing</td><td>316 (158 features, two sign choices)</td></tr>
+<tr><td>Conventional significance bar</td><td><i>t</i> = 2</td></tr>
+<tr><td>Base bar the margin-of-safety rerun must clear</td><td><i>t</i> = 2.50</td></tr>
+<tr><td>Stressed <i>t</i>, strongest signals (IMAX20, RSV20, RANK20, MIN5)</td><td>2.8 to 3.7 (2.81 to 3.68)</td></tr>
+<tr><td>Promotions</td><td>zero</td></tr>
+</table>
+</div>
+
+<h2>4. Verdict</h2>
+<p>Read together, the survivors describe the zoo rather than escape it. Fast
+signals reverting from overbought levels keep their profit inside the
+transaction costs, and volatility exposures are paid for risk, not insight. The
+published technical zoo is reversal over short horizons and a volatility risk
+premium in disguise. The null is recorded as a null, and nothing here is
+tradable.</p>
 
 <h2>5. Limitations</h2>
-<p>Two, both of which cut in the same direction. First, the universe is current
-S&amp;P constituents and so survivorship biased; the naive counts and the
-survivor <i>t</i>-statistics are inflated by that bias, and are best read as
-upper bounds. A universe that included the delisted names would not raise these
-numbers. Second, the study covers one library of technical factors, not the whole
-zoo; it demonstrates that a widely used set taken off the shelf fails an honest
-bar,
-not that every published factor does. Both limitations make the conclusion more
-conservative, not less. The honest bar is already unmet on figures that flatter
-the signals.</p>
+<p>Two, both cutting the same way. The universe holds current index members
+only, so the naive count and the survivor <i>t</i>-statistics are inflated and
+read as upper bounds; the delisted names would not raise them. And one
+library is not the whole zoo: a widely used set fails an honest bar, which is no
+proof that every published factor does.</p>
 
-<div class="note">This record of a failed test is retained because Alpha158 is exactly the
-sort of library a desk mines for product, and twenty-nine names cross the bar a
-casual test would use. Recording that none of them survives multiplicity and
-cost is what keeps the few signals that do pass worth believing.</div>
+<div class="note">Alpha158 is the sort of library a desk mines for product, and
+a casual test would wave through everything crossing its first bar. Recording
+that none survives multiplicity and cost keeps the few signals that do pass
+worth believing.</div>
 
 <div class="refs">
 <h2>References</h2>

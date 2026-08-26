@@ -294,14 +294,24 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-<p class="abstract"><span class="lab">Abstract.</span> A production system has one binding constraint, and total output is set there and nowhere else. I ran Goldratt's audit on this site's research pipeline: 85 hypotheses filed, grouped by where each died. The statistical hurdles, the pipeline's pass/fail tests, are not the constraint; they adjudicated five variants of one strategy in a single afternoon and sit idle most of every day. The queue sits in front of data acquisition, where four recorded deaths never touched a statistic and the one lane those hurdles keep endorsing has no data on the shelf. The paper names the elevation order and freezes everything else.</p>
-<h2>1. A physicist, a factory, and a swimmer</h2>
-<p>Eliyahu Goldratt was a physicist who fixed factories. His observation, written up as a novel called The Goal in 1984, is that a production system has exactly one binding constraint at a time, and the throughput of the whole system is the throughput of that step. Improving any other step does not speed the system up. It just piles more work in front of the constraint. Asked to compress the whole theory into a sentence, he offered one word instead: focus. Jeff Bezos made his executives read the book.</p>
-<p>The cleanest application I know is not a factory. Sheila Taormina missed the 1992 United States Olympic swimming trials with one of the best aerobic engines her coaches had seen, then met Goldratt&rsquo;s framework in a management class and audited her own training the way he audits a plant. Her endurance was elite and getting most of the coaching effort; her constraint was power, at five foot two. Four years of strength work her old programs never prioritized bought three seconds at the 1996 trials and a relay gold.</p>
-<p>The claim worth testing is the uncomfortable one: effort spent anywhere but the constraint is wasted, no matter how virtuous it feels.</p>
+<h2>1. The constraint</h2>
+<p>Eliyahu Goldratt was a physicist who fixed factories. His claim is that a production system has one binding constraint, and the throughput of the whole system is the throughput of that step. Asked to compress the theory, Goldratt offered one word, focus. Jeff Bezos made his executives read the book.</p>
+<div class="tblwrap"><div class="cap">Two exhibits for the same rule</div>
+<table>
+<tr><th>Exhibit</th><th>What it shows</th></tr>
+<tr><td>Goldratt, The Goal (1984)</td><td>One binding constraint sets output. Effort elsewhere is inventory, not throughput.</td></tr>
+<tr><td>Sheila Taormina, swimmer</td><td>Missed the 1992 United States Olympic swimming trials with an elite aerobic engine that took most of her coaching effort. Her constraint was power, at five foot two. Four years of neglected strength work bought three seconds at the 1996 trials and a relay gold.</td></tr>
+</table></div>
 
 <h2>2. The audit</h2>
-<p>Every hypothesis this pipeline has ever filed sits in one database with its cause of death recorded, 393 rows as of 11 August 2026. Two lanes file into it on very different terms. 308 of those rows are the combinatorial expression sweep, machine-generated candidates adjudicated in bulk against a vendor simulator's rulebook, where one row is one expression rather than one idea. The remaining 85 are ideas taken in from a named source and put through this engine's own gates, and those 85 are the rows this audit counts. The sweep arm is held out and named rather than absorbed, because a factory audit needs a unit of work that means the same thing at every station. That makes the audit a counting exercise: group those 85 rows by where each one died.</p>
+<p>This pipeline records a cause of death for every hypothesis it files.</p>
+<div class="tblwrap"><div class="cap">The filing base, as of 11 August 2026. The 308 sweep rows are machine-generated candidates adjudicated in bulk against a vendor simulator&rsquo;s rulebook, where one row is one expression rather than one idea.</div>
+<table>
+<tr><th>Rows</th><th>Count</th></tr>
+<tr><td>All rows in the database</td><td>393</td></tr>
+<tr><td>Combinatorial expression sweep, held out</td><td>308</td></tr>
+<tr><td>Ideas from a named source, through this engine&rsquo;s own gates</td><td>85</td></tr>
+</table></div>
 <div class="tblwrap"><div class="cap">Cause of death, every hypothesis filed, as of 11 August 2026</div>
 <table>
 <tr><th>Stage</th><th>Hypotheses</th></tr>
@@ -311,32 +321,49 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <tr><td>Still queued</td><td>5</td></tr>
 <tr><td>Survived</td><td>2</td></tr>
 </table></div>
-<p>The 72 deaths at the statistical hurdles split into 35 at the standard validation stage and 37 at study-specific bars that apply the same arithmetic under different labels.</p>
 
 <h2>3. What the constraint is not</h2>
-<p>Goldratt&rsquo;s field test is simple. A bottleneck has work piled up in front of it. A non-bottleneck has idle time. The statistical hurdles of this pipeline have idle time in industrial quantities. On 11 August pairs trading, one idea tested five ways, went from zero to closed in one afternoon: five tests filed, coded, run, adversarially reviewed, and published, including a pair-level simulation carrying 8,051 round trips across 247 overlapping books. The deterministic statistics code runs for minutes a night and then sleeps. And the bar is self-adjusting: testing several variants of one idea means several chances to get lucky, so the required evidence rises with each attempt; by the fifth test the required t-statistic, the standard measure of whether a result is distinguishable from luck, had climbed from 2.50 to 3.03 on its own.</p>
-<p>Sharpening the test stage further is effort at a step that is not the constraint, repaving the road behind the bridge. The hurdles are the aerobic engine of this operation, already elite, already over-coached, and not the reason output is two survivors.</p>
+<p>Goldratt&rsquo;s field test is that a bottleneck has work piled up in front of it while a non-bottleneck sits idle. The gates here are idle in industrial quantities.</p>
+<div class="tblwrap"><div class="cap">Idle capacity at the gates, and the lane they have already exhausted. Several variants of one idea mean several chances to get lucky, so the bar raises itself.</div>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Pairs tests filed and closed, 11 August, one afternoon</td><td>5</td></tr>
+<tr><td>Round trips in the pair-level simulation</td><td>8,051</td></tr>
+<tr><td>Overlapping books it covered</td><td>247</td></tr>
+<tr><td>Required t-statistic, first test to fifth</td><td>2.50 to 3.03</td></tr>
+<tr><td>Nightly runtime, deterministic statistics code</td><td>Minutes, then idle</td></tr>
+<tr><td>Deaths at the standard validation stage</td><td>35</td></tr>
+<tr><td>Deaths at study-specific bars, same arithmetic</td><td>37</td></tr>
+<tr><td>Price-derived candidates now dead</td><td>129</td></tr>
+</table></div>
+<p>Sharpening the gates further is repaving the road behind the bridge. They are the aerobic engine of this operation, already elite, already over-coached, and not the reason so little survives.</p>
 
 <h2>4. Where the work piles up</h2>
-<p>The database records six deaths that never touched a statistic, and they read like a queue in front of a single door:</p>
-<ul>
-<li>A biomedical event study checked 7,682,445 prediction market rows and found 43 relevant, 23 resolved. Died of data coverage.</li>
-<li>A tail-risk idea needs historical index options chains, which are a paid purchase. The spec itself declares the idea blocked.</li>
-<li>A fundamentals data source needs an API (application programming interface) key whose free signup is a human-only action. No key, no run.</li>
-<li>An event-drift idea needs 8-K filing bodies. The filings cache holds 14,158 documents, all 10-K and 10-Q. Zero 8-Ks.</li>
-</ul>
-<p>Set that against where the survivors came from. 129 price-derived candidates are dead, an entire lane strip mined to zero, because price data is the one input this factory has in unlimited supply. Both survivors were plumbing, not price. And the lane the statistical hurdles keep pointing toward, positioning, flow, and forced trades, is exactly the lane whose data is not yet on the shelf. The work of this factory piles up in front of data acquisition. The slowest step is the data source, not the statistical test.</p>
+<p>Four of the deaths that never touched a statistic read as one queue in front of one door.</p>
+<div class="tblwrap"><div class="cap">Blocked before any statistic</div>
+<table>
+<tr><th>Idea</th><th>What the record says</th></tr>
+<tr><td>Biomedical event study</td><td>7,682,445 prediction market rows checked, 43 relevant, 23 resolved. Died of data coverage.</td></tr>
+<tr><td>Tail risk</td><td>Needs historical index options chains, a paid purchase. The spec itself declares the idea blocked.</td></tr>
+<tr><td>Fundamentals source</td><td>Needs an API (application programming interface) key whose free signup is a human-only action. No key, no run.</td></tr>
+<tr><td>Event drift</td><td>Needs 8-K filing bodies. The filings cache holds 14,158 documents, all 10-K and 10-Q. Zero 8-Ks.</td></tr>
+</table></div>
+<p>Price is the one input this factory has in unlimited supply, and that lane is strip mined to zero; both survivors were plumbing rather than price. The lane the gates keep pointing toward, positioning, flow and forced trades, has no data on the shelf. The slowest step is the data source, not the statistical test.</p>
 
 <h2>5. Five focusing steps, applied</h2>
 <p>Goldratt&rsquo;s procedure is identify, exploit, subordinate, elevate, repeat.</p>
-<p><strong>Identify.</strong> Orthogonal event and positioning data supply, orthogonal meaning statistically unrelated to the price data already mined, is the constraint.</p>
-<p><strong>Exploit.</strong> Done: the free lanes are strip mined to zero survivors and the database carries the receipts.</p>
-<p><strong>Subordinate.</strong> The statistical hurdles stay exactly as they are. The test stage needs no further sharpening and gets none. This is the step most research shops invert, because polishing the test stage is the work that feels like rigor.</p>
-<p><strong>Elevate.</strong> The 8-K data source goes first, because two recorded deaths already point at it and it opens the one class of related ideas this database has never been able to test, risk arbitrage. Then delisted prices, which make every convergence number honest. Then options and positioning data sources as budget allows.</p>
-<p><strong>Repeat.</strong> Once a data source opens, the constraint moves, probably to idea quality inside the new lane. The audit gets rerun, not framed as a finished result.</p>
+<div class="tblwrap"><div class="cap">The five steps, applied to this pipeline. Orthogonal here means statistically unrelated to the price data already mined.</div>
+<table>
+<tr><th>Step</th><th>What it means here</th></tr>
+<tr><td>Identify</td><td>Orthogonal event and positioning data supply is the constraint.</td></tr>
+<tr><td>Exploit</td><td>Done. The free lanes are strip mined to zero survivors and the database carries the receipts.</td></tr>
+<tr><td>Subordinate</td><td>The statistical gates stay exactly as they are. No further sharpening.</td></tr>
+<tr><td>Elevate</td><td>The 8-K source first: two recorded deaths point at it, and it opens the one class of ideas this database has never been able to test, risk arbitrage. Then delisted prices, which make every convergence number honest. Then options and positioning data as budget allows.</td></tr>
+<tr><td>Repeat</td><td>Once a source opens, the constraint moves, probably to idea quality inside the new lane. The audit gets rerun.</td></tr>
+</table></div>
 
 <h2>6. What this does not establish</h2>
-<p>Eighty-five rows is a small factory, and these ratios will move. Only filed ideas are visible: hypotheses never filed because the data was known to be missing do not appear, so the queue in front of the data step is understated. Idle capacity at the hurdles and the narrow data lane are coupled, since cheap data is what made cheap tests abundant; elevating the data supply will load the hurdles, which is the point. And a constraint audit picks a direction, not a result. The 8-K data source may open and every idea in it may die. The hurdles will say so, and that is the product.</p>
+<p>This is a small factory and these ratios will move. Only filed ideas are visible, so ideas never filed because the data was known to be missing do not appear and the queue in front of the data step is understated. Idle capacity and the narrow data lane are coupled, since cheap data made cheap tests abundant, and elevating supply will load the gates. An audit picks a direction, not a result. The 8-K source may open and every idea in it die. The gates will say so, and that is the product.</p>
 
 <div class="prov"><h2>Provenance, bs-prov/1.0</h2><dl>
 <dt>Method</dt><dd>SQL (Structured Query Language) queries over the database of every hypothesis tested here, all rows as of 11 August 2026, deaths grouped by recorded stage; error texts quoted from the database verbatim. No statistic in this paper is anything but a row count.</dd>

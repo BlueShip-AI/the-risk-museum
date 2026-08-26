@@ -294,69 +294,52 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-
-
 <p class="abstract"><span class="lab">Abstract.</span> A factor risk model
-decomposes a stock&rsquo;s return into common drivers plus a residual. Every
-large risk desk buys one from a vendor whose factor definitions and
-estimation weights are proprietary. I built the same class of model from public daily price data,
-down to the factor covariance matrix and the portfolio risk decomposition. Run
-on 436 US names (stocks) from 2020 to 2026, two of sixteen factors clear a <i>naive</i> Newey-West
-t-stat of 2 (a t-statistic is the standard measure of whether a result is
-distinguishable from luck; the Newey-West version adjusts it for correlated
-errors), Size at 2.64 and the Energy industry factor at 2.25. Sixteen factors
-were tested as one family, and each added test is another chance to get lucky,
-so the evidence required of any one of them rises with the count. This site's
-own pipeline bar of t = 2.5 deflates to <b>t = 3.36</b> at sixteen tests, and on
-that bar nothing clears. A diversified, equally weighted book (portfolio) of 100
-names turns out to be 98% factor risk.</p>
+splits a stock&rsquo;s return into common drivers plus a residual, and the
+residual is the only part that counts as genuine stock selection. I built the
+same class of model a vendor sells, from public daily price data, down to the
+factor covariance matrix and the portfolio risk decomposition. Two of sixteen
+factors clear a naive Newey-West t-stat of 2; none clears a bar deflated for
+having run sixteen tests.</p>
 <div class="keywords"><b>Keywords:</b> factor risk model, cross-sectional
 regression, factor covariance, specific risk, portfolio risk decomposition,
 Newey-West.</div>
 
-<h2>1. Why this, and what it is not</h2>
-<p>The residual left after the common drivers is the only part that counts as
-genuine stock selection. The vendors (MSCI Barra, Qontigo/Axioma) do not
-publish their factor definitions or estimation weights. I have not
-reproduced that. What I
-built is the same <i>class</i> of model, smaller and cruder on purpose, with
-every mechanic inspectable.</p>
+<h2>1. What this is not</h2>
+<p>MSCI Barra and Qontigo/Axioma do not publish their factor definitions or
+estimation weights, and I have not reproduced them. This is the same
+<i>class</i> of model, smaller and cruder on purpose, with every mechanic
+inspectable.</p>
 
-<h2>2. The method, briefly</h2>
-<p><b>Exposures.</b> Each stock gets a score on five factors, z-scored
-(rescaled to mean zero and unit spread) across
-the cross section of stocks, each date, using only information available through that date: Size
-(log price level, a scale proxy, since the panel has no field for shares
-outstanding, a declared limitation), Beta (how much the stock moves with the
-market: rolling beta to SPY, an S&amp;P 500 exchange-traded fund, over 252 days),
-Momentum (12-1 month, the return over the past 12 months excluding the most
-recent 1 month), Value (a proxy for mean reversion over 252 days, not a
-true book-to-price ratio, book value divided by price), and Volatility (realized over 60 days). Each name also gets one
-industry dummy (a 0/1 indicator for its sector) from a sector map built by correlation to sector ETFs.</p>
-<p><b>Estimation.</b> At each date I run a cross-sectional regression (one
-regression across all names at that date) of the
-next day&rsquo;s returns on that day&rsquo;s exposures, weighted by the square
-root of the same price-level scale proxy used for Size, and stabilized by ridge,
-a regression penalty that damps unstable coefficients. The vendor step weights
-by the square root of true market cap. With no shares-outstanding field in the
-panel, the declared limitation above, this runs the same estimator on a proxy
-for its weighting variable rather than on the variable itself. The
-coefficients <i>are</i> the factor returns for that day, so the series comes
-from every name&rsquo;s exposure rather than a long-short quintile spread
-(buying the fifth of names ranked highest on the signal and shorting the
-lowest fifth).</p>
-<p><b>Risk.</b> The covariance of those factor returns (how they move
-together) is the factor
-covariance matrix. Specific risk, the part of each stock&rsquo;s risk not
-explained by the shared factors, is approximated from each name&rsquo;s
-residual variance after removing the average factor effect. Portfolio risk
-decomposes as &sigma;<sub>p</sub>&sup2; = x<sub>p</sub>&prime;Fx<sub>p</sub> +
-w&prime;&Delta;w, factor variance plus specific variance. This is the equation
-every risk desk actually runs.</p>
+<h2>2. Method</h2>
+<p>Each stock gets a score on five style factors, z-scored across the cross
+section each date using only data available then, plus one industry dummy for
+its sector.</p>
 
-<h2>3. What came out, 2020 to 2026, 436 names, 331 sampled dates</h2>
-<p>Newey-West t-stats on each factor&rsquo;s return series, over the full
-sample:</p>
+<div class="tblwrap">
+<div class="cap"><b>Design.</b> Exposures, estimation and sample.</div>
+<table>
+<tr><th>Component</th><th>Definition</th></tr>
+<tr><td>Exposures</td><td>Z-scored, that is rescaled to mean zero and unit spread, point-in-time</td></tr>
+<tr><td>Size</td><td>Log price level, a scale proxy; the panel has no field for shares outstanding, a declared limitation</td></tr>
+<tr><td>Beta</td><td>Rolling beta to SPY, an S&amp;P 500 exchange-traded fund, over 252 days; how much the stock moves with the market</td></tr>
+<tr><td>Momentum</td><td>12-1 month, the return over the past 12 months excluding the most recent 1 month</td></tr>
+<tr><td>Value (proxy)</td><td>Mean reversion over 252 days, not a true book-to-price ratio, book value divided by price</td></tr>
+<tr><td>Volatility</td><td>Realised over 60 days</td></tr>
+<tr><td>Industry</td><td>One 0/1 indicator per name, from a sector map built by correlation to sector ETFs</td></tr>
+<tr><td>Estimation</td><td>Cross-sectional regression, at each date, of the next day&rsquo;s returns on that day&rsquo;s exposures, weighted by the square root of the price-level scale proxy and stabilised by ridge, a penalty that damps unstable coefficients</td></tr>
+<tr><td>Specific risk</td><td>The part of a stock&rsquo;s risk the shared factors do not explain, approximated from residual variance after removing the average factor effect</td></tr>
+<tr><td>Portfolio risk</td><td>&sigma;<sub>p</sub>&sup2; = x<sub>p</sub>&prime;Fx<sub>p</sub> + w&prime;&Delta;w, factor variance plus specific variance, the equation every risk desk actually runs</td></tr>
+<tr><td>Sample</td><td>436 US names (stocks), 2020 to 2026, 331 sampled dates</td></tr>
+</table>
+</div>
+
+<p>The coefficients <i>are</i> the factor returns for that day, so each series
+comes from every name&rsquo;s exposure rather than a long-short quintile
+spread. The vendor step weights by the square root of true market cap; lacking
+that field, this model uses a price-level proxy.</p>
+
+<h2>3. What came out</h2>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Factor returns and significance, 2020&ndash;2026.</div>
@@ -374,42 +357,44 @@ sample:</p>
 </table>
 </div>
 
-<p>Of sixteen factors tested, two clear a <i>naive</i> t-stat of 2 on this period,
-Size at <b>2.64</b> and the Energy industry factor at <b>2.25</b>. That is the
-wrong bar, and this paper used it. Sixteen factors were tested as a single
-family, and the count is itself evidence against any one of them (Harvey, Liu
-and Zhu, 2016). Deflating this pipeline's own t = 2.5 hurdle for a family of
-sixteen puts the bar at <b>t = 3.36</b>. A plain Bonferroni bar at 5% two-sided
-puts it at <b>2.96</b>. Holm and Benjamini-Hochberg at 5% reject nothing at all:
-both stop at Size, whose two-sided p of 0.0083 misses the first-step allowance
-of 0.0031. On every one of those corrections <b>zero of the sixteen clears</b>.
-Size is the closest miss. Everything else sits inside noise on this sample,
-including Momentum, Value and Beta, the factors most people assume are reliably
-priced. A model is only useful if it tells you that as readily as it tells you
-the opposite, and that applies to the model's own factors before anything else.</p>
+<div class="tblwrap">
+<div class="cap"><b>The bar.</b> A t-stat measures whether a result is distinguishable from luck, adjusted here for correlated errors.</div>
+<table>
+<tr><th>Bar</th><th>Threshold</th><th>What clears</th></tr>
+<tr><td>Naive Newey-West t</td><td>2</td><td>Size 2.64, Energy 2.25</td></tr>
+<tr><td>This pipeline&rsquo;s hurdle of t = 2.5, deflated for a family of sixteen</td><td>3.36</td><td>None</td></tr>
+<tr><td>Bonferroni, 5% two-sided</td><td>2.96</td><td>None</td></tr>
+<tr><td>Holm and Benjamini-Hochberg, 5%</td><td>First-step allowance p = 0.0031</td><td>None; both stop at Size, two-sided p = 0.0083</td></tr>
+</table>
+</div>
 
-<h2>4. The portfolio decomposition</h2>
-<p>Running the decomposition on an equally weighted book of 100 names as of 29 July
-2026, <b>factor risk is 98.3% of total portfolio variance.</b> The
-idiosyncratic (stock-specific) bet in each name is almost entirely diversified away at 100
-names. What is left is nearly pure exposure to Financials, Health Care, Beta,
-and Technology.</p>
-<p>That is not a bug in a small model. It is the pitch of a factor risk model
-working as intended.
-Once a book is diversified, the manager&rsquo;s profit and loss (P&amp;L) comes from factor
-exposure he may or may not have chosen on purpose. That is the conversation
-this model exists to have.</p>
+<p>Sixteen factors were tested as one family, and each added test is another
+chance to get lucky, so the evidence demanded of each rises with the count (Harvey, Liu and Zhu, 2016). The naive count of two stands as a naive
+count. Under every correction, zero of the sixteen clears. Size is the closest
+miss; everything else sits inside noise, Momentum, Value and Beta included. A
+model is only useful if it tells you that as readily as the opposite, starting
+with its own factors.</p>
 
-<div class="note">This is a demonstration of the architecture, not a
-production risk model. The estimate of specific risk is a shortcut rather than
-a regression residual taken name by name. The covariance matrix uses a simple sample
-estimator, with no exponential weighting and no eigenfactor adjustment for
-bias in small eigenvalues, both of which a vendor model applies and which I
-would want before trusting this at real capital. The Value factor is a proxy
-built from returns, not fundamental book-to-price. The universe is survivorship biased (it contains only names that survived to
-the end of the sample).</div>
+<h2>4. Decomposition</h2>
+<p>On an equally weighted book (portfolio) of 100 names as of 29 July 2026,
+factor risk is <b>98.3% of total portfolio variance</b>. Nearly 98% of what the
+manager carries is not stock selection. The stock-specific bet is diversified
+away, leaving near-pure exposure to Financials, Health Care, Beta and
+Technology. Once a book is diversified, profit and loss (P&amp;L) comes from
+factor exposure he may not have chosen on purpose. That is the
+conversation this model exists to have.</p>
 
-<p><strong>Correction, 19 August 2026.</strong> As first published this paper adjudicated its sixteen factors against an unadjusted t of 2 and reported that two cleared. That is the bar this site exists to argue against, and applying it to my own factor model while applying a deflated bar to everything else was the least defensible thing on this page. Corrected above: the naive count of two stands as a naive count, and under the pipeline's own deflation for a family of sixteen (t = 3.36), plain Bonferroni (2.96), Holm or Benjamini-Hochberg, zero factors clear. No number changed; the bar did, and the conclusion with it.</p>
+<div class="tblwrap">
+<div class="cap"><b>What this does not claim.</b> A demonstration of the architecture, not a production risk model.</div>
+<table>
+<tr><th>Component</th><th>Limitation</th></tr>
+<tr><td>Specific risk</td><td>A shortcut, not a regression residual taken name by name</td></tr>
+<tr><td>Covariance matrix</td><td>A simple sample estimator, with no exponential weighting and no eigenfactor adjustment for bias in small eigenvalues, both of which a vendor model applies and which I would want before trusting this at real capital</td></tr>
+<tr><td>Value factor</td><td>A proxy built from returns, not fundamental book-to-price</td></tr>
+<tr><td>Universe</td><td>Survivorship biased; it contains only names that survived to the end of the sample</td></tr>
+</table>
+</div>
+
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Code: pipeline/factor_risk_model.py.
 No live capital is deployed anywhere on this site.</footer>

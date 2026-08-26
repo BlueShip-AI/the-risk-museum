@@ -295,66 +295,46 @@ Neural Networks Beat Parsimonious Volatility Econometrics</h1>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> A small neural network
+forecasting the next-day range loses out of sample, and loses significantly,
+to the four-parameter GJR-GARCH model of Glosten, Jagannathan, and Runkle
+(1993). The same architecture family, set instead to approximate the Heston
+(1993) pricing map from self-generated surfaces, clears every gate fixed
+before the run. Data density, not model capacity, governs the outcome.</p>
 
-
-<p class="abstract"><span class="lab">Abstract.</span> I test whether a
-neural network improves on parsimonious (few-parameter) econometric models for volatility one
-day ahead. A small multilayer perceptron (~2,000 parameters), forecasting the
-range one day ahead from a fixed set of predictor inputs plus state inputs
-describing dealer positioning, is evaluated over the same out-of-sample window
-of 1,794 days (out-of-sample: on data the model never saw) and the same
-pass/fail tests as its competitors. It loses significantly: the mean
-absolute error of the best network is 58.9 basis points (hundredths of a
-percentage point), against 41.2 for a combined linear forecaster of
-heterogeneous autoregressive (HAR)&nbsp;+&nbsp;Cboe Volatility Index
-(VIX)&nbsp;+&nbsp;GJR terms and 41.6 for GJR-GARCH, a generalized
-autoregressive conditional heteroskedasticity model of four parameters from
-Glosten,
-Jagannathan, and Runkle (1993), with a Newey&ndash;West <i>t</i> of &minus;4.37
-(a <i>t</i>-statistic, the standard measure of whether a result is
-distinguishable from luck) on the error differential over all 1,794 out-of-sample daily
-observations. The identical
-architecture family, applied instead to approximating the Heston (1993)
-pricing map from 9,000 self-generated surfaces of implied volatility, clears
-every pass/fail test (accuracy of 0.23 volatility points, ~45,000x speedup, correct
-skew). Data density, not model capacity, governs the outcome.</p>
-<div class="keywords"><b>Keywords:</b> neural networks, volatility
-forecasting, GJR-GARCH, HAR, Heston model, deep learning volatility, data
-efficiency, model parsimony.</div>
-
-<h2>1. Introduction</h2>
-<p>A prior note in this series found that GJR-GARCH, the asymmetric volatility
-model with four parameters from Glosten, Jagannathan, and Runkle (1993),
-outperformed a Markov model of my own construction that switches between
-states.
-Nonlinear interactions are precisely what a linear recursive formula cannot represent,
-which motivates the present question: can a neural network do better? This
-note, the first on neural pricing, reports two experiments run under identical
-out-of-sample discipline and reaches opposite verdicts.</p>
+<h2>1. The question</h2>
+<p>An earlier note found GJR-GARCH beating a regime-switching model of my own
+construction. Nonlinear interaction is what a linear recursive formula cannot
+represent, so a network is the obvious next candidate. Two experiments follow
+under one out-of-sample discipline, with opposite verdicts.</p>
 
 <h2>2. Method</h2>
-<p>I trained a small multilayer perceptron (~2,000 parameters) to forecast
-the range one day ahead from the same set of predictor inputs as the linear
-models, augmented with the state inputs describing dealer positioning.
-Training was walk-forward (each refit uses only data available up to that
-date) with monthly refits, ensembles of three random seeds (networks trained
-from different random starting points), and early stopping (halting training
-when performance on held-back data stops improving), evaluated on the same
-out-of-sample window of 1,794 days and the same pass/fail tests applied to
-every other forecaster.</p>
+<p>The network forecasts the range one day ahead from the predictor set given
+to the linear models, augmented with state inputs describing dealer
+positioning. Training was walk-forward, so each refit sees only data available
+at that date, and every forecaster faced the same window and thresholds.
+Table A carries the specification.</p>
+
+<div class="tblwrap">
+<div class="cap"><b>Table A.</b> Specification and test discipline, both experiments.</div>
+<table>
+<tr><th>Item</th><th>Value</th></tr>
+<tr><td>Network size</td><td>~2,000 parameters</td></tr>
+<tr><td>Out-of-sample window</td><td>1,794 daily observations</td></tr>
+<tr><td>Refits, ensemble, stopping</td><td>monthly; 3 random seeds; early stopping</td></tr>
+<tr><td>Daily volatility data available</td><td>~250 observations per year</td></tr>
+<tr><td>Newey&ndash;West <i>t</i>, error differential</td><td>&minus;4.37</td></tr>
+<tr><td>Heston training sample</td><td>9,000 self-generated vol surfaces</td></tr>
+<tr><td>Degenerate case, vol-of-vol &rarr; 0</td><td>recovers Black&ndash;Scholes to 4 decimals</td></tr>
+</table>
+</div>
 
 <h2>3. Results</h2>
-<h3>3.1 Daily volatility forecasting</h3>
-<p>Table 1 reports out-of-sample mean absolute error. The network failed to
-win, and lost significantly: the Newey&ndash;West <i>t</i>-statistic (adjusted
-for serial correlation in the daily errors) on the error differential is
-&minus;4.37. A model of roughly 2,000 parameters was
-beaten by one of four, on 1,794 out-of-sample daily observations. The state
-inputs helped the network (58.9 against 63.4 basis points), consistent with
-prior measurements of dealer positioning, but no adjustment rescued the
-architecture at this data scale. Volatility measured daily yields about 250
-observations per year, which is starvation for a neural network, far too few
-data points to learn from, and ample for a parsimonious recursive model.</p>
+<p>A model of roughly two thousand parameters was beaten by one of four
+(Table 1), by a margin that is not luck. State inputs helped, consistent with
+earlier positioning work here, but no adjustment rescued the architecture at
+this scale. Daily volatility yields a few hundred observations a year,
+starvation for a network and ample for a parsimonious recursive model.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> Out-of-sample forecast error, range one day ahead, window of 1,794 days.</div>
@@ -367,16 +347,10 @@ data points to learn from, and ample for a parsimonious recursive model.</p>
 </table>
 </div>
 
-<h3>3.2 Approximating the option surface</h3>
-<p>I then applied the same architecture family to a different task:
-approximating the pricing map of the Heston (1993) stochastic volatility
-model, the function that turns the model's parameters into a surface of
-implied volatility (the volatility number that makes a standard option-pricing
-formula match a given option price), following the Deep Learning Volatility
-approach of Horvath, Muguruza, and Tomas (2021). Training used 9,000 surfaces
-of implied volatility generated by the model itself, a dense and effectively
-unlimited sample. Against pre-set pass/fail thresholds the approximation
-passed on every axis (Table 2).</p>
+<p>On the Heston (1993) pricing map, the function taking model parameters to a
+surface of implied volatility, the same family passed on accuracy, speed and
+skew (Table 2), following Horvath, Muguruza, and Tomas (2021). That training
+sample is dense and effectively unlimited, because the model generates it.</p>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 2.</b> Approximation of the Heston pricing map against pre-set pass/fail thresholds.</div>
@@ -388,23 +362,19 @@ passed on every axis (Table 2).</p>
 </table>
 </div>
 
-<h2>4. Discussion</h2>
-<p>The architecture family was identical; the verdicts were opposite. Neural
-capacity is not a modular upgrade to a forecast. It adds information where data
-is dense and structured (an option surface is thousands of simultaneous quotes
-linked by arbitrage) and loses to econometrics from forty years ago where data
-is scarce and noisy. A neural network fitted to a single daily time series
-reproduces the 63.4 basis points of Table 1, not the 0.23 volatility points of
-Table 2.</p>
+<h2>4. What the split means</h2>
+<p>One architecture family, opposite verdicts. Neural capacity is not a
+modular upgrade to a forecast. It adds information where data is dense and
+structured, an option surface being thousands of simultaneous quotes tied
+together by arbitrage, and it loses to econometrics from forty years ago where
+data is scarce and noisy. Fitted to a single daily series, a network
+reproduces the error in Table 1, not the accuracy in Table 2. As a volatility
+forecaster it is rejected.</p>
 
-<div class="note">The first run of the Heston experiment failed: every implied
-volatility pinned at exactly 150%, the result of a bug on one line of my own
-bisection code, the routine that inverts option prices back into implied
-volatilities. A test of the degenerate case caught it, since as
-volatility-of-volatility &rarr; 0 the model must recover the standard
-Black&ndash;Scholes option-pricing formula exactly, which the corrected code
-then did to four decimals. The failure was indistinguishable from a result
-until the test caught it.</div>
+<div class="note">The first Heston run failed: every implied volatility pinned
+at exactly 150%, from a bug on one line of my own bisection routine, which
+inverts option prices into implied volatilities. The degenerate-case test
+caught it. Until it did, the failure was indistinguishable from a result.</div>
 
 <div class="refs">
 <h2>References</h2>

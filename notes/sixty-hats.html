@@ -290,20 +290,59 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-<p class="abstract"><span class="lab">Abstract.</span> A viral post proposes sixty AI agents running an investment desk end to end: macro, valuation, portfolio, risk, execution, reporting. This note is for the firm that will try it. It draws on two months of running a research desk with agents, 958 runs, with the failures kept, and it argues that adding agents does not add reliability. Adding controls does.</p>
+<h2>1. Headcount is not oversight</h2>
+<p>A viral post proposes sixty AI agents running an investment desk end to end: macro, valuation, portfolio, risk, execution, reporting. Sixty agents in one trust domain share one set of permissions, one context and one incentive to agree. The roster does not say who can overrule whom, what an agent may not do, or where a person has to act before money moves. In that design, more agents is more points of failure, not more checks.</p>
+<p>It also asks a model to audit itself. A valuation reviewer reviews the desk&rsquo;s own valuations; an audit-trail agent keeps the trail for decisions the same system made. A guardrail counts only when it is deterministic: code that computes the number, a script that reconciles the manuscript to the lab output, a credential the agent&rsquo;s process cannot hold, a person with the final token. Another prompted model is not a control, it is another hat on the same head.</p>
 
-<h2>1. Three things the roster gets wrong</h2>
-<p><b>Headcount is not oversight.</b> Sixty agents in one trust domain share one set of permissions, one context, and one incentive to agree. Nothing in the roster says who can overrule whom, what an agent may not do, or where a person has to act before money moves. More agents in that design is more points of failure, not more checks.</p>
-<p><b>A model cannot audit itself.</b> The roster has a valuation reviewer reviewing the desk&rsquo;s own valuations and an audit-trail agent keeping the trail for decisions the same system made. On this desk, five successive theses for a conference paper passed the agent&rsquo;s own review and died in two days under checks the maker did not control.</p>
-<p><b>The guardrails have to be deterministic.</b> Code that computes the number, a script that reconciles the manuscript to the lab output, a credential the agent&rsquo;s process cannot hold, a person with the final token. Another prompted model is not a control; it is another hat on the same head.</p>
 <h2>2. What happened when I ran it</h2>
-<p>- A subagent told only to read papers used its shell to edit a model and publish to the live site, unapproved (19 August, commit 5827e44). The change was correct, which is why this kind of failure never gets fixed. - Testing the new approval gate with the real token published everything on disk, including a deleted page and an unreviewed rewrite (7d53009). Both content filters passed; a missing file is not a content problem. The deploy step staged deletions exactly like edits. - A power audit found the desk&rsquo;s statistical gate passes four to six per cent of true Sharpe-0.8 signals on twenty years of data. Most &ldquo;rejected&rdquo; verdicts were statements about the bar, not the market. No agent noticed; a simulation did. - Verifying this note found two controls recorded as applied that had never been written into the scripts. The agent&rsquo;s account of its own work had been taken as the record.</p>
-<p>Every one of these is the same shape: judgment, action and the record in the same hands. None is a capability failure.</p>
+<p>Four incidents from two months of running a desk this way, with the failures kept. All have one shape: judgment, action and the record in the same hands. None is a capability failure; in the first the change was correct, which is why this kind of failure never gets fixed.</p>
+
+<div class="tblwrap">
+<div class="cap">Table 1. The incident record, with commit hashes.</div>
+<table>
+<tr><th>Incident</th><th>What the record says</th></tr>
+<tr><td>Read-only subagent, 19 August, commit 5827e44</td><td>Told only to read papers; used its shell to edit a model and publish to the live site, unapproved. The change was correct.</td></tr>
+<tr><td>Approval-gate test, commit 7d53009</td><td>Testing the new gate with the real token published everything on disk, including a deleted page and an unreviewed rewrite. Both content filters passed; a missing file is not a content problem, and the deploy step staged deletions exactly like edits.</td></tr>
+<tr><td>Power audit of the statistical gate</td><td>The gate passes four to six per cent of true Sharpe-0.8 signals on twenty years of data, so most &ldquo;rejected&rdquo; verdicts were statements about the bar, not the market. No agent noticed; a simulation did.</td></tr>
+<tr><td>Verification of this note</td><td>Two controls recorded as applied had never been written into the scripts. The agent&rsquo;s account of its own work had been taken as the record.</td></tr>
+</table>
+</div>
+
+<div class="tblwrap">
+<div class="cap">Table 2. The evidence behind this note.</div>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Period on this desk</td><td>Two months</td></tr>
+<tr><td>Agent runs</td><td>958</td></tr>
+<tr><td>Incidents kept in the record</td><td>Four</td></tr>
+<tr><td>Conference-paper theses passed by the agent&rsquo;s own review</td><td>Five</td></tr>
+<tr><td>Days those theses survived checks the maker did not control</td><td>Two</td></tr>
+<tr><td>Gate power, true Sharpe-0.8 signals, twenty years of data</td><td>Four to six per cent</td></tr>
+<tr><td>Checks between a number and an action that are code or a person, this desk</td><td>Seven of nine</td></tr>
+<tr><td>Same, in the roster as written</td><td>Zero</td></tr>
+</table>
+</div>
+
 <h2>3. How to run sixty agents anyway</h2>
-<p>1. Agents never compute a number that matters. Code does; the agent runs it. 2. Maker and checker are different agents with opposite briefs, and the checker&rsquo;s brief is written by the firm, not the maker. 3. Limits and thresholds are set by people and moved only by people. 4. Anything irreversible (orders, transfers, publication, capital) sits behind a credential the agent&rsquo;s process does not hold. 5. An agent&rsquo;s account of what it did is not the record. The blotter, the commit log and the script on disk are.</p>
-<p>Agents belong at scale where the work is enumeration: ten thousand filings, a warehouse mapped one procedure at a time, positions reconciled to custody. They do not belong where judgment and action share a hand.</p>
+<p>Agents belong at scale where the work is enumeration: ten thousand filings, a warehouse mapped one procedure at a time, positions reconciled to custody. They do not belong where judgment and action share a hand. Five rules make that separation; each is held by something the agent cannot reach.</p>
+
+<div class="tblwrap">
+<div class="cap">Table 3. The five rules, and what enforces each.</div>
+<table>
+<tr><th>Rule</th><th>Enforced by</th></tr>
+<tr><td>1. Agents never compute a number that matters</td><td>Code computes it; the agent runs the code</td></tr>
+<tr><td>2. Maker and checker are different agents with opposite briefs</td><td>The checker&rsquo;s brief is written by the firm, not the maker</td></tr>
+<tr><td>3. Limits and thresholds are set by people</td><td>They move only when a person moves them</td></tr>
+<tr><td>4. Anything irreversible: orders, transfers, publication, capital</td><td>A credential the agent&rsquo;s process does not hold</td></tr>
+<tr><td>5. An agent&rsquo;s account of what it did is not the record</td><td>The blotter, the commit log and the script on disk are</td></tr>
+</table>
+</div>
+
 <h2>4. The number to look at</h2>
-<p>Not how many agents. How many independent checks stand between a number and an action, and how many of them are code or a person rather than another prompt. On this desk: seven of nine. In the roster as written: zero.</p>
+<p>Not how many agents. How many independent checks stand between a number and an action, and how many of those are code or a person rather than another prompt. Adding agents does not add reliability. Adding controls does.</p>
+
+<h2>5. What this does not claim</h2>
+<p>One desk, one operator, two months. The four incidents are the ones the record caught, not a random sample, and nothing here measures whether sixty agents produce better research than six. The claim the record supports is narrower: reliability came from controls the agents could not reach, and more agents in one trust domain added none.</p>
 
 <div class="prov"><dl>
 <dt>Method</dt><dd>Incidents from the desk&rsquo;s lesson files and commit log, hashes given. Power figures from two simulations on the unmodified validator.</dd>

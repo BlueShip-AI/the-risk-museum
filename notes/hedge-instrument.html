@@ -294,18 +294,22 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-
-
-<h2>1. The claim</h2>
-<p>The consensus reading, put well by Tae Kim on 30 July, is that the positions were right and the leverage was wrong: at four times gross (positions totalling four times the fund's capital), a drawdown became a liquidation. I agree, and the proximate cause was margin.</p>
-<p>One layer underneath, leverage is judged against net exposure, longs minus shorts, and net exposure is a model. My first draft argued the hedge was sized wrong. The arithmetic showed the opposite.</p>
-<h2>2. What the filing shows</h2>
-<p>The Q1 2026 13F (the SEC form on which large managers disclose US equity holdings each quarter), filed 18 May 2026, shows forty-two positions totalling $13.68bn.</p>
-<p>The long book is $3.86bn of AI infrastructure in small and mid caps. The eight largest names, about 91% of it, are Bloom Energy, Sandisk, CoreWeave, IREN, Core Scientific, Applied Digital, Riot and CleanSpark.</p>
-<p>The disclosed short side is $8.46bn of notional in <strong>puts on mega cap semiconductors and Oracle</strong>: the VanEck semiconductor ETF, Nvidia, Oracle, Broadcom, AMD, Micron, TSMC, ASML and Intel. There is also $1.36bn of calls, so the disclosed structure is more layered than one basket against another.</p>
-<p>Both sides are the AI capital cycle, one with high beta and one with low beta (beta measures how sharply a stock moves relative to the broad market).</p>
-<h2>3. The hedging ceiling</h2>
-<p>I formed baskets of daily returns of the two sides from adjusted daily closes, June 2025 through July 2026. The relevant quantity is how much risk the short basket can remove from the long one, at best. No sizing decision beats that ceiling.</p>
+<h2>The claim</h2>
+<p>Tae Kim, on 30 July, read it as right positions and wrong leverage. At four times gross, a drawdown became a liquidation. That is the proximate cause. But leverage is judged against net exposure, and net exposure is a model. The arithmetic says the hedge was not sized wrong. It was built from the wrong instruments.</p>
+<h2>What the filing shows</h2>
+<p>The long leg is small and mid cap AI infrastructure, high beta. The disclosed short leg is puts on mega cap semiconductors and Oracle, low beta. One capital cycle, held twice.</p>
+<div class="tblwrap"><div class="cap">Situational Awareness Partners LP, Form 13F-HR for Q1 2026, filed 18 May 2026. A 13F is the form on which large managers disclose US equity holdings each quarter. Beta measures how sharply a stock moves relative to the broad market.</div><table>
+<thead><tr><th>Item</th><th>What the filing says</th></tr></thead>
+<tbody>
+<tr><td>Positions disclosed</td><td>Forty-two, totalling $13.68bn</td></tr>
+<tr><td>Long leg</td><td>$3.86bn, small and mid cap AI infrastructure</td></tr>
+<tr><td>Eight largest longs, about 91% of that leg</td><td>Bloom Energy, Sandisk, CoreWeave, IREN, Core Scientific, Applied Digital, Riot, CleanSpark</td></tr>
+<tr><td>Disclosed short leg, puts</td><td>$8.46bn notional. VanEck semiconductor ETF, Nvidia, Oracle, Broadcom, AMD, Micron, TSMC, ASML, Intel</td></tr>
+<tr><td>Calls also held</td><td>$1.36bn</td></tr>
+</tbody>
+</table></div>
+<h2>The hedging ceiling</h2>
+<p>From adjusted closes, June 2025 through July 2026, I built daily return baskets for the two sides. The ceiling is the most risk the short basket could ever remove from the long one. No sizing beats it.</p>
 <div class="tblwrap"><table>
 <thead>
 <tr>
@@ -330,23 +334,36 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 </tr>
 </tbody>
 </table></div>
-<p>Before the stress, the most shorting these semiconductors could ever have removed was <strong>28.6% of that long book&rsquo;s volatility</strong>, and the dollar-neutral version, equal dollars long and short, achieved 27.2%, or 95% of the ceiling. The pair of baskets is the problem.</p>
-<p>Weighting by the filing's own dollar amounts changes nothing material: correlation 0.76 and 27.6% removed before July.</p>
-<h2>4. Why 0.70 is the worst number to have</h2>
-<p>0.70 is high enough that both sides fall together when the theme unwinds, and in July the correlation rose to 0.95.</p>
-<p>It is also too low for the short to do much work. Half of the long book's variance is not explained by the short book, and that half you keep however the hedge is sized. The book carried about three quarters of the volatility of being long the high beta leg, a property of the instruments chosen and not of the risk management.</p>
-<h2>5. What that does to four times gross</h2>
-<p>Four times gross with roughly flat net means about two dollars long against two dollars short. On legs that retain three quarters of their outright risk, that book carries roughly <strong>1.5 times the volatility of being outright long the high beta leg, unlevered</strong>.</p>
-<h2>6. The cheap check</h2>
-<p>The check is a regression of the long book on the short book, run on public prices before the position is sized. The awkward middle near 0.7 is where a book looks hedged on the exposure report and is not hedged in the returns.</p>
-<h2>7. What would overturn this</h2>
-<p><strong>The disclosed short book is partial, and this is the caveat that matters most.</strong> A 13F captures long positions and options, not short stock. If the undisclosed portion was large and uncorrelated with the long leg, my correlations overstate the problem. I cannot rule that out.</p>
-<p><strong>They held puts, not linear shorts.</strong> Treating a dollar of put notional as a dollar of linear short is an approximation that runs against the fund: a put's short exposure rises as the underlying falls, so the real hedge probably worked better in July than my linear proxy shows.</p>
-<p><strong>The filing was already stale.</strong> A 5.6% position in Nebius carries a May event date and a position near 20% in a micro cap carries a June one. Neither is in the March filing.</p>
-<p><strong>I have not verified the fund's size, leverage or returns.</strong> Those come from press reporting. Section 5 depends on the reported four times gross.</p>
-<hr />
-<p><strong>Sources.</strong> Situational Awareness Partners LP Form 13F-HR, filed 2026-05-18 for the period ended 2026-03-31, and Schedules 13G for Nebius Group and SharonAI Holdings, all via the SEC's Electronic Data Gathering, Analysis and Retrieval system (EDGAR). Daily adjusted closes from public market data. Bank of England Financial Stability Report, July 2026. Tae Kim, "The Big Lesson from the Implosion of Leopold Aschenbrenner's $20 Billion Situational Awareness Hedge Fund," 30 July 2026.</p>
-<p><strong>Method.</strong> Baskets of daily returns, weighted equally and by filing value, of the disclosed long names and of the names underlying the disclosed puts. Correlations and betas by ordinary least squares on daily returns. Volatility is the standard deviation of daily returns annualised at 252 days. The hedging ceiling is the standard minimum variance result: a hedged book cannot fall below the unhedged volatility times the square root of one minus the squared correlation.</p>
+<p>The dollar-neutral version, equal dollars long and short, captured almost the whole ceiling. Sizing was near optimal and the outcome still poor. The pair of baskets is the problem.</p>
+<h2>Why 0.70 is the worst number</h2>
+<p>It is high enough that both sides fall together when the theme unwinds, and in July they did. It is too low for the short to do real work. Half the long book's variance is unexplained by the short book, and you keep that half however the hedge is sized. That is the instruments, not the risk management.</p>
+<div class="tblwrap"><div class="cap">From the ceiling to the book. Figures are for the window before July unless stated.</div><table>
+<thead><tr><th>Measure</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Share of the ceiling the dollar-neutral hedge captured</td><td>95%</td></tr>
+<tr><td>Baskets weighted by filing value</td><td>Correlation 0.76, 27.6% removed</td></tr>
+<tr><td>Long variance unexplained by the short book</td><td>About half</td></tr>
+<tr><td>Volatility retained versus outright long of the high beta leg</td><td>About three quarters</td></tr>
+<tr><td>Four times gross at roughly flat net</td><td>About two dollars long against two dollars short</td></tr>
+<tr><td>Volatility of that book</td><td><strong>About 1.5 times an unlevered outright long of the high beta leg</strong></td></tr>
+</tbody>
+</table></div>
+<h2>The cheap check</h2>
+<p>Regress the long book on the short book, on public prices, before sizing. Near 0.7 a book looks hedged on the exposure report and is not hedged in the returns.</p>
+<h2>What would overturn this</h2>
+<p><b>The disclosed short book is partial, and this caveat matters most.</b> A 13F captures long positions and options, not short stock. If the undisclosed part was large and uncorrelated with the long leg, my correlations overstate the problem.</p>
+<p><b>They held puts, not linear shorts.</b> Treating put notional as linear short exposure runs against the fund. A put's short exposure rises as the underlying falls, so the real hedge probably worked better in July than my proxy.</p>
+<p><b>The filing was already stale, and the fund's size, leverage and returns come from press reporting, not from me.</b> The leverage arithmetic depends on that reported gross.</p>
+<div class="tblwrap"><div class="cap">Staleness in the filing, and method.</div><table>
+<thead><tr><th>Item</th><th>What the record says</th></tr></thead>
+<tbody>
+<tr><td>Nebius</td><td>5.6% position, May event date, absent from the March filing</td></tr>
+<tr><td>A micro cap name</td><td>Position near 20%, June event date, absent from the March filing</td></tr>
+<tr><td>Method</td><td>Baskets of daily returns of the disclosed long names and of the names underlying the disclosed puts, weighted equally and by filing value. Correlations and betas by ordinary least squares on daily returns. Volatility is the standard deviation of daily returns annualised at 252 days. The ceiling is the minimum variance result. A hedged book cannot fall below unhedged volatility times the square root of one minus the squared correlation.</td></tr>
+</tbody>
+</table></div>
+<p><i>Educational research only. Not investment advice. This note is about a portfolio structure, not about any individual's conduct or ability.</i></p>
+
 <p><em>Educational research only. Not investment advice. This note is about a portfolio structure. It makes no claim about any individual's conduct or ability.</em></p>
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational
 research only; not investment advice. Method and sources for this paper are

@@ -322,11 +322,30 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 </svg>
 </figure>
 
-
-
 <h2>1. The count</h2>
-<p>Three hundred and sixteen ideas filed. One hundred and eighty-four actually tested. Two survived.</p>
-<p>One hundred and twenty-eight tests errored before producing a verdict: roughly three-quarters blocked on vendor data I could not obtain for free, most of the rest plain compute timeouts. Four are still queued. A test that never ran earns no place in the denominator. The honest pass rate is two of 184, or 1.1%.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>The record, as of 4 August 2026</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Ideas filed</td><td>316</td></tr>
+<tr><td>Tested to a verdict</td><td>184</td></tr>
+<tr><td>Survived</td><td><strong>2</strong></td></tr>
+<tr><td>Died</td><td>182</td></tr>
+<tr><td>Honest pass rate, 2 of 184</td><td>1.1%</td></tr>
+<tr><td>Judged under this museum's own gates</td><td>69</td></tr>
+<tr><td>Judged inside a vendor's simulator, and labelled as such</td><td>115</td></tr>
+<tr><td>Errored before producing a verdict; roughly three-quarters blocked on vendor data available only for a fee, most of the rest plain compute timeouts. Excluded from every rate.</td><td>128</td></tr>
+<tr><td>Still queued, also excluded</td><td>4</td></tr>
+<tr><td>Judged as of 18 August 2026</td><td>272</td></tr>
+<tr><td>Judged as of 19 August 2026</td><td>277</td></tr>
+<tr><td>New trading survivors since 4 August</td><td><strong>0</strong></td></tr>
+</tbody>
+</table></div>
+
 <h2>2. Three libraries, no survivors</h2>
 <div class="tblwrap"><table>
 <thead>
@@ -364,38 +383,121 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 </tr>
 </tbody>
 </table></div>
-<p>Microsoft publishes a library of 158 technical alphas (rule-based trading signals). I ran them as variants of one idea, judged together. Testing many variants of the same idea means many chances to get lucky, so the required evidence rises with each attempt. Twenty-nine clear a naive t-statistic of 2.5, where t is the standard measure of whether a result is distinguishable from luck. One clears the raised bar, a signal counting the days since the high of the last 20 days, at t = 4.46, which also survives the cost stress test at a t of 3.68. It is then stopped by a 55% collapse in its Sharpe ratio (return per unit of risk) from in-sample to out-of-sample, that is, from the data used to build it to data it never saw, against a 30% limit. Zero are promoted, and the hurdle that ends it is out-of-sample decay rather than the multiple-testing correction. Decomposed, the library is reversal at short horizons and a volatility risk premium, expressed 158 different ways. Costs alone do not kill the library: sixteen of the twenty-nine naive hits survive even the stress that halves the gross return and doubles the costs. What kills it is out-of-sample decay and the rising evidence bar.</p>
-<h2>3. The two that lived</h2>
-<p><strong>A dealer gamma classifier.</strong> Dealers who are long gamma hedge against the move and compress the day's range. Dealers who are short gamma chase it and expand the range. The signal predicts the next day's range, not its direction.</p>
-<p>The numbers, because a mechanism without them is a story. Days in the bottom gamma quintile realise <b>2.59 times</b> the range of days in the top quintile, and the top quintile pins <b>79.7%</b> of the time against an unconditional pin rate of <b>61%</b>, a lift of 1.31 rather than the naked 80% a reader might price. Standing alone the signal carries a t of <b>11.14</b> across <b>3,565 trading days</b>, on a regressor built as a 252-day rolling percentile, so the number of independent windows of the regressor's own construction is closer to fourteen than to 3,565 and the t should be read accordingly. The first objection any practitioner raises is that this is volatility wearing a costume, so: gamma correlates with VIX at <b>&minus;0.47</b>, and controlling for VIX the t falls to <b>7.36</b> rather than to nothing. In the same regression VIX itself carries a t of <b>12.3</b>, so the control dominates the signal and gamma is the increment, not the driver. Under the stress applied to this lane it holds at <b>3.68</b>. Two corrections to how that was previously stated. The ticket was recorded with a family size of one, which is wrong: this shop has judged at least <b>seven</b> dealer-gamma looks, and the bar at n = 7 is t &ge; <b>3.13</b> rather than 2.50. The result clears the corrected bar, so the verdict stands, but it stands as an unauditable pass rather than a clean one. And this lane has no cost model, so &ldquo;stressed&rdquo; here means the effect halved against the unstressed standard error, which is not the gross-halved-and-costs-doubled rerun that Section 2 describes.</p>
-<p><strong>A bubble screen.</strong> Names that double inside two years crash more often than a control drawn from the same month, at a rate that clears the bar but only just.</p>
-<p>The numbers need their denominator stated, because the two available denominators tell different stories and only one is honest. Counted by name-month, flagged names crash at <b>23.0%</b> against a <b>15.1%</b> base, a ratio of 1.51. Counted by <b>episode</b>, which is one flag per run-up and the count the lab itself labels &ldquo;the honest N&rdquo;, it is <b>232 of 1,192, or 19.5%</b> against a <b>15.2%</b> base. That is a ratio of <b>1.283</b> against a gate set at 1.25. The stressed z is 5.34 and the episode-level binomial p is <b>3.7e-05</b>, not the 2.7e-80 the name-month count produces. The gate was evaluated on name-months; the honest margin is the episode one, and it is thin. The caveat that survives every rerun is episode clustering: run-ups arrive in cohorts, so the effective number of independent observations is far below 1,189 and the p-value is optimistic by an amount I have not bounded. That is why this is described as clearing the bar only just, despite a z that reads comfortable.</p>
-<p>Neither is a price factor and neither was clever. Both mechanisms are decades old; the specific published signals date to 2018 and 2019, and both are publicly documented.</p>
-<h2>4. The question that separates them</h2>
-<p>The distinction is not positioning against price. I believed that and this month proved it too loose.</p>
-<p>Commitments of Traders, the Commodity Futures Trading Commission's (CFTC) report of futures positioning, is the canonical positioning dataset. I tested it three ways against a required t-statistic of 2.87. The best attempt reached a t of 1.24, with the sign the wrong way. Dead on arrival.</p>
-<p><strong>Somebody is forced.</strong> An options dealer who is short gamma does not decide whether to hedge. The hedge is a mechanical consequence of the book he already holds, on a schedule the market can see. A speculator long S&amp;P futures has an opinion, and an opinion poll with a lag is not a mechanism.</p>
-<p>The bubble screen is the weaker version. A crowd that doubled its money is not forced to sell, but the unwind is not optional.</p>
-<p>Hayek got there first. A signal derived from price is trying to extract information the price has already absorbed.</p>
-<p>The operative question is not what the crowd thinks. It is <strong>who has to trade tomorrow whether they want to or not</strong>.</p>
-<h2>5. What this predicts</h2>
-<p><i>Corrected 19 August 2026.</i> As first published this section named a list of mechanisms that should keep clearing the bar at a higher rate than anything derived from price alone: dealer hedging, index reconstitution, selling driven by taxes, liquidation driven by redemptions, margin calls. Four of those had already been tested here and rejected before the paper went out, which makes them examples rather than predictions. The index effect died on 24 July, tax-loss harvesting on 13 July at a negative t, the tax-loss-selling bounce on 24 July, and dividend-cut forced selling on 28 July at the margin-of-safety rerun. Levered ETF rebalancing has since joined them, per Section 7. The surviving form of the claim is therefore much weaker: a compelled counterparty on a visible schedule is where I will keep looking, and the record so far is that most such mechanisms die too. Sentiment and survey data should keep failing, because holding an opinion imposes no deadline.</p>
-<p>A survey or sentiment signal that clears a bar properly raised for the number of attempts, under a cost stress test, would falsify this. It is cheap to test.</p>
-<h2>6. What is wrong with this paper</h2>
-<p>The universe is survivorship biased. It is today's large caps, companies already known to have survived, so raw statistics are upper bounds rather than estimates.</p>
-<p>Two survivors is a sample of two. Section 4 is a pattern read off two successes and 182 failures, which is the kind of thing the automated research pipeline behind this site exists to be suspicious of. It is a selection rule for what to test next, not an established finding.</p>
-<p>The lanes were not chosen at random. I tested WorldQuant BRAIN and Microsoft Qlib's public library of 158 technical alphas (Alpha158) because they were available, and a different sample could give a different rate.</p>
-<p>The survivors have not been re-tested on data that did not exist when they passed. That test matters most and it is scheduled, not done.</p>
-<hr />
-<h2>7. Update, 19 August 2026: eighty-eight more judged, and a falsification of Section 4</h2>
-<p>Sections 1 to 6 are a 4 August snapshot. The pipeline kept running, and what it produced since is worse for this paper than the snapshot was. As of 18 August it had judged <b>272</b> ideas rather than 184, and as of today <b>277</b>, with <b>no new trading survivor</b> in either count (one study-lane finding passed on 12 August, the museum&rsquo;s own forecast-calibration self-test; it is not a tradable signal and does not enter the vault count).</p>
-<p>The composition matters more than the total. Of the 88 judged between 4 and 18 August, <b>79 are WorldQuant BRAIN expressions</b> killed inside that vendor's own post-simulation checks (the other nine: five pairs-family rejections, three compelled-counterparty rejections, and one passed study-lane finding), and they are price signals. Only <b>three</b> tested a compelled-counterparty mechanism, which is the thing Section 4 actually predicts should survive at a higher rate. All three were rejected.</p>
-<p>One of those three is the sharpest test this thesis has faced, and it argues against it. <b>Levered ETF end-of-day rebalancing</b> is the purest instance of the definition in Section 4: a leveraged fund must rebalance into the close to maintain its stated exposure, the requirement is mechanical, and the schedule is public. Ticket <span class="mono">2aa66023b9be729f</span>, rejected 14 August at a Newey-West t of <b>&minus;0.03</b>, bootstrap P(Sharpe &le; 0) of 0.53, and an in-sample to out-of-sample degradation of 701%. A second version scaling the flow by SEC-reported fund assets reached t = <b>0.89</b> and also died.</p>
-<p>The honest reading of that ticket is narrower than a flat null, and the record says so. The critic's addendum of 14 August records it as a <b>cost death, not a no-effect</b>: gross return +7.5% a year at a diagnostic t of 2.02, destroyed by the margin-of-safety rerun to t = &minus;3.14. So the mechanism leaves a gross footprint and cannot be traded through this engine's cost assumption. That is the same verdict as Working Paper No. 25, arrived at from the opposite direction, and it is a more interesting result than silence would have been.</p>
-<p>What it is not is evidence for Section 4. An earlier version of this section claimed the recent window ran in the predicted direction. It does not. Section 4 predicts a <b>differential</b> pass rate, forced-flow mechanisms above price signals. Out of sample the forced-flow arm is three tested and zero passed; the price arm is 84 tested and zero passed. Two zeroes distinguish nothing. On the house standard for this kind of comparison the arms would need to be adjudicated in the hundreds before the difference could speak at all, and the one clean instance that did run went the wrong way. Section 4 remains a selection rule for what to test next. It has now survived nothing.</p>
-<p>On the shape of the mortality, an earlier version of this section also read it backwards. Of 274 rejections, 199 carry the stage label <span class="mono">brain-checks</span>, which sounds like a cheap pre-screen and is not one: the vendor loop runs a full simulation first and only then reads the pass flags, so those 199 are <b>completed backtests</b> rejected on their results, chiefly low Sharpe, low fitness and self-correlation. Thirty-eight died at this engine's own validation stage and the remaining 37 are scattered. The funnel is therefore a census of one vendor lane under a foreign rulebook rather than a transferable lesson about where to spend compute, and it is reported here only to correct the earlier claim.</p>
+<p>Microsoft's alphas are variants of one idea, judged together, because many variants mean many chances at luck and the required evidence rises with each attempt.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Microsoft Qlib Alpha158, judged as one family</th>
+<th>Record</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Technical alphas in the library, meaning rule-based trading signals</td><td>158</td></tr>
+<tr><td>Clear a naive t-statistic of 2.5, t being the standard measure of whether a result is distinguishable from luck</td><td>29</td></tr>
+<tr><td>Survive the stress that halves the gross return and doubles the costs</td><td>16 of 29</td></tr>
+<tr><td>Best alpha, days since the high of the last 20 days</td><td>t = 4.46, and 3.68 stressed</td></tr>
+<tr><td>Its Sharpe ratio, return per unit of risk, from the data used to build it to data it never saw</td><td>a 55% collapse, against a 30% limit</td></tr>
+<tr><td>Promoted</td><td><strong>0</strong></td></tr>
+<tr><td>What the library decomposes to</td><td>reversal at short horizons and a volatility risk premium, expressed 158 ways</td></tr>
+<tr><td>What kills it</td><td>out-of-sample decay and the rising evidence bar, not costs</td></tr>
+</tbody>
+</table></div>
 
-<p><strong>Method.</strong> All counts read from the pipeline's database of every idea tested here on 4 August 2026, via the read-only query layer, except the sector and industry grid, whose 32 cells were judged inside its own lab artifact and never filed as database rows. Judged means a test reached a verdict of passed, rejected or decayed; errored and queued tests are excluded from every rate. The stack of statistical hurdles in the main automated lane is a Newey-West t-statistic (adjusted so that autocorrelation in returns does not overstate significance) against a bar raised by a Bonferroni correction for the number of variants of the idea, a ten thousand draw block bootstrap (resampling the return series in blocks to see how often chance alone matches the result), an in-sample to out-of-sample degradation limit, and a rerun for margin of safety with the gross return halved and the costs doubled. Studies in the research lane run a subset and say so in their own papers: the studies of 13F crowding (the 13F is the Securities and Exchange Commission form on which large managers disclose US equity holdings each quarter) and disclosure text were judged on a Newey-West t-statistic against a bar raised for the number of attempts, with no bootstrap, no out-of-sample split and no cost model. Claiming the full stack of hurdles applied to all 184 would be false. Every statistic is computed by deterministic code and none by a language model.</p>
+<h2>3. The two that lived</h2>
+<p>The gamma signal predicts the next day's range, not its direction, and it survives the practitioner's first objection, that this is volatility wearing a costume, but only as an increment to VIX. The bubble screen clears its gate only just, on the honest denominator. Neither survivor is a price factor and neither was clever.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>The two survivors</th>
+<th>What the record says</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><strong>Dealer gamma classifier</strong>, mechanism decades old, published signal dated 2018</td><td>Dealers who are long gamma hedge against the move and compress the day's range. Dealers who are short gamma chase it and expand the range.</td></tr>
+<tr><td>Range, bottom gamma quintile against top</td><td>2.59 times</td></tr>
+<tr><td>Pin rate, top quintile against unconditional</td><td>79.7% against 61%, a lift of 1.31 rather than the naked 80% a reader might price</td></tr>
+<tr><td>Standing alone</td><td>t of 11.14 across 3,565 trading days</td></tr>
+<tr><td>Independent windows</td><td>The regressor is a 252-day rolling percentile, so nearer fourteen than 3,565; the t should be read accordingly</td></tr>
+<tr><td>Correlation with VIX</td><td>&minus;0.47</td></tr>
+<tr><td>Controlling for VIX</td><td>t falls to 7.36, not to nothing; VIX itself carries t = 12.3, so the control dominates and gamma is the increment</td></tr>
+<tr><td>Stressed</td><td>3.68. This lane has no cost model, so stressed here means the effect halved against the unstressed standard error, not the gross-halved and costs-doubled rerun of Section 2.</td></tr>
+<tr><td>Family size</td><td>Recorded as one, which is wrong. This shop has judged at least seven dealer-gamma looks, so the bar is t &ge; 3.13 rather than 2.50. The result clears the corrected bar, so the verdict stands, but as an unauditable pass rather than a clean one.</td></tr>
+<tr><td><strong>Bubble screen</strong>, mechanism decades old, published signal dated 2019</td><td>Names that double inside two years crash more often than a control drawn from the same month.</td></tr>
+<tr><td>Crash rate by name-month</td><td>23.0% against a 15.1% base, a ratio of 1.51</td></tr>
+<tr><td>Crash rate by episode, one flag per run-up, the count the lab itself calls the honest N</td><td>232 of 1,192, or 19.5%, against a 15.2% base: a ratio of 1.283 against a gate set at 1.25</td></tr>
+<tr><td>Stressed z</td><td>5.34</td></tr>
+<tr><td>Episode-level binomial p</td><td>3.7e-05, not the 2.7e-80 the name-month count produces. The gate was evaluated on name-months; the honest margin is the episode one, and it is thin.</td></tr>
+<tr><td>Clustering</td><td>Run-ups arrive in cohorts, so effective independent observations are far below 1,189 and the p-value is optimistic by an amount I have not bounded</td></tr>
+</tbody>
+</table></div>
+
+<h2>4. The question that separates them</h2>
+<p>Positioning against price is too loose a distinction. I believed it, and Commitments of Traders died with the sign the wrong way. Somebody has to be forced. A short-gamma dealer does not decide whether to hedge: the hedge follows from the book he holds, on a schedule the market can see. A speculator long S&amp;P futures holds an opinion, and an opinion poll with a lag is not a mechanism. Hayek got there first. The question is who has to trade tomorrow whether they want to or not.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Positioning and forced-flow mechanisms rejected here</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Commitments of Traders, the Commodity Futures Trading Commission (CFTC) report of futures positioning and the canonical positioning dataset</td><td>3 looks; best t of 1.24 against a required 2.87, sign the wrong way</td></tr>
+<tr><td>The index effect</td><td>rejected 24 July</td></tr>
+<tr><td>Tax-loss harvesting</td><td>rejected 13 July at a negative t</td></tr>
+<tr><td>The tax-loss-selling bounce</td><td>rejected 24 July</td></tr>
+<tr><td>Dividend-cut forced selling</td><td>rejected 28 July at the margin-of-safety rerun</td></tr>
+<tr><td>Levered ETF end-of-day rebalancing</td><td>rejected 14 August, see Section 7</td></tr>
+<tr><td>Mechanisms Section 5 originally named as predictions</td><td>dealer hedging, index reconstitution, selling driven by taxes, liquidation driven by redemptions, margin calls</td></tr>
+</tbody>
+</table></div>
+
+<h2>5. What this predicts</h2>
+<p><i>Corrected 19 August 2026.</i> This section once named forced-flow mechanisms that should clear the bar faster than price signals. Four of them had already been rejected here before publication, which makes them examples rather than predictions. Sentiment and survey data should keep failing, because an opinion imposes no deadline. A sentiment signal clearing a properly raised bar under cost stress would falsify that, and it is cheap to test.</p>
+
+<h2>6. What is wrong with this paper</h2>
+<p>The universe is survivorship biased, today's large caps, so raw statistics are upper bounds rather than estimates. Section 4 is a pattern read off two successes, a selection rule for what to test next rather than a finding. The lanes were not chosen at random. The survivors have not been re-tested on data that postdates their passing, the test that matters most; it is scheduled, not done.</p>
+
+<h2>7. Update, 19 August 2026</h2>
+<p>Sections 1 to 6 are a 4 August snapshot, and what followed is worse for the paper. Levered ETF rebalancing is the purest instance of Section 4's definition, mechanical and publicly scheduled, and it died a cost death rather than a null. Both arms of the differential prediction returned zero, and two zeroes distinguish nothing. Section 4 has survived nothing.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Since the snapshot</th>
+<th>Record</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Judged between 4 and 18 August</td><td>88</td></tr>
+<tr><td>WorldQuant BRAIN expressions, price signals killed inside that vendor's own post-simulation checks</td><td>79</td></tr>
+<tr><td>Pairs-family rejections</td><td>5</td></tr>
+<tr><td>Compelled-counterparty mechanisms tested, the thing Section 4 predicts should survive at a higher rate</td><td>3, all rejected</td></tr>
+<tr><td>Study-lane pass, 12 August: the museum's own forecast-calibration self-test, not a tradable signal, outside the vault count</td><td>1</td></tr>
+<tr><td>Out-of-sample forced-flow arm</td><td>3 tested, 0 passed</td></tr>
+<tr><td>Out-of-sample price arm</td><td>84 tested, 0 passed</td></tr>
+<tr><td>Levered ETF rebalancing, ticket <span class="mono">2aa66023b9be729f</span>, rejected 14 August</td><td>Newey-West t of &minus;0.03, bootstrap P(Sharpe &le; 0) of 0.53, in-sample to out-of-sample degradation of 701%</td></tr>
+<tr><td>The same flow scaled by SEC-reported fund assets</td><td>t = 0.89, also dead</td></tr>
+<tr><td>The critic's addendum of 14 August</td><td>A cost death, not a no-effect: gross return +7.5% a year at a diagnostic t of 2.02, destroyed by the margin-of-safety rerun to t = &minus;3.14. The mechanism leaves a gross footprint and cannot be traded through this engine's cost assumption. Same verdict as Working Paper No. 25, reached from the opposite direction.</td></tr>
+<tr><td>Rejection funnel, of 274 rejections</td><td>199 carry the stage label <span class="mono">brain-checks</span>, which fires only after a completed vendor simulation, chiefly on low Sharpe, low fitness and self-correlation; 38 died at this engine's own validation stage; 37 are scattered. A census of one vendor lane under a foreign rulebook, not a transferable lesson about where to spend compute.</td></tr>
+<tr><td>Comparison standard</td><td>On the house standard the arms would need adjudicating in the hundreds before the difference could speak at all</td></tr>
+</tbody>
+</table></div>
+
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What was done</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Source</td><td>The pipeline's database of every idea tested here on 4 August 2026, read through the read-only query layer, except the sector and industry grid, whose 32 cells were judged inside its own lab artifact and never filed as database rows.</td></tr>
+<tr><td>Judged</td><td>A test that reached a verdict of passed, rejected or decayed. Errored and queued tests are excluded from every rate.</td></tr>
+<tr><td>Main automated lane</td><td>A Newey-West t-statistic, adjusted so that autocorrelation in returns does not overstate significance, against a bar raised by a Bonferroni correction for the number of variants of the idea; a ten thousand draw block bootstrap, resampling the return series in blocks to see how often chance alone matches the result; an in-sample to out-of-sample degradation limit; and a rerun for margin of safety with the gross return halved and the costs doubled.</td></tr>
+<tr><td>Research lane</td><td>A subset, stated in each study's own paper. The studies of 13F crowding (the 13F is the Securities and Exchange Commission form on which large managers disclose US equity holdings each quarter) and of disclosure text were judged on a Newey-West t-statistic against a bar raised for the number of attempts, with no bootstrap, no out-of-sample split and no cost model. Claiming the full stack of hurdles applied to all 184 would be false.</td></tr>
+<tr><td>Computation</td><td>Every statistic is computed by deterministic code and none by a language model.</td></tr>
+</tbody>
+</table></div>
+
 <p><strong>Revision, 19 August 2026.</strong> An adversarial review against the house lens files (Lopez de Prado, Goetzmann, Harvey, Simons) with every count re-read from the pipeline database found six defects that changed a claim, four of them introduced by the 18 August revision. All are corrected above rather than removed. (i) Section 7 claimed the post-4-August window was out-of-sample evidence for Section 4; it is not, and the levered-ETF rebalancing ticket rejected on 14 August is a direct falsification of the thesis, now reported as such. (ii) Section 7 read the rejection funnel backwards: <span class="mono">brain-checks</span> fires after a completed vendor simulation, not before, so those 199 are finished backtests rather than cheap screens. (iii) The count as of 18 August is 272, not 277; 277 is today's. (iv) The bubble screen's published 23.0% was the name-month rate; the episode rate the lab calls honest is 19.5%, ratio 1.283. (v) The gamma signal's recorded family size of one is wrong, the corrected bar at n = 7 is 3.13, and its stressed figure is not the cost-based rerun Section 2 describes. (vi) The deck's &ldquo;judged under this museum's gates&rdquo; was true of 69 of the 184, not all of them. Section 5's prediction list has also been corrected: four of the mechanisms it named had already been rejected here before publication. No survivor verdict changed.</p>
 <p><strong>Revision, 18 August 2026.</strong> Added Section 7 and the survivor statistics in Section 3. Every figure is read from the same database rows that carry each verdict, not restated from memory. No verdict changed and no 4 August count was altered; that snapshot stands as published.</p>
 <p><strong>Revision, 16 August 2026.</strong> An adversarial re-derivation of every count against the database corrected five things: the as-of date is 4 August, not 3 (the published counts are that day's snapshot); the sector grid row is its lab's 32 cells, not 12; the CFTC row is the ticket's 3 declared looks, not 4; the Alpha158 cost sentence now states the record (16 of 29 naive hits survive the doubled-cost stress; decay and the rising bar do the killing); and the casualty and survivor descriptions were tightened. No verdict changed.</p>

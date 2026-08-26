@@ -295,103 +295,64 @@ Drawdown Protocol for Discretionary Risk Oversight</h1>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
-
-
 <p class="abstract"><span class="lab">Abstract.</span> A portfolio is a set of
-claims: the manager attributes its returns to idiosyncratic judgment (stock-specific insight), while the
-risk seat must establish what the book actually owns. I describe two
-disciplines, both run nightly by the automated research pipeline behind this site on its own strategies. The first is
-an exposure dissection separating intended positioning from unintended exposure
-across six ordered layers (market, styles, industry and sector, macro
-sensitivities, crowding and liquidity, and the residual idiosyncratic share),
-decomposed by risk contribution rather than dollar weight and audited for
-factors concealed inside the residual. The second is a pre-committed drawdown
-protocol that fixes diagnosis, escalation ladder, and de-grossing order before
-the loss, so that a failing book is governed by rules set on a calm day. Both
-disciplines are applied to the pipeline itself, which rejected its founder&rsquo;s namesake model at its own gates, four versions running.</p>
+claims. The manager attributes the returns to his own judgement; the risk seat
+has to establish what the book actually owns. Two disciplines follow, both run
+nightly by the automated pipeline behind this site on its own strategies: a
+dissection of intended against unintended exposure across six ordered layers,
+and a drawdown protocol written before the loss.</p>
 <div class="keywords"><b>Keywords:</b> risk decomposition, factor exposure,
 intended versus unintended risk, risk contribution, drawdown protocol,
 de-grossing, liquidity.</div>
 
-<h2>1. Introduction</h2>
-<p>A portfolio is a set of claims. The manager claims the returns come from his
-ideas; the risk seat&rsquo;s task is to establish what the book actually owns.
-These notes distill fifteen years of practice on the risk side of that
-conversation. They cover two disciplines, both practiced nightly by my
-pipeline on its own strategies: a dissection of intended versus unintended
-exposure, and a protocol for the days on which the manager is losing money.</p>
+<h2>1. Intended and unintended exposure</h2>
+<p>The question is not whether the book is risky, because risk is the mandate.
+It is which exposures were chosen and which arrived uninvited. A fundamental
+stock picker is paid for idiosyncratic judgement, and everything else in the
+book is either deliberate ballast or a stowaway. The six layers below are taken
+cheapest explanation first, decomposed by risk contribution rather than dollar
+weight, and run rolling rather than quarterly, because weights drift and
+passivity does not keep a book neutral to factors.</p>
 
-<h2>2. Exposure dissection: intended versus unintended</h2>
-<p>The organizing question is not whether the book is risky; risk is the
-mandate. The question is which exposures were chosen and which arrived
-uninvited. A fundamental stock picker is paid for idiosyncratic judgment;
-everything else in the book is either deliberate ballast or a stowaway. The
-dissection proceeds in six layers, cheapest explanation first.</p>
+<div class="tblwrap">
+<div class="cap"><b>The six layers.</b> Ordered dissection of the book.</div>
+<table>
+<tr><th>Layer</th><th>What the seat measures</th></tr>
+<tr><td>Market</td><td>Net and gross beta, the sensitivity to the overall market. The oldest stowaway is a &ldquo;hedged&rdquo; book with high-beta longs and low-beta shorts, net long the market while its net dollar exposure reads zero.</td></tr>
+<tr><td>Styles</td><td>Size, value, momentum, quality, low volatility, reversal over the short term. Loadings, the estimated sensitivity to each style, checked against what the manager believes he runs.</td></tr>
+<tr><td>Industry and sector</td><td>Concentrations, and the view relative to peers. A &ldquo;diversified&rdquo; book of one sector&rsquo;s suppliers is a single bet expressed through many names.</td></tr>
+<tr><td>Macro sensitivities</td><td>Rates, oil, the dollar, whatever the names transmit. Duration, sensitivity to interest rates, is not only a bond concept.</td></tr>
+<tr><td>Crowding and liquidity</td><td>Ownership overlap with other funds, and the days to liquidate at a reasonable participation rate, a modest share of each day&rsquo;s trading volume. The position that cannot be exited determines the worst week.</td></tr>
+<tr><td>Residual idiosyncratic share</td><td>What fraction of risk is genuinely idiosyncratic once the layers above are removed. A stock picker whose variance is mostly factor is a closet factor fund charging fees for stock picking.</td></tr>
+</table>
+</div>
 
-<h3>2.1 The six layers</h3>
-<ol>
-<li><b>Market.</b> Net and gross beta (beta measures the book&rsquo;s sensitivity to the overall market). The oldest stowaway is a
-&ldquo;hedged&rdquo; book whose longs have high beta and shorts low beta, net
-long the market while its net dollar exposure reads zero.</li>
-<li><b>Styles.</b> Size, value, momentum, quality, low volatility, reversal over
-the short term. The book&rsquo;s returns are regressed on the factor set and the
-loadings (the estimated sensitivity to each style) checked against what the manager believes he runs.</li>
-<li><b>Industry and sector.</b> Concentrations, and the view relative to peers. A
-&ldquo;diversified&rdquo; book of one sector&rsquo;s suppliers is a single bet
-expressed through many names.</li>
-<li><b>Macro sensitivities.</b> Rates, oil, the dollar, whatever the
-book&rsquo;s names transmit. Duration (sensitivity to interest rates) is not only a bond concept.</li>
-<li><b>Crowding and liquidity.</b> Ownership overlap with other funds; the days
-it takes to liquidate at a reasonable participation rate (a modest share of each day&rsquo;s trading volume). The position that
-cannot be exited determines the worst week.</li>
-<li><b>The residual idiosyncratic share.</b> After the preceding layers, what
-fraction of the book&rsquo;s risk is genuinely idiosyncratic. A stock picker
-whose variance is mostly factor is a closet factor fund charging fees for stock
-picking.
-The decomposition is run rolling rather than quarterly, because weights drift
-and books wander into factor bets that no one chose. Passivity does not make a
-book neutral to factors.</li>
-</ol>
+<p>Two adjustments come from the pipeline&rsquo;s own workshop. Dollar weights
+misstate where risk lives, so the blame counter ranks positions by risk
+contribution, whose pieces sum exactly and whose ranking rarely matches the
+position sheet. Work on random matrices supplies the second: residuals
+themselves can conceal a common factor in a concentrated regime, so
+idiosyncratic is a label to verify rather than a property to assume.</p>
 
-<h3>2.2 Two adjustments</h3>
-<p>Two adjustments come from my pipeline&rsquo;s own workshop. The first is the
-blame counter: dollar weights misstate where risk lives, so the book is
-decomposed by risk contribution, whose pieces sum exactly and whose ranking
-rarely matches the position sheet. The second follows from work on random
-matrices:
-even the residuals can conceal a common factor in a concentrated regime, so
-idiosyncratic is treated as a label to verify rather than a property to
-assume.</p>
+<h2>2. The drawdown protocol</h2>
+<p>The worst time to design a policy is inside the loss. The protocol below
+fixes the decisions on a calm day so that the worst day only executes them.
+Mechanical de-grossing, cutting the size of the whole book with longs and
+shorts alike, is nerve exercised in advance rather than nerve failing. The
+deepest task of the risk seat is keeping a skilled manager solvent long enough
+for the skill to compound.</p>
 
-<h2>3. The drawdown protocol</h2>
-<p>The worst time to design a policy is inside the loss. The protocol exists so
-that the decisions are made on a calm day and merely executed on the worst
-one.</p>
-<ol>
-<li><b>Diagnose before acting.</b> Decompose the loss. Is it factor or
-idiosyncratic? A few names or the whole book? Inside the risk budget or
-breaching it? Is the manager losing on his thesis, or on exposures he did not
-know he held? The two have opposite remedies, and acting before answering
-treats both wrongly.</li>
-<li><b>Run the pre-committed ladder.</b> Indicator of early warning &rarr; the
-manager adjusts; first threshold &rarr; escalation; second threshold &rarr;
-mandatory de-risking. Mechanical de-grossing (cutting the size of the whole book, longs and shorts alike) at drawdown levels is the exercise
-of nerve set in advance, not its failure. Triggers set at promotion are never
-renegotiated mid-drawdown; my pipeline applies the same rule to its own
-strategies.</li>
-<li><b>Cut in the right order.</b> The de-grossing sequence is fixed in advance
-(Table 1): gross exposure is reduced first, unintended factor exposures next,
-concentrated and illiquid positions early, and the idiosyncratic names of
-highest conviction last.</li>
-<li><b>Separate loss from error.</b> Good process loses money on bad days; that
-is what risk means. The review asks whether the process was followed, not
-whether the outcome was pleasant. Repeated breaches, however, are structure
-rather than weather, and structure escalates.</li>
-<li><b>Talk to the PM (the portfolio manager).</b> Thesis intact, or broken by new information? The risk
-seat&rsquo;s deepest task is keeping a skilled manager solvent long enough for
-the skill to compound, and distinguishing the defense of a position from the
-defense of a person.</li>
-</ol>
+<div class="tblwrap">
+<div class="cap"><b>The protocol.</b> Settled before the loss, executed inside it.</div>
+<table>
+<tr><th>Step</th><th>Rule</th></tr>
+<tr><td>Diagnose before acting</td><td>Decompose the loss: factor or idiosyncratic, a few names or the whole book, inside the risk budget or breaching it. A manager losing on his thesis and a manager losing on exposures he did not know he held need opposite remedies.</td></tr>
+<tr><td>Run the pre-committed ladder</td><td>Early-warning indicator, the manager adjusts; first threshold, escalation; second threshold, mandatory de-risking. Triggers set at promotion are never renegotiated mid-drawdown, and the pipeline applies the same rule to its own strategies.</td></tr>
+<tr><td>Cut in the right order</td><td>The de-grossing sequence is fixed in advance; see Table 1.</td></tr>
+<tr><td>Separate loss from error</td><td>Good process loses money on bad days, which is what risk means. The review asks whether the process was followed, not whether the outcome was pleasant. Repeated breaches are structure rather than weather, and structure escalates.</td></tr>
+<tr><td>Talk to the PM</td><td>Establish with the portfolio manager whether the thesis is intact or broken by new information, and tell the defence of a position from the defence of a person.</td></tr>
+</table>
+</div>
 
 <div class="tblwrap">
 <div class="cap"><b>Table 1.</b> De-grossing order in a drawdown.</div>
@@ -404,10 +365,16 @@ defense of a person.</li>
 </table>
 </div>
 
+<p>These are methodological field notes from fifteen years on the risk side of
+that conversation. No dataset or backtest is reported here.</p>
+
 <div class="note">My pipeline runs both disciplines on itself: blame counters by
-risk contribution and liquidity breakdowns on every backtest, and
-pre-committed retirement triggers on everything promoted. It rejected the founder&rsquo;s namesake model at those gates. A protocol whose author
+risk contribution and liquidity breakdowns on every backtest, and pre-committed
+retirement triggers on everything promoted. It rejected the founder&rsquo;s
+namesake model at those gates, four versions running. A protocol whose author
 exempts himself from it is a brochure.</div>
+
+</div>
 
 <footer>BlueShip Research &middot; The Risk Museum &middot; educational research
 only; not investment advice. Methodological field notes; no dataset or backtest
