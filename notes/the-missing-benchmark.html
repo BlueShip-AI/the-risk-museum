@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About &middot; The Risk Museum</title>
-<meta name="description" content="Vasilios Dimopoulos on why the failures get published here, how the research process works, and where the evidence behind each claim lives.">
-<link rel="canonical" href="https://theriskmuseum.com/about.html">
+<title>The Missing Benchmark &middot; Working Paper No. 39</title>
+<meta name="description" content="Kalshi&#x27;s CPI ladders beat the Cleveland Fed nowcast, and 57 per cent of monthly prints change bins under revision: the benchmark gap and the measurement trap in prediction-market grading.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/the-missing-benchmark.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
 /* The canonical paper stylesheet. One source, injected inline into every note
@@ -239,79 +239,87 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
   text-transform:uppercase; margin-left:.5rem }
 .trail-why { font:14.5px/1.55 Charter,Georgia,serif; color:var(--muted);
   margin:.3rem 0 0 }
-</style>
+/* share:start */
+.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
+  padding:.45rem .8rem .55rem; background:var(--card,#fff);
+  border:1px solid var(--line,#e3e0da); border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
+.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
+.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
+  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
+  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
+  text-decoration:none }
+.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
+@media (max-width:820px) { .sharebox { display:none } }
+@media print { .sharebox { display:none } }
+/* share:end */</style>
 <!-- social:start -->
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="The Risk Museum">
-<meta property="og:title" content="About &middot; The Risk Museum">
-<meta property="og:description" content="Vasilios Dimopoulos on why the failures get published here, how the research process works, and where the evidence behind each claim lives.">
-<meta property="og:url" content="https://theriskmuseum.com/about.html">
-<meta property="og:image" content="https://theriskmuseum.com/cards/about.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://theriskmuseum.com/cards/about.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About &middot; The Risk Museum">
-<meta name="twitter:description" content="Vasilios Dimopoulos on why the failures get published here, how the research process works, and where the evidence behind each claim lives.">
+<meta property="og:title" content="The Missing Benchmark &middot; Working Paper No. 39">
+<meta property="og:description" content="Kalshi&#x27;s CPI ladders beat the Cleveland Fed nowcast, and 57 per cent of monthly prints change bins under revision: the benchmark gap and the measurement trap in prediction-market grading.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/the-missing-benchmark.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Missing Benchmark &middot; Working Paper No. 39">
+<meta name="twitter:description" content="Kalshi&#x27;s CPI ladders beat the Cleveland Fed nowcast, and 57 per cent of monthly prints change bins under revision: the benchmark gap and the measurement trap in prediction-market grading.">
 <!-- social:end -->
 </head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fthe-missing-benchmark.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=The%20Missing%20Benchmark%20-%20Working%20Paper%20No.%2039&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/the-missing-benchmark.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
 <div class="topbar">
 <!-- brand:start -->
-<a href="./" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
 <!-- brand:end -->
 <nav class="tabs">
-<a href="notes/">Research Notes</a>
-<a href="./">Tested Strategies</a>
-<a href="tradingfloor.html">Trading Floor</a>
-<a href="forecasts.html">Forecast Wing</a>
-<a href="reading-room.html">Library</a>
-<a class="on" href="about.html">About</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../">Tested Strategies</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+<a href="../about.html">About</a>
 </nav>
 </div>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
 <div class="hero"><div class="hero-in">
-<p class="lede">Thanks for finding my site. My name is Vasilios Dimopoulos, and I have spent my career so far in enterprise and strategic risk at big banks here in New York. I built this personal Github page to run a research process to the standard a quant desk would demand.</p>
+<div class="eyebrow">Working Paper No. 39 &middot; BlueShip Research · 1 September 2026 &middot; the companion paper, on grading markets when no benchmark exists</div>
+<h1>The Missing Benchmark</h1>
+<p class="lede">No federal body publishes a probability distribution over any quantity Kalshi settles monthly, so inflation markets cannot be graded the way weather markets can. Against the only official-sector substitute the market still wins, t of 3.45. The more useful result is a trap: 57 per cent of monthly CPI prints change bins under later revisions, so grading these contracts from current data silently mis-scores half the sample. Full paper inside.</p>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> The museum edition of the companion working paper, prepared for the Prediction Markets Conference at Yale School of Management (23 October 2026). The weather paper worked because the government publishes a probabilistic forecast of the settled quantity. This paper is about what happens when it does not. [<b>Read the full paper (PDF, 6 pages).</b>](../papers/Dimopoulos_MissingBenchmark_YalePM2026.pdf)</p>
 
-<h2>Why I built it</h2>
-<p>Risk management taught me to decide what would change my mind before
-looking at the answer, so here the failures get published with their reasons
-and their numbers, and the gates never move to fit a result. Along the way I
-felt compelled to write a few theses down, as well as a set of research notes
-that highlight some broader themes I am following closely.</p>
+<h2>1. The benchmark that does not exist</h2>
+<p>The Bureau of Labor Statistics produces the truth and publishes no forecast of it. No federal body publishes a probability distribution over any quantity Kalshi settles monthly. So inflation markets cannot be graded the way the weather market was, and anyone claiming otherwise has substituted a benchmark of their own choosing. This paper does that substitution in the open, with the only free, vintaged, official-sector forecast of the exact settled quantity: the Cleveland Fed&rsquo;s inflation nowcast.</p>
+<h2>2. The comparison that can be made</h2>
+<div class="tbl"><table>
+<thead><tr><th>Measure</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Contracts, releases</td><td>1,047 across 53 monthly CPI releases</td></tr>
+<tr><td>Brier, market one day before release</td><td><b>0.089</b></td></tr>
+<tr><td>Brier, Cleveland Fed nowcast</td><td>0.137</td></tr>
+<tr><td>Difference</td><td><b>0.049</b> (release-clustered t = 3.45)</td></tr>
+<tr><td>Dispersion sensitivity, 0.6x to 2.0x realised error</td><td>t between 3.3 and 5.3</td></tr>
+<tr><td>Headline monthly / year-over-year</td><td>t = 3.3 / 4.4</td></tr>
+<tr><td>Core year-over-year</td><td>t = 0.55, no advantage</td></tr>
+</tbody></table></div>
+<p>The market is the better forecast where the attention is, and shows nothing where it is not; the paper reports both.</p>
+<h2>3. The measurement trap, which is the more useful result</h2>
+<p>These contracts settle on the <b>first print</b>. BLS re-estimates seasonal factors every February and revises five prior years, so the seasonally adjusted series available today is not the series the contracts were graded against. Of 155 months in the archive, <b>89, or 57 per cent, fall in a different one-tenth-of-a-point bin under the current vintage than under the first print.</b> December 2021 first printed at +0.470 and reads +0.691 today: a contract on &ldquo;above 0.5 per cent&rdquo; settled no and would be scored yes. Any study grading these contracts from a current data pull is silently mis-scoring more than half its sample. That warning holds regardless of every modelling choice in section 2.</p>
+<h2>4. What this does not claim</h2>
+<p>The nowcast is a point forecast, so a dispersion assumption was required; every setting tested leaves the conclusion standing, but the assumption is named. Fifty-three releases is a small sample and is treated as one.</p>
 
-<h2>How I work</h2>
-<p>Thresholds are fixed in code before a test runs, every statistic comes out
-of deterministic Python rather than a language model, each extra look at the
-same data raises the bar for the next one, and I assume the data is wrong
-until I have checked it.</p>
+<div class="prov"><dl>
+<dt>Method</dt><dd>Every number above is regenerated from the lab record by a strict checker before the PDF builds; 124 numbers, none unbacked. Vintage archive and replication are in the paper.</dd>
+<dt>Honesty</dt><dd>The author has never held an account or position on Kalshi or any other prediction-market venue. All data are public.</dd>
+<dt>Related</dt><dd>Working Paper No. 38 (the companion weather paper), No. 16 (calibration), the forecast wing (RN 5, No. 23).</dd>
+</dl></div>
 
-<h2>Where to look if you want to poke at it</h2>
-<ul>
-<li><b><a href="./">Tested Strategies</a></b> is the main thing: the collection
-of <span data-count="retired">284</span> retired strategies, each with the
-reason it died. It includes 158 Qlib alphas, 32 sector books and a family of
-calendar effects, none of which survived an honest bar.</li>
-<li><b><a href="notes/">Research Notes</a></b> is where the reasoning lives,
-<span data-count="notes">41</span> working papers, with five marked as the ones
-to read first.</li>
-<li><b><a href="tradingfloor.html">Trading Floor</a></b> is about portfolio
-construction rather than signals, and why ten desks tend to behave like
-three.</li>
-<li><b><a href="forecasts.html">Forecast Wing</a></b> is me on the record in
-advance: <span data-count="forecasts">14</span> macro forecasts with the
-probability and the resolution criteria fixed before the outcome is known.</li>
-<li><b><a href="reading-room.html">Library</a></b> is
-<span data-count="books">169</span> books and what I actually took from each
-one.</li>
-</ul>
-<p>Every number traces back to the code that produced it, and corrections stay
-visible on the paper rather than being quietly folded in.</p>
-
-<h2>What this is not</h2>
-<p>Not a track record. No capital is at risk here, and a backtest cannot supply what a live book does. Not investment advice, and nothing here is a recommendation to buy or sell. The stock universe is survivorship-biased, so every raw performance figure is an upper bound.</p>
-
-</div></main><script defer src="read-aloud.js?v=0ff38a186c"></script>
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
 </body></html>

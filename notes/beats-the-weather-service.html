@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About &middot; The Risk Museum</title>
-<meta name="description" content="Vasilios Dimopoulos on why the failures get published here, how the research process works, and where the evidence behind each claim lives.">
-<link rel="canonical" href="https://theriskmuseum.com/about.html">
+<title>Does a Prediction Market Beat the Weather Service? &middot; Working Paper No. 38</title>
+<meta name="description" content="A retail prediction market scored against the government&#x27;s own probabilistic forecast of the same quantity: the market wins in all eight cities, and not by relaying the guidance.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/beats-the-weather-service.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
 /* The canonical paper stylesheet. One source, injected inline into every note
@@ -239,79 +239,86 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
   text-transform:uppercase; margin-left:.5rem }
 .trail-why { font:14.5px/1.55 Charter,Georgia,serif; color:var(--muted);
   margin:.3rem 0 0 }
-</style>
+/* share:start */
+.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
+  padding:.45rem .8rem .55rem; background:var(--card,#fff);
+  border:1px solid var(--line,#e3e0da); border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
+.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
+.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
+  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
+  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
+  text-decoration:none }
+.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
+@media (max-width:820px) { .sharebox { display:none } }
+@media print { .sharebox { display:none } }
+/* share:end */</style>
 <!-- social:start -->
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="The Risk Museum">
-<meta property="og:title" content="About &middot; The Risk Museum">
-<meta property="og:description" content="Vasilios Dimopoulos on why the failures get published here, how the research process works, and where the evidence behind each claim lives.">
-<meta property="og:url" content="https://theriskmuseum.com/about.html">
-<meta property="og:image" content="https://theriskmuseum.com/cards/about.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://theriskmuseum.com/cards/about.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About &middot; The Risk Museum">
-<meta name="twitter:description" content="Vasilios Dimopoulos on why the failures get published here, how the research process works, and where the evidence behind each claim lives.">
+<meta property="og:title" content="Does a Prediction Market Beat the Weather Service? &middot; Working Paper No. 38">
+<meta property="og:description" content="A retail prediction market scored against the government&#x27;s own probabilistic forecast of the same quantity: the market wins in all eight cities, and not by relaying the guidance.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/beats-the-weather-service.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Does a Prediction Market Beat the Weather Service? &middot; Working Paper No. 38">
+<meta name="twitter:description" content="A retail prediction market scored against the government&#x27;s own probabilistic forecast of the same quantity: the market wins in all eight cities, and not by relaying the guidance.">
 <!-- social:end -->
 </head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fbeats-the-weather-service.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=Does%20a%20Prediction%20Market%20Beat%20the%20Weather%20Service%3F%20-%20Working%20Paper%20No.%2038&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/beats-the-weather-service.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
 <div class="topbar">
 <!-- brand:start -->
-<a href="./" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
 <!-- brand:end -->
 <nav class="tabs">
-<a href="notes/">Research Notes</a>
-<a href="./">Tested Strategies</a>
-<a href="tradingfloor.html">Trading Floor</a>
-<a href="forecasts.html">Forecast Wing</a>
-<a href="reading-room.html">Library</a>
-<a class="on" href="about.html">About</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../">Tested Strategies</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+<a href="../about.html">About</a>
 </nav>
 </div>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
 <div class="hero"><div class="hero-in">
-<p class="lede">Thanks for finding my site. My name is Vasilios Dimopoulos, and I have spent my career so far in enterprise and strategic risk at big banks here in New York. I built this personal Github page to run a research process to the standard a quant desk would demand.</p>
+<div class="eyebrow">Working Paper No. 38 &middot; BlueShip Research · 1 September 2026 &middot; a full working paper, and the comparison nobody usually gets to make</div>
+<h1>Does a Prediction Market Beat the Weather Service?</h1>
+<p class="lede">On 26,583 contracts across 6,023 city-days in eight US cities, Kalshi&rsquo;s temperature ladders beat the National Weather Service&rsquo;s own probabilistic guidance at the same lead: Brier 0.1355 against 0.1564, t of 22, all eight cities. The market is not relaying the bulletin, and the mechanism is a resolution deficit in the guidance, not a calibration one. Full paper inside.</p>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> The museum edition of a full working paper, prepared for the Prediction Markets Conference at Yale School of Management (23 October 2026). This page carries the claim and the headline numbers; the paper carries the method, the robustness and the references. [<b>Read the full paper (PDF, 9 pages).</b>](../papers/Dimopoulos_WeatherVsNOAA_YalePM2026.pdf)</p>
 
-<h2>Why I built it</h2>
-<p>Risk management taught me to decide what would change my mind before
-looking at the answer, so here the failures get published with their reasons
-and their numbers, and the gates never move to fit a result. Along the way I
-felt compelled to write a few theses down, as well as a set of research notes
-that highlight some broader themes I am following closely.</p>
+<h2>1. The question</h2>
+<p>Prediction market prices are read as probabilities, but they are rarely scored against a professional forecast of the same quantity, because for most events no such forecast exists. Daily maximum temperature is the exception. The National Weather Service publishes, through the National Blend of Models, an operational probabilistic forecast of exactly the quantity Kalshi&rsquo;s temperature ladders settle on, at the same named stations, archived and free. So the comparison nobody usually gets to make is available here in full: a retail market against the government&rsquo;s own probabilistic guidance, on 26,583 contracts across 6,023 city-days in eight US cities, August 2021 to November 2025.</p>
+<h2>2. The answer</h2>
+<p>The market wins, in all eight cities, and not narrowly.</p>
+<div class="tbl"><table>
+<thead><tr><th>Measure</th><th>Market</th><th>The Blend</th></tr></thead>
+<tbody>
+<tr><td>Brier score, 24 hours before close</td><td><b>0.1355</b></td><td>0.1564</td></tr>
+<tr><td>Difference, event-clustered</td><td><b>0.0209</b> (t = 22.2; bootstrap CI 0.0191 to 0.0228)</td><td></td></tr>
+<tr><td>Encompassing regression coefficient</td><td><b>0.98</b> (t = 42.1)</td><td>0.16</td></tr>
+<tr><td>Murphy reliability (lower is better)</td><td><b>0.00027</b></td><td>0.00206</td></tr>
+<tr><td>Murphy resolution (higher is better)</td><td><b>0.03396</b></td><td>0.01521</td></tr>
+</tbody></table></div>
+<p>Two results give the finding its content. The market is not relaying the public bulletin: with both forecasts on the right-hand side, the market enters at essentially one and the guidance collapses to 0.16. And the advantage is not sharpness traded against calibration; the market is better on both terms.</p>
+<h2>3. The mechanism, which is not the obvious one</h2>
+<p>The guidance is not underdispersed. Standardising outcomes by its own stated standard deviation gives a variance of 1.002 on 4,407 events. What it cannot do is vary its spread with the day: where it states one degree of uncertainty the realised dispersion is 1.44, and where it states four degrees, 0.82. Its uncertainty is close to regime-invariant, so it fails to separate easy days from hard ones. That is a resolution deficit, not a calibration one, and it is the kind a market full of people looking out of the window can exploit.</p>
+<h2>4. What this does not claim</h2>
+<p>This is not a demonstration that crowds beat meteorologists. The Blend is automated statistical guidance, not the official human forecast; the market trades after the guidance publishes and may use it freely; and the result is one settled quantity on one venue. The paper states each limit and the timing in full.</p>
 
-<h2>How I work</h2>
-<p>Thresholds are fixed in code before a test runs, every statistic comes out
-of deterministic Python rather than a language model, each extra look at the
-same data raises the bar for the next one, and I assume the data is wrong
-until I have checked it.</p>
+<div class="prov"><dl>
+<dt>Method</dt><dd>Every number above is regenerated from the lab record by a strict checker before the PDF builds; 167 numbers, none unbacked. Data, provenance and replication are in the paper.</dd>
+<dt>Honesty</dt><dd>The author has never held an account or position on Kalshi or any other prediction-market venue. All data are public.</dd>
+<dt>Related</dt><dd>Working Paper No. 39 (the companion, on inflation markets and the benchmark that does not exist), No. 16 (calibration), No. 23 and RN 5 (the forecast wing).</dd>
+</dl></div>
 
-<h2>Where to look if you want to poke at it</h2>
-<ul>
-<li><b><a href="./">Tested Strategies</a></b> is the main thing: the collection
-of <span data-count="retired">284</span> retired strategies, each with the
-reason it died. It includes 158 Qlib alphas, 32 sector books and a family of
-calendar effects, none of which survived an honest bar.</li>
-<li><b><a href="notes/">Research Notes</a></b> is where the reasoning lives,
-<span data-count="notes">41</span> working papers, with five marked as the ones
-to read first.</li>
-<li><b><a href="tradingfloor.html">Trading Floor</a></b> is about portfolio
-construction rather than signals, and why ten desks tend to behave like
-three.</li>
-<li><b><a href="forecasts.html">Forecast Wing</a></b> is me on the record in
-advance: <span data-count="forecasts">14</span> macro forecasts with the
-probability and the resolution criteria fixed before the outcome is known.</li>
-<li><b><a href="reading-room.html">Library</a></b> is
-<span data-count="books">169</span> books and what I actually took from each
-one.</li>
-</ul>
-<p>Every number traces back to the code that produced it, and corrections stay
-visible on the paper rather than being quietly folded in.</p>
-
-<h2>What this is not</h2>
-<p>Not a track record. No capital is at risk here, and a backtest cannot supply what a live book does. Not investment advice, and nothing here is a recommendation to buy or sell. The stock universe is survivorship-biased, so every raw performance figure is an upper bound.</p>
-
-</div></main><script defer src="read-aloud.js?v=0ff38a186c"></script>
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
 </body></html>
