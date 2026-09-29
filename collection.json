@@ -1,11 +1,1459 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-09-06",
- "works_tested": 589,
+ "exported": "2026-09-29",
+ "works_tested": 829,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -rank(actual_sales_value_quarterly / ts_mean(actual_sales_value_quarterly, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-26"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(actual_dividend_value_quarterly) - zscore(implied_volatility_mean_skew_60), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-26"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(historical_volatility_90, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-26"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(snt_buzz_fast_d1, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-26"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(common_stock_issuance_proceeds_2, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-26"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(implied_volatility_mean_skew_120, anl4_cfo_mean, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(fair_value_derivative_liabilities / ts_mean(fair_value_derivative_liabilities, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(anl4_capex_mean, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_af_div_value, anl4_capex_number, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(annual_intangible_amortization_expense_second_year, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(actual_eps_value_quarterly, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(anl4_afv4_cfps_median / ts_mean(anl4_afv4_cfps_median, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(current_income_tax_expense_amount, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(debt_repayments_total_2, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(common_stock_issuance_proceeds, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(implied_volatility_mean_skew_1080, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(deferred_local_income_tax_expense, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-25"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(implied_volatility_mean_skew_180, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(pv13_reveremap) - zscore(fnd6_beta), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(pv13_custretsig_retsig, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(fnd6_dcvsub) - zscore(anl4_afv4_cfps_mean), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(actual_eps_value_quarterly, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(implied_volatility_mean_skew_20, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(implied_volatility_mean_skew_90) - zscore(scl12_sentiment_fast_d1))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(common_stock_issuance_proceeds / ts_mean(common_stock_issuance_proceeds, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(fnd6_dd, debt_repayment_year_three, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(snt_value, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(accumulated_oci_net_of_tax_value) - zscore(snt_value))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(anl4_dts_ptp, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(implied_volatility_mean_skew_120 / ts_mean(implied_volatility_mean_skew_120, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(credit_facility_max_borrowing) - zscore(anl4_afv4_cfps_median), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(antidilutive_securities_excluded_eps, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(deferred_federal_income_tax_expense, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(anl4_bvps_mean, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(current_federal_tax_expense_amount / ts_mean(current_federal_tax_expense_amount, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(anl4_afv4_div_low, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(anl4_afv4_div_mean) - zscore(anl4_cff_mean), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(implied_volatility_mean_skew_90, annual_intangible_assets_net_carrying_value, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(snt_buzz_ret_fast_d1, 5))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(fnd6_esubc, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_cff_median, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-23"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(fair_value_derivative_liabilities, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(rel_num_cust) - zscore(common_stock_issuance_proceeds_2))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(debt_principal_due_year_five / ts_mean(debt_principal_due_year_five, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(anl4_cfi_mean, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(comprehensive_income_net_tax, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(implied_volatility_mean_skew_360 / ts_mean(implied_volatility_mean_skew_360, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(credit_facility_max_borrowing_2 / ts_mean(credit_facility_max_borrowing_2, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(debt_repayments_total_2, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: rank(historical_volatility_10 / ts_mean(historical_volatility_10, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(fnd6_dcvsr, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(rel_ret_comp, 5))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, HIGH_TURNOVER, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(fnd6_cptnewqv1300_epsx12, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-22"
+  },
+  {
+   "claim": "BRAIN candidate: rank(debt_principal_due_year_five / ts_mean(debt_principal_due_year_five, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(antidilutive_securities_excluded_eps, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(implied_volatility_put_1080, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(implied_volatility_call_20, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(pv13_revere_parent, fnd6_dxd4, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(current_federal_tax_expense_amount, fnd6_dcvsub, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(snt_buzz_ret) - zscore(domestic_ebit_value))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(parkinson_volatility_150, adj_net_income_median, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(anl4_bvps_median, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(implied_volatility_mean_270, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(actual_sales_value_annual) - zscore(anl4_cff_mean))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(anl4_bvps_high / ts_mean(anl4_bvps_high, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(annual_intangible_assets_net_carrying_value, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(adj_net_income_avg, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(fnd6_dxd3 / ts_mean(fnd6_dxd3, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(implied_volatility_put_720, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(adj_net_income_stddev, anl4_cff_median, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_afv4_cfps_median, snt_value_fast_d1, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(fnd6_dltp, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(current_foreign_tax_expense_value, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(parkinson_volatility_30, 5))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(implied_volatility_mean_skew_30, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, HIGH_TURNOVER, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_afv4_cfps_number, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-20"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(snt_buzz_ret_fast_d1, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(anl4_afv4_cfps_median, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(anl4_afv4_eps_low, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(adj_net_income_stddev, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(anl4_af_eps_value, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(implied_volatility_mean_30, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: rank(accumulated_oci_net_of_tax_value / ts_mean(accumulated_oci_net_of_tax_value, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(snt_value, deferred_tax_liability_property_plant_equipment, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(implied_volatility_put_10, anl4_bvps_value, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(implied_volatility_put_720, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(common_stock_buyback_payments, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(implied_volatility_mean_skew_20, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-19"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(snt_value / ts_mean(snt_value, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(derivative_liability_fair_value, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(deferred_tax_liability_property_plant_equipment) - zscore(anl4_afv4_eps_number), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_capex_number, scl12_sentiment, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: rank(actual_eps_value_quarterly / ts_mean(actual_eps_value_quarterly, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(common_stock_repurchase_payment, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(diluted_shares_outstanding_adjustment_avg / ts_mean(diluted_shares_outstanding_adjustment_avg, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(anl4_cff_number / ts_mean(anl4_cff_number, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(implied_volatility_mean_150) - zscore(anl4_afv4_div_mean), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(adj_net_income_stddev) - zscore(implied_volatility_mean_skew_60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(common_stock_buyback_payments) - zscore(historical_volatility_150))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(analyst_revision_rank_derivative, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-18"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(fnd6_cptnewqv1300_epsx12 / ts_mean(fnd6_cptnewqv1300_epsx12, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(parkinson_volatility_90, fnd6_cptnewqv1300_actq, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(derivative_liability_fair_value, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(historical_volatility_30) - zscore(pv13_revere_country), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(anl4_afv4_cfps_high, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(fnd6_dxd3, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(fnd6_dlcch, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_capex_number, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(common_stock_repurchase_payment, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(anl4_cfo_number, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(implied_volatility_mean_skew_270, credit_facility_outstanding_amount, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(parkinson_volatility_150) - zscore(snt_buzz_ret), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-17"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(deferred_local_income_tax_expense) - zscore(common_stock_issuance_proceeds_2))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-16"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(implied_volatility_mean_60, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-16"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(credit_facility_max_borrowing) - zscore(deferred_federal_income_tax_expense))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-16"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(parkinson_volatility_60) - zscore(anl4_afv4_median_eps))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-15"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(current_state_local_tax_expense_amount / ts_mean(current_state_local_tax_expense_amount, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-15"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(fnd6_dd4) - zscore(exercisable_options_count))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-15"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(historical_volatility_20, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-15"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(anl4_cff_mean, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-14"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(equipment_maximum_useful_life) - zscore(anl4_afv4_cfps_median))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_TURNOVER, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-14"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(historical_volatility_30, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-14"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(comprehensive_income_net_tax, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-13"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(anl4_capex_mean, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-13"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(anl4_afv4_cfps_low / ts_mean(anl4_afv4_cfps_low, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(implied_volatility_mean_skew_720, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(fnd6_dd2) - zscore(debt_repayment_year_three), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(debt_principal_due_year_five, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(fnd6_dxd2, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(current_state_local_tax_expense_amount) - zscore(debt_issuance_costs_expense))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(implied_volatility_mean_skew_720, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(implied_volatility_mean_skew_20 / ts_mean(implied_volatility_mean_skew_20, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(credit_facility_outstanding_amount, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(current_state_local_tax_expense_amount, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(anl4_afv4_cfps_median, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(anl4_afv4_div_number, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-12"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(actual_eps_value_quarterly, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(snt_buzz_bfl_fast_d1, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(pv13_ompetitorgraphrank_hub_rank, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(rel_ret_part) - zscore(pv13_revere_city))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(fnd6_fatc, anl4_capex_number, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(deferred_tax_liability_property_plant_equipment / ts_mean(deferred_tax_liability_property_plant_equipment, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(deferred_tax_liabilities_total_4, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(implied_volatility_mean_skew_30) - zscore(anl4_afv4_div_mean))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(current_income_tax_expense_amount, anl4_afv4_cfps_number, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(anl4_afv4_median_eps) - zscore(anl4_afv4_cfps_number))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(pv13_revere_key_sector_total) - zscore(fnd6_fatb))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(anl4_af_div_value, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-11"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(fnd6_cptnewqv1300_saleq, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-10"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(fnd6_dpvieb, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-10"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(current_state_local_tax_expense_amount, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-09"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(parkinson_volatility_90, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-09"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(common_stock_issuance_proceeds, 5))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-09"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(adj_net_income_stddev, 5))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-08"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(fnd6_esopct / ts_mean(fnd6_esopct, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(fnd6_cshr, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(actual_sales_value_annual, implied_volatility_mean_skew_360, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(fnd6_esopct, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(fnd6_dilavx, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(anl4_cfi_median) - zscore(adj_net_income_avg))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(common_stock_issuance_proceeds_2, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(fnd6_dd4, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(anl4_afv4_div_median, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(adj_net_income_avg) - zscore(anl4_capex_mean), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(anl4_afv4_cfps_high, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(pv13_ompetitorgraphrank_hub_rank, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-07"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_bvps_median, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-06"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(fnd6_donr) - zscore(implied_volatility_mean_skew_30), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(credit_facility_max_borrowing, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(anl4_afv4_eps_low, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(parkinson_volatility_150, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(implied_volatility_mean_270 / ts_mean(implied_volatility_mean_270, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(domestic_ebit_value, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(adj_net_income_median, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(annual_intangible_assets_net_carrying_value, 5))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(fnd6_dilavx, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(current_income_tax_expense_amount) - zscore(adj_net_income_median))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(current_federal_tax_expense_amount, fnd6_dxd2, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(anl4_af_eps_value, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-05"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(deferred_tax_liabilities_total_4, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-04"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(finite_intangibles_gross_value, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-09-04"
+  },
   {
    "claim": "BRAIN candidate: rank(ts_corr(debt_maturities_repayments_next12m, anl4_afv4_eps_low, 120))",
    "stage": "brain-checks",
