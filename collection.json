@@ -1,11 +1,131 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-10-03",
- "works_tested": 881,
+ "exported": "2026-10-04",
+ "works_tested": 893,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -rank(anl4_afv4_cfps_mean / ts_mean(anl4_afv4_cfps_mean, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(debt_principal_due_year_five, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(equity_awards_granted_non_option_period, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(anl4_cfi_mean) - zscore(anl4_afv4_dts_spe), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(scl12_sentiment, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(parkinson_volatility_150, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(implied_volatility_mean_skew_720, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(debt_issuance_proceeds) - zscore(snt_value_fast_d1), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(historical_volatility_10, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(implied_volatility_call_20, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(deferred_federal_income_tax_expense, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(scl12_buzz, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-01"
+  },
+  {
+   "claim": "When the one-year trend in U.S. inflation is rising, the high-minus-low inflation-beta industry spread outperforms its own average, and when the trend is falling it underperforms. The demeaned regime-conditioned series clears validate() at family_n 10, the same n as T1.",
+   "stage": "4",
+   "reason": "Newey-West t=0.61 < 3.23 (base 2.5, family n=10); bootstrap P(Sharpe<=0)=0.2412 > 0.005 (base 0.05, family n=10); margin-of-safety rerun (gross halved, costs doubled) t=-0.27 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 107% > 30% (IS 0.52 -> OOS -0.04) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "AQR's economic-trend inflation theme (p21) moved from asset-class timing into the U.S. industry cross-section: does a rising inflation trend favour high-inflation-beta industries beyond their unconditional spread?",
+   "tested": "2026-09-30"
+  },
+  {
+   "claim": "Across Ken French's 49 U.S. industry portfolios, industries with the lowest point-in-time inflation-news beta earn higher subsequent returns than those with the highest. The low-minus-high quintile spread, rebalanced quarterly, clears validate() at family_n 10, the same n as T2.",
+   "stage": "4",
+   "reason": "L1: Newey-West t=-0.74 < 3.23 (base 2.5, family n=10); bootstrap P(Sharpe<=0)=0.7570 > 0.005 (base 0.05, family n=10); margin-of-safety rerun (gross halved, costs doubled) t=-0.45 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 5776% > 30% (IS 0.04 -> OOS -2.07) \u2014 overfitting signature | L2: Newey-West t=1.31 < 3.23 (base 2.5, family n=10); bootstrap P(Sharpe<=0)=0.0738 > 0.005 (base 0.05, family n=10); margin-of-safety rerun (gross halved, costs doubled) t=0.52 < 2.5 \u2014 edge has no buffer; IS/OOS degradation 139% > 30% (IS 1.47 -> OOS -0.57) \u2014 overfitting signature",
+   "status": "rejected",
+   "about": "Is point-in-time exposure to U.S. inflation news priced across U.S. industries? If inflation surprises are bad states, industries that hedge them should earn less (AQR AT 2026 Issue 3, p6).",
+   "tested": "2026-09-30"
+  },
+  {
+   "claim": "After each BLS CPI release, stocks in the top quintile of point-in-time release-day inflation beta move in the surprise's direction relative to the bottom quintile over trading days +2 to +21. The mean per-event return clears validate() at family_n 2.",
+   "stage": "4",
+   "reason": "L1: Newey-West t=-1.38 < 2.74 (base 2.5, family n=2); bootstrap P(Sharpe<=0)=0.8546 > 0.025 (base 0.05, family n=2); margin-of-safety rerun (gross halved, costs doubled) t=-2.06 < 2.5 \u2014 edge has no buffer; in-sample Sharpe -1.75 <= 0 | L2: Newey-West t=1.07 < 2.74 (base 2.5, family n=2); bootstrap P(Sharpe<=0)=0.1807 > 0.025 (base 0.05, family n=2); margin-of-safety rerun (gross halved, costs doubled) t=-0.85 < 2.5 \u2014 edge has no buffer",
+   "status": "rejected",
+   "about": "After a U.S. CPI release, do stocks with high release-day inflation beta keep moving with the inflation surprise over the next month?",
+   "tested": "2026-09-30"
+  },
   {
    "claim": "BRAIN candidate: group_zscore(ts_delta(implied_volatility_put_20, 120), industry)",
    "stage": "brain-checks",
