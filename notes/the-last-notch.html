@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About &middot; The Risk Museum</title>
-<meta name="description" content="Vasilios Dimopoulos on why the failures get published here, how the research process works, and where the evidence behind each claim lives.">
-<link rel="canonical" href="https://theriskmuseum.com/about.html">
+<title>The Last Notch &middot; Working Paper No. 45</title>
+<meta name="description" content="A pre-registered forecast family on Oracle&#x27;s investment-grade rating and PJM&#x27;s capacity price cap, graded forecast only, with the 1992 structure test it fails today.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/the-last-notch.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
 /* The canonical paper stylesheet. One source, injected inline into every note
@@ -239,81 +239,104 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
   text-transform:uppercase; margin-left:.5rem }
 .trail-why { font:14.5px/1.55 Charter,Georgia,serif; color:var(--muted);
   margin:.3rem 0 0 }
-</style>
+/* share:start */
+.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
+  padding:.45rem .8rem .55rem; background:var(--card,#fff);
+  border:1px solid var(--line,#e3e0da); border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
+.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
+.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
+  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
+  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
+  text-decoration:none }
+.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
+@media (max-width:820px) { .sharebox { display:none } }
+@media print { .sharebox { display:none } }
+/* share:end */</style>
 <!-- social:start -->
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="The Risk Museum">
-<meta property="og:title" content="About &middot; The Risk Museum">
-<meta property="og:description" content="Vasilios Dimopoulos on why the failures get published here, how the research process works, and where the evidence behind each claim lives.">
-<meta property="og:url" content="https://theriskmuseum.com/about.html">
-<meta property="og:image" content="https://theriskmuseum.com/cards/about.png">
+<meta property="og:title" content="The Last Notch &middot; Working Paper No. 45">
+<meta property="og:description" content="A pre-registered forecast family on Oracle&#x27;s investment-grade rating and PJM&#x27;s capacity price cap, graded forecast only, with the 1992 structure test it fails today.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/the-last-notch.html">
+<meta property="og:image" content="https://theriskmuseum.com/cards/note-the-last-notch.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://theriskmuseum.com/cards/about.png">
+<meta name="twitter:image" content="https://theriskmuseum.com/cards/note-the-last-notch.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About &middot; The Risk Museum">
-<meta name="twitter:description" content="Vasilios Dimopoulos on why the failures get published here, how the research process works, and where the evidence behind each claim lives.">
+<meta name="twitter:title" content="The Last Notch &middot; Working Paper No. 45">
+<meta name="twitter:description" content="A pre-registered forecast family on Oracle&#x27;s investment-grade rating and PJM&#x27;s capacity price cap, graded forecast only, with the 1992 structure test it fails today.">
 <!-- social:end -->
 </head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fthe-last-notch.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=The%20Last%20Notch%20-%20Working%20Paper%20No.%2045&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/the-last-notch.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
 <div class="topbar">
 <!-- brand:start -->
-<a href="./" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
 <!-- brand:end -->
 <nav class="tabs">
-<a href="notes/">Research Notes</a>
-<a href="./">Tested Strategies</a>
-<a href="tradingfloor.html">Trading Floor</a>
-<a href="forecasts.html">Forecast Wing</a>
-<a href="reading-room.html">Library</a>
-<a class="on" href="about.html">About</a>
+<a class="on" href="./">Research Notes</a>
+<a href="../">Tested Strategies</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+<a href="../about.html">About</a>
 </nav>
 </div>
 <a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
 <div class="hero"><div class="hero-in">
-<p class="lede">Thanks for finding my site. My name is Vasilios Dimopoulos, and I have spent my career so far in enterprise and strategic risk at big banks here in New York. I built this personal Github page to run a research process to the standard a quant desk would demand.</p>
+<div class="eyebrow">Working Paper No. 45 &middot; BlueShip Research · 7 October 2026 &middot; a forecast graded as a forecast</div>
+<h1>The Last Notch</h1>
+<p class="lede">I looked in my own work for a claim with the shape of the 1992 sterling episode, a public commitment that could be abandoned, and found one, Oracle&rsquo;s last investment-grade notch. Tested against that structure it fails today, so I registered nine claims and let the dates decide.</p>
 <div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
 </div></div>
 <main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> A forecast, graded as such. I looked in my own work for a claim with the shape of the 1992 sterling episode, a public commitment that could be abandoned, and found one. Tested against that structure it fails today, so I register it and let the dates decide.</p>
 
-<h2>Why I built it</h2>
-<p>Risk management taught me to decide what would change my mind before
-looking at the answer, so here the failures get published with their reasons
-and their numbers, and the gates never move to fit a result. Along the way I
-felt compelled to write a few theses down, as well as a set of research notes
-that highlight some broader themes I am following closely. If you read one
-thing here, read <a href="notes/the-gate-is-the-product.html">The Gate Is the
-Product</a>, which states in one page what the rest of the site demonstrates.</p>
+<h2>1. The commitment</h2>
+<p>On 1 February 2026 Oracle published a financing plan to keep an investment-grade balance sheet and said so again in March. My Backlog Ledger (No. 44) sets out the arithmetic behind that promise. Oracle spends $1.62 on capital spending and finance-lease repayments for every dollar of operating cash, against 87 cents across the seven builders together. It has $288bn of leases signed and not yet begun, trailing free cash flow of minus $28.7bn, and a backlog that needs $20.75bn of revenue a quarter against $19.3bn in its latest. Last quarter $11.4bn of its operating cash was customer prepayments, and its first $20bn equity programme is used up.</p>
+<p>The registered claims test whether three things can hold together: the grade, the build the backlog promises, and funding that does not come from the buyers whose credit is the risk. In 1992 the parity, German rates and British mortgages could not.</p>
+<h2>2. Why it is not a 1992 bet today</h2>
+<div class="tbl"><table>
+<thead><tr><th>Element</th><th>1992</th><th>Oracle, October 2026</th></tr></thead>
+<tbody>
+<tr><td>Ammunition that cannot be printed</td><td>Reserves of about $40bn against the selling</td><td>Partial. Oracle cannot print cash, but it can dilute and draw prepayments</td></tr>
+<tr><td>A clock the defender does not control</td><td>A referendum on a fixed date</td><td>None. S&amp;P&rsquo;s outlook is stable, and its own criteria call that a rating not likely to change</td></tr>
+<tr><td>The ally refuses</td><td>The Bundesbank declined to help</td><td>Shareholders and customers supplied $31bn in one quarter; the labs still raise at higher marks</td></tr>
+<tr><td>A bounded cost of being wrong</td><td>Carry under 20bp a year, and the Bank had to buy at the band</td><td>Protection costs about 249bp a year on the public tape, between the BB (191bp) and single-B (312bp) index averages, so a label change is largely in the price. No level pins the spread, and fallen-angel spreads have on average tightened after an index exit, a base rate from the literature, not a view on this issuer</td></tr>
+</tbody></table></div>
+<p>Three of the four fail and the first is partial. The closest analogue is the French franc of September 1992, which carried a similar reading and held because its ally stood behind it. The conditions under which the three failing elements would turn are stated here in advance: an agency has started a clock, protection trades at or inside the BB index average, and the ally has refused on a dated event. Until then the family stays graded FORECAST ONLY.</p>
+<h2>3. The claims</h2>
+<p>Nine claims, registered 5 October 2026, frozen by hash on the Forecast Wing and priced 7 October 2026, scored by Brier whichever way they fall. Six are on Oracle, three on PJM&rsquo;s capacity price cap, carried because my forecast F7 already sits on it. Probabilities are mine; the engine supplied the base rates.</p>
+<div class="tbl"><table>
+<thead><tr><th>Id</th><th>Claim, in short</th><th>Registered deadline</th><th>P</th></tr></thead>
+<tbody>
+<tr><td>O1</td><td>Oracle&rsquo;s middle rating is BB+ or lower on a month-end between 30 Oct 2026 and 30 Sep 2027</td><td>30 Sep 2027</td><td>8%</td></tr>
+<tr><td>O2</td><td>An agency starts a clock (a watch or review by any of the three, or a cut by any of them) by 31 Mar 2027</td><td>31 Mar 2027</td><td>30%</td></tr>
+<tr><td>O3</td><td>Oracle&rsquo;s 10-Q for the November quarter shows prepayments below $11,363m</td><td>31 Jan 2027</td><td>75%</td></tr>
+<tr><td>O4</td><td>OpenAI closes at least $30bn at $852bn or better by 31 Mar 2027</td><td>31 Mar 2027</td><td>70%</td></tr>
+<tr><td>O5</td><td>O1, scored only if O4 fails</td><td>30 Sep 2027</td><td>20%</td></tr>
+<tr><td>O6</td><td>Both: No. 44&rsquo;s P3 is met and O1 resolves YES</td><td>30 Sep 2027</td><td>5%</td></tr>
+<tr><td>G1</td><td>The 2029/30 auction clears below the $337.83 cap</td><td>31 Dec 2027</td><td>35%</td></tr>
+<tr><td>G2</td><td>No cap is in force when the 2030/31 auction opens</td><td>31 Dec 2027</td><td>30%</td></tr>
+<tr><td>G3</td><td>The 2030/31 price clears above the old cap, re-expressed</td><td>31 Dec 2027</td><td>18%</td></tr>
+</tbody></table></div>
+<p>Full wording, sources and resolution rules are on the wing. The events come sooner than the deadlines: Oracle&rsquo;s November-quarter 10-Q about December 2026, the 2029/30 auction results about 22 December 2026, the 2030/31 auction in May 2027. O6 is the cell that matters: the promises are kept and the grade is lost in the same year, the pattern of the fibre build of 2000.</p>
+<h2>4. What this does not claim</h2>
+<p>It is not advice and I hold no position; this site trades on paper only. The structure does not guarantee the outcome: the franc held. Nothing here says Oracle will lose its grade or that any obligation will go unpaid; my ledger shows 19 of 19 closed promises met. The ratings, the March reaffirmation and OpenAI&rsquo;s valuation come from secondary sources. Nine claims that share one driver, the AI capital cycle, are not nine independent bets.</p>
 
-<h2>How I work</h2>
-<p>Thresholds are fixed in code before a test runs, every statistic comes out
-of deterministic Python rather than a language model, each extra look at the
-same data raises the bar for the next one, and I assume the data is wrong
-until I have checked it.</p>
+<div class="prov"><dl>
+<dt>Method</dt><dd>The structure test is the 1992 trade dissected into twelve elements, four of them fatal if missing: unprintable ammunition, no deep-pocketed ally, a bounded cost of being wrong and a dated forcing event. Forty-eight looks from my research, overlaps not removed, were screened against it. Claim text, criteria and sources were frozen on 5 October 2026 (SHA-256 2472c493734caac294363bedb2e458afdccf52fb05b521f1b9c4265b3efe5211) before any probability was set.</dd>
+<dt>Sources</dt><dd>Oracle 10-Q 0001193125-26-389274 and 10-K 0001193125-26-277521; Oracle&rsquo;s financing plan of 1 February 2026 (SEC free-writing prospectus); the Bloomberg US Corporate Index factsheet; PJM&rsquo;s 2029/30 planning parameters and FERC docket ER26-3515; Working Paper No. 44 and its spec. Protection levels are daily medians from the DTCC public price-dissemination tape for 1 and 2 October 2026, a partial tape of reportable trades; index spreads are from FRED.</dd>
+<dt>Honesty</dt><dd>The Oracle claims are probabilities on a rating label, set with the current spread in view, though no probability was derived from it; they are graded FORECAST ONLY and that grade is the point. O2 sits above the engine&rsquo;s band; the seven others priced against a band sit inside it, and O3 has none. G1 cuts against my own F7 (72%): the two are scored jointly so that two YES results count once. No claim here passed a gate; an event of one cannot. The cost of being wrong is a Brier score and a line in my own graveyard.</dd>
+<dt>Related</dt><dd>No. 44, The Backlog Ledger. No. 40, The Gate Is the Product. F7 on the Forecast Wing.</dd>
+</dl></div>
 
-<h2>Where to look if you want to poke at it</h2>
-<ul>
-<li><b><a href="./">Tested Strategies</a></b> is the main thing: the collection
-of <span data-count="retired">576</span> retired strategies, each with the
-reason it died. It includes 158 Qlib alphas, 32 sector books and a family of
-calendar effects, none of which survived an honest bar.</li>
-<li><b><a href="notes/">Research Notes</a></b> is where the reasoning lives,
-<span data-count="notes">44</span> working papers, with five marked as the ones
-to read first.</li>
-<li><b><a href="tradingfloor.html">Trading Floor</a></b> is about portfolio
-construction rather than signals, and why ten desks tend to behave like
-three.</li>
-<li><b><a href="forecasts.html">Forecast Wing</a></b> is me on the record in
-advance: <span data-count="forecasts">23</span> macro forecasts with the
-probability and the resolution criteria fixed before the outcome is known.</li>
-<li><b><a href="reading-room.html">Library</a></b> is
-<span data-count="books">172</span> books and what I actually took from each
-one.</li>
-</ul>
-<p>Every number traces back to the code that produced it, and corrections stay
-visible on the paper rather than being quietly folded in.</p>
-
-<h2>What this is not</h2>
-<p>Not a track record. No capital is at risk here, and a backtest cannot supply what a live book does. Not investment advice, and nothing here is a recommendation to buy or sell. The stock universe is survivorship-biased, so every raw performance figure is an upper bound.</p>
-
-</div></main><script defer src="read-aloud.js?v=0ff38a186c"></script>
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
 </body></html>
