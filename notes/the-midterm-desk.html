@@ -1,0 +1,361 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Midterm Desk &middot; Working Paper No. 46</title>
+<meta name="description" content="A pod-by-pod reading of the 2026 midterm from a quant researcher&#x27;s seat, with every statistic marked exploratory and uncorrected.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/the-midterm-desk.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* The canonical paper stylesheet. One source, injected inline into every note
+   by pipeline/restyle_notes.py so pages stay self-contained. Edit HERE and
+   re-run that script; editing a note's own style block is a losing move.
+
+   The format follows an institutional research-article convention: a dark
+   hero band carrying an eyebrow, a large light grotesque headline and a serif
+   lede, then a left-aligned serif text column. Fonts are system faces only.
+   Identity stays the museum's: Charter body, the crest, navy, the red accent
+   where things die, and gold reserved for the vault. */
+
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b;
+  --hero:#0f1c33; --heroink:#f2efe8; --herosub:#c9cfda; --heromut:#8fa0bb;
+  --gold:#b8860b; --goldhero:#e0bc6a; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc;
+    --hero:#0c1626; --gold:#e0bc6a; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg); position:relative;
+  font:18px/1.72 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif;
+  font-variant-numeric:lining-nums; padding:0 0 4.5rem; }
+
+/* topbar: brand left, tabs right */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
+.brand-lockup img { display:block }
+nav.tabs { display:flex; gap:1.1rem; margin-left:auto; flex:1 1 auto;
+  min-width:0; justify-content:flex-end; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
+nav.tabs::-webkit-scrollbar { display:none }
+@media (max-width:899px) { nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) { nav.tabs { -webkit-mask-image:none; mask-image:none } }
+nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; flex:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+nav.tabs a.on { color:var(--fg); border-bottom-color:var(--gold) }
+nav.tabs a:hover { color:var(--fg) }
+@media (max-width:820px) {
+  nav.tabs { gap:.9rem; overflow-x:auto; scrollbar-width:none }
+  nav.tabs::-webkit-scrollbar { display:none } }
+
+/* the get-in-touch mark, floated over the hero's top right */
+.tearmark { position:absolute; top:4.4rem; right:1.2rem; z-index:60;
+  display:block; padding:.45rem .8rem .5rem; background:var(--card);
+  border:1px solid var(--line); border-radius:8px; text-decoration:none;
+  line-height:1.3; box-shadow:0 2px 10px rgba(0,0,0,.18) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.8rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:820px) { .tearmark { display:none } }
+@media print { .tearmark { display:none } }
+
+/* hero band */
+.hero { background:var(--hero); color:var(--heroink);
+  padding:3.6rem 1.5rem 3rem; border-bottom:1px solid var(--line) }
+.hero-in { max-width:912px; margin:0 auto }
+.eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--goldhero);
+  margin-bottom:1.5rem }
+.hero h1 { font:300 clamp(32px,5vw,46px)/1.16 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.02em; color:var(--heroink); max-width:17em; margin:0 0 1.5rem }
+.hero .lede { font:italic 20px/1.55 Charter,Georgia,serif; color:var(--herosub);
+  max-width:42em; margin:0 0 1.9rem }
+.hero .who { font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--heromut) }
+.hero .who b { color:var(--heroink); font-weight:500 }
+
+/* article column */
+main { max-width:960px; margin:0 auto; padding:0 1.5rem }
+article, .article-body { max-width:912px; margin-top:2.6rem }
+p { margin-bottom:1.25rem; text-align:left }
+h2 { font:500 22px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.01em; margin:2.7rem 0 .9rem }
+h3 { font:600 16.5px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:1.8rem 0 .6rem }
+a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:2px }
+strong { font-weight:600 }
+code { font:.85em ui-monospace,Menlo,monospace; background:var(--card);
+  border:1px solid var(--line); border-radius:4px; padding:.05em .35em }
+ol, ul { padding-left:1.3rem; margin-bottom:1.25rem }
+blockquote { border-left:3px solid var(--line); padding-left:1.1rem;
+  color:var(--muted); margin:1.5rem 0 }
+
+/* legacy academic pieces some papers carry */
+.abstract { font-size:16px; line-height:1.65; margin:0 0 1.1rem;
+  text-align:left; hyphens:none }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em; font-weight:bold }
+.keywords { font-size:14px; color:var(--muted); margin-bottom:1.8rem }
+.plain { font-size:18px; line-height:1.55; margin:0 0 1.5rem;
+  padding:.8rem 1.1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; text-align:left }
+
+/* tables: horizontal rules only */
+.tblwrap { overflow-x:auto; margin:2rem 0 }
+.cap { font:13px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); margin-bottom:.5rem }
+table { border-collapse:collapse; width:100%;
+  font:15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif }
+th, td { border:0; border-bottom:1px solid var(--line);
+  padding:.6rem .9rem .6rem 0; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { font-weight:600; font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted);
+  border-bottom:2px solid var(--fg) }
+
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1.1rem;
+  margin:1.8rem 0; color:var(--muted); font-size:15.5px; font-style:italic }
+.grave { margin:2.4rem 0 }
+.grave svg { width:100%; height:auto; display:block }
+hr { border:0; border-top:1px solid var(--line); margin:3rem 0 }
+
+.refs { margin-top:2.6rem; font-size:14.5px }
+.refs h2 { font-size:15px }
+.refs ol { padding-left:1.3rem }
+.refs li { margin-bottom:.45rem; line-height:1.5 }
+
+/* provenance block, bs-prov/1.0 */
+.prov { margin:2.6rem 0 0; border:1px solid var(--line); border-radius:6px;
+  background:var(--card); padding:1rem 1.2rem; font-size:14px;
+  line-height:1.55; color:var(--muted) }
+.prov h2 { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.1em; text-transform:uppercase; margin:0 0 .7rem;
+  color:var(--fg) }
+.prov dl { display:grid; grid-template-columns:8.5rem 1fr; gap:.32rem .9rem;
+  margin:0 }
+.prov dt { color:var(--fg); font-weight:600 }
+.prov dd { margin:0; text-align:left }
+.prov code { font-size:.94em }
+.prov ul { margin:0; padding-left:1.05rem }
+@media (max-width:520px) {
+  .prov dl { grid-template-columns:1fr; gap:.1rem }
+  .prov dd { margin-bottom:.5rem } }
+
+footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
+  border-top:1px solid var(--line); color:var(--muted);
+  font:13px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:left }
+
+
+/* ---- listing page: cards and the filterable category grid ---- */
+.note-card { background:var(--card); border:1px solid var(--line);
+  border-radius:10px; padding:1.2rem 1.4rem; margin:0 0 1rem;
+  display:flex; gap:1.2rem; align-items:flex-start;
+  text-decoration:none; color:var(--fg) }
+.tile { flex:none; width:64px; height:64px; margin-top:.15rem }
+.note-body { min-width:0 }
+.note-card:hover { border-color:var(--gold) }
+.note-card h2 { font:500 17px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:0; margin:0 0 .4rem; color:var(--fg) }
+.note-card p { font:15px/1.55 Charter,Georgia,serif; color:var(--muted); margin:0 }
+.listing { max-width:912px; margin-top:2.4rem }
+
+/* ---- listing page, featured tier: top 5 thesis ---- */
+.top5 { max-width:912px; margin-top:2.4rem }
+.sect-h { font:600 .8rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 .55rem }
+.sect-note { font:15px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 1.1rem }
+.top-card { display:block; background:var(--card); border:1px solid var(--line);
+  border-left:3px solid var(--blue); border-radius:10px;
+  padding:1.15rem 1.35rem; margin:0 0 .9rem; text-decoration:none;
+  color:var(--fg) }
+.top-card:hover { border-color:var(--blue) }
+.top-card .tc-meta { font:600 .68rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--blue);
+  display:block; margin-bottom:.45rem }
+.top-card h2 { font:500 19px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:0 0 .4rem; color:var(--fg) }
+.top-card p { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 .6rem }
+.top-card .tc-stat { font:13px/1.5 Charter,Georgia,serif; color:var(--fg);
+  border-top:1px solid var(--line); padding-top:.55rem; display:block }
+
+.glance { margin-bottom:2.4rem }
+.glance-hdr { display:flex; align-items:baseline; justify-content:space-between;
+  margin-bottom:.75rem }
+.glance-hdr h2 { font-size:1.05rem; font-weight:bold }
+.glance-count { color:var(--muted); font-size:.78rem }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(122px,1fr));
+  gap:.5rem }
+.mtile { background:var(--card); border:1px solid var(--line); border-radius:8px;
+  padding:.6rem .65rem; text-decoration:none; color:var(--fg); display:flex;
+  flex-direction:column; gap:.3rem; min-height:84px }
+.mtile:hover { border-color:var(--blue) }
+.mtile-icon { width:26px; height:26px; flex:none; opacity:.85 }
+.mtile-meta { font-size:.62rem; color:var(--muted); letter-spacing:.03em;
+  text-transform:uppercase }
+.mtile-t { font-size:.79rem; line-height:1.22; font-weight:600; flex:1 }
+.mtile-s { font-size:.72rem; color:var(--accent); font-weight:bold }
+.mtile.hide { display:none }
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem }
+.chip { font:inherit; font-size:.78rem; color:var(--muted); background:var(--bg);
+  border:1px solid var(--line); border-radius:999px; padding:.32rem .75rem;
+  cursor:pointer }
+.chip span { color:var(--muted); opacity:.8 }
+.chip:hover { border-color:var(--blue); color:var(--fg) }
+.chip.on { background:var(--card); border-color:var(--accent); color:var(--fg);
+  font-weight:600 }
+.chip.on span { color:var(--accent) }
+
+/* ---- listing page: associative trails (Bush memex; export_trails.py) ---- */
+.trails { max-width:912px; margin-top:2.4rem }
+.trail { border:1px solid var(--line); border-radius:10px; background:var(--card);
+  margin:0 0 .6rem; padding:.85rem 1.1rem }
+.trail summary { cursor:pointer; list-style:none; display:flex;
+  align-items:baseline; gap:.7rem; color:var(--fg) }
+.trail summary::-webkit-details-marker { display:none }
+.trail summary::before { content:"\203A"; color:var(--blue); font-weight:bold;
+  display:inline-block; transition:transform .15s ease }
+.trail[open] summary::before { transform:rotate(90deg) }
+.trail summary b { font:500 16px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-n { margin-left:auto; font-size:.72rem; color:var(--muted);
+  letter-spacing:.06em; text-transform:uppercase; white-space:nowrap }
+.trail-premise { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:.7rem 0 1rem; padding-left:1.1rem }
+.trail-stop { display:flex; gap:.8rem; padding:.55rem 0 .55rem 1.1rem;
+  border-top:1px solid var(--line) }
+.trail-num { flex:none; width:1.4rem; height:1.4rem; border-radius:99px;
+  border:1px solid var(--line); color:var(--muted); text-align:center;
+  font:600 .72rem/1.35rem 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-stop a { font:500 15px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-lab { font-size:.68rem; color:var(--muted); letter-spacing:.1em;
+  text-transform:uppercase; margin-left:.5rem }
+.trail-why { font:14.5px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:.3rem 0 0 }
+/* share:start */
+.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
+  padding:.45rem .8rem .55rem; background:var(--card,#fff);
+  border:1px solid var(--line,#e3e0da); border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
+.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
+.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
+  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
+  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
+  text-decoration:none }
+.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
+@media (max-width:820px) { .sharebox { display:none } }
+@media print { .sharebox { display:none } }
+/* share:end */</style>
+<!-- social:start -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Risk Museum">
+<meta property="og:title" content="The Midterm Desk &middot; Working Paper No. 46">
+<meta property="og:description" content="A pod-by-pod reading of the 2026 midterm from a quant researcher&#x27;s seat, with every statistic marked exploratory and uncorrected.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/the-midterm-desk.html">
+<meta property="og:image" content="https://theriskmuseum.com/cards/note-the-midterm-desk.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://theriskmuseum.com/cards/note-the-midterm-desk.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Midterm Desk &middot; Working Paper No. 46">
+<meta name="twitter:description" content="A pod-by-pod reading of the 2026 midterm from a quant researcher&#x27;s seat, with every statistic marked exploratory and uncorrected.">
+<!-- social:end -->
+</head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fthe-midterm-desk.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=The%20Midterm%20Desk%20-%20Working%20Paper%20No.%2046&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/the-midterm-desk.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
+<div class="topbar">
+<!-- brand:start -->
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<!-- brand:end -->
+<nav class="tabs">
+<a class="on" href="./">Research Notes</a>
+<a href="../">Tested Strategies</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+<a href="../about.html">About</a>
+</nav>
+</div>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<div class="hero"><div class="hero-in">
+<div class="eyebrow">Working Paper No. 46 &middot; BlueShip Research · 12 October 2026 &middot; a memo to the pods</div>
+<h1>The Midterm Desk</h1>
+<p class="lede">What the 3 November midterm can and cannot move, pod by pod.</p>
+<div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
+</div></div>
+<main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> A memo to this desk&rsquo;s paper-floor pod managers on what the 3 November midterm can move.</p>
+
+<h2>1. The event</h2>
+<p>A midterm changes Congress, not the executive, so its channels are legislation, appropriations, oversight and confirmations, and its outcome is a composition, unified or divided. The president&rsquo;s party lost a chamber in 10 of the last 25 midterms (lab1), and the lame duck acts before any new majority sits. In the week after the vote, the median absolute market move ranks at the 77th percentile of ordinary weeks for presidential elections (p 0.002) and the 67th for midterms (p 0.077).</p>
+<p><b>Table 1.</b> Dated items by pod.</p>
+<div class="tbl"><table>
+<thead><tr><th>Pod</th><th>What Congress decides, dated</th><th>Channel, desk reading</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Health care</td><td>Enhanced premium tax credit expired 31 Dec 2025; H.R. 1834 three-year extension passed the House 230-196 on 8 Jan 2026, no Senate vote (secondary). Medicaid work requirements from 1 Jan 2027 (secondary). Medicare negotiation IPAY 2028 prices due 30 Nov 2026. Pharma Section 232 at 100% is executive</td><td>Both chambers; agency</td><td>02_policy_calendar row 5</td></tr>
+<tr><td>Energy and utilities</td><td>SPEED Act permitting passed the House 18 Dec 2025 (secondary), Senate talks open. 48D advanced-manufacturing credit expires 31 Dec 2026; 45Y and 48E wind and solar placed-in-service 31 Dec 2027. EO 14421 bulk-power rules due about 24 Dec 2026 (secondary) are executive</td><td>Both; executive</td><td>02_policy_calendar rows 4 and 6</td></tr>
+<tr><td>Financials</td><td>Basel III re-proposal, three NPRMs of 27 Mar 2026, final rule expected late 2026 (secondary). CLARITY cloture failed 49-50 on 15 Sep 2026. GENIUS Act effective by 18 Jan 2027. SEC 3 of 5 seats, CFTC 1 of 5, FDIC two vacancies (secondary); nominations pending at sine die are returned</td><td>Senate; agency</td><td>02_policy_calendar rows 7, 11 and 12</td></tr>
+<tr><td>Industrials and defence</td><td>FY2027 NDAA passed the House 22 Jul 2026, Senate cloture failed 50-46 on 14 Jul; chip provisions contested on bipartisan committee votes (secondary). Funding lapses 12 Dec unless the CR (P.L. 119-103, secondary) is extended; highway and flood-insurance authority to 11 Dec. War powers resolution rejected 49-50 on 24 Sep 2026</td><td>Both; Senate</td><td>02_policy_calendar rows 1, 2, 8 and 14</td></tr>
+<tr><td>Technology</td><td>NDAA chip-export provisions as above. 48D credit expires 31 Dec 2026. No federal preemption statute for state AI laws. BIS export rules (H200 case-by-case since 15 Jan 2026) are executive</td><td>Both; executive</td><td>02_policy_calendar row 8</td></tr>
+<tr><td>Consumer</td><td>Tariffs rest on Sections 301, 232 and 338 with no statutory sunset, plus Section 201 safeguards with duration limits, since IEEPA tariffs were voided 20 Feb 2026; the trade court argument was set for 30 Sep 2026 (secondary). One chamber cannot repeal any of it over a veto. Trade truce to 10 Jan 2027 (secondary); USMCA review 1 Jul 2027; tips and overtime deductions to 31 Dec 2028</td><td>Courts; executive; riders</td><td>02_policy_calendar Reading and tariff table, rows 4 and 13</td></tr>
+<tr><td>Macro and rates</td><td>CR funds government to 11 Dec 2026. Debt limit headroom $1.196tn on 25 Sep 2026, naive run-rate exhaustion 26 Feb to 28 Jun 2027 by base, not an X-date; binds on the 120th Congress. Fed board 7 of 7; Vice Chair designation ends about 12 Sep 2027; a governor term ends 31 Jan 2028. FOMC 8 to 9 Dec</td><td>Both; Senate</td><td>00_BRIEF section 2; 01_state_of_play calendar; 02_policy_calendar rows 1, 3, 10 and 11</td></tr>
+<tr><td>Event-driven and credit</td><td>Confirmations as above. Ex-Im charter expires 31 Dec 2026. A funding lapse delays BEA, BLS and Census releases. Hospital and project credit follow the health and energy rows</td><td>Senate; both</td><td>02_policy_calendar rows 1, 5, 6 and 13</td></tr>
+</tbody></table></div>
+<h2>2. Sector pods</h2>
+<p>Across 25 midterms the industry cross-section sits inside its null band in every window. Any exposure would sit in names inside the sector hedge, which the desk&rsquo;s unscored 10-K risk-factor measure, due to freeze on 23 October, is built to find. The one midterm that hurt the paper desks, 2022, had CPI on day +1 and one momentum signal shared by the seven sector desks, so nothing ties that week to the vote (lab2).</p>
+<h2>3. Macro and rates</h2>
+<p>The curve is the one midterm rates cell below p 0.01. Over twelve midterms the 2s10s slope flattened by a mean of 9.8 bp in the week after the vote, in eleven of the twelve (lab3). Scaled by volatility, only 1994, 1998 and 2002 pass two standard deviations (lab3_refute), an observation, not a mechanism, and eight of 90 event-cell p-values clear 0.05 where 4.5 would by chance. Congress holds funding, the debt limit and confirmations (Table 1).</p>
+<h2>4. Systematic equity</h2>
+<p>Two of the 24 midterm summary cells fall below 0.05, both of them factor cells, against 1.2 expected by chance (critic_wp46). Section 2&rsquo;s unscored measure is built to find the names that carry event variance inside a market-neutral hedge.</p>
+<h2>5. Event-driven and credit</h2>
+<p>The Baa-over-Treasuries spread shows no detectable excess move around twenty elections, but the series is smoothed, so its silence says little about CDS (lab3). Merger review sits with the antitrust agencies, which a midterm does not change; what it changes is the Senate that confirms their heads.</p>
+<h2>6. Central risk</h2>
+<p>Day 0 is 4 November, with no FOMC meeting that week. The floor has no event-day rule and relies on its standing limits (Method). Median cross-desk dispersion in midterm reaction weeks was 0.809 against 0.672 in ordinary weeks, with three of five events above it, and 1.534 in presidential weeks (lab2).</p>
+<p><b>Table 2.</b> Lab results; p-values uncorrected and exploratory.</p>
+<div class="tbl"><table>
+<thead><tr><th>Measure</th><th>Sample</th><th>Election value</th><th>Ordinary windows</th><th>p</th><th>Lab</th></tr></thead>
+<tbody>
+<tr><td>12-industry dispersion, reaction week, median</td><td>25 midterms, 1926 to 2022</td><td>1.44%</td><td>1.15% median of 5,263 blocks; event median at the 66.8th percentile</td><td>0.073</td><td>lab1</td></tr>
+<tr><td>49-industry dispersion, reaction week, median</td><td>25 midterms</td><td>2.07%</td><td>1.93%; 58.1st percentile</td><td>0.404</td><td>lab1</td></tr>
+<tr><td>Absolute Mkt-RF move, reaction week, median</td><td>25 midterms</td><td>1.86%</td><td>1.26%; 67.0th percentile</td><td>0.077</td><td>lab1</td></tr>
+<tr><td>Absolute CMA move, reaction week, median</td><td>15 midterms, from 1963</td><td>1.07%</td><td>0.52% of 3,179 blocks; 80.7th percentile</td><td>0.004</td><td>lab1</td></tr>
+<tr><td>Absolute SMB move, post window, median</td><td>25 midterms</td><td>2.41%</td><td>1.43% of 1,315 blocks; 70.2nd percentile</td><td>0.033</td><td>lab1</td></tr>
+<tr><td>49-industry dispersion, post window, chamber lost (10) against not lost (15)</td><td>25 midterms</td><td>3.44% against 4.39%</td><td>null 95th percentile of the difference 0.93%; the only cell of 24 below 0.05</td><td>0.045</td><td>lab1</td></tr>
+<tr><td>2s10s slope change, reaction week, mean</td><td>12 midterms, 1978 to 2022</td><td>-9.8 bp; 11 of 12 negative</td><td>mean absolute 7.0 bp over 2,516 windows</td><td>0.004</td><td>lab3</td></tr>
+<tr><td>2s10s slope change, reaction week, mean</td><td>13 presidential</td><td>+4.3 bp</td><td>same</td><td>0.124</td><td>lab3</td></tr>
+<tr><td>10-year yield change, reaction week, mean</td><td>16 midterms, 1962 to 2022</td><td>-7.1 bp</td><td>mean absolute 10.5 bp</td><td>0.061</td><td>lab3</td></tr>
+<tr><td>2-year yield change, reaction week, mean</td><td>12 midterms</td><td>+1.3 bp</td><td>mean absolute 11.7 bp</td><td>0.789</td><td>lab3</td></tr>
+<tr><td>10-year yield change, post window, mean</td><td>16 midterms</td><td>-14.7 bp; 11 of 16 negative</td><td>mean absolute 23.0 bp</td><td>0.075</td><td>lab3</td></tr>
+<tr><td>Baa minus 10-year spread change, reaction week, mean</td><td>20 elections, 1986 to 2024</td><td>-0.6 bp</td><td>mean absolute 5.6 bp</td><td>0.750</td><td>lab3</td></tr>
+<tr><td>VIX change, reaction week, mean</td><td>18 elections, 1990 to 2024</td><td>-1.4 points; 13 of 18 down</td><td>mean absolute 3.2 against 2.0 points</td><td>0.067 on the mean; 0.040 on magnitude</td><td>lab3</td></tr>
+<tr><td>VIX change, reaction week, mean</td><td>9 midterms</td><td>-1.2 points</td><td>mean absolute 1.3 against 2.0</td><td>0.241</td><td>lab3</td></tr>
+<tr><td>Floor cross-desk dispersion, reaction week, standard deviation of desk z</td><td>5 midterms, 2006 to 2022</td><td>0.809 median, 0.955 mean; 2022 alone 2.08 at the 98.0th percentile</td><td>0.672 median</td><td>no test at n 5</td><td>lab2</td></tr>
+<tr><td>Floor book, reaction week</td><td>5 midterms</td><td>+0.28%; 2 of 5 positive; gross 1.60</td><td>+0.05%; gross 1.50</td><td>none</td><td>lab2</td></tr>
+<tr><td>Floor cross-desk dispersion, reaction week</td><td>5 presidential, 2008 to 2024</td><td>1.534 median, 1.924 mean; 4 of 5 at or above the 90th percentile</td><td>0.672 median</td><td>none</td><td>lab2</td></tr>
+<tr><td>Day-after market excess return, mean</td><td>20 midterms, 1946 to 2022</td><td>0.39%, t 1.11</td><td>minimum detectable effect 73.6 bp at 80% power</td><td>none</td><td>aggregate_power</td></tr>
+</tbody></table></div>
+<h2>What this does not claim</h2>
+<p>Nothing here takes a direction by party or by outcome, and the sample cannot price a change of control. The desk mappings in Table 1 are judgement, and its calendar facts come from the desk files of 29 September. The floor panel is survivorship-biased while the French panels are not, and all returns are gross of costs. The 174 p-values are uncorrected and exploratory. Nothing here is advice.</p>
+
+<div class="prov"><dl>
+<dt>Method</dt><dd>Election day is the Tuesday after the first Monday in November; day 0 is the first trading day strictly after it, which handles the years when the exchange closed on election day, through 1966 for midterms and through 1980 for presidential elections. Windows are pre [-20,-1], reaction [0,+4] and post [+5,+24] trading days. Lab 1 compounds value-weighted Ken French industry and factor returns over each window, takes the cross-sectional standard deviation across industries or the absolute factor move, and places the midterm median against one fixed tiling of non-overlapping blocks of the same length from July 1926, with a two-sided permutation p from 10,000 draws at seed 20261007; the composition split reshuffles the chamber-lost label across the 25 midterms. Lab 2 regenerates the ten paper desks of pipeline/trading_floor.py in memory, three systematic and seven within-sector 12-1 momentum quartile long/short, cumulates each desk&rsquo;s unlevered return over the windows and standardises against every same-length window in its 2005 to 2026 history. Lab 3 differences FRED levels across the same windows and tests the event mean against non-overlapping windows by permutation; the slope is DGS10 minus DGS2 on common dates. Table 1 is the policy calendar&rsquo;s desk mapping and asserts no sign. The floor&rsquo;s standing limits are risk-parity weights with a 0.5 risk budget for each of the systematic and sector groups, a 10% annualized volatility target, a 2.0x gross cap, and a ladder that halves exposure 5% below the year&rsquo;s high and flattens at 7.5%.</dd>
+<dt>Sources</dt><dd>Kenneth R. French Data Library, daily files fetched 7 October 2026 (12 and 49 industry portfolios, three-factor, five-factor and momentum files; copyright Eugene F. Fama and Kenneth R. French). FRED, Federal Reserve Bank of St. Louis, fetched 7 October 2026: DGS10 and DGS2 (Board of Governors, public domain); BAA10Y (Moody&rsquo;s, citation required, raw series not redistributed); VIXCLS (Cboe, citation required, raw series not redistributed). Prices for the paper floor are the house cache, Yahoo-derived and survivorship-biased. The day-after row is state/midterms_2026/causal/aggregate_power.json. Chamber control: Office of the Clerk, U.S. House, Party Divisions of the House of Representatives, and U.S. Senate, Party Division, read 12 October 2026; receipt results_pods/composition_check_20261012.json. Policy facts are docs/research/midterms_2026/00_BRIEF, 01_state_of_play, 02_policy_calendar, 03_consensus_and_gap, 05_design_text_and_llm, 07_prereg_skeleton and 08_build_log, dated 29 and 30 September 2026. Lab code and outputs are in docs/research/midterms_2026/code_pods/ and results_pods/, with refuter reruns and the critic&rsquo;s ledger; the full honesty record is 11_wp46_ledger.md. Table 1&rsquo;s primary records and their secondary flags are listed row by row in 02_policy_calendar.</dd>
+<dt>Honesty</dt><dd>Every sample is the whole population since the data begin, and it is small: 25 midterms for lab 1, 5 for lab 2, and 9 to 32 elections per cell for lab 3. Labs 1 to 3 were not pre-registered, so every cell in Table 2 is exploratory. Labs 1 and 3 compute no power for their placement cells, so a cell inside its null band is an absence of evidence, not a null; only the day-after row carries a minimum detectable effect, 73.6 bp. Labs 1 and 3 report 174 uncorrected p-values; 23 fall below 0.05 against 8.7 expected by chance; the Bonferroni bar is 0.00029, and the one cell that clears it is the unconditional VIX-against-absolute-10-year-change correlation, not an election cell. The two lowest election p-values, 0.002 each, are presidential cells, the market reaction and RMW before the vote; section 1 cites the first only as a contrast. The critic&rsquo;s first ledger counted 18 below 0.05 by omitting the five correlation p-values below 0.05 from its count; the script was corrected on 12 October and the figures here are its output. DGS10, DGS2 and the slope share legs. No scheduled release was purged from the windows: FOMC statements fell on day 0 in 2010 and on day +1 in 2018, CPI on day +1 in 2022, and the post window overlaps the December FOMC in most years. No subperiod split was run. The paper floor has no macro or credit desk, so sections 3 and 5 rest on labs 1 and 3, not on the floor. No prediction-venue figure appears anywhere in this note. Lab 3&rsquo;s unconditional pool includes the election windows, which biases its tests toward the null; lab 1&rsquo;s ex-event check moves no placement by more than one percentile point. Lab 2&rsquo;s 2022 reaction window overlaps the October CPI release of 10 November; Healthcare&rsquo;s loss is the second-lowest five-day window in that desk&rsquo;s history, percentile 0.04; the book itself was flat through 2022 because the annual stop had taken exposure to zero on 23 May, so its 0.00% there is an overlay artefact. The composition record behind the split is hand-coded and was checked on 12 October 2026 against the House and Senate party-division records; every label matched, with 1930 coded on the chamber that organized and 2002 on the June 2001 switch. Three refuter corrections are applied: the split thresholds run from 0.21% to 2.82%, lab 2&rsquo;s window counts are 5,202 to 5,469, and Healthcare&rsquo;s week is the second-lowest, not the lowest. The Item 1A measure is status, not result: the lexicon, due 9 October, is not yet approved, the 300-sentence labels are due 16 October, and the freeze is planned for 23 October; its power at the family bar is 0.831 with five events and only if exposed names move about 1.5 times as much. No code under swarm/, pipeline/ or deploy/ was changed; no threshold moved.</dd>
+<dt>Related</dt><dd>No. 44, The Backlog Ledger, for the frozen-rules form every registered test here will follow. No. 40, The Gate Is the Product, for the testing rules and the floor&rsquo;s own correction record. No. 5, 620 Probabilities, for the scoring discipline a forecast must meet before this desk reads it.</dd>
+</dl></div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
+</body></html>
