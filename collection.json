@@ -1,11 +1,59 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-10-18",
- "works_tested": 1048,
+ "exported": "2026-10-19",
+ "works_tested": 1060,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -rank(credit_facility_outstanding_amount / ts_mean(credit_facility_outstanding_amount, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-16"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(anl4_afv4_median_eps, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-16"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(common_stock_issuance_proceeds, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-16"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(fair_value_derivative_liabilities, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-16"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(actual_sales_value_annual, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-16"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(rel_num_comp, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-16"
+  },
   {
    "claim": "BRAIN candidate: rank(ts_corr(anl4_cfi_median, implied_volatility_mean_270, 120))",
    "stage": "brain-checks",
