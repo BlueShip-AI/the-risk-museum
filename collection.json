@@ -1,11 +1,115 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-10-20",
- "works_tested": 1072,
+ "exported": "2026-10-21",
+ "works_tested": 1090,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: rank(zscore(current_foreign_tax_expense_value) - zscore(debt_issuance_proceeds))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(implied_volatility_mean_360) - zscore(common_stock_buyback_payments))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(adj_net_income_median, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(implied_volatility_put_720 / ts_mean(implied_volatility_put_720, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(snt_value_fast_d1 / ts_mean(snt_value_fast_d1, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(domestic_ebit_value, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_afv4_eps_high, snt_buzz_bfl_fast_d1, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(adj_net_income_stddev, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(implied_volatility_put_20, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(snt_buzz_bfl) - zscore(debt_issuance_costs_expense))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-18"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(fnd6_cshpri, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-17"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(anl4_cff_number / ts_mean(anl4_cff_number, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-17"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(snt_buzz_fast_d1) - zscore(fnd6_fatc), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-17"
+  },
   {
    "claim": "BRAIN candidate: rank(ts_delta(implied_volatility_mean_skew_20, 60))",
    "stage": "brain-checks",
