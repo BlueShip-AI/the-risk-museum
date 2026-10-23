@@ -1,11 +1,107 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-10-22",
- "works_tested": 1102,
+ "exported": "2026-10-23",
+ "works_tested": 1118,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(fnd6_dd, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(fnd6_cptnewqv1300_actq, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(credit_facility_max_borrowing_2 / ts_mean(credit_facility_max_borrowing_2, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(deferred_federal_income_tax_expense) - zscore(pv13_revere_parent), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_TURNOVER, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(anl4_capex_number / ts_mean(anl4_capex_number, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(debt_maturities_repayments_next12m, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(deferred_federal_income_tax_expense, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(scl12_sentiment, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(implied_volatility_mean_skew_30, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(anl4_bvps_value, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(historical_volatility_60, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(anl4_cfi_mean) - zscore(anl4_bvps_mean))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-20"
+  },
   {
    "claim": "BRAIN candidate: group_zscore(ts_delta(implied_volatility_mean_720, 120), industry)",
    "stage": "brain-checks",
