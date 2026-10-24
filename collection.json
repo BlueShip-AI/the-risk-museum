@@ -1,11 +1,115 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-10-23",
- "works_tested": 1118,
+ "exported": "2026-10-24",
+ "works_tested": 1130,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -rank(implied_volatility_mean_skew_10 / ts_mean(implied_volatility_mean_skew_10, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(diluted_shares_outstanding_adjustment_avg, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(implied_volatility_mean_60 / ts_mean(implied_volatility_mean_60, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(debt_repayments_total_2, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(implied_volatility_mean_30, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(actual_dividend_value_quarterly, debt_issuance_costs_expense, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(diluted_shares_outstanding_adjustment_avg, annual_intangible_amortization_expense_second_year, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(anl4_afv4_cfps_low / ts_mean(anl4_afv4_cfps_low, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(comprehensive_income_net_tax / ts_mean(comprehensive_income_net_tax, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(implied_volatility_mean_skew_150) - zscore(anl4_afv4_eps_number))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(implied_volatility_put_10) - zscore(debt_repayment_year_three))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(common_stock_issuance_proceeds_2, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-21"
+  },
+  {
+   "claim": "Decay without a crowd, registered: on the 141 JKP US factors with a publication year after the in-sample end (capped VW, monthly, gross, through 2025-12), the decline after the end of the authors' in-sample period accounts for the measured post-publication decline; the increment the journal date adds beyond the end of the sample is not negative at the undeflated base bar (t <= -2.5, two-way clustered by month and factor), while the post-sample decline clears the n = 2 family bar (t <= -2.7365). Calendar-month fixed effects as the declared control; power at a 0.32 crowd share computed first against the owner's floor; verdict rules fixed in the registration.",
+   "stage": "wp48_prereg_decay_test",
+   "reason": "wp48 registered test, verdict line 1: Not testable on this panel. spec1 b_gap 0.31 bp t 0.05, inc -17.18 bp t -2.34; spec2 b_gap 5.46 bp t 1.22, inc -10.62 bp t -2.15; binding power 0.029 vs floor 0.8; m_IS 27.59 bp. Lines 1, 2 and 5 are not a failed idea.",
+   "status": "rejected",
+   "about": "Registered in docs/research/wp48_bold_take/03_PREREG.md (sha256 in 03_PREREG.sha256). Two looks: A refuter inc t <= -2.5 undeflated; B positive half b_gap t <= -2.7365 at n = 2. Data: state/jkp monthly vw_cap zip f766aa2c and factor_details 4c579e4d, nothing else. Sample 141 factors with pub_year > is_end; windows IS, GAP, POST by calendar year, publication year a dead band, PRE months excluded. OLS with factor FE, SE clustered by month and factor; calendar-month FE as declared robustness. Power: 0.32 x pooled IS mean on POST, 1000 twelve-month block bootstraps, floor from out/owner_decisions.json. Gross, no cost model, capped VW, modern reconstruction. Derived coefficients only under CC BY-NC 4.0.",
+   "tested": "2026-10-21"
+  },
   {
    "claim": "BRAIN candidate: -rank(ts_zscore(fnd6_dd, 250))",
    "stage": "brain-checks",
