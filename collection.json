@@ -1,11 +1,155 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-10-25",
- "works_tested": 1142,
+ "exported": "2026-10-26",
+ "works_tested": 1154,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -rank(common_stock_issuance_proceeds / ts_mean(common_stock_issuance_proceeds, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(equity_awards_granted_non_option_period, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(fnd6_dxd5, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(pv13_reveremap) - zscore(deferred_tax_assets_compensation_benefits), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_TURNOVER, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(accumulated_oci_net_of_tax_value / ts_mean(accumulated_oci_net_of_tax_value, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(anl4_dts_ptp / ts_mean(anl4_dts_ptp, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(pv13_revere_index_cap, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_zscore(annual_intangible_assets_net_carrying_value, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(common_stock_buyback_payments, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(pv13_revere_key_sector_total, 10))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(implied_volatility_mean_270, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(diluted_shares_outstanding_adjustment_avg, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-10-23"
+  },
+  {
+   "claim": "Look 1: a transformer encoder (Vaswani 2017 block, HAR-initialised skip) trained pooled on price-derived features beats the expanding-window log-Parkinson HAR of record on 5-day QLIKE on the 21 registered names, rolling yearly refits 2021-2026 (prereg docs/research/vol_transformer/01_prereg.md, bar copied from docs/kronos_vol_prereg.md)",
+   "stage": "vs-linear-frontier-oos",
+   "reason": "HAR survives at h=5: n 27780, QLIKE HAR 0.1668 vs 0.1951, pooled NW-t -3.59 p 0.0003, median ticker d -0.02560",
+   "status": "rejected",
+   "about": "Asks whether a small transformer trained on the house panel can beat four parameters per ticker where a 25-million-parameter zero-shot model could not. Risk-model component, not an alpha signal.",
+   "tested": "2026-10-22"
+  },
+  {
+   "claim": "Look 2: adding PIT earnings-window flags (8-K Item 2.02 backward flags, prior-year-schedule forward flag) and WP24-PIT exposures and specific variance to the look-1 transformer improves its 5-day QLIKE (DM look 2 vs look 1, same bar) and the look is also scored against the HAR of record (prereg docs/research/vol_transformer/01_prereg.md)",
+   "stage": "vs-linear-frontier-oos",
+   "reason": "inputs do not add over look 1: n 26391, d -0.01943, NW-t -2.05 p 0.0403; vs HAR bar not met",
+   "status": "rejected",
+   "about": "Same model as look 1 with twelve more inputs; the comparison to look 1 is the input ablation. Risk-model component, not an alpha signal.",
+   "tested": "2026-10-22"
+  },
+  {
+   "claim": "Look 3 (architecture control): a plain MLP (256-64, GELU, same HAR skip, same 3-horizon QLIKE loss) on the identical flattened 60-day window of look-2 inputs; the transformer of look 2 must beat it (DM look 2 vs look 3, same bar) for attention to carry any gain (prereg docs/research/vol_transformer/01_prereg.md)",
+   "stage": "vs-linear-frontier-oos",
+   "reason": "the MLP matches the transformer on the same inputs (n 26391, d -0.04504, NW-t -4.46): inputs and training, not attention, do the work; MLP vs HAR bar not met",
+   "status": "rejected",
+   "about": "Architecture control for look 2 with everything but the nonlinear branch held fixed. Risk-model component, not an alpha signal.",
+   "tested": "2026-10-22"
+  },
+  {
+   "claim": "H3M earnings_window (finding, not alpha): a point-in-time constant multiplier on WP24-PIT specific variance, refit yearly from prior reaction days (min 1,000) and applied only on 8-K Item 2.02 reaction days, lowers held-out reaction-day QLIKE by at least half the year-oracle gain at the family-deflated Diebold-Mariano bar, leaves non-reaction days unchanged by construction, and sizes every held-out year within a factor of two.",
+   "stage": "validation",
+   "reason": "improves the loss but mis-sizes year(s) 2020 (corrected multiple outside [0.5, 2.0])",
+   "status": "rejected",
+   "about": "Tests whether scaling up the risk model on known earnings days, by an amount learned only from past earnings days, makes its risk forecasts better on later earnings days without touching any other day.",
+   "tested": "2026-10-22"
+  },
+  {
+   "claim": "H2 earnings_window (Martineau control): the filed YoY change in quarterly net income scored against the firm's own 8-quarter history, entered at the 10-Q/10-K filed date plus one day, predicts the next 21 trading days of abnormal return in large caps at house costs.",
+   "stage": "validation",
+   "reason": "gate: Newey-West t=-1.16 < 2.96 (base 2.5, family n=4); bootstrap P(Sharpe<=0)=0.8822 > 0.0125 (base 0.05, family n=4); margin-of-safety rerun (gross halved, costs doubled) t=-2.77 < 2.5 \u2014 edge has no buffer; in-sample Sharpe -0.47 <= 0; profitable in only 0/3 regimes (need >= 2) \u2014 regime timing, not alpha; residual alpha t=-1.71 < 2.0 \u2014 returns are explained by known factors; residual alpha is negative (-3.07%/yr) (expected; family control); legs carry opposite-signed means (exhibit for H4, not a pass); top-year net contribution 0.48 > 0.4",
+   "status": "rejected",
+   "about": "Buys names whose filed quarterly profit beat their own history and sells those that missed, for 21 days after the filing.",
+   "tested": "2026-10-22"
+  },
+  {
+   "claim": "H1 earnings_window: in the ten trading days before a firm's projected earnings release, names whose latest filed quarterly net income rose YoY outperform names whose latest filed quarterly net income fell YoY (pre-announcement premium conditioned on the filed trend; Gao-Hu-Zhang 2025).",
+   "stage": "validation",
+   "reason": "gate: Newey-West t=-0.76 < 2.96 (base 2.5, family n=4); bootstrap P(Sharpe<=0)=0.8012 > 0.0125 (base 0.05, family n=4); margin-of-safety rerun (gross halved, costs doubled) t=-4.45 < 2.5 \u2014 edge has no buffer; in-sample Sharpe -0.04 <= 0; profitable in only 1/3 regimes (need >= 2) \u2014 regime timing, not alpha; residual alpha t=-0.91 < 2.0 \u2014 returns are explained by known factors; residual alpha is negative (-1.71%/yr); long-leg-only exhibit carries the whole mean; short leg adds nothing",
+   "status": "rejected",
+   "about": "Buys names whose last filed quarter grew and sells those that shrank, during the ten days before their next earnings date.",
+   "tested": "2026-10-22"
+  },
   {
    "claim": "BRAIN candidate: rank(ts_zscore(antidilutive_securities_excluded_eps, 250))",
    "stage": "brain-checks",
