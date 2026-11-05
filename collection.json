@@ -1,11 +1,107 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-11-04",
- "works_tested": 1262,
+ "exported": "2026-11-05",
+ "works_tested": 1274,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: group_rank(implied_volatility_put_20 / ts_mean(implied_volatility_put_20, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(analyst_revision_rank_derivative, 250), sector)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(historical_volatility_150, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(annual_intangible_assets_net_carrying_value) - zscore(scl12_sentiment), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(deferred_tax_liability_property_plant_equipment / ts_mean(deferred_tax_liability_property_plant_equipment, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(anl4_capex_mean / ts_mean(anl4_capex_mean, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_delta(anl4_afv4_cfps_mean, 60))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(zscore(rel_num_comp) - zscore(anl4_afv4_dts_spe), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_rank(anl4_cfi_mean, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(implied_volatility_put_20, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_corr(fnd6_esopr, returns, 20))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_TURNOVER, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(pv13_ustomergraphrank_auth_rank, 5))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-02"
+  },
   {
    "claim": "BRAIN candidate: -rank(comprehensive_income_net_tax / ts_mean(comprehensive_income_net_tax, 120))",
    "stage": "brain-checks",
@@ -6308,14 +6404,6 @@
    "status": "rejected",
    "about": "The oldest 'free lunch' in indexing - buy the stock entering the S&P before the trackers must - reportedly shrank to nothing (Greenwood-Sammon). Yet the largest platforms' index-rebal teams are cited as top earners. Either the effect is dead and the desks earn something subtler, or the death is exaggerated. A verdict either way is museum-grade.",
    "tested": "2026-07-24"
-  },
-  {
-   "claim": "Crowded-exit risk: stocks with high hedge-fund ownership overlap (13F-derived, point-in-time by filing date) underperform specifically during vol-spike windows \u2014 the pod-liquidation cascade priced as a conditional factor (Young&Calculated pod-contagion mechanism; Patterson/DESCO lenses as priors)",
-   "stage": "validation",
-   "reason": "comovement diff +0.009 (t=4.09), stress spread -142bps (t=-3.90, n=14) \u2014 neither claim clears the deflated stressed bar",
-   "status": "rejected",
-   "about": "Bets that stocks owned by the same many hedge funds get hit hardest when those funds all rush the exit at once.",
-   "tested": "2026-07-23"
   },
   {
    "claim": "Asness equal-risk benchmark: inverse-volatility weighting of the 7Twelve 12-ETF sleeve beats its equal-weight version and 60/40 SPY/AGG",

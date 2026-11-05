@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Measuring the Crowd &middot; BlueShip Research Working Paper No. 6</title>
-<meta name="description" content="Stocks jointly held by hedge-fund-like 13F filers show excess co-movement (t=4.09) and crisis-state underperformance (142 bps/month, t=3.90). Both are significant; neither clears the promotion hurdle. Crowding is a risk measure, not a signal.">
+<meta name="description" content="Stocks jointly held by hedge-fund-like 13F filers show excess co-movement (t=2.20) and crisis-state underperformance (106.5 bps/month, t=2.65), figures corrected 4 November 2026. Neither clears the promotion hurdle. Crowding is a risk measure, not a signal.">
 <link rel="canonical" href="https://theriskmuseum.com/notes/measuring-the-crowd.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -259,7 +259,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Risk Museum">
 <meta property="og:title" content="Measuring the Crowd &middot; BlueShip Research Working Paper No. 6">
-<meta property="og:description" content="Stocks jointly held by hedge-fund-like 13F filers show excess co-movement (t=4.09) and crisis-state underperformance (142 bps/month, t=3.90). Both are significant; neither clears the promotion hurdle. Crowding is a risk measure, not a signal.">
+<meta property="og:description" content="Stocks jointly held by hedge-fund-like 13F filers show excess co-movement (t=2.20) and crisis-state underperformance (106.5 bps/month, t=2.65), figures corrected 4 November 2026. Neither clears the promotion hurdle. Crowding is a risk measure, not a signal.">
 <meta property="og:url" content="https://theriskmuseum.com/notes/measuring-the-crowd.html">
 <meta property="og:image" content="https://theriskmuseum.com/cards/note-measuring-the-crowd.png">
 <meta property="og:image:width" content="1200">
@@ -267,7 +267,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <meta name="twitter:image" content="https://theriskmuseum.com/cards/note-measuring-the-crowd.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Measuring the Crowd &middot; BlueShip Research Working Paper No. 6">
-<meta name="twitter:description" content="Stocks jointly held by hedge-fund-like 13F filers show excess co-movement (t=4.09) and crisis-state underperformance (142 bps/month, t=3.90). Both are significant; neither clears the promotion hurdle. Crowding is a risk measure, not a signal.">
+<meta name="twitter:description" content="Stocks jointly held by hedge-fund-like 13F filers show excess co-movement (t=2.20) and crisis-state underperformance (106.5 bps/month, t=2.65), figures corrected 4 November 2026. Neither clears the promotion hurdle. Crowding is a risk measure, not a signal.">
 <!-- social:end -->
 </head><body>
 <!-- share:start -->
@@ -297,8 +297,9 @@ Underperformance in 13F-Inferred Hedge-Fund Crowding</h1>
 <main><div class="article-body">
 <p class="abstract"><span class="lab">Abstract.</span> Stocks jointly held by
 hedge-fund-like 13F filers co-move beyond what their characteristics explain,
-and they fall harder in the worst market months. Both effects are statistically
-significant. Neither clears the promotion hurdle this site applies before a
+and they fall harder in the worst market months. The stress effect is statistically
+significant; the co-movement effect is smaller than first printed and depends on the
+sampler draw (corrected 4 November 2026). Neither clears the promotion hurdle this site applies before a
 result is treated as tradable, so crowding is classified as a risk measure
 rather than a signal.</p>
 
@@ -309,8 +310,12 @@ deleveraging becomes every co-holder&rsquo;s drawdown (Khandani and Lo, 2011).
 The question is whether that channel is visible in advance in disclosed
 holdings, and whether what is visible is strong enough to trade. Form 13F is
 the quarterly Securities and Exchange Commission holdings filing. A
-stock&rsquo;s crowding is the number of hedge-fund-like filers holding it, read
-only once the filing deadline has passed. The claims, the fund filter and the
+stock&rsquo;s crowding is the number of hedge-fund-like filers holding it. The
+stress test reads a quarter&rsquo;s holdings from the first month that begins
+after the 45-day filing deadline (corrected 4 November 2026). The co-movement
+test picks its pairs from the latest twelve quarters and correlates residuals
+over the full history, so it measures association and makes no point-in-time
+claim. The claims, the fund filter and the
 number of tests were fixed before any filing was retrieved, so the correction
 for multiple testing existed before the results did.</p>
 
@@ -322,11 +327,11 @@ for multiple testing existed before the results did.</p>
 <tr><td>Filers screened</td><td>11,750</td></tr>
 <tr><td>Hedge-fund-like filers</td><td>1,216</td></tr>
 <tr><td>Fund filter</td><td>fewer than 250 positions; name turnover above 25% a quarter</td></tr>
-<tr><td>Point-in-time lag</td><td>45 days (filing deadline)</td></tr>
-<tr><td>Co-held pairs, matched on sector and size decile</td><td>3,312</td></tr>
-<tr><td>Excess residual correlation, six standard factors removed</td><td>approximately +0.9 correlation points</td></tr>
-<tr><td>Crowded minus uncrowded quintile, worst decile of market months since 2014</td><td>&minus;142 basis points per month</td></tr>
-<tr><td>Crowded minus uncrowded quintile, all months</td><td>&minus;33 basis points per month</td></tr>
+<tr><td>Point-in-time lag</td><td>45-day filing deadline; a quarter is admitted from the first month that begins after it (corrected 4 November 2026)</td></tr>
+<tr><td>Co-held pairs, matched on sector and size decile</td><td>3,352 (corrected 4 November 2026)</td></tr>
+<tr><td>Excess residual correlation, six standard factors removed</td><td>approximately +0.5 correlation points (corrected 4 November 2026)</td></tr>
+<tr><td>Crowded minus uncrowded quintile, worst decile of market months since 2014</td><td>&minus;106.5 basis points per month (corrected 4 November 2026)</td></tr>
+<tr><td>Crowded minus uncrowded quintile, all months</td><td>&minus;34.9 basis points per month (corrected 4 November 2026)</td></tr>
 <tr><td>Tests declared in the pre-registration</td><td><i>n</i>&nbsp;=&nbsp;2</td></tr>
 <tr><td>Promotion hurdle</td><td>raw <i>t</i> of about 5, after halving gross return and doubling costs</td></tr>
 </table>
@@ -344,8 +349,8 @@ of 2007 predicts.</p>
 <div class="cap"><b>Table 1.</b> Crowding effects and promotion outcome.</div>
 <table>
 <tr><th>Claim</th><th>Effect</th><th>NW <i>t</i></th><th>Outcome</th></tr>
-<tr><td>Co-held pairs co-move (3,312 pairs)</td><td>+0.9 corr pts</td><td>4.09</td><td>held, not promoted</td></tr>
-<tr><td>Crowded underperform in stress (14 months)</td><td>&minus;142 bps/mo</td><td>&minus;3.90</td><td>held, not promoted</td></tr>
+<tr><td>Co-held pairs co-move (3,352 pairs; corrected 4 November 2026)</td><td>+0.5 corr pts</td><td>2.20</td><td>held, not promoted</td></tr>
+<tr><td>Crowded underperform in stress (15 months; corrected 4 November 2026)</td><td>&minus;106.5 bps/mo</td><td>&minus;2.65</td><td>held, not promoted</td></tr>
 </table>
 </div>
 
@@ -377,6 +382,24 @@ but not promoted is a distinct category, and maintaining it is what keeps the
 signals that <i>do</i> pass worth believing.</div>
 
 <div class="refs">
+<h2>Correction, 4 November 2026</h2>
+<p><b>Two defects in the study code were found on 27 October 2026 during a review of an
+external codebase.</b> Neither changes the verdict; both claims remain held, not promoted.</p>
+<p><b>Defect 1.</b> The point-in-time rule admitted a quarter to the whole month its filing
+deadline fell in, so February, May, August and November used holdings up to 15 days before
+they were public. The corrected rule admits a quarter from the first month that begins after
+the deadline. On today&rsquo;s panel the stress spread is &minus;106.5 bps a month
+(<i>t</i> &minus;2.65) corrected and &minus;114.0 (<i>t</i> &minus;2.80) under the old rule,
+both over 15 months. The published &minus;142 (<i>t</i> &minus;3.90, 14 months) came from
+the July 2026 panel.</p>
+<p><b>Defect 2.</b> Pair order depended on the process hash seed, so each process drew a
+different sample. The published <i>t</i> of 4.09 on 3,312 pairs was one draw; across 20 seeds
+<i>t</i> ran from 1.45 to 4.68. The code now sorts pairs before sampling. The corrected row,
+3,352 pairs, +0.5 correlation points, <i>t</i> 2.20, reproduces run to run.</p>
+<p>The co-movement test also picks pairs from the latest twelve quarters and correlates
+residuals over the full history, so it measures association and makes no point-in-time claim;
+the method sentence now says so. The record is docs/research/ml4t/wp6_correction/.</p>
+
 <h2>References</h2>
 <ol>
 <li>Anton, M., and Polk, C. (2014). Connected Stocks. <i>Journal of
