@@ -1,0 +1,349 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wrong, According to Whom? &middot; Working Paper No. 57</title>
+<meta name="description" content="A registered blind re-check of 113 findings by this desk&#x27;s AI review agents judged 3 flatly wrong. Earlier AI layers that asked whether a finding was supported, or whether a page should change, called more of the same findings unsupported or rejected, and one correction this desk shipped was wrong.">
+<link rel="canonical" href="https://theriskmuseum.com/notes/wrong-according-to-whom.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* The canonical paper stylesheet. One source, injected inline into every note
+   by pipeline/restyle_notes.py so pages stay self-contained. Edit HERE and
+   re-run that script; editing a note's own style block is a losing move.
+
+   The format follows an institutional research-article convention: a dark
+   hero band carrying an eyebrow, a large light grotesque headline and a serif
+   lede, then a left-aligned serif text column. Fonts are system faces only.
+   Identity stays the museum's: Charter body, the crest, navy, the red accent
+   where things die, and gold reserved for the vault. */
+
+:root { --bg:#faf9f7; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --line:#e3e0da; --accent:#8b2e2e; --blue:#2a5d8b;
+  --hero:#0f1c33; --heroink:#f2efe8; --herosub:#c9cfda; --heromut:#8fa0bb;
+  --gold:#b8860b; --goldhero:#e0bc6a; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141414; --fg:#e8e6e1; --muted:#9a9a9a; --card:#1e1e1e;
+    --line:#2e2e2e; --accent:#c96a6a; --blue:#7aa7cc;
+    --hero:#0c1626; --gold:#e0bc6a; } }
+* { box-sizing:border-box; margin:0 }
+body { background:var(--bg); color:var(--fg); position:relative;
+  font:18px/1.72 Charter,'Bitstream Charter',Cambria,'Noto Serif',Georgia,serif;
+  font-variant-numeric:lining-nums; padding:0 0 4.5rem; }
+
+/* topbar: brand left, tabs right */
+.topbar { max-width:960px; margin:0 auto; padding:1rem 1.5rem;
+  display:flex; align-items:center; gap:2rem }
+.brand-lockup { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.55rem;
+  white-space:nowrap; flex:none }
+.brand-lockup img { display:block }
+nav.tabs { display:flex; gap:1.1rem; margin-left:auto; flex:1 1 auto;
+  min-width:0; justify-content:flex-end; overflow-x:auto; scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent) }
+nav.tabs::-webkit-scrollbar { display:none }
+@media (max-width:899px) { nav.tabs { justify-content:flex-start } }
+@media (min-width:900px) { nav.tabs { -webkit-mask-image:none; mask-image:none } }
+nav.tabs a { font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); text-decoration:none; padding:.4rem 0; flex:none;
+  border-bottom:2px solid transparent; white-space:nowrap }
+nav.tabs a.on { color:var(--fg); border-bottom-color:var(--gold) }
+nav.tabs a:hover { color:var(--fg) }
+@media (max-width:820px) {
+  nav.tabs { gap:.9rem; overflow-x:auto; scrollbar-width:none }
+  nav.tabs::-webkit-scrollbar { display:none } }
+
+/* the get-in-touch mark, floated over the hero's top right */
+.tearmark { position:absolute; top:4.4rem; right:1.2rem; z-index:60;
+  display:block; padding:.45rem .8rem .5rem; background:var(--card);
+  border:1px solid var(--line); border-radius:8px; text-decoration:none;
+  line-height:1.3; box-shadow:0 2px 10px rgba(0,0,0,.18) }
+.tearmark b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted) }
+.tearmark i { display:block; font-style:normal; font-size:.8rem;
+  color:var(--blue) }
+.tearmark:hover i { text-decoration:underline }
+@media (max-width:820px) { .tearmark { display:none } }
+@media print { .tearmark { display:none } }
+
+/* hero band */
+.hero { background:var(--hero); color:var(--heroink);
+  padding:3.6rem 1.5rem 3rem; border-bottom:1px solid var(--line) }
+.hero-in { max-width:912px; margin:0 auto }
+.eyebrow { font:600 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--goldhero);
+  margin-bottom:1.5rem }
+.hero h1 { font:300 clamp(32px,5vw,46px)/1.16 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.02em; color:var(--heroink); max-width:17em; margin:0 0 1.5rem }
+.hero .lede { font:italic 20px/1.55 Charter,Georgia,serif; color:var(--herosub);
+  max-width:42em; margin:0 0 1.9rem }
+.hero .who { font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--heromut) }
+.hero .who b { color:var(--heroink); font-weight:500 }
+
+/* article column */
+main { max-width:960px; margin:0 auto; padding:0 1.5rem }
+article, .article-body { max-width:912px; margin-top:2.6rem }
+p { margin-bottom:1.25rem; text-align:left }
+h2 { font:500 22px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:-.01em; margin:2.7rem 0 .9rem }
+h3 { font:600 16.5px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:1.8rem 0 .6rem }
+a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:2px }
+strong { font-weight:600 }
+code { font:.85em ui-monospace,Menlo,monospace; background:var(--card);
+  border:1px solid var(--line); border-radius:4px; padding:.05em .35em }
+ol, ul { padding-left:1.3rem; margin-bottom:1.25rem }
+blockquote { border-left:3px solid var(--line); padding-left:1.1rem;
+  color:var(--muted); margin:1.5rem 0 }
+
+/* legacy academic pieces some papers carry */
+.abstract { font-size:16px; line-height:1.65; margin:0 0 1.1rem;
+  text-align:left; hyphens:none }
+.abstract .lab { font-variant:small-caps; letter-spacing:.06em; font-weight:bold }
+.keywords { font-size:14px; color:var(--muted); margin-bottom:1.8rem }
+.plain { font-size:18px; line-height:1.55; margin:0 0 1.5rem;
+  padding:.8rem 1.1rem; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--accent); border-radius:6px; text-align:left }
+
+/* tables: horizontal rules only */
+.tblwrap { overflow-x:auto; margin:2rem 0 }
+.cap { font:13px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted); margin-bottom:.5rem }
+table { border-collapse:collapse; width:100%;
+  font:15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif }
+th, td { border:0; border-bottom:1px solid var(--line);
+  padding:.6rem .9rem .6rem 0; text-align:right }
+th:first-child, td:first-child { text-align:left }
+th { font-weight:600; font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted);
+  border-bottom:2px solid var(--fg) }
+
+.note { border-left:2px solid var(--blue); padding:.2rem 0 .2rem 1.1rem;
+  margin:1.8rem 0; color:var(--muted); font-size:15.5px; font-style:italic }
+.grave { margin:2.4rem 0 }
+.grave svg { width:100%; height:auto; display:block }
+hr { border:0; border-top:1px solid var(--line); margin:3rem 0 }
+
+.refs { margin-top:2.6rem; font-size:14.5px }
+.refs h2 { font-size:15px }
+.refs ol { padding-left:1.3rem }
+.refs li { margin-bottom:.45rem; line-height:1.5 }
+
+/* provenance block, bs-prov/1.0 */
+.prov { margin:2.6rem 0 0; border:1px solid var(--line); border-radius:6px;
+  background:var(--card); padding:1rem 1.2rem; font-size:14px;
+  line-height:1.55; color:var(--muted) }
+.prov h2 { font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.1em; text-transform:uppercase; margin:0 0 .7rem;
+  color:var(--fg) }
+.prov dl { display:grid; grid-template-columns:8.5rem 1fr; gap:.32rem .9rem;
+  margin:0 }
+.prov dt { color:var(--fg); font-weight:600 }
+.prov dd { margin:0; text-align:left }
+.prov code { font-size:.94em }
+.prov ul { margin:0; padding-left:1.05rem }
+@media (max-width:520px) {
+  .prov dl { grid-template-columns:1fr; gap:.1rem }
+  .prov dd { margin-bottom:.5rem } }
+
+footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
+  border-top:1px solid var(--line); color:var(--muted);
+  font:13px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:left }
+
+
+/* ---- listing page: cards and the filterable category grid ---- */
+.note-card { background:var(--card); border:1px solid var(--line);
+  border-radius:10px; padding:1.2rem 1.4rem; margin:0 0 1rem;
+  display:flex; gap:1.2rem; align-items:flex-start;
+  text-decoration:none; color:var(--fg) }
+.tile { flex:none; width:64px; height:64px; margin-top:.15rem }
+.note-body { min-width:0 }
+.note-card:hover { border-color:var(--gold) }
+.note-card h2 { font:500 17px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:0; margin:0 0 .4rem; color:var(--fg) }
+.note-card p { font:15px/1.55 Charter,Georgia,serif; color:var(--muted); margin:0 }
+.listing { max-width:912px; margin-top:2.4rem }
+
+/* ---- listing page, featured tier: top 5 thesis ---- */
+.top5 { max-width:912px; margin-top:2.4rem }
+.sect-h { font:600 .8rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 .55rem }
+.sect-note { font:15px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 1.1rem }
+.top-card { display:block; background:var(--card); border:1px solid var(--line);
+  border-left:3px solid var(--blue); border-radius:10px;
+  padding:1.15rem 1.35rem; margin:0 0 .9rem; text-decoration:none;
+  color:var(--fg) }
+.top-card:hover { border-color:var(--blue) }
+.top-card .tc-meta { font:600 .68rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--blue);
+  display:block; margin-bottom:.45rem }
+.top-card h2 { font:500 19px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin:0 0 .4rem; color:var(--fg) }
+.top-card p { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:0 0 .6rem }
+.top-card .tc-stat { font:13px/1.5 Charter,Georgia,serif; color:var(--fg);
+  border-top:1px solid var(--line); padding-top:.55rem; display:block }
+
+.glance { margin-bottom:2.4rem }
+.glance-hdr { display:flex; align-items:baseline; justify-content:space-between;
+  margin-bottom:.75rem }
+.glance-hdr h2 { font-size:1.05rem; font-weight:bold }
+.glance-count { color:var(--muted); font-size:.78rem }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(122px,1fr));
+  gap:.5rem }
+.mtile { background:var(--card); border:1px solid var(--line); border-radius:8px;
+  padding:.6rem .65rem; text-decoration:none; color:var(--fg); display:flex;
+  flex-direction:column; gap:.3rem; min-height:84px }
+.mtile:hover { border-color:var(--blue) }
+.mtile-icon { width:26px; height:26px; flex:none; opacity:.85 }
+.mtile-meta { font-size:.62rem; color:var(--muted); letter-spacing:.03em;
+  text-transform:uppercase }
+.mtile-t { font-size:.79rem; line-height:1.22; font-weight:600; flex:1 }
+.mtile-s { font-size:.72rem; color:var(--accent); font-weight:bold }
+.mtile.hide { display:none }
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem }
+.chip { font:inherit; font-size:.78rem; color:var(--muted); background:var(--bg);
+  border:1px solid var(--line); border-radius:999px; padding:.32rem .75rem;
+  cursor:pointer }
+.chip span { color:var(--muted); opacity:.8 }
+.chip:hover { border-color:var(--blue); color:var(--fg) }
+.chip.on { background:var(--card); border-color:var(--accent); color:var(--fg);
+  font-weight:600 }
+.chip.on span { color:var(--accent) }
+
+/* ---- listing page: associative trails (Bush memex; export_trails.py) ---- */
+.trails { max-width:912px; margin-top:2.4rem }
+.trail { border:1px solid var(--line); border-radius:10px; background:var(--card);
+  margin:0 0 .6rem; padding:.85rem 1.1rem }
+.trail summary { cursor:pointer; list-style:none; display:flex;
+  align-items:baseline; gap:.7rem; color:var(--fg) }
+.trail summary::-webkit-details-marker { display:none }
+.trail summary::before { content:"\203A"; color:var(--blue); font-weight:bold;
+  display:inline-block; transition:transform .15s ease }
+.trail[open] summary::before { transform:rotate(90deg) }
+.trail summary b { font:500 16px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-n { margin-left:auto; font-size:.72rem; color:var(--muted);
+  letter-spacing:.06em; text-transform:uppercase; white-space:nowrap }
+.trail-premise { font:15px/1.6 Charter,Georgia,serif; color:var(--muted);
+  margin:.7rem 0 1rem; padding-left:1.1rem }
+.trail-stop { display:flex; gap:.8rem; padding:.55rem 0 .55rem 1.1rem;
+  border-top:1px solid var(--line) }
+.trail-num { flex:none; width:1.4rem; height:1.4rem; border-radius:99px;
+  border:1px solid var(--line); color:var(--muted); text-align:center;
+  font:600 .72rem/1.35rem 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-stop a { font:500 15px/1.35 'Helvetica Neue',Helvetica,Arial,sans-serif }
+.trail-lab { font-size:.68rem; color:var(--muted); letter-spacing:.1em;
+  text-transform:uppercase; margin-left:.5rem }
+.trail-why { font:14.5px/1.55 Charter,Georgia,serif; color:var(--muted);
+  margin:.3rem 0 0 }
+/* share:start */
+.sharebox { position:absolute; top:8.4rem; right:1.2rem; z-index:60;
+  padding:.45rem .8rem .55rem; background:var(--card,#fff);
+  border:1px solid var(--line,#e3e0da); border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18); text-align:left }
+.sharebox b { display:block; letter-spacing:.2em; text-transform:uppercase;
+  font:600 9px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--muted,#6b6b6b); margin-bottom:.15rem }
+.sharebox a, .sharebox button { display:inline-block; font:400 .8rem/1.4
+  'Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--blue,#2a5d8b);
+  background:none; border:0; padding:0; margin-right:.55rem; cursor:pointer;
+  text-decoration:none }
+.sharebox a:hover, .sharebox button:hover { text-decoration:underline }
+@media (max-width:820px) { .sharebox { display:none } }
+@media print { .sharebox { display:none } }
+/* share:end */</style>
+<!-- social:start -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Risk Museum">
+<meta property="og:title" content="Wrong, According to Whom? &middot; Working Paper No. 57">
+<meta property="og:description" content="A registered blind re-check of 113 findings by this desk&#x27;s AI review agents judged 3 flatly wrong. Earlier AI layers that asked whether a finding was supported, or whether a page should change, called more of the same findings unsupported or rejected, and one correction this desk shipped was wrong.">
+<meta property="og:url" content="https://theriskmuseum.com/notes/wrong-according-to-whom.html">
+<meta property="og:image" content="https://theriskmuseum.com/cards/note-wrong-according-to-whom.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://theriskmuseum.com/cards/note-wrong-according-to-whom.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wrong, According to Whom? &middot; Working Paper No. 57">
+<meta name="twitter:description" content="A registered blind re-check of 113 findings by this desk&#x27;s AI review agents judged 3 flatly wrong. Earlier AI layers that asked whether a finding was supported, or whether a page should change, called more of the same findings unsupported or rejected, and one correction this desk shipped was wrong.">
+<!-- social:end -->
+</head><body>
+<!-- share:start -->
+<div class="sharebox"><b>Share this page</b><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheriskmuseum.com%2Fnotes%2Fwrong-according-to-whom.html" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=Wrong%2C%20According%20to%20Whom%3F%20-%20Working%20Paper%20No.%2057&amp;body=Worth%20a%20read%3A%20https%3A//theriskmuseum.com/notes/wrong-according-to-whom.html">Email</a><button type="button" onclick="var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copied'}).catch(function(){window.prompt('Copy this link:',location.href)})">Copy link</button></div>
+<!-- share:end -->
+<div class="topbar">
+<!-- brand:start -->
+<a href="../" aria-label="The Risk Museum, home" class="brand-lockup" style="display:inline-flex;align-items:center;gap:.55rem;text-decoration:none"><img src="../logo.svg" alt="" width="24" height="24" style="display:block"><span style="font:600 .75rem/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)">The Risk Museum</span></a>
+<!-- brand:end -->
+<nav class="tabs">
+<a class="on" href="./">Research Notes</a>
+<a href="../">Tested Strategies</a>
+<a href="../tradingfloor.html">Trading Floor</a>
+<a href="../forecasts.html">Forecast Wing</a>
+<a href="../reading-room.html">Library</a>
+<a href="../about.html">About</a>
+</nav>
+</div>
+<a class="tearmark" href="https://www.linkedin.com/in/vasiliosdimopoulos/" target="_blank" rel="noopener"><b>Get in touch</b><i>Reach out on LinkedIn</i></a>
+<div class="hero"><div class="hero-in">
+<div class="eyebrow">Working Paper No. 57 &middot; BlueShip Research · 19 November 2026 &middot; this desk&rsquo;s AI review agents, re-checked blind</div>
+<h1>Wrong, According to Whom?</h1>
+<p class="lede">Blind checkers judged 3 of 113 findings by this desk&rsquo;s AI review agents flatly wrong. On the same 26 sweep findings, an earlier AI verifier that asked a different question had called 7 unsupported, so an error rate depends on who checks and what they ask.</p>
+<div class="who"><b>V. Dimopoulos</b> &nbsp;&middot;&nbsp; BlueShip Research</div>
+</div></div>
+<main><div class="article-body">
+<p class="abstract"><span class="lab">Abstract.</span> A registered blind re-check of 113 August findings by this desk&rsquo;s AI review agents judged 3 flatly wrong. On the same 26 sweep findings, an earlier AI verifier, asking whether each was shown rather than true, called 7 unsupported; the blind checkers called none flatly wrong. An agent&rsquo;s error rate sets how much checking its output needs, and depends on who checks and what they ask.</p>
+
+<h2>1. The missing number</h2>
+<p>A LinkedIn list gathered seven Anthropic and OpenAI stories of AI agents in investment research. Four report speed and four a correctness figure from a model test. None says how often output was wrong in live use or sent back by a reviewer. I measured that number on my own agents.</p>
+<h2>2. The re-check</h2>
+<p>Two August rounds supplied the findings, one reviewer per published note and a sweep by a few agents over many notes. Two blind checkers judged each finding, and a third settled their 10 splits.</p>
+<div class="tbl"><table>
+<thead><tr><th>Round and findings</th><th>n</th><th>Holds / partly / does not hold</th><th>Does not hold [95%]</th><th>Not fully right [95%]</th><th>Checkers agreed (kappa)</th></tr></thead>
+<tbody>
+<tr><td>Per-note review, all corrections</td><td>32</td><td>30 / 1 / 1</td><td>3.1% [0.6, 15.7]</td><td>6.3% [1.7, 20.1]</td><td>30 of 32 (0.48)</td></tr>
+<tr><td>Per-note review, sample of other findings</td><td>30</td><td>23 / 6 / 1</td><td>3.3% [0.6, 16.7]</td><td>23.3% [11.8, 40.9]</td><td>28 of 30 (0.81)</td></tr>
+<tr><td>Sweep, all load-bearing findings</td><td>51</td><td>32 / 18 / 1</td><td>2.0% [0.3, 10.3]</td><td>37.3% [25.3, 51.0]</td><td>45 of 51 (0.75)</td></tr>
+<tr><td>All 113 checked, counts only (see Method)</td><td>113</td><td>85 / 25 / 3</td><td></td><td></td><td>103 of 113 (0.76)</td></tr>
+</tbody></table></div>
+<p>Of per-note corrections, 6% were wrong or overstated, against 37% of sweep findings and 28% of the sweep&rsquo;s own corrections. Partly right findings drew unsound fixes in 20 of 50 ratings, so applying review text as written is a risk.</p>
+<h2>3. One sweep, three questions</h2>
+<div class="tbl"><table>
+<thead><tr><th>Who checked the sweep</th><th>Question asked</th><th>Findings</th><th>Their call [95%]</th><th>Blind re-check, same findings</th><th>Agreed with the blind re-check (kappa)</th></tr></thead>
+<tbody>
+<tr><td>Verifier, 19 August, first sample</td><td>is it supported?</td><td>8</td><td>5 unsupported, 62.5% [30.6, 86.3]</td><td>0 does not hold, 2 partly</td><td>1 of 8 (too few to read)</td></tr>
+<tr><td>Verifier, 19 August, 26 links kept after Addendum 1</td><td>is it supported?</td><td>26</td><td>7 unsupported, 26.9% [13.7, 46.1]</td><td>0 does not hold, 6 partly</td><td>8 of 26 (0.02)</td></tr>
+<tr><td>The sweep&rsquo;s own skeptic stage, 19 August</td><td>should the page change?</td><td>36</td><td>27 rejected, 75.0% [58.9, 86.2]</td><td>1 does not hold, 16 partly</td><td>10 of 36 (0.02, descriptive)</td></tr>
+<tr><td>Blind re-check, 17 November</td><td>is it true?</td><td>51</td><td>1 does not hold, 2.0% [0.3, 10.3]</td><td></td><td></td></tr>
+</tbody></table></div>
+<p>The questions differ, yet the layers are not noise. The checkers rated the fix unsound on 4 of the verifier&rsquo;s 7 unsupported findings, and the skeptics rejected 16 of the 17 the checkers judged not fully right. My record read the verifier&rsquo;s first sample, 5 unsupported of 8, as a sweep about 63% false positive; the checkers judged those 5 findings 3 right and 2 partly right. Which layer is right needs a human-graded sample I have not drawn.</p>
+<h2>4. The wrong correction</h2>
+<div class="tbl"><table>
+<thead><tr><th></th><th>What it says</th></tr></thead>
+<tbody>
+<tr><td>Working Paper No. 25, 3 August 2026</td><td>US large caps all tick at a penny</td></tr>
+<tr><td>The correction I shipped, 21 August 2026 (reworded 26 August, same claim)</td><td>since November 2025, amended Rule 612 gives tick-constrained names half-penny ticks</td></tr>
+<tr><td>SEC order, 31 October 2025</td><td>compliance with amended Rule 612 deferred to the first business day of November 2026</td></tr>
+<tr><td>SEC order, 11 June 2026</td><td>deferred again, to the first business day of November 2027</td></tr>
+<tr><td>Both blind checkers</td><td>does not hold; the fix would put a false statement on the page</td></tr>
+</tbody></table></div>
+<p>I shipped the one wrong per-note correction with 30 others and left one right correction unshipped, one miss each way and too few to grade my shipping step. A false claim has stood on a live page since 21 August.</p>
+<h2>5. What to ask for</h2>
+<p>Beside an agent&rsquo;s speed, ask how many outputs a person checked, how many were wrong and how many a reviewer sent back. Then ask who checked, against what question, and who checked the checker.</p>
+<h2>6. What this does not claim</h2>
+<p>The checkers are Claude agents, like the reviewers, so a blind spot they share is invisible; blind is not the same as right. The two rounds differ in setup and kind of finding and are not independent, so their gap tests no design. I audited no vendor; a firm that publishes no check number may keep one. Two rounds of one desk&rsquo;s agents set no error rate for anyone else.</p>
+
+<div class="prov"><dl>
+<dt>Method</dt><dd>Registered protocol docs/research/agent_check_rate/00_protocol.md, sha256 6725c84790474e13b8be92ffd210ec2fedac2255f493ee7f3ebb62eb094d2273, fixed before any sample was drawn; addenda 00_protocol_addenda.md, sha256 06d8f560a391d50f8e4abc0d30349a763e39b143abdf24f95c741c3a97fda637. Addendum 1 (stricter blinding, one dropped verifier link, the skeptic comparison) came before any finding was re-checked; Addendum 2 came after the final verdicts were hashed, corrects the process record and changes no number. The results file records the addenda hash before Addendum 2 (56766f2436cae1c11749c2fca4401dc33c8e4aa82f3dfa563ac407e2a00f272e). Rounds: the per-note library review of 21 August 2026 (39 notes, one reviewer each against lens files routed by subject; 145 findings, of which all 32 graded correction were checked and 30 drawn from the other 113 (145 less 32) by a seeded hash rule stratified by severity) and the library-gate sweep of 19 August 2026 (8 lens-reading agents, 101 findings; all 51 its authors weighted load-bearing were checked). Checkers were not shown how a finding had been graded or any later version of the page; each finding was judged against the public page at the last commit before any fix could land: holds, partly (something is wrong there, but not as stated), does not hold, or cannot tell (none). Suggestions were judged on their factual premise. Not fully right is partly plus does not hold. Intervals are Wilson 95% and percentages round half up. Kappa is unweighted Cohen&rsquo;s kappa before adjudication, over four categories between the two checkers, three in the verifier comparison and two in the skeptic comparison. Fisher tests are exact and two-sided; they describe gaps and gate nothing. On not fully right, per-note corrections against all sweep findings give p 0.0016, and against the sweep&rsquo;s 29 corrections, 8 of them not fully right, p 0.037. The 51 sweep findings come from 8 agents on 18 notes, so they are not independent draws, and the rounds are not independent of each other: 8 of the 32 corrections come from notes whose reviewers were handed sweep findings. The all-113 row adds a census of corrections, a stratified draw and a census of the sweep&rsquo;s load-bearing findings, so it gives counts and estimates no rate. The verifier comparison maps confirmed, partially confirmed and unsupported to holds, partly and does not hold over 26 text-matched links kept after Addendum 1 dropped one link whose result quotes an earlier sweep; the first-sample row is the registered sample of 8, before that drop, so it is not a subset of the 26; over all 27 links before the drop, agreement is 8 of 27 (kappa 0.01). The skeptic comparison counts survives with holds or partly and rejected with does not hold; read instead as rejected against not fully right, agreement is 24 of 36 (kappa 0.35), and rejection goes with not fully right (Fisher p 0.02). The skeptic figures, the all-113 counts, and the layer shares, intervals and same-finding counts in the second table are descriptive and computed for this note. Shipping is read from a record sealed before the re-check: 28 corrections through the 21 August queue and 3 mechanical fixes; shipped means in that queue or among its mechanical fixes. Scripts: 05_sample.py (run twice, byte-identical), 06_finalize.py, 07_metrics.py, 08_unseal.py, acr_stats.py; final verdicts verdicts/final.json, sha256 be6e6d19bfc4deaa3064495939afb7598e309c3cd84dfc3f745afefea3778993; combined results results/agent_check_rate.json, sha256 88d094275de298c8a65fbbb7bd26be55b5bf552c40962d664fa43b92714d1100. Every number in this note is printed by docs/research/agent_check_rate/10_note_numbers.py, which reads those results, the vendor-story tallies docs/research/agent_stories_2026/02_story_counts.json (sha256 96cbe42e6c41b30bd0567281c58856c638972fed38f33f22277347552e01e179) and, for the about-63% figure, the correction record docs/correction_pass_2026-08.md; its output 10_note_numbers.json has sha256 7ee0da9fa44b6685d4183e08d99dc1d22252b73c381861d15a51219eead1b312 and reproduced byte for byte. In the vendor count, speed means a number for how fast or how much work was done; correctness means a rate, score or relative gain from a test of the model; the missing number means a rate of wrong output in use or of reviewer rejection. Prose count by the house counter (pipeline/condense_note.py prose_words through docs/research/agent_stories_2026/wordcount.py; tables and this block excluded).</dd>
+<dt>Sources</dt><dd>Vendor pages, all accessed 17 November 2026: Anthropic, Working at the frontier, How Balyasny Asset Management evaluates and governs Claude Fable 5, 17 September 2026, https://claude.com/resources/articles/working-at-the-frontier-how-balyasny-asset-management-evaluates-and-governs-claude-fable-5. Anthropic, T. Rowe Price brings more of Claude to its investment process, 10 September 2026, https://claude.com/resources/articles/t-rowe-price-brings-more-of-claude-to-its-investment-process, read with T. Rowe Price&rsquo;s release of the same day, https://www.troweprice.com/en/us/press/2026/press-release--t--rowe-price-works-with-anthropic-to-bring-claud. OpenAI, How Jump Trading is scaling quant research with ChatGPT, 6 October 2026, https://openai.com/index/jump-trading/. OpenAI, How Third Moment Research runs 10,000 agents for 36+ hours, 14 October 2026, https://openai.com/index/third-moment-research/. Anthropic, Working at the frontier, How Hebbia builds AI for financial diligence that can&rsquo;t miss a detail, 13 July 2026, https://claude.com/resources/articles/working-at-the-frontier-how-hebbia-builds-ai-for-financial-diligence-that-cant-miss-a-detail. OpenAI, Model ML completes finance work more efficiently with GPT-5.6 Sol, 10 August 2026, https://openai.com/index/model-ml/. OpenAI, Introducing ChatGPT for Financial Services, 10 September 2026, https://openai.com/index/introducing-chatgpt-financial-services/. The openai.com pages refused automated fetches and were read in full in a browser. Rule 612, accessed 17 November 2026: US Securities and Exchange Commission, exemptive order of 31 October 2025, Release No. 34-104172, announced in press release 2025-130, https://www.sec.gov/newsroom/press-releases/2025-130-sec-issues-exemptive-order-regarding-compliance-certain-rules-under-regulation-nms, published at 90 FR 51418, 17 November 2025, document 2025-19926, https://www.govinfo.gov/content/pkg/FR-2025-11-17/html/2025-19926.htm. US Securities and Exchange Commission, Order Granting Temporary Exemptive Relief from Compliance with Rule 600(b)(89)(i)(F), Rule 610(c) and Rule 612 of Regulation NMS, as Amended, Release No. 34-105656, 11 June 2026, https://www.sec.gov/files/rules/exorders/2026/34-105656.pdf, published at 91 FR 36022, 15 June 2026, document 2026-11997, https://www.govinfo.gov/content/pkg/FR-2026-06-15/html/2026-11997.htm. The SEC&rsquo;s index of Exchange Act exemptive orders lists no later order on Rule 612 through its latest entry, 4 November 2026.</dd>
+<dt>Honesty</dt><dd>This desk&rsquo;s engine runs on Anthropic&rsquo;s Claude models, and I use OpenAI&rsquo;s ChatGPT as a red team. The reviewers measured here, and the checkers and adjudicators who measured them, are Claude agents, and Claude agents ran the study and drafted this note at my direction. Three of the seven stories are Anthropic&rsquo;s, two of the OpenAI pages benchmark OpenAI&rsquo;s models against Claude models, and one customer&rsquo;s own release says its portfolios invest in Anthropic; nothing here ranks either vendor, and every vendor figure is vendor-reported. Limits recorded in the addenda and results: on 10 findings (2 per-note, 8 sweep) a checker saw a later fix or result; the session harness put my memory index in front of checkers against the protocol, and checkers on 10 sweep findings saw its line calling the sweep about 63% false positive, which pushes toward wrong while the verdicts went the other way; the sweep round was checked against today&rsquo;s code, since the private repository has no commits for that window; the sealed shipping record was opened early, by the verifier of the extraction and before any checker ran, and no checker or adjudicator read it; the verifier comparison rests on a text-similarity mapping, with 3 low-margin links. Without the 8 sweep findings where a checker saw a later fix or result, the sweep is 2.3% flatly wrong and 41.9% not fully right, of 43.</dd>
+<dt>Related</dt><dd>Working Paper No. 37, <a href="sixty-hats.html">Sixty Hats, One Head</a>, on why agent count is the wrong number; No. 40, <a href="the-gate-is-the-product.html">The Gate Is the Product</a>, on why judging ideas, not having them, is the scarce skill; No. 25, <a href="cost-is-the-whole-result.html">Cost Is the Whole Result</a>, corrected in this publish.</dd>
+</dl></div>
+
+<footer>BlueShip Research &middot; The Risk Museum &middot; educational
+research only; not investment advice. Method and sources for this paper are
+stated in the paper itself.</footer>
+</div></main><script defer src="../read-aloud.js?v=0ff38a186c"></script>
+</body></html>

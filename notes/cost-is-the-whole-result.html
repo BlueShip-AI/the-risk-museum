@@ -323,7 +323,7 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <thead><tr><th>Design</th><th>Specification</th></tr></thead>
 <tbody>
 <tr><td>Universe</td><td>current US large caps, daily adjusted closes; survivorship biased, so every raw figure is an upper bound</td></tr>
-<tr><td>Tick regime</td><td>a penny for essentially the whole 21-year sample; amended Rule 612 gives tick-constrained names half-penny ticks from November 2025, so the constant-tick assumption holds for the sample period and not beyond it</td></tr>
+<tr><td>Tick regime</td><td>a penny for essentially the whole 21-year sample, and still a penny; amended Rule 612 would give tick-constrained names half-penny ticks, but SEC orders have deferred compliance to the first business day of November 2027, so the constant-tick assumption holds for the sample period and beyond it, unless and until the rule takes effect (corrected 19 November 2026)</td></tr>
 <tr><td>Sorting variable</td><td>tick over the product of price and return volatility over the trailing 63 days, ranked monthly across the cross section, split at the median</td></tr>
 <tr><td>Median annualised volatility, high-ratio tier</td><td>29.3%</td></tr>
 <tr><td>Median annualised volatility, low-ratio tier</td><td>35.5%</td></tr>
@@ -427,6 +427,23 @@ footer { max-width:912px; margin:3rem 0 0; padding-top:1.3rem;
 <tr><td>Regress the contrast on standard factors</td><td>Whether this is a new exposure or an old one repackaged. The tier split sorts partly on price and partly on volatility, and short-horizon reversal plus a volatility risk premium would reproduce a good deal of it. Academic for this book, since the result died on cost; load-bearing for anyone who reads the direction as encouraging</td></tr>
 </tbody>
 </table></div>
+
+<div class="refs">
+<h2>5. Correction, 19 November 2026</h2>
+<p><b>A correction made on 21 August 2026 put a false statement on this page.</b>
+It said that since November 2025 amended Rule 612 gives tick-constrained names
+half-penny ticks. It does not. The SEC deferred compliance with amended Rule 612,
+first to the first business day of November 2026 (order of 31 October 2025,
+Release No. 34-104172) and then to the first business day of November 2027 (order
+of 11 June 2026, Release No. 34-105656). The sentence as first published, that US
+large caps all tick at a penny, was true when published.</p>
+<p>The design table&rsquo;s tick row now says so. No number or verdict on this page
+changes, because the test uses a penny tick throughout. I shipped that correction;
+it was proposed by one of this desk&rsquo;s AI review agents, and the SEC orders above
+show it was wrong. Working Paper No. 57,
+<a href="wrong-according-to-whom.html">Wrong, According to Whom?</a>, reports a blind
+re-check of those agents that also flagged it.</p>
+</div>
 
 <p><em>Educational research only. Not investment advice.</em></p>
 
