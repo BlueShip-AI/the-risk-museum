@@ -1,11 +1,115 @@
 {
  "museum": "The Risk Museum \u00b7 BlueShip-AI Research",
  "url": "https://theriskmuseum.com/",
- "exported": "2026-11-26",
- "works_tested": 1520,
+ "exported": "2026-11-27",
+ "works_tested": 1531,
  "in_the_vault": 2,
  "license": "CC BY 4.0, reuse with attribution",
  "exhibits": [
+  {
+   "claim": "BRAIN candidate: -rank(winsorize(ts_zscore(fnd6_cimii, 500), std=4))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(zscore(implied_volatility_mean_90) - zscore(anl4_af_cfps_value))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(snt_buzz_bfl, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(parkinson_volatility_20, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(current_federal_tax_expense_amount / ts_mean(current_federal_tax_expense_amount, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(derivative_liability_fair_value / ts_mean(derivative_liability_fair_value, 120))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_zscore(effective_tax_rate_continuing_ops_2, 250), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(implied_volatility_mean_150, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: rank(ts_zscore(pv13_revere_index_value, 250))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: -group_rank(ts_zscore(parkinson_volatility_90, 20), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, LOW_SUB_UNIVERSE_SHARPE, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: -rank(ts_delta(fnd6_esopct, 5))",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: group_rank(ts_delta(anl4_af_eps_value, 10), subindustry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, CONCENTRATED_WEIGHT, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-24"
+  },
+  {
+   "claim": "BRAIN candidate: group_zscore(ts_delta(current_foreign_tax_expense_value, 120), industry)",
+   "stage": "brain-checks",
+   "reason": "LOW_SHARPE, LOW_FITNESS, SELF_CORRELATION",
+   "status": "rejected",
+   "about": "",
+   "tested": "2026-11-23"
+  },
   {
    "claim": "BRAIN candidate: -rank(deferred_tax_assets_compensation_benefits / ts_mean(deferred_tax_assets_compensation_benefits, 120))",
    "stage": "brain-checks",
